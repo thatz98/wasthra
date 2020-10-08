@@ -1,0 +1,112 @@
+/* elements */
+
+.footer p{
+    color: #8a8a8a;
+}
+
+.footer h3{
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer ul{
+    list-style-type: none;
+}
+
+.footer ul li a:hover{
+    color: #ff523b;
+    transition: background 0.5s;
+}
+
+.footer .social-icons a{
+    font-size: 20px;
+    padding-right: 5px;
+}
+
+.footer .social-icons a:hover{
+    color: #ff523b;
+    transition: background 0.5s;
+}
+
+.footer hr{
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.footer-txt-field input{
+    border: none;
+    display: inline-block;
+    background:#fff;
+    color: #000;
+    padding: 8px 5px;
+    transition: background 0.5s;
+}
+
+.footer-txt-field input:hover{
+    border: none;
+}
+
+/* grid */
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4, .footer-col-5{
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1{
+    flex-basis: 25%;
+}
+
+.footer-col-5{
+    flex-basis: 25%;
+    text-align: right;
+}
+
+.footer-col-2, .footer-col-3, .footer-col-4{
+    flex: 1;
+    text-align: center;
+}
+
+.footer-col-1 img{
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* containers */
+
+/* alignments */
+
+/* other */
+
+.footer{
+    margin-top: 45px;
+    background: #000;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 15px;
+}
+
+.footer .payment-icons{
+    text-align: right;
+    font-size: 20px;
+    padding-right: 5px;
+}
+
+/* buttons */
+
+.footer-btn{
+    border: none;
+    display: inline-block;
+    background: #ff523b;
+    color: #fff;
+    padding: 8px 10px;
+    transition: background 0.5s;
+}
+
+.footer-btn:hover{
+    background: #fff;
+    color: #ff523b;
+}
+
