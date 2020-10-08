@@ -47,7 +47,7 @@ class Wastrap{
             $this->_controller = new $this->_url[0];
             $this->_controller->loadModel($this->_url[0]);
         } else{
-            $this->_error();
+            $this->_error('Opzz! Requested page does not exist.');
             return false;
         }
 
@@ -62,7 +62,7 @@ class Wastrap{
 
         if($length>1){
             if(!method_exists($this->_controller, $this->_url[1])){
-                $this->_error();
+                $this->_error('Opzz! Requested method does not exist.');
             }
         }
 
@@ -87,11 +87,11 @@ class Wastrap{
     }
 
 
-    private function _error(){
+    private function _error($msg){
         require 'controllers/error.php';
-                $err = new ErrorE();
-                $err->index("Required method doesn't exist!");
-                return false;
+                $this->_controller = new ErrorE();
+                $this->_controller->index($msg);
+                exit;
     }
 
     public function alert($msg){

@@ -7,6 +7,7 @@ class Index extends Controller{
     }
 
     function index(){
+    	$this->view->title = 'Home | Wasthra';
     	$this->view->render('index/index');
     }
 }
