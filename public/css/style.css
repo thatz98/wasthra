@@ -57,6 +57,11 @@ p{
     justify-content: space-around;
 }
 
+.row-left{
+    display: flex;
+    align-items: left; 
+    flex-wrap: wrap;
+}
 .col-2{
     flex-basis: 50%;
     min-width: 300px;
@@ -79,8 +84,16 @@ p{
     color: #fff;
     padding: 8px 30px;
     margin: 30px 0;
-    border-radius: 30px;
+    border-radius: 5px;
     transition: background 0.5s;
+}
+
+.btn-round{
+    border-radius: 30px;
+}
+
+.btn-square{
+    border-radius: 0;
 }
 
 .btn:hover{
@@ -451,6 +464,10 @@ table{
     flex-wrap: wrap;
 }
 
+tr:hover{
+    background: #fcf2d8;
+}
+
 th{
     text-align: left;
     padding: 5px;
@@ -492,10 +509,12 @@ td img{
 }
 
 td:last-child{
+    width:200px;
     text-align: right;
 }
 
 th:last-child{
+    width:200px;
     text-align: right;
 }
 
@@ -507,7 +526,7 @@ th:last-child{
     background: radial-gradient(#fff,#ffd6d6);
 }
 
-.form-container{
+.login-form-container{
     background: #fff;
     width: 300px;
     height: 540px;
@@ -519,7 +538,7 @@ th:last-child{
     overflow: hidden;
 }
 
-.form-container span{
+.login-form-container span{
     font-weight: bold;
     padding: 0 10px;
     color: #555;
@@ -528,11 +547,8 @@ th:last-child{
     display: inline-block;
 }
 
-.form-btn{
-    display: inline-block;
-}
 
-.form-container form{
+.login-form-container form{
     max-width: 300px;
     padding: 0 20px;
     position: absolute;
@@ -540,7 +556,7 @@ th:last-child{
     transition: transform 1s;
 }
 
-.form-container input{
+.login-form-container input{
     width: 100%;
     height: 30px;
     margin: 10px 0;
@@ -549,7 +565,7 @@ th:last-child{
 }
 
 form .btn{
-    width: 100%;
+    width: 30%;
     border: none;
     cursor: pointer;
     margin: 10px 0;
@@ -581,6 +597,54 @@ form a{
     margin-top: 8px;
     transform: translateX(0px);
     transition: transform 1s;
+}
+
+
+/*admin*/
+.hidden-form{
+    background: #fff;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.pad-10{
+    padding: 10px;
+}
+
+.hidden-form input, .hidden-form select{
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+
+.form-btn{
+    display: inline-block;
+}
+
+.center-btn{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.table-btn{
+    display: inline-block;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 5px;
+    transition: background 0.5s; 
+}
+
+.edit-btn{
+    background: #8cdcf5;
+}
+
+.delete-btn{
+    background: #ed2424;
 }
 
 @media only screen and (max-width: 1000px){

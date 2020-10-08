@@ -9,7 +9,7 @@
                 <img src="public/images/image1.png" width="100%">
             </div>
             <div class="col-2">
-                <div class="form-container">
+                <div class="login-form-container">
                     <div class="form-btn">
                         <span onclick="login()">Login</span>
                         <span onclick="register()">Register</span>
