@@ -50,9 +50,66 @@ p{
     padding-right: 25px;
 }
 
+.center-content{
+    display: flex;
+    justify-content: center;
+}
+.form-container{
+    background: #fff;
+    width: 600px;
+    height: auto;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    margin: 20px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.form-container span{
+    font-weight: bold;
+    padding: 0 10px;
+    color: #555;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+}
+
+
+.form-container form{
+    padding: 10px 0 10px 0;
+    margin: 0;
+    text-align: left;
+    transition: transform 1s;
+}
+
+
+.pad-auto{
+    padding: auto;
+}
+
+
+.form-container label{
+    font-size: 14px;
+    margin: 3px 0 0;
+}
+
+.form-container input, .form-container select{
+    height: 30px;
+    margin: 3px 0 15px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+
 .row{
     display: flex;
     align-items: center; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.row-top{
+    display: flex; 
     flex-wrap: wrap;
     justify-content: space-around;
 }
@@ -83,7 +140,8 @@ p{
     background: #ff523b;
     color: #fff;
     padding: 8px 30px;
-    margin: 30px 0;
+    margin: 20px 5px 20px 5px;
+    border-style: none;
     border-radius: 5px;
     transition: background 0.5s;
 }
@@ -120,7 +178,7 @@ p{
 .col-3{
     flex-basis: 30%;
     min-width: 250px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .col-3 img{
@@ -151,6 +209,8 @@ p{
     padding-left: 25px;
     padding-right: 25px;
 }
+
+
 .title{
     text-align: center;
     margin: 0 auto 80px;
@@ -509,12 +569,10 @@ td img{
 }
 
 td:last-child{
-    width:200px;
     text-align: right;
 }
 
 th:last-child{
-    width:200px;
     text-align: right;
 }
 
@@ -565,10 +623,12 @@ th:last-child{
 }
 
 form .btn{
-    width: 30%;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
     border: none;
     cursor: pointer;
-    margin: 10px 0;
+    margin: 15px 8px 0 8px;
 }
 
 form .btn:focus{
@@ -601,6 +661,10 @@ form a{
 
 
 /*admin*/
+
+
+
+
 .hidden-form{
     background: #fff;
     position: relative;
@@ -610,15 +674,24 @@ form a{
     overflow: hidden;
 }
 
-.pad-10{
-    padding: 10px;
+.hidden-form label{
+    font-size: 14px;
+    margin: 3px 0 0;
 }
 
 .hidden-form input, .hidden-form select{
     height: 30px;
-    margin: 10px 0;
+    margin: 3px 0 15px;
     padding: 0 10px;
     border: 1px solid #ccc;
+}
+
+.pad-30-0-0-85{
+    padding: 30px 0 0 85px;
+}
+
+.pad-l-55{
+    padding: 0 0 0 55px;
 }
 
 .form-btn{
@@ -628,22 +701,27 @@ form a{
 .center-btn{
     display: flex;
     justify-content: center;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .table-btn{
     display: inline-block;
     color: #fff;
+    border-style: none;
     padding: 3px 8px;
     border-radius: 5px;
     transition: background 0.5s; 
 }
 
-.edit-btn{
+.btn-blue{
     background: #8cdcf5;
 }
 
-.delete-btn{
+.btn-grey{
+    background: #666666;
+}
+
+.btn-red{
     background: #ed2424;
 }
 

@@ -18,7 +18,7 @@
                     <form action="<?php echo URL; ?>login/run" id="loginForm" method="post">
                         <input type="text" placeholder="Username" name="username">
                         <input type="password" placeholder="Password" name="password">
-                        <button type="submit" class="btn">Login</button>
+                        <button type="submit" class="btn">Login</button><br>
                         <a href="">Forgot password</a>
                     </form>
                     <form action="<?php echo URL; ?>login/signup" id="regForm" method="post">
