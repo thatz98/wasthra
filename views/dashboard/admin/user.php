@@ -52,7 +52,7 @@
                     </form>
                     </div>
         
-    
+    <div class="table-container">
     <table>
         <tr>
             <th>NIC</th>
@@ -89,6 +89,7 @@
         <?php endforeach;?>
         
     </table>
+    </div>
 </div>
 
 <script>

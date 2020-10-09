@@ -38,10 +38,7 @@
                     </div>
                     <div class="footer-col-5">
             
-                        <p>Subscribe to our newsletter, so that you can be the first to know about new offers and promotions.
-                        </p><br>
-                        <div class="footer-txt-field"><input type="email" name="foot-email" class="input" placeholder="Enter Email Address">
-                            <button class="footer-btn">Subscribe</button></div>
+                        
             
                     </div>
                 </div>
