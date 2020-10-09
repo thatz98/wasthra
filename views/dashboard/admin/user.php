@@ -105,3 +105,5 @@ if(addFrom.style.maxHeight == "0px"){
 }
         }
     </script>
+
+<?php require 'views/footer_dashboard.php'; ?>

@@ -33,7 +33,7 @@
                         <?php endif; ?>
                     </ul>
                 </nav>
-                <img src="images/menu.png" class="menu-icon" onclick="menuToggle()">
+                <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
             
         </div>
