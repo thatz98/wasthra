@@ -54,6 +54,11 @@ p{
     display: flex;
     justify-content: center;
 }
+
+.center-align{
+    text-align: center;
+}
+
 .form-container{
     background: #fff;
     width: 600px;
@@ -101,6 +106,13 @@ p{
     border: 1px solid #ccc;
 }
 
+.form-container textarea{
+    width: 180px;
+    margin: 3px 0 15px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+
 .row{
     display: flex;
     align-items: center; 
@@ -118,6 +130,10 @@ p{
     display: flex;
     align-items: left; 
     flex-wrap: wrap;
+}
+
+.col{
+    flex-basis: 100%;
 }
 .col-2{
     flex-basis: 50%;
@@ -776,78 +792,7 @@ form a{
     color: #ed2424;
 }
 
-@media only screen and (max-width: 1000px){
 
-    .footer-col-5{
-        flex-basis: 100%;
-        text-align: center;
-    }
-}
-
-@media only screen and (max-width: 900px){
-
-    nav ul{
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background: #333;
-        width: 100%;
-        overflow: hidden;
-        transition: max-height 0.5s;
-    }
-
-    nav ul li{
-        display: block;
-        margin: 10px 50px 10px;
-    }
-
-    nav ul li a{
-        color: #fff;
-    }
-
-    .menu-icon{
-        display: block;
-        cursor: pointer;
-    }
-
-    .footer-col-1, .footer-col-1{
-        flex-basis: 100%;
-        text-align: center;
-    }
-}
-
-@media only screen and (max-width: 600px){
-
-    .row{
-        text-align: center;
-    }
-
-    .col-2, .col-3, .col-4{
-        flex-basis: 100%;
-    }
-
-    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4, .footer-col-5{
-        flex-basis: 100%;
-        text-align: center;
-    }
-
-    .footer .payment-icons{
-        text-align: center;
-    }
-
-    .single-product .row{
-        text-align: left;
-    }
-
-    .single-product .col-2{
-        padding: 20px 0;
-    }
-
-    .single-product h1{
-        font-size: 26px;
-        line-height: 32px;
-    }
-}
 
 .content {
   position: relative;
@@ -977,4 +922,109 @@ i .fa-cart-plus{
 
 .options a:hover{
    color: #ff523b;
+}
+
+#map {
+  height: 250px;
+  width: 250px;
+}
+
+.mar-b-20{
+    margin-bottom: 20px;
+}
+
+.mar-t-40{
+    margin-top: 50px;
+    margin-left: 135px;
+}
+
+.price-sum{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.price-sum table{
+    border: 3px solid #ff523b;
+    width: 100%;
+    max-width: 380px;
+}
+
+textarea:focus{
+    outline: none;
+
+}
+
+
+@media only screen and (max-width: 1000px){
+
+    .footer-col-5{
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 900px){
+
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #333;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 10px 50px 10px;
+    }
+
+    nav ul li a{
+        color: #fff;
+    }
+
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+
+    .footer-col-1, .footer-col-1{
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px){
+
+    .row{
+        text-align: center;
+    }
+
+    .col-2, .col-3, .col-4{
+        flex-basis: 100%;
+    }
+
+    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4, .footer-col-5{
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .footer .payment-icons{
+        text-align: center;
+    }
+
+    .single-product .row{
+        text-align: left;
+    }
+
+    .single-product .col-2{
+        padding: 20px 0;
+    }
+
+    .single-product h1{
+        font-size: 26px;
+        line-height: 32px;
+    }
 }
