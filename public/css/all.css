@@ -258,6 +258,17 @@ h4{
     padding: 50px;
 }
 
+.banner{
+    background: radial-gradient(#fff,#ffd6d6);
+    height: 300px;
+}
+
+.row .banner-img{
+    width: 200px;
+    padding: 50px;
+}
+
+
 small{
     color: #555;
 }
@@ -836,4 +847,134 @@ form a{
         font-size: 26px;
         line-height: 32px;
     }
+}
+
+.content {
+  position: relative;
+  max-width: 400px;
+  margin: auto;
+
+}
+
+.content .content-overlay {
+  background: rgba(255,255,255,0.8);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 1;
+}
+
+.content .content-onlay{
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-onlay{
+  opacity: 0;
+}
+
+.content-image{
+  width: 100%;
+}
+
+.content-onlay .content-details {
+        height: 60px;
+    background: #fff;
+    color: #ff523b;
+  opacity: 1;
+}
+
+.content:hover .content-onlay .content-details{
+  opacity: 0;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+
+.content-details p{
+    color: #ff523b;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+.fadeIn-bottom{
+  top: 85%;
+}
+
+.fadeIn-top{
+  top: 20%;
+}
+
+.fadeOut-top{
+  top: 85%;
+}
+
+.dashboard{
+    margin: 70px 0;
+}
+
+.dashboard .row{
+    justify-content: center;
+}
+
+.dashboard .col-3{
+    margin: 15px;
+}
+
+i .fa-cart-plus{
+    width: 100px;
+}
+
+.options{
+    padding: 15px 0;
+    float: right;
+}
+
+.options a{
+    color: #ff523b;
+    padding: 5px;
+}
+
+.options a:hover{
+   color: #ff523b;
 }
