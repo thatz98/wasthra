@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
         rel="stylesheet">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzSnah4pBNvwR3PN53ZaezSBUmNGNuf3U&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
     <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
 </head>
 

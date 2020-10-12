@@ -52,7 +52,7 @@
                     </form>
                     </div>
         
-    
+    <div class="table-container">
     <table>
         <tr>
             <th>NIC</th>
@@ -89,6 +89,7 @@
         <?php endforeach;?>
         
     </table>
+    </div>
 </div>
 
 <script>
@@ -105,3 +106,5 @@ if(addFrom.style.maxHeight == "0px"){
 }
         }
     </script>
+
+<?php require 'views/footer_dashboard.php'; ?>

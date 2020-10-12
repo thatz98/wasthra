@@ -54,6 +54,11 @@ p{
     display: flex;
     justify-content: center;
 }
+
+.center-align{
+    text-align: center;
+}
+
 .form-container{
     background: #fff;
     width: 600px;
@@ -101,6 +106,13 @@ p{
     border: 1px solid #ccc;
 }
 
+.form-container textarea{
+    width: 180px;
+    margin: 3px 0 15px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+
 .row{
     display: flex;
     align-items: center; 
@@ -118,6 +130,10 @@ p{
     display: flex;
     align-items: left; 
     flex-wrap: wrap;
+}
+
+.col{
+    flex-basis: 100%;
 }
 .col-2{
     flex-basis: 50%;
@@ -144,6 +160,10 @@ p{
     border-style: none;
     border-radius: 5px;
     transition: background 0.5s;
+}
+
+.btn:focus{
+    outline: none;
 }
 
 .btn-round{
@@ -253,6 +273,17 @@ h4{
 .col-2 .offer-img{
     padding: 50px;
 }
+
+.banner{
+    background: radial-gradient(#fff,#ffd6d6);
+    height: 300px;
+}
+
+.row .banner-img{
+    width: 200px;
+    padding: 50px;
+}
+
 
 small{
     color: #555;
@@ -376,6 +407,10 @@ small{
     color: #fff;
     padding: 8px 10px;
     transition: background 0.5s;
+}
+
+.footer-btn:focus{
+    outline: none;
 }
 
 .footer-btn:hover{
@@ -517,6 +552,11 @@ input:focus{
 table{
     width: 100%;
     border-collapse: collapse;
+
+}
+
+.table-container{
+    overflow-x:auto;
 }
 
 .cart-item{
@@ -574,6 +614,14 @@ td:last-child{
 
 th:last-child{
     text-align: right;
+}
+
+.table-container td:last-child{
+    min-width: 150px;
+}
+
+.table-container th:last-child{
+    min-width: 150px;
 }
 
 
@@ -713,17 +761,200 @@ form a{
     transition: background 0.5s; 
 }
 
+.table-btn:focus{
+    outline: none;
+}
+
 .btn-blue{
     background: #8cdcf5;
+}
+
+.btn-blue:hover{
+    background: #fff;
+    color: #8cdcf5;
 }
 
 .btn-grey{
     background: #666666;
 }
 
+.btn-grey:hover{
+    background: #fff;
+    color: #666666;
+}
+
 .btn-red{
     background: #ed2424;
 }
+
+.btn-red:hover{
+    background: #fff;
+    color: #ed2424;
+}
+
+
+
+.content {
+  position: relative;
+  max-width: 400px;
+  margin: auto;
+
+}
+
+.content .content-overlay {
+  background: rgba(255,255,255,0.8);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 1;
+}
+
+.content .content-onlay{
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-onlay{
+  opacity: 0;
+}
+
+.content-image{
+  width: 100%;
+}
+
+.content-onlay .content-details {
+        height: 60px;
+    background: #fff;
+    color: #ff523b;
+  opacity: 1;
+}
+
+.content:hover .content-onlay .content-details{
+  opacity: 0;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+
+.content-details p{
+    color: #ff523b;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+.fadeIn-bottom{
+  top: 85%;
+}
+
+.fadeIn-top{
+  top: 20%;
+}
+
+.fadeOut-top{
+  top: 85%;
+}
+
+.dashboard{
+    margin: 70px 0;
+}
+
+.dashboard .row{
+    justify-content: center;
+}
+
+.dashboard .col-3{
+    margin: 15px;
+}
+
+i .fa-cart-plus{
+    width: 100px;
+}
+
+.options{
+    padding: 15px 0;
+    float: right;
+}
+
+.options a{
+    color: #ff523b;
+    padding: 5px;
+}
+
+.options a:hover{
+   color: #ff523b;
+}
+
+#map {
+  height: 250px;
+  width: 250px;
+}
+
+.mar-b-20{
+    margin-bottom: 20px;
+}
+
+.mar-t-40{
+    margin-top: 50px;
+    margin-left: 135px;
+}
+
+.price-sum{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.price-sum table{
+    border: 3px solid #ff523b;
+    width: 100%;
+    max-width: 380px;
+}
+
+textarea:focus{
+    outline: none;
+
+}
+
 
 @media only screen and (max-width: 1000px){
 
@@ -733,7 +964,7 @@ form a{
     }
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 900px){
 
     nav ul{
         position: absolute;
