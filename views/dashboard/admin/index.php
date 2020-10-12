@@ -22,7 +22,7 @@
       									<p>Orders</p>
        							
       						</div></div>
-      						<img class="content-image" src="<?php echo URL; ?>public/images/category-1.jpg">
+      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-10.png">
       						<div class="content-details fadeIn-bottom">
        							<p>Orders</p>
       						</div>
@@ -38,7 +38,7 @@
       									<p>Users</p>
        							
       						</div></div>
-      						<img class="content-image" src="<?php echo URL; ?>public/images/category-1.jpg">
+      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-1.png">
       						<div class="content-details fadeIn-bottom">
        							<p>Users</p>
       						</div>
@@ -54,7 +54,7 @@
       									<p>Products</p>
        							
       						</div></div>
-      						<img class="content-image" src="<?php echo URL; ?>public/images/category-1.jpg">
+      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-16.png">
       						<div class="content-details fadeIn-bottom">
        							<p>Products</p>
       						</div>
@@ -70,7 +70,7 @@
       									<p>Product Categories</p>
        							
       						</div></div>
-      						<img class="content-image" src="<?php echo URL; ?>public/images/category-1.jpg">
+      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-7.png">
       						<div class="content-details fadeIn-bottom">
        							<p>Product Categories</p>
       						</div>
@@ -86,7 +86,7 @@
       									<p>Reports</p>
        							
       						</div></div>
-      						<img class="content-image" src="<?php echo URL; ?>public/images/category-1.jpg">
+      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-17.png">
       						<div class="content-details fadeIn-bottom">
        							<p>Reports</p>
       						</div>
