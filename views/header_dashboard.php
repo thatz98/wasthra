@@ -20,12 +20,12 @@
                 </div>
                 <nav>
                     <ul id="menuItems">
-                        <li><a href="">Dashboard</a></li>
-                        <li><a href="">Users</a></li>
-                        <li><a href="">Orders</a></li>
-                        <li><a href="">Products</a></li>
-                        <li><a href="">Product Categories</a></li>
-                        <li><a href="">Reports</a></li>
+                        <li><a href="<?php echo URL; ?>dashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URL; ?>user">Users</a></li>
+                        <li><a href="<?php echo URL; ?>orders">Orders</a></li>
+                        <li><a href="<?php echo URL; ?>products">Products</a></li>
+                        <li><a href="<?php echo URL; ?>productCategories">Product Categories</a></li>
+                        <li><a href="<?php echo URL; ?>report">Reports</a></li>
                         <?php if(Session::get('loggedIn')==true): ?>
                             <li><a href="<?php echo URL; ?>login/logout">Logout</a></li>
                         <?php else: ?>

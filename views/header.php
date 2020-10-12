@@ -25,10 +25,10 @@
                 </div>
                 <nav>
                     <ul id="menuItems">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Shop</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Contact Us</a></li>
+                        <li><a href="<?php echo URL; ?>">Home</a></li>
+                        <li><a href="<?php echo URL; ?>shop">Shop</a></li>
+                        <li><a href="<?php echo URL; ?>about">About</a></li>
+                        <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
                         <?php if(Session::get('loggedIn')==true): ?>
                             <li><a href="<?php echo URL; ?>login/logout">Logout</a></li>
                         <?php else: ?>

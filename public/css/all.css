@@ -913,16 +913,20 @@ i .fa-cart-plus{
 
 .options{
     padding: 15px 0;
-    float: right;
+}
+
+.options .text{
+    font-size: 24px;
 }
 
 .options a{
+    font-weight: bold;
     color: #ff523b;
     padding: 5px;
 }
 
 .options a:hover{
-   color: #ff523b;
+   color: #ffa8f0;
 }
 
 #map {
@@ -954,6 +958,50 @@ i .fa-cart-plus{
 textarea:focus{
     outline: none;
 
+}
+
+.product-quicview {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: rgba(23, 24, 24, 0.6);
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+.col-4:hover .product-quicview {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+.col-4 .product-quicview > a {
+    width: 72px;
+    height: 72px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 36px;
+    line-height: 72px;
+}
+
+.col-4 .product-quicview > a:hover {
+    border: 2px solid rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
 }
 
 

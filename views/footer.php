@@ -61,7 +61,7 @@
             </div>
         
         </div>
-    
+    <?php require "public/js/product_gallery.js"; ?>
  <?php require 'public/js/nav_menu.js'; ?>   
 
 </body>
