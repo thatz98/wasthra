@@ -1,0 +1,288 @@
+*, *:before, *:after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body{
+    min-height: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    background: radial-gradient(#fff,#ffd6d6);
+}
+
+
+ .login .login-form-cont {
+   overflow: hidden;
+   position: relative;
+   width: 900px;
+   height: 550px;
+   margin: 0 auto 100px;
+   background: #fff;
+}
+.login .form {
+   position: relative;
+   width: 640px;
+   height: 100%;
+   transition: transform 1.2s ease-in-out;
+   padding: 50px 15px 0 15px;
+}
+
+.form-inner-container{
+    width: 600px;
+    height: auto;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.pad-l{
+  padding-left: 55px;
+}
+
+
+.helper-text{
+  width: 100%;
+  height: 20px;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+
+.form-inner-container form{
+    padding: 10px 0 10px 0;
+    margin: 0;
+    text-align: left;
+    transition: transform 1s;
+}
+
+
+.pad-auto{
+    padding: auto;
+}
+
+
+.form-inner-container label{
+    font-size: 14px;
+    margin: 0;
+}
+
+.form-inner-container input, .form-inner-container select{
+    height: 30px;
+    margin: 3px 0 3px;
+    padding: 0 10px;
+    border: 1px solid #DCADA3;
+}
+
+.form-inner-container input{
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #DCADA3;
+}
+
+.form-inner-container input:hover{
+  border-bottom: 2px solid #ff523b;
+}
+
+.form-inner-container input:focus{
+  border-bottom: 3px solid #ff523b;
+}
+
+
+.form-inner-container input[type="checkbox" i]{
+    margin: 0;
+}
+
+.login .sub-cont {
+   overflow: hidden;
+   position: absolute;
+   left: 640px;
+   top: 0;
+   width: 900px;
+   height: 100%;
+   padding-left: 260px;
+   background: #fff;
+   transition: transform 1.2s ease-in-out;
+}
+.login .login-form-cont.s--signup .sub-cont {
+   transform: translate3d(-640px, 0, 0);
+}
+.login button {
+   display: block;
+   margin: 0 auto;
+   width: 180px;
+   height: 36px;
+   border-radius: 30px;
+   color: #fff;
+   font-size: 15px;
+   cursor: pointer;
+}
+.login .img {
+   overflow: hidden;
+   z-index: 2;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 260px;
+   height: 100%;
+   padding-top: 360px;
+}
+.login .img:before {
+   content: '';
+   position: absolute;
+   right: 0;
+   top: 0;
+   width: 900px;
+   height: 100%;
+   background-image: url('http://localhost/wasthra/public/images/login_image.jpg');
+   background-size: cover;
+   transition: transform 1.2s ease-in-out;
+}
+.login .img:after {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.6);
+}
+.login .login-form-cont.s--signup .img:before {
+   transform: translate3d(640px, 0, 0);
+}
+.login .img__text {
+   z-index: 2;
+   position: absolute;
+   left: 0;
+   top: 50px;
+   width: 100%;
+   padding: 0 20px;
+   text-align: center;
+   color: #fff;
+   transition: transform 1.2s ease-in-out;
+}
+.login .img__text h2 {
+   margin-bottom: 10px;
+   font-weight: normal;
+}
+.login .img__text p {
+   font-size: 14px;
+   line-height: 1.5;
+}
+.login .login-form-cont.s--signup .img__text.m--up {
+   transform: translateX(520px);
+}
+.login .img__text.m--in {
+   transform: translateX(-520px);
+}
+.login .login-form-cont.s--signup .img__text.m--in {
+   transform: translateX(0);
+}
+.login .img__btn {
+   overflow: hidden;
+   z-index: 2;
+   position: relative;
+   width: 100px;
+   height: 36px;
+   margin: 0 auto;
+   background: transparent;
+   color: #fff;
+   text-transform: uppercase;
+   font-size: 15px;
+   cursor: pointer;
+   border: 2px solid #fff;
+   border-radius: 30px;
+}
+.login .img__btn:after {
+   content: '';
+   z-index: 2;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+
+.login .img__btn:hover {
+   border-color: #ff523b;
+   color: #ff523b;
+}
+.login .img__btn span {
+   position: absolute;
+   left: 0;
+   top: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   transition: transform 1.2s;
+}
+
+.login .img__btn span.m--in {
+   transform: translateY(-72px);
+}
+.login .login-form-cont.s--signup .img__btn span.m--in {
+   transform: translateY(0);
+}
+.login .login-form-cont.s--signup .img__btn span.m--up {
+   transform: translateY(72px);
+}
+.login h2 {
+   width: 100%;
+   font-size: 26px;
+   text-align: center;
+}
+
+.login .forgot-pass {
+   margin-top: 15px;
+   text-align: center;
+   font-size: 12px;
+   color: #cfcfcf;
+}
+.login .btn{
+   margin-top: 15px;
+   margin-bottom: 20px;
+   background: #ff523b;
+   text-transform: uppercase;
+}
+
+.login .btn:hover{
+   color: #ff523b;
+   background: #fff;
+}
+
+.login .fb-btn {
+   border: 2px solid #d3dae9;
+   color: #8fa1c7;
+}
+.login .fb-btn span {
+   font-weight: bold;
+   color: #455a81;
+}
+.login .sign-in {
+   transition-timing-function: ease-out;
+}
+.login .login-form-cont.s--signup .sign-in {
+   transition-timing-function: ease-in-out;
+   transition-duration: 1.2s;
+   transform: translate3d(640px, 0, 0);
+}
+.login .sign-up {
+   transform: translate3d(-900px, 0, 0);
+}
+.login .login-form-cont.s--signup .sign-up {
+   transform: translate3d(0, 0, 0);
+}
+.login .icon-link {
+   position: absolute;
+   left: 5px;
+   bottom: 5px;
+   width: 32px;
+}
+.login .icon-link img {
+   width: 100%;
+   vertical-align: top;
+}
+
+ 

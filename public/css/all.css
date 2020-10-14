@@ -118,6 +118,7 @@ p{
     border: 1px solid #ccc;
 }
 
+
 .row{
     display: flex;
     align-items: center; 
@@ -639,7 +640,7 @@ th:last-child{
 
 .login-form-container{
     background: #fff;
-    width: 300px;
+    width: 1000px;
     height: 540px;
     position: relative;
     text-align: center;

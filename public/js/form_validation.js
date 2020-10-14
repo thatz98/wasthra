@@ -2,7 +2,6 @@ const firstName = document.getElementById('first_name');
 const lastName = document.getElementById('last_name');
 const nic = document.getElementById('nic');
 const email = document.getElementById('email');
-const gender = document.getElementById('gender');
 const contactNo = document.getElementById('contact_no');
 const password = document.getElementById('password');
 const confPassword = document.getElementById('conf_password');
@@ -12,7 +11,7 @@ const form = document.getElementById('regForm');
 const green = '#4caf50';
 const red = '#f44336';
 
-form.addEventListner('submit', function(event){
+form.addEventListener('submit', function(event){
 	event.preventDefault();
 	if(validateFirstName() && validateLastName() && validateNIC() && validateEmail() && validateGender() && validateContactNo() && validatePassword() && validateConfPassword()){
 		const name = firstName.value;
