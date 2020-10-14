@@ -1,4 +1,4 @@
-<script>
+
         var loginForm = document.getElementById("loginForm");
         var regForm = document.getElementById("regForm");
         var indicator = document.getElementById("indicator");
@@ -14,5 +14,3 @@
             loginForm.style.transform = "translateX(0px)";
             indicator.style.transform = "translateX(0px)";
         }
-
-    </script>

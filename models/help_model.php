@@ -6,4 +6,8 @@ class Help_Model extends Model{
         parent::__construct();
         
     }
+
+    function index(){
+    	return "hello from the model";
+    }
 }

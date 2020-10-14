@@ -107,6 +107,10 @@ p{
     border: 1px solid #ccc;
 }
 
+.form-container input[type="checkbox" i]{
+    margin: 0;
+}
+
 .form-container textarea{
     width: 180px;
     margin: 3px 0 15px;

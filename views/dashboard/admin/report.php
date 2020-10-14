@@ -27,21 +27,17 @@
     </div>
     <div class="center-content">
         <input type="checkbox" name="column1"> Column 1</br></br>
-    </div>
-    <div class="center-content">    
+  
         <input type="checkbox" name="column2"> Column 2</br></br>
-    </div>
-    <div class="center-content">    
+
+  
         <input type="checkbox" name="column3"> Column 3</br></br>
-    </div>
-    <div class="center-content">    
+
         <input type="checkbox" name="column4"> Column 4</br></br>
-    </div>
-    <div class="center-content">    
+
         <input type="checkbox" name="column5"> Column 5</br></br>
     </div>
 
-    <div></div>
 
     <div class="form-btn center-btn">
         <Button type="submit" name="generate report" class="btn" onclick="displayPrompt()">Generate Report</Button>
