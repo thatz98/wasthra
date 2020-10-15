@@ -8,14 +8,10 @@ class Login_Model extends Model{
 
     public function run(){
 
-    	$stmt = $this->db->prepare("SELECT username,password,user_type FROM user WHERE username=:username");
-    	$stmt->execute(array(':username'=>$_POST['username']));
+        $username = $_POST['username'];
+    	$user = $this->db->listWhere('login',array('nic','username','password','user_type','user_status'),"username='$username'");
 
-    	$users = $stmt->fetchAll();
-        $count = $stmt->rowCount();
-
-    	if($count>0){
-            foreach ($users as $user) {
+    	if($user){
             if(password_verify($_POST['password'], $user['password'])){
                 Session::init();
                 Session::set('loggedIn',true);
@@ -35,39 +31,34 @@ class Login_Model extends Model{
             } else{
                 header('location: ../login');
             }
-        }
     		
     	} else{
     		header('location: ../login');
-    	}
+    	} 
 
     }
 
-    public function signup(){
-        $nic = $_POST['nic'];
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $gender = $_POST['gender'];
-        $email = $_POST['email'];
-        $contact_no = $_POST['contact_no'];
-        $username = $_POST['email'];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $user_status = 'new';
-        $user_type = 'customer';
+    public function signup($data){
 
-        $stmt = $this->db->prepare('INSERT INTO user (nic,first_name,last_name,gender,email,username,password,contact_no,user_status,user_type) VALUES (:nic,:first_name,:last_name,:gender,:email,:username,:password,:contact_no,:user_status,:user_type)');
-        $stmt->execute($arr = array(':nic' => $nic,
-            ':first_name' => $first_name,
-            ':last_name' => $last_name,
-            ':gender' => $gender,
-            ':email' => $email,
-            ':username' => $username,
-            ':password' => $password,
-            ':contact_no' => $contact_no,
-            ':user_status' => $user_status,
-            ':user_type' => $user_type));
+        $this->db->insert('customer',array(
+            'nic' => $data['nic'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'gender' => $data['gender'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'password' => $data['password'],
+            'contact_no' => $data['contact_no'],
+            'user_status' => $data['user_status']));
 
-        header('location: ../login');
+        $this->db->insert('login',array(
+            'nic' => $data['nic'],
+            'username' => $data['username'],
+            'password' => $data['password'],
+            'user_status' => $data['user_status'],
+            'user_type' => $data['user_type']));
+
+       header('location: ../login#signup=success');
     }
 
 
