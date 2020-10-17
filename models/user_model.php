@@ -7,7 +7,6 @@ class User_Model extends Model{
     }
 
     public function listUsers(){
-
     	return $this->db->listAll('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'));
         
 
