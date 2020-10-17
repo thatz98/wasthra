@@ -1,0 +1,419 @@
+.profile-card-popup {
+    width: auto;
+    max-width: 80%;
+    max-height: 90%;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  transition: all 5s ease-in-out;
+  text-align: center;
+  overflow:hidden;
+}
+
+.our-team{
+  width: 100%;
+}
+
+
+.our-team .picture {
+  display: inline-block;
+  height: 50%;
+  width: 50%;
+  margin-bottom: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.our-team .picture::before {
+  content: "";
+  width: 100%;
+  height: 0;
+  border-radius: 50%;
+  background-color: #ff523b;
+  position: absolute;
+  bottom: 135%;
+  right: 0;
+  left: 0;
+  opacity: 0.9;
+  transform: scale(3);
+  transition: all 0.3s linear 0s;
+}
+
+.profile-card-popup:hover .picture::before {
+  height: 100%;
+}
+
+.our-team .picture img {
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.9s ease 0s;
+}
+
+.profile-card-popup:hover .picture img {
+  box-shadow: 0 0 0 14px #f7f5ec;
+  transform: scale(0.7);
+}
+
+.profile-card-popup:hover .our-team .team-content{
+  transform:translateY(-20px);  
+}
+
+.profile-card-popup:hover .close-btn{
+  color: #fff;  
+}
+
+
+.our-team .team-content{
+  text-align: center;
+  margin-bottom: 30px;
+  transition: all 0.9s ease 0s;
+}
+
+.our-team .team-content label.field{
+ font-weight: bold;
+}
+
+.our-team .title {
+  font-weight: bold;
+  display: block;
+  font-size: 18px;
+  color: #4e5052;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+.our-team .title:after {
+  margin-bottom: 5px;
+}
+
+.our-team .social {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #ff523b;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+}
+
+.profile-card-popup:hover .social {
+  bottom: 0;
+}
+
+.our-team .social li {
+  display: flex;
+}
+
+.our-team .social li a {
+  display: block;
+  padding: 10px;
+  font-size: 17px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.our-team .social li a:hover {
+  color: #ff523b;
+  background-color: #fff;
+}
+
+.profile-card-popup .close-btn{
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #333;
+  cursor: pointer;
+  z-index: 120;
+  transition: all 0.6s ease 0s;
+}
+
+
+/*
+.profile-card-popup {
+    width: auto;
+    max-width: 60%;
+    max-height: 90%;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  transition: all 5s ease-in-out;
+  overflow:auto;
+}
+
+#cart .profile-card-popup{
+    width: auto;
+    max-width: 50%;
+    max-height: 90%;
+  margin: 200px auto;
+}
+
+.profile-card-popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.profile-card-popup .close-btn{
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #333;
+  cursor: pointer;
+  z-index: 120;
+}
+
+.profile-card-popup .close-btn:hover, .profile-card-popup .close-btn i:hover{
+  color: #ff523b;
+}
+
+.profile-card-popup .content {
+  overflow: auto;
+}
+
+.product-colors, .product-sizes{
+    margin: 10px 0 20px 0;
+}
+
+
+.product-colors, .product-sizes{
+  display: block;
+  position: relative;
+    height: 25px;
+  font-size: 16px;
+
+}
+
+span.color-dot {
+    display: inline-block;
+    margin-right: 20px;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  transition: .5s;
+}
+
+.product-colors .color-dot:hover{
+  transform: scale(1.2);
+}
+
+span.size-box {
+    display: inline-block;
+    margin-right: 20px;
+  height: 22px;
+  transition: .5s;
+  font-weight: bold;
+}
+
+.product-sizes .size-box:hover{
+  transform: scale(1.2);
+}
+
+.colors, .sizes{
+    margin: 0 0 20px 0;
+}
+
+.profile-card-popup .row{
+    margin: 0;
+}
+
+.prd-btn{
+    margin-left: 0;
+    margin-top: 5px;
+}
+
+
+.color-container, .size-container{
+  display: inline-block;
+  position: relative;
+  margin: 0 30px 0 10px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+.color-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  transition: .5s;
+}
+
+.color-container:hover input ~ .checkmark {
+  transform: scale(1.2);
+}
+
+.color-container:hover input:checked ~ .checkmark {
+  background-color: ;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.color-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.color-container .checkmark:after {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.size-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.size-container span {
+    padding: auto;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+label.text-label{
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.size-container:hover input ~ .checkbox {
+    transform: scale(1.2);
+}
+
+.size-container input:checked ~ .checkbox {
+    outline: 2px solid #ff523b;
+}
+
+.size-container:hover input:checked ~ .checkbox {
+  background-color: transparent;
+}
+
+.quantity {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    padding: 0 auto;
+    margin: 5px 0 20px 0;
+}
+
+
+.quantity > input {
+    -moz-appearance: textfield;
+    border: none;
+    height: 25px;
+    text-align: center;
+    width: 40px;
+    font-size: 13px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+.qty-plus,
+.qty-minus {
+    background-color: transparent;
+    color: #ff523b;
+    cursor: pointer;
+    height: 25px;
+    text-align: center;
+    width: 22px;
+}
+
+
+.qty-plus:hover, .qty-minus:hover{
+    background-color: #ff523b;
+    color: #fff;
+}
+
+.qty-minus i,
+.qty-plus i {
+    font-size: 10px;
+    line-height: 25px;
+}
+
+.profile-card-popup .gallery-row{
+    display: inline-block;
+    width: 60px;
+    max-height: 240px;
+}
+
+.profile-card-popup .gallery-col{  
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.profile-card-popup .gallery-col img{
+    padding: 2px;
+    transition: transform 0.5s;
+}
+
+.profile-card-popup .col-2 img#product-img{
+    object-fit: cover;
+    object-position: -20% 0;
+    max-width: none;
+    height: 255px;
+    width: 255px;
+    padding: 2px;
+}
+
+.profile-card-popup .gallery-col img:hover{
+    transform: scale(1.15);
+}
+
+*/

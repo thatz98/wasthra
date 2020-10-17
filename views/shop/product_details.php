@@ -1,5 +1,7 @@
 <?php require 'views/header.php'; ?>
 
+<?php require 'views/user/profile_card.php'; ?>
+
 <div class="small-container single-product">
         <div class="row">
             <div class="col-2">

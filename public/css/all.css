@@ -1370,6 +1370,7 @@ a.bag:hover{
     justify-content: center;
     align-items: center;
     transition: 0.4s;
+    cursor: pointer;
 }
 
 .user-box-btn i.fa{
@@ -1390,6 +1391,7 @@ i.fa-shopping-bag{
     transition: 0.4s;
     line-height: 29px;
     width: 0px;
+    overflow: hidden;
 }
 
 .user-info p{
@@ -1536,6 +1538,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         width: 100%;
         overflow: hidden;
         transition: max-height 0.5s;
+        z-index: 1;
     }
 
     nav ul li{

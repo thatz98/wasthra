@@ -33,11 +33,9 @@
                     <ul id="menuItems">
                         <li><a href="<?php echo URL; ?>">Home</a></li>
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
-                        <li><a href="<?php echo URL; ?>about">About</a></li>
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
-                        <?php if(Session::get('loggedIn')==true): ?>
-                            <li><a href="<?php echo URL; ?>login/logout">Logout</a></li>
-                        <?php else: ?>
+                        <?php if(Session::get('loggedIn')!==true): ?>
+                            
                             <li><a href="<?php echo URL; ?>login">Login/Signup</a></li>
                         <?php endif; ?>
                     </ul>
@@ -45,7 +43,7 @@
                 <?php if(Session::get('loggedIn')==true): ?>
                             <div class="user-box">
                     <div class="user-info"><p>Hi, Admin!</p></div>
-                    <a class="user-box-btn" href="#">
+                    <a class="user-box-btn" href="#profile-card">
                     <i class="fa fa-user-circle-o fa-2x"></i>
                     </a>
                 </div>
