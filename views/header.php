@@ -13,6 +13,10 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzSnah4pBNvwR3PN53ZaezSBUmNGNuf3U&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
 </head>
 
@@ -40,6 +44,7 @@
                         <?php endif; ?>
                     </ul>
                 </nav>
+
                 <?php if(Session::get('loggedIn')==true): ?>
                             <div class="user-box">
                     <div class="user-info"><p>Hi, Admin!</p></div>
@@ -49,9 +54,11 @@
                 </div>
                         <?php endif; ?>
                 
-                <a class="bag" href=""><i class="fa fa-shopping-bag fa-2x"></i></a>
+                <a class="bag" href="#" id="bag" onclick="bagDown()"><i class="fa fa-shopping-bag fa-2x"></i><span class="badge">3</span></a>
+                
                 <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
+            <?php require 'views/shop/cart_dropdown.php'; ?>
             
         </div>
     </div>

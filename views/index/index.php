@@ -3,6 +3,7 @@
 
 <?php require 'views/shop/add_to_cart.php'; ?>
 
+
 <!-------- featered categories -------->
     <div class="categories">
         <div class="small-container">

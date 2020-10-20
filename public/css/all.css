@@ -246,6 +246,22 @@ p{
     transition: transform 0.5s;
 }
 
+.col-60p{
+    flex-basis: 60%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+
+.col-40p{
+    flex-basis: 40%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+
 .col-4 img{
     width: 100%;
 }
@@ -632,9 +648,9 @@ td img{
 }
 
 .total-price table{
+    text-align: left;
     border-top: 3px solid #ff523b;
     width: 100%;
-    max-width: 380px;
 }
 
 td:last-child{
@@ -1326,7 +1342,9 @@ input[type=number]::-webkit-outer-spin-button {
     transform: scale(1.15);
 }
 
-
+a.bag{
+    z-index: 3;
+}
 /* user button */
 a.bag:hover{
     color: #ff523b;
@@ -1485,6 +1503,115 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
        overflow: hidden;
 }
 
+.box-container{
+    background: #fff;
+    width: 90%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    padding: 20px 20px;
+    margin: 20px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.box-container h3{
+    margin-bottom: 15px;
+}
+
+.order-container{
+    background: #fff;
+    width: 650px;
+    height: auto;
+    position: relative;
+    text-align: center;
+    padding: 20px 20px;
+    margin: 20px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+table.order-list td:last-child{
+    text-align: center;
+}
+
+table.order-items td:last-child{
+    text-align: left;
+}
+
+
+table.order-list td img{
+    height: 90px;
+    margin: 5px 0;
+    padding: 0;
+}
+
+table.order-list tr{
+    border-bottom: 1px solid rgba(255, 82, 59, 0.5);
+}
+
+table.order-list tr:last-child{
+    border-bottom: none;
+}
+
+td.order-details{
+    text-align: left;
+}
+
+td.order-details h4{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+td.order-details h5{
+    color: #8A8A8A;
+    margin-bottom: 4px;
+    font-weight: normal;
+}
+
+.order-list .item-input{
+    color: #8A8A8A;
+    display: inline;
+    vertical-align: middle;
+}
+
+label.input-data{
+    margin-right: 25px;
+}
+
+.order-list span.color-dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  transition: .5s;
+  margin: 0 25px 0 15px;
+}
+
+
+
+.summary-info{
+    text-align: left;
+}
+
+.summary-info h4{
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.summary-info h5{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.delivery-info{
+    text-align: left;
+}
+
+label.address{
+    text-align: left;
+}
+
+
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
     width: 150px;
@@ -1559,6 +1686,15 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         flex-basis: 100%;
         text-align: center;
     }
+
+.col-60p, .col-40p{
+    flex-basis: 100%;
+}
+
+.total-price table{
+    max-width: 100%;
+}
+
 }
 
 @media only screen and (max-width: 600px){
