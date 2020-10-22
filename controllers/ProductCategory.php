@@ -7,6 +7,8 @@ class ProductCategory extends Controller{
     }
 
     function index(){
+    	$this->view->productcatList = $this->model->listProductcat();
+
     	$this->view->render('dashboard/admin/ProductCategory');
     }
 }
