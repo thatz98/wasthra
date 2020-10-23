@@ -7,6 +7,6 @@ class Edit_Productcat extends Controller{
     }
 
     function index(){
-    	$this->view->render('dashboard/admin/Edit_productcat');
+    	    	$this->view->render('dashboard/admin/Edit_productcat');
     }
 }

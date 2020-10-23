@@ -31,9 +31,10 @@
                         <?php endif; ?>
                     </ul>
                 </nav>
-                <img src="<?php echo URL; ?>public/images/cart.png" width="30px" height="30px">
+                <img src="<?php echo URL; ?>public/images/cart.png" width="30px" height="30px"><span class="badge">3</span>
                 <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
+            <?php require 'views/shop/cart_dropdown.php'; ?>
             <div class="row">
                 <div class="col-2">
                     <h1>It's all about <br>clothing!</h1>

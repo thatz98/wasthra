@@ -136,6 +136,24 @@ class Database extends PDO
 		$stmt->execute();
 		
 	}
+/**
+* Delete a record from a table.
+*
+* @param string $query Custom query.
+*
+* @param string $where WHERE condition in SQL query.
+*/
+
+	public function query($query){
+	
+		$stmt = $this->prepare($query);
+
+    	$stmt->execute();
+
+    	return $stmt->fetchAll();
+
+}
+
 }
 
 

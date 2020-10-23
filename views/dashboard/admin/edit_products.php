@@ -66,6 +66,8 @@
                     <div class="center-content">
                             <button type="submit" class="btn">Update</button>
                             <a href="<?php echo URL ?>products" class="btn btn-grey">Cancel</a>
+                            <button type="submit"class="btn">Update</button>
+                            <a href="<?php echo URL ?>user" class="btn btn-grey">Cancel</a>
                         </div>
                     </form>
                     </div>

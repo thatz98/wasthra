@@ -1,9 +1,8 @@
 <?php require 'views/header.php'; ?>
 
+<?php require 'views/user/profile_card.php'; ?>
+
 <div class="small-container single-product">
-            <div class="breadcum">
-                <p>Home / T-Shirt</p>
-            </div>
         <div class="row">
             <div class="col-2">
                 <img src="<?php echo URL; ?>public/images/gallery-1.jpg" width="100%" id="product-img">
@@ -26,15 +25,22 @@
                 
                 <h1>Red Printed T-Shirt by HRX </h1>
                 <h4>LKR 800.00</h4>
-                <select>
-                    <option>Select Size</option>
-                    <option>S</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                </select>
-                <input type="number" value="1">
-                <a href="" class="btn">Add to Cart</a>
+                <label class="text-label">Available Colors</label>
+                <div class="product-colors">
+                <span class="color-dot" style="background-color: #59FF37"></span>
+                <span class="color-dot" style="background-color: #3D5BF2"></span>
+                <span class="color-dot" style="background-color: #F23DE5"></span> 
+                </div>
+                <label class="text-label">Available Sizes</label>
+                <div class="product-sizes">
+                <span class="size-box">S</span>
+                <span class="size-box">M</span>
+                <span class="size-box">L</span>
+</div>
+
+                <a href="#" class="btn prd-btn">Add to Cart</a>
+                <a href="#" class="btn prd-btn">Buy Now</a>
+            <br>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero eius nam minus culpa ipsa saepe facere, explicabo a! Repellat velit provident porro quis. Voluptate ea cupiditate perspiciatis provident officia ullam.</p>
