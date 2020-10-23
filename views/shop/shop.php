@@ -342,4 +342,4 @@
             </div>
         </div>
 
-<?php require "<?php echo URL; ?>views/footer.php"; ?>
+<?php require 'views/footer.php'; ?>

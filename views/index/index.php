@@ -379,6 +379,7 @@
         </div>
 
         <!-------- exclusive offers -------->
+        <div class="offer-bag"></div>
         <div class="offer">
             <div class="small-container">
                 <div class="row">

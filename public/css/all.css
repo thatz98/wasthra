@@ -310,7 +310,15 @@ h4{
 }
 
 .offer{
-    background: radial-gradient(#fff,#ffd6d6);
+    background-image: url(http://localhost/wasthra/public/images/login_image.jpg);
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.offer{
     margin-top: 80px;
     padding: 30px 0;
 }
@@ -643,6 +651,7 @@ td img{
 }
 
 .total-price{
+    margin-top: 15px;
     display: flex;
     justify-content: flex-end;
 }
@@ -949,6 +958,10 @@ form a{
 
 .dashboard .col-3{
     margin: 15px;
+}
+
+.dashboard .col-3 .content{
+    background: #FFE8DA;
 }
 
 i .fa-cart-plus{
@@ -1436,10 +1449,12 @@ i.fa-shopping-bag{
        color: #ff523b;
        border: 0;
        font-size: 16px;
+       background: transparent;
 }
 
 .search-bar button {
     color: #ff523b;
+    background: transparent;
 }
 
 .search-bar button:hover {
@@ -1464,7 +1479,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .search-bar input[type="search"] {
        outline: 0;
        width: 100%;
-       background: #fff;
        padding: 0 8px;
        appearance: none;
        transition: all 0.5s cubic-bezier(0, 0, 0.43, 1.49);
@@ -1479,7 +1493,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
        right: 0;
        width: 25px;
        font-weight: bold;
-       background: #fff;
+       background: transparent;
        border-radius: 50%;
 }
 
@@ -1521,7 +1535,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .order-container{
     background: #fff;
-    width: 650px;
+    width: auto;
     height: auto;
     position: relative;
     text-align: center;
@@ -1569,6 +1583,43 @@ td.order-details h5{
     font-weight: normal;
 }
 
+td.order-messages{
+    text-align: left;
+}
+
+.order-container table td{
+    padding: 10px;
+}
+
+.oder-status{
+    display: inline-flex;
+}
+
+.oder-date{
+    display: block;
+} 
+
+.oder-status h5{
+    color: #8A8A8A;
+    font-weight: normal;
+    margin-right: 5px;
+} 
+
+.oder-date h5{
+    color: #8A8A8A;
+    font-weight: normal;
+    margin-right: 5px;
+}
+.order-note li {
+    margin-top: 5px;
+}
+
+.order-note li {
+    list-style: none;
+    font-weight: normal;
+    font-size: 14px;
+}
+
 .order-list .item-input{
     color: #8A8A8A;
     display: inline;
@@ -1609,6 +1660,7 @@ label.input-data{
 
 label.address{
     text-align: left;
+    font-size: 14px;
 }
 
 
