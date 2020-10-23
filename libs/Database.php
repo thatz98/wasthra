@@ -35,7 +35,7 @@ class Database extends PDO
 
         $stmt->execute();
 
-        return $stmt->fetchAll();
+        return $stmt->fetchall();
 	}
 
 /**
@@ -130,7 +130,16 @@ class Database extends PDO
         $stmt->execute();
 	}
 
-	
+	public function query($query){
+		$stmt=$this->prepare($query);
+		$stmt->execute();
+		return $stmt->fetchAll();
+	}
+	public function queryExecuteOnly($query){
+		$stmt=$this->prepare($query);
+		$stmt->execute();
+		
+	}
 }
 
 

@@ -6,7 +6,7 @@
         </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product</button>
-            <form action="<?php echo URL; ?>user/create" id="addFrom" class="hidden-form" method="post">
+            <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" method="post">
 
 
                         <div class="center-btn">
@@ -17,33 +17,38 @@
                         
                         <div class="row-top">
                             <div class="col-3 pad-30-0-0-85">
-                            <label>Product ID : </label><br><input type="text" name="first_name"><br>
+                            <label>Product ID : </label><br><input type="text" name="product_id"><br>
                             
-                            <label>Product Name : </label><br><input type="text" name="contact_no"><br>
-                            <label>Product Category : </label><br><select name="user_type">
-                            <option value="gents">Gents</option>
-                            <option value="ladies">Ladies</option>
-                            <option value="couple">Couple</option>
+                            <label>Product Name : </label><br><input type="text" name="product_name"><br>
+                            <label>Product Category : </label><br><select name="category">
+                            <?php foreach ($this->categoryList as $category): ?><option value="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></option> <?php endforeach;?>
+                            <!-- <option value="ladies">Ladies</option>
+                            <option value="couple">Couple</option> -->
                         </select><br>
                         <label>Quantity : </label><br><input type="text" name="quantity"><br>
                         
                         </div>
                         <div class="col-3 pad-30-0-0-85">
-                            <label>Available Sizes : </label><br><input type="text" name="available_sizes"><br>
+                            <label>Available Sizes : </label><br>
+                            XS<input type="checkbox" name="size[]" value="XS">
+                            S<input type="checkbox" name="size[]" value="S">
+                            M<input type="checkbox" name="size[]" value="M">
+                            L<input type="checkbox" name="size[]" value="L">
+                            XL<input type="checkbox" name="size[]" value="XL"><br>
                         
-                        <label>Published : </label><br><select name="published">
+                        <label>Published : </label><br><select name="is_published">
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
                         
                         
                         
-                        <label>Featured : </label><br><select name="featured">
+                        <label>Featured : </label><br><select name="is_featured">
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
                         
-                        <label>New : </label><br><select name="new">
+                        <label>New : </label><br><select name="is_new">
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
@@ -52,11 +57,11 @@
                         <div class="col-3 pad-30-0-0-85">
                             <label>Colors : </label><br><input type="text" name="colors"><br>
                             <label>Price Category : </label><br><select name="price_category">
-                            <option value=""></option>
-                            <option value=""></option></select><br>
+                            <?php foreach ($this->pricecategoryList as $priceCategory): ?><option value="<?php echo $priceCategory['price_category_name']; ?>"><?php echo $priceCategory['price_category_name']; ?></option> <?php endforeach;?>
+                            </select><br>
                             
                             <label>Description : </label><br>
-                            <textarea rows="6" cols="35" name="comment"></textarea><br>
+                            <textarea rows="6" cols="35" name="product_description"></textarea><br>
 
                         </div>
                     </div>
@@ -82,27 +87,29 @@
             <th>New</th>
             <th>Featured</th>
             <th>Options</th>
+            
         </tr>
-        <!-- <?php foreach ($this->userList as $user): ?>
+        <?php foreach ($this->qtyList as $qty): ?>
             <tr>
-                <td><?php echo $user['nic']; ?></td>
-                <td><?php echo $user['user_type']; ?></td>
-                    <td><?php echo $user['user_status']; ?></td>
-                    <td><?php echo $user['first_name']; ?></td>
-                    <td><?php echo $user['last_name']; ?></td>
-                    <td><?php echo $user['gender']; ?></td>
-                    <td><?php echo $user['contact_no']; ?></td>
-                    <td><?php echo $user['email']; ?></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="<?php echo URL ?>user/edit/<?php echo $user['nic'] ?>"><button class="table-btn btn-blue">Edit</button></a>
-                    <a href="<?php echo URL ?>user/delete/<?php echo $user['nic'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
+                <td><?php echo $qty['product_id']; ?></td>
+                <td><?php echo $qty['product_name']; ?></td>
+                    <td><?php echo $qty['name']; ?></td>
+                    <td><?php echo $qty['qty']; ?></td>
+                    <td><?php foreach ($this->colorList as $color): ?><?php if($qty['product_id']==$color['product_id']){echo $color['colors']; echo ("  "); }?><?php endforeach;?></td>
+                    <td><?php foreach ($this->sizeList as $size): ?><?php if($qty['product_id']==$size['product_id']){echo $size['sizes']; echo ('  ');}?><?php endforeach;?></td>
+                    <td><?php foreach ($this->imageList as $image): ?><img src="<?php if($qty['product_id']==$image['product_id']){echo $image['image']; }?>" width="50px" height="50px"><?php endforeach;?></td>
+                    <td><?php echo $qty['product_price']; ?></td>
+                    <td><?php echo $qty['is_published']; ?></td>
+                    <td><?php echo $qty['is_featured']; ?></td>
+                    <td><?php echo $qty['is_new']; ?></td>
+                    <td><a href="<?php echo URL ?>products/edit/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                    <a href="<?php echo URL ?>products/delete/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
             
             </tr>
 
-        <?php endforeach;?> -->
+        <?php endforeach;?>
         
+
     </table>
 </div>
 
