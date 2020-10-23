@@ -34,6 +34,7 @@ class User_Model extends Model{
 
     }
 
+
     public function update($data){
 
         $this->db->update('user',array(

@@ -35,7 +35,7 @@ class Database extends PDO
 
         $stmt->execute();
 
-        return $stmt->fetchAll();
+        return $stmt->fetchall();
 	}
 
 /**
@@ -130,6 +130,12 @@ class Database extends PDO
         $stmt->execute();
 	}
 
+
+	public function queryExecuteOnly($query){
+		$stmt=$this->prepare($query);
+		$stmt->execute();
+		
+	}
 /**
 * Delete a record from a table.
 *

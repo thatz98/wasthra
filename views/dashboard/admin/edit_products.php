@@ -7,7 +7,7 @@
         <div class="center-content">
         <div class="form-container" >
             
-            <form method="update">
+            <form action="<?php echo URL; ?>products/edit/<?php echo $this->products['product_id'] ?>" id="editFrom" method="post">
 
 
                         <div class="center-btn">
@@ -18,7 +18,7 @@
                         
                         <div class="row-top">
                             <div class="col-3 pad-30-0-0-85">
-                            <label>Product ID : </label><br><input type="text" name="first_name"><br>
+                            <label>Product ID : </label><br><input type="text" name="first_name" value="<?php echo $this->product['product_id'] ?>" ><br>
                             
                             <label>Product Name : </label><br><input type="text" name="contact_no"><br>
                             <label>Product Category : </label><br><select name="user_type">
@@ -65,6 +65,8 @@
                         
                     <div class="center-content">
                             <button type="submit" class="btn">Update</button>
+                            <a href="<?php echo URL ?>products" class="btn btn-grey">Cancel</a>
+                            <button type="submit"class="btn">Update</button>
                             <a href="<?php echo URL ?>user" class="btn btn-grey">Cancel</a>
                         </div>
                     </form>
