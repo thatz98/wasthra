@@ -9,42 +9,44 @@ class PriceCategories extends Controller{
     }
 
     function index(){
-
+        $this->view->pricecatList = $this->model->listPricecat();
     	$this->view->render('dashboard/owner/pricecategories');
     }
-}
 
-function create(){
-    $data = array();
-    $data['category_id'] = $_POST['category_id'];
-    $data['category_name'] = $_POST['category_name'];
-    $data['production_cost'] = $_POST['production_cost'];
-    $data['market_price'] = $_POST['market_price'];
-    $data['discount'] = $_POST['discount'];
+
+    function create(){
+        $data = array();
+        $data['price_category_id'] = $_POST['category_id'];
+        $data['price_category_name'] = $_POST['category_name'];
+        $data['production_cost'] = $_POST['production_cost'];
+        $data['add_market_price'] = $_POST['market_price'];
+        $data['discount'] = $_POST['discount'];
   
 
-    $this->model->create($data);
-    header('location: '.URL.'user');
-}
+        $this->model->create($data);
+        header('location: '.URL.'priceCategories');
+   }
 
-function edit($id){
-    $this->view->user = $this->model->getUser($id);
-    $this->view->render('dashboard/admin/edit_user');
-}
 
-function editSave(){
-    $data = array();
-    $data['category_id'] = $_POST['category_id'];
-    $data['category_name'] = $_POST['category_name'];
-    $data['production_cost'] = $_POST['production_cost'];
-    $data['market_price'] = $_POST['market_price'];
-    $data['discount'] = $_POST['discount'];
+   function edit($id){
+       $this->view->getpricecat = $this->model->getPriceCategory($id);
+       $this->view->render('dashboard/owner/editPriceCategories');
+ }
+
+   function editSave(){
+        $data = array();
+        $data['price_category_id'] = $_POST['category_id'];
+        $data['price_category_name'] = $_POST['category_name'];
+        $data['production_cost'] = $_POST['production_cost'];
+        $data['add_market_price'] = $_POST['market_price'];
+        $data['discount'] = $_POST['discount'];
 
     $this->model->update($data);
-    header('location: '.URL.'user');
-}
+    header('location: '.URL.'priceCategories');
+ }
 
-function delete($id){
-    $this->model->delete($id);
-    header('location: '.URL.'user');
+   function delete($id){
+       $this->model->delete($id);
+       header('location: '.URL.'priceCategories');
+   }
 }

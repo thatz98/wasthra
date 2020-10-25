@@ -68,7 +68,7 @@
             <th>Postal Code</th>
             <th>Options</th>
         </tr>
-        <?php foreach ($this->userList as $user): ?>
+        <?php foreach ($this-> userList as $user): ?>
             <tr>
                 <td><?php echo $user['nic']; ?></td>
                 <td><?php echo $user['user_type']; ?></td>

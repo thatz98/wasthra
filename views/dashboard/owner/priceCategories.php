@@ -6,7 +6,7 @@
         </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Category</button>
-            <form action="<?php echo URL; ?>>user/create" id="addFrom" class="hidden-form" method="post">
+            <form action="<?php echo URL; ?>>priceCategories/create" id="addFrom" class="hidden-form" method="post">
                         <div class="row-top">
                                
                             <div class="col-4 pad-30-0-0-85">
@@ -49,12 +49,28 @@
             <th>Price Category Name</th>
             <th>Production Cost</th>
             <th>Additional Market Prices</th>
-            <th>Discount</th>
             <th>Retail Price</th>
+            <th>Discount</th>
             <th>Net Price</th>
             <th>Options</th>
         </tr>
         
+        <?php foreach ($this->pricecatList as $price_category ): ?>
+            <tr>
+                <td><?php echo $price_category['price_category_id']; ?></td>
+                <td><?php echo $price_category['price_category_name']; ?></td>
+                    <td><?php echo $price_category['production_cost']; ?></td>
+                    <td><?php echo $price_category['add_market_price']; ?></td>
+                    <td><?php echo $price_category['production_cost']+$price_category['add_market_price']; ?></td>
+                    <td><?php echo $price_category['discount']; ?></td>
+                    <td><?php echo $price_category['production_cost']+$price_category['add_market_price']-$price_category['discount']; ?></td>
+                      
+                    <td><a href="<?php echo URL ?>priceCategories/edit/<?php echo $price_category['price_category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                    <a href="<?php echo URL ?>priceCategories/delete/<?php echo $price_category['price_category_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
+            
+            </tr>
+
+        <?php endforeach;?>
     </table>
 </div>
 
