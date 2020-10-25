@@ -36,4 +36,8 @@ class Login extends Controller{
 
         $this->model->signup($data);
     }
+
+    function changePassword(){
+        $this->view->render('user/change_password');
+    }
 }

@@ -10,7 +10,8 @@ class User extends Controller{
 
     function index(){
     	$this->view->userList = $this->model->listUsers();
-    	$this->view->render('dashboard/admin/user');
+        
+   	    $this->view->render('dashboard/admin/user');
     }
 
     function create(){

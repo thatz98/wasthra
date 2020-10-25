@@ -31,19 +31,27 @@
                     <ul id="menuItems">
                         <li><a href="<?php echo URL; ?>">Home</a></li>
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
-                        <li><a href="<?php echo URL; ?>about">About</a></li>
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
-                        <?php if(Session::get('loggedIn')==true): ?>
-                            <li><a href="<?php echo URL; ?>login/logout">Logout</a></li>
-                        <?php else: ?>
+                        <?php if(Session::get('loggedIn')!==true): ?>
+                            
                             <li><a href="<?php echo URL; ?>login">Login/Signup</a></li>
                         <?php endif; ?>
                     </ul>
                 </nav>
-                <img src="<?php echo URL; ?>public/images/cart.png" width="30px" height="30px">
+
+                <?php if(Session::get('loggedIn')==true): ?>
+                            <div class="user-box">
+                                <div class="user-info"><p>Hi, Admin!</p></div>
+                                <a class="user-box-btn" href="#profile-card">
+                                    <i class="fa fa-user-circle-o fa-2x"></i>
+                                </a>
+                            </div>
+                <?php endif; ?>
+                
+                <a class="bag" href="#" id="bag" onclick="bagDown()"><i class="fa fa-shopping-bag fa-2x"></i><span class="badge">3</span></a>
                 <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
-
+<?php require 'views/shop/cart_dropdown.php'; ?>
   
         <div class="login">
             <div class="login-form-cont">
@@ -61,6 +69,9 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn">Login</button>
+                            <div class="forget-password">
+                                <a href="#">Forgot Password?</a>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -124,5 +135,6 @@
 
 <script type="text/javascript" src="<?php echo URL ?>public/js/toggle_login.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/login_form_validation.js"></script>
 
 <?php require 'views/footer.php'; ?>

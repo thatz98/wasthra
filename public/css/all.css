@@ -68,9 +68,36 @@ p{
 }
 
 
+form label{
+    font-size: 14px;
+    margin: 0;
+}
+
+form input, form select{
+    height: 30px;
+    margin: 3px 0 3px;
+    padding: 0 10px;
+    border: 1px solid #DCADA3;
+}
 
 
+form input{
+  font-size: 14px;
+  border: none;
+  border-bottom: 2px solid #DCADA3;
+}
 
+form input:hover{
+  border-bottom: 2px solid #ff523b;
+}
+
+form select{
+    margin-top: 5px;
+}
+
+.text-center{
+    text-align: center;
+}
 .container{
     max-width: 1300px;
     margin: auto;
@@ -131,7 +158,8 @@ p{
     height: 30px;
     margin: 3px 0 15px;
     padding: 0 10px;
-    border: 1px solid #ccc;
+    border: none;
+  border-bottom: 2px solid #DCADA3;
 }
 
 .form-container input[type="checkbox" i]{
@@ -145,6 +173,12 @@ p{
     border: 1px solid #ccc;
 }
 
+.helper-text{
+  width: 100%;
+  height: 20px;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
 
 .row{
     display: flex;
@@ -609,6 +643,8 @@ table{
 }
 
 .table-container{
+    margin-top: 10px;
+    min-height: 400px;
     overflow-x:auto;
 }
 
@@ -627,6 +663,7 @@ th{
     color: #fff;
     background: #ff523b;
     font-weight: normal;
+    cursor: pointer;
 }
 
 td{
@@ -785,7 +822,6 @@ form a{
     height: 30px;
     margin: 3px 0 15px;
     padding: 0 10px;
-    border: 1px solid #ccc;
 }
 
 .pad-30-0-0-85{
@@ -1661,6 +1697,21 @@ label.input-data{
 label.address{
     text-align: left;
     font-size: 14px;
+}
+
+.table-search input{
+    width: auto;
+    height: 30px;
+    margin: 3px 0 10px;
+    padding: 0 10px;
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #DCADA3;
+}
+
+.table-search input:hover{
+  border-bottom: 2px solid #ff523b;
 }
 
 

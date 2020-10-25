@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?php echo URL; ?>public/css/profile_card.css">
-
+<?php require 'change_password.php';?>
 
 <div id="profile-card" class="overlay">
     <div class="profile-card-popup">
@@ -32,8 +32,8 @@
         <ul class="social">
           
           
-          <li><a href="https://codepen.io/collection/XdWJOQ/"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a></li>
-          <li><a href="https://codepen.io/collection/XdWJOQ/"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
+          <li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a></li>
+          <li><a href="#change-password"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
           <li><a href="https://codepen.io/collection/XdWJOQ/"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
         </ul>
       </div>

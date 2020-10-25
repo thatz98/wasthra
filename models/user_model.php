@@ -7,8 +7,19 @@ class User_Model extends Model{
     }
 
     public function listUsers(){
-    	return $this->db->listAll('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'));
-        
+
+        $customers = array();
+        $admins = array();
+        $admins = array();
+        $deliveryStaffs = array();
+
+
+        $customers = $this->db->query("SELECT customer.nic,customer.first_name,customer.last_name,customer.gender,customer.email,customer.contact_no,customer.user_status,login.user_type FROM customer INNER JOIN login ON customer.nic=login.nic");
+         $admins = $this->db->query("SELECT admin.nic,admin.first_name,admin.last_name,admin.gender,admin.email,admin.contact_no,admin.user_status,login.user_type FROM admin INNER JOIN login ON admin.nic=login.nic");
+         $owners = $this->db->query("SELECT admin.nic,owner.first_name,owner.last_name,owner.gender,owner.email,owner.contact_no,owner.user_status,login.user_type FROM owner INNER JOIN login ON owner.nic=login.nic");
+         $deliveryStaffs = $this->db->query("SELECT delivery_staff.nic,delivery_staff.first_name,delivery_staff.last_name,delivery_staff.gender,delivery_staff.email,delivery_staff.contact_no,delivery_staff.user_status,login.user_type FROM delivery_staff INNER JOIN login ON delivery_staff.nic=login.nic");
+
+      return array_merge($customers,$admins,$owners,$deliveryStaffs);
 
     }
 

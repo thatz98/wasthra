@@ -41,12 +41,7 @@ body{
 }
 
 
-.helper-text{
-  width: 100%;
-  height: 20px;
-  font-size: 14px;
-  margin-bottom: 3px;
-}
+
 
 .valid{
   
@@ -66,33 +61,6 @@ body{
 }
 
 
-.form-inner-container label{
-    font-size: 14px;
-    margin: 0;
-}
-
-.form-inner-container input, .form-inner-container select{
-    height: 30px;
-    margin: 3px 0 3px;
-    padding: 0 10px;
-    border: 1px solid #DCADA3;
-}
-
-
-.form-inner-container input{
-  text-align: center;
-  font-size: 16px;
-  border: none;
-  border-bottom: 2px solid #DCADA3;
-}
-
-.form-inner-container input:hover{
-  border-bottom: 2px solid #ff523b;
-}
-
-.form-inner-container select{
-    margin-top: 5px;
-}
 
 .login .sub-cont {
    overflow: hidden;
@@ -167,6 +135,8 @@ body{
    font-weight: normal;
 }
 .login .img__text p {
+  margin-top: 100px;
+  color: #FFF7F2;
    font-size: 14px;
    line-height: 1.5;
 }
@@ -341,6 +311,14 @@ body{
   overflow: auto;
 }
 
+
+.forget-password{
+  text-align: center;
+}
+
+.forget-password a:hover{
+  color: #ff523b;
+}
 
 @media screen and (max-width: 700px){
   .box{

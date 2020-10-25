@@ -1,24 +1,22 @@
-<?php require 'views/header_dashboard.php'; ?>
+<div id="change-password" class="overlay">
+    <div class="popup">
+        <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
+        <div class="row">
 
-<div class="container">
-    <div class="row">
-        <h2>Change Password</h2>
-    </div>
-    </br>
-    <div class="center-content">
-        <form class="" method="post">
-            <label>Current Password : </label><br>
-            <input type="text" name="current_password"><br>
 
-            <label>New Password : </label><br>
-            <input type="password" name="new_password"><br>
-
-            <label>Confirm Password : </label><br>
-            <input type="password" name="confirm_password"><br>
-
-            <div class="center-btn">
+            <div class="col-2" style="text-align: center;">
+                <form action="" method="post">
+                <label>Current Password</label><br>
+                    <input class="text-center" type="password" name="current_password" onfocusout="validatePassword()" id="current_password" data-helper="Current Password"><div class="helper-text"><span></span></div>
+                    <label>New Password</label><br>
+                    <input class="text-center" type="password" name="new_password" onfocusout="validatePassword()" id="new_password"><div class="helper-text"><span></span></div>
+                    <label>Confirm Password</label><br>
+                    <input class="text-center" type="password" name="new_password" onfocusout="validateConfirmPassword()" id="confirm_password"><div class="helper-text"><span></span></div>
+                
                 <button type="submit" class="btn">Save Changes</button>
+            </form>
             </div>
-        </form>
+        </div>
+        </div>
     </div>
-</div>
+<script type="text/javascript" src="<?php echo URL?>public/js/form_validation.js"></script>
