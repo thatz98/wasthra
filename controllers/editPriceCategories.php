@@ -1,6 +1,6 @@
 <?php
 
-class EditPriceCategory extends Controller{
+class EditPriceCategories extends Controller{
 
     function __construct()
     {
@@ -10,6 +10,6 @@ class EditPriceCategory extends Controller{
 
     function index(){
 
-    	$this->view->render('dashboard/owner/editPriceCategory');
+    	$this->view->render('dashboard/owner/editPriceCategories');
     }
 }

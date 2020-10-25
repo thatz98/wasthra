@@ -34,9 +34,7 @@
             <tr>
                 <td><?php echo $product_category['category_id']; ?></td>
                 <td><?php echo $product_category['name']; ?></td>
-                    <!-- <td></td>
-                    <td></td>
-                    <td></td> -->
+                
                     <td><a href="<?php echo URL ?>category/edit/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
                     <a href="<?php echo URL ?>category/delete/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
             
