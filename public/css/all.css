@@ -95,6 +95,17 @@ form select{
     margin-top: 5px;
 }
 
+form textarea{
+
+    font-size: 14px;
+  border: 2px solid #DCADA3;
+}
+
+form textarea:hover{
+
+  border: 2px solid #ff523b;
+}
+
 .text-center{
     text-align: center;
 }
@@ -663,7 +674,6 @@ th{
     color: #fff;
     background: #ff523b;
     font-weight: normal;
-    cursor: pointer;
 }
 
 td{
@@ -1714,6 +1724,25 @@ label.address{
   border-bottom: 2px solid #ff523b;
 }
 
+table th i:hover{
+    color: #FFDBC4;
+}
+#user-table th{
+    min-width: 125px;
+}
+
+.checkboxes{
+    display: inline-flex;
+    align-items: center;
+}
+
+.checkboxes input{
+    margin: 0;
+}
+
+.checkboxes span{
+    margin: 0 10px 0 10px;
+}
 
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
