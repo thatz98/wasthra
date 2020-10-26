@@ -30,11 +30,25 @@
                         </div>
                         <div class="col-3 pad-30-0-0-85">
                             <label>Available Sizes : </label><br>
-                            XS<input type="checkbox" name="size[]" value="XS">
-                            S<input type="checkbox" name="size[]" value="S">
-                            M<input type="checkbox" name="size[]" value="M">
-                            L<input type="checkbox" name="size[]" value="L">
-                            XL<input type="checkbox" name="size[]" value="XL"><br>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="XS"><span>XS</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="S"><span>S</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="M"><span>M</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="L"><span>L</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="XL"><span>XL</span>
+                            </div>
+                            <br>
+                            
+                            
+                            
                         
                         <label>Published : </label><br><select name="is_published">
                             <option value="yes">YES</option>
@@ -61,7 +75,7 @@
                             </select><br>
                             
                             <label>Description : </label><br>
-                            <textarea rows="6" cols="35" name="product_description"></textarea><br>
+                            <textarea rows="6" cols="30" name="product_description"></textarea><br>
 
                         </div>
                     </div>

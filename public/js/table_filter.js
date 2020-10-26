@@ -1,5 +1,5 @@
 function filterByKeyword(tableId,columnCount) {
-    var input, filter, table, tr, td, th, i, j, txtValue;
+    var input, filter, table, tr, td, i, j, txtValue;
     input = document.getElementById("keyword-input");
     filter = input.value.toUpperCase();
     table = document.getElementById(tableId);
@@ -21,7 +21,7 @@ function filterByKeyword(tableId,columnCount) {
 }
 
 function filterByDropdownKeyword(tableId,columnId,inputId) {
-    var input, filter, table, tr, td, th, i, txtValue;
+    var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById(inputId);
     filter = input.value.toUpperCase();
     table = document.getElementById(tableId);
@@ -44,12 +44,12 @@ function closeFilter(dropdownId){
     dropdown.style.display = "none";
 }
 
-function checkAll(tableId) {
+function checkAll(tableId,checkboxAllId) {
     var table, tr, i;
     table = document.getElementById(tableId);
     tr = table.getElementsByTagName("TR");
     var checkboxes = document.getElementsByName('checkbox-data');
-    var selectAll = document.getElementById('checkbox-all');
+    var selectAll = document.getElementById(checkboxAllId);
 
     if(selectAll.checked){
         for (var checkbox of checkboxes) {
@@ -68,7 +68,7 @@ function checkAll(tableId) {
     }
 }
 
-function showFilters(tableId,columnId,dropdownId,checkboxId) {
+function showFilters(tableId,columnId,dropdownId,checkboxId,selectAllId) {
     var dropdown = document.getElementById(dropdownId);
         
     if(dropdown.style.display == "none"){
@@ -78,7 +78,7 @@ function showFilters(tableId,columnId,dropdownId,checkboxId) {
     }
 
     document.getElementById(checkboxId).innerHTML = "";
-    var table, tr, trDistinct, td, i;
+    var table, tr, td, i;
     table = document.getElementById(tableId);
     tr = table.getElementsByTagName("TR");
     var distinct = [];
@@ -90,7 +90,7 @@ function showFilters(tableId,columnId,dropdownId,checkboxId) {
             continue;
         } else{
             distinct.push(td.innerHTML);
-            document.getElementById(checkboxId).innerHTML = document.getElementById(checkboxId).innerHTML + '<input type="checkbox" name="checkbox-data" value="' + td.innerHTML + '" onchange="filterByCheck(\'user-table\',\'' + td.innerHTML + '\',' + columnId + ')" checked><span>' + td.innerHTML + '</span><br>';
+            document.getElementById(checkboxId).innerHTML = document.getElementById(checkboxId).innerHTML + '<input type="checkbox" name="checkbox-data" value="' + td.innerHTML + '" onchange="filterByCheck(\'' + tableId + '\',\'' + td.innerHTML + '\',\'' + columnId + '\',\'' + selectAllId + '\')" checked><span>' + td.innerHTML + '</span><br>';
         }       
     }
 }
@@ -107,12 +107,12 @@ function getSelectedCheckboxes() {
     return checkboxValues;
 }
 
-function clearFilters(tableId){
+function clearFilters(tableId,selectAllId){
     var table, tr, i;
     table = document.getElementById(tableId);
     tr = table.getElementsByTagName("TR");
     var checkboxes = document.getElementsByName('checkbox-data');
-    var selectAll = document.getElementById('checkbox-all');
+    var selectAll = document.getElementById(selectAllId);
     selectAll.checked = true;
     for (var checkbox of checkboxes) {
         checkbox.checked = true;
@@ -143,9 +143,9 @@ function checkAllSelected(){
     return true;
 }
     
-function filterByCheck(tableId,data,columnId) {
+function filterByCheck(tableId,data,columnId,checkboxId) {
     if(!checkAllSelected()){
-        var selectAll = document.getElementById('checkbox-all');
+        var selectAll = document.getElementById(checkboxId);
         selectAll.checked = false;
     }
     var input, table, tr, td, th, i, txtValue;
