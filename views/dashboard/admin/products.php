@@ -12,7 +12,7 @@
                         <div class="center-btn">
                         <label allign="center">Product images : </label>
                         <!-- <button type="file" class="btn">Add New image</button> -->
-                        <input class="btn" type="file" accept="image/*"><br>
+                        <input class="btn" type="file" accept="image/*" ><br>
                         </div>
                         
                         <div class="row-top">

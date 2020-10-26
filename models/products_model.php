@@ -38,12 +38,16 @@ class Products_Model extends Model{
         FROM product_colors INNER JOIN product on product_colors.product_id=product.product_id;");
     }
     public function getCategories(){
-        return $this->db->query("SELECT category.name
+        return $this->db->query("SELECT category.name,category.category_id
         FROM category ;");
     }
     public function getPriceCategories(){
-        return $this->db->query("SELECT price_category.price_category_name
+        return $this->db->query("SELECT price_category.price_category_name,price_category.price_category_id
         FROM price_category ;");
+    }
+    public function getQty(){
+        return $this->db->query("SELECT inventory.product_id,inventory.qty
+        FROM inventory ;");
     }
 
 
@@ -81,29 +85,24 @@ class Products_Model extends Model{
             $this->db->queryExecuteOnly("INSERT INTO product_colors (product_id,colors) VALUES ($product_id,'$p')");
         }
     }
-    public function myCreate($data){
-        $this->db->query("INSERT INTO product (product_id) VALUES $data");
-        // $this->db->queryExecute("INSERT INTO product (product_name) VALUES $data['product_name']");
-        // $this->db->queryExecute("INSERT INTO product (product_description) VALUES $data['product_description']");
-        // $this->db->queryExecute("INSERT INTO product (is_featured) VALUES $data['is_featured']");
-        // $this->db->queryExecute("INSERT INTO product (is_new) VALUES $data['is_new']");
-        // $this->db->queryExecute("INSERT INTO product (is_published) VALUES $data['is_published']");
+
+
+    public function update($data){
+        //echo $data['prev_id'];
+        $this->db->update('product',array(
+            'product_id' => $data['product_id'],
+            // 'sizes' => $data['sizes'],
+            'product_name' => $data['product_name'],
+            'product_description' => $data['product_description'],
+            'is_featured' => $data['is_featured'],
+            'is_new' => $data['is_new'],
+            'is_published' => $data['is_published']),
+            "product_id = '{$data['prev_id']}'");
+            
+
+      
+
     }
-
-    // public function update($data){
-
-    //     $this->db->update('user',array(
-    //         'nic' => $data['nic'],
-    //         'first_name' => $data['first_name'],
-    //         'last_name' => $data['last_name'],
-    //         'gender' => $data['gender'],
-    //         'email' => $data['email'],
-    //         'username' => $data['email'],
-    //         'contact_no' => $data['contact_no'],
-    //         'user_status' => $data['user_status'],
-    //         'user_type' => $data['user_type']),"nic = '{$data['nic']}'");
-
-    // }
 
     public function delete($id){
         
