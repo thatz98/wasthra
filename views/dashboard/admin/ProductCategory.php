@@ -6,17 +6,19 @@
         </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product Category</button>
-            <form action="<?php echo URL; ?>user/create" id="addFrom" class="hidden-form" method="post">
+            <form action="<?php echo URL; ?>ProductCategory/create" id="addFrom" class="hidden-form" method="post">
                         <div class="row-top">
                             <div class="col-3 pad-30-0-0-85">
-                            <label>Product Category Id : </label><br><input type="text" name="category_id"><br>
+                            <label>Product Category Id : </label><br><input type="text" name="product_category_id"><br>
                         </div>
                         <div class="col-3 pad-30-0-0-85">
                             <label>Product Category Name : </label><br><input type="text" name="category_name"><br>
             
                         </div>
+                        <div row>
                         <div class="center-btn">
                             <button type="submit" class="btn">Add New Category</button>
+                        </div>
                         </div>
                     </form>
                     </div>
@@ -35,8 +37,8 @@
                 <td><?php echo $product_category['category_id']; ?></td>
                 <td><?php echo $product_category['name']; ?></td>
                 
-                    <td><a href="<?php echo URL ?>category/edit/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
-                    <a href="<?php echo URL ?>category/delete/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
+                    <td><a href="<?php echo URL ?>ProuctCategory/edit/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                    <a href="<?php echo URL ?>ProductCategory/delete/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
             
             </tr>
 
