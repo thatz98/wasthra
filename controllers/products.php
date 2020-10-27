@@ -35,9 +35,10 @@ class Products extends Controller{
         $data['colors'] = $_POST['colors'];
         
         $size=$_POST['size'];
-       
-        $this->model->create($data,$size);
-        header('location: '.URL.'products');
+        $imageName['img']=$_FILES['img[]']['name'];
+        //echo $imageName['img'];
+         $this->model->create($data,$size,$imageName['img']);
+         header('location: '.URL.'products');
 
     }
 
@@ -66,8 +67,8 @@ class Products extends Controller{
         $data['price_category'] = $_POST['price_category'];
         $data['quantity'] = $_POST['quantity'];
         $data['colors'] = $_POST['colors'];
-        
-        $this->model->update($data);
+        $size=$_POST['size'];
+        $this->model->update($data,$size);
         header('location: '.URL.'products');
     }
 
