@@ -13,26 +13,16 @@ class ProductCategory_Model extends Model{
 
     }
 
-    public function getUser($id){
+    public function getProductcat($id){
 
-        return $this->db->listWhere('user',array('nic','first_name','last_name','gender','email','contact_no','user_status','user_type'),"nic='$id'");
+        return $this->db->listWhere('category',array('product_id','name'),"category_id='$id'");
     }
 
     public function create($data){
 
-        $this->db->insert('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => $data['password'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']));
-
-
+        $this->db->insert('category',array(
+            'category_id' => $data['category_id'],
+            'name' => $data['name']));
     }
 
     public function update($data){
@@ -51,13 +41,7 @@ class ProductCategory_Model extends Model{
     }
 
     public function delete($id){
-        $data = $this->db->listWhere('user',array('user_type'),"nic='$id'");
-
-        if($data['user_type']=='owner'){
-            return false;
-        } else{
-            $this->db->delete('user',"nic='$id'");
-        }
+        $data = $this->db->delete('category',"category_id='$id'");
 
     }
 
