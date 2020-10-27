@@ -25,7 +25,7 @@ class PriceCategories_Model extends Model{
            'add_market_price' => $data['add_market_price'],
            'production_cost' => $data['production_cost'],
            'discount' => $data['discount'],
-           'product_price' => floatval($data['production_cost'])+floatval($data['add_market_price'])-floatval($data['discount'])
+          // 'product_price' => floatval($data['production_cost'])+floatval($data['add_market_price'])-floatval($data['discount'])
            ));
 
     }
@@ -35,10 +35,11 @@ class PriceCategories_Model extends Model{
         $this->db->update('price_category',array(
             'price_category_id' => $data['price_category_id'],
             'price_category_name' => $data['price_category_name'],
+            'nic' => Session::get('nic'),
             'add_market_price' => $data['add_market_price'],
             'production_cost' => $data['production_cost'],
             'discount' => $data['discount'],
-            'product_price' => $data['product_price']),"product_category_id = '{$data['product_category_id']}'");
+            'product_price' => $data['product_price']),"price_category_id = '{$data['price_category_id']}'");
 
      }
 

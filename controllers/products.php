@@ -4,7 +4,7 @@ class Products extends Controller{
     
     function __construct()
     {
-         
+        
         parent::__construct();
         Authenticate::adminAuth();
     }
@@ -35,10 +35,11 @@ class Products extends Controller{
         $data['colors'] = $_POST['colors'];
         
         $size=$_POST['size'];
-        $imageName['img']=$_FILES['img[]']['name'];
-        //echo $imageName['img'];
-         $this->model->create($data,$size,$imageName['img']);
-         header('location: '.URL.'products');
+        $imageName['img']=$_FILES['img']['name'];
+
+        
+        $this->model->create($data,$size,$imageName['img']);
+        header('location: '.URL.'products');
 
     }
 

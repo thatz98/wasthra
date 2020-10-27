@@ -84,12 +84,13 @@ class Products_Model extends Model{
             $p=$col[$x];
             $this->db->queryExecuteOnly("INSERT INTO product_colors (product_id,colors) VALUES ('$product_id','$p')");
         }
-        $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ($product_id,'$imageList')");
-        // foreach ($imageList as $images) {
-        //     $i='public/images/';
-        //     $i.=$images
-        //     $this->db->queryExecuteOnly("INSERT INTO product_images (product_id,image) VALUES ($product_id,$i)");
-        // }
+        
+        foreach($imageList as $img){
+            $m="public/images/";
+            $m.=$img;
+            $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
+            //echo $imageName['img'][$x];
+        }
     }
 
 
