@@ -6,9 +6,11 @@
 
 }
 
+
 body{
     min-height: 100%;
     font-family: 'Nunito Sans', sans-serif;
+    padding: 0;
 
 }
 
@@ -93,6 +95,17 @@ form input:hover{
 
 form select{
     margin-top: 5px;
+}
+
+form textarea{
+
+    font-size: 14px;
+  border: 2px solid #DCADA3;
+}
+
+form textarea:hover{
+
+  border: 2px solid #ff523b;
 }
 
 .text-center{
@@ -361,16 +374,6 @@ h4{
     padding: 50px;
 }
 
-.banner{
-    background: radial-gradient(#fff,#ffd6d6);
-    height: 300px;
-}
-
-.row .banner-img{
-    width: 200px;
-    padding: 50px;
-}
-
 
 small{
     color: #555;
@@ -415,6 +418,7 @@ small{
 }
 
 .footer{
+    bottom: 0;
     margin-top: 45px;
     background: #000;
     color: #8a8a8a;
@@ -663,7 +667,6 @@ th{
     color: #fff;
     background: #ff523b;
     font-weight: normal;
-    cursor: pointer;
 }
 
 td{
@@ -1714,6 +1717,25 @@ label.address{
   border-bottom: 2px solid #ff523b;
 }
 
+table th i:hover{
+    color: #FFDBC4;
+}
+#user-table th{
+    min-width: 125px;
+}
+
+.checkboxes{
+    display: inline-flex;
+    align-items: center;
+}
+
+.checkboxes input{
+    margin: 0;
+}
+
+.checkboxes span{
+    margin: 0 10px 0 10px;
+}
 
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {

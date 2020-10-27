@@ -6,13 +6,13 @@
         </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product</button>
-            <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" method="post">
+            <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" enctype="multipart/form-data" method="post">
 
 
                         <div class="center-btn">
                         <label allign="center">Product images : </label>
                         <!-- <button type="file" class="btn">Add New image</button> -->
-                        <input class="btn" type="file" accept="image/*"><br>
+                        <input type="file" accept="image/*" name="img[]" multiple><br>
                         </div>
                         
                         <div class="row-top">
@@ -30,11 +30,25 @@
                         </div>
                         <div class="col-3 pad-30-0-0-85">
                             <label>Available Sizes : </label><br>
-                            XS<input type="checkbox" name="size[]" value="XS">
-                            S<input type="checkbox" name="size[]" value="S">
-                            M<input type="checkbox" name="size[]" value="M">
-                            L<input type="checkbox" name="size[]" value="L">
-                            XL<input type="checkbox" name="size[]" value="XL"><br>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="XS"><span>XS</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="S"><span>S</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="M"><span>M</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="L"><span>L</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="XL"><span>XL</span>
+                            </div>
+                            <br>
+                            
+                            
+                            
                         
                         <label>Published : </label><br><select name="is_published">
                             <option value="yes">YES</option>
@@ -61,7 +75,7 @@
                             </select><br>
                             
                             <label>Description : </label><br>
-                            <textarea rows="6" cols="35" name="product_description"></textarea><br>
+                            <textarea rows="6" cols="30" name="product_description"></textarea><br>
 
                         </div>
                     </div>
@@ -97,7 +111,12 @@
                     <td><?php echo $qty['qty']; ?></td>
                     <td><?php foreach ($this->colorList as $color): ?><?php if($qty['product_id']==$color['product_id']){echo $color['colors']; echo ("  "); }?><?php endforeach;?></td>
                     <td><?php foreach ($this->sizeList as $size): ?><?php if($qty['product_id']==$size['product_id']){echo $size['sizes']; echo ('  ');}?><?php endforeach;?></td>
-                    <td><?php foreach ($this->imageList as $image): ?><img src="<?php if($qty['product_id']==$image['product_id']){echo $image['image']; }?>" width="50px" height="50px"><?php endforeach;?></td>
+                    <td><?php foreach ($this->imageList as $image){
+                        if($qty['product_id']==$image['product_id']){?>
+                            <img src="<?php echo $image['image']?>" width="50px" height="50px">
+                            <?php 
+                        }
+                    }?></td>
                     <td><?php echo $qty['product_price']; ?></td>
                     <td><?php echo $qty['is_published']; ?></td>
                     <td><?php echo $qty['is_featured']; ?></td>
@@ -114,6 +133,7 @@
 </div>
 
 <script>
+
       //  var addFrom = document.getElementByClassName("dash-form-container");
         var addFrom = document.getElementById("addFrom");
         addFrom.style.maxHeight = "0px";

@@ -16,6 +16,7 @@ class Login_Model extends Model{
                 Session::init();
                 Session::set('loggedIn',true);
                 Session::set('username',$user['username']);
+                Session::set('nic',$user['nic']);
                 Session::set('userType',$user['user_type']);
                 if(Session::get('userType')=='admin'){
                     header('location: ../dashboard');
