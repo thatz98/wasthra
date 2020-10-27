@@ -10,12 +10,12 @@
                         <div class="row-top">   
                             <div class="col-4">
                                 <label>Price Category ID : </label><br><input type="text" name="category_id" id="category_id" value="<?php echo $this->getpricecat['price_category_id'] ?>"><br><br>                            
-                                <label>Production Cost : </label><br><input type="text" name="production_cost" id="production_cost" value="<?php echo $this->getpricecat['production_cost'] ?>"><br>
+                                <label>Production Cost : </label><br><input type="text" name="production_cost" id="production_cost"  placeholder="LKR" value="<?php echo $this->getpricecat['production_cost'] ?>"><br>
                             </div>
 
                             <div class="col-4">
                                 <label>Price Category Name: </label><br><input type="text" name="category_name" id="category_name" value="<?php echo $this->getpricecat['price_category_name'] ?>"><br><br>
-                                <label>Additional Market Price: </label><br><input type="text" name="market_price" id="market_price" value="<?php echo $this->getpricecat['add_market_price'] ?>"><br>  
+                                <label>Additional Market Price: </label><br><input type="text" name="market_price" id="market_price"  placeholder="LKR" value="<?php echo $this->getpricecat['add_market_price'] ?>"><br>  
                             </div>                           
                         </div>
 
@@ -24,14 +24,14 @@
                             </div>
 
                             <div class="center-content">
-                                <label>Reatil Price:</label><br>
+                                <label>Reatil Price : LKR</label><br>
                                 <div id="retail-display">
 
                                 </div><br>
                            </div>
 
                            <div class="center-content">
-                                <label>Discount: </label><br><input type="text" name="discount" id="discount" value="<?php echo $this->getpricecat['discount'] ?>"><br>
+                                <label>Discount: </label><br><input type="text" name="discount" id="discount" value="<?php echo $this->getpricecat['discount'] ?>">%<br>
                            </div>
 
                            <div class="center-btn">
@@ -39,7 +39,7 @@
                            </div>
 
                            <div class="center-content">
-                                <label>Net Price:</label>
+                                <label>Net Price : LKR</label>
                                 <div id="net-display">
 
                                 </div>
@@ -64,6 +64,6 @@ function calculateRetail(){
 }
 
 function calculateNet(){
-    document.getElementById('net-display').innerHTML =  parseFloat(document.getElementById('production_cost').value)+parseFloat(document.getElementById('market_price').value) - parseFloat(document.getElementById('discount').value);
+    document.getElementById('net-display').innerHTML =  ((parseFloat(document.getElementById('production_cost').value)+parseFloat(document.getElementById('market_price').value))*(100-parseFloat(document.getElementById('discount').value)))/100;
 }
 </script>

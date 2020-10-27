@@ -25,7 +25,7 @@ class PriceCategories_Model extends Model{
            'add_market_price' => $data['add_market_price'],
            'production_cost' => $data['production_cost'],
            'discount' => $data['discount'],
-           'product_price' => floatval($data['production_cost'])+floatval($data['add_market_price'])-floatval($data['discount'])
+          // 'product_price' => floatval($data['production_cost'])+floatval($data['add_market_price'])-floatval($data['discount'])
            ));
 
     }

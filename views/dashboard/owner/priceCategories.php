@@ -10,12 +10,12 @@
    
                     <div class="row-top">                            
                             <div class="col-4 pad-30-0-0-85">
-                                <label>Price Category ID : </label><br><input type="text" name="category_id" id="category_id"><br><br>                            
-                                <label>Production Cost : </label><br><input type="text" name="production_cost" id="production_cost"><br>
+                                <label>Price Category ID : </label><br><input type="text" name="category_id" id="category_id" ><br><br>                            
+                                <label>Production Cost : </label><br><input type="text" name="production_cost" id="production_cost" placeholder="LKR"><br>
                             </div>
                             <div class="col-4 pad-30-0-0-85">
                                 <label>Price Category Name: </label><br><input type="text" name="category_name"  id="category_name"><br><br>
-                                <label>Additional Market Price: </label><br><input type="text" name="market_price" id="market_price"><br>  
+                                <label>Additional Market Price: </label><br><input type="text" name="market_price" id="market_price" placeholder="LKR"><br>  
                             </div>
 
                            <script type="text/javascript">
@@ -25,7 +25,7 @@
                             }
 
                             function calculateNet(){
-                                document.getElementById('net-display').innerHTML =  parseFloat(document.getElementById('production_cost').value)+parseFloat(document.getElementById('market_price').value) - parseInt(document.getElementById('discount').value);
+                                document.getElementById('net-display').innerHTML =  ((parseFloat(document.getElementById('production_cost').value)+parseFloat(document.getElementById('market_price').value))*(100-parseFloat(document.getElementById('discount').value)))/100;
                             }
                            </script>   
                     </div>
@@ -35,14 +35,14 @@
                         </div>
 
                         <div class="center-content">
-                                <label>Reatil Price:</label><br>
+                                <label>Reatil Price : LKR </label><br>
                                 <div id="retail-display">
                                     
                                 </div><br>
                         </div>
 
                         <div class="center-content pad-auto">
-                               <label>Discount: </label><br><input type="text" name="discount" id="discount"><br>
+                               <label>Discount: </label><br><input type="text" name="discount" id="discount">%<br>
                         </div> 
 
                         <div class="center-btn">
@@ -50,7 +50,7 @@
                         </div>
                         
                         <div class="center-content">
-                                <label>Net Price:</label><br>
+                                <label>Net Price : LKR</label><br>
                                 <div id="net-display">
 
                                 </div><br>
@@ -79,11 +79,11 @@
             <tr>
                 <td><?php echo $price_category['price_category_id']; ?></td>
                 <td><?php echo $price_category['price_category_name']; ?></td>
-                    <td><?php echo $price_category['production_cost']; ?></td>
-                    <td><?php echo $price_category['add_market_price']; ?></td>
-                    <td><?php echo $price_category['production_cost']+$price_category['add_market_price']; ?></td>
-                    <td><?php echo $price_category['discount']; ?></td>
-                    <td><?php echo $price_category['production_cost']+$price_category['add_market_price']-$price_category['discount']; ?></td>
+                    <td>LKR <?php echo $price_category['production_cost']; ?></td>
+                    <td>LKR <?php echo $price_category['add_market_price']; ?></td>
+                    <td>LKR <?php echo $price_category['production_cost']+$price_category['add_market_price']; ?></td>
+                    <td><?php echo $price_category['discount']; ?>%</td>
+                    <td>LKR <?php echo (($price_category['production_cost']+$price_category['add_market_price'])*(100-$price_category['discount']))/100; ?></td>
                       
                     <td><a href="<?php echo URL ?>priceCategories/edit/<?php echo $price_category['price_category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
                     <a href="<?php echo URL ?>priceCategories/delete/<?php echo $price_category['price_category_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
