@@ -111,7 +111,12 @@
                     <td><?php echo $qty['qty']; ?></td>
                     <td><?php foreach ($this->colorList as $color): ?><?php if($qty['product_id']==$color['product_id']){echo $color['colors']; echo ("  "); }?><?php endforeach;?></td>
                     <td><?php foreach ($this->sizeList as $size): ?><?php if($qty['product_id']==$size['product_id']){echo $size['sizes']; echo ('  ');}?><?php endforeach;?></td>
-                    <td><?php foreach ($this->imageList as $image): ?><img src="<?php if($qty['product_id']==$image['product_id']){echo $image['image']; }?>" width="50px" height="50px"><?php endforeach;?></td>
+                    <td><?php foreach ($this->imageList as $image){
+                        if($qty['product_id']==$image['product_id']){?>
+                            <img src="<?php echo $image['image']?>" width="50px" height="50px">
+                            <?php 
+                        }
+                    }?></td>
                     <td><?php echo $qty['product_price']; ?></td>
                     <td><?php echo $qty['is_published']; ?></td>
                     <td><?php echo $qty['is_featured']; ?></td>
