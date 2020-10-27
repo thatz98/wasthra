@@ -6,7 +6,7 @@
     </div>
         <div class="row">
         <div class="form-container">
-            <form class="">         
+            <form action="<?php echo URL; ?>priceCategories/editSave/" id="editFrom" method="post">        
                         <div class="row-top">   
                             <div class="col-4">
                                 <label>Price Category ID : </label><br><input type="text" name="category_id" id="category_id" value="<?php echo $this->getpricecat['price_category_id'] ?>"><br><br>                            
@@ -47,6 +47,7 @@
 
                            <div class="center-btn">
                                 <button type="submit" class="btn">Update Price Category</button>
+                                <a href="<?php echo URL ?>pricecategories" class="btn">Cancel</a>
                            </div>
             </form>
       </div>
@@ -59,10 +60,10 @@
 <script type="text/javascript">
 
 function calculateRetail(){
-    document.getElementById('retail-display').innerHTML = parseInt(document.getElementById('production_cost').value) + parseInt(document.getElementById('market_price').value);
+    document.getElementById('retail-display').innerHTML = parseFloat(document.getElementById('production_cost').value) + parseFloat(document.getElementById('market_price').value);
 }
 
 function calculateNet(){
-    document.getElementById('net-display').innerHTML =  parseInt(document.getElementById('production_cost').value)+parseInt(document.getElementById('market_price').value) - parseInt(document.getElementById('discount').value);
+    document.getElementById('net-display').innerHTML =  parseFloat(document.getElementById('production_cost').value)+parseFloat(document.getElementById('market_price').value) - parseFloat(document.getElementById('discount').value);
 }
 </script>

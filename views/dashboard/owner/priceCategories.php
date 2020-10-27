@@ -21,11 +21,11 @@
                            <script type="text/javascript">
 
                             function calculateRetail(){
-                                document.getElementById('retail-display').innerHTML = parseInt(document.getElementById('production_cost').value) + parseInt(document.getElementById('market_price').value);
+                                document.getElementById('retail-display').innerHTML = parseFloat(document.getElementById('production_cost').value) + parseFloat(document.getElementById('market_price').value);
                             }
 
                             function calculateNet(){
-                                document.getElementById('net-display').innerHTML =  parseInt(document.getElementById('production_cost').value)+parseInt(document.getElementById('market_price').value) - parseInt(document.getElementById('discount').value);
+                                document.getElementById('net-display').innerHTML =  parseFloat(document.getElementById('production_cost').value)+parseFloat(document.getElementById('market_price').value) - parseInt(document.getElementById('discount').value);
                             }
                            </script>   
                     </div>
