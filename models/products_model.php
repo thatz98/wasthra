@@ -104,9 +104,6 @@ class Products_Model extends Model{
             'is_new' => $data['is_new'],
             'is_published' => $data['is_published']),
             "product_id = '{$data['prev_id']}'");
-            
-
-      
 
     }
 

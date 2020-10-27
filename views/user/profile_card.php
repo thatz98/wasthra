@@ -32,9 +32,9 @@
         <ul class="social">
           
           
-          <li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a></li>
+          <li><a href="#edit-profile"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a></li>
           <li><a href="#change-password"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
-          <li><a href="https://codepen.io/collection/XdWJOQ/"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+          <li><a href="<?php echo URL?>login/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
         </ul>
       </div>
 
