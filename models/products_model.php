@@ -54,7 +54,6 @@ class Products_Model extends Model{
 
 
     public function create($data,$size){
-
         $this->db->insert('product',array(
             'product_id' => $data['product_id'],
             // 'sizes' => $data['sizes'],
