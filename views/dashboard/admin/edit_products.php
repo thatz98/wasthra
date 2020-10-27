@@ -13,11 +13,11 @@
                         <div class="center-btn">
                         <label allign="center">Product images : </label>
                         <!-- <button type="file" class="btn">Add New image</button> -->
-                        <input class="btn" type="file" accept="image/*"><br>
+                        <input type="file" accept="image/*" onchange="loadFile(event)" multiple><br>
                         </div>
                         
                         <div class="row-top">
-                            <div class="col-3 pad-30-0-0-85">
+                            <div class="col-2 pad-30-0-0-85">
                             <input type="text" name="prev_id" value="<?php echo $this->product['product_id']?>" style="display:none">
                             <label>Product ID : </label><br><input type="text" name="product_id" value="<?php echo $this->product['product_id'] ?>" ><br>
                             
@@ -51,7 +51,7 @@
                         </select><br>
                         
                         </div>
-                        <div class="col-3 pad-30-0-0-85">
+                        <div class="col-2 pad-30-0-0-85">
 
                         <label>Featured : </label><br><select name="is_featured">
                             <option value="yes"  <?php if($this->product['is_featured']=='yes') echo "selected=\"selected\"";?>>YES</option>
@@ -65,7 +65,7 @@
                         
                         
                         
-                            <label>Colors : </label><br><input type="text" name="colors" value="<?php foreach ($this->product_colors as $color): ?><?php if($this->product['product_id']==$color['product_id']){echo $color['colors']; echo ("  "); }?><?php endforeach;?>"><br>
+                            <label>Colors : </label><br><input type="text" name="colors" value="<?php foreach ($this->product_colors as $color): ?><?php if($this->product['product_id']==$color['product_id']){echo $color['colors']; echo (","); }?><?php endforeach;?>"><br>
                             <label>Price Category : </label><br><select name="price_category">
                             <?php foreach ($this->price_category as $price): ?><option value="<?php echo $price['price_category_name']; ?>" <?php if($this->product['price_category_id']==$price['price_category_id']) echo "selected=\"selected\"";?>><?php echo $price['price_category_name']; ?></option> <?php endforeach;?>
 

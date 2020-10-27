@@ -6,13 +6,13 @@
         </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product</button>
-            <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" method="post">
+            <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" enctype="multipart/form-data" method="post">
 
 
                         <div class="center-btn">
                         <label allign="center">Product images : </label>
                         <!-- <button type="file" class="btn">Add New image</button> -->
-                        <input class="btn" type="file" accept="image/*" ><br>
+                        <input type="file" accept="image/*" name="img[]" multiple><br>
                         </div>
                         
                         <div class="row-top">
@@ -128,6 +128,7 @@
 </div>
 
 <script>
+
       //  var addFrom = document.getElementByClassName("dash-form-container");
         var addFrom = document.getElementById("addFrom");
         addFrom.style.maxHeight = "0px";
