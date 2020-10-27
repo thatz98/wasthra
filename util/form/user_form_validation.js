@@ -47,7 +47,7 @@ function validateContactNo() {
   // check if is empty
   if (checkIfEmpty(contactNo)) return;
   // is if it has only letters
-  if (!meetLength(contactNo, 9, 10)) return;
+  if (!meetLength(contactNo, 9, 11)) return;
 
   if (!checkIfOnlyNumbers(contactNo)) return;
   
@@ -58,7 +58,7 @@ function validateNIC() {
   // check if is empty
   if (checkIfEmpty(nic)) return;
   // is if it has only letters
-  if (!meetLength(nic, 10, 12)) return;
+  if (!meetLength(nic, 10, 13)) return;
 
   setValid(nic);
   return true;

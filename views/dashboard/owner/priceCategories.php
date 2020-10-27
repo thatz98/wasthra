@@ -6,31 +6,39 @@
         </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Category</button>
-            <form action="<?php echo URL; ?>>priceCategories/create" id="addFrom" class="hidden-form" method="post">
+            <form action="<?php echo URL; ?>priceCategories/create" id="addFrom" class="hidden-form" method="post">
                         <div class="row-top">
                                
                             <div class="col-4 pad-30-0-0-85">
                                 <label>Price Category ID : </label><br><input type="text" name="category_id"><br><br>                            
-                                <label>Production Cost : </label><br><input type="text" name="production_cost"><br>
+                                <label>Production Cost : </label><br><input type="text" name="production_cost" id="production_cost"><br>
                             </div>
                             <div class="col-4 pad-30-0-0-85">
                                 <label>Price Category Name: </label><br><input type="text" name="category_name"><br><br>
-                                <label>Additional Market Price: </label><br><input type="text" name="market_price"><br>  
+                                <label>Additional Market Price: </label><br><input type="text" name="market_price" id="market_price"><br>  
                             </div>
-                           
+                           <script type="text/javascript">
+
+                            function calculateRetail(){
+                                document.getElementById('price-display').innerHTML = parseInt(document.getElementById('production_cost').value) + parseInt(document.getElementById('market_price').value);
+                            }
+                           </script>
                        
                         </div>
                         <div class="center-btn">
-                                <button type="submit" class="btn btn-grey">Calculate Retail Price</button>
+                                <span onclick="calculateRetail()" class="btn btn-grey">Calculate Retail Price</span>
                         </div>
                         <div class="center-content">
-                                <label>Reatil Price:</label><br><br>
+                                <label>Reatil Price:</label><br>
+                                <div id="price-display">
+                                    
+                                </div><br>
                         </div>
                         <div class="center-content pad-auto">
                                <label>Discount: </label><br><input type="text" name="discount"><br>
                         </div>           
                         <div class="center-btn">
-                                <button type="submit" class="btn btn-grey">Calculate Net Price</button>
+                                <a class="btn btn-grey">Calculate Net Price</a>
                         </div>
                         <div class="center-content">
                                 <label>Net Price:</label>

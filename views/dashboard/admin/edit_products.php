@@ -1,5 +1,5 @@
 <?php require 'views/header_dashboard.php'; ?>   
-   
+    
    
    <div class="row">
         <h2>Edit Products</h2>
@@ -31,23 +31,18 @@
                         
                         
                             <label>Available Sizes : </label><br>
-                            <div style="dislay:flex;flex-wrap:wrap;"> 
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="XS"><span>XS</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="S"><span>S</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="M"><span>M</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L"><span>L</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="XL"><span>XL</span>
-                            </div>
-                            </div>
+                            <?php $this->allSizes=array('XS','S','M','L','XL');
+                            $this->mySizes=array('S','M','L');
+                            foreach ($this->allSizes as $item) {
+                                if(in_array($item,$this->mySizes)){?>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
+                                    <?php
+                                } else{
+                                    ?>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><?php echo $item?>
+                                    <?php
+                                }
+                            } ?>
                             <br>
                         
                         <label>Published : </label><br><select name="is_published">

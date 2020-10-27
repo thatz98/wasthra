@@ -30,7 +30,7 @@ class User_Model extends Model{
 
     public function create($data){
 
-        $this->db->insert('user',array(
+        $this->db->insert($data['user_type'],array(
             'nic' => $data['nic'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -39,10 +39,14 @@ class User_Model extends Model{
             'username' => $data['username'],
             'password' => $data['password'],
             'contact_no' => $data['contact_no'],
+            'user_status' => $data['user_status']));
+
+        $this->db->insert('login',array(
+            'nic' => $data['nic'],
+            'username' => $data['username'],
+            'password' => $data['password'],
             'user_status' => $data['user_status'],
             'user_type' => $data['user_type']));
-
-
     }
 
 

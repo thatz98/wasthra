@@ -1,15 +1,6 @@
 <?php require 'views/header_dashboard.php'; ?>
 
 
-<div class="banner">
-            <div class="small-container">
-                <div class="row">
-                        <img src="<?php echo URL; ?>public/images/exclusive.png" class="banner-img">
-                    
-                </div>
-            </div>
-        </div>
-
 <div class="dashboard">
         <div class="small-container">
             <div class="row">
@@ -50,7 +41,7 @@
         </div>
     </div>
 
-
+</div>
 
 
     <?php require 'views/footer_dashboard.php'; ?>

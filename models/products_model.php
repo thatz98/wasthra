@@ -1,5 +1,5 @@
 <?php
-
+ 
 class Products_Model extends Model{
 
     public function __construct(){
