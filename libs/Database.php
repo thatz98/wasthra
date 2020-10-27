@@ -75,13 +75,13 @@ class Database extends PDO
 * @param string $data Data need to be inserted to the database as an associative array.
 */
 	public function insert($table,$data){
-
 		$fieldNames = implode(',', array_keys($data));
 		$fieldValues = ':'.implode(', :', array_keys($data));
-
+	
 		$stmt = $this->prepare("INSERT INTO $table ($fieldNames) VALUES ($fieldValues)");
         
         foreach ($data as $key => $value) {
+        
         	$stmt->bindValue(":$key",$value);
         }
 

@@ -6,9 +6,11 @@
 
 }
 
+
 body{
     min-height: 100%;
     font-family: 'Nunito Sans', sans-serif;
+    padding: 0;
 
 }
 
@@ -372,16 +374,6 @@ h4{
     padding: 50px;
 }
 
-.banner{
-    background: radial-gradient(#fff,#ffd6d6);
-    height: 300px;
-}
-
-.row .banner-img{
-    width: 200px;
-    padding: 50px;
-}
-
 
 small{
     color: #555;
@@ -426,6 +418,7 @@ small{
 }
 
 .footer{
+    bottom: 0;
     margin-top: 45px;
     background: #000;
     color: #8a8a8a;

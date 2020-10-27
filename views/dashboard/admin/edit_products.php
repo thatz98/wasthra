@@ -1,5 +1,5 @@
 <?php require 'views/header_dashboard.php'; ?>   
-   
+    
    
    <div class="row">
         <h2>Edit Products</h2>
@@ -31,11 +31,19 @@
                         
                         
                             <label>Available Sizes : </label><br>
-                            XS<input type="checkbox" name="size[]" value="XS" <?php foreach ($this->sizes as $size): ?><?php if($this->product['product_id']==$size['product_id'])echo "checked";?><?php endforeach;?>>
-                            S<input type="checkbox" name="size[]" value="S">
-                            M<input type="checkbox" name="size[]" value="M">
-                            L<input type="checkbox" name="size[]" value="L">
-                            XL<input type="checkbox" name="size[]" value="XL"><br>
+                            <?php $this->allSizes=array('XS','S','M','L','XL');
+                            $this->mySizes=array('S','M','L');
+                            foreach ($this->allSizes as $item) {
+                                if(in_array($item,$this->mySizes)){?>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
+                                    <?php
+                                } else{
+                                    ?>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><?php echo $item?>
+                                    <?php
+                                }
+                            } ?>
+                            <br>
                         
                         <label>Published : </label><br><select name="is_published">
                             <option value="yes" <?php if($this->product['is_published']=='yes') echo "selected=\"selected\"";?>>YES</option>

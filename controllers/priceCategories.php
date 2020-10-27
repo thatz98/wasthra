@@ -24,7 +24,7 @@ class PriceCategories extends Controller{
   
 
         $this->model->create($data);
-        header('location: '.URL.'priceCategories');
+      //  header('location: '.URL.'priceCategories');
    }
 
 
@@ -49,4 +49,5 @@ class PriceCategories extends Controller{
        $this->model->delete($id);
        header('location: '.URL.'priceCategories');
    }
+
 }

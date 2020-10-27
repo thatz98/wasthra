@@ -24,7 +24,7 @@ class User extends Controller{
         $data['contact_no'] = $_POST['contact_no'];
         $data['username'] = $_POST['email'];
         $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $data['user_status'] = $_POST['user_status'];
+        $data['user_status'] = 'new';
         $data['user_type'] = $_POST['user_type'];
 
         $this->model->create($data);
