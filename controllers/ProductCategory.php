@@ -12,10 +12,7 @@ class ProductCategory extends Controller{
     	$this->view->render('dashboard/admin/ProductCategory');
     }
 
-    function delete($id){
-    	$this->model->delete($id);
-    	header('location:'.URL.'ProductCategory');
-    }
+   
     function create(){
     	$data= array();
     	$data['category_id']= $_POST['product_category_id'];
@@ -23,5 +20,9 @@ class ProductCategory extends Controller{
 
     	$this->model->create($data);
     	header('location: '.URL.'ProductCategory');
+    }
+     function delete($id){
+    	$this->model->delete($id);
+    	header('location:'.URL.'ProductCategory');
     }
 }
