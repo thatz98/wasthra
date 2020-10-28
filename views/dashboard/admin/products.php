@@ -109,8 +109,25 @@
                 <td><?php echo $qty['product_name']; ?></td>
                     <td><?php echo $qty['name']; ?></td>
                     <td><?php echo $qty['qty']; ?></td>
-                    <td><?php foreach ($this->colorList as $color): ?><?php if($qty['product_id']==$color['product_id']){echo $color['colors']; echo ("  "); }?><?php endforeach;?></td>
-                    <td><?php foreach ($this->sizeList as $size): ?><?php if($qty['product_id']==$size['product_id']){echo $size['sizes']; echo ('  ');}?><?php endforeach;?></td>
+                    <td><?php $colorString=''; 
+                        foreach ($this->colorList as $color){ 
+                        if($qty['product_id']==$color['product_id']){
+                            $colorString .= $color['colors']; 
+                            $colorString .= " | "; 
+                            }
+                        }
+                        echo rtrim($colorString," | ");
+                    ?>
+                    </td>
+                    <td><?php $sizeString='';
+                        foreach ($this->sizeList as $size){
+                         if($qty['product_id']==$size['product_id']){
+                                $sizeString.=$size['sizes']; 
+                                $sizeString.=" | ";
+                            }
+                    }
+                        echo rtrim($sizeString," | ");
+                    ?></td>
                     <td><?php foreach ($this->imageList as $image){
                         if($qty['product_id']==$image['product_id']){?>
                             <img src="<?php echo $image['image']?>" width="50px" height="50px">
