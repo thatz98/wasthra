@@ -49,6 +49,10 @@ class Products_Model extends Model{
         return $this->db->query("SELECT inventory.product_id,inventory.qty
         FROM inventory ;");
     }
+    public function getSizesByID($id){
+        return $this->db->query("SELECT product_size.sizes 
+        FROM product_size WHERE product_size.product_id='$id';");
+    }
 
 
 

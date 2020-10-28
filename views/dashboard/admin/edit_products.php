@@ -32,9 +32,9 @@
                         
                             <label>Available Sizes : </label><br>
                             <?php $this->allSizes=array('XS','S','M','L','XL');
-                            $this->mySizes=array('S','M','L');
+                            //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
-                                if(in_array($item,$this->mySizes)){?>
+                                if(in_array($item,$this->sizes)){?>
                                     <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
                                     <?php
                                 } else{
