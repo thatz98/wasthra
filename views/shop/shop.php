@@ -1,5 +1,5 @@
 <?php require 'views/header.php'; ?>
-
+<?php require 'views/shop/add_to_cart.php';?>
 <!-------- featered products -------->
         <div class="small-container">
             <div class="row row-2">

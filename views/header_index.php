@@ -24,7 +24,7 @@
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">
-                    <img src="<?php echo URL; ?>public/images/logo.png" width="125px">
+                    <img src="<?php echo URL;?>public/images/logo.png" width="125px">
                 </div>
                 <div class="search-bar">
                     <form onsubmit="event.preventDefault();" role="search">

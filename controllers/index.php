@@ -8,7 +8,7 @@ class Index extends Controller{
 
     function index(){
     	$this->view->title = 'Home | Wasthra';
-
+    	$this->view->product = array();
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
@@ -19,4 +19,5 @@ class Index extends Controller{
 
     	$this->view->render('index/index');
     }
-}
+
+   }

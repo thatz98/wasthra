@@ -37,7 +37,9 @@ class Wastrap{
     private function _loadDefaultController(){
             require 'controllers/index.php';
             $this->_controller = new Index();
+            $this->_controller->loadModel('index');
             $this->_controller->index();
+         //   header('location: ./index');
     }
 
      private function _loadExistingController(){

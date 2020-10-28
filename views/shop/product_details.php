@@ -1,47 +1,62 @@
 <?php require 'views/header.php'; ?>
+<?php require 'views/shop/add_to_cart.php';?>
 
 <div class="small-container single-product">
+<?php print_r($this->product);?>
         <div class="row">
             <div class="col-2">
-                <img src="<?php echo URL; ?>public/images/gallery-1.jpg" width="100%" id="product-img">
+                <img src="<?php echo URL.$this->product[0]['image']; ?>" width="100%" id="product-img">
                 <div class="gallery-row">
-                    <div class="gallery-col">
-                        <img src="<?php echo URL; ?>public/images/gallery-1.jpg" width="100%" class="gallery-img">
+                    <?php $single_images = array();
+                    foreach($this->product as $single){
+                        if(in_array($single['image'],$single_images)){
+                            continue;
+                        }else{
+                            $single_images[] .= $single['image'];?>
+                            <div class="gallery-col">
+                        <img src="<?php echo URL.$single['image']; ?>" width="100%" class="gallery-img">
                     </div>
-                    <div class="gallery-col">
-                        <img src="<?php echo URL; ?>public/images/gallery-2.jpg" width="100%" class="gallery-img">
-                    </div>
-                    <div class="gallery-col">
-                        <img src="<?php echo URL; ?>public/images/gallery-3.jpg" width="100%" class="gallery-img">
-                    </div>
-                    <div class="gallery-col">
-                        <img src="<?php echo URL; ?>public/images/gallery-4.jpg" width="100%" class="gallery-img">
-                    </div>
+                            <?php
+                        }
+                    } ?>
+                   
                 </div>
             </div>
             <div class="col-2">
                 
-                <h1>Red Printed T-Shirt by HRX </h1>
-                <h4>LKR 800.00</h4>
+                <h1><?php echo $this->product[0]['product_name']?></h1>
+                <h4>LKR <?php echo $this->product[0]['product_price']?></h4>
                 <label class="text-label">Available Colors</label>
                 <div class="product-colors">
-                <span class="color-dot" style="background-color: #59FF37"></span>
-                <span class="color-dot" style="background-color: #3D5BF2"></span>
-                <span class="color-dot" style="background-color: #F23DE5"></span> 
+                    <?php $single_colors = array();
+                    foreach($this->product as $single){
+                        if(in_array($single['colors'],$single_colors)){
+                            continue;
+                        }else{
+                            $single_colors[] .= $single['colors'];?>
+                             <span class="color-dot" style="background-color: <?php echo $single['colors']?>"></span><?php
+                        }
+                    } ?>
                 </div>
                 <label class="text-label">Available Sizes</label>
                 <div class="product-sizes">
-                <span class="size-box">S</span>
-                <span class="size-box">M</span>
-                <span class="size-box">L</span>
+                    <?php $single_sizes = array();
+                    foreach($this->product as $single){
+                        if(in_array($single['sizes'],$single_sizes)){
+                            continue;
+                        }else{
+                            $single_sizes[] .= $single['sizes'];?>
+                             <span class="size-box"><?php echo $single['sizes']?></span><?php
+                        }
+                    } ?>
 </div>
 
-                <a href="#" class="btn prd-btn">Add to Cart</a>
-                <a href="#" class="btn prd-btn">Buy Now</a>
+                <a href="#addToCartPopup" class="btn prd-btn">Add to Cart</a>
+                <a href="#buyNowPopup" class="btn prd-btn">Buy Now</a>
             <br>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero eius nam minus culpa ipsa saepe facere, explicabo a! Repellat velit provident porro quis. Voluptate ea cupiditate perspiciatis provident officia ullam.</p>
+                <p><?php echo $this->product[0]['product_description']?></p>
             
             </div>
         </div>
@@ -59,20 +74,29 @@
             
            
             <div class="row">
-                <div class="col-4">
+                <?php $featured_count=0;
+                foreach($this->qtyList as $qty){
+                    if($qty['is_featured']=='yes'){
+                        $featured_count++;?>
+                    <div class="col-4">
                     <div class="content">
                         <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-9.jpg">
+                    <?php foreach ($this->imageList as $image){
+                        if($qty['product_id']==$image['product_id']){?>
+                            <img src="<?php echo URL.$image['image']?>">
+                            <?php break;
+                        }
+                    }?>
                     <div class="content-details fadeIn-bottom"> 
                         <div class="options">
                             <div class="text">
-                                <a href="#">View</a><br><br>
+                                <a href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id']?>">View</a><br><br>
                             </div>
                                 <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
                     </div>
                             </div>
                     <div style="float: left;">
-                    <h4>Product 1</h4>
+                    <h4><?php echo $qty['product_name'];?></h4>
                     <div class="ratings">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -80,90 +104,19 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p>LKR 800.00</p>
+                    <p>LKR <?php echo $qty['product_price'];?></p>
                     </div>
                     
                 </div>
-                </div>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-10.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
+                    
                     
                 </div>
+                <?php }
+                if($featured_count>=4){
+                    break;
+                }} ?>
+
                 </div>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-11.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-12.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
-            </div>
 
             <div class="page-btn">
                 <span>1</span>
