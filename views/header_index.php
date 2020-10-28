@@ -13,6 +13,10 @@
 </head>
 
 <body>
+
+    <?php if(Session::get('loggedIn')==true){
+    require 'views/user/profile_card.php';
+} ?>
  <!---   <aside class="canvas">
   
 </aside> --->

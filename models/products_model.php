@@ -90,7 +90,7 @@ class Products_Model extends Model{
         }
         
         foreach($imageList as $img){
-            $m="public/images/products";
+            $m="public/images/products/";
             $m.=$img;
             $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
             //echo $imageName['img'][$x];
@@ -115,8 +115,8 @@ class Products_Model extends Model{
             $product_id=$data['product_id'];
             $price_category=$data['price_category'];
             $colors=$data['colors'];
-            $this->db->queryExecuteOnly("UPDATE product SET product.category_id=(SELECT category_id FROM category WHERE category.name='$category' ) WHERE product.product_id=$product_id ");
-            $this->db->queryExecuteOnly("UPDATE product SET product.price_category_id=(SELECT price_category_id FROM price_category WHERE price_category.price_category_name='$price_category' ) WHERE product.product_id=$product_id ");
+            $this->db->queryExecuteOnly("UPDATE product SET product.category_id=(SELECT category_id FROM category WHERE category.name='$category' ) WHERE product.product_id='$product_id' ");
+            $this->db->queryExecuteOnly("UPDATE product SET product.price_category_id=(SELECT price_category_id FROM price_category WHERE price_category.price_category_name='$price_category' ) WHERE product.product_id='$product_id' ");
             $this->db->delete('product_colors',"product_id='$previous_id'");
             $col=explode(",",$colors);
             for ($x=0;$x<count($col);$x++) {

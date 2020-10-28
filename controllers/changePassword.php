@@ -8,9 +8,8 @@ class ChangePassword extends Controller{
         Authenticate::adminAuth();
     }
 
-    function index(){
-    	
-    	$this->view->render('user/change_password');
+    function index(){	
+    	header('location: ./#change-password');
     }
 
   
