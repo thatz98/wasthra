@@ -43,6 +43,7 @@ class PriceCategories_Model extends Model{
 
      }
 
+ 
     public function delete($id){
 
          $this->db->delete('price_category',"price_category_id='$id'");
