@@ -35,6 +35,7 @@ class PriceCategories extends Controller{
 
    function editSave(){
         $data = array();
+        $data['prev_id'] = $_POST['prev_id'];
         $data['price_category_id'] = $_POST['category_id'];
         $data['price_category_name'] = $_POST['category_name'];
         $data['production_cost'] = $_POST['production_cost'];
