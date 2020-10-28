@@ -126,7 +126,7 @@ class Products_Model extends Model{
                 $this->db->queryExecuteOnly("INSERT INTO product_size (product_id,sizes) VALUES ('$product_id','$s')");
             }
             //this line have to edit after adding display product images to edit_products
-            //$this->db->delete('product_images',"product_id='$previous_id'");
+            $this->db->delete('product_images',"product_id='$previous_id'");
             foreach($imageList as $img){
                 $m="public/images/products/";
                 $m.=$img;
