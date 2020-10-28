@@ -61,7 +61,6 @@ class Products_Model extends Model{
 
         $this->db->insert('product',array(
             'product_id' => $data['product_id'],
-            // 'sizes' => $data['sizes'],
             'product_name' => $data['product_name'],
             'product_description' => $data['product_description'],
             'is_featured' => $data['is_featured'],
@@ -93,7 +92,6 @@ class Products_Model extends Model{
             $m="public/images/products/";
             $m.=$img;
             $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
-            //echo $imageName['img'][$x];
         }
     }
 
@@ -102,7 +100,6 @@ class Products_Model extends Model{
         $previous_id=$data['prev_id'];
         $this->db->update('product',array(
             'product_id' => $data['product_id'],
-            // 'sizes' => $data['sizes'],
             'product_name' => $data['product_name'],
             'product_description' => $data['product_description'],
             'is_featured' => $data['is_featured'],
@@ -133,7 +130,7 @@ class Products_Model extends Model{
                 $m="public/images/products/";
                 $m.=$img;
                 $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
-                //echo $imageName['img'][$x];
+                
             }
 
       
