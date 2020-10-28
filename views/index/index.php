@@ -1,8 +1,7 @@
 <?php require 'views/header_index.php'; ?>
 
 
-<?php require 'views/shop/add_to_cart.php'; ?>
-
+<?php require 'views/shop/add_to_cart_index.php'; ?>
 
 <!-------- featered categories -------->
     <div class="categories">
@@ -61,16 +60,16 @@
                         <div class="content-overlay"></div>
                     <?php foreach ($this->imageList as $image){
                         if($qty['product_id']==$image['product_id']){?>
-                            <img src="<?php echo $image['image']?>">
+                            <img src="<?php echo URL.$image['image']?>">
                             <?php break;
                         }
                     }?>
                     <div class="content-details fadeIn-bottom"> 
                         <div class="options">
                             <div class="text">
-                                <a href="<?php echo URL; ?>productDetails">View</a><br><br>
+                                <a href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id']?>">View</a><br><br>
                             </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
+                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id='.$qty['product_id']?>#addToCartPopup"><i class="fa fa-2x fa-cart-plus"></i></a>
                     </div>
                             </div>
                     <div style="float: left;">
@@ -110,14 +109,14 @@
                         <div class="content-overlay"></div>
                     <?php foreach ($this->imageList as $image){
                         if($qty['product_id']==$image['product_id']){?>
-                            <img src="<?php echo $image['image']?>">
+                            <img src="<?php echo URL.$image['image']?>">
                             <?php break;
                         }
                     }?>
                     <div class="content-details fadeIn-bottom"> 
                         <div class="options">
                             <div class="text">
-                                <a href="<?php echo URL; ?>productDetails">View</a><br><br>
+                                <a href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id']?>">View</a><br><br>
                             </div>
                                 <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
                     </div>

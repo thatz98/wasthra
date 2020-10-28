@@ -1,62 +1,62 @@
-<div id="addToCartPopup" class="overlay">
- 
-    <div class="popup">
+<div id="addToCartPopup" class="overlay" >
+    <?php if (isset($_GET['id'])){
+                foreach($this->qtyList as $qty){
+                    if($qty['product_id']==$_GET['id']){
+                        $this->product = array_slice($qty, 0,count($qty));
+                        break;
+                    }
+    }
+} ?> 
+    <div class="popup" style="max-width: 50%; padding:30px;">
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         <div class="row">
             <div class="col-2">
-                <img src="<?php echo URL.$this->product[0]['image']; ?>" id="product-img">
+                <?php foreach ($this->imageList as $image){
+                        if($this->product['product_id']==$image['product_id']){?>
+                            <img src="<?php echo $image['image']?>" id="product-img">
+                            <?php
+                            break; 
+                        }
+                    }?>
             <div class="gallery-row">
                     <div class="gallery-row">
-                    <?php $single_images = array();
-                    foreach($this->product as $single){
-                        if(in_array($single['image'],$single_images)){
-                            continue;
-                        }else{
-                            $single_images[] .= $single['image'];?>
+                        <?php foreach ($this->imageList as $image){
+                        if($this->product['product_id']==$image['product_id']){?>
                             <div class="gallery-col">
-                        <img src="<?php echo URL.$single['image']; ?>" width="100%" class="gallery-img">
-                    </div>
+                            <img src="<?php echo $image['image']?>" width="100%" class="gallery-img">
+                            </div>
                             <?php
+                            break; 
                         }
-                    } ?>
+                    }?>
+                    
                    
                 </div>
 
             </div>
-                <h2 style="margin-top: 5px;"><?php echo $this->product[0]['product_name']?> </h2>
-                <h4>LKR <?php echo $this->product[0]['product_price']?></h4>
+                <h2 style="margin-top: 5px;"><?php echo $this->product['product_name']?></h2>
+                <h4>LKR <?php echo $this->product['product_price']?></h4>
             </div>
             <div class="col-2" style="text-align: center;">
                 <form action="" method="post">
                 <label class="text-label">Select Color</label>
                 <div class="colors">
-                    <?php $single_colors = array();
-                    foreach($this->product as $single){
-                        if(in_array($single['colors'],$single_colors)){
-                            continue;
-                        }else{
-                            $single_colors[] .= $single['colors'];?>
+                    <?php foreach ($this->colorList as $color){
+                        if($this->product['product_id']==$color['product_id']){?>
                             <label class="color-container">
-                <input type="radio" name="color">
-                <span class="checkmark" style="background-color: <?php echo $single['colors']?>"></span>
-                </label>
-                             <?php
-                        }
+                            <input type="radio" name="color">
+                            <span class="checkmark" style="background-color: <?php echo $color['colors']?>"></span>
+                            </label>
+                        <?php }
                     } ?>
-                   
-                
                 </div><br>
                 <label class="text-label">Select Size</label>
                 <div class="sizes">
-                    <?php $single_sizes = array();
-                    foreach($this->product as $single){
-                        if(in_array($single['sizes'],$single_sizes)){
-                            continue;
-                        }else{
-                            $single_sizes[] .= $single['sizes'];?>
+                    <?php foreach ($this->sizeList as $size){
+                        if($this->product['product_id']==$size['product_id']){?>
                             <label class="size-container">
                 <input type="radio" name="size">
-                <span class="checkbox"><?php echo $single['sizes']?></span>
+                <span class="checkbox"><?php echo $size['sizes']?></span>
                 </label>
                              <?php
                         }
