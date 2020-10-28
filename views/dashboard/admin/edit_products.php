@@ -7,13 +7,13 @@
         <div class="center-content">
         <div class="form-container" >
             
-            <form action="<?php echo URL; ?>products/editSave/<?php echo $this->product['product_id'] ?>" id="editFrom" method="post">
+            <form action="<?php echo URL; ?>products/editSave/<?php echo $this->product['product_id'] ?>" enctype="multipart/form-data" id="editFrom" method="post">
 
 
                         <div class="center-btn">
                         <label allign="center">Product images : </label>
                         <!-- <button type="file" class="btn">Add New image</button> -->
-                        <input type="file" accept="image/*" onchange="loadFile(event)" multiple><br>
+                        <input type="file" accept="image/*" name="img[]" multiple><br>
                         </div>
                         
                         <div class="row-top">
@@ -65,7 +65,7 @@
                         
                         
                         
-                            <label>Colors : </label><br><input type="text" name="colors" value="<?php foreach ($this->product_colors as $color): ?><?php if($this->product['product_id']==$color['product_id']){echo $color['colors']; echo (","); }?><?php endforeach;?>"><br>
+                            <label>Colors : </label><br><input type="text" name="colors" value="<?php foreach ($this->product_colors as $color): ?><?php if($this->product['product_id']==$color['product_id']){echo $color['colors']; echo (" "); }?><?php endforeach;?>"><br>
                             <label>Price Category : </label><br><select name="price_category">
                             <?php foreach ($this->price_category as $price): ?><option value="<?php echo $price['price_category_name']; ?>" <?php if($this->product['price_category_id']==$price['price_category_id']) echo "selected=\"selected\"";?>><?php echo $price['price_category_name']; ?></option> <?php endforeach;?>
 

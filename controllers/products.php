@@ -69,7 +69,9 @@ class Products extends Controller{
         $data['quantity'] = $_POST['quantity'];
         $data['colors'] = $_POST['colors'];
         $size=$_POST['size'];
-        $this->model->update($data,$size);
+        $imageName['img']=$_FILES['img']['name'];
+        //echo $imageName['img'][0];
+        $this->model->update($data,$size,$imageName['img']);
         header('location: '.URL.'products');
     }
 
