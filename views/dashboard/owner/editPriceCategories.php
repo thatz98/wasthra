@@ -9,6 +9,7 @@
             <form action="<?php echo URL; ?>priceCategories/editSave/" id="editFrom" method="post">        
                         <div class="row-top">   
                             <div class="col-4">
+                                <input type="text" name="prev_id" value="<?php echo $this->getpricecat['price_category_id']?>" style="display:none">
                                 <label>Price Category ID : </label><br><input type="text" name="category_id" id="category_id" value="<?php echo $this->getpricecat['price_category_id'] ?>"><br><br>                            
                                 <label>Production Cost : </label><br><input type="text" name="production_cost" id="production_cost"  placeholder="LKR" value="<?php echo $this->getpricecat['production_cost'] ?>"><br>
                             </div>

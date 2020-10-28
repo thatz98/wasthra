@@ -51,9 +51,16 @@ class Products extends Controller{
         $this->view->product_category = $this->model->getCategories();
         $this->view->quantity = $this->model->getQty();
         $this->view->price_category = $this->model->getPriceCategories();
-        $this->view->sizes = $this->model->getSizes();
-        
-    	$this->view->render('dashboard/admin/edit_products');
+        //$this->view->sizes = $this->model->getSizes();
+        $sizeArray=array();
+        foreach($this->model->getSizesByID($id) as $sizes){
+            array_push($sizeArray,$sizes['sizes']);
+        }
+        $this->view->sizes = $sizeArray;
+        // foreach($sizeArray as $size){
+        //     echo $size;
+        // }
+        $this->view->render('dashboard/admin/edit_products');
     }
     function editSave(){
         $data = array();
@@ -69,7 +76,9 @@ class Products extends Controller{
         $data['quantity'] = $_POST['quantity'];
         $data['colors'] = $_POST['colors'];
         $size=$_POST['size'];
-        $this->model->update($data,$size);
+        $imageName['img']=$_FILES['img']['name'];
+        //echo $imageName['img'][0];
+        $this->model->update($data,$size,$imageName['img']);
         header('location: '.URL.'products');
     }
 

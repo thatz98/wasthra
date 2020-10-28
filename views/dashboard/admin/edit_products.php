@@ -7,13 +7,13 @@
         <div class="center-content">
         <div class="form-container" >
             
-            <form action="<?php echo URL; ?>products/editSave/<?php echo $this->product['product_id'] ?>" id="editFrom" method="post">
+            <form action="<?php echo URL; ?>products/editSave/<?php echo $this->product['product_id'] ?>" enctype="multipart/form-data" id="editFrom" method="post">
 
 
                         <div class="center-btn">
                         <label allign="center">Product images : </label>
                         <!-- <button type="file" class="btn">Add New image</button> -->
-                        <input type="file" accept="image/*" onchange="loadFile(event)" multiple><br>
+                        <input type="file" accept="image/*" name="img[]" multiple><br>
                         </div>
                         
                         <div class="row-top">
@@ -32,9 +32,9 @@
                         
                             <label>Available Sizes : </label><br>
                             <?php $this->allSizes=array('XS','S','M','L','XL');
-                            $this->mySizes=array('S','M','L');
+                            //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
-                                if(in_array($item,$this->mySizes)){?>
+                                if(in_array($item,$this->sizes)){?>
                                     <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
                                     <?php
                                 } else{

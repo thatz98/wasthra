@@ -49,6 +49,10 @@ class Products_Model extends Model{
         return $this->db->query("SELECT inventory.product_id,inventory.qty
         FROM inventory ;");
     }
+    public function getSizesByID($id){
+        return $this->db->query("SELECT product_size.sizes 
+        FROM product_size WHERE product_size.product_id='$id';");
+    }
 
 
 
@@ -57,7 +61,6 @@ class Products_Model extends Model{
 
         $this->db->insert('product',array(
             'product_id' => $data['product_id'],
-            // 'sizes' => $data['sizes'],
             'product_name' => $data['product_name'],
             'product_description' => $data['product_description'],
             'is_featured' => $data['is_featured'],
@@ -86,25 +89,52 @@ class Products_Model extends Model{
         }
         
         foreach($imageList as $img){
-            $m="public/images/";
+            $m="public/images/products/";
             $m.=$img;
             $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
-            //echo $imageName['img'][$x];
         }
     }
 
 
-    public function update($data){
-        //echo $data['prev_id'];
+    public function update($data,$size,$imageList){
+        $previous_id=$data['prev_id'];
         $this->db->update('product',array(
             'product_id' => $data['product_id'],
-            // 'sizes' => $data['sizes'],
             'product_name' => $data['product_name'],
             'product_description' => $data['product_description'],
             'is_featured' => $data['is_featured'],
             'is_new' => $data['is_new'],
             'is_published' => $data['is_published']),
             "product_id = '{$data['prev_id']}'");
+
+            $this->db->update('inventory',array('qty' => $data['quantity']),"product_id = '{$data['product_id']}'");
+            $category=$data['category'];
+            $product_id=$data['product_id'];
+            $price_category=$data['price_category'];
+            $colors=$data['colors'];
+            $this->db->queryExecuteOnly("UPDATE product SET product.category_id=(SELECT category_id FROM category WHERE category.name='$category' ) WHERE product.product_id='$product_id' ");
+            $this->db->queryExecuteOnly("UPDATE product SET product.price_category_id=(SELECT price_category_id FROM price_category WHERE price_category.price_category_name='$price_category' ) WHERE product.product_id='$product_id' ");
+            $this->db->delete('product_colors',"product_id='$previous_id'");
+            $col=explode(",",$colors);
+            for ($x=0;$x<count($col);$x++) {
+                $p=$col[$x];
+                $this->db->queryExecuteOnly("INSERT INTO product_colors (product_id,colors) VALUES ('$product_id','$p')");
+            }
+            $this->db->delete('product_size',"product_id='$previous_id'");
+            foreach ($size as $sizes) {
+                $s=$sizes;
+                $this->db->queryExecuteOnly("INSERT INTO product_size (product_id,sizes) VALUES ('$product_id','$s')");
+            }
+            //this line have to edit after adding display product images to edit_products
+            $this->db->delete('product_images',"product_id='$previous_id'");
+            foreach($imageList as $img){
+                $m="public/images/products/";
+                $m.=$img;
+                $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
+                
+            }
+
+      
 
     }
 
