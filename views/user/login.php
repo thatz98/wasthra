@@ -94,19 +94,20 @@
                         <h2>Time to feel like home,</h2>
                         <div class="form-inner-container" >
                             <form action="<?php echo URL; ?>login/signup" id="regForm" method="post" novalidate>
-                                <div class="row">
+                                <div class="row-top">
                                     <div class="col-2" style="text-align: center;">
                                         <label>First Name</label><br>
                                         <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()" id="first_name">
-                                        <div class="helper-text"><span></span></div>
-                                        <label>NIC</label><br>
-                                        <input type="text" name="nic" data-helper="NIC" onfocusout="validateNIC()" id="nic">
                                         <div class="helper-text"><span></span></div>
                                         <label>Mobile Number</label><br>
                                         <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX" onfocusout="validateContactNo()" id="contact_no">
                                         <div class="helper-text"><span></span></div>
                                         <label>Password : </label><br>
-                                        <input type="password" name="password" data-helper="Password" onfocusout="validatePassword()" id="password"><div class="helper-text"><span></span></div>
+                                        <input type="password" name="password" data-helper="Password" onfocusout="validatePassword()" id="password">
+                                        <div class="helper-text"><span></span></div>
+                                        <label>Confirm Password</label><br>
+                                        <input type="password" name="conf_password" onfocusout="validateConfirmPassword()" id="conf_password">
+                                        <div class="helper-text"><span></span></div>
                                     </div>
                                     <div class="col-2" style="text-align: center;">
                                         <label>Last Name</label><br>
@@ -119,9 +120,7 @@
                                         <select name="gender">
                                             <option value="male">Male</option>
                                             <option value="female">Female</option></select><div class="helper-text"><span></span></div>
-                                        <label>Confirm Password</label><br>
-                                        <input type="password" name="conf_password" onfocusout="validateConfirmPassword()" id="conf_password">
-                                        <div class="helper-text"><span></span></div>
+                                        
                                     </div>
                                 </div>
                                 <button type="submit" class="btn">Sign Up</button>
