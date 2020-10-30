@@ -23,7 +23,6 @@ class Login extends Controller{
 
     function signup(){
         $data = array();
-        $data['nic'] = $_POST['nic'];
         $data['first_name'] = $_POST['first_name'];
         $data['last_name'] = $_POST['last_name'];
         $data['gender'] = $_POST['gender'];

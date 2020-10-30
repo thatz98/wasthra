@@ -261,6 +261,7 @@ form textarea:hover{
 
 .header{
     background: radial-gradient(#fff,#ffd6d6);
+    visibility: hidden;
 }
 
 .header-plain{

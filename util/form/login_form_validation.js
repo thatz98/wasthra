@@ -6,12 +6,9 @@ const password = document.getElementById('password');
 const confirmPassword = document.getElementById('conf_password');
 const email = document.getElementById('email');
 const contactNo = document.getElementById('contact_no');
-const nic = document.getElementById('nic');
 // Form
 const form = document.getElementById('regForm');
 // Validation colors
-const green = '#4CAF50';
-const red = '#F44336';
 
 // Handle form
 form.addEventListener('submit', function(event) {
@@ -22,7 +19,8 @@ form.addEventListener('submit', function(event) {
     validateLastName() &&
     validatePassword() &&
     validateConfirmPassword() &&
-    validateEmail()
+    validateEmail() && 
+    validateContactNo()
   ) {
     form.submit();
   }
@@ -48,22 +46,13 @@ function validateContactNo() {
   // check if is empty
   if (checkIfEmpty(contactNo)) return;
   // is if it has only letters
-  if (!meetLength(contactNo, 9, 10)) return;
+  if (!meetLength(contactNo, 9, 11)) return;
 
   if (!checkIfOnlyNumbers(contactNo)) return;
   
   return true;
 }
 
-function validateNIC() {
-  // check if is empty
-  if (checkIfEmpty(nic)) return;
-  // is if it has only letters
-  if (!meetLength(nic, 10, 12)) return;
-
-  setValid(nic);
-  return true;
-}
 
 function validatePassword() {
   // Empty check

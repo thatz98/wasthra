@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
-   <!--- <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css"> --->
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -17,10 +18,8 @@
     <?php if(Session::get('loggedIn')==true){
     require 'views/user/profile_card.php';
 } ?>
- <!---   <aside class="canvas">
-  
-</aside> --->
-    <div class="header">
+
+    <div class="header" id="header">
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">
@@ -46,7 +45,7 @@
 
                 <?php if(Session::get('loggedIn')==true): ?>
                             <div class="user-box">
-                                <div class="user-info"><p>Hi, Admin!</p></div>
+                                <div class="user-info"><p>Hi, <?php echo Session::get('firstName')?>!</p></div>
                                 <a class="user-box-btn" href="#profile-card">
                                     <i class="fa fa-user-circle-o fa-2x"></i>
                                 </a>
@@ -72,3 +71,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+    $(document).ready(function() {
+  document.getElementById("header").style.visibility = "visible";
+  document.getElementById("canvas").style.visibility = "hidden";
+});
+
+(function($){
+  'use strict';
+    $(window).on('load', function () {
+        if ($(".pre-loader").length > 0)
+        {
+            $(".pre-loader").fadeOut("slow");
+        }
+    });
+})(jQuery)
+</script>

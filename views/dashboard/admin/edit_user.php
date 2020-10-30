@@ -6,11 +6,10 @@
         </div>
         <div class="center-content">
         <div class="form-container" >
-            <form action="<?php echo URL; ?>user/editSave/<?php echo $this->user['nic'] ?>" id="editFrom" method="post">
+            <form action="<?php echo URL; ?>user/editSave/<?php echo $this->user['user_id'] ?>" id="editFrom" method="post">
                         <div class="row">
                             <div class="col-2 pad-l-55">
                             <label>First Name : </label><br><input type="text" name="first_name" value="<?php echo $this->user['first_name'] ?>"><br>
-                            <label>NIC : </label><br><input type="text" name="nic" value="<?php echo $this->user['nic'] ?>"><br>
                             <label>Mobile Number : </label><br><input type="text" name="contact_no" value="<?php echo $this->user['contact_no'] ?>"><br>
                             <label>User Type : </label><br><select name="user_type">
                               <option value="customer" <?php if($this->user['user_type']=='customer') echo "selected=\"selected\"";?>>Customer</option>
