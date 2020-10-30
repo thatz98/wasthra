@@ -53,6 +53,10 @@ class Products_Model extends Model{
         return $this->db->query("SELECT product_size.sizes 
         FROM product_size WHERE product_size.product_id='$id';");
     }
+    public function getImagesByID($id){
+        return $this->db->query("SELECT product_images.image 
+        FROM product_images WHERE product_images.product_id='$id';");
+    }
 
 
 
@@ -89,6 +93,9 @@ class Products_Model extends Model{
         }
         
         foreach($imageList as $img){
+            // if($img=' '){
+            //     break;
+            // }
             $m="public/images/products/";
             $m.=$img;
             $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
@@ -128,6 +135,9 @@ class Products_Model extends Model{
             //this line have to edit after adding display product images to edit_products
             $this->db->delete('product_images',"product_id='$previous_id'");
             foreach($imageList as $img){
+                // if($img=' '){
+                // break;
+                // }
                 $m="public/images/products/";
                 $m.=$img;
                 $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");

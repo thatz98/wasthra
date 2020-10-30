@@ -15,6 +15,16 @@
                         <!-- <button type="file" class="btn">Add New image</button> -->
                         <input type="file" accept="image/*" name="img[]" multiple><br>
                         </div>
+
+                        <div class="center-content">
+                        <?php foreach ($this->imageList as $image){
+                        if($this->product['product_id']==$image['product_id']){?>
+                            <img src="../../<?php echo $image['image']?>" width="100px" height="100px"><br>
+                            <a href="<?php echo URL ?>products/delete/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-red">Delete</button></a>
+                            <?php 
+                        }
+                        }?>
+                        </div>
                         
                         <div class="row-top">
                             <div class="col-2 pad-30-0-0-85">
