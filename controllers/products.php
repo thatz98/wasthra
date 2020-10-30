@@ -51,15 +51,14 @@ class Products extends Controller{
         $this->view->product_category = $this->model->getCategories();
         $this->view->quantity = $this->model->getQty();
         $this->view->price_category = $this->model->getPriceCategories();
-        //$this->view->sizes = $this->model->getSizes();
+        //$this->view->imageList = $this->model->getImagesByID($id);
+        $this->view->imageList =  $this->model->getImages();
         $sizeArray=array();
         foreach($this->model->getSizesByID($id) as $sizes){
             array_push($sizeArray,$sizes['sizes']);
         }
         $this->view->sizes = $sizeArray;
-        // foreach($sizeArray as $size){
-        //     echo $size;
-        // }
+
         $this->view->render('dashboard/admin/edit_products');
     }
     function editSave(){
