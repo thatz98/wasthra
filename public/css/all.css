@@ -336,6 +336,10 @@ form textarea:hover{
     color: #555;
 }
 
+.title-min{
+    margin-bottom: 20px;
+}
+
 .title:after{
     content: '';
     background: #ff523b;

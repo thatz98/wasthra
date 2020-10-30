@@ -31,14 +31,13 @@ class User extends Controller{
         header('location: '.URL.'user');
     }
 
-    function edit($id){
-        $this->view->user = $this->model->getUser($id);
+    function edit($id,$type){
+        $this->view->user = $this->model->getUser($id,$type);
         $this->view->render('dashboard/admin/edit_user');
     }
 
     function editSave(){
     	$data = array();
-    	$data['nic'] = $_POST['nic'];
         $data['first_name'] = $_POST['first_name'];
         $data['last_name'] = $_POST['last_name'];
         $data['gender'] = $_POST['gender'];
@@ -47,7 +46,9 @@ class User extends Controller{
         $data['username'] = $_POST['email'];
         $data['user_status'] = $_POST['user_status'];
         $data['user_type'] = $_POST['user_type'];
-
+        $data['prev_user_id'] = $_POST['prev_user_id'];
+        $data['prev_user_type'] = $_POST['prev_user_type'];
+        
         $this->model->update($data);
         header('location: '.URL.'user');
     }

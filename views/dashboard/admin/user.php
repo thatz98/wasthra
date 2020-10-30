@@ -244,7 +244,7 @@
                     <td><?php echo $user['gender']; ?></td>
                     <td><?php echo $user['contact_no']; ?></td>
                     <td><?php echo $user['email']; ?></td>
-                    <td><a href="<?php echo URL ?>user/edit/<?php echo $user['user_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                    <td><a href="<?php echo URL ?>user/edit/<?php echo $user['user_id'].'/'.$user['user_type']; ?>"><button class="table-btn btn-blue">Edit</button></a>
                     <a href="<?php echo URL ?>user/delete/<?php echo $user['user_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
             
             </tr>
