@@ -12,6 +12,15 @@
 </head>
 
 <body>
+<div id="message" class="overlay">
+    <div class="popup">
+        <a href="#"><i class="fa fa-times-circle"></i></a>
+        <div class="content">
+            Error: <?php if($_GET['error']=='usernameExists'){
+                echo 'User name exists, please chose another';}?>!
+        </div>
+    </div>
+</div>
     <div class="header-plain">
         <div class="contaner">
             <div class="navbar">
@@ -25,14 +34,17 @@
                         <li><a href="<?php echo URL; ?>orders">Orders</a></li>
                         <li><a href="<?php echo URL; ?>products">Products</a></li>
                         <li><a href="<?php echo URL; ?>productCategories">Product Categories</a></li>
-                        <li><a href="<?php echo URL; ?>report">Reports</a></li>
-                        <?php if(Session::get('loggedIn')==true): ?>
-                            <li><a href="<?php echo URL; ?>login/logout">Logout</a></li>
-                        <?php else: ?>
-                            <li><a href="<?php echo URL; ?>login">Login/Signup</a></li>
-                        <?php endif; ?>
+                        
                     </ul>
                 </nav>
+                <?php if(Session::get('loggedIn')==true): ?>
+                            <div class="user-box">
+                                <div class="user-info"><p>Hi, <?php echo Session::get('firstName')?>!</p></div>
+                                <a class="user-box-btn" href="#profile-card">
+                                    <i class="fa fa-user-circle-o fa-2x"></i>
+                                </a>
+                            </div>
+                <?php endif; ?>
                 <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
             

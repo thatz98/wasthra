@@ -15,7 +15,7 @@
                               <option value="customer" <?php if($this->user[0]['user_type']=='customer') echo "selected=\"selected\"";?>>Customer</option>
                               <option value="admin" <?php if($this->user[0]['user_type']=='admin') echo "selected=\"selected\"";?>>Admin</option>
                               <option value="owner" <?php if($this->user[0]['user_type']=='owner') echo "selected=\"selected\"";?>>Owner</option>
-                              <option value="delivery" <?php if($this->user[0]['user_type']=='delivery') echo "selected=\"selected\"";?>>Delivery</option>
+                              <option value="delivery_staff" <?php if($this->user[0]['user_type']=='delivery_staff') echo "selected=\"selected\"";?>>Delivery</option>
                         </select><br>
                         <label>User Status : </label><br><select name="user_status" value="<?php echo $this->user[0]['user_status'] ?>">
                               <option value="new" <?php if($this->user[0]['user_status']=='new') echo "selected=\"selected\"";?>>New</option>
@@ -33,8 +33,9 @@
                               <option value="male" <?php if($this->user[0]['gender']=='male') echo "selected=\"selected\"";?>>Male</option>
                               <option value="female" <?php if($this->user[0]['gender']=='female') echo "selected=\"selected\"";?>>Female</option></select><br>
                         
-                        <input type="text" name="prev_user_id" value="<?php echo $this->user[0]['user_id']?>" hidden>
+                        <input type="text" name="user_id" value="<?php echo $this->user[0]['user_id']?>" hidden>
                         <input type="text" name="prev_user_type" value="<?php echo $this->user[0]['user_type']?>" hidden>
+                        <input type="text" name="login_id" value="<?php echo $this->user[0]['login_id']?>" hidden>
                         </div>
                     </div>
                         

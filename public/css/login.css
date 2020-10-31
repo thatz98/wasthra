@@ -45,11 +45,6 @@ body{
 }
 
 
-.valid{
-  
-}
-
-
 .form-inner-container form{
     padding: 10px 0 10px 0;
     margin: 0;
@@ -61,7 +56,6 @@ body{
 .pad-auto{
     padding: auto;
 }
-
 
 
 .login .sub-cont {
@@ -257,7 +251,9 @@ body{
    width: 100%;
    vertical-align: top;
 }
-
+.form.sign-in{
+   padding-top: 130px;
+ }
 
 .overlay {
   position: fixed;
@@ -322,11 +318,225 @@ body{
   color: #ff523b;
 }
 
-@media screen and (max-width: 700px){
+#mobile-form-container{
+   background: #fff;
+   width: 300px;
+   height: 400px;
+   position: relative;
+   text-align: center;
+   padding: 20px 0;
+   margin: auto;
+   box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+   overflow: hidden;
+   transition: height 2s;
+}
+
+
+#mobile-form-container span{
+   font-weight: bold;
+   padding: 0 10px;
+   color: #555;
+   cursor: pointer;
+   width: 100px;
+   display: inline-block;
+}
+
+.mobile-form-btn{
+   display: inline-block;
+}
+
+#mobile-form-container form{
+   max-width: 300px;
+   padding: 0 20px;
+   position: absolute;
+   top: 70px;
+   transition: transform 1.5s;
+}
+
+#mobile-form-container input{
+   text-align: center;
+ }
+
+#loginForm{
+   top: 150px;
+   left: 0;
+}
+
+#regForm{
+   width: 100%;
+   left: 300px;
+}
+
+#indicator{
+   width: 100px;
+   border: none;
+   background: #ff523b;
+   height: 3px;
+   margin-top: 8px;
+   margin-bottom: 20px;
+   transform: translateX(0px);
+   transition: transform 1s;
+}
+
+@media screen and (max-width: 900px){
   .box{
     width: 70%;
   }
   .popup{
     width: 70%;
   }
+
+  .login .login-form-cont {
+   overflow: hidden;
+   position: relative;
+   width: 90%;
+   height: 800px;
+   margin: 0 500px 100px 35px;
+   background: #fff;
 }
+.login .form {
+   position: relative;
+   width: 80%;
+   height: 100%;
+   transition: transform 1.2s ease-in-out;
+   padding: 50px 15px 0 15px;
+}
+
+.form.sign-in{
+   padding-top: 200px;
+   width: 480px;
+}
+
+.form-inner-container{
+    width: 100%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.pad-l{
+  padding-left: 55px;
+}
+
+
+
+.form-inner-container form{
+    padding: 10px 0 10px 0;
+    margin: 0;
+    text-align: left;
+    transition: transform 1s;
+}
+
+.login .sub-cont {
+   overflow: hidden;
+   position: absolute;
+   left: 71%;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   padding-left: 260px;
+   background: #fff;
+   transition: transform 1.2s ease-in-out;
+}
+.login .login-form-cont.s--signup .sub-cont {
+   transform: translate3d(-71%, 0, 0);
+}
+
+.login .img {
+   overflow: hidden;
+   z-index: 2;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 200px;
+   height: 100%;
+   padding-top: 360px;
+}
+
+.login .login-form-cont.s--signup .img:before {
+   transform: translate3d(640px, 0, 0);
+}
+.login .img__text {
+   z-index: 2;
+   position: absolute;
+   left: 0;
+   top: 50px;
+   width: 100%;
+   padding: 0 20px;
+   text-align: center;
+   color: #fff;
+   transition: transform 1.2s ease-in-out;
+}
+
+
+.login .btn{
+   margin-top: 15px;
+   margin-bottom: 20px;
+   background: #ff523b;
+   text-transform: uppercase;
+}
+
+.login .btn:hover{
+   color: #ff523b;
+   background: #fff;
+}
+
+
+.login .login-form-cont.s--signup .sign-in {
+   transition-timing-function: ease-in-out;
+   transition-duration: 1.2s;
+   transform: translate3d(640px, 0, 0);
+}
+.login .sign-up {
+   transform: translate3d(-1900px, 0, 0);
+}
+.login .login-form-cont.s--signup .sign-up {
+   transform: translate3d(0, 0, 0);
+}
+.login .icon-link {
+   position: absolute;
+   left: 5px;
+   bottom: 5px;
+   width: 32px;
+}
+.login .icon-link img {
+   width: 100%;
+   vertical-align: top;
+}
+
+.login button{
+   width: 120px;
+}
+}
+
+@media screen and (max-width: 700px){
+ .login .sub-cont {
+
+    left: 68%;
+ }
+
+ .login .login-form-cont.s--signup .sub-cont {
+    transform: translate3d(-68%, 0, 0);
+ }
+ .form.sign-in{
+   padding-top: 200px;
+   width: 430px;
+}
+  }
+
+  @media screen and (max-width: 600px){
+   .login .sub-cont {
+  
+      left: 65%;
+   }
+   .login .login-form-cont.s--signup .sub-cont {
+      transform: translate3d(-65%, 0, 0);
+   }
+   
+   .form.sign-in{
+      padding-top: 200px;
+      width: 380px;
+   }
+    }

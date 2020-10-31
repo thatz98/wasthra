@@ -10,9 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 
 <body>
+    
     <div id="signup=success" class="overlay">
     <div class="popup">
         <a href="<?php echo URL ?>login"><i class="fa fa-times-circle"></i></a>
@@ -55,7 +57,7 @@
   
         <div class="login">
             <div class="login-form-cont">
-                <div class="form sign-in" style="padding-top: 130px;">
+                <div class="form sign-in">
                     <h2>Welcome back,</h2>
                     <div class="form-inner-container" >
                         <form action="<?php echo URL; ?>login/run" id="loginForm" method="post" novalidate>
@@ -132,8 +134,18 @@
         </div>
     </div>
 
+    
+<script>
+ /*   $(document).ready(function(){
+  if($(window).width() <= 950) {
+window.location = "https://www.google.com/";
+}
+});*/
+    var usernameArray =  <?php echo json_encode($this->usernames); ?>;
+                </script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/toggle_login.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>util/form/login_form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/signup_form_validation.js"></script>
 
 <?php require 'views/footer.php'; ?>

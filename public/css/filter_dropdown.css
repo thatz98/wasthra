@@ -1,6 +1,7 @@
 .dropdown-filter-dropdown {
-    position:relative;
-    top: 50px;
+    position: relative;
+    top:20px;
+    color: #000;
 }
 
 .filter-icon {

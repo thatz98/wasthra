@@ -16,7 +16,6 @@ class User extends Controller{
 
     function create(){
     	$data = array();
-    	$data['nic'] = $_POST['nic'];
         $data['first_name'] = $_POST['first_name'];
         $data['last_name'] = $_POST['last_name'];
         $data['gender'] = $_POST['gender'];
@@ -27,8 +26,13 @@ class User extends Controller{
         $data['user_status'] = 'new';
         $data['user_type'] = $_POST['user_type'];
 
-        $this->model->create($data);
-        header('location: '.URL.'user');
+        if(!$this->model->checkExists($data['username'])){
+            $this->model->create($data);
+            header('location: '.URL.'user');
+        } else{
+        header('location: '.URL.'user?error=usernameExists#message');
+        }
+        
     }
 
     function edit($id,$type){
@@ -46,11 +50,17 @@ class User extends Controller{
         $data['username'] = $_POST['email'];
         $data['user_status'] = $_POST['user_status'];
         $data['user_type'] = $_POST['user_type'];
-        $data['prev_user_id'] = $_POST['prev_user_id'];
+        $data['user_id'] = $_POST['user_id'];
         $data['prev_user_type'] = $_POST['prev_user_type'];
+        $data['login_id'] = $_POST['login_id'];
         
-        $this->model->update($data);
-        header('location: '.URL.'user');
+        if(!$this->model->checkExistsWhere($data['username'],$data['login_id'])){
+            $this->model->update($data);
+            header('location: '.URL.'user');
+        } else{
+        header('location: '.URL.'user?error=usernameExists#message');
+        }
+        
     }
 
     function delete($id){

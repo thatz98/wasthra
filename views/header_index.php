@@ -37,8 +37,9 @@
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
                         <?php if(Session::get('loggedIn')!==true): ?>
-                            
-                            <li><a href="<?php echo URL; ?>login">Login/Signup</a></li>
+                            <li><a href="#" onclick="passScreenSize()">Login/Signup</a></li>
+                            <form action="<?php echo URL; ?>login" id="login-redirect" method="post" novalidate>
+                            <input type="text" name="screen-size" id="screen-size" hidden></form>
                         <?php endif; ?>
                     </ul>
                 </nav>
@@ -73,18 +74,16 @@
     </div>
 
     <script>
+
+        function passScreenSize(){
+            var size = $(window).width();
+            document.getElementById('screen-size').value = size;
+            document.getElementById('login-redirect').submit();
+
+        }
+
     $(document).ready(function() {
   document.getElementById("header").style.visibility = "visible";
-  document.getElementById("canvas").style.visibility = "hidden";
 });
 
-(function($){
-  'use strict';
-    $(window).on('load', function () {
-        if ($(".pre-loader").length > 0)
-        {
-            $(".pre-loader").fadeOut("slow");
-        }
-    });
-})(jQuery)
 </script>

@@ -1,90 +1,61 @@
 
     // Input fields
-const firstName = document.getElementById('first_name');
-const lastName = document.getElementById('last_name');
-const password = document.getElementById('password');
-const confirmPassword = document.getElementById('conf_password');
-const email = document.getElementById('email');
-const contactNo = document.getElementById('contact_no');
-// Form
-const form = document.getElementById('regForm');
-// Validation colors
+    const username = document.getElementById('username');
+    const loginPassword = document.getElementById('login_password');
 
-// Handle form
-form.addEventListener('submit', function(event) {
-  // Prevent default behaviour
-  event.preventDefault();
-  if (
-    validateFirstName() &&
-    validateLastName() &&
-    validatePassword() &&
-    validateConfirmPassword() &&
-    validateEmail() && 
-    validateContactNo()
-  ) {
-    form.submit();
-  }
-});
-
-// Validators
-function validateFirstName() {
-  // check if is empty
-  if (checkIfEmpty(firstName)) return;
-  // is if it has only letters
-  if (!checkIfOnlyLetters(firstName)) return;
-  return true;
-}
-function validateLastName() {
-  // check if is empty
-  if (checkIfEmpty(lastName)) return;
-  // is if it has only letters
-  if (!checkIfOnlyLetters(lastName)) return;
-  return true;
-}
-
-function validateContactNo() {
-  // check if is empty
-  if (checkIfEmpty(contactNo)) return;
-  // is if it has only letters
-  if (!meetLength(contactNo, 9, 11)) return;
-
-  if (!checkIfOnlyNumbers(contactNo)) return;
-  
-  return true;
-}
+    
+    // Form
+    const loginForm = document.getElementById('loginForm');
+    // Validation colors
+    
+    // Handle form
+    loginForm.addEventListener('submit', function(event) {
+      // Prevent default behaviour
+      event.preventDefault();
+      if (
+        validatePassword() &&
+        validateUsername()
+      ) {
+        loginForm.submit();
+      }
+    });
+    
+    // Validators
+    
+    
+    function validatePassword() {
+      // Empty check
+      if (checkIfEmpty(loginPassword)) return;
+      // Must of in certain length
+      if (!meetLength(loginPassword, 4, 100)) return;
+      // check password against our character set
+      // 1- a
+      // 2- a 1
+      // 3- A a 1
+      // 4- A a 1 @
+      //if (!containsCharacters(password, 4)) return;
+      
+      setValid(loginPassword);
+      return true;
+    }
 
 
-function validatePassword() {
-  // Empty check
-  if (checkIfEmpty(password)) return;
-  // Must of in certain length
-  if (!meetLength(password, 4, 100)) return;
-  // check password against our character set
-  // 1- a
-  // 2- a 1
-  // 3- A a 1
-  // 4- A a 1 @
-  //if (!containsCharacters(password, 4)) return;
-  
-  setValid(password);
-  return true;
-}
-function validateConfirmPassword() {
-  if (!validatePassword()) {
-    setInvalid(confirmPassword, 'Password must be valid');
-    return;
-  }
-  // If they match
-  if (password.value !== confirmPassword.value) {
-    setInvalid(confirmPassword, 'Passwords must match');
-    return;
-  } else {
-    setValid(confirmPassword);
-  }
-  return true;
-}
-function validateEmail() {
-  if (checkIfEmpty(email)) return;
-  if (!containsCharacters(email, 5)) return;
-  return true;
-}
+    function validateUsername() {
+        
+      if (checkIfEmpty(username)) return;
+      if (!containsCharacters(username, 5)) return;
+      if (checkUsernameExists()) return;
+      return true;
+    }
+
+    function checkUsernameExists(){
+        for(var i in usernameArray){
+            if(usernameArray[i].username==username.value){
+                return true;
+            }
+        }
+        
+        setInvalid(username, 'Username doesn\'t exist');
+        return false;
+    }
+    

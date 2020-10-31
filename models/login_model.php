@@ -3,7 +3,7 @@
 class Login_Model extends Model{
 
     public function __construct(){
-     	parent::__construct();
+         parent::__construct();
     }
 
     public function run(){
@@ -80,5 +80,8 @@ class Login_Model extends Model{
        header('location: ../login#signup=success');
     }
 
+    public function listUsernames(){
+        return $this->db->listAll('login',array('username'));
 
+    }
 }

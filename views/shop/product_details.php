@@ -95,7 +95,7 @@
                                 <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
                     </div>
                             </div>
-                    <div style="float: left;">
+                    <div>
                     <h4><?php echo $qty['product_name'];?></h4>
                     <div class="ratings">
                         <i class="fa fa-star"></i>
