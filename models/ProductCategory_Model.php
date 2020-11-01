@@ -15,7 +15,7 @@ class ProductCategory_Model extends Model{
 
     public function getProductcat($id){
 
-        return $this->db->listWhere('category',array('product_id','name'),"category_id='$id'");
+        return $this->db->listWhere('category',array('category_id','name'),"category_id='$id'");
     }
 
     public function create($data){
@@ -28,15 +28,8 @@ class ProductCategory_Model extends Model{
     public function update($data){
 
         $this->db->update('user',array(
-            'nic' => $data['nic'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'username' => $data['email'],
-            'contact_no' => $data['contact_no'],
-            'user_status' => $data['user_status'],
-            'user_type' => $data['user_type']),"nic = '{$data['nic']}'");
+            'category_id' => $data['category_id'],
+            'name' => $data['name'],),"category_id = '{$data['prev_id']}'");
 
     }
 
