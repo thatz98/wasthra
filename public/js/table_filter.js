@@ -78,20 +78,32 @@ function showFilters(tableId,columnId,dropdownId,checkboxId,selectAllId) {
     }
 
     document.getElementById(checkboxId).innerHTML = "";
-    var table, tr, td, i;
+    var table, tr, td, tdArray, i;
     table = document.getElementById(tableId);
     tr = table.getElementsByTagName("TR");
     var distinct = [];
 
     for (i = 1; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("TD")[columnId];
-
+        tdArray = tr[i].getElementsByTagName("TD");
+        if(tdArray.length==0){
+            continue;
+        }
+td = tdArray[columnId];
         if(distinct.includes(td.innerHTML)){
             continue;
         } else{
             distinct.push(td.innerHTML);
-            document.getElementById(checkboxId).innerHTML = document.getElementById(checkboxId).innerHTML + '<input type="checkbox" name="checkbox-data" value="' + td.innerHTML + '" onchange="filterByCheck(\'' + tableId + '\',\'' + td.innerHTML + '\',\'' + columnId + '\',\'' + selectAllId + '\')" checked><span>' + td.innerHTML + '</span><br>';
-        }       
+            if(tr[i].style.display == "none"){
+                document.getElementById(checkboxId).innerHTML = document.getElementById(checkboxId).innerHTML + '<input type="checkbox" name="checkbox-data" value="' + td.innerHTML + '" onchange="filterByCheck(\'' + tableId + '\',\'' + td.innerHTML + '\',\'' + columnId + '\',\'' + selectAllId + '\')"><span>' + td.innerHTML + '</span><br>';
+            } else{
+                document.getElementById(checkboxId).innerHTML = document.getElementById(checkboxId).innerHTML + '<input type="checkbox" name="checkbox-data" value="' + td.innerHTML + '" onchange="filterByCheck(\'' + tableId + '\',\'' + td.innerHTML + '\',\'' + columnId + '\',\'' + selectAllId + '\')" checked><span>' + td.innerHTML + '</span><br>';
+            }
+            
+        }    
+    }
+    if(!checkAllSelected()){
+        var selectAll = document.getElementById(checkboxId);
+        selectAll.checked = false;
     }
 }
 
@@ -147,6 +159,9 @@ function filterByCheck(tableId,data,columnId,checkboxId) {
     if(!checkAllSelected()){
         var selectAll = document.getElementById(checkboxId);
         selectAll.checked = false;
+    } else{
+        var selectAll = document.getElementById(checkboxId);
+        selectAll.checked = true;
     }
     var input, table, tr, td, th, i, txtValue;
     var filter = getSelectedCheckboxes();
