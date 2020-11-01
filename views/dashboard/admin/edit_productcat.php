@@ -21,7 +21,7 @@
                         
                         <div class="center-content">
                             <button type="submit" class="btn">Update</button>
-                            <a href="<?php echo URL ?>user" class="btn btn-grey">Cancel</a>
+                            <a href="<?php echo URL ?>ProductCategory" class="btn btn-grey">Cancel</a>
                         </div>
                     </form>
 
