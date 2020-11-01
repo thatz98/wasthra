@@ -9,11 +9,16 @@ class Login extends Controller{
 
     function index(){
         $this->view->usernames = $this->model->listUsernames();
-        if($_POST['screen-size']<600){
-            $this->view->render('user/mobile_login');
+        if(isset($_POST['screen-size'])){
+            if($_POST['screen-size']<600){
+                $this->view->render('user/mobile_login');
+            } else{
+                $this->view->render('user/login');
+            }
         } else{
             $this->view->render('user/login');
         }
+        
     	
     }
 
