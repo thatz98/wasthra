@@ -27,7 +27,7 @@ class ProductCategory_Model extends Model{
 
     public function update($data){
 
-        $this->db->update('user',array(
+        $this->db->update('category',array(
             'category_id' => $data['category_id'],
             'name' => $data['name'],),"category_id = '{$data['prev_id']}'");
 
