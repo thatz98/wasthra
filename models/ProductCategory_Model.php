@@ -30,7 +30,6 @@ class ProductCategory_Model extends Model{
         $this->db->update('category',array(
             'category_id' => $data['category_id'],
             'name' => $data['name'],),"category_id = '{$data['prev_id']}'");
-
     }
 
     public function delete($id){

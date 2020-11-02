@@ -10,11 +10,11 @@
                         <div class="row">
                             <div class="col-2 pad-l-55">
                              <input type="text" name="prev_id" value="<?php echo $this->getproductcategory['category_id']?>" style="display:none">   
-                            <label>Product Category Id : </label><br><input type="text" name="category_id" id="category_id" value="<?php echo $this->getproductcategory['category_id'] ?>"><br><br>
+                            <label>Product Category Id : </label><br><input type="text" name="product_category_id" id="category_id" value="<?php echo $this->getproductcategory['category_id'] ?>"><br><br>
                            
                         </div>
                         <div class="col-2 pad-l-55" >
-                            <label>Product Category Name : </label><br><input type="text" name="name"id="name" value="<?php echo $this->getproductcategory['name'] ?>"><br><br>
+                            <label>Product Category Name : </label><br><input type="text" name="category_name" id="category_name" value="<?php echo $this->getproductcategory['name'] ?>"><br><br>
                         
                         </div>
                     </div>
