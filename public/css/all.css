@@ -269,7 +269,7 @@ form textarea:hover{
 }
 
 .header .row{
-    margin: 70px;
+    margin: 0 70px 70px 70px;
 }
 
 .categories{
@@ -330,7 +330,7 @@ form textarea:hover{
 
 .title{
     text-align: center;
-    margin: 0 auto 80px;
+    margin: 0 auto 30px;
     position: relative;
     line-height: 60px;
     color: #555;
