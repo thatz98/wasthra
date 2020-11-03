@@ -20,7 +20,8 @@
                         <?php foreach ($this->imageList as $image){
                         if($this->product['product_id']==$image['product_id']){?>
                             <img src="../../<?php echo $image['image']?>" width="100px" height="100px"><br>
-                            <a href="<?php echo URL ?>products/delete/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-red">Delete</button></a>
+                            <a href="<?php echo URL ?>products/deleteImage/<?php echo $this->product['product_id'] ?>/<?php echo $image['image']?>"><button class="table-btn btn-red">Delete</button></a>
+                            <!-- <input type="file" name="image[]" value="<?php echo $this->product['product_id']?>" style="display:none"> -->
                             <?php 
                         }
                         }?>

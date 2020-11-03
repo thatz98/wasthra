@@ -133,16 +133,16 @@ class Products_Model extends Model{
                 $this->db->queryExecuteOnly("INSERT INTO product_size (product_id,sizes) VALUES ('$product_id','$s')");
             }
             //this line have to edit after adding display product images to edit_products
-            $this->db->delete('product_images',"product_id='$previous_id'");
-            foreach($imageList as $img){
-                // if($img=' '){
-                // break;
-                // }
-                $m="public/images/products/";
-                $m.=$img;
-                $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
+            //$this->db->delete('product_images',"product_id='$previous_id'");
+            // foreach($imageList as $img){
+            //     // if($img=' '){
+            //     // break;
+            //     // }
+            //     $m="public/images/products/";
+            //     $m.=$img;
+            //     $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
                 
-            }
+            // }
 
       
 
@@ -153,6 +153,13 @@ class Products_Model extends Model{
             
         $this->db->delete('product',"product_id='$id'");
         
+
+    }
+    public function deleteImage($id,$name){
+        
+            
+        //$this->db->delete('product_images',"product_id='$id'");
+        $this->db->queryExecuteOnly("DELETE FROM product_images WHERE product_id='$id' AND image='$name'");
 
     }
 

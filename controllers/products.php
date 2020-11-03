@@ -86,4 +86,8 @@ class Products extends Controller{
         header('location: '.URL.'products');
     }    
   
+    function deleteImage($id,$name){
+        $this->model->deleteImage($id,$name);
+        header('location: '.URL.'edit/'.$id);
+    }   
 }
