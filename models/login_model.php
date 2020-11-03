@@ -41,7 +41,7 @@ class Login_Model extends Model{
                     $userData = $this->db->listWhere('customer',array('user_id','first_name','last_name'),"login_id='$loginId'");
                     Session::set('userId',$userData['user_id']);
                     Session::set('firstName',$userData['first_name']);
-                    header('location: ../');
+                header('location: ../');
                 }
                 
             exit;

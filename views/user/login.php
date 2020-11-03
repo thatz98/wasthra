@@ -67,7 +67,8 @@
                                     <input type="text" name="username" onfocusout="validateUsername()" id="username">
                                     <div class="helper-text"><span></span></div>
                                     <label>Password</label><br>
-                                    <input type="password" name="password" onfocusout="validatePassword()" id="login_password"><div class="helper-text"><span></span></div>
+                                    <input type="password" name="password" onfocusout="validateLoginPassword()" id="login_password">
+                                    <div class="helper-text"><span></span></div>
                                 </div>
                             </div>
                             <button type="submit" class="btn">Login</button>
@@ -135,14 +136,6 @@
     </div>
 
     
-<script>
- /*   $(document).ready(function(){
-  if($(window).width() <= 950) {
-window.location = "https://www.google.com/";
-}
-});*/
-    var usernameArray =  <?php echo json_encode($this->usernames); ?>;
-                </script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/toggle_login.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>util/form/login_form_validation.js"></script>

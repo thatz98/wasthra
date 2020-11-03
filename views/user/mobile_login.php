@@ -72,7 +72,7 @@
                                     <input type="text" name="username" onfocusout="validateUsername()" id="username">
                                     <div class="helper-text"><span></span></div>
                                     <label>Password</label><br>
-                                    <input type="password" name="password" onfocusout="validatePassword()" id="login_password"><div class="helper-text"><span></span></div>
+                                    <input type="password" name="password" onfocusout="validateLoginPassword()" id="login_password"><div class="helper-text"><span></span></div>
                                 </div>
                             </div>
                             <button type="submit" class="btn">Login</button>
@@ -121,7 +121,6 @@
     </div>
 
     <script>
-    var usernameArray =  <?php echo json_encode($this->usernames); ?>;
 
     var loginFormPane = document.getElementById("loginForm");
         var regFormPane = document.getElementById("regForm");

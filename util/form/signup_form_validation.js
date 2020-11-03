@@ -86,18 +86,5 @@ function validateConfirmPassword() {
 function validateEmail() {
   if (checkIfEmpty(email)) return;
   if (!containsCharacters(email, 5)) return;
-  if(checkUsernameExists()) return;
-  return true;
-}
-
-function checkUsernameExists(){
-  for(var i in usernameArray){
-      if(usernameArray[i].username==email.value){
-          setInvalid(email, 'Account exists');
-          return false;
-      }
-  }
-  
-  
   return true;
 }

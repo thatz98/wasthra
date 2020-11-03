@@ -13,7 +13,7 @@
       // Prevent default behaviour
       event.preventDefault();
       if (
-        validatePassword() &&
+        validateLoginPassword() &&
         validateUsername()
       ) {
         loginForm.submit();
@@ -23,7 +23,7 @@
     // Validators
     
     
-    function validatePassword() {
+    function validateLoginPassword() {
       // Empty check
       if (checkIfEmpty(loginPassword)) return;
       // Must of in certain length
@@ -44,18 +44,7 @@
         
       if (checkIfEmpty(username)) return;
       if (!containsCharacters(username, 5)) return;
-      if (checkUsernameExists()) return;
       return true;
     }
 
-    function checkUsernameExists(){
-        for(var i in usernameArray){
-            if(usernameArray[i].username==username.value){
-                return true;
-            }
-        }
-        
-        setInvalid(username, 'Username doesn\'t exist');
-        return false;
-    }
     
