@@ -17,14 +17,20 @@
                         </div>
 
                         <div class="center-content">
-                        <?php foreach ($this->imageList as $image){
+                        <?php $this->oldImageList='';
+                        
+                        foreach ($this->imageList as $image){
                         if($this->product['product_id']==$image['product_id']){?>
-                            <img src="../../<?php echo $image['image']?>" width="100px" height="100px"><br>
-                            <a href="<?php echo URL ?>products/deleteImage/<?php echo $this->product['product_id'] ?>/<?php echo $image['image']?>"><button class="table-btn btn-red">Delete</button></a>
-                            <!-- <input type="file" name="image[]" value="<?php echo $this->product['product_id']?>" style="display:none"> -->
+                            <div class="edit-image-row" id="<?php echo $image['image']?>" >
+                            <img style="float:left;"  src="../../<?php echo $image['image']?>" width="100px" height="100px"><br>
+                            <a style="float:right;" class="close-btn" onclick="deleteImage('<?php echo $image['image']?>')" ><i class="fa fa-times-circle"></i></a>
+                            </div>
                             <?php 
+                            $this->oldImageList .= $image['image'].',';
                         }
                         }?>
+                        
+                        <input id="prev_images" type="text" name="prev_images" value="<?php echo $this->oldImageList?>" style="display:none">
                         </div>
                         
                         <div class="row-top">
@@ -104,3 +110,15 @@
                     </form>
                     </div>
 </div>
+<script>
+
+        var imageList = document.getElementById('prev_images').value;
+        console.log(imageList);
+        function deleteImage(imageName){
+            imageList=imageList.replace(imageName+',','');
+            document.getElementById('prev_images').value = imageList;
+            document.getElementById(String(imageName)).style.display="none";
+        }
+        // console.log(imageList);
+
+</script>
