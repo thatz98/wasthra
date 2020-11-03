@@ -1,5 +1,5 @@
-<?php require 'views/header_dashboard.php'; ?>
 
+<?php require 'views/header_dashboard.php'; ?>
 
 
 <div class="dashboard">

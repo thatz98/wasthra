@@ -1,0 +1,14 @@
+.card{
+    margin: 10px;
+    background-color: antiquewhite;
+    min-height: 200px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#myChart{
+    max-height: 300px;
+    max-width:  400px;
+}

@@ -7,14 +7,13 @@
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
+    <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
 </head>
 
 <body>
-
+<div id="preloader-overlay"></div>
+<div id="spinner"></div>
     <?php if(Session::get('loggedIn')==true){
     require 'views/user/profile_card.php';
 } ?>
@@ -72,7 +71,8 @@
             </div>
         </div>
     </div>
-
+    <div class="loader"></div>
+    <script type="text/javascript" src="<?php echo URL ?>public/js/preloader.js"></script>
     <script>
 
         function passScreenSize(){
@@ -81,9 +81,7 @@
             document.getElementById('login-redirect').submit();
 
         }
-
-    $(document).ready(function() {
-  document.getElementById("header").style.visibility = "visible";
-});
+        
+    
 
 </script>
