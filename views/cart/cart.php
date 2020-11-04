@@ -34,7 +34,26 @@
                             <?php 
                         }
                         }?></td>
-                       <td class="order-details">       
+                       <td class="order-details">
+                            <h4><?php 
+                                $this->productPrice='';
+                                $priceCategoryID='';
+                                foreach ($this->priceCatID as $id){
+                                    if($id['product_id']==$cartDetails['product_id']){
+                                        $priceCategoryID=$id['price_category_id'];
+                                        //echo $priceCategoryID;
+                                    }
+                                } 
+
+                                foreach ($this->priceCatList as $catName){
+                                    if($priceCategoryID==$catName['price_category_id']){
+                                        echo $catName['price_category_name'];
+                                        $this->productPrice=$catName['product_price'];
+                                    }
+                            }
+                            ?>
+                            </h4>  
+                            <h5><?php echo $this->productPrice;?></h5>     
                             <div class="item-input">
                                 <label>Color:</label><span class="color-dot" style="background-color: <?php echo $cartDetails['item_color']; ?>"></span>
                                 <label class="input-data">Size: <?php echo $cartDetails['item_size']; ?></label>

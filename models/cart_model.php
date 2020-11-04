@@ -15,6 +15,15 @@ class Cart_Model extends Model{
         FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
     }
 
+    public function getCatName(){
+        return $this->db->query("SELECT price_category.price_category_name,price_category.price_category_id,.price_category.product_price
+        FROM price_category;");
+    }
+
+    public function getPriceCatIdProducts(){
+        return $this->db->query("SELECT product.price_category_id,product.product_id
+        FROM product ;");
+    }
 
     public function create($data){
 
