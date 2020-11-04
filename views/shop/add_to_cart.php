@@ -6,21 +6,20 @@
             <div class="col-2">
                 <img src="<?php echo URL.$this->product[0]['image']; ?>" id="product-img">
             <div class="gallery-row">
-                    <div class="gallery-row">
                     <?php $single_images = array();
+                    $iid=0;
                     foreach($this->product as $single){
                         if(in_array($single['image'],$single_images)){
                             continue;
                         }else{
+                            $iid += 1;
                             $single_images[] .= $single['image'];?>
                             <div class="gallery-col">
-                        <img src="<?php echo URL.$single['image']; ?>" width="100%" class="gallery-img">
+                        <img src="<?php echo URL.$single['image']; ?>" id="<?php echo $iid?>" onclick="swapImage('<?php echo $iid?>')" width="100%" class="gallery-img">
                     </div>
                             <?php
                         }
                     } ?>
-                   
-                </div>
 
             </div>
                 <h2 style="margin-top: 5px;"><?php echo $this->product[0]['product_name']?> </h2>

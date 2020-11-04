@@ -1,17 +1,16 @@
-<script>
-    var productImg = document.getElementById("product-img");
-    var smallImg = document.getElementsByClassName("gallery-img");
 
-    smallImg[0].onclick = function(){
-        productImg.src = smallImg[0].src;
+    var productImg = document.getElementById("product-img");
+
+    function swapImage(id){
+        productImg.src = document.getElementById(id).src;
     }
-    smallImg[1].onclick = function(){
-        productImg.src = smallImg[1].src;
+
+
+    var viewProductImg = document.getElementById("view-product-img");
+    
+    function swapViewImage(id){
+        viewProductImg.src = document.getElementById(id).src;
     }
-    smallImg[2].onclick = function(){
-        productImg.src = smallImg[2].src;
-    }
-    smallImg[3].onclick = function(){
-        productImg.src = smallImg[3].src;
-    }
-</script>
+
+    
+

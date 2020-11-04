@@ -11,6 +11,7 @@
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         <div class="row">
             <div class="col-2">
+
                 <?php foreach ($this->imageList as $image){
                         if($this->product['product_id']==$image['product_id']){?>
                             <img src="<?php echo $image['image']?>" id="product-img">
@@ -19,19 +20,22 @@
                         }
                     }?>
             <div class="gallery-row">
-                    <div class="gallery-row">
-                        <?php foreach ($this->imageList as $image){
-                        if($this->product['product_id']==$image['product_id']){?>
+                        <?php $single_images = array();
+                        $iid=0;
+                        foreach ($this->imageList as $image){
+                            if(in_array($image['image'],$single_images)){
+                                continue;
+                            }else if($this->product['product_id']==$image['product_id']){
+                                    $single_images[] .= $image['image'];
+                            $iid += 1;?>
                             <div class="gallery-col">
-                            <img src="<?php echo $image['image']?>" width="100%" class="gallery-img">
+                            <img src="<?php echo $image['image']?>" id="<?php echo $iid?>" onclick="swapImage('<?php echo $iid?>')" width="100%" class="gallery-img">
                             </div>
-                            <?php
-                            break; 
+                            <?php 
                         }
+                        
                     }?>
-                    
-                   
-                </div>
+
 
             </div>
                 <h2 style="margin-top: 5px;"><?php echo $this->product['product_name']?></h2>

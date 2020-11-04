@@ -8,4 +8,8 @@ class Cart extends Controller{
     function index(){
     	$this->view->render('cart/cart');
     }
+
+    function addToCart(){
+    	
+    }
 }

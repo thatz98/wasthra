@@ -2,19 +2,20 @@
 <?php require 'views/shop/add_to_cart.php';?>
 
 <div class="small-container single-product">
-<?php print_r($this->product);?>
         <div class="row">
             <div class="col-2">
-                <img src="<?php echo URL.$this->product[0]['image']; ?>" width="100%" id="product-img">
+                <img src="<?php echo URL.$this->product[0]['image']; ?>" id="view-product-img">
                 <div class="gallery-row">
                     <?php $single_images = array();
+                    $id=0;
                     foreach($this->product as $single){
                         if(in_array($single['image'],$single_images)){
                             continue;
                         }else{
+                            $id += 1;
                             $single_images[] .= $single['image'];?>
                             <div class="gallery-col">
-                        <img src="<?php echo URL.$single['image']; ?>" width="100%" class="gallery-img">
+                        <img src="<?php echo URL.$single['image']; ?>" id="<?php echo $id?>" onclick="swapViewImage('<?php echo $id?>')" width="100%" class="view-gallery-img">
                     </div>
                             <?php
                         }
@@ -127,6 +128,6 @@
             </div>
         </div>
 
-
+        <script type="text/javascript" src="<?php echo URL ?>public/js/product_gallery.js"></script>
         
         <?php require 'views/footer.php'; ?>
