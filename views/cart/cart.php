@@ -25,8 +25,24 @@
                             <a href="#" class="btn table-btn">Remove</a>
                         </td>
                     </tr>
+
+                    <?php foreach ($this->cartList as $cartDetails ): ?>
                     <tr>
-                        <td><img src="public/images/product-2.jpg"></td>
+                >      <td><img src=""></td>
+                       <td class="order-details">       
+                            <div class="item-input">
+                                <label>Color:</label><span class="color-dot" style="background-color: <?php echo $cartDetails['item_color']; ?>"></span>
+                                <label class="input-data">Size: <?php echo $cartDetails['item_size']; ?></label>
+                                <label class="input-data">Qty: <?php echo $cartDetails['item_qty']; ?></label>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a href="#" class="btn table-btn">Update</a>
+                            <a href="#" class="btn table-btn">Remove</a>
+                        </td>
+
+                        <!-- <td><img src="public/images/product-2.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -39,9 +55,11 @@
                         <td>
                             <a href="#" class="btn table-btn">Update</a>
                             <a href="#" class="btn table-btn">Remove</a>
-                        </td>
+                        </td> -->
                     </tr>
-                    <tr>
+                    
+                    <?php endforeach;?>
+                    <!-- <tr>
                         <td><img src="public/images/product-3.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
@@ -56,7 +74,7 @@
                             <a href="#" class="btn table-btn">Update</a>
                             <a href="#" class="btn table-btn">Remove</a>
                         </td>
-                    </tr>
+                    </tr> -->
                 </table>     
             </div>
         </div>
