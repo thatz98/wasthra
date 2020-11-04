@@ -28,7 +28,12 @@
 
                     <?php foreach ($this->cartList as $cartDetails ): ?>
                     <tr>
-                >      <td><img src=""></td>
+                      <td><?php foreach ($this->imageList as $image){
+                        if($cartDetails['product_id']==$image['product_id']){?>
+                            <img src="<?php echo $image['image']?>" width="50px" height="50px">
+                            <?php 
+                        }
+                        }?></td>
                        <td class="order-details">       
                             <div class="item-input">
                                 <label>Color:</label><span class="color-dot" style="background-color: <?php echo $cartDetails['item_color']; ?>"></span>
