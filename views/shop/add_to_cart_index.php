@@ -38,7 +38,7 @@
                 <h4>LKR <?php echo $this->product['product_price']?></h4>
             </div>
             <div class="col-2" style="text-align: center;">
-                <form action="" method="post">
+                <form action="<?php echo URL; ?>cart/addToCart/" method="post">
                 <label class="text-label">Select Color</label>
                 <div class="colors">
                     <?php foreach ($this->colorList as $color){
@@ -71,6 +71,7 @@
                                             </div>
 
                 <button type="submit" class="btn">Add to Cart</button>
+                <input type="text" name="prod_id" value="<?php echo $this->product['product_id']?>" style="display:none">
             </form>
             </div>
         </div>
