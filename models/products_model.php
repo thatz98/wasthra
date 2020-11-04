@@ -93,17 +93,18 @@ class Products_Model extends Model{
         }
         
         foreach($imageList as $img){
-            // if($img=' '){
-            //     break;
-            // }
+
             $m="public/images/products/";
             $m.=$img;
+            if($m=='public/images/products/'){
+            break;
+            }
             $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
         }
     }
 
 
-    public function update($data,$size,$imageList){
+    public function update($data,$size,$imageList,$prevImageList){
         $previous_id=$data['prev_id'];
         $this->db->update('product',array(
             'product_id' => $data['product_id'],
@@ -132,17 +133,32 @@ class Products_Model extends Model{
                 $s=$sizes;
                 $this->db->queryExecuteOnly("INSERT INTO product_size (product_id,sizes) VALUES ('$product_id','$s')");
             }
-            //this line have to edit after adding display product images to edit_products
-            //$this->db->delete('product_images',"product_id='$previous_id'");
-            // foreach($imageList as $img){
-            //     // if($img=' '){
-            //     // break;
-            //     // }
-            //     $m="public/images/products/";
-            //     $m.=$img;
-            //     $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
+           
+            $this->db->delete('product_images',"product_id='$previous_id'");
+            
+            foreach($imageList as $img){
+                // if($img=' '){
+                // break;
+                // }
+                $m="public/images/products/";
+                $m.=$img;
+                echo $m;
+                if($m=='public/images/products/'){
+                break;
+                }
+                $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
                 
-            // }
+            }
+
+            foreach($prevImageList as $img){
+                if($img==''){
+                break;
+                }
+
+                $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$img')");
+                
+            }
+
 
       
 

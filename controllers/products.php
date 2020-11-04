@@ -62,6 +62,8 @@ class Products extends Controller{
         $this->view->render('dashboard/admin/edit_products');
     }
     function editSave(){
+        $prevImages = rtrim($_POST['prev_images'],",");
+        $imageArray = explode(",",$prevImages);        
         $data = array();
         $data['prev_id'] = $_POST['prev_id'];
     	$data['product_id'] = $_POST['product_id'];
@@ -76,8 +78,8 @@ class Products extends Controller{
         $data['colors'] = $_POST['colors'];
         $size=$_POST['size'];
         $imageName['img']=$_FILES['img']['name'];
-        //echo $imageName['img'][0];
-        $this->model->update($data,$size,$imageName['img']);
+       
+        $this->model->update($data,$size,$imageName['img'],$imageArray);
         header('location: '.URL.'products');
     }
 

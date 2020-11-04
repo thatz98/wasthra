@@ -1858,6 +1858,10 @@ table th i:hover{
     margin: 0 10px 0 10px;
 }
 
+.edit-image-row{
+    display: inline;
+}
+
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
     width: 150px;
@@ -2028,7 +2032,6 @@ table th i:hover{
         line-height: 32px;
     }
     
-
 
     
 }
