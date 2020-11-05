@@ -21,19 +21,19 @@ class Cart_Model extends Model{
     }
 
     public function getPriceCatIdProducts(){
-        return $this->db->query("SELECT product.price_category_id,product.product_id
+        return $this->db->query("SELECT product.price_category_id,product.product_id,product.product_name
         FROM product ;");
     }
 
     
-   public function getColors(){
+    public function getColors(){
         return $this->db->query("SELECT product_colors.colors,product_colors.product_id
         FROM product_colors INNER JOIN product on product_colors.product_id=product.product_id;");
-   }
-   public function getSizes(){
+    }
+    public function getSizes(){
         return $this->db->query("SELECT product_size.sizes,product_size.product_id 
         FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
- }
+    }
 
     public function create($data){
 

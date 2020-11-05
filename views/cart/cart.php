@@ -22,17 +22,15 @@
                        <td class="order-details">
                             <h4><?php 
                                 $this->productPrice='';
-                                $priceCategoryID='';
                                 foreach ($this->priceCatID as $id){
                                     if($id['product_id']==$cartDetails['product_id']){
                                         $priceCategoryID=$id['price_category_id'];
-                                        //echo $priceCategoryID;
+                                        echo $id['product_name'];
                                     }
                                 } 
 
                                 foreach ($this->priceCatList as $catName){
                                     if($priceCategoryID==$catName['price_category_id']){
-                                        echo $catName['price_category_name'];
                                         $this->productPrice=$catName['product_price'];
                                     }
                             }
