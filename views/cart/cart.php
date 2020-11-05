@@ -22,17 +22,15 @@
                        <td class="order-details">
                             <h4><?php 
                                 $this->productPrice='';
-                                $priceCategoryID='';
                                 foreach ($this->priceCatID as $id){
                                     if($id['product_id']==$cartDetails['product_id']){
                                         $priceCategoryID=$id['price_category_id'];
-                                        //echo $priceCategoryID;
+                                        echo $id['product_name'];
                                     }
                                 } 
 
                                 foreach ($this->priceCatList as $catName){
                                     if($priceCategoryID==$catName['price_category_id']){
-                                        echo $catName['price_category_name'];
                                         $this->productPrice=$catName['product_price'];
                                     }
                             }
@@ -47,8 +45,8 @@
                         </td>
 
                         <td>
-                            <a href="#" class="btn table-btn">Update</a>
-                            <a href="#" class="btn table-btn">Remove</a>
+                            <a href="<?php echo URL ?>cart/edit/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Update</a>
+                            <a href="<?php echo URL ?>cart/delete/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Remove</a>
                         </td>
                     </tr>
                     
@@ -62,7 +60,9 @@
                     <table>
                         <tr>
                             <td>Subtotal</td>
-                            <td>LKR 2400.00</td>
+                            <td>LKR </td>  
+                            <div id="sub-display">
+                            </div>
                         </tr>
                         <tr>
                             <td>Delivery chargers</td>
@@ -81,3 +81,18 @@
 
 
 <?php require 'views/footer.php'; ?>
+
+<script type="text/javascript">
+
+function calculateSub(){
+    document.getElementById('sub-display').innerHTML = parseInt(document.getElementById('qty').value) * parseFloat(document.getElementById('').value);
+}
+
+function calculateDelivery(){
+
+}
+
+function calculateTotal(){
+     document.getElementById('').innerHTML = ;
+}
+</script>   

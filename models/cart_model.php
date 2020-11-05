@@ -21,18 +21,29 @@ class Cart_Model extends Model{
     }
 
     public function getPriceCatIdProducts(){
-        return $this->db->query("SELECT product.price_category_id,product.product_id
+        return $this->db->query("SELECT product.price_category_id,product.product_id,product.product_name
         FROM product ;");
+    }
+
+    
+    public function getColors(){
+        return $this->db->query("SELECT product_colors.colors,product_colors.product_id
+        FROM product_colors INNER JOIN product on product_colors.product_id=product.product_id;");
+    }
+    public function getSizes(){
+        return $this->db->query("SELECT product_size.sizes,product_size.product_id 
+        FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
     }
 
     public function create($data){
 
-        $userId=Session::get('user_id');
+        $userId=Session::get('userId');
+        echo $userId;
         $cartId=$this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
-        
+        print_r($cartId);
         $this->db->insert('cart_item',array(
            'product_id' => $data['product_id'],
-           'cart_id' => $cartId['cart_id'],
+           'cart_id' => $cartId[0]['cart_id'],
            'item_qty' => $data['item_qty'],
            'item_color' => $data['item_color'],      
            'item_size' => $data['item_size']
@@ -41,6 +52,37 @@ class Cart_Model extends Model{
          
         
     }
+
+    // public function getCart($id){
+
+    //     return $this->db->listWhere('cart_item',array('item_qty','item_color','item_size'),"product_id='$id'");
+    //  }
+
+     
+    // public function getQty($id){
+
+    //     return $this->db->listWhere('cart_item',array('item_qty'),"product_id='$id'");
+    //  }
+
+     
+    // public function getSize($id){
+
+    //     return $this->db->listWhere('cart_item',array('item_size'),"product_id='$id'");
+    //  }
+
+     
+    // public function getColor($id){
+
+    //     return $this->db->listWhere('cart_item',array('item_color'),"product_id='$id'");
+    //  }
+
+     public function delete($id){
+
+        $this->db->delete('cart_item',"product_id='$id'");
+
+   }
+
+
 
 }
 
