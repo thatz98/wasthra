@@ -6,8 +6,9 @@
         </div>
         
         <div class="" >
-            
-            <a href="<?php echo URL ?>inventory" class="btn">Manage Inventory</a>
+            <div allign="right">
+            <a href="<?php echo URL ?>inventory" class="btn btn-square">Manage Inventory</a>
+            </div>
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product</button>
             <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" enctype="multipart/form-data" method="post">
 
