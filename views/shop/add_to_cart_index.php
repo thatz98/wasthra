@@ -1,8 +1,8 @@
-<div id="addToCartPopup" class="overlay" >
+<div id="addToCartPopupIndex" class="overlay" >
     <?php if (isset($_GET['id'])){
                 foreach($this->qtyList as $qty){
                     if($qty['product_id']==$_GET['id']){
-                        $this->product = array_slice($qty, 0,count($qty));
+                        $this->productPopup = array_slice($qty, 0,count($qty));
                         break;
                     }
     }
@@ -13,8 +13,8 @@
             <div class="col-2">
 
                 <?php foreach ($this->imageList as $image){
-                        if($this->product['product_id']==$image['product_id']){?>
-                            <img src="<?php echo $image['image']?>" id="product-img">
+                        if($this->productPopup['product_id']==$image['product_id']){?>
+                            <img src="<?php echo URL.$image['image']?>" id="product-img">
                             <?php
                             break; 
                         }
@@ -25,11 +25,11 @@
                         foreach ($this->imageList as $image){
                             if(in_array($image['image'],$single_images)){
                                 continue;
-                            }else if($this->product['product_id']==$image['product_id']){
+                            }else if($this->productPopup['product_id']==$image['product_id']){
                                     $single_images[] .= $image['image'];
                             $iid += 1;?>
                             <div class="gallery-col">
-                            <img src="<?php echo $image['image']?>" id="<?php echo $iid?>" onclick="swapImage('<?php echo $iid?>')" width="100%" class="gallery-img">
+                            <img src="<?php echo URL.$image['image']?>" id="<?php echo $iid?>" onclick="swapImage('<?php echo $iid?>')" width="100%" class="gallery-img">
                             </div>
                             <?php 
                         }
@@ -38,15 +38,15 @@
 
 
             </div>
-                <h2 style="margin-top: 5px;"><?php echo $this->product['product_name']?></h2>
-                <h4>LKR <?php echo $this->product['product_price']?></h4>
+                <h2 style="margin-top: 5px;"><?php echo $this->productPopup['product_name']?></h2>
+                <h4>LKR <?php echo $this->productPopup['product_price']?></h4>
             </div>
             <div class="col-2" style="text-align: center;">
                 <form action="<?php echo URL; ?>cart/addToCart" method="post">
                 <label class="text-label">Select Color</label>
                 <div class="colors">
                     <?php foreach ($this->colorList as $color){
-                        if($this->product['product_id']==$color['product_id']){?>
+                        if($this->productPopup['product_id']==$color['product_id']){?>
                             <label class="color-container">
                             <input type="radio" name="color">
                             <span class="checkmark" style="background-color: <?php echo $color['colors']?>"></span>
@@ -57,7 +57,7 @@
                 <label class="text-label">Select Size</label>
                 <div class="sizes">
                     <?php foreach ($this->sizeList as $size){
-                        if($this->product['product_id']==$size['product_id']){?>
+                        if($this->productPopup['product_id']==$size['product_id']){?>
                             <label class="size-container">
                 <input type="radio" name="size">
                 <span class="checkbox"><?php echo $size['sizes']?></span>
@@ -75,7 +75,7 @@
                                             </div>
 
                 <button type="submit" class="btn">Add to Cart</button>
-                <input type="text" name="prod_id" value="<?php echo $this->product['product_id']?>" style="display:none">
+                <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id']?>" style="display:none">
             </form>
             </div>
         </div>

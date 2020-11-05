@@ -4,10 +4,10 @@
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         <div class="row">
             <div class="col-2">
-                <img src="<?php echo URL.$this->product[0]['image']; ?>" id="product-img">
+                <img src="<?php echo URL.$this->product[0]['image']; ?>" id="product-img-p">
             <div class="gallery-row">
                     <?php $single_images = array();
-                    $iid=0;
+                    $iid=10;
                     foreach($this->product as $single){
                         if(in_array($single['image'],$single_images)){
                             continue;
@@ -15,7 +15,7 @@
                             $iid += 1;
                             $single_images[] .= $single['image'];?>
                             <div class="gallery-col">
-                        <img src="<?php echo URL.$single['image']; ?>" id="<?php echo $iid?>" onclick="swapImage('<?php echo $iid?>')" width="100%" class="gallery-img">
+                        <img src="<?php echo URL.$single['image']; ?>" id="<?php echo $iid?>" onclick="swapImageP('<?php echo $iid?>')" width="100%" class="gallery-img">
                     </div>
                             <?php
                         }

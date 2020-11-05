@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
+    <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
+    <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
 </head>
 
 <body>

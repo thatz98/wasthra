@@ -1,5 +1,6 @@
 <?php require 'views/header.php'; ?>
-<?php require 'views/shop/add_to_cart.php';?>
+<?php require 'views/shop/add_to_cart_index.php';?>
+
 <link rel="stylesheet" href="<?php echo URL; ?>public/css/shop-filters.css">
 <!-------- featered products -------->
         <div class="small-container">
@@ -80,7 +81,7 @@
                             <div class="text">
                                 <a href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id']?>">View</a><br><br>
                             </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
+                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id='.$qty['product_id']?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
                     </div>
                             </div>
                     <div>
@@ -113,5 +114,6 @@
                 <span>&#8594;</span>
             </div>
         </div>
+                </div>
 
 <?php require 'views/footer.php'; ?>

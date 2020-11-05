@@ -12,5 +12,12 @@
         viewProductImg.src = document.getElementById(id).src;
     }
 
+    var productImgP = document.getElementById("product-img-p");
+    
+    function swapImageP(id){
+        productImgP.src = document.getElementById(id).src;
+    }
+
+
     
 

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
+
    <!---- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> ----->
     <script src="<?php echo URL ?>public/js/libs/maps.js"></script>
     <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
