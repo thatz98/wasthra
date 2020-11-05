@@ -62,8 +62,8 @@
                         </td>
 
                         <td>
-                            <a href="#" class="btn table-btn">Update</a>
-                            <a href="#" class="btn table-btn">Remove</a>
+                            <a href="<?php echo URL ?>cart/edit/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Update</a>
+                            <a href="<?php echo URL ?>cart/delete/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Remove</a>
                         </td>
 
                         <!-- <td><img src="public/images/product-2.jpg"></td>
@@ -108,7 +108,9 @@
                     <table>
                         <tr>
                             <td>Subtotal</td>
-                            <td>LKR 2400.00</td>
+                            <td>LKR </td>  
+                            <div id="sub-display">
+                            </div>
                         </tr>
                         <tr>
                             <td>Delivery chargers</td>
@@ -127,3 +129,18 @@
 
 
 <?php require 'views/footer.php'; ?>
+
+<script type="text/javascript">
+
+function calculateSub(){
+    document.getElementById('sub-display').innerHTML = parseInt(document.getElementById('qty').value) * parseFloat(document.getElementById('').value);
+}
+
+function calculateDelivery(){
+
+}
+
+function calculateTotal(){
+     document.getElementById('').innerHTML = ;
+}
+</script>   

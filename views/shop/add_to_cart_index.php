@@ -48,7 +48,7 @@
                     <?php foreach ($this->colorList as $color){
                         if($this->product['product_id']==$color['product_id']){?>
                             <label class="color-container">
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" value="<?php echo $color['colors']?>">
                             <span class="checkmark" style="background-color: <?php echo $color['colors']?>"></span>
                             </label>
                         <?php }
@@ -59,7 +59,7 @@
                     <?php foreach ($this->sizeList as $size){
                         if($this->product['product_id']==$size['product_id']){?>
                             <label class="size-container">
-                <input type="radio" name="size">
+                <input type="radio" name="size" value="<?php echo $size['sizes']?>">
                 <span class="checkbox"><?php echo $size['sizes']?></span>
                 </label>
                              <?php
