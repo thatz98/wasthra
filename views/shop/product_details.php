@@ -3,7 +3,7 @@
 
 <div class="small-container single-product">
         <div class="row">
-            <div class="col-2">
+            <div class="col-2 right-align-wide">
                 <img src="<?php echo URL.$this->product[0]['image']; ?>" id="view-product-img">
                 <div class="gallery-row">
                     <?php $single_images = array();

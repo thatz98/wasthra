@@ -24,14 +24,15 @@
                 <div class="logo">
                     <img src="<?php echo URL;?>public/images/logo.png" width="125px">
                 </div>
-                <div class="search-bar">
+                
+                <nav>
+                    <ul id="menuItems">
+                    <li><div class="search-bar">
                     <form onsubmit="event.preventDefault();" role="search">
                         <input id="search" type="search" placeholder="Search..." autofocus required />
                         <button type="submit"><i class="fa fa-search"></i></button>    
                     </form>
-                </div>
-                <nav>
-                    <ul id="menuItems">
+                </div></li>
                         <li><a href="<?php echo URL; ?>">Home</a></li>
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>

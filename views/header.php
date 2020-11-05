@@ -6,18 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzSnah4pBNvwR3PN53ZaezSBUmNGNuf3U&callback=initMap&libraries=&v=weekly"
-      defer
-    ></script>
-    <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
+   <!---- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> ----->
+    <script src="<?php echo URL ?>public/js/libs/maps.js"></script>
+    <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
+    <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
 </head>
 
 <body>
@@ -32,14 +24,15 @@
                 <div class="logo">
                     <img src="<?php echo URL; ?>public/images/logo.png" width="125px">
                 </div>
-                <div class="search-bar">
+                
+                <nav>
+                    <ul id="menuItems">
+                    <li><div class="search-bar">
                     <form onsubmit="event.preventDefault();" role="search">
                         <input id="search" type="search" placeholder="Search..." autofocus required />
                         <button type="submit"><i class="fa fa-search"></i></button>    
                     </form>
-                </div>
-                <nav>
-                    <ul id="menuItems">
+                </div></li>
                         <li><a href="<?php echo URL; ?>">Home</a></li>
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>

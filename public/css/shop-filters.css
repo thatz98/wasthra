@@ -1,0 +1,43 @@
+.filter-category-list{
+    margin: 0 0 40px 0;
+}
+
+
+.filter-size-list{
+    margin: 0 0 40px 0;
+}
+
+.filter-color-list{
+    margin: 0 0 40px 0;
+}
+
+.size-container{
+
+    margin: 0 50px 0 10px;  
+  }
+
+  .color-container:hover input ~ a .checkmark {
+    transform: scale(1.2);
+  }
+  
+  
+  a .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .color-container input:checked ~ a .checkmark:after {
+    display: block;
+  }
+  
+  .color-container a .checkmark:after {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+  }
