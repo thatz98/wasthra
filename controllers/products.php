@@ -36,8 +36,10 @@ class Products extends Controller{
         
         $size=$_POST['size'];
         $imageName['img']=$_FILES['img']['name'];
-
-        
+        $imageName['temp']=$_FILES['img']['tmp_name'];
+        for ($x=0; $x<sizeof($imageName['temp']); $x++){
+            move_uploaded_file ($imageName['temp'][$x] , 'C:\xampp\htdocs\wasthra\public\images\products\\'.$imageName['img'][$x]);
+        }
         $this->model->create($data,$size,$imageName['img']);
         header('location: '.URL.'products');
 

@@ -4,7 +4,10 @@
     <div class="row">
         <h2>Products</h2>
         </div>
+        
         <div class="" >
+            
+            <a href="<?php echo URL ?>inventory" class="btn">Manage Inventory</a>
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product</button>
             <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" enctype="multipart/form-data" method="post">
 
@@ -12,7 +15,7 @@
                         <div class="center-btn">
                         <label allign="center">Product images : </label>
                         <!-- <button type="file" class="btn">Add New image</button> -->
-                        <input type="file" accept="image/*" name="img[]" multiple><br>
+                        <input type="file" accept="image/*" name="img[]"  multiple><br>
                         </div>
                         
                         <div class="row-top">
@@ -157,10 +160,12 @@
         addFrom.style.overflow = "0px";
 
         function formToggle(){
-if(addFrom.style.maxHeight == "0px"){
-    addFrom.style.maxHeight = "none";
-} else{
-    addFrom.style.maxHeight = "0px";
-}
+            if(addFrom.style.maxHeight == "0px"){
+                addFrom.style.maxHeight = "none";
+            } else{
+                addFrom.style.maxHeight = "0px";
+            }
         }
+
+       
     </script>
