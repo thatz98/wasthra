@@ -9,22 +9,6 @@
         <div class="col-60p">
             <div class="box-container" >
                 <table class="order-list">
-                    <tr>
-                        <td><img src="public/images/product-1.jpg"></td>
-                        <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="btn table-btn">Update</a>
-                            <a href="#" class="btn table-btn">Remove</a>
-                        </td>
-                    </tr>
 
                     <?php foreach ($this->cartList as $cartDetails ): ?>
                     <tr>
@@ -32,6 +16,7 @@
                         if($cartDetails['product_id']==$image['product_id']){?>
                             <img src="<?php echo $image['image']?>" width="50px" height="50px">
                             <?php 
+                            break;
                         }
                         }?></td>
                        <td class="order-details">
@@ -65,40 +50,9 @@
                             <a href="<?php echo URL ?>cart/edit/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Update</a>
                             <a href="<?php echo URL ?>cart/delete/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Remove</a>
                         </td>
-
-                        <!-- <td><img src="public/images/product-2.jpg"></td>
-                        <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="btn table-btn">Update</a>
-                            <a href="#" class="btn table-btn">Remove</a>
-                        </td> -->
                     </tr>
                     
                     <?php endforeach;?>
-                    <!-- <tr>
-                        <td><img src="public/images/product-3.jpg"></td>
-                        <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="btn table-btn">Update</a>
-                            <a href="#" class="btn table-btn">Remove</a>
-                        </td>
-                    </tr> -->
                 </table>     
             </div>
         </div>

@@ -377,6 +377,7 @@ form textarea:hover{
     flex-basis: 30%;
     min-width: 250px;
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 .col-3 img{
@@ -681,14 +682,18 @@ select:focus{
 /*single prod*/
 
 .single-product{
-    margin-top: 80px;
+    margin-top: 20px;
 }
 
 .single-product img#view-product-img{
     width: 350px;
 }
-.single-product .col-2{
+.single-product .row .col-2{
     padding: 20px;
+}
+
+.right-align-wide{
+    text-align: right;
 }
 
 .single-product .col-2 img{
@@ -726,8 +731,13 @@ input:focus{
 }
 
 .gallery-row{
-        width: 350px;
+        width: 100%;
+        max-width: 350px;
         display: flex;
+}
+
+.single-product .gallery-row{
+    margin:0 0 0 auto;
 }
 
 .gallery-col{
@@ -741,7 +751,10 @@ input:focus{
 }
 
 .gallery-col img{
+    max-height: 100px;
     transition: transform 0.5s;
+    object-fit: cover;
+    object-position: 0 50%;
 }
 
 .gallery-col img:hover{
@@ -1406,7 +1419,7 @@ span.size-box {
   top: 0;
   left: 0;
   height: 20px;
-  width: 20px;
+  padding: 0 5px 0 5px;
   text-align: center;
   transition: 0.5s;
 }
@@ -1677,6 +1690,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
        overflow: hidden;
 }
 
+.product-col{
+    flex-basis: 75%;
+}
+
+.filter-col{
+    flex-basis: 25%;
+}
+
 .box-container{
     background: #fff;
     width: 90%;
@@ -1862,11 +1883,25 @@ table th i:hover{
     display: inline;
 }
 
+#menuItems{
+    max-height: 0;
+}
+
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
     width: 150px;
     padding: 0 6px;
 }
+
+.order-list td{
+    display:inline-block;
+    text-align: center;
+  }
+
+  .order-list .item-input{
+      margin: 0 auto;
+      font-size: 12px;
+  }
 }
 
 
@@ -1901,7 +1936,7 @@ table th i:hover{
 
     nav ul{
         position: absolute;
-        top: 70px;
+        top: 85px;
         left: 0;
         background: #333;
         width: 100%;
@@ -1998,6 +2033,17 @@ table th i:hover{
     }
 }
 
+@media only screen and (max-width: 750px){
+    .single-product .row .col-2{
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .single-product .gallery-row{
+        margin: 0 auto;
+    }
+
+}
 @media only screen and (max-width: 600px){
 
     .row{
@@ -2017,11 +2063,9 @@ table th i:hover{
         text-align: center;
     }
 
-    .single-product .row{
-        text-align: left;
-
+    .single-product .row .col-2{
+        text-align: center;
     }
-
     .single-product .col-2{
         text-align: center;
         padding: 20px 0;

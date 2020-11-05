@@ -103,7 +103,7 @@
                 <?php $new_count=0;
                 foreach($this->qtyList as $qty){
                     if($qty['is_new']=='yes'){
-                        $featured_count++;?>
+                        $new_count++;?>
                     <div class="col-4">
                     <div class="content">
                         <div class="content-overlay"></div>

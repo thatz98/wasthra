@@ -1,7 +1,9 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/shop/add_to_cart.php';?>
+<link rel="stylesheet" href="<?php echo URL; ?>public/css/shop-filters.css">
 <!-------- featered products -------->
         <div class="small-container">
+            
             <div class="row row-2">
                 <h2>All Products</h2>
                 <select>
@@ -13,154 +15,76 @@
                 </select>
             </div>
             
-            <div class="row">
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-1.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
+            <div class="row-top">
+            <div class="filter-col">
+                <div class="filter-card">
+                    <div class="filter-catergories">
+                        <h3>Categories</h3>
+                        <div class="filter-category-list">
+                        <label class="size-container">
+                        <input type="radio" name="filter-category">
+                            <span class="checkbox">Gents</span>
+                            </label>
+                            
+                        </div>
                     </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
+                    <div class="filter-sizes">
+                    <h3>Sizes</h3>
+                        <div class="filter-size-list">
+                        <label class="size-container">
+                            <input type="radio" name="filter-size">
+                            <span class="checkbox">Small</span>
+                            </label>
+                            <label class="size-container">
+                            <input type="radio" name="filter-size">
+                            <span class="checkbox">Large</span>
+                            </label>
+                            <label class="size-container">
+                            <input type="radio" name="filter-size">
+                            <span class="checkbox">Medium</span>
+                            </label>
+                        </div>
                     </div>
-                    <p>LKR 800.00</p>
+                    <div class="filter-colors">
+                    <h3>Colors</h3>
+                    <div class="filter-color-list">
+                    <label class="color-container">
+                        <input type="radio" name="filter-color">
+                        <a href="#"><span class="checkmark" style="background-color:#ff5647"></span></a>
+                        </label>
+                        <label class="color-container">
+                        <input type="radio" name="filter-color">
+                        <a href="#"><span class="checkmark" style="background-color:#facb47"></span></a>
+                        </label>
                     </div>
-                    
-                </div>
-                </div>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-2.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
                     </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
-                <div class="col-4">
-                   <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-3.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
-                <div class="col-4">
-                   <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-4.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
                 </div>
             </div>
+            <div class="product-col">
+                <div class="row">
 
-            <div class="row">
-                <div class="col-4">
-                   <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-5.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
-                <div class="col-4">
+                
+            <?php
+                foreach($this->qtyList as $qty){?>
+                    <div class="col-3">
                     <div class="content">
                         <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-6.jpg">
+                    <?php foreach ($this->imageList as $image){
+                        if($qty['product_id']==$image['product_id']){?>
+                            <img src="<?php echo URL.$image['image']?>">
+                            <?php break;
+                        }
+                    }?>
                     <div class="content-details fadeIn-bottom"> 
                         <div class="options">
                             <div class="text">
-                                <a href="#">View</a><br><br>
+                                <a href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id']?>">View</a><br><br>
                             </div>
                                 <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
                     </div>
                             </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
+                    <div>
+                    <h4><?php echo $qty['product_name'];?></h4>
                     <div class="ratings">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -168,171 +92,19 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p>LKR 800.00</p>
+                    <p>LKR <?php echo $qty['product_price'];?></p>
                     </div>
                     
                 </div>
-                </div>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-7.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
+                    
                     
                 </div>
-                </div>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-8.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
+                <?php }?>
+                </div>    
             </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-9.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-10.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-11.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
-                <div class="col-4">
-                   <div class="content">
-                        <div class="content-overlay"></div>
-                    <img src="<?php echo URL; ?>public/images/product-12.jpg">
-                    <div class="content-details fadeIn-bottom"> 
-                        <div class="options">
-                            <div class="text">
-                                <a href="#">View</a><br><br>
-                            </div>
-                                <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="#"><i class="fa fa-2x fa-cart-plus"></i></a>
-                    </div>
-                            </div>
-                    <div style="float: left;">
-                    <h4>Product 1</h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR 800.00</p>
-                    </div>
-                    
-                </div>
-                </div>
             </div>
-
+                
+<div class="row">
             <div class="page-btn">
                 <span>1</span>
                 <span>2</span>
