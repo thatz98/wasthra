@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="<?php echo URL; ?>public/css/profile_card.css">
 <?php require 'change_password.php';?>
+<?php require 'edit_profile.php';?>
 
 <div id="profile-card" class="overlay">
     <div class="profile-card-popup">
@@ -10,21 +11,28 @@
           <img class="img-fluid" src="https://picsum.photos/130/130?image=836">
         </div>
         <div class="team-content">
-            <h3 class="title">Harabajan Singh</h3><br>
+            <h3 class="title"><?php echo Session::get('userData')['first_name'].' '.Session::get('userData')['last_name']?></h3><br>
             <div class="row">
                 <div class="col-2">
                 
-          <label class="field">NIC</label><br>
-          <h4 class="data-val">981910800V</h4><br>
+          
             <label class="field">Email</label><br>
-            <h4 class="data-val">harbaja@gmail.com</h4><br>
+            <h4 class="data-val"><?php echo Session::get('userData')['email'];?></h4><br>
+            <label class="field">Gender</label><br>
+          <h4 class="data-val"><?php echo Session::get('userData')['gender'];?></h4><br>
             </div>
           <div class="col-2">
           
           <label class="field">Contact Number</label><br>
-          <h4 class="data-val">0778749785</h4><br>
-          <label class="field">Addresses</label><br>
-          <h4 class="data-val">61/B/2, School Lane, Rukmale, Pannipitiya</h4><br>
+          <h4 class="data-val"><?php echo Session::get('userData')['contact_no'];?></h4><br>
+          <?php if(Session::get('userType')=='customer'){?>
+            <label class="field">Address</label><br>
+            <?php if(empty(Session::get('addressData'))){?>
+              <h4 class="data-val">Not set - <a href="#">Add new</a></h4><br>
+            <?php } else{
+              ?><h4 class="data-val"><?php echo Session::get('addressData')['address_line_1'].', '.Session::get('addressData')['address_line_2'].', '.Session::get('addressData')['address_line_1'];?></h4><br>
+           <?php } }?>
+              
       </div>
             </div>
             

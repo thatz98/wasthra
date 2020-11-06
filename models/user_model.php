@@ -65,14 +65,14 @@ class User_Model extends Model{
     public function update($data){
 
         if($data['user_type']==$data['prev_user_type']){
-                $this->db->update('customer',array(
+                $this->db->update($data['user_type'],array(
                     'first_name' => $data['first_name'],
                     'last_name' => $data['last_name'],
                     'gender' => $data['gender'],
                     'email' => $data['email'],
                     'contact_no' => $data['contact_no']),"user_id = '{$data['user_id']}'");
         
-                    $this->db->update('login',array('user_status' => $data['user_status']),"login_id = '{$data['login_id']}'");
+                    $this->db->update('login',array('user_status' => $data['user_status'],'username' => $data['username']),"login_id = '{$data['login_id']}'");
             
         } else{    
             $this->db->insert($data['user_type'],array(
@@ -84,7 +84,7 @@ class User_Model extends Model{
                 'login_id' => $data['login_id']
             ));
 
-            $this->db->update('login',array('user_type' => $data['user_type']),"login_id = '{$data['login_id']}'");
+            $this->db->update('login',array('user_type' => $data['user_type'],'user_status' => $data['user_status'],'username' => $data['username']),"login_id = '{$data['login_id']}'");
 
             $this->db->update($data['prev_user_type'],array('is_deleted' => 'yes'),"user_id = '{$data['user_id']}'");
         }
@@ -92,6 +92,35 @@ class User_Model extends Model{
         
         
 
+    }
+
+    public function updateProfile($data){
+        $this->db->update($data['user_type'],array(
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'gender' => $data['gender'],
+            'email' => $data['email'],
+            'contact_no' => $data['contact_no']),"user_id = '{$data['user_id']}'");
+
+            $this->db->update('login',array('username' => $data['username']),"login_id = '{$data['login_id']}'");
+    }
+
+    public function updateAddress($data){
+        if(empty($data['address_id'])){
+            $this->db->insert('delivery_address',array(
+                'user_id' => $data['user_id'],
+                'address_line_1' => $data['address_line_1'],
+                'address_line_2' => $data['address_line_2'],
+                'address_line_3' => $data['address_line_3'],
+                'city' => $data['city']
+            ));
+        } else{
+            $this->db->update('delivery_address',array(
+                'address_line_1' => $data['address_line_1'],
+                'address_line_2' => $data['address_line_2'],
+                'address_line_3' => $data['address_line_3'],
+                'city' => $data['city']),"address_id = '{$data['address_id']}'");
+        }
     }
 
     public function checkExists($username){
@@ -114,13 +143,14 @@ class User_Model extends Model{
         }
     }
 
-    public function delete($id){
-        $data = $this->db->listWhere('user',array('user_type'),"nic='$id'");
+    public function delete($userId,$userType){
+        $data = $this->db->listWhere($userType,array('login_id'),"user_id='$userId'");
 
-        if($data['user_type']=='owner'){
+        if($userType=='owner'){
             return false;
         } else{
-            $this->db->delete('user',"nic='$id'");
+            $this->db->update('login',array('user_status' => 'blocked'),"login_id = '{$data['login_id']}'");
+            $this->db->update($data['user_type'],array('is_deleted' => 'yes'),"user_id = '$userId'");
         }
 
     }

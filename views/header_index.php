@@ -7,6 +7,7 @@
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/libs/font-awesome.min.css">
     <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
     <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
 </head>

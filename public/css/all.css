@@ -227,6 +227,10 @@ form textarea:hover{
     border: 1px solid #ccc;
 }
 
+form .col-2, form .col-3, form .col-2 input, form .col-3 input{
+    text-align: center;
+}
+
 .helper-text{
   width: 100%;
   height: 20px;
@@ -1292,9 +1296,9 @@ textarea:focus{
   color: #333;
 }
 .popup .close-btn{
-  font-size: 20px;
-  width: 20px;
-  height: 20px;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
   position: absolute;
   top: 10px;
   right: 20px;
@@ -1315,6 +1319,9 @@ textarea:focus{
     margin: 10px 0 20px 0;
 }
 
+.message-popup{
+    max-width: 40%;
+}
 
 .product-colors, .product-sizes{
   display: block;
@@ -1904,6 +1911,10 @@ table th i:hover{
     max-height: 0;
 }
 
+.visited{
+    color: #fff;
+    background: #ff523b;
+}
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
     width: 150px;
@@ -1926,12 +1937,19 @@ table th i:hover{
   .popup{
     width: 70%;
   }
+
+  .message-popup{
+    max-width: 45%;
+}
 }
 
 @media only screen and (max-width: 1140px){
 
     .popup {
         max-width: 70%;
+    }
+    .message-popup{
+        max-width: 40%;
     }
 }
 
@@ -1947,7 +1965,9 @@ table th i:hover{
     .popup {
         max-width: 80%;
     }
-
+    .message-popup{
+        max-width: 40%;
+    }
 
 }
 
@@ -1994,7 +2014,9 @@ table th i:hover{
 .popup {
     max-width: 85%;
 }
-
+.message-popup{
+    max-width: 40%;
+}
 }
 
 
@@ -2014,6 +2036,10 @@ table th i:hover{
     .popup {
         max-width: 90%;
     }
+
+    .message-popup{
+        max-width: 40%;
+    }
 }
 
 @media only screen and (max-width: 800px){
@@ -2023,6 +2049,10 @@ table th i:hover{
         max-width: 95%;
         max-height: 90%;
 
+    }
+
+    .message-popup{
+        max-width: 45%;
     }
 
     .popup .col-2{
@@ -2115,6 +2145,8 @@ table th i:hover{
         width: 0px;
         display: flex;
     }
-    
+    .message-popup{
+        max-width: 50%;
+    }
 }
 

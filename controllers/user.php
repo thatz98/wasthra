@@ -63,8 +63,45 @@ class User extends Controller{
         
     }
 
-    function delete($id){
-        $this->model->delete($id);
+    function delete($id,$type){
+        $this->model->delete($id,$type);
         header('location: '.URL.'user');
+    }
+
+    public function loadUserData($id,$type){
+        return $this->model->getUser($id,$type);
+    }
+
+    function editProfile(){
+    	$data = array();
+        $data['first_name'] = $_POST['first_name'];
+        $data['last_name'] = $_POST['last_name'];
+        $data['gender'] = $_POST['gender'];
+        $data['email'] = $_POST['email'];
+        $data['contact_no'] = $_POST['contact_no'];
+        $data['username'] = $_POST['email'];
+        $data['user_type'] = $_POST['user_type'];
+        $data['user_id'] = $_POST['user_id'];
+        $data['login_id'] = $_POST['login_id'];
+        
+        $addressData = array();
+        $addressData['user_id'] = $_POST['user_id'];
+        $addressData['address_id'] = $_POST['address_id'];
+        $addressData['address_line_1'] = $_POST['address_line_1'];
+        $addressData['address_line_2'] = $_POST['address_line_2'];
+        $addressData['address_line_3'] = $_POST['address_line_3'];
+        $addressData['city'] = $_POST['city'];
+
+        if(!$this->model->checkExistsWhere($data['username'],$data['login_id'])){
+            
+            $this->model->update($data);
+            if($data['user_type']=='customer'){
+                $this->model->updateAddress($addressData);
+            }
+            header('location: '.URL.'user');
+        } else{
+        header('location: '.URL.'user?error=usernameExists#message');
+        }
+        
     }
 }

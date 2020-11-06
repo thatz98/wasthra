@@ -20,27 +20,30 @@ class Login_Model extends Model{
                 Session::set('userType',$user['user_type']);
                 if(Session::get('userType')=='admin'){
                     $loginId = Session::get('loginId');
-                    $userData = $this->db->listWhere('admin',array('user_id','first_name','last_name'),"login_id='$loginId'");
+                    $userData = $this->db->listWhere('admin',array('user_id','first_name','last_name','gender','contact_no','email'),"login_id='$loginId'");
+                    Session::set('userData',$userData);
                     Session::set('userId',$userData['user_id']);
-                    Session::set('firstName',$userData['first_name']);
                     header('location: ../dashboard');
                 } else if(Session::get('userType')=='owner'){
                     $loginId = Session::get('loginId');
-                    $userData = $this->db->listWhere('owner',array('user_id','first_name','last_name'),"login_id='$loginId'");
+                    $userData = $this->db->listWhere('owner',array('user_id','first_name','last_name','gender','contact_no','email'),"login_id='$loginId'");
+                    Session::set('userData',$userData);
                     Session::set('userId',$userData['user_id']);
-                    Session::set('firstName',$userData['first_name']);
                     header('location: ../dashboard');
                 } else if(Session::get('userType')=='delivery'){
                     $loginId = Session::get('loginId');
-                    $userData = $this->db->listWhere('delivery_staff',array('user_id','first_name','last_name'),"login_id='$loginId'");
+                    $userData = $this->db->listWhere('delivery_staff',array('user_id','first_name','last_name','gender','contact_no','email'),"login_id='$loginId'");
+                    Session::set('userData',$userData);
                     Session::set('userId',$userData['user_id']);
-                    Session::set('firstName',$userData['first_name']);
                     header('location: ../dashboard');
                 } else if(Session::get('userType')=='customer'){
                     $loginId = Session::get('loginId');
-                    $userData = $this->db->listWhere('customer',array('user_id','first_name','last_name'),"login_id='$loginId'");
+                    $userData = $this->db->listWhere('customer',array('user_id','first_name','last_name','gender','contact_no','email'),"login_id='$loginId'");
+                    Session::set('userData',$userData);
                     Session::set('userId',$userData['user_id']);
-                    Session::set('firstName',$userData['first_name']);
+                    $userId = $userData['user_id'];
+                    $addressData = $this->db->listWhere('delivery_address',array('address_id','postal_code','address_line_1','address_line_2','address_line_3','city'),"user_id='$userId'");
+                    Session::set('addressData',$addressData);
                 header('location: ../');
                 }
                 

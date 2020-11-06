@@ -15,14 +15,7 @@
 
 <body>
     
-    <div id="signup=success" class="overlay">
-    <div class="popup">
-        <a href="<?php echo URL ?>login"><i class="fa fa-times-circle"></i></a>
-        <div class="content">
-            Your account has been made, <br /> Please verify it by clicking the activation link that has been send to your email...
-        </div>
-    </div>
-</div> 
+     
     <div class="header-plain">
         <div class="contaner">
             <div class="navbar">

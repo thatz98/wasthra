@@ -7,11 +7,12 @@
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
-
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/libs/font-awesome.min.css">
    <!---- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> ----->
     <script src="<?php echo URL ?>public/js/libs/maps.js"></script>
     <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
     <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
+    
 </head>
 
 <body>
@@ -19,7 +20,7 @@
     require 'views/user/profile_card.php';
 } ?>
     
-
+    <?php require 'views/error/error_popup.php';?>
     <div class="header-plain">
         <div class="contaner">
             <div class="navbar">
