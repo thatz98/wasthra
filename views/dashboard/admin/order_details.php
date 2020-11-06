@@ -5,6 +5,7 @@
     <div class="row">
         <h2 class="title title-min">Order Details</h2><br>
     </div>
+    
     <div class="row-top">
         <div class="col-2">
             <div class="box-container" >

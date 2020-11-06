@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-3">
                 	<div class="content">
-                		<a href="">
+                		<a href="<?php echo URL; ?>orders/orderDashboard">
       						<div class="content-overlay"></div>
       						<div class="content-onlay">
       							<div class="content-details fadeOut-top">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-3">
                 	<div class="content">
-                		<a href="">
+                		<a href="<?php echo URL; ?>user">
       						<div class="content-overlay"></div>
       						<div class="content-onlay">
       							<div class="content-details fadeOut-top">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-3">
                 	<div class="content">
-                		<a href="">
+                		<a href="<?php echo URL; ?>products">
       						<div class="content-overlay"></div>
       						<div class="content-onlay">
       							<div class="content-details fadeOut-top">
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-3">
                 	<div class="content">
-                		<a href="">
+                		<a href="<?php echo URL; ?>productCategories">
       						<div class="content-overlay"></div>
       						<div class="content-onlay">
       							<div class="content-details fadeOut-top">
@@ -67,22 +67,7 @@
       					</a>
       				</div>
                 </div>
-                <div class="col-3">
-                	<div class="content">
-                		<a href="">
-      						<div class="content-overlay"></div>
-      						<div class="content-onlay">
-      							<div class="content-details fadeOut-top">
-      									<p>Reports</p>
-       							
-      						</div></div>
-      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-17.png">
-      						<div class="content-details fadeIn-bottom">
-       							<p>Reports</p>
-      						</div>
-      					</a>
-      				</div>
-                </div>
+                
         </div>
     </div>
 </div>

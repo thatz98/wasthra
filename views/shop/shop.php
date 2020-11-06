@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="<?php echo URL; ?>public/css/shop-filters.css">
 <!-------- featered products -------->
-        <div class="small-container">
+       <div class="small-container">
             
             <div class="row row-2">
                 <h2>All Products</h2>
@@ -22,41 +22,45 @@
                     <div class="filter-catergories">
                         <h3>Categories</h3>
                         <div class="filter-category-list">
+                        <?php
+                    foreach($this->categoryList as $category){?>
                         <label class="size-container">
-                        <input type="radio" name="filter-category">
-                            <span class="checkbox">Gents</span>
+                        <input type="radio" name="filter-category" <?php if(isset($this->selected) && $this->selected==$category['name']){echo 'checked';}?>>
+                            <span class="checkbox" onclick="categoryFilter('<?php echo $category['name'];?>')"><?php echo $category['name']?></span>
                             </label>
-                            
+                            <?php }?>
                         </div>
                     </div>
                     <div class="filter-sizes">
                     <h3>Sizes</h3>
                         <div class="filter-size-list">
+                        <?php $filter_sizes = array();
+                    foreach($this->sizeList as $size){
+                        if(in_array($size['sizes'],$filter_sizes)){
+                            continue;
+                        }else{
+                            $filter_sizes[] .= $size['sizes'];?>
                         <label class="size-container">
-                            <input type="radio" name="filter-size">
-                            <span class="checkbox">Small</span>
+                            <input type="radio" name="filter-size" <?php if(isset($this->selected) && $this->selected==$size['sizes']){echo 'checked';}?>>
+                            <span class="checkbox" onclick="sizeFilter('<?php echo $size['sizes'];?>')"><?php echo $size['sizes']?></span>
                             </label>
-                            <label class="size-container">
-                            <input type="radio" name="filter-size">
-                            <span class="checkbox">Large</span>
-                            </label>
-                            <label class="size-container">
-                            <input type="radio" name="filter-size">
-                            <span class="checkbox">Medium</span>
-                            </label>
+                            <?php }}?>
                         </div>
                     </div>
                     <div class="filter-colors">
                     <h3>Colors</h3>
                     <div class="filter-color-list">
+                    <?php $filter_colors = array();
+                    foreach($this->colorList as $color){
+                        if(in_array($color['colors'],$filter_colors)){
+                            continue;
+                        }else{
+                            $filter_colors[] .= $color['colors'];?>
                     <label class="color-container">
-                        <input type="radio" name="filter-color">
-                        <a href="#"><span class="checkmark" style="background-color:#ff5647"></span></a>
+                        <input type="radio" name="filter-color" <?php if(isset($this->selected) && $this->selected==$color['colors']){echo 'checked';}?>>
+                        <span class="checkmark" onclick="colorFilter('<?php echo $color['colors'];?>')" style="background-color:<?php echo $color['colors']?>"></span>
                         </label>
-                        <label class="color-container">
-                        <input type="radio" name="filter-color">
-                        <a href="#"><span class="checkmark" style="background-color:#facb47"></span></a>
-                        </label>
+                        <?php }}?>
                     </div>
                     </div>
                 </div>
@@ -115,5 +119,18 @@
             </div>
         </div>
                 </div>
+<script>
+    function colorFilter(color){
+        color = color.substring(1);
+        location.replace("http://localhost/wasthra/shop/byColor/"+color);
+    }
 
+    function sizeFilter(size){
+        location.replace("http://localhost/wasthra/shop/bySize/"+size);
+    }
+
+    function categoryFilter(category){
+        location.replace("http://localhost/wasthra/shop/byCategory/"+category);
+    }
+</script>
 <?php require 'views/footer.php'; ?>

@@ -6,6 +6,9 @@
     <div class="row">
         <h2 class="title title-min">Users</h2>
     </div>
+    <div class="row-right">
+        <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
+    </div>
     <div class="" >
         <button class="btn btn-square" onclick="formToggle()">+ Add New User</button>
         <form action="<?php echo URL; ?>user/create" id="addFrom" class="hidden-form" method="post">

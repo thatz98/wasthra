@@ -7,7 +7,7 @@
                     }
     }
 } ?> 
-    <div class="popup" style="max-width: 50%; padding:30px;">
+    <div class="popup" style="padding:30px;">
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         <div class="row">
             <div class="col-2">
@@ -38,10 +38,11 @@
 
 
             </div>
-                <h2 style="margin-top: 5px;"><?php echo $this->productPopup['product_name']?></h2>
-                <h4>LKR <?php echo $this->productPopup['product_price']?></h4>
+                
             </div>
             <div class="col-2" style="text-align: center;">
+            <h2 style="margin-top: 5px;"><?php echo $this->productPopup['product_name']?></h2>
+                <h4>LKR <?php echo $this->productPopup['product_price']?></h4><br>
                 <form action="<?php echo URL; ?>cart/addToCart" method="post">
                 <label class="text-label">Select Color</label>
                 <div class="colors">

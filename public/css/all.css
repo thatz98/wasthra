@@ -742,6 +742,11 @@ input:focus{
         display: flex;
 }
 
+.popup .gallery-row{
+    max-width: 255px;
+
+}
+
 .single-product .gallery-row{
     margin:0 0 0 auto;
 }
@@ -1942,6 +1947,8 @@ table th i:hover{
     .popup {
         max-width: 80%;
     }
+
+
 }
 
 @media only screen and (max-width: 900px){
@@ -2043,6 +2050,8 @@ table th i:hover{
         cursor: pointer;
         margin: 0;
     }
+
+    
 }
 
 @media only screen and (max-width: 750px){
@@ -2053,6 +2062,14 @@ table th i:hover{
 
     .single-product .gallery-row{
         margin: 0 auto;
+    }
+
+    .product-col{
+        flex-basis: 100%;
+    }
+    
+    .filter-col{
+        flex-basis: 100%;
     }
 
 }
@@ -2088,7 +2105,16 @@ table th i:hover{
         line-height: 32px;
     }
     
-
+    .user-box:hover > .user-info {
+        width: 0px;
+        padding: auto 6px auto 15px;
+        
+    }
+    
+    .user-box:hover > .user-info p{
+        width: 0px;
+        display: flex;
+    }
     
 }
 

@@ -5,7 +5,7 @@
         <h2 class="title title-min">Products</h2>
         </div>
         <div class="row-right">
-        <a href="<?php echo URL ?>inventory" class="btn btn-square">Manage Inventory</a>
+        <a href="<?php echo URL ?>inventory" class="btn">Manage Inventory</a><a href="<?php echo URL ?>inventory" class="btn">Generate Report</a>
     </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product</button>

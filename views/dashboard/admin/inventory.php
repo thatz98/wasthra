@@ -4,7 +4,9 @@
     <div class="row">
         <h2 class="title title-min">Inventory</h2>
         </div>
-
+        <div class="row-right">
+        <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
+    </div>
     <div class="table-container">
     <div class="center-content">
     <table>

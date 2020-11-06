@@ -32,7 +32,7 @@
                     <ul id="menuItems">
                         <li><a href="<?php echo URL; ?>dashboard">Dashboard</a></li>
                         <li><a href="<?php echo URL; ?>user">Users</a></li>
-                        <li><a href="<?php echo URL; ?>orders">Orders</a></li>
+                        <li><a href="<?php echo URL; ?>orders/orderDashboard">Orders</a></li>
                         <li><a href="<?php echo URL; ?>products">Products</a></li>
                         <li><a href="<?php echo URL; ?>productCategories">Product Categories</a></li>
                         
