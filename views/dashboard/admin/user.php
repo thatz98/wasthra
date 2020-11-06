@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <h2>Users</h2>
+        <h2 class="title title-min">Users</h2>
     </div>
     <div class="" >
         <button class="btn btn-square" onclick="formToggle()">+ Add New User</button>

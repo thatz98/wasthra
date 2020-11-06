@@ -9,7 +9,7 @@ class ProductCategory extends Controller{
 
     function index(){
     	$this->view->productcatList = $this->model->listProductcat();
-    	$this->view->render('dashboard/admin/ProductCategory');
+    	$this->view->render('dashboard/admin/product_category');
     }
 
    
@@ -19,7 +19,7 @@ class ProductCategory extends Controller{
     	$data['name']=$_POST['category_name'];
 
     	$this->model->create($data);
-    	header('location: '.URL.'ProductCategory');
+    	header('location: '.URL.'productCategories');
     }
      
 
@@ -35,12 +35,12 @@ class ProductCategory extends Controller{
         $data['name'] = $_POST['category_name'];
 
         $this->model->update($data);
-        header('location: '.URL.'ProductCategory');
+        header('location: '.URL.'productCategories');
     }
 
     function delete($id){
         $this->model->delete($id);
-        header('location:'.URL.'ProductCategory');
+        header('location:'.URL.'productCategories');
     }
 
 }

@@ -2,7 +2,7 @@
 
 <div class="small-container">
     <div class="row">
-        <h2 class="title">Orders</h2><br>
+        <h2 class="title title-min">Orders</h2><br>
     </div>
     <div class="row-top">
         <div class="order-container" >

@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <h2>Price Categories</h2>
+        <h2 class="title title-min">Price Categories</h2>
     </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Category</button>

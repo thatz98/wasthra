@@ -2,7 +2,7 @@
     
    
    <div class="row">
-        <h2>Edit Products</h2>
+        <h2 class="title title-min">Edit Products</h2>
     </div>
         <div class="center-content">
         <div class="form-container" >

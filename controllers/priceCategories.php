@@ -10,7 +10,7 @@ class PriceCategories extends Controller{
 
     function index(){
         $this->view->pricecatList = $this->model->listPricecat();
-    	$this->view->render('dashboard/owner/pricecategories');
+    	$this->view->render('dashboard/owner/price_categories');
     }
 
 
@@ -30,7 +30,7 @@ class PriceCategories extends Controller{
 
    function edit($id){
        $this->view->getpricecat = $this->model->getPriceCategory($id);
-       $this->view->render('dashboard/owner/editPriceCategories');
+       $this->view->render('dashboard/owner/edit_price_categories');
  }
  
  

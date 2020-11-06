@@ -4,7 +4,7 @@
 <script src="<?php echo URL ?>public/js/libs/chart.min.js"></script>
 
 <div class="small-container">
-            <h2 class="title">Statistics</h2>
+            <h2  class="title title-min">Statistics</h2>
             <div class="row">
                 <div class="col">
                     <div class="card">

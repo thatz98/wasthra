@@ -1,9 +1,9 @@
 <?php require 'views/header_dashboard.php'; ?>
 
-<div class="container">
+<div class="small-container">
     <div class="row">
-        <h2>Product Category</h2>
-        </div>
+        <h2 class="title title-min">Product Category</h2>
+    </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product Category</button>
             <form action="<?php echo URL; ?>ProductCategory/create" id="addFrom" class="hidden-form" method="post">
@@ -14,6 +14,7 @@
                         <div class="col-3 pad-30-0-0-85">
                             <label>Product Category Name : </label><br><input type="text" name="category_name"><br>
             
+                        </div>
                         </div>
                         <div row>
                         <div class="center-btn">
@@ -48,6 +49,8 @@
           
         
     </table>
+</div>
+</div>
 </div>
 <?php require 'views/footer_dashboard.php'; ?>
 <script>

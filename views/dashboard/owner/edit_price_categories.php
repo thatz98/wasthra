@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <h2>Edit Price Category</h2>
+        <h2 class="title title-min">Edit Price Category</h2>
     </div>
         <div class="row">
         <div class="form-container">

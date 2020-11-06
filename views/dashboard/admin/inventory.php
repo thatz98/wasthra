@@ -1,30 +1,12 @@
 <?php require 'views/header_dashboard.php'; ?>
 
-<div class="container">
+<div class="small-container">
     <div class="row">
-        <h2>Inventory</h2>
+        <h2 class="title title-min">Inventory</h2>
         </div>
-        <!-- <div class="" >
-            <button class="btn btn-square" onclick="formToggle()">+ Add New Product Category</button>
-            <form action="<?php echo URL; ?>ProductCategory/create" id="addFrom" class="hidden-form" method="post">
-                        <div class="row-top">
-                            <div class="col-3 pad-30-0-0-85">
-                            <label>Product Category Id : </label><br><input type="text" name="product_category_id"><br>
-                        </div>
-                        <div class="col-3 pad-30-0-0-85">
-                            <label>Product Category Name : </label><br><input type="text" name="category_name"><br>
-            
-                        </div>
-                        <div row>
-                        <div class="center-btn">
-                            <button type="submit" class="btn">Add New Category</button>
-                        </div>
-                        </div>
-                    </form>
-                    </div> -->
-        
-    
+
     <div class="table-container">
+    <div class="center-content">
     <table>
         <tr>
             <th>Product ID</th>
@@ -38,8 +20,16 @@
             <tr>
                 <td><?php echo $inventory['product_id']; ?></td>
                 <td><?php echo $inventory['qty']; ?></td>
-                <td><?php echo $inventory['reorder_level']; ?></td>
-                <td><?php echo $inventory['reorder_qty']; ?></td>
+                <td><?php if(empty($inventory['reorder_level'])){
+                    echo 'not set';
+                } else{
+                    echo $inventory['reorder_level']; 
+                    }?></td>
+                <td><?php if(empty($inventory['reorder_qty'])){
+                    echo 'not set';
+                } else{
+                    echo $inventory['reorder_qty']; 
+                    }?></td>
                 <td><a href="<?php echo URL ?>inventory/edit/<?php echo $inventory['product_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
                 
             
@@ -51,6 +41,8 @@
           
         
     </table>
+    </div>
+</div>
 </div>
 <?php require 'views/footer_dashboard.php'; ?>
 <script>

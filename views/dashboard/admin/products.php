@@ -2,23 +2,22 @@
 
 <div class="container">
     <div class="row">
-        <h2>Products</h2>
+        <h2 class="title title-min">Products</h2>
         </div>
-        
+        <div class="row-right">
+        <a href="<?php echo URL ?>inventory" class="btn btn-square">Manage Inventory</a>
+    </div>
         <div class="" >
-            <div allign="right">
-            <a href="<?php echo URL ?>inventory" class="btn btn-square">Manage Inventory</a>
-            </div>
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product</button>
             <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" enctype="multipart/form-data" method="post">
 
-
+                    <div class="row" style="margin-top:30px;">
                         <div class="center-btn">
-                        <label allign="center">Product images : </label>
+                        <label>Product images : </label>
                         <!-- <button type="file" class="btn">Add New image</button> -->
                         <input type="file" accept="image/*" name="img[]"  multiple><br>
                         </div>
-                        
+                        </div>  
                         <div class="row-top">
                             <div class="col-3 pad-30-0-0-85">
                             <label>Product ID : </label><br><input type="text" name="product_id"><br>

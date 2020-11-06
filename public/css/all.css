@@ -253,6 +253,12 @@ form textarea:hover{
     flex-wrap: wrap;
 }
 
+.row-right{
+    width: 100%;
+    display: inline-block;
+    text-align: right;
+}
+
 .col{
     flex-basis: 100%;
 }
@@ -987,7 +993,8 @@ form a{
     border-style: none;
     padding: 3px 8px;
     border-radius: 5px;
-    transition: background 0.5s; 
+    transition: background 0.5s;
+    margin: 5px;
 }
 
 .table-btn:focus{
