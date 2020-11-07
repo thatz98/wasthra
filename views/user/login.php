@@ -41,7 +41,6 @@
                             </div>
                 <?php endif; ?>
                 
-                <a class="bag" href="#" id="bag" onclick="bagDown()"><i class="fa fa-shopping-bag fa-2x"></i><span class="badge">3</span></a>
                 <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
 <?php require 'views/shop/cart_dropdown.php'; ?>
@@ -49,20 +48,26 @@
         <div class="login">
             <div class="login-form-cont">
                 <div class="form sign-in">
-                    <h2>Welcome back,</h2>
+                    <?php if(isset($_GET['loginRequired']) && $_GET['loginRequired']=='true'){?>
+                        <h3 style="color: #FF0000;text-align:center;font-weight:normal;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> You must login first!</h3> 
+                        <?php
+                    } else{ ?>
+                        <h2>Welcome back,</h2>
+                  <?php  } ?>
+                    
                     <div class="form-inner-container" >
                         <form action="<?php echo URL; ?>login/run" id="loginForm" method="post" novalidate>
                             <div class="row">
                                 <div style="text-align: center;">
                                     <label>Username/Email</label><br>
-                                    <input type="text" name="username" onfocusout="validateUsername()" id="username">
+                                    <input type="text" name="username" data-helper="Username" onfocusout="validateUsername()" id="username">
                                     <div class="helper-text"><span></span></div>
                                     <label>Password</label><br>
-                                    <input type="password" name="password" onfocusout="validateLoginPassword()" id="login_password">
+                                    <input type="password" name="password" data-helper="Password" onfocusout="validateLoginPassword()" id="login_password">
                                     <div class="helper-text"><span></span></div>
                                 </div>
                             </div>
-                            <input type="text" name="prev_url" value="<?php echo $_SERVER['HTTP_REFERER'];?>" hidden>
+                            <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
                             <button type="submit" class="btn">Login</button>
                             <div class="forget-password">
                                 <a href="#">Forgot Password?</a>

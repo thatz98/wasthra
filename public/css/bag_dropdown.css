@@ -118,3 +118,6 @@
 	 clear: both;
 }
  
+a.bag{
+	cursor: pointer;
+}
