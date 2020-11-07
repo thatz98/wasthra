@@ -81,7 +81,7 @@ class Login_Model extends Model{
 
         
 
-       header('location: ../login?success=signup#message');
+       header('location: ../login?success=signUp#message');
     }
 
     public function checkAccountExist($username){

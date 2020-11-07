@@ -48,7 +48,6 @@
                             </div>
                 <?php endif; ?>
                 
-                <a class="bag" href="#" id="bag" onclick="bagDown()"><i class="fa fa-shopping-bag fa-2x"></i><span class="badge">3</span></a>
                 <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
 <?php require 'views/shop/cart_dropdown.php'; ?>
@@ -74,7 +73,7 @@
                                     <input type="password" name="password" onfocusout="validateLoginPassword()" id="login_password"><div class="helper-text"><span></span></div>
                                 </div>
                             </div>
-                            <input type="text" name="prev_url" value="<?php echo $_SERVER['HTTP_REFERER'];?>" hidden>
+                            <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
 
                             <button type="submit" class="btn">Login</button>
                             <div class="forget-password">
