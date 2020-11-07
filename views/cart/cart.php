@@ -22,18 +22,18 @@
                        <td class="order-details">
                             <h4><?php 
                                 $this->productPrice='';
-                                foreach ($this->priceCatID as $id){
-                                    if($id['product_id']==$cartDetails['product_id']){
-                                        $priceCategoryID=$id['price_category_id'];
-                                        echo $id['product_name'];
+                                foreach ($this->qtyList as $qty){
+                                    if($qty['product_id']==$cartDetails['product_id']){
+                                        $this->productPrice=$qty['product_price'];
+                                        echo $qty['product_name'];
                                     }
                                 } 
 
-                                foreach ($this->priceCatList as $catName){
-                                    if($priceCategoryID==$catName['price_category_id']){
-                                        $this->productPrice=$catName['product_price'];
-                                    }
-                            }
+                                // foreach ($this->qtyList as $qty){
+                                //     if($priceCategoryID==$catName['price_category_id']){
+                                //         $this->productPrice=$catName['product_price'];
+                                //     }
+                                // }
                             ?>
                             </h4>  
                             <h5><?php echo $this->productPrice;?></h5>     

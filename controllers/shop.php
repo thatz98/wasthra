@@ -76,4 +76,28 @@ class Shop extends Controller{
     	$this->view->render('shop/shop');
     }
 
+    function addReview($id){
+        
+        $this->view->productName = $this->model->getProductName($id);
+        $this->view->render('user/add_review');
+    }
+
+    function submitReview(){
+
+        // $imageName['img']=$_FILES['img']['name'];
+        // $imageName['temp']=$_FILES['img']['tmp_name'];
+        // for ($x=0; $x<sizeof($imageName['temp']); $x++){
+        //     move_uploaded_file ($imageName['temp'][$x] , 'C:\xampp\htdocs\wasthra\public\images\products\\'.$imageName['img'][$x]);
+        // }
+        $data = array();
+        $data['product_id'] = $_POST['product_id'];
+        $data['comment'] = $_POST['comment'];
+        $data['rating'] = $_POST['rating'];
+        $data['user_id'] = $_POST['user_id'];
+
+        $this->model->addReview($data);
+
+        header('location: '.URL.'shop');
+    }
+
 }
