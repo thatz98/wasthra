@@ -78,8 +78,10 @@ class Login_Model extends Model{
             'contact_no' => $data['contact_no'],
             'login_id' => $login_id['login_id']
         ));
+        $email = $data['email'];
+        $user_id = $this->db->listWhere('customer',array('user_id'),"email='$email'");
 
-        
+        $this->db->insert('shopping_cart',array('user_id' => $user_id['user_id']));
 
        header('location: ../login?success=signUp#message');
     }

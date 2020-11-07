@@ -41,8 +41,8 @@
                 <td><?php echo $product_category['category_id']; ?></td>
                 <td><?php echo $product_category['name']; ?></td>
                 
-                    <td><a href="<?php echo URL ?>ProductCategory/edit/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
-                    <a href="<?php echo URL ?>ProductCategory/delete/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
+                    <td><a href="<?php echo URL ?>ProductCategories/edit/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                    <a href="<?php echo URL ?>ProductCategories/delete/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
             
             </tr>
 
