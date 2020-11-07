@@ -1909,6 +1909,14 @@ table th i:hover{
     margin: 0 10px 0 10px;
 }
 
+p.error{
+    color: red;
+}
+
+p.success{
+    color: green;
+}
+
 .edit-image-row{
     display: inline;
 }

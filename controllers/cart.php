@@ -9,8 +9,8 @@ class Cart extends Controller{
         $this->view->cartList = $this->model->listCart();
         $this->view->userCart = $this->model->listUserCart(); 
         $this->view->imageList = $this->model->getImages();
-        $this->view->priceCatList = $this->model->getCatName();
-        $this->view->priceCatID = $this->model->getPriceCatIdProducts();
+        $this->view->qtyList = $this->model->getAllDetails();
+        
     	$this->view->render('cart/cart');
     }
     function addToCart(){
