@@ -6,6 +6,15 @@ class Cart_Model extends Model{
      	parent::__construct();
     }
     
+    public function getAllDetails(){
+        
+        return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
+		FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
+        
+        INNER JOIN category on category.category_id=product.category_id
+        INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
+    }
+
     public function listCart(){
         return $this->db->listAll('cart_item',array('product_id','item_qty','item_color','item_size'));
     }
