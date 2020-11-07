@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    
+<?php require 'views/error/error_popup.php';?>
      
     <div class="header-plain">
         <div class="contaner">

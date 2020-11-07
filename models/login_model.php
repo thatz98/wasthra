@@ -50,11 +50,11 @@ class Login_Model extends Model{
                 
             exit;
             } else{
-                header('location: ../login');
+                header('location: ../login?error=wrongPwd#message');
             }
     		
     	} else{
-    		header('location: ../login');
+    		header('location: ../login?error=noAccount#message');
     	} 
 
     }
@@ -81,11 +81,15 @@ class Login_Model extends Model{
 
         
 
-       header('location: ../login#signup=success');
+       header('location: ../login?success=signup#message');
     }
 
-    public function listUsernames(){
-        return $this->db->listAll('login',array('username'));
+    public function checkAccountExist($username){
+        if(count($this->db->listWhere('login',array('username'),"username='$username'"))){
+            return true;
+        } else{
+            return false;
+        }
 
     }
 }
