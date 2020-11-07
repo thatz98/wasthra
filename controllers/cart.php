@@ -7,9 +7,9 @@ class Cart extends Controller{
 
     function index(){
         $this->view->cartList = $this->model->listCart();
+        $this->view->userCart = $this->model->listUserCart(); 
         $this->view->imageList = $this->model->getImages();
         $this->view->priceCatList = $this->model->getCatName();
-  
         $this->view->priceCatID = $this->model->getPriceCatIdProducts();
     	$this->view->render('cart/cart');
     }
@@ -24,15 +24,7 @@ class Cart extends Controller{
            header('location: '.URL.'');
     }
 
-//     function edit($id){
-//         $this->view->qty =  $this->model->getQty($id);
-//         $this->view->size =  $this->model->getSize($id);
-//         $this->view->color =  $this->model->getColor($id);
-//         $this->view->colorList =  $this->model->getColors();
-//         $this->view->sizeList =  $this->model->getSizes();
-//         $this->view->getCart = $this->model->getCart($id);
-//         $this->view->render('cart/editCart');
-//   }
+
 
 
   function delete($id){
