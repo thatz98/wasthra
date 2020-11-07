@@ -45,18 +45,18 @@
                <span class="item-name">
                        <?php 
                                 $this->productPrice='';
-                                foreach ($this->priceCatID as $id){
+                                foreach ($this->qtyList as $id){
                                     if($id['product_id']==$cartDetails['product_id']){
-                                        $priceCategoryID=$id['price_category_id'];
+                                       // $priceCategoryID=$id['price_category_id'];
                                         echo $id['product_name'];
                                     }
                                 } 
             
-                                foreach ($this->priceCatList as $catName){
-                                    if($priceCategoryID==$catName['price_category_id']){
+                                foreach ($this->qtyList as $catName){
+                                   // if($priceCategoryID==$catName['price_category_id']){
                                         $this->productPrice=$catName['product_price'];
                                     }
-                            }
+                          //  }
                             ?>
                 </span>           
                         <div>
