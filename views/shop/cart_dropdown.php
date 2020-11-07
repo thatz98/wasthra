@@ -31,7 +31,7 @@
         <span class="item-price">$129.99</span>
         <span class="item-quantity">Qty: 01</span>
       </li>
-  --><?php print_r(Session::get('cartData'));?>
+  -->
       <?php foreach ( Session::get('cartData') as $cartDetails ): ?>
         <li class="clearfix">
         
