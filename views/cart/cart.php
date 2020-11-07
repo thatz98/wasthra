@@ -1,5 +1,5 @@
 <?php require 'views/header.php'; ?>
-
+<?php require 'views/cart/editCart.php'; ?>
 
 <div class="small-container">
     <div class="row">
@@ -45,7 +45,7 @@
                         </td>
 
                         <td>
-                            <a href="<?php echo URL ?>cart/edit/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Update</a>
+                            <a href="<?php echo '?id='.$cartDetails['product_id']?>#updateCartPopup" class="btn table-btn">Update</a>
                             <a href="<?php echo URL ?>cart/delete/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Remove</a>
                         </td>
                     </tr>

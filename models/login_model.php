@@ -45,6 +45,13 @@ class Login_Model extends Model{
                     $userId = $userData['user_id'];
                     $addressData = $this->db->listWhere('delivery_address',array('address_id','postal_code','address_line_1','address_line_2','address_line_3','city'),"user_id='$userId'");
                     Session::set('addressData',$addressData);
+                    $cartId=$this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
+                    $id=$cartId[0]['cart_id'];
+                //  print_r($id);
+                  $cartData = $this->db->query("SELECT cart_item.product_id,cart_item.item_qty,cart_item.item_color,cart_item.item_size
+                    FROM cart_item WHERE cart_item.cart_id='$id';");
+                Session::set('cartData',$cartData);
+                
                 header('location: '.$prev_url);
                 }
                 

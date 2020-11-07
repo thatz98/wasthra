@@ -44,7 +44,6 @@
             </div>
         </div>
     </div>
-
     <!-------- featered products -------->
         <div class="small-container">
             <h2 class="title">Featured Products</h2>
