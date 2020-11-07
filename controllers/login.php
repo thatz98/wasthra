@@ -21,6 +21,19 @@ class Login extends Controller{
     	
     }
 
+    function cartRequireLogin(){
+
+        if(isset($_POST['screen-size'])){
+            if($_POST['screen-size']<600){
+                $this->view->render('user/mobile_login');
+            } else{
+                $this->view->render('user/login');
+            }
+        } else{
+            $this->view->render('user/login');
+        }
+    }
+
     function run(){
     	$this->model->run();
     }

@@ -19,8 +19,10 @@
                     <?php }
                 } else if (isset($_GET['success'])) {
                     if ($_GET['success'] == 'signUp') { ?>
-                        <p class="sucess"><i class="fa fa-check" aria-hidden="true"></i> Your account has been made, <br /> Please verify it by clicking the activation link
+                        <p class="success"><i class="fa fa-check" aria-hidden="true"></i> Your account has been made, <br /> Please verify it by clicking the activation link
                             that has been send to your email...</p>
+                <?php } else if ($_GET['success'] == 'itemAddedToCart') { ?>
+                        <p class="success"><i class="fa fa-check" aria-hidden="true"></i> Item added to cart successfully...</p>
                 <?php } else {
                         header('location: ./#');
                     }
