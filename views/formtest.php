@@ -283,3 +283,6 @@ function matchWithRegEx(regEx, field, message) {
     </script>
   </body>
 </html>
+
+
+<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>

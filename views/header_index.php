@@ -18,6 +18,7 @@
     <?php if(Session::get('loggedIn')==true){
     require 'views/user/profile_card.php';
 } ?>
+    <?php require 'views/error/error_popup.php';?>
 
     <div class="header" id="header">
         <div class="contaner">

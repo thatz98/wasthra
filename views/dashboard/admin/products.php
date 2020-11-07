@@ -19,7 +19,7 @@
                         </div>
                         </div>  
                         <div class="row-top">
-                            <div class="col-3 pad-30-0-0-85">
+                            <div class="col-3">
                             <label>Product ID : </label><br><input type="text" name="product_id"><br>
                             
                             <label>Product Name : </label><br><input type="text" name="product_name"><br>
@@ -31,7 +31,7 @@
                         <label>Quantity : </label><br><input type="text" name="quantity"><br>
                         
                         </div>
-                        <div class="col-3 pad-30-0-0-85">
+                        <div class="col-3">
                             <label>Available Sizes : </label><br>
                             <div class="checkboxes">
                                 <input type="checkbox" name="size[]" value="XS"><span>XS</span>
@@ -71,7 +71,7 @@
                         </select><br>
                         
                         </div>
-                        <div class="col-3 pad-30-0-0-85">
+                        <div class="col-3">
                             <label>Colors : </label><br><input type="text" name="colors"><br>
                             <label>Price Category : </label><br><select name="price_category">
                             <?php foreach ($this->pricecategoryList as $priceCategory): ?><option value="<?php echo $priceCategory['price_category_name']; ?>"><?php echo $priceCategory['price_category_name']; ?></option> <?php endforeach;?>

@@ -9,6 +9,7 @@ class Login_Model extends Model{
     public function run(){
 
         $username = $_POST['username'];
+        $prev_url = $_POST['prev_url'];
     	$user = $this->db->listWhere('login',array('login_id','username','password','user_type','user_status'),"username='$username'");
 
     	if($user){
@@ -44,7 +45,7 @@ class Login_Model extends Model{
                     $userId = $userData['user_id'];
                     $addressData = $this->db->listWhere('delivery_address',array('address_id','postal_code','address_line_1','address_line_2','address_line_3','city'),"user_id='$userId'");
                     Session::set('addressData',$addressData);
-                header('location: ../');
+                header('location: '.$prev_url);
                 }
                 
             exit;

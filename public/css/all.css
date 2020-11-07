@@ -1843,8 +1843,14 @@ label.input-data{
   margin: 0 25px 0 15px;
 }
 
+form .row-top{
+    margin-top: 30px;
+}
 
-
+form .col-3{
+    flex-basis: 33.33%;
+    padding: 10px 0 10px 0;
+}
 .summary-info{
     text-align: left;
 }

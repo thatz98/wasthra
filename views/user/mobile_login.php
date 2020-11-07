@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+<?php if(Session::get('loggedIn')=='true'){
+            header('location: '.URL.'?error=loggedAlready#message');
+        }?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,10 +35,7 @@
                         <li><a href="<?php echo URL; ?>">Home</a></li>
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
-                        <?php if(Session::get('loggedIn')!==true): ?>
-                            
-                            <li><a href="<?php echo URL; ?>login">Login/Signup</a></li>
-                        <?php endif; ?>
+                        
                     </ul>
                 </nav>
 
@@ -75,6 +74,8 @@
                                     <input type="password" name="password" onfocusout="validateLoginPassword()" id="login_password"><div class="helper-text"><span></span></div>
                                 </div>
                             </div>
+                            <input type="text" name="prev_url" value="<?php echo $_SERVER['HTTP_REFERER'];?>" hidden>
+
                             <button type="submit" class="btn">Login</button>
                             <div class="forget-password">
                                 <a href="#">Forgot Password?</a>

@@ -84,23 +84,24 @@ class User extends Controller{
         $data['user_id'] = $_POST['user_id'];
         $data['login_id'] = $_POST['login_id'];
         
-        $addressData = array();
+        
+
+        if(!$this->model->checkExistsWhere($data['username'],$data['login_id'])){
+            
+            $this->model->updateProfile($data);
+            if($data['user_type']=='customer'){
+                $addressData = array();
         $addressData['user_id'] = $_POST['user_id'];
         $addressData['address_id'] = $_POST['address_id'];
         $addressData['address_line_1'] = $_POST['address_line_1'];
         $addressData['address_line_2'] = $_POST['address_line_2'];
         $addressData['address_line_3'] = $_POST['address_line_3'];
         $addressData['city'] = $_POST['city'];
-
-        if(!$this->model->checkExistsWhere($data['username'],$data['login_id'])){
-            
-            $this->model->update($data);
-            if($data['user_type']=='customer'){
                 $this->model->updateAddress($addressData);
             }
-            header('location: '.URL.'user');
+            header('location: '.URL.'');
         } else{
-        header('location: '.URL.'user?error=usernameExists#message');
+        header('location: '.URL.'?error=anotherAccountExists#edit-profile#message');
         }
         
     }
