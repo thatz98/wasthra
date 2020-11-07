@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-
+<?php if(Session::get('loggedIn')=='true'){
+            header('location: '.URL.'?error=loggedAlready#message');
+        }?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
-    <link rel="stylesheet" type="text/css" href="public/css/login.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
@@ -14,7 +16,7 @@
 </head>
 
 <body>
-    
+<?php require 'views/error/error_popup.php';?>
      
     <div class="header-plain">
         <div class="contaner">
@@ -27,10 +29,6 @@
                         <li><a href="<?php echo URL; ?>">Home</a></li>
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
-                        <?php if(Session::get('loggedIn')!==true): ?>
-                            
-                            <li><a href="<?php echo URL; ?>login">Login/Signup</a></li>
-                        <?php endif; ?>
                     </ul>
                 </nav>
 
@@ -64,6 +62,7 @@
                                     <div class="helper-text"><span></span></div>
                                 </div>
                             </div>
+                            <input type="text" name="prev_url" value="<?php echo $_SERVER['HTTP_REFERER'];?>" hidden>
                             <button type="submit" class="btn">Login</button>
                             <div class="forget-password">
                                 <a href="#">Forgot Password?</a>

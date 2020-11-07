@@ -32,18 +32,24 @@ class Login extends Controller{
     }
 
     function signup(){
-        $data = array();
-        $data['first_name'] = $_POST['first_name'];
-        $data['last_name'] = $_POST['last_name'];
-        $data['gender'] = $_POST['gender'];
-        $data['email'] = $_POST['email'];
-        $data['contact_no'] = $_POST['contact_no'];
-        $data['username'] = $_POST['email'];
-        $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $data['user_status'] = 'new';
-        $data['user_type'] = 'customer';
 
-        $this->model->signup($data);
+        if(!$this->model->checkAccountExist($_POST['email'])){
+            $data = array();
+            $data['first_name'] = $_POST['first_name'];
+            $data['last_name'] = $_POST['last_name'];
+            $data['gender'] = $_POST['gender'];
+            $data['email'] = $_POST['email'];
+            $data['contact_no'] = $_POST['contact_no'];
+            $data['username'] = $_POST['email'];
+            $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $data['user_status'] = 'new';
+            $data['user_type'] = 'customer';
+    
+            $this->model->signup($data);
+        } else{
+            header('Location: ./?error=accountExists#message');
+        }
+        
     }
 
     function changePassword(){

@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-3">
                     <div class="content">
-                        <a href="">
+                        <a href="<?php echo URL;?>shop/byCategory/Gents">
                             <div class="content-overlay"></div>
                             
                             <img class="content-image" src="<?php echo URL; ?>public/images/category-1.jpg">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-3">
                     <div class="content">
-                        <a href="">
+                        <a href="<?php echo URL;?>shop/byCategory/Ladies">
                             <div class="content-overlay"></div>
                 
                             <img class="content-image" src="<?php echo URL; ?>public/images/category-3.jpg">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-3">
                     <div class="content">
-                        <a href="">
+                        <a href="<?php echo URL;?>shop/byCategory/Couple">
                             <div class="content-overlay"></div>
                             
                             <img class="content-image" src="<?php echo URL; ?>public/images/category-2.jpg">
