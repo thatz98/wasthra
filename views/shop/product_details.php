@@ -59,10 +59,12 @@
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
                 <p><?php echo $this->product[0]['product_description']?></p>
-            
+                <a href="<?php echo URL ?>shop/addReview/<?php echo $single['product_id']?>" class="btn prd-btn">Add Review</a>
             </div>
         </div>
     </div>
+
+    
 
     <div class="small-container">
         <div class="row row-2">
