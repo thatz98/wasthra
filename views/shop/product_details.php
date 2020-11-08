@@ -1,5 +1,6 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/shop/add_to_cart.php';?>
+<?php require 'views/shop/add_review.php';?>
 <?php if (isset($_GET['id'])){require 'views/shop/add_to_cart_index.php';}?>
 
 <div class="small-container single-product">
@@ -77,7 +78,7 @@
 <div class="small-container product-review">
 <div class="row-left row-2">
         <h2>Reviews</h2>
-        <a href="<?php echo URL ?>shop/addReview/<?php echo $single['product_id']?>" class="btn" style="float: right;">+ Add Review</a>
+        <a href="#addReview" class="btn" style="float: right;">+ Add Review</a>
     </div>
     <div class="row-left">
         <div class="col">
@@ -168,6 +169,7 @@
 
     </div>
 </div>
+        </div>
 
 <script type="text/javascript" src="<?php echo URL ?>public/js/product_gallery.js"></script>
 
