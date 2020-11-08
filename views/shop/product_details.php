@@ -60,11 +60,8 @@
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
                 <p><?php echo $this->product[0]['product_description']?></p>
-                <a href="<?php echo URL ?>shop/addReview/<?php echo $single['product_id']?>" class="btn prd-btn">Add Review</a>
             </div>
-            <h3>Product Details <i class="fa fa-indent"></i></h3>
-            <br>
-            <p><?php echo $this->product[0]['product_description']?></p>
+
 
         </div>
     </div>
@@ -76,12 +73,11 @@
 
     <div class="small-container">
         <div class="row row-2">
-            <h2>Related Products</h2>
-            <a href="" class="view-more">View more >></a>
+
 <div class="small-container product-review">
 <div class="row-left row-2">
         <h2>Reviews</h2>
-        <a href="#" class="btn" style="float: right;">+ Add Review</a>
+        <a href="<?php echo URL ?>shop/addReview/<?php echo $single['product_id']?>" class="btn" style="float: right;">+ Add Review</a>
     </div>
     <div class="row-left">
         <div class="col">
@@ -117,7 +113,6 @@
 <div class="small-container">
     <div class="row row-2">
         <h2>Related Products</h2>
-        <a href="" class="view-more">View more >></a>
     </div>
 </div>
 
