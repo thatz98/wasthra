@@ -1929,6 +1929,27 @@ p.success{
     color: #fff;
     background: #ff523b;
 }
+
+.product-review .row-left{
+    margin: 5px 0 5px 0;
+}
+
+.product-review i{
+    color: #ff523b;
+}
+
+.product-review .col-images{
+    margin: 0 10px 0 0; 
+}
+
+.product-review h2{
+    margin: 20px 0 20px 0;
+}
+
+.product-review img{
+    max-width: 100px;
+    max-height: 100px;
+}
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
     width: 150px;
@@ -2114,6 +2135,10 @@ p.success{
     
     .filter-col{
         flex-basis: 100%;
+    }
+
+    .navbar{
+        padding: 20px 20px;
     }
 
 }

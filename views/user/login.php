@@ -67,6 +67,12 @@
                                     <div class="helper-text"><span></span></div>
                                 </div>
                             </div>
+                            <?php if(isset($_GET['productId']) && isset($_GET['size']) && isset($_GET['qty']) && isset($_GET['color'])){?>
+                                <input type="text" name="product_id" value="<?php echo $_GET['productId'];?>" hidden>
+                                <input type="text" name="item_size" value="<?php echo $_GET['size'];?>" hidden>
+                                <input type="text" name="item_color" value="<?php echo $_GET['color'];?>" hidden>
+                                <input type="text" name="item_qty" value="<?php echo $_GET['qty'];?>" hidden>
+                                <?php } ?>
                             <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
                             <button type="submit" class="btn">Login</button>
                             <div class="forget-password">

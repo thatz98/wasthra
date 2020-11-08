@@ -10,6 +10,9 @@ class Login_Model extends Model{
 
         $username = $_POST['username'];
         $prev_url = $_POST['prev_url'];
+        if(empty($prev_url)){
+            $prev_url = URL; 
+        }
     	$user = $this->db->listWhere('login',array('login_id','username','password','user_type','user_status'),"username='$username'");
 
     	if($user){
@@ -51,8 +54,12 @@ class Login_Model extends Model{
                   $cartData = $this->db->query("SELECT cart_item.product_id,cart_item.item_qty,cart_item.item_color,cart_item.item_size
                     FROM cart_item WHERE cart_item.cart_id='$id';");
                 Session::set('cartData',$cartData);
+                if(isset($_POST['product_id']) && isset($_POST['item_size']) && isset($_POST['item_qty']) && isset($_POST['item_color'])){
+                    header('location: '.URL.'cart/addToCartAfterLogin?productId='.$_POST['product_id'].'&qty='.$_POST['item_qty'].'&color='.$_POST['item_color'].'&size='.$_POST['item_size']);
+                } else{
+                    header('location: '.$prev_url);
+                }
                 
-                header('location: '.$prev_url);
                 }
                 
             exit;
@@ -94,10 +101,10 @@ class Login_Model extends Model{
     }
 
     public function checkAccountExist($username){
-        if(count($this->db->listWhere('login',array('username'),"username='$username'"))){
-            return true;
-        } else{
+        if($this->db->listWhere('login',array('username'),"username='$username'")==null){
             return false;
+        } else{
+            return true;
         }
 
     }

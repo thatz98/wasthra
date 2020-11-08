@@ -27,7 +27,7 @@
             <div class="col-2" style="text-align: center;">
             <h2 style="margin-top: 5px;"><?php echo $this->product[0]['product_name']?> </h2>
                 <h4>LKR <?php echo $this->product[0]['product_price']?></h4>
-                <form action="" method="post">
+                <form action="<?php echo URL;?>cart/addToCart" method="post">
                 <label class="text-label">Select Color</label>
                 <div class="colors">
                     <?php $single_colors = array();
@@ -69,8 +69,8 @@
                                                 <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">
                                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                             </div>
-
-                <button type="submit" class="btn">Add to Cart</button>
+                                            <input type="text" name="screen-size" id="screensize" hidden>
+                <a href="#" class="btn" onclick="addToCart()">Add to Cart</a>
             </form>
             </div>
         </div>
@@ -79,3 +79,13 @@
             
     </div>
     </div>
+
+    <script>
+
+        
+        function addToCart(){
+            var screenSize = $(window).width();
+            document.getElementById('screensize').value = screenSize;
+
+        }
+    </script>

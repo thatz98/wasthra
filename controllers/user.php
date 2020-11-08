@@ -6,6 +6,7 @@ class User extends Controller{
     {
         parent::__construct();
         Authenticate::adminAuth();
+        
     }
 
     function index(){
