@@ -1724,7 +1724,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .box-container{
     background: #fff;
-    width: 90%;
+    width: 100%;
     height: auto;
     position: relative;
     text-align: center;

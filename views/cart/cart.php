@@ -5,12 +5,12 @@
     <div class="row">
         <h2 class="title">Cart</h2><br>
     </div>
-    <div class="row-top">
+    <div class="row-top"> 
         <div class="col-60p">
             <div class="box-container" >
                 <table class="order-list">
 
-                    <?php foreach ($this->cartList as $cartDetails ): ?>
+                    <?php foreach ($this->userCart as $cartDetails ): ?>
                     <tr>
                       <td><?php foreach ($this->imageList as $image){
                         if($cartDetails['product_id']==$image['product_id']){?>
@@ -45,7 +45,7 @@
                         </td>
 
                         <td>
-                            <a href="<?php echo '?id='.$cartDetails['product_id']?>#updateCartPopup" class="btn table-btn">Update</a>
+                            <a href="<?php echo '?id='.$cartDetails['product_id'].'&item='.$cartDetails['item_id'].'&color='.str_replace('#','',$cartDetails['item_color']).'&qty='.$cartDetails['item_qty'].'&size='.$cartDetails['item_size']?>#updateCartPopup" class="btn table-btn">Update</a>
                             <a href="<?php echo URL ?>cart/delete/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Remove</a>
                         </td>
                     </tr>

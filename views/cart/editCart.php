@@ -42,14 +42,19 @@
                 <h4>LKR <?php echo $this->productPopup['product_price']?></h4>
             </div>
             <div class="col-2" style="text-align: center;">
-                <form action="<?php echo URL; ?>cart/addToCart" method="post">
+                <form action="<?php echo URL; ?>cart/updateCartItem/<?php echo $_GET['item'];?>" method="post">
                 <label class="text-label">Select Color</label>
                 <div class="colors">
                     <?php foreach ($this->colorList as $color){
                         if($this->productPopup['product_id']==$color['product_id']){?>
                             <label class="color-container">
-                            <input type="radio" name="color" value="<?php echo $color['colors']?>">
-                            <span class="checkmark" style="background-color: <?php echo $color['colors']?>"></span>
+                            <?php if($color['colors']=='#'.$_GET['color']){
+                                echo '<input type="radio" name="color" value="'.$color['colors'].'" checked>
+                            <span class="checkmark" style="background-color:'.$color['colors'].'"></span>';
+                            } else{
+                                echo '<input type="radio" name="color" value="'.$color['colors'].'">
+                            <span class="checkmark" style="background-color:'.$color['colors'].'"></span>';
+                          }?>
                             </label>
                         <?php }
                     } ?>
@@ -59,7 +64,12 @@
                     <?php foreach ($this->sizeList as $size){
                         if($this->productPopup['product_id']==$size['product_id']){?>
                             <label class="size-container">
-                <input type="radio" name="size" value="<?php echo $size['sizes']?>">
+                                <?php if($_GET['size']==$size['sizes']){
+                                    echo '<input type="radio" name="size" value="'.$size['sizes'].'" checked>';
+                                } else{
+                                    echo '<input type="radio" name="size" value="'.$size['sizes'].'">';
+                                }?>
+                
                 <span class="checkbox"><?php echo $size['sizes']?></span>
                 </label>
                              <?php
@@ -70,12 +80,12 @@
                 <label class="text-label">Select Quantity</label>
                 <div class="quantity">
                                                 <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">
+                                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="<?php echo $_GET['qty'];?>">
                                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                             </div>
-
+                                            <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id']?>" hidden>
                 <button type="submit" class="btn">Update</button>
-                <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id']?>" style="display:none">
+                
             </form>
             </div>
         </div>

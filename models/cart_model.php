@@ -49,7 +49,7 @@ class Cart_Model extends Model{
         $cartId=$this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
         $id=$cartId[0]['cart_id'];
     //  print_r($id);
-        return $this->db->query("SELECT cart_item.product_id,cart_item.item_qty,cart_item.item_color,cart_item.item_size
+        return $this->db->query("SELECT cart_item.product_id,cart_item.item_id,cart_item.item_qty,cart_item.item_color,cart_item.item_size
         FROM cart_item WHERE cart_item.cart_id='$id';");
     
 
@@ -68,6 +68,18 @@ class Cart_Model extends Model{
            'item_size' => $data['item_size']
           
           ));
+         
+        
+    }
+
+    public function update($data){
+        $itemId = $data['item_id'];
+        $this->db->update('cart_item',array(
+           'item_qty' => $data['item_qty'],
+           'item_color' => $data['item_color'],      
+           'item_size' => $data['item_size']
+          
+          ),"item_id=$itemId");
          
         
     }
