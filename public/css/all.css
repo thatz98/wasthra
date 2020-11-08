@@ -365,7 +365,7 @@ form .col-2, form .col-3, form .col-2 input, form .col-3 input{
     }
 }
 .header{
-    background: radial-gradient(#fff,#ffd6d6);
+   /* background: radial-gradient(#fff,#ffd7d7);*/
     visibility: hidden;
     opacity: 0;
     transition: opacity 1s ease-out;

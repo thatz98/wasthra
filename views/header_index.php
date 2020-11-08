@@ -19,7 +19,7 @@
     require 'views/user/profile_card.php';
 } ?>
     <?php require 'views/error/error_popup.php';?>
-
+    <?php require 'public/ui/wave.php';?>
     <div class="header" id="header">
         <div class="contaner">
             <div class="navbar">
