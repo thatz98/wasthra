@@ -28,6 +28,10 @@ class Shop_Model extends Model{
         //$this->db->listWhere('product',array('product_id','product_name','product_description','is_featured','is_new','category_id','price_category_id','is_published'),"product_id='$id'");
     }
 
+    public function getProductName($id){
+        return $this->db->query("SELECT product_id,product_name FROM product WHERE product_id='$id';");
+    }
+
     public function getAllDetails(){
         
         return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
@@ -87,6 +91,37 @@ class Shop_Model extends Model{
     public function getQty(){
         return $this->db->query("SELECT inventory.product_id,inventory.qty
         FROM inventory ;");
+    }
+
+    public function addReview($data,$date,$time,$imageList){
+        $this->db->insert('review',array(
+            'product_id' => $data['product_id'],
+            'user_id' => $data['user_id'],
+            'rate' => $data['rating'],
+            'review_text' => $data['comment'], 
+            'date' => $date,
+            'time' => $time,     
+           
+           ));
+        $product_id = $data['product_id'];
+        $user_id = $data['user_id'];
+        $rate = $data['rating'];
+        $review_id =  $this->db->query("SELECT review.review_id
+        FROM review WHERE review.product_id='$product_id' AND review.user_id='$user_id' AND review.date='$date' AND review.time='$time' ;");
+        
+        $rID=$review_id[0][0];
+        print_r($imageList);
+        foreach($imageList as $img){
+            if($img==''){
+            break;
+            }
+            $m="public/images/Review_images/";
+            $m.=$img;
+            echo $m;
+
+            $this->db->queryExecuteOnly("INSERT INTO review_image (review_image.review_id,review_image.image) VALUES ('$rID','$m')");
+        }
+        
     }
 
 }

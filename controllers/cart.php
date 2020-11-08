@@ -19,7 +19,7 @@ class Cart extends Controller{
     }
     function addToCart(){
            $data = array();
-           $data['product_id'] = $_POST['prod_id'];
+           $data['product_id'] = $_POST['product_id'];
            $data['item_qty']=$_POST['quantity'];
            $data['item_color']=$_POST['color'];
            $data['item_size']=$_POST['size'];

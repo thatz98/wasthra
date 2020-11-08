@@ -84,20 +84,22 @@ class Shop extends Controller{
 
     function submitReview(){
 
-        // $imageName['img']=$_FILES['img']['name'];
-        // $imageName['temp']=$_FILES['img']['tmp_name'];
-        // for ($x=0; $x<sizeof($imageName['temp']); $x++){
-        //     move_uploaded_file ($imageName['temp'][$x] , 'C:\xampp\htdocs\wasthra\public\images\products\\'.$imageName['img'][$x]);
-        // }
+        $imageName['img']=$_FILES['img']['name'];
+        $imageName['temp']=$_FILES['img']['tmp_name'];
+        for ($x=0; $x<sizeof($imageName['temp']); $x++){
+            move_uploaded_file ($imageName['temp'][$x] , 'C:\xampp\htdocs\wasthra\public\images\Review_images\\'.$imageName['img'][$x]);
+        }
         $data = array();
         $data['product_id'] = $_POST['product_id'];
         $data['comment'] = $_POST['comment'];
         $data['rating'] = $_POST['rating'];
         $data['user_id'] = $_POST['user_id'];
 
-        $this->model->addReview($data);
-
-        header('location: '.URL.'shop');
+        $date = date("Y-m-d");
+        date_default_timezone_set(" India Standard Time");
+        $time = date("H:i:s");
+        $this->model->addReview($data,$date,$time,$imageName['img']);
+        //header('location: '.URL.'shop');
     }
 
 }

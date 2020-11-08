@@ -57,6 +57,11 @@
             <a href="#addToCartPopup" class="btn prd-btn">Add to Cart</a>
             <a href="#buyNowPopup" class="btn prd-btn">Buy Now</a>
             <br>
+                <h3>Product Details <i class="fa fa-indent"></i></h3>
+                <br>
+                <p><?php echo $this->product[0]['product_description']?></p>
+                <a href="<?php echo URL ?>shop/addReview/<?php echo $single['product_id']?>" class="btn prd-btn">Add Review</a>
+            </div>
             <h3>Product Details <i class="fa fa-indent"></i></h3>
             <br>
             <p><?php echo $this->product[0]['product_description']?></p>
@@ -67,6 +72,12 @@
 
 <!-------- product reviews -------->
 
+    
+
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>Related Products</h2>
+            <a href="" class="view-more">View more >></a>
 <div class="small-container product-review">
 <div class="row-left row-2">
         <h2>Reviews</h2>
