@@ -55,6 +55,7 @@
             </div>
         </div>
         <div class="col-40p">
+            <div class="row">
             <div class="box-container" >
                 <div class="total-price">
                     <table>
@@ -75,6 +76,10 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <a href="<?php echo URL;?>checkout" class="btn">Proceed to Checkout >></a>
+        </div>
         </div>
     </div>
 </div>

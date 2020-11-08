@@ -67,7 +67,7 @@
       <?php endforeach;?>
   </ul>
 
-<div class="row">
+<div class="row" style="margin: 0;">
   <a href="<?php echo URL;?>cart" class="btn drop-btn">View Cart</a>
   <a href="<?php echo URL;?>checkout" class="btn drop-btn">Checkout</a>
 </div>

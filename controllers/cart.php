@@ -3,9 +3,11 @@
 class Cart extends Controller{
     function __construct(){
         parent::__construct();
+        
     }
 
     function index(){
+        Authenticate::handleLogin();
         $this->view->cartList = $this->model->listCart();
         $this->view->userCart = $this->model->listUserCart(); 
         $this->view->imageList = $this->model->getImages();

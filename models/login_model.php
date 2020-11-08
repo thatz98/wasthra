@@ -10,6 +10,9 @@ class Login_Model extends Model{
 
         $username = $_POST['username'];
         $prev_url = $_POST['prev_url'];
+        if(empty($prev_url)){
+            $prev_url = URL; 
+        }
     	$user = $this->db->listWhere('login',array('login_id','username','password','user_type','user_status'),"username='$username'");
 
     	if($user){

@@ -4,6 +4,7 @@ class Checkout extends Controller{
     function __construct()
     {
         parent::__construct();
+        Authenticate::handleLogin();
     }
 
     function index(){
