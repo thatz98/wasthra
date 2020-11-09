@@ -2042,6 +2042,11 @@ p.success{
     flex-basis: 100%;
 }
 
+.box-container{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .total-price table{
     max-width: 100%;
 }

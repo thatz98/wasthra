@@ -9,6 +9,7 @@ class Cart extends Controller{
     function index(){
         Authenticate::handleLogin();
      //   $this->view->cartList = $this->model->listCart();
+     $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->userCart = $this->model->listUserCart();
         $this->view->sizeList =  $this->model->getSizes(); 
         $this->view->imageList = $this->model->getImages();

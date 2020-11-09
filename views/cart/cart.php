@@ -10,7 +10,8 @@
             <div class="box-container" >
                 <table class="order-list">
 
-                    <?php foreach ($this->userCart as $cartDetails ): ?>
+                    <?php $this->subtotal=0.00;
+                    foreach ($this->userCart as $cartDetails ): ?>
                     <tr>
                       <td><?php foreach ($this->imageList as $image){
                         if($cartDetails['product_id']==$image['product_id']){?>
@@ -21,7 +22,7 @@
                         }?></td>
                        <td class="order-details">
                             <h4><?php 
-                                $this->productPrice='';
+                                $this->productPrice=0.00;
                                 foreach ($this->qtyList as $qty){
                                     if($qty['product_id']==$cartDetails['product_id']){
                                         $this->productPrice=$qty['product_price'];
@@ -50,7 +51,8 @@
                         </td>
                     </tr>
                     
-                    <?php endforeach;?>
+                    <?php $this->subtotal+=($cartDetails['item_qty']*$this->productPrice);
+                endforeach;?>
                 </table>     
             </div>
         </div>
@@ -61,17 +63,31 @@
                     <table>
                         <tr>
                             <td>Subtotal</td>
-                            <td>LKR </td>  
+                            <td>LKR <span id="subtotal"><?php echo number_format($this->subtotal,2,'.','');?></span></td>  
                             <div id="sub-display">
                             </div>
                         </tr>
                         <tr>
+                            <td>
+                                <label style="font-size:11px;">Select the city to get the estimated delivery fee</label>
+                            </td>
+                            <td> 
+                                <select style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value;calculateDelivery();">
+                                    <option value="0">Select</option>
+                                <?php foreach($this->deliveryCharges as $deliveryCharges){?>
+                                        <option value="<?php echo $deliveryCharges['delivery_fee'];?>"><?php echo $deliveryCharges['city'];?></option>
+                                  <?php  }?>
+                                </select>
+                        
+                        </td>
+                        </tr>
+                        <tr>
                             <td>Delivery chargers</td>
-                            <td>LKR 2400.00</td>
+                            <td>LKR <span id="dCharges">-</span></td>
                         </tr>
                         <tr>
                             <td>Total Price</td>
-                            <td>LKR 2400.00</td>
+                            <td>LKR <span id="totalPrice"><?php echo number_format($this->subtotal,2,'.','');?></span></td>
                         </tr>
                     </table>
                 </div>
@@ -83,21 +99,14 @@
         </div>
     </div>
 </div>
-
+<script>
+    function calculateDelivery(){
+        
+        var dCharges = parseFloat(document.getElementById('dCharges').innerHTML);
+        var subtotal = parseFloat(document.getElementById('subtotal').innerHTML);
+        document.getElementById('totalPrice').innerHTML=(dCharges+subtotal).toFixed(2);
+    }
+</script>
 
 <?php require 'views/footer.php'; ?>
-
-<script type="text/javascript">
-
-function calculateSub(){
-    document.getElementById('sub-display').innerHTML = parseInt(document.getElementById('qty').value) * parseFloat(document.getElementById('').value);
-}
-
-function calculateDelivery(){
-
-}
-
-function calculateTotal(){
-     document.getElementById('').innerHTML = ;
-}
-</script>   
+  
