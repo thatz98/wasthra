@@ -50,7 +50,7 @@
                         <?php foreach ($this->colorList as $color){
                         if($this->productPopup['product_id']==$color['product_id']){?>
                         <label class="color-container">
-                            <input type="radio" name="color" value="<?php echo $color['colors']?>">
+                            <input type="radio" name="color" value="<?php echo $color['colors']?>" required>
                             <span class="checkmark" style="background-color: <?php echo $color['colors']?>"></span>
                         </label>
                         <?php }
@@ -61,7 +61,7 @@
                         <?php foreach ($this->sizeList as $size){
                         if($this->productPopup['product_id']==$size['product_id']){?>
                         <label class="size-container">
-                            <input type="radio" name="size" value="<?php echo $size['sizes']?>">
+                            <input type="radio" name="size" value="<?php echo $size['sizes']?>" required>
                             <span class="checkbox"><?php echo $size['sizes']?></span>
                         </label>
                         <?php
@@ -83,7 +83,7 @@
                     <input type="text" name="screen-size" id="screensize" hidden>
                     <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id']?>" hidden>
                     <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
-                    <a href="#" class="btn" onclick="addToCartIndex()">Add to Cart</a>
+                    <button type="submit" class="btn">Add to Cart</a>
 
                 </form>
             </div>
@@ -93,11 +93,3 @@
 
     </div>
 </div>
-
-<script>
-function addToCartIndex() {
-    var screenSize = $(window).width();
-    document.getElementById('screensize').value = screenSize;
-    document.getElementById('addToCartForm').submit();
-}
-</script>
