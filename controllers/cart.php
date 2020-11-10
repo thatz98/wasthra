@@ -20,15 +20,14 @@ class Cart extends Controller{
     }
     function addToCart(){
            $data = array();
-           $data['product_id'] = $_POST['product_id'];
+           $data['product_id'] = $_POST['prod_id'];
            $data['item_qty']=$_POST['quantity'];
            $data['item_color']=$_POST['color'];
            $data['item_size']=$_POST['size'];
         
            if(Session::get('loggedIn')=='true'){
-               print_r($data);
-       //     $this->model->create($data);
-      //      header('location: '.URL);
+            $this->model->create($data);
+            header('location: '.$_POST['prev_url']);
            } else{
             $data['item_color'] = str_replace('#','',$data['item_color']);
                header('location: '.URL.'login/cartRequireLogin?productId='.$data['product_id'].'&qty='.$data['item_qty'].'&color='.$data['item_color'].'&size='.$data['item_size'].'&loginRequired=true');

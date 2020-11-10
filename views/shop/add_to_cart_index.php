@@ -82,6 +82,7 @@
                     </div>
                     <input type="text" name="screen-size" id="screensize" hidden>
                     <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id']?>" hidden>
+                    <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
                     <a href="#" class="btn" onclick="addToCartIndex()">Add to Cart</a>
 
                 </form>

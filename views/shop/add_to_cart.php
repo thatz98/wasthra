@@ -69,8 +69,9 @@
                                                 <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">
                                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                             </div>
-                                            <input type="text" name="screen-size" id="screensize" hidden>
-                <a href="#" class="btn" onclick="addToCart()">Add to Cart</a>
+                                            <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id']?>" hidden>
+                                            <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
+                                            <button type="submit" class="btn">Add to Cart</a>
             </form>
             </div>
         </div>
@@ -79,13 +80,3 @@
             
     </div>
     </div>
-
-    <script>
-
-        
-        function addToCart(){
-            var screenSize = $(window).width();
-            document.getElementById('screensize').value = screenSize;
-
-        }
-    </script>
