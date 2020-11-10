@@ -15,7 +15,7 @@ class Index_Model extends Model{
 
     public function getProduct($id){
 
-        return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.product_description,product.is_new,inventory.qty,product_size.sizes,product_colors.colors,product_images.image
+        return $this->db->query("SELECT  price_category.price_category_id,price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.product_description,product.is_new,inventory.qty,product_size.sizes,product_colors.colors,product_images.image
         FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
         
         INNER JOIN category on category.category_id=product.category_id

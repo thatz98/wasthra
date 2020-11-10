@@ -6,7 +6,7 @@
       <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
       <div class="shopping-cart-total">
         <span class="lighter-text">Total:</span>
-        <span id="total-price"></span>
+        <span id=""><?php echo number_format($this->subtotal,2,'.','');?></span>
       </div>
     </div> <!--end shopping-cart-header -->
 
@@ -32,31 +32,34 @@
         <span class="item-quantity">Qty: 01</span>
       </li>
   -->
-      <?php foreach ( Session::get('cartData') as $cartDetails ): ?>
+      <?php 
+      $this->subtotal=0.00;   
+      foreach ( Session::get('cartData') as $cartDetails ): ?>
         <li class="clearfix">
         
                       <?php foreach ($this->imageList as $image){
                         if($cartDetails['product_id']==$image['product_id']){?>
-                            <img src="<?php echo $image['image']?>" width="50px" height="50px">
+                            <img src="<?php echo URL.$image['image']?>" width="50px" height="50px">
                             <?php 
                             break;
                         }
                         }?>
                <span class="item-name">
                        <?php 
-                                $this->productPrice='';
-                                foreach ($this->qtyList as $id){
-                                    if($id['product_id']==$cartDetails['product_id']){
-                                       // $priceCategoryID=$id['price_category_id'];
-                                        echo $id['product_name'];
-                                    }
-                                } 
+                               $this->productPrice=0.00;
+                               
+                               foreach ($this->qtyList as $qty){
+                                if($qty['product_id']==$cartDetails['product_id']){
+                                    $this->productPrice=$qty['product_price'];
+                                    echo $qty['product_name'];
+                                }
+                            } 
             
-                                foreach ($this->qtyList as $catName){
-                                   // if($priceCategoryID==$catName['price_category_id']){
-                                        $this->productPrice=$catName['product_price'];
-                                    }
-                          //  }
+                          //       foreach ($this->qtyList as $catName){
+                          //          // if($priceCategoryID==$catName['price_category_id']){
+                          //               $this->productPrice=$catName['product_price'];
+                          //           }
+                          // //  }
                             ?>
                 </span>           
                         <div>
@@ -64,7 +67,11 @@
                             <span class="item-quantity">Qty:<span id="item-qty"> <?php echo $cartDetails['item_qty']; ?></span></span>
                         </div>    
         </li>
-      <?php endforeach;?>
+      <?php
+            
+             $this->subtotal+=($cartDetails['item_qty']*$this->productPrice);
+
+    endforeach;?>
   </ul>
 
 <div class="row" style="margin: 0;">
@@ -94,9 +101,5 @@
   bagDown();
  }
 
- function calculateTot(){
- 
-    document.getElementById('total-price').innerHTML = parseInt(document.getElementById('item-qty').value) * parseFloat(document.getElementById('item-price').value);
- }
 
  </script>
