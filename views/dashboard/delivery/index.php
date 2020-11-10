@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-3">
                 	<div class="content">
-                		<a href="">
+                		<a href="<?php echo URL;?>orders/assignedOrders">
       						<div class="content-overlay"></div>
       						<div class="content-onlay">
       							<div class="content-details fadeOut-top">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-3">
                 	<div class="content">
-                		<a href="">
+                		<a href="<?php echo URL;?>orders/history">
       						<div class="content-overlay"></div>
       						<div class="content-onlay">
       							<div class="content-details fadeOut-top">

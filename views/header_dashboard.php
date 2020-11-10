@@ -25,12 +25,27 @@
                 </div>
                 <nav>
                     <ul id="menuItems">
+                        <?php if(Session::get('userType')=='admin'){?>
+                            <li><a href="<?php echo URL; ?>dashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URL; ?>user">Users</a></li>
+                        <li><a href="<?php echo URL; ?>orders/orderDashboard">Orders</a></li>
+                        <li><a href="<?php echo URL; ?>products">Products</a></li>
+                        <li><a href="<?php echo URL; ?>productCategories">Product Categories</a></li>
+                      <?php  } else if(Session::get('userType')=='owner'){?>
                         <li><a href="<?php echo URL; ?>dashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URL; ?>priceCategories">Price Categories</a></li>
+                        <li><a href="<?php echo URL; ?>deliveryCharges">Delivery Charges</a></li>
+                        <li><a href="<?php echo URL; ?>stats">Stats</a></li>
                         <li><a href="<?php echo URL; ?>user">Users</a></li>
                         <li><a href="<?php echo URL; ?>orders/orderDashboard">Orders</a></li>
                         <li><a href="<?php echo URL; ?>products">Products</a></li>
                         <li><a href="<?php echo URL; ?>productCategories">Product Categories</a></li>
                         
+                    <?php  } else if(Session::get('userType')=='delivery_staff'){?>
+                        <li><a href="<?php echo URL; ?>dashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URL; ?>orders/assignedOrders">Assigned Orders</a></li>
+                        <li><a href="<?php echo URL; ?>orders/orderDashboard">History</a></li>
+                    <?php }?>  
                     </ul>
                 </nav>
                 <?php if(Session::get('loggedIn')==true): ?>

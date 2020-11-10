@@ -13,6 +13,7 @@ class Login_Model extends Model{
         if(empty($prev_url)){
             $prev_url = URL; 
         }
+
     	$user = $this->db->listWhere('login',array('login_id','username','password','user_type','user_status'),"username='$username'");
 
     	if($user){
@@ -34,7 +35,7 @@ class Login_Model extends Model{
                     Session::set('userData',$userData);
                     Session::set('userId',$userData['user_id']);
                     header('location: ../dashboard');
-                } else if(Session::get('userType')=='delivery'){
+                } else if(Session::get('userType')=='delivery_staff'){
                     $loginId = Session::get('loginId');
                     $userData = $this->db->listWhere('delivery_staff',array('user_id','first_name','last_name','gender','contact_no','email'),"login_id='$loginId'");
                     Session::set('userData',$userData);
@@ -57,7 +58,12 @@ class Login_Model extends Model{
                 if(isset($_POST['product_id']) && isset($_POST['item_size']) && isset($_POST['item_qty']) && isset($_POST['item_color'])){
                     header('location: '.URL.'cart/addToCartAfterLogin?productId='.$_POST['product_id'].'&qty='.$_POST['item_qty'].'&color='.$_POST['item_color'].'&size='.$_POST['item_size']);
                 } else{
-                    header('location: '.$prev_url);
+                    if($prev_url==URL.'login'){
+                        header('location: '.URL);
+                    } else{
+                        header('location: '.$prev_url);
+
+                    }
                 }
                 
                 }

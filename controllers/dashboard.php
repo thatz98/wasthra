@@ -13,7 +13,7 @@ class Dashboard extends Controller{
             $this->view->render('dashboard/admin/index');
         } else if($userType=='owner'){
             $this->view->render('dashboard/owner/index');
-        } else if($userType=='delivery'){
+        } else if($userType=='delivery_staff'){
             $this->view->render('dashboard/delivery/index');
         }
     	

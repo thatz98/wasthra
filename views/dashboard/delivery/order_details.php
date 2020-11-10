@@ -1,5 +1,6 @@
-<?php require 'views/header.php'; ?>
+<?php require 'views/header_dashboard.php'; ?>
 
+<?php require 'views/dashboard/delivery/update_status.php'; ?>
 
 <div class="small-container">
     <div class="row">
@@ -65,7 +66,7 @@
                               </div>
                         </div>
                         <div class="col-2" style="min-width: 0;">
-                            <a href="#" class="btn">Update Status</a>
+                            <a href="#updateStatus" class="btn">Update Status</a>
                         </div>
                         </div>
                         

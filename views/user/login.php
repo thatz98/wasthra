@@ -6,13 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/wave.css">
     <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/9a9d2e1253.js" crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/libs/font-awesome.min.css">
+    <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
+    <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
 </head>
 
 <body>
@@ -31,21 +33,11 @@
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
                     </ul>
                 </nav>
-
-                <?php if(Session::get('loggedIn')==true): ?>
-                            <div class="user-box">
-                                <div class="user-info"><p>Hi, Admin!</p></div>
-                                <a class="user-box-btn" href="#profile-card">
-                                    <i class="fa fa-user-circle-o fa-2x"></i>
-                                </a>
-                            </div>
-                <?php endif; ?>
                 
                 <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
-<?php require 'views/shop/cart_dropdown.php'; ?>
   
-        <div class="login">
+        <div class="login" id="desktop-login" hidden>
             <div class="login-form-cont">
                 <div class="form sign-in">
                     <?php if(isset($_GET['loginRequired']) && $_GET['loginRequired']=='true'){?>
@@ -138,7 +130,113 @@
         </div>
     </div>
 
-    
+
+<div class="container" id="mobile-login" hidden>
+        <div class="row">
+            <div class="col-2">
+                <div id="mobile-form-container">
+                    <div class="mobile-form-btn">
+                        <span onclick="login()">Login</span>
+                        <span onclick="register()">Register</span>
+                        <hr id="indicator">
+                        
+                    </div>
+                    <form action="<?php echo URL; ?>login/run" id="loginForm_m" method="post" novalidate>
+                            <div class="row">
+                                <div class="col-2" style="text-align: center;">
+                                <?php if(isset($_GET['loginRequired']) && $_GET['loginRequired']=='true'){?>
+                        <h3 style="color: #FF0000;text-align:center;font-weight:normal;margin: 20px 0;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> You must login first!</h3> 
+                        <?php
+                    } else{ ?>
+                        <h3 style="margin: 20px 0;">Welcome back,</h3>
+                  <?php  } ?>
+                                    <label>Username/Email</label><br>
+                                    <input type="text" name="username" data-helper="Username" onfocusout="validateUsernameM()" id="username_m">
+                                    <div class="helper-text"><span></span></div>
+                                    <label>Password</label><br>
+                                    <input type="password" name="password" data-helper="Password" onfocusout="validateLoginPasswordM()" id="login_password_m"><div class="helper-text"><span></span></div>
+                                </div>
+                            </div>
+                            <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
+
+                            <button type="submit" class="btn" style="margin-bottom: 10px;">Login</button>
+                            <div class="forget-password">
+                                <a href="#">Forgot Password?</a>
+                            </div>
+                        </form>
+
+                    <form action="<?php echo URL; ?>login/signup" id="regForm_m" method="post" novalidate>
+                                <div class="row-top">
+                                    <div class="row" style="margin:10px 0 20px 0;"><h3>Time to feel like home,</h3></div>
+                                    <div class="col-2" style="text-align: center;">
+                                        <label>First Name</label><br>
+                                        <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstNameM()" id="first_name_m">
+                                        <div class="helper-text"><span></span></div>
+                                        <label>Last Name</label><br>
+                                        <input type="text" name="last_name" data-helper="Last Name" onfocusout="validateLastNameM()" id="last_name_m">
+                                        <div class="helper-text"><span></span></div>
+                                        <label>Mobile Number</label><br>
+                                        <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX" onfocusout="validateContactNoM()" id="contact_no_m">
+                                        <div class="helper-text"><span></span></div>
+                                        <label>Email</label><br>
+                                        <input type="email" name="email" data-helper="Email" onfocusout="validateEmailM()" id="email_m">
+                                        <div class="helper-text"><span></span></div>
+                                        <label>Gender</label><br>
+                                        <select name="gender">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option></select><div class="helper-text"><span></span></div>
+                                        <label>Password : </label><br>
+                                        <input type="password" name="password" data-helper="Password" onfocusout="validatePasswordM()" id="password_m">
+                                        <div class="helper-text"><span></span></div>
+                                        <label>Confirm Password</label><br>
+                                        <input type="password" name="conf_password" onfocusout="validateConfirmPasswordM()" id="conf_password_m">
+                                        <div class="helper-text"><span></span></div>
+                                    
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn">Sign Up</button>
+                            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    var loginFormPane = document.getElementById("loginForm_m");
+        var regFormPane = document.getElementById("regForm_m");
+        var indicator = document.getElementById("indicator");
+        var formContianer = document.getElementById("mobile-form-container");
+        function register(){
+            formContianer.style.height= "800px";
+            regFormPane.style.transform = "translateX(-300px)";
+            loginFormPane.style.transform = "translateX(-300px)";
+            indicator.style.transform = "translateX(100px)";
+        }
+
+        function login(){
+            formContianer.style.height= "400px";
+            regFormPane.style.transform = "translateX(0px)";
+            loginFormPane.style.transform = "translateX(0px)";
+            indicator.style.transform = "translateX(0px)";
+        }
+                </script>
+
+     <script type="text/javascript">
+    $(window).on('load resize',function(){
+        if($(window).width() < 706){
+            $('#desktop-login').hide();
+            $('#mobile-login').show();
+        } else{
+            $('#desktop-login').show();
+            $('#mobile-login').hide();
+        }
+    });
+</script>
+
 <script type="text/javascript" src="<?php echo URL ?>public/js/toggle_login.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>util/form/login_form_validation.js"></script>

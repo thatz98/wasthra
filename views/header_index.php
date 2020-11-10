@@ -39,10 +39,13 @@
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
                         <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
                         <?php if(Session::get('loggedIn')!==true): ?>
-                            <li><a href="#" onclick="passScreenSize()">Login/Signup</a></li>
-                            <form action="<?php echo URL; ?>login" id="login-redirect" method="post" novalidate>
-                            <input type="text" name="screen-size" id="screen-size" hidden></form>
-                        <?php endif; ?>
+                            <li><a href="<?php echo URL;?>login" onclick="passScreenSize()">Login/Signup</a></li>
+                        
+                        <?php endif;
+                         if(Session::get('loggedIn')==true && Session::get('userType')=='customer'): ?>
+                            <li><a href="<?php echo URL;?>orders/myOrders">My Orders</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <?php endif; ?>
                     </ul>
                 </nav>
 

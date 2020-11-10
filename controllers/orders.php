@@ -5,10 +5,6 @@ class Orders extends Controller{
         parent::__construct();
     }
 
-    function index(){
-    	$this->view->render('index/index');
-    }
-
     function myOrders(){
     	$this->view->render('order/index');
     }

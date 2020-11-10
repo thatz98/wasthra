@@ -642,6 +642,7 @@ small{
     color: #000;
     padding: 8px 5px;
     transition: background 0.5s;
+    margin-bottom: 10px;
 }
 
 .footer-txt-field input:hover{
@@ -929,12 +930,12 @@ form .btn:focus{
     outline: none;
 }
 
-#loginForm{
+form#loginForm_m{
     top: 150px;
     left: 0;
 }
 
-#regForm{
+form#regForm_m{
     width: 100%;
     left: 300px;
 }
@@ -1635,12 +1636,14 @@ i.fa-shopping-bag{
 }
 
 .search-bar{
-    max-width: 500px;
-    margin: auto 15px auto 50px;
+    border: none;
+    max-width: 400px;
+    margin: auto 15px auto 15px;
 }
 .search-bar form {
        position: relative;
        border-radius: 0.7rem;
+       outline: none;
 }
 .search-bar input, .search-bar button {
        height: 25px;
@@ -1698,6 +1701,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .search-bar input:not(:placeholder-shown) {
        width: calc(100% - 25px);
        border-bottom: 2px solid #ff523b;
+       outline: none;
 
 }
 .search-bar input:not(:placeholder-shown) + button {
@@ -1725,7 +1729,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .box-container{
     background: #fff;
-    width: 100%;
+    width: 95%;
     height: auto;
     position: relative;
     text-align: center;
@@ -1951,6 +1955,13 @@ p.success{
     max-width: 100px;
     max-height: 100px;
 }
+
+.margin-l-r-20{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
     width: 150px;
@@ -2007,7 +2018,7 @@ p.success{
 
 }
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 920px){
 
     nav ul{
         position: absolute;
