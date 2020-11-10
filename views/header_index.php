@@ -7,6 +7,7 @@
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/wave.css">
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/libs/font-awesome.min.css">
     <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
     <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
@@ -19,7 +20,6 @@
     require 'views/user/profile_card.php';
 } ?>
     <?php require 'views/error/error_popup.php';?>
-    <?php require 'public/ui/wave.php';?>
     <div class="header" id="header">
         <div class="contaner">
             <div class="navbar">
@@ -75,8 +75,33 @@
         </div>
     </div>
     <div class="loader"></div>
+    <div class="area" id="area">
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+            </div>
     <script type="text/javascript" src="<?php echo URL ?>public/js/preloader.js"></script>
     <script>
+        $(window).ready(function() {
+   $('#area').height(
+        $('#header').height()
+    );
+});
+    $(window).resize(function() {
+   $('#area').height(
+        $('#header').height()
+    );
+});
+
 
         function passScreenSize(){
             var size = $(window).width();

@@ -93,6 +93,22 @@
             </div>
         </div>
 
+         <!-------- exclusive offers -------->
+         <div class="offer-bag"></div>
+        <div class="offer">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <p>Exclusive offer for</p>
+                        <h1>White & Black Couple T-Shirts</h1>
+                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae amet voluptate error sit ea obcaecati illo corrupti deserunt, fugiat atque dolor molestias? Magni corporis consectetur ad aut voluptatum vitae nihil!</small><br>
+                        <a href="" class="btn">Buy Now &#8594</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-------- latest products -------->
         <div class="small-container">
             <h2 class="title">Latest Products</h2>
@@ -142,67 +158,7 @@
             </div>
         </div>
 
-        <!-------- exclusive offers -------->
-        <div class="offer-bag"></div>
-        <div class="offer">
-            <div class="small-container">
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-2">
-                        <p>Exclusive offer for</p>
-                        <h1>White & Black Couple T-Shirts</h1>
-                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae amet voluptate error sit ea obcaecati illo corrupti deserunt, fugiat atque dolor molestias? Magni corporis consectetur ad aut voluptatum vitae nihil!</small><br>
-                        <a href="" class="btn">Buy Now &#8594</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
 
-        <!-------- customer comments -------->
-        <div class="comments">
-            <div class="small-container">
-                <div class="row">
-                    <div class="col-3">
-                        <i class="fa fa-quote-left"></i>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis a quibusdam consequatur quidem nisi ea distinctio non dolore suscipit voluptate, nesciunt, nobis ipsa, consectetur assumenda asperiores quam. Quisquam, cumque.</p>
-                        <div class="ratings">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <img src="<?php echo URL; ?>public/images/user-1.png">
-                        <h3>First Last</h3>
-                    </div>
-                    <div class="col-3">
-                        <i class="fa fa-quote-left"></i>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis a quibusdam consequatur quidem nisi ea distinctio non dolore suscipit voluptate, nesciunt, nobis ipsa, consectetur assumenda asperiores quam. Quisquam, cumque.</p>
-                        <div class="ratings">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <img src="<?php echo URL; ?>public/images/user-2.png">
-                        <h3>First Last</h3>
-                    </div>
-                    <div class="col-3">
-                        <i class="fa fa-quote-left"></i>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis a quibusdam consequatur quidem nisi ea distinctio non dolore suscipit voluptate, nesciunt, nobis ipsa, consectetur assumenda asperiores quam. Quisquam, cumque.</p>
-                        <div class="ratings">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <img src="<?php echo URL; ?>public/images/user-3.png">
-                        <h3>First Last</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
         <script type="text/javascript" src="<?php echo URL ?>public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>
