@@ -26,8 +26,9 @@ class Cart extends Controller{
            $data['item_size']=$_POST['size'];
         
            if(Session::get('loggedIn')=='true'){
-            $this->model->create($data);
-            header('location: '.URL.'');
+               print_r($data);
+       //     $this->model->create($data);
+      //      header('location: '.URL);
            } else{
             $data['item_color'] = str_replace('#','',$data['item_color']);
                header('location: '.URL.'login/cartRequireLogin?productId='.$data['product_id'].'&qty='.$data['item_qty'].'&color='.$data['item_color'].'&size='.$data['item_size'].'&loginRequired=true');
