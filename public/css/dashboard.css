@@ -1,11 +1,44 @@
+
+.row{
+    justify-content: space-between;
+}
+.col-3{
+padding: 0;
+flex-basis: 33%;
+}
+
+
+.col-60p{
+    flex-basis: 60%;
+    padding: 10px;
+    min-width: 0;
+    margin-bottom: 0;
+    transition: transform 0.5s;
+}
+
+.col-40p{
+    flex-basis: 40%;
+    padding: 10px;
+    min-width: 0;
+    margin-bottom: 0;
+    transition: transform 0.5s;
+}
+
 .card{
     margin: 10px;
-    background-color: antiquewhite;
+    background-color: #fff;
     min-height: 200px;
     padding: 20px;
-    display: flex;
+    display: block;
     justify-content: center;
     text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+}
+
+
+.filter-time{
+text-align: center;
+margin: 20px;
 }
 
 #myChart{
