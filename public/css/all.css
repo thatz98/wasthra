@@ -3,13 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Balsamiq Sans', cursive !important;
 
 }
 
 
 body{
     min-height: 100%;
-    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Balsamiq Sans', cursive !important;
     padding: 0;
 
 }
@@ -153,7 +154,7 @@ form textarea:hover{
     text-align: center;
 }
 .container{
-    max-width: 1300px;
+    max-width: 90%;
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
@@ -224,7 +225,7 @@ form textarea:hover{
     width: 180px;
     margin: 3px 0 15px;
     padding: 0 10px;
-    border: 1px solid #ccc;
+    border-bottom: 2px solid #DCADA3;
 }
 
 form .col-2, form .col-3, form .col-2 input, form .col-3 input{
@@ -286,6 +287,7 @@ form .col-2, form .col-3, form .col-2 input, form .col-3 input{
     display: inline-block;
     background: #ff523b;
     color: #fff;
+    font-size: 16px;
     padding: 8px 30px;
     margin: 20px 5px 20px 5px;
     border-style: none;
@@ -553,6 +555,11 @@ small{
     color: #8a8a8a;
     font-size: 14px;
     padding: 60px 0 15px;
+}
+
+span.custom-size{
+    width: auto;
+    font-weight: normal;
 }
 
 .footer p{
@@ -1092,7 +1099,7 @@ form a{
 }
 
 .content-onlay .content-details {
-        height: 60px;
+padding: 10px 0 10px 0;
     background: #fff;
     color: #ff523b;
   opacity: 1;
@@ -1130,7 +1137,6 @@ form a{
     font-weight: bold;
 }
 
-
 .fadeIn-bottom{
   top: 85%;
 }
@@ -1151,11 +1157,11 @@ form a{
     justify-content: center;
 }
 
-.dashboard .col-3{
-    margin: 15px;
+.dashboard .col-4{
+    padding: 15px;
 }
 
-.dashboard .col-3 .content{
+.dashboard .col-4 .content{
     background: #FFE8DA;
 }
 
@@ -1277,7 +1283,7 @@ textarea:focus{
 
 .popup {
     width: auto;
-    max-width: 60%;
+    max-width: 50%;
     max-height: 90%;
   margin: 50px auto;
   padding: 20px;
@@ -1299,6 +1305,21 @@ textarea:focus{
   margin-top: 0;
   color: #333;
 }
+
+.close-btn{
+
+    position: relative;
+    top: 5px;
+    right: 20px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+.close-btn:hover, .close-btn i:hover{
+    color: #ff523b;
+  }
+
 .popup .close-btn{
   font-size: 16px;
   width: 16px;
@@ -1998,6 +2019,10 @@ p.success{
     }
     .message-popup{
         max-width: 40%;
+    }
+
+    .content-details p{
+        font-size: 20px;
     }
 }
 

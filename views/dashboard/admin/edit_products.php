@@ -5,7 +5,7 @@
         <h2 class="title title-min">Edit Products</h2>
     </div>
         <div class="center-content">
-        <div class="form-container" >
+        <div class="form-container" style="width:900px;">
             
             <form action="<?php echo URL; ?>products/editSave/<?php echo $this->product['product_id'] ?>" enctype="multipart/form-data" id="editFrom" method="post">
 
@@ -22,8 +22,9 @@
                         foreach ($this->imageList as $image){
                         if($this->product['product_id']==$image['product_id']){?>
                             <div class="edit-image-row" id="<?php echo $image['image']?>" >
-                            <img style="float:left;"  src="../../<?php echo $image['image']?>" width="100px" height="100px"><br>
                             <a style="float:right;" class="close-btn" onclick="deleteImage('<?php echo $image['image']?>')" ><i class="fa fa-times-circle"></i></a>
+                            <img style="float:left;"  src="../../<?php echo $image['image']?>" width="100px" height="100px"><br>
+                            
                             </div>
                             <?php 
                             $this->oldImageList .= $image['image'].',';
@@ -34,44 +35,52 @@
                         </div>
                         
                         <div class="row-top">
-                            <div class="col-2 pad-30-0-0-85">
+                            <div class="col-2">
                             <input type="text" name="prev_id" value="<?php echo $this->product['product_id']?>" style="display:none">
                             <label>Product ID : </label><br><input type="text" name="product_id" value="<?php echo $this->product['product_id'] ?>" ><br>
                             
                             <label>Product Name : </label><br><input type="text" name="product_name" value="<?php echo $this->product['product_name'] ?>"><br>
-                            <label>Product Category : </label><br><select name="category" >
-                            <?php foreach ($this->product_category as $category): ?><option value="<?php echo $category['name']; ?>" <?php if($this->product['category_id']==$category['category_id']) echo "selected=\"selected\"";?>><?php echo $category['name']; ?></option> <?php endforeach;?>
+                            <label>Product Category : </label><br><select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
+                            <?php foreach ($this->product_category as $category): ?><option value="<?php echo $category['name']; ?>" <?php if($this->product['category_id']==$category['category_id']){echo "selected=\"selected\""; $this->selectedCat=$category['name'];}?>><?php echo $category['name'];?></option> <?php endforeach;?>
 
                         </select><br>
                         <label>Quantity : </label><br><input type="text" name="quantity" value="<?php foreach ($this->quantity as $qty): ?><?php if($qty['product_id']==$this->product['product_id']){echo $qty['qty'];}?><?php endforeach;?>"><br>
                         
                         
-                        
+                        <div id="size-field" <?php if($this->selectedCat=='Couple') echo 'hidden';?>>
                             <label>Available Sizes : </label><br>
                             <?php $this->allSizes=array('XS','S','M','L','XL');
                             //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
                                 if(in_array($item,$this->sizes)){?>
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
+                                <div class="checkboxes">
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><span class="custom-size"><?php echo $item?></span>
+                                </div>
                                     <?php
                                 } else{
                                     ?>
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><?php echo $item?>
+                                    <div class="checkboxes">
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><span class="custom-size"><?php echo $item?></span>
+                                    </div>
                                     <?php
                                 }
                             } ?>
                             <br>
+                            </div>
+                            <div id="size-field-couple" <?php if($this->selectedCat!='Couple') echo 'hidden';?>>
                             <label>Available Sizes Couple Gents : </label><br>
                             <?php $this->allSizes=array('XS-G','S-G','M-G','L-G','XL-G');
                             //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
                                 if(in_array($item,$this->sizes)){?>
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
-                                    <?php
+                                <div class="checkboxes">
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><span class="custom-size"><?php echo $item?></span>
+                                    </div><?php
                                 } else{
                                     ?>
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><?php echo $item?>
-                                    <?php
+                                    <div class="checkboxes">
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><span class="custom-size"><?php echo $item?></span>
+                                    </div><?php
                                 }
                             } ?>
                             <br>
@@ -80,23 +89,26 @@
                             //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
                                 if(in_array($item,$this->sizes)){?>
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
-                                    <?php
+                                <div class="checkboxes">
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><span class="custom-size"><?php echo $item?></span>
+                                    </div><?php
                                 } else{
                                     ?>
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><?php echo $item?>
+                                    <div class="checkboxes">
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><span class="custom-size"><?php echo $item?></span>
+                                    </div>
                                     <?php
                                 }
                             } ?>
                             <br>
-                        
+                            </div>
                         <label>Published : </label><br><select name="is_published">
                             <option value="yes" <?php if($this->product['is_published']=='yes') echo "selected=\"selected\"";?>>YES</option>
                             <option value="no"  <?php if($this->product['is_published']=='no') echo "selected=\"selected\"";?>>NO</option>
                         </select><br>
                         
                         </div>
-                        <div class="col-2 pad-30-0-0-85">
+                        <div class="col-2">
 
                         <label>Featured : </label><br><select name="is_featured">
                             <option value="yes"  <?php if($this->product['is_featured']=='yes') echo "selected=\"selected\"";?>>YES</option>
@@ -121,11 +133,11 @@
                                 ?>"><br>
                             <label>Price Category : </label><br><select name="price_category">
                             <?php foreach ($this->price_category as $price): ?><option value="<?php echo $price['price_category_name']; ?>" <?php if($this->product['price_category_id']==$price['price_category_id']) echo "selected=\"selected\"";?>><?php echo $price['price_category_name']; ?></option> <?php endforeach;?>
+</select>
 
-
-                            
+                            <br>
                             <label>Description : </label><br>
-                            <textarea rows="6" cols="20" name="product_description" ><?php echo $this->product['product_description'] ?></textarea><br>
+                            <textarea rows="6" cols="20" name="product_description" style="width: 80%;"><?php echo $this->product['product_description'] ?></textarea><br>
 
                         </div>
                     </div>

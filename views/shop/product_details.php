@@ -101,7 +101,7 @@
 
         </div>
     </div>
-</div>
+
 
 <!-------- product reviews -------->
 
@@ -143,7 +143,8 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro earum expedita fuga, cumque harum nostrum, debitis libero quaerat neque et dolor repellendus dignissimos rem maiores nulla perspiciatis. Neque, vero necessitatibus?</p>
     </div>
 </div>
-
+        </div>
+    </div>
 <!-------- related products -------->
 
 <div class="small-container">
@@ -204,7 +205,6 @@
 
     </div>
 </div>
-        </div>
 
 <script type="text/javascript" src="<?php echo URL ?>public/js/product_gallery.js"></script>
 

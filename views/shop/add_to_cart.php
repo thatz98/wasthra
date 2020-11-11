@@ -26,7 +26,7 @@
             </div>
             <div class="col-2" style="text-align: center;">
             <h2 style="margin-top: 5px;"><?php echo $this->product[0]['product_name']?> </h2>
-                <h4>LKR <?php echo $this->product[0]['product_price']?></h4>
+                <h4>LKR <?php echo $this->product[0]['product_price']?></h4><br>
                 <form action="<?php echo URL;?>cart/addToCart" method="post">
                 <label class="text-label">Select Color</label>
                 <div class="colors">
@@ -46,14 +46,17 @@
                    
                 
                 </div><br>
-                <label class="text-label">Select Size</label>
-                <div class="sizes">
+                
                     <?php 
                     $catName = $this->product[0][1];
                     $single_sizes = array();
                     $single_sizes_gents = array('XS-G','S-G','M-G','L-G','XL-G');
                     $single_sizes_ladies = array('XS-W','S-W','M-W','L-W','XL-W');
-                    if($catName!="Couple"){
+                    if($catName!="Couple"){?>
+                    <label class="text-label">Select Size</label>
+               <br>
+                     <div class="sizes">
+                         <?php
                     foreach($this->product as $single){
                         if(in_array($single['sizes'],$single_sizes)){
                             continue;
@@ -66,10 +69,13 @@
                 </label>
                              <?php
                         }
-                    } 
+                    }?> 
+                    </div>
+                    <?php 
                 }else{?>
-                    <p>Gents Sizes:</p>
+                    <label class="text-label">Select Size for Gent</label>
                     <br>
+                    <div class="sizes">
                     <?php  
                     foreach($this->product as $single){
                         if(in_array($single['sizes'],$single_sizes_ladies)){
@@ -84,9 +90,11 @@
                              <?php
                         }
                     }?>
+                    </div>
                     <br>
-                    <p>Ladies Sizes:</p>
+                    <label class="text-label">Select Size for Lady</label>
                     <br>
+                    <div class="sizes">
                     <?php  
                     foreach($this->product as $single){
                         if(in_array($single['sizes'],$single_sizes_gents)){
@@ -103,8 +111,8 @@
                     }
                     
                 }?>
-            
-</div><br>
+                    </div>
+<br>
                 <label class="text-label">Select Quantity</label>
                 <div class="quantity">
                         <span class="qty-minus"
