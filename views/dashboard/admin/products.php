@@ -52,37 +52,37 @@
                             
                             <label>Available Sizes for Couple Gents: </label><br>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="G-XS"><span>XS</span>
+                                <input type="checkbox" name="size[]" value="XS-G"><span>XS</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="G-S"><span>S</span>
+                                <input type="checkbox" name="size[]" value="S-G"><span>S</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="G-M"><span>M</span>
+                                <input type="checkbox" name="size[]" value="M-G"><span>M</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="G-L"><span>L</span>
+                                <input type="checkbox" name="size[]" value="L-G"><span>L</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="G-XL"><span>XL</span>
+                                <input type="checkbox" name="size[]" value="XL-G"><span>XL</span>
                             </div>
                             <br>
                             
                             <label>Available Sizes for Couple Ladies: </label><br>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L-XS"><span>XS</span>
+                                <input type="checkbox" name="size[]" value="XS-W"><span>XS</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L-S"><span>S</span>
+                                <input type="checkbox" name="size[]" value="S-W"><span>S</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L-M"><span>M</span>
+                                <input type="checkbox" name="size[]" value="M-W"><span>M</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L-L"><span>L</span>
+                                <input type="checkbox" name="size[]" value="L-W"><span>L</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L-XL"><span>XL</span>
+                                <input type="checkbox" name="size[]" value="XL-W"><span>XL</span>
                             </div>
                             <br>
                         

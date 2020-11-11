@@ -44,7 +44,13 @@
             </div>
             <label class="text-label">Available Sizes</label>
             <div class="product-sizes">
-                <?php $single_sizes = array();
+                <?php 
+                    $catName = $this->product[0][1];
+                    $single_sizes = array();
+                    $single_sizes_gents = array('XS-G','S-G','M-G','L-G','XL-G');
+                    $single_sizes_ladies = array('XS-W','S-W','M-W','L-W','XL-W');
+                    if($catName!="Couple"){
+                    
                     foreach($this->product as $single){
                         if(in_array($single['sizes'],$single_sizes)){
                             continue;
@@ -52,7 +58,38 @@
                             $single_sizes[] .= $single['sizes'];?>
                 <span class="size-box"><?php echo $single['sizes']?></span><?php
                         }
-                    } ?>
+                    } 
+                    }
+                    else{
+                        echo "Gents Sizes:";?>
+                        <br>
+                        <?php  
+                        foreach($this->product as $single){
+                            //echo $single['sizes'][0];
+                            if(in_array($single['sizes'],$single_sizes_ladies)){
+                                continue;
+                            }else{
+                                $single_sizes_ladies[] .= $single['sizes'];?>
+                    <span class="size-box"><?php echo rtrim($single['sizes'],"-G")?></span><?php
+                            }
+                        }?>
+                        <br>
+                        <?php
+                        echo "Ladies Sizes:";?>
+                        <br>
+                        <?php
+                        foreach($this->product as $single){
+                            //echo $single['sizes'][0];
+                            if(in_array($single['sizes'],$single_sizes_gents)){
+                                continue;
+                            }else{
+                                $single_sizes_gents[] .= $single['sizes'];?>
+                    <span class="size-box"><?php echo rtrim($single['sizes'],"-W")?></span><?php
+                            }
+
+                    }
+                }
+                ?>
             </div>
 
             <a href="#addToCartPopup" class="btn prd-btn">Add to Cart</a>

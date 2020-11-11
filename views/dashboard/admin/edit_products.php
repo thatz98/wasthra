@@ -62,7 +62,7 @@
                             } ?>
                             <br>
                             <label>Available Sizes Couple Gents : </label><br>
-                            <?php $this->allSizes=array('G-XS','G-S','G-M','G-L','G-XL');
+                            <?php $this->allSizes=array('XS-G','S-G','M-G','L-G','XL-G');
                             //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
                                 if(in_array($item,$this->sizes)){?>
@@ -76,7 +76,7 @@
                             } ?>
                             <br>
                             <label>Available Sizes Couple Ladies : </label><br>
-                            <?php $this->allSizes=array('L-XS','L-S','L-M','L-L','L-XL');
+                            <?php $this->allSizes=array('XS-W','S-W','M-W','L-W','XL-W');
                             //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
                                 if(in_array($item,$this->sizes)){?>
