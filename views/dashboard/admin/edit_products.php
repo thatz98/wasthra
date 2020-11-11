@@ -61,6 +61,34 @@
                                 }
                             } ?>
                             <br>
+                            <label>Available Sizes Couple Gents : </label><br>
+                            <?php $this->allSizes=array('G-XS','G-S','G-M','G-L','G-XL');
+                            //$this->mySizes=array('S','M','L');
+                            foreach ($this->allSizes as $item) {
+                                if(in_array($item,$this->sizes)){?>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
+                                    <?php
+                                } else{
+                                    ?>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><?php echo $item?>
+                                    <?php
+                                }
+                            } ?>
+                            <br>
+                            <label>Available Sizes Couple Ladies : </label><br>
+                            <?php $this->allSizes=array('L-XS','L-S','L-M','L-L','L-XL');
+                            //$this->mySizes=array('S','M','L');
+                            foreach ($this->allSizes as $item) {
+                                if(in_array($item,$this->sizes)){?>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><?php echo $item?>
+                                    <?php
+                                } else{
+                                    ?>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><?php echo $item?>
+                                    <?php
+                                }
+                            } ?>
+                            <br>
                         
                         <label>Published : </label><br><select name="is_published">
                             <option value="yes" <?php if($this->product['is_published']=='yes') echo "selected=\"selected\"";?>>YES</option>
