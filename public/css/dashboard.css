@@ -2,11 +2,23 @@
 .row{
     justify-content: space-between;
 }
+
+.center{
+    justify-content: center;
+}
+
 .col-3{
 padding: 0;
 flex-basis: 33%;
 }
+/*
+#myChart{
 
+    width:1000px !important;
+    height:200px !important;
+  
+  }
+  */
 
 .col-60p{
     flex-basis: 60%;
@@ -39,9 +51,4 @@ flex-basis: 33%;
 .filter-time{
 text-align: center;
 margin: 20px;
-}
-
-#myChart{
-    max-height: 300px;
-    max-width:  400px;
 }

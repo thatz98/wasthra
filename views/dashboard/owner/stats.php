@@ -24,10 +24,10 @@
                         </div>
                         <div class="row">
                             <div class="col-40p">
-                            <h1>48.12%</h1>
+                            <h1>3420</h1>
                             </div>
                             <div class="col-60p">
-                            <canvas id="total-visitors" height="200"></canvas>
+                            <canvas id="total-visitors" height="200px"></canvas>
                             </div>
                         
                         </div>
@@ -36,14 +36,14 @@
                 <div class="col-3">
                     <div class="card">
                         <div class="row">
-                        <h3>Total Customers</h3>
+                        <h3>Total Sales</h3>
                         </div>
                         <div class="row">
                         <div class="col-40p">
-                            <h1>48.12%</h1>
+                            <h1>1250</h1>
                             </div>
                             <div class="col-60p">
-                            <canvas id="total-customers" height="200"></canvas>
+                            <canvas id="total-customers" height="200px"></canvas>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             <h1>48.12%</h1>
                             </div>
                             <div class="col-60p">
-                            <canvas id="conversion-rate" height="200"></canvas>
+                            <canvas id="conversion-rate" height="200px"></canvas>
                             </div>
                         </div>
                     </div>
@@ -68,21 +68,60 @@
             <div class="row">
                 <div class="col">
                     <div class="card">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <div class="row">
+                        <h3>Sales Distribution</h3>
+                        </div>
+<div class="row center">
+<canvas id="myChart" height="400"></canvas>
+</div>
+                    
                     </div>
                 </div>
                 
             </div>
 
             <div class="row">
-                <div class="col-3">
+                <div class="col-4">
                     <div class="card">
-                    <canvas id="myChart1" width="400" height="400"></canvas>
+                        <div class="row">
+                        <h3>Total Orders</h3>
+                        </div>
+                        <div class="row">
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="row">
+                        <h3>Total Deliveries</h3>
+                        </div>
+                        <div class="row">
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="row">
+                        <h3>Total Returns</h3>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="row">
+                        <h3>Total Revenue</h3>
+                        </div>
+                        <div class="row">
+
+                        </div>
                     </div>
                 </div>
             </div>
-</div>
-
 
 
     
@@ -102,7 +141,9 @@ new Chart(document.getElementById('total-visitors'), {
    pointHoverBorderColor: "#55bae7"
         }]
     },
-    options: {elements: {
+    options: {
+        responsive: true,
+        elements: {
                     point:{
                         radius: 0
                     }
@@ -152,7 +193,9 @@ new Chart(document.getElementById('conversion-rate'), {
    pointHoverBorderColor: "#55bae7"
         }]
     },
-    options: {elements: {
+    options: {
+        responsive: true,
+        elements: {
                     point:{
                         radius: 0
                     }
@@ -202,7 +245,9 @@ new Chart(document.getElementById('total-customers'), {
    pointHoverBorderColor: "#55bae7"
         }]
     },
-    options: {elements: {
+    options: {
+        responsive: true,
+        elements: {
                     point:{
                         radius: 0
                     }
@@ -243,10 +288,10 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2],
             backgroundColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
@@ -266,6 +311,8 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        maintainAspectRatio: false,
+        responsive: true,
         scales: {
             yAxes: [{
                 ticks: {
