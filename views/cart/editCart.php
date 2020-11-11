@@ -61,7 +61,12 @@
                 </div><br>
                 <label class="text-label">Select Size</label>
                 <div class="sizes">
-                    <?php foreach ($this->sizeList as $size){
+                    <?php
+                        $single_sizes_gents = array('XS-G','S-G','M-G','L-G','XL-G');
+                        $single_sizes_ladies = array('XS-W','S-W','M-W','L-W','XL-W');
+                        $catName=$this->productPopup['name']; 
+                        if($catName!="Couple"){
+                        foreach ($this->sizeList as $size){
                         if($this->productPopup['product_id']==$size['product_id']){?>
                             <label class="size-container">
                                 <?php if($_GET['size']==$size['sizes']){
@@ -74,7 +79,56 @@
                 </label>
                              <?php
                         }
-                    } ?>
+                    } 
+                }else{?>
+                    <p>Gents Sizes:</p>
+                    <br>
+                    <?php
+                    
+                    foreach ($this->sizeList as $size){
+                        $trimSize=rtrim($size['sizes'],"-G");
+                        if($this->productPopup['product_id']==$size['product_id']){
+                            if(in_array($size['sizes'],$single_sizes_gents)){?>
+                            <label class="size-container">
+                                <?php if($_GET['size']==$size['sizes']){
+                                    
+                                    echo '<input type="radio" name="size" value="'.$trimSize.'" checked>';
+                                } else{
+                                    echo '<input type="radio" name="size" value="'.$trimSize.'">';
+                                }?>
+                
+                <span class="checkbox"><?php echo $trimSize?></span>
+                </label>
+                             <?php
+                            }
+                        }
+                    }?>
+                    <p>Ladies Sizes:</p>
+                    <br>
+                    <?php
+                    
+                    foreach ($this->sizeList as $size){
+                        $trimSize=rtrim($size['sizes'],"-W");
+                        if($this->productPopup['product_id']==$size['product_id']){
+                            if(in_array($size['sizes'],$single_sizes_ladies)){?>
+                            <label class="size-container">
+                                <?php if($_GET['size']==$size['sizes']){
+                                    
+                                    echo '<input type="radio" name="size" value="'.$trimSize.'" checked>';
+                                } else{
+                                    echo '<input type="radio" name="size" value="'.$trimSize.'">';
+                                }?>
+                
+                <span class="checkbox"><?php echo $trimSize?></span>
+                </label>
+                             <?php
+                            }
+                        }
+                    }
+
+
+
+                    }?>
             
 </div><br>
                 <label class="text-label">Select Quantity</label>
