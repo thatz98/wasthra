@@ -60,9 +60,8 @@
                         }
                     } 
                     }
-                    else{
-                        echo "Gents Sizes:";?>
-                        <br>
+                    else{?>
+                    <label class="text-label">Gents</label><br>
                         <?php  
                         foreach($this->product as $single){
                             //echo $single['sizes'][0];
@@ -70,12 +69,11 @@
                                 continue;
                             }else{
                                 $single_sizes_ladies[] .= $single['sizes'];?>
-                    <span class="size-box"><?php echo rtrim($single['sizes'],"-G")?></span><?php
+                    <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($single['sizes'],"-G")?></span><?php
                             }
                         }?>
                         <br>
-                        <?php
-                        echo "Ladies Sizes:";?>
+                        <label class="text-label">Ladies</label>
                         <br>
                         <?php
                         foreach($this->product as $single){
@@ -84,7 +82,7 @@
                                 continue;
                             }else{
                                 $single_sizes_gents[] .= $single['sizes'];?>
-                    <span class="size-box"><?php echo rtrim($single['sizes'],"-W")?></span><?php
+                    <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($single['sizes'],"-W")?></span><?php
                             }
 
                     }
