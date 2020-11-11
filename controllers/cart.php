@@ -19,11 +19,20 @@ class Cart extends Controller{
     	$this->view->render('cart/cart');
     }
     function addToCart(){
+           $sizeGents = $_POST['size1'];
+           $sizeLadies = $_POST['size2'];
+           $sizeNormal = $_POST['size'];
+           $sizeArray = '';
+           $sizeArray.=$sizeNormal;
+           $sizeArray.=$sizeLadies.",";
+           $sizeArray.=$sizeGents;
+           $sizeArray=rtrim($sizeArray,",");
+           //echo $sizeArray;
            $data = array();
            $data['product_id'] = $_POST['prod_id'];
            $data['item_qty']=$_POST['quantity'];
            $data['item_color']=$_POST['color'];
-           $data['item_size']=$_POST['size'];
+           $data['item_size']=$sizeArray;
         
            if(Session::get('loggedIn')=='true'){
             $this->model->create($data);
