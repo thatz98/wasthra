@@ -9,7 +9,7 @@
         <div class="form-container" >
             <form action="<?php echo URL; ?>user/editSave/<?php echo $this->user['nic'] ?>" id="editFrom" method="post">
                         <div class="row">
-                            <h3 class="mar-b-20">Shipping Details</h3>
+                            <h3 class="mar-b-20">Delivery Details</h3>
                         </div>
                         <div class="row-top">
                             <div class="col-2">
