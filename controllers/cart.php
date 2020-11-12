@@ -19,15 +19,24 @@ class Cart extends Controller{
     	$this->view->render('cart/cart');
     }
     function addToCart(){
+           $sizeGents = $_POST['size1'];
+           $sizeLadies = $_POST['size2'];
+           $sizeNormal = $_POST['size'];
+           $sizeArray = '';
+           $sizeArray.=$sizeNormal;
+           $sizeArray.=$sizeLadies.",";
+           $sizeArray.=$sizeGents;
+           $sizeArray=rtrim($sizeArray,",");
+           //echo $sizeArray;
            $data = array();
-           $data['product_id'] = $_POST['product_id'];
+           $data['product_id'] = $_POST['prod_id'];
            $data['item_qty']=$_POST['quantity'];
            $data['item_color']=$_POST['color'];
-           $data['item_size']=$_POST['size'];
+           $data['item_size']=$sizeArray;
         
            if(Session::get('loggedIn')=='true'){
             $this->model->create($data);
-            header('location: '.URL.'');
+            header('location: '.$_POST['prev_url']);
            } else{
             $data['item_color'] = str_replace('#','',$data['item_color']);
                header('location: '.URL.'login/cartRequireLogin?productId='.$data['product_id'].'&qty='.$data['item_qty'].'&color='.$data['item_color'].'&size='.$data['item_size'].'&loginRequired=true');
@@ -52,11 +61,19 @@ class Cart extends Controller{
  }
 
  function updateCartItem($itemId){
+    $sizeGents = $_POST['size1'];
+    $sizeLadies = $_POST['size2'];
+    $sizeNormal = $_POST['size'];
+    $sizeArray = '';
+    $sizeArray.=$sizeNormal;
+    $sizeArray.=$sizeLadies.",";
+    $sizeArray.=$sizeGents;
+    $sizeArray=rtrim($sizeArray,",");
     $data = array();
     $data['product_id'] = $_POST['prod_id'];
     $data['item_qty']=$_POST['quantity'];
     $data['item_color']=$_POST['color'];
-    $data['item_size']=$_POST['size'];
+    $data['item_size']=$sizeArray;
     $data['item_id']=$itemId;
  
      $this->model->update($data);

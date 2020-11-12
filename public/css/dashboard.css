@@ -1,14 +1,54 @@
-.card{
-    margin: 10px;
-    background-color: antiquewhite;
-    min-height: 200px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+
+.row{
+    justify-content: space-between;
 }
 
+.center{
+    justify-content: center;
+}
+
+.col-3{
+padding: 0;
+flex-basis: 33%;
+}
+/*
 #myChart{
-    max-height: 300px;
-    max-width:  400px;
+
+    width:1000px !important;
+    height:200px !important;
+  
+  }
+  */
+
+.col-60p{
+    flex-basis: 60%;
+    padding: 10px;
+    min-width: 0;
+    margin-bottom: 0;
+    transition: transform 0.5s;
+}
+
+.col-40p{
+    flex-basis: 40%;
+    padding: 10px;
+    min-width: 0;
+    margin-bottom: 0;
+    transition: transform 0.5s;
+}
+
+.card{
+    margin: 10px;
+    background-color: #fff;
+    min-height: 200px;
+    padding: 20px;
+    display: block;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+}
+
+
+.filter-time{
+text-align: center;
+margin: 20px;
 }

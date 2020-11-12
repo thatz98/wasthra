@@ -1,10 +1,14 @@
 <?php require 'views/header_dashboard.php'; ?>
 
-
+<div class="small-container">
+<div class="row">
+				<h2 class="title title-min">Dashboard</h2>
+			</div>
+</div>
 <div class="dashboard">
-        <div class="small-container">
+        <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-4">
                 	<div class="content">
                 		<a href="<?php echo URL;?>orders/assignedOrders">
       						<div class="content-overlay"></div>
@@ -20,7 +24,7 @@
       					</a>
       				</div>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                 	<div class="content">
                 		<a href="<?php echo URL;?>orders/history">
       						<div class="content-overlay"></div>

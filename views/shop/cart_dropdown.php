@@ -6,7 +6,7 @@
       <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
       <div class="shopping-cart-total">
         <span class="lighter-text">Total:</span>
-        <span id=""><?php echo number_format($this->subtotal,2,'.','');?></span>
+        <span id="total-display"></span>
       </div>
     </div> <!--end shopping-cart-header -->
 
@@ -73,7 +73,7 @@
 
     endforeach;?>
   </ul>
-
+<input id="totalPriceValue" value="<?php echo 'LKR '.number_format($this->subtotal,2,'.','');?>" hidden>
 <div class="row" style="margin: 0;">
   <a href="<?php echo URL;?>cart" class="btn drop-btn">View Cart</a>
   <a href="<?php echo URL;?>checkout" class="btn drop-btn">Checkout</a>
@@ -84,6 +84,11 @@
 </div>
 
 <script type="text/javascript">
+
+$(document).ready(function() {
+  $("#total-display").text($("#totalPriceValue").val());
+    });
+
   function bagDown(){
    var container = document.getElementById("cart-drop-container");
    var overlay = document.getElementById("transparent-overlay");

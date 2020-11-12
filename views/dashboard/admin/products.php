@@ -23,7 +23,7 @@
                             <label>Product ID : </label><br><input type="text" name="product_id"><br>
                             
                             <label>Product Name : </label><br><input type="text" name="product_name"><br>
-                            <label>Product Category : </label><br><select name="category">
+<label>Product Category : </label><br><select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
                             <?php foreach ($this->categoryList as $category): ?><option value="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></option> <?php endforeach;?>
                             <!-- <option value="ladies">Ladies</option>
                             <option value="couple">Couple</option> -->
@@ -32,6 +32,7 @@
                         
                         </div>
                         <div class="col-3">
+                            <div id="size-field">
                             <label>Available Sizes : </label><br>
                             <div class="checkboxes">
                                 <input type="checkbox" name="size[]" value="XS"><span>XS</span>
@@ -49,10 +50,44 @@
                                 <input type="checkbox" name="size[]" value="XL"><span>XL</span>
                             </div>
                             <br>
+                            </div>
+                            <div id="size-field-couple" hidden>
+                            <label>Available Sizes for Couple Gents: </label><br>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="XS-G"><span>XS</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="S-G"><span>S</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="M-G"><span>M</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="L-G"><span>L</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="XL-G"><span>XL</span>
+                            </div>
+                            <br>
                             
-                            
-                            
-                        
+                            <label>Available Sizes for Couple Ladies: </label><br>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="XS-W"><span>XS</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="S-W"><span>S</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="M-W"><span>M</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="L-W"><span>L</span>
+                            </div>
+                            <div class="checkboxes">
+                                <input type="checkbox" name="size[]" value="XL-W"><span>XL</span>
+                            </div>
+                            <br>
+                            </div>
                         <label>Published : </label><br><select name="is_published">
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
