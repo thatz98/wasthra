@@ -124,4 +124,12 @@ class Shop_Model extends Model{
         
     }
 
+    public function reviewDetails($id){
+        return $this->db->query("SELECT review.product_id,review.user_id,customer.first_name,customer.last_name,review.rate,review.review_text,review.date,review.time,review.review_id FROM review INNER JOIN customer ON review.user_id=customer.user_id WHERE review.product_id='$id' ");
+    }
+
+    public function reviewImages(){
+        return $this->db->query("SELECT review_image.image,review_image.review_id FROM review_image ");
+    }
+
 }
