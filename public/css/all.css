@@ -3,14 +3,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Balsamiq Sans', cursive !important;
 
 }
 
 
 body{
     min-height: 100%;
-    font-family: 'Balsamiq Sans', cursive !important;
+    font-family: 'Balsamiq Sans', cursive;
     padding: 0;
 
 }
