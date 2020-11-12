@@ -56,13 +56,16 @@
                         <?php }
                     } ?>
                     </div><br>
-                    <label class="text-label">Select Size</label>
-                    <div class="sizes">
+
+                    
                         <?php 
                         $catName=$this->productPopup['name'];
                         $single_sizes_gents = array('XS-G','S-G','M-G','L-G','XL-G');
                         $single_sizes_ladies = array('XS-W','S-W','M-W','L-W','XL-W');
-                        if($catName!="Couple"){
+                        if($catName!="Couple"){?>
+                        <label class="text-label">Select Size</label>
+                    <div class="sizes">
+                        <?php
                             foreach ($this->sizeList as $size){
                                 
                             if($this->productPopup['product_id']==$size['product_id']){?>
@@ -72,10 +75,12 @@
                             </label>
                             <?php
                             }
-                        } 
+                        } ?> </div>
+                        <?php
                     }else{?>
-                        <p>Gents Sizes:</p>
-                        <br>
+                        <label class="text-label">Select Size for Gent</label>
+                    <br>
+                    <div class="sizes">
                         <?php  
 
                         foreach ($this->sizeList as $size){
@@ -92,8 +97,11 @@
                         } 
 
                         ?>
-                        <p>Ladies Sizes:</p>
-                        <br>
+                       </div>
+                    <br>
+                    <label class="text-label">Select Size for Lady</label>
+                    <br>
+                    <div class="sizes">
                         <?php  
 
                         foreach ($this->sizeList as $size){
@@ -111,7 +119,7 @@
 
                     }?>
 
-                    </div><br>
+                    </div>
                     <label class="text-label">Select Quantity</label>
                     <div class="quantity">
                         <span class="qty-minus"
