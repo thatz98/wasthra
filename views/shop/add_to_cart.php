@@ -108,10 +108,10 @@
                 </label>
                              <?php
                         }
-                    }
+                    } ?>
+                  </div>  
+              <?php  }?>
                     
-                }?>
-                    </div>
 <br>
                 <label class="text-label">Select Quantity</label>
                 <div class="quantity">
@@ -126,7 +126,7 @@
                     </div>
                     <input type="text" name="prod_id" value="<?php echo $this->product[0]['product_id']?>" hidden>
                     <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
-                    <button type="submit" class="btn">Add to Cart</a>
+                    <button type="submit" class="btn">Add to Cart</button>
             </form>
             </div>
         </div>
