@@ -116,16 +116,11 @@
 
 
     <?php foreach ($this->reviews as $showreviews):?>
-<div class="small-container product-review">
-
-    
+<div class="small-container product-review"> 
     <div class="row-left">
         <div class="col">
             <div class="row-left">
-                 <?php echo $showreviews['first_name']; ?> <?php echo $showreviews['last_name']; ?>
-                
-                      
-                   
+                 <?php echo $showreviews['first_name']; ?> <?php echo $showreviews['last_name']; ?>      
             </div>
             <div class="row-left">
                 <small><?php echo $showreviews['date']; ?> &nbsp&nbsp <?php echo $showreviews['time']; ?></small>
@@ -151,9 +146,6 @@
            <?php foreach ($this->reviewImageList  as $images){
            if($showreviews['review_id']==$images['review_id'])
            { ?>
-
-
-
             <img src="<?php  echo URL.$images['image']  ?>">
             <?php }
         }?>
