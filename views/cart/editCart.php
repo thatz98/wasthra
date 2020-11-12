@@ -92,9 +92,9 @@
                             <label class="size-container">
                                 <?php if($_GET['size']==$size['sizes']){
                                     
-                                    echo '<input type="radio" name="size" value="'.$trimSize.'" checked>';
+                                    echo '<input type="radio" name="size2" value="'.$trimSize.'" checked>';
                                 } else{
-                                    echo '<input type="radio" name="size" value="'.$trimSize.'">';
+                                    echo '<input type="radio" name="size2" value="'.$trimSize.'">';
                                 }?>
                 
                 <span class="checkbox"><?php echo $trimSize?></span>
@@ -114,9 +114,9 @@
                             <label class="size-container">
                                 <?php if($_GET['size']==$size['sizes']){
                                     
-                                    echo '<input type="radio" name="size" value="'.$trimSize.'" checked>';
+                                    echo '<input type="radio" name="size1" value="'.$trimSize.'" checked>';
                                 } else{
-                                    echo '<input type="radio" name="size" value="'.$trimSize.'">';
+                                    echo '<input type="radio" name="size1" value="'.$trimSize.'">';
                                 }?>
                 
                 <span class="checkbox"><?php echo $trimSize?></span>
