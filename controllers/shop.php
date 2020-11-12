@@ -30,6 +30,7 @@ class Shop extends Controller{
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
+        $this->view->reviews = $this->model->reviewDetails($id);
 
     	$this->view->render('shop/product_details');
     }

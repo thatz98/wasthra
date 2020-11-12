@@ -124,4 +124,8 @@ class Shop_Model extends Model{
         
     }
 
+    public function reviewDetails($id){
+        return $this->db->query("SELECT review.review_text,review.date,review.time FROM review ");
+    }
+
 }

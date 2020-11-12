@@ -83,7 +83,12 @@
     <div class="row-left">
         <div class="col">
             <div class="row-left">
-                First Name Last Name
+                First Name Last Name 
+                <?php foreach ($this->reviews as $showreviews):?>
+                    <?php echo $showreviews['review_text']; ?>
+                    <?php echo $showreviews['date']; ?>
+                    <?php echo $showreviews['time']; ?>
+                  <?php endforeach;?> 
             </div>
             <div class="row-left">
                 <small>2020/05/01 &nbsp&nbsp14:29</small>
