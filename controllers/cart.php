@@ -61,11 +61,19 @@ class Cart extends Controller{
  }
 
  function updateCartItem($itemId){
+    $sizeGents = $_POST['size1'];
+    $sizeLadies = $_POST['size2'];
+    $sizeNormal = $_POST['size'];
+    $sizeArray = '';
+    $sizeArray.=$sizeNormal;
+    $sizeArray.=$sizeLadies.",";
+    $sizeArray.=$sizeGents;
+    $sizeArray=rtrim($sizeArray,",");
     $data = array();
     $data['product_id'] = $_POST['prod_id'];
     $data['item_qty']=$_POST['quantity'];
     $data['item_color']=$_POST['color'];
-    $data['item_size']=$_POST['size'];
+    $data['item_size']=$sizeArray;
     $data['item_id']=$itemId;
  
      $this->model->update($data);
