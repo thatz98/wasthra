@@ -50,13 +50,12 @@ class Login extends Controller{
         $this->view->render('user/change_password');
     }
 
-    function forgotPassword($username){
-            $user = $this->model->getUserLogin($username);
-
-            $token = $this->generateRandomString(97);
-            if (!empty($user)){
-                $this->model->insert($user[0]['username'], $token);
-                $this->sendResetPasswordEmail($user[0]['username'], $token);
+    function forgotPassword(){
+        $username = $_POST['check_username'];
+            if($this->model->checkAccountExist($username)){
+                $token = $this->generateRandomString(97);
+                $this->model->createRecord($username, $token);
+                $this->sendResetPasswordEmail($username, $token);
             } else {
                 // the input username is invalid
                 // do not display a message saying 'username as invalid'
@@ -69,25 +68,22 @@ class Login extends Controller{
 
     function sendResetPasswordEmail($to, $token)
     {
-        $resetUrl = '<a href="'.URL.'login/resetPassword/'.$token.'">reset</a>';
-        $emailBody = 'Hi, </br>To reset your password, click this link ' . $resetUrl;
+        $resetUrl = '<a href="'.URL.'login/resetPassword/'.$to.'/'.$token.'">here</a>';
+        $emailBody = 'Hi, </br>To reset your password, click ' . $resetUrl;
         $subject = 'Reset password';
         $header = "From: ffutry123@gmail.com\r\nContent-Type: text/html;";
-        echo $to;
         if(mail($to, $subject, $emailBody, $header)){
-            echo 'ture';
+            echo 'mail sent';
         } else{ echo 'false';}
     }
 
-    function resetPassword($token)
+    function resetPassword($username,$token)
     {
-        $username = $this->model->getUsername($token);
-
-        if(empty($username)){
-            echo 'incorrect token';
-        } else{
-            $this->view->username = $username[0]['username'];
+        if($this->model->checkToken($username,$token)){
+            $this->view->username = $username;
             $this->view->render('user/reset_password');
+        } else{
+            echo 'incorrect token';
         }
 
     }
@@ -96,9 +92,11 @@ class Login extends Controller{
     {
         $data = array();
         $data['username'] = $_POST['username'];
-        $data['password'] = $_POST['password'];
+        $data['password'] = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
         $this->model->updatePassword($data);
+
+        echo 'password updated';
 
     }
 

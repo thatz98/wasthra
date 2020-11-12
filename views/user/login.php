@@ -19,7 +19,7 @@
 
 <body>
 <?php require 'views/error/error_popup.php';?>
-     
+<?php require 'views/user/forgot_password.php';?>   
     <div class="header-plain">
         <div class="contaner">
             <div class="navbar">
@@ -68,7 +68,7 @@
                             <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
                             <button type="submit" class="btn">Login</button>
                             <div class="forget-password">
-                                <a href="#">Forgot Password?</a>
+                                <a href="#forgotPassword">Forgot Password?</a>
                             </div>
                         </form>
                     </div>
@@ -161,7 +161,7 @@
 
                             <button type="submit" class="btn" style="margin-bottom: 10px;">Login</button>
                             <div class="forget-password">
-                                <a href="#">Forgot Password?</a>
+                                <a href="#forgotPassword">Forgot Password?</a>
                             </div>
                         </form>
 

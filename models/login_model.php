@@ -115,4 +115,22 @@ class Login_Model extends Model{
         }
 
     }
+
+    function createRecord($username, $token){
+        $this->db->insert('password_reset',array('username' => $username,'token' => $token));
+    }
+
+    function checkToken($username,$token){
+        if($this->db->listWhere('password_reset',array('username'),"username='$username' AND token='$token'")==null){
+            return false;
+        } else{
+            return true;
+        }
+    }
+
+    function updatePassword($data){
+        $username = $data['username'];
+        
+        $this->db->update('login',array('password' => $data['password']),"username='$username'");
+    }
 }
