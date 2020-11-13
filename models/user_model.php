@@ -2,11 +2,11 @@
 
 class User_Model extends Model{
 
-    public function __construct(){
+    function __construct(){
      	parent::__construct();
     }
 
-    public function listUsers(){
+    function listUsers(){
 
         $customers = array();
         $admins = array();
@@ -23,7 +23,7 @@ class User_Model extends Model{
 
     }
 
-    public function getUser($id,$type){
+    function getUser($id,$type){
 
         if($type=='customer'){
             return $this->db->query("SELECT customer.user_id,customer.first_name,customer.last_name,customer.gender,customer.email,customer.contact_no,login.login_id,login.user_status,login.user_type FROM customer INNER JOIN login ON customer.login_id=login.login_id WHERE customer.user_id='$id';");
@@ -39,7 +39,7 @@ class User_Model extends Model{
         
     }
 
-    public function create($data){
+    function create($data){
 
         $this->db->insert('login',array(
             'username' => $data['username'],
@@ -62,7 +62,7 @@ class User_Model extends Model{
     }
 
 
-    public function update($data){
+    function update($data){
 
         if($data['user_type']==$data['prev_user_type']){
                 $this->db->update($data['user_type'],array(
@@ -94,36 +94,7 @@ class User_Model extends Model{
 
     }
 
-    public function updateProfile($data){
-        $this->db->update($data['user_type'],array(
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'gender' => $data['gender'],
-            'email' => $data['email'],
-            'contact_no' => $data['contact_no']),"user_id = '{$data['user_id']}'");
-
-            $this->db->update('login',array('username' => $data['username']),"login_id = '{$data['login_id']}'");
-    }
-
-    public function updateAddress($data){
-        if(empty($data['address_id'])){
-            $this->db->insert('delivery_address',array(
-                'user_id' => $data['user_id'],
-                'address_line_1' => $data['address_line_1'],
-                'address_line_2' => $data['address_line_2'],
-                'address_line_3' => $data['address_line_3'],
-                'city' => $data['city']
-            ));
-        } else{
-            $this->db->update('delivery_address',array(
-                'address_line_1' => $data['address_line_1'],
-                'address_line_2' => $data['address_line_2'],
-                'address_line_3' => $data['address_line_3'],
-                'city' => $data['city']),"address_id = '{$data['address_id']}'");
-        }
-    }
-
-    public function checkExists($username){
+    function checkExists($username){
         $user = $this->db->listWhere('login',array('username'),"username='$username'");
 
         if($user){
@@ -133,7 +104,7 @@ class User_Model extends Model{
         }
     }
 
-    public function checkExistsWhere($username,$loginId){
+function checkExistsWhere($username,$loginId){
         $user = $this->db->listWhere('login',array('username'),"username='$username' AND login_id<>$loginId");
 
         if($user){
@@ -143,7 +114,7 @@ class User_Model extends Model{
         }
     }
 
-    public function delete($userId,$userType){
+    function delete($userId,$userType){
         $data = $this->db->listWhere($userType,array('login_id'),"user_id='$userId'");
 
         if($userType=='owner'){
@@ -154,6 +125,8 @@ class User_Model extends Model{
         }
 
     }
+
+    
 
 
 

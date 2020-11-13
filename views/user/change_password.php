@@ -5,14 +5,14 @@
 
 
             <div class="col-2" style="text-align: center;">
-                <form action="" method="post">
+                <form action="<?php echo URL?>profile/changePassword" method="post">
                 <label>Current Password</label><br>
-                    <input class="text-center" type="password" name="current_password" onfocusout="validatePassword()" id="current_password" data-helper="Current Password"><div class="helper-text"><span></span></div>
+                    <input class="text-center" type="password" name="current_password" onfocusout="validateOldPassword()" id="current_password" data-helper="Current Password"><div class="helper-text"><span></span></div>
                     <label>New Password</label><br>
-                    <input class="text-center" type="password" name="new_password" onfocusout="validatePassword()" id="new_password"><div class="helper-text"><span></span></div>
+                    <input class="text-center" type="password" name="new_password" onfocusout="validateNewPassword()" id="new_password"><div class="helper-text"><span></span></div>
                     <label>Confirm Password</label><br>
-                    <input class="text-center" type="password" name="new_password" onfocusout="validateConfirmPassword()" id="confirm_password"><div class="helper-text"><span></span></div>
-                
+                    <input class="text-center" type="password" name="conf_new_password" onfocusout="validateConfirmNewPassword()" id="confirm_new_password"><div class="helper-text"><span></span></div>
+                    <input type="text" name="prev_url" value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
                 <button type="submit" class="btn">Save Changes</button>
             </form>
             </div>

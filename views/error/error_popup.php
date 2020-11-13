@@ -33,7 +33,10 @@
                                     <p>Click <a href="'.URL.'login/resendVerificationEmail/'.$_GET['username'].'">here</a> to resend the mail.';
                                 }
                                 break;
-                                
+                                case 'currentPwdIncorrect':
+                                    $msg = 'Incorrect current password! Try
+                                    again.';
+                                    break;       
                     } ?>
                         <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?php echo $msg; ?></p>
                     <?php 
@@ -55,6 +58,9 @@
                                 $msg = 'Then verfication link has been resent to your email address successfully, <br />
                                 Please verify it by clicking the link.';
                                 break;
+                                case 'pwdChanged':
+                                    $msg = 'Your password has been update successfully!';
+                                    break;
                 } ?>
                         <p class="success"><i class="fa fa-check" aria-hidden="true"></i> <?php echo $msg; ?></p>
                 <?php } ?>

@@ -3,7 +3,7 @@
         <div class="row-right">
             <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         </div>
-        <form action="<?php echo URL; ?>user/editProfile/<?php echo Session::get('userData')['user_id'] ?>"
+        <form action="<?php echo URL; ?>profile/editProfile/<?php echo Session::get('userData')['user_id'] ?>"
             id="editFrom" method="post">
             <div class="row-top">
                 <div class="col-3">

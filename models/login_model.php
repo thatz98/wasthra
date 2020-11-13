@@ -66,7 +66,7 @@ class Login_Model extends Model
                         if (isset($_POST['product_id']) && isset($_POST['item_size']) && isset($_POST['item_qty']) && isset($_POST['item_color'])) {
                             header('location: ' . URL . 'cart/addToCartAfterLogin?productId=' . $_POST['product_id'] . '&qty=' . $_POST['item_qty'] . '&color=' . $_POST['item_color'] . '&size=' . $_POST['item_size']);
                         } else {
-                            if ($prev_url == URL . 'login') {
+                            if (strpos($prev_url, '/login') !== false) {
                                 header('location: ' . URL);
                             } else {
                                 header('location: ' . $prev_url);

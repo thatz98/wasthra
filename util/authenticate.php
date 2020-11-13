@@ -25,7 +25,7 @@ class Authenticate
         $userType = Session::get('userType');
         if($logged==false || !($userType=='admin' || $userType=='owner')){
             Session::destroy();
-            header('location: '.URL.'loginloginRequired=true');
+            header('location: '.URL.'login?loginRequired=true');
             exit;
         }
 	}
@@ -36,7 +36,7 @@ class Authenticate
         $userType = Session::get('userType');
         if($logged==false || $userType=='customer'){
             Session::destroy();
-            header('location: '.URL.'loginloginRequired=true');
+            header('location: '.URL.'login?loginRequired=true');
             exit;
         }
 	}
