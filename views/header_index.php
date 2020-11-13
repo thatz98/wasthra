@@ -44,7 +44,7 @@
                         <?php endif;
                          if(Session::get('loggedIn')==true && Session::get('userType')=='customer'): ?>
                             <li><a href="<?php echo URL;?>orders/myOrders">My Orders</a></li>
-                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="<?php echo URL; ?>wishlist">Wishlist</a></li>
                             <?php endif; ?>
                     </ul>
                 </nav>
