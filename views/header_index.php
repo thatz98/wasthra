@@ -51,7 +51,7 @@
 
                 <?php if(Session::get('loggedIn')==true): ?>
                             <div class="user-box">
-                                <div class="user-info"><p>Hi, <?php echo Session::get('firstName')?>!</p></div>
+                                <div class="user-info"><p>Hi, <?php echo Session::get('userData')['first_name']?>!</p></div>
                                 <a class="user-box-btn" href="#profile-card">
                                     <i class="fa fa-user-circle-o fa-2x"></i>
                                 </a>

@@ -6,27 +6,58 @@
         <div class="row">
             <div class="content">
                 <?php if (isset($_GET['error'])) {
-                    if ($_GET['error'] == 'accountExists') { ?>
-                        <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Account on the entered email already exists, try login!</p>
-                    <?php } else if ($_GET['error'] == 'anotherAccountExists') { ?>
-                        <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Account on the entered email already exists in another account, try different!</p>
-                    <?php } else if ($_GET['error'] == 'loggedAlready') { ?>
-                        <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> You have already logged in! Log out first if you want to login to a different account.</p>
-                    <?php } else if ($_GET['error'] == 'wrongPwd') { ?>
-                        <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Incorrect password! Try again or click forgot password to reset.</p>
-                    <?php } else if ($_GET['error'] == 'noAccount') { ?>
-                        <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Account does not exist! Check your username or Sign up to get one.</p>
-                    <?php }
+                    switch ($_GET['error']) {
+                        case 'accountExists':
+                            $msg = 'Account on the entered
+                            email already exists, try login!';
+                            break;
+                        case 'anotherAccountExists':
+                            $msg = 'Account on the entered
+                            email already exists in another account, try different!';
+                            break;
+                        case 'loggedAlready':
+                            $msg = 'You have already logged
+                            in! Log out first if you want to login to a different account.';
+                            break;
+                        case 'wrongPwd':
+                            $msg = 'Incorrect password! Try
+                            again or click forgot password to reset.';
+                            break;
+                        case 'noAccount':
+                            $msg = 'Account does not exist!
+                            Check your username or Sign up to get one.';
+                            break;
+                            case 'notVerified':
+                                if(isset($_GET['username'])){
+                                    $msg = 'Your account has not been verified! Please verfiy the account with the link which has been sent to your email.</p>
+                                    <p>Click <a href="'.URL.'login/resendVerificationEmail/'.$_GET['username'].'">here</a> to resend the mail.';
+                                }
+                                break;
+                                
+                    } ?>
+                        <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?php echo $msg; ?></p>
+                    <?php 
                 } else if (isset($_GET['success'])) {
-                    if ($_GET['success'] == 'signUp') { ?>
-                        <p class="success"><i class="fa fa-check" aria-hidden="true"></i> Your account has been made, <br /> Please verify it by clicking the activation link
-                            that has been send to your email...</p>
-                <?php } else if ($_GET['success'] == 'itemAddedToCart') { ?>
-                        <p class="success"><i class="fa fa-check" aria-hidden="true"></i> Item added to cart successfully...</p>
-                <?php } else {
-                        header('location: ./#');
-                    }
+                    
+                    switch ($_GET['success']) {
+                    case 'signUp':
+                        $msg = 'Your account has been made, <br />
+                        Please verify it by clicking the activation link
+                        that has been send to your email...';
+                        break;
+                    case 'itemAddedToCart':
+                        $msg = 'Item added to cart successfully...';
+                        break;
+                        case 'accountVerfied':
+                            $msg = 'Your acount has been verfied successfully, you can now login with you email and password.';
+                            break;
+                            case 'resentVerification':
+                                $msg = 'Then verfication link has been resent to your email address successfully, <br />
+                                Please verify it by clicking the link.';
+                                break;
                 } ?>
+                        <p class="success"><i class="fa fa-check" aria-hidden="true"></i> <?php echo $msg; ?></p>
+                <?php } ?>
             </div>
         </div>
 

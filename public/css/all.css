@@ -1289,7 +1289,7 @@ textarea:focus{
   background: #fff;
   border-radius: 5px;
   position: relative;
-  transition: all 5s ease-in-out;
+  transition: all 1s ease-in-out;
   overflow:auto;
 }
 
@@ -1426,7 +1426,7 @@ span.size-box {
 }
 
 .color-container:hover input:checked ~ .checkmark {
-  background-color: ;
+  background-color: '';
 }
 
 .checkmark:after {
@@ -1585,26 +1585,28 @@ a.bag:hover{
 
 .user-box {
     position: relative;
-    transform:  translate(,50%);
     background: transparent;
     height: 30px;
     border-radius: 30px;
     border: none;
     margin: 0 15px;
+    transition: color 1s ease;
 }
 
 .user-box:hover{
     background: #ff523b;
 }
 .user-box:hover > .user-info {
-    width: 120px;
+    width: 150px;
     padding: auto 6px auto 15px;
     
 }
 
 .user-box:hover > .user-info p{
-    width: 120px;
-    display: flex;
+    width: auto;
+    display: inline-block;
+    color: #fff;
+    
 }
 
 .user-box:hover > .user-box-btn{
@@ -1647,7 +1649,7 @@ i.fa-shopping-bag{
 
 .user-info p{
     margin-left: 10px;
-    color: #fff;
+    color: transparent;
     font-size: 16px;
     transition: 0.4s;
 }

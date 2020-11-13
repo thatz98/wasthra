@@ -28,6 +28,7 @@ class Login extends Controller{
     function signup(){
 
         if(!$this->model->checkAccountExist($_POST['email'])){
+            $token = $this->generateRandomString(97);
             $data = array();
             $data['first_name'] = $_POST['first_name'];
             $data['last_name'] = $_POST['last_name'];
@@ -38,12 +39,50 @@ class Login extends Controller{
             $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $data['user_status'] = 'new';
             $data['user_type'] = 'customer';
-    
+            $data['token'] = $token;
+
             $this->model->signup($data);
+            
+            if($this->sendVerficationEmail($data['email'], $token)){
+                header('location: ../login?success=signUp#message');
+            } else{
+                header('location: ../login?error=wrong#message');
+            }
+
         } else{
             header('Location: ./?error=accountExists#message');
         }
         
+    }
+
+    function sendVerficationEmail($to, $token)
+    {
+        $verificationUrl = '<a href="'.URL.'login/verifyAccount/'.$to.'/'.$token.'">here</a>';
+        $emailBody = 'Hi, <br>To verfiy your account, click ' . $verificationUrl;
+        $subject = 'Verify Account';
+        $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
+        if(mail($to, $subject, $emailBody, $header)){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    function resendVerificationEmail($username){
+        $token = $this->generateRandomString(97);
+        $this->model->updateToken($username,$token);
+        $this->sendVerficationEmail($username,$token);
+        header('Location: '.URL.'login?success=resentVerification#message');
+    }
+
+    function verifyAccount($username, $token)
+    {
+        if($this->model->checkVerifyToken($username,$token)){
+            $this->model->verifyAccount($username);
+            header('Location: '.URL.'login?success=accountVerfied#message');
+        } else{
+            echo 'incorrect token';
+        }
     }
 
     function changePassword(){
@@ -70,7 +109,7 @@ class Login extends Controller{
     {
         $resetUrl = '<a href="'.URL.'login/resetPassword/'.$to.'/'.$token.'">here</a>';
         $emailBody = 'Hi, </br>To reset your password, click ' . $resetUrl;
-        $subject = 'Reset password';
+        $subject = 'Reset Password';
         $header = "From: ffutry123@gmail.com\r\nContent-Type: text/html;";
         if(mail($to, $subject, $emailBody, $header)){
             echo 'mail sent';
