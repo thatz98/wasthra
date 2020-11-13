@@ -9,7 +9,7 @@
     </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product Category</button>
-            <form action="<?php echo URL; ?>ProductCategory/create" id="addFrom" class="hidden-form" method="post">
+            <form action="<?php echo URL; ?>ProductCategories/create" id="addFrom" class="hidden-form" method="post">
                         <div class="row-top">
                             <div class="col-3 pad-30-0-0-85">
                             <label>Product Category Id : </label><br><input type="text" name="product_category_id"><br>

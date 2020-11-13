@@ -6,7 +6,7 @@
         </div>
         <div class="center-content">
         <div class="form-container" >
-            <form action="<?php echo URL; ?>ProductCategory/editSave/" id="editFrom" method="post">
+            <form action="<?php echo URL; ?>ProductCategories/editSave/" id="editFrom" method="post">
                         <div class="row">
                             <div class="col-2 pad-l-55">
                              <input type="text" name="prev_id" value="<?php echo $this->getproductcategory['category_id']?>" style="display:none">   
