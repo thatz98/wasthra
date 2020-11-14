@@ -1,6 +1,6 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/cart/editCart.php'; ?>
-
+ 
 <div class="small-container">
     <div class="row">
         <h2 class="title">Cart</h2><br>
