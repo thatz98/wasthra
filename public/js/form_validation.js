@@ -18,13 +18,15 @@ function isEmpty(value) {
 }
 function setInvalid(field, message) {
   field.style.borderColor = red;
-  field.nextElementSibling.innerHTML = message;
+  field.nextElementSibling.classList.add("show");
   field.nextElementSibling.style.color = red;
+  field.nextElementSibling.innerHTML = message;
+
 }
 function setValid(field) {
   field.style.borderColor = green;
   field.nextElementSibling.innerHTML = '';
-  //field.nextElementSibling.style.color = green;
+  field.nextElementSibling.classList.remove("show");
 }
 
 function checkIfOnlyLetters(field) {

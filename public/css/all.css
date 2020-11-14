@@ -231,12 +231,16 @@ form .col-2, form .col-3, form .col-2 input, form .col-3 input{
     text-align: center;
 }
 
+form .col-2{
+    margin-bottom: 20px;
+}
+/*
 .helper-text{
   width: 100%;
   height: 20px;
   font-size: 14px;
   margin-bottom: 3px;
-}
+}*/
 
 .row{
     display: flex;
@@ -1192,7 +1196,7 @@ i .fa-cart-plus{
 }
 
 .mar-b-20{
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
 
 .mar-t-40{
@@ -1877,7 +1881,8 @@ form .row-top{
 
 form .col-3{
     flex-basis: 33.33%;
-    padding: 10px 0 10px 0;
+    padding: 10px;
+    min-width: auto;
 }
 .summary-info{
     text-align: left;
@@ -2003,6 +2008,65 @@ p.success{
     margin-right: 20px;
 }
 
+.helper-text {
+
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .helper-text .popuptext {
+    visibility: hidden;
+    width: 260px;
+    background-color: #FFECE9;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index:5;
+    bottom: 110%;
+    left: 20%;
+    margin-left: -80px;
+    font-size: 14px;
+  }
+  
+  /* Popup arrow */
+  .helper-text .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #FFECE9 transparent transparent transparent;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .helper-text .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
 
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
@@ -2032,7 +2096,7 @@ p.success{
 }
 }
 
-@media only screen and (max-width: 1140px){
+@media only screen and (max-width: 1150px){
 
     .popup {
         max-width: 70%;
@@ -2044,6 +2108,12 @@ p.success{
     .content-details p{
         font-size: 20px;
     }
+
+    .col-60p, .col-40p{
+        flex-basis: 100%;
+    }
+
+    
 }
 
 

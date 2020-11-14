@@ -33,7 +33,6 @@ body{
     position: relative;
     text-align: center;
     padding: 20px 0;
-    overflow: hidden;
 }
 
 .pad-l{
@@ -208,7 +207,7 @@ body{
    color: #cfcfcf;
 }
 .login .btn{
-   margin-top: 15px;
+   margin-top: 5px;
    margin-bottom: 20px;
    background: #ff523b;
    text-transform: uppercase;
@@ -368,6 +367,10 @@ body{
    transition: transform 1s;
 }
 
+.login .col-3{
+   margin: 0 15px 18px 15px;
+}
+/*
 @media screen and (max-width: 900px){
   .box{
     width: 70%;
@@ -380,13 +383,13 @@ body{
    overflow: hidden;
    position: relative;
    width: 90%;
-   height: 800px;
+   height: 550px;
    margin: 0 500px 100px 35px;
    background: #fff;
 }
 .login .form {
    position: relative;
-   width: 80%;
+   width: 100%;
    height: 100%;
    transition: transform 1.2s ease-in-out;
    padding: 50px 15px 0 15px;
@@ -426,7 +429,7 @@ body{
    top: 0;
    width: 100%;
    height: 100%;
-   padding-left: 260px;
+   padding-left: 200px;
    background: #fff;
    transition: transform 1.2s ease-in-out;
 }
@@ -499,8 +502,64 @@ body{
 .login button{
    width: 120px;
 }
+}*/
+
+@media screen and (max-width: 950px){
+   .form.sign-in{
+      padding-right: 115px;
+   }
+  #loginForm{
+     width: 500px;
+  }
+    .login .login-form-cont {
+     width: 700px;
+    }
+     .login .img{
+        width: 180px;
+     }
+
+     .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
+
+   .login .sub-cont {
+      left: 520px;
+      padding-left: 120px;
+   }
+
+   .login .row{
+      justify-content: center;
+   }
+
+   
+
+   .login .login-form-cont.s--signup .sub-cont {
+      transform: translate3d(-520px, 0, 0);
+   }
+   .helper-text .popuptext {
+
+      width: 200px;
+
+      margin-left: -50px;
+    }
+
+}
+/*
+@media screen and (max-width: 900px){
+   
 }
 
+@media screen and (max-width: 732px){
+   .login .login-form-cont {
+
+      height: 800px;
+
+    }
+
+   }
 @media screen and (max-width: 700px){
  .login .sub-cont {
 
@@ -529,4 +588,4 @@ body{
       padding-top: 200px;
       width: 380px;
    }
-    }
+    }*/
