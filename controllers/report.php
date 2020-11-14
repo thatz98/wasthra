@@ -8,8 +8,5 @@ class Report extends Controller{
     
     }
 
-    function index(){
-
-    	$this->view->render('dashboard/admin/report');
-    }
+    
 }

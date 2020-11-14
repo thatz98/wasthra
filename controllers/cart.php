@@ -9,6 +9,9 @@ class Cart extends Controller{
     function index(){
         Authenticate::handleLogin();
      //   $this->view->cartList = $this->model->listCart();
+     $this->view->title = 'Cart | Wasthra';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> Cart';
+
      $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->userCart = $this->model->listUserCart();
         $this->view->sizeList =  $this->model->getSizes(); 

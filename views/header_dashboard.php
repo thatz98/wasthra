@@ -60,4 +60,10 @@
             </div>
             
         </div>
+        <div class="container">
+            <div class="breadcumbs">
+            <?php if(isset($this->breadcumb)) echo $this->breadcumb;?>
+            </div>
+           
+        </div>
     </div>

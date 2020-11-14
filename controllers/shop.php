@@ -7,7 +7,8 @@ class Shop extends Controller{
     }
 
     function index(){
-    	$this->view->title = 'Shop | Wasthra';
+        $this->view->title = 'Shop | Wasthra';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> Shop';
 
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetails();
@@ -21,6 +22,8 @@ class Shop extends Controller{
     }
 
     function productDetails($id){
+        $this->view->title = 'Product Details | Wasthra';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
 
     	$this->view->productList = $this->model->listProducts();
     	$this->view->product = $this->model->getProduct($id);
@@ -38,6 +41,7 @@ class Shop extends Controller{
 
     function byColor($color){
     	$this->view->title = 'Shop | Wasthra';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Color';
 
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('color','#'.$color);
@@ -52,6 +56,7 @@ class Shop extends Controller{
 
     function bySize($size){
     	$this->view->title = 'Shop | Wasthra';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Size';
 
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('size',$size);
@@ -66,6 +71,7 @@ class Shop extends Controller{
 
     function byCategory($category){
     	$this->view->title = 'Shop | Wasthra';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Category';
 
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('category',$category);

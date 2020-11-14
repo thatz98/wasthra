@@ -9,6 +9,9 @@ class PriceCategories extends Controller{
     }
 
     function index(){
+        $this->view->title = 'Price Categories | Dashboard | Wasthra';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Price Categories';
+
         $this->view->pricecatList = $this->model->listPricecat();
     	$this->view->render('dashboard/owner/price_categories');
     }
@@ -29,6 +32,9 @@ class PriceCategories extends Controller{
 
 
    function edit($id){
+    $this->view->title = 'Price Categories | Dashboard | Wasthra';
+    $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'priceCategories">Price Categories</a> <i class="fas fa-angle-right"></i>Edit Price Category';
+
        $this->view->getpricecat = $this->model->getPriceCategory($id);
        $this->view->render('dashboard/owner/edit_price_categories');
  }

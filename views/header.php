@@ -70,4 +70,10 @@
             <?php require 'views/shop/cart_dropdown.php'; ?>
 
         </div>
+        <div class="container">
+            <div class="breadcumbs">
+            <?php if(isset($this->breadcumb)) echo $this->breadcumb;?>
+            </div>
+           
+        </div>
     </div>

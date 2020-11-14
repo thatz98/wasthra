@@ -2068,6 +2068,15 @@ p.success{
     to {opacity:1 ;}
   }
 
+
+  .breadcumbs i{
+      margin: 5px;
+  }
+
+  .breadcumbs a:hover{
+    color: #ff523b;
+}
+
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {
     width: 150px;

@@ -8,6 +8,8 @@ class Dashboard extends Controller{
 
     function index(){
         $userType = Session::get('userType');
+        $this->view->title = 'Dashboard | Wasthra';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> Dashboard';
 
         if($userType=='admin'){
             $this->view->render('dashboard/admin/index');
