@@ -61,28 +61,29 @@
                     } 
                     }
                     else{?>
-                    <label class="text-label">Gents</label><br>
-                        <?php  
+                <label class="text-label">Gents</label><br>
+                <?php  
                         foreach($this->product as $single){
                             //echo $single['sizes'][0];
                             if(in_array($single['sizes'],$single_sizes_ladies)){
                                 continue;
                             }else{
                                 $single_sizes_ladies[] .= $single['sizes'];?>
-                    <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($single['sizes'],"-G")?></span><?php
+                <span class="size-box"
+                    style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($single['sizes'],"-G")?></span><?php
                             }
                         }?>
-                        <br>
-                        <label class="text-label">Ladies</label>
-                        <br>
-                        <?php
+                <br>
+                <label class="text-label">Ladies</label>
+                <br>
+                <?php
                         foreach($this->product as $single){
                             //echo $single['sizes'][0];
                             if(in_array($single['sizes'],$single_sizes_gents)){
                                 continue;
                             }else{
                                 $single_sizes_gents[] .= $single['sizes'];?>
-                    <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($single['sizes'],"-W")?></span><?php
+                <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($single['sizes'],"-W")?></span><?php
                             }
 
                     }
@@ -93,72 +94,88 @@
             <a href="#addToCartPopup" class="btn prd-btn">Add to Cart</a>
             <a href="#buyNowPopup" class="btn prd-btn">Buy Now</a>
             <br>
-                <h3>Product Details <i class="fa fa-indent"></i></h3>
-                <br>
-                <p><?php echo $this->product[0]['product_description']?></p>
-            </div>
-
-
+            <h3>Product Details <i class="fa fa-indent"></i></h3>
+            <br>
+            <p><?php echo $this->product[0]['product_description']?></p>
         </div>
+
+
     </div>
+</div>
 
 
 <!-------- product reviews -------->
 
-    
 
-    <div class="small-container">
-        <div class="row-left row-2">
+
+<div class="small-container">
+    <div class="row-left row-2">
         <h2>Reviews</h2>
-        <a href="#addReview" class="btn" style="float: right;">+ Add Review</a>
+        <a href="#addReview" class="btn">+ Add Review</a>
     </div>
-        <div class="row row-2">
-
-
-    <?php foreach ($this->reviews as $showreviews):?>
-<div class="small-container product-review"> 
+    
     <div class="row-left">
-        <div class="col">
-            <div class="row-left">
-                 <?php echo $showreviews['first_name']; ?> <?php echo $showreviews['last_name']; ?>      
-            </div>
-            <div class="row-left">
-                <small><?php echo $showreviews['date']; ?> &nbsp&nbsp <?php echo $showreviews['time']; ?></small>
-            </div>
-            <div class="row-left">
-            <?php for ($i=0; $i <$showreviews['rate'] ; $i++) {?>
-                <i class="fa fa-star"></i>
-            <?php } ?>
-            <?php for ($i=0; $i <(5-$showreviews['rate']) ; $i++) {?>
-                <i class="fa fa-star-o"></i>
-            <?php } ?>
-            
-            <!-- <i class="fa fa-star"></i>
+
+
+        <?php foreach ($this->reviews as $showreviews):?>
+        <div class="col-2" style="min-height: 100px;">
+            <div class="product-review">
+                <div class="row-left">
+                    <div class="col-2">
+                        <div class="row-left">
+                            <?php echo $showreviews['first_name']; ?> <?php echo $showreviews['last_name']; ?>
+                            &nbsp&nbsp
+                            <?php if($showreviews['user_id']==Session::get('userId') || Session::get('userType')=='admin' || Session::get('userType')=='owner'){?><small><a
+                                    href="<?php echo URL.'shop/deleteReview/'.$showreviews['review_id'].'/'.$showreviews['product_id']?>">Remove</a></small><?php }?>
+                        </div>
+                        <div class="row-left">
+                            <small><?php echo $showreviews['date']; ?> &nbsp&nbsp
+                                <?php echo $showreviews['time']; ?></small>
+                        </div>
+                        <div class="row-left">
+                            <?php for ($i=0; $i <$showreviews['rate'] ; $i++) {?>
+                            <i class="fa fa-star"></i>
+                            <?php } ?>
+                            <?php for ($i=0; $i <(5-$showreviews['rate']) ; $i++) {?>
+                            <i class="fa fa-star-o"></i>
+                            <?php } ?>
+
+                            <!-- <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star-o"></i> -->
-            </div>
-        </div>
-    </div>
-    
-    <div class="row-left">
-        <div class="col-images">
-           <?php foreach ($this->reviewImageList  as $images){
+                        </div>
+
+
+
+
+                        <div class="row-left">
+                            <p><?php echo $showreviews['review_text']; ?></p>
+                        </div>
+                    </div>
+                    <?php $imgCount = 0;
+                    foreach ($this->reviewImageList  as $images){
+           if($showreviews['review_id']==$images['review_id']) $imgCount++;}?>
+                    <div class="col-2" <?php if($imgCount==0) echo 'hidden';?>>
+                        <div class="row-left">
+                            <div class="col-images">
+                                <?php foreach ($this->reviewImageList  as $images){
            if($showreviews['review_id']==$images['review_id'])
            { ?>
-            <img src="<?php  echo URL.$images['image']  ?>">
-            <?php }
+                                <img src="<?php  echo URL.$images['image']  ?>">
+                                <?php }
         }?>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row-left">
-                    <p><?php echo $showreviews['review_text']; ?></p>
+        <?php endforeach;?>
+
     </div>
 </div>
-<?php endforeach;?>
-        </div>
-    </div>
 <!-------- related products -------->
 
 <div class="small-container">

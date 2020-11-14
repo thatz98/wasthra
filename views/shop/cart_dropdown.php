@@ -2,15 +2,20 @@
 <div id="transparent-overlay" style="display: none;">
 <div class="cart-drop-container" id="cart-drop-container" style="display: none;" onclick="closeOverlay()" >
   <div class="shopping-cart">
+    <div class="row" style="display: block;">
+      
     <div class="shopping-cart-header">
-      <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+      <i class="fa fa-shopping-cart cart-icon"></i><?php if((Session::get('cartCount'))){ echo '<span class="badge">'.Session::get('cartCount').'</span>'; }?>
+
       <div class="shopping-cart-total">
         <span class="lighter-text">Total:</span>
         <span id="total-display"></span>
+
+      </div>
       </div>
     </div> <!--end shopping-cart-header -->
 
-  <ul class="shopping-cart-items">
+  <ul class="shopping-cart-items" style="max-height: 320px;overflow-x: auto;">
       <!-- <li class="clearfix">
         <img src="<?php ; ?>public/images/product-1.jpg" alt="item1" />
         <span class="item-name">Sony DSC-RX100M III</span>
@@ -32,7 +37,7 @@
         <span class="item-quantity">Qty: 01</span>
       </li>
   -->
-      <?php 
+      <?php if((Session::get('cartCount'))){
       $this->subtotal=0.00;   
       foreach ( Session::get('cartData') as $cartDetails ): ?>
         <li class="clearfix">
@@ -78,6 +83,10 @@
   <a href="<?php echo URL;?>cart" class="btn drop-btn">View Cart</a>
   <a href="<?php echo URL;?>checkout" class="btn drop-btn">Checkout</a>
 </div>
+  <?php } else{
+    ?> <p> No items in the cart</p>
+    <?php
+  }?>
     
   </div> <!--end shopping-cart -->
 </div>

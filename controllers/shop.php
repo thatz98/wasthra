@@ -104,4 +104,9 @@ class Shop extends Controller{
         header('location: '.URL.'shop');
     }
 
+    function deleteReview($id,$productId){
+        $this->model->deleteReview($id);
+        header('Location: '.URL.'shop/productDetails/'.$productId);
+    }
+
 }

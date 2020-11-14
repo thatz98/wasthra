@@ -63,7 +63,7 @@
                 </div>
                 <?php endif; ?>
 
-                <a class="bag" id="bag" <?php if(Session::get('loggedIn')=='true'){?>onclick="bagDown()"<?php } else{?>href="<?php echo URL;?>login?loginRequired=true"<?php }?>><i class="fa fa-shopping-bag fa-2x"></i><span class="badge">3</span></a>
+                <a class="bag" id="bag" <?php if(Session::get('loggedIn')=='true'){?>onclick="bagDown()"<?php if(Session::get('userType')!='customer'){ echo 'hidden';} } else{?>href="<?php echo URL;?>login?loginRequired=true"<?php }?>><i class="fa fa-shopping-bag fa-2x"></i><?php if((Session::get('cartCount'))){ echo '<span class="badge">'.Session::get('cartCount').'</span>'; }?></a>
 
                 <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>

@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
- @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
 
  .lighter-text {
 	 color: #301B2C ;
@@ -23,9 +22,9 @@
  #cart-drop-container {
  	position: absolute;
  	top: 80px;
- 	right: 40px;
+ 	right: 30px;
 	 margin: auto;
-	 width: 50%;
+	 width: 100%;
 	 z-index: 3;
 	 
 }
@@ -91,7 +90,7 @@
 }
  .shopping-cart:after {
 	 bottom: 100%;
-	 left: 89%;
+	 right: 40px;
 	 border: solid transparent;
 	 content: " ";
 	 height: 0;
@@ -109,7 +108,7 @@
 	 float: left;
 }
  .drop-btn {
-	 margin: 0 0 0 0;
+	 margin: 20px 5px 10px 5px;
 }
 
  .clearfix:after {
@@ -121,3 +120,53 @@
 a.bag{
 	cursor: pointer;
 }
+
+@media screen and (max-width: 920px) {
+	.shopping-cart:after {
+		right: 85px;
+   }
+	}
+	@media screen and (max-width: 750px) {
+		.shopping-cart:after {
+			right: 55px;
+	   }
+		}
+
+		@media screen and (max-width: 370px) {
+			#cart-drop-container {
+				right: 20px;
+				
+		   }
+			.shopping-cart {
+				width: auto;
+		   }
+			.shopping-cart:after {
+				right: 65px;
+		   }
+			}
+
+			@media screen and (max-width: 350px) {
+				#cart-drop-container {
+					right: 10px;
+					
+			   }
+				.shopping-cart {
+					width: auto;
+					margin-right: 5px;
+			   }
+			   .drop-btn {
+				padding: 8px 25px;
+		   }
+
+				.shopping-cart:after {
+					right: 65px;
+			   }
+				}
+
+				@media screen and (max-width: 350px) {
+					
+	
+					.shopping-cart:after {
+						right: 75px;
+				   }
+					}

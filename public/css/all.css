@@ -253,7 +253,7 @@ form .col-2, form .col-3, form .col-2 input, form .col-3 input{
 
 .row-left{
     display: flex;
-    align-items: left; 
+    align-items: center; 
     flex-wrap: wrap;
 }
 
@@ -1958,6 +1958,9 @@ p.success{
     background: #ff523b;
 }
 
+.product-review{
+    margin-bottom: 15px;
+}
 .product-review .row-left{
     margin: 5px 0 5px 0;
 }
@@ -1975,8 +1978,24 @@ p.success{
 }
 
 .product-review img{
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 60px;
+}
+
+.product-review a{
+    color: indianred;
+}
+
+.product-review a:hover{
+    color: #ff523b;
+}
+
+.product-review .row-left .col-2{
+    min-width: 50%;
+    min-height: 100px;
+}
+
+.product-review .row-left .col-2 img{
+    padding: 0;
 }
 
 .margin-l-r-20{
