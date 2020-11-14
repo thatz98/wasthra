@@ -16,6 +16,7 @@ class Index extends Controller{
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
+        $this->view->cities = $this->model->getCityList();
 
     	$this->view->render('index/index');
     }

@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?php echo URL; ?>public/css/profile_card.css">
 <?php require 'change_password.php';?>
 <?php require 'edit_profile.php';?>
+<?php require 'add_new_address.php';?>
 
 <div id="profile-card" class="overlay">
     <div class="profile-card-popup">
@@ -8,13 +9,14 @@
         <div class="row">
       <div class="our-team">
         <div class="picture">
-          <img class="img-fluid" src="https://picsum.photos/130/130?image=836">
+        <div id="profileImage"></div>
         </div>
         <div class="team-content">
             <h3 class="title"><?php echo Session::get('userData')['first_name'].' '.Session::get('userData')['last_name']?></h3><br>
             <div class="row">
                 <div class="col-2">
-                
+                <span id="firstNameDisplay" hidden><?php echo Session::get('userData')['first_name'];?></span>
+<span id="lastNameDisplay" hidden><?php echo Session::get('userData')['last_name'];?></span>   
           
             <label class="field">Email</label><br>
             <h4 class="data-val"><?php echo Session::get('userData')['email'];?></h4><br>
@@ -28,9 +30,9 @@
           <?php if(Session::get('userType')=='customer'){?>
             <label class="field">Address</label><br>
             <?php if(empty(Session::get('addressData'))){?>
-              <h4 class="data-val">Not set - <a href="#">Add new</a></h4><br>
+              <h4 class="data-val">Not set - <a href="#add-new-address">Add new</a></h4><br>
             <?php } else{
-              ?><h4 class="data-val"><?php echo Session::get('addressData')['address_line_1'].', '.Session::get('addressData')['address_line_2'].', '.Session::get('addressData')['address_line_1'];?></h4><br>
+              ?><h4 class="data-val"><?php echo Session::get('addressData')['address_line_1'].', '.Session::get('addressData')['address_line_2'].', '.Session::get('addressData')['address_line_3'];?></h4><br>
            <?php } }?>
               
       </div>
@@ -52,3 +54,10 @@
     </div>
     </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+  var intials = $('#firstNameDisplay').text().charAt(0) + $('#lastNameDisplay').text().charAt(0);
+  var profileImage = $('#profileImage').text(intials);
+});
+  </script>

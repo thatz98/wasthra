@@ -33,7 +33,9 @@ class Profile_Model extends Model{
     }
 
     function updateAddress($data){
-        if(empty($data['address_id'])){
+        $userId = $data['user_id'];
+        $addressExist = $this->db->listWhere('delivery_address', array('address_id'), "user_id='$userId'");
+        if(empty($addressExist)){
             $this->db->insert('delivery_address',array(
                 'user_id' => $data['user_id'],
                 'address_line_1' => $data['address_line_1'],
@@ -48,8 +50,8 @@ class Profile_Model extends Model{
                 'address_line_3' => $data['address_line_3'],
                 'city' => $data['city']),"address_id = '{$data['address_id']}'");
         }
-
-        Session::set('addressData',$data);
+        $addressData = $this->db->listWhere('delivery_address', array('address_id', 'postal_code', 'address_line_1', 'address_line_2', 'address_line_3', 'city'), "user_id='$userId' LIMIT 1");
+        Session::set('addressData',$addressData);
     }
 
     function changePassword($data){
@@ -65,6 +67,20 @@ class Profile_Model extends Model{
                 header('location: ' . $data['prev_url'].'?error=currentPwdIncorrect#message');
             }
         }
+    }
+
+    function addNewAddress($data){
+            $this->db->insert('delivery_address',array(
+                'user_id' => $data['user_id'],
+                'address_line_1' => $data['address_line_1'],
+                'address_line_2' => $data['address_line_2'],
+                'address_line_3' => $data['address_line_3'],
+                'city' => $data['city'],
+                'postal_code' => $data['postal_code']
+            ));
+
+        $addressData = $this->db->listWhere('delivery_address', array('address_id', 'postal_code', 'address_line_1', 'address_line_2', 'address_line_3', 'city'), "user_id='$userId' LIMIT 1");
+        Session::set('addressData',$addressData);
     }
 
 }

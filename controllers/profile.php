@@ -33,6 +33,7 @@ function editProfile(){
         $addressData['address_line_2'] = $_POST['address_line_2'];
         $addressData['address_line_3'] = $_POST['address_line_3'];
         $addressData['city'] = $_POST['city'];
+        $addressData['postal_code'] = $_POST['postal_code'];
                 $this->model->updateAddress($addressData);
             }
             header('location: '.URL.'');
@@ -54,5 +55,22 @@ function editProfile(){
 
 
         $this->model->changePassword($data);
+    }
+
+    function addNewAddress(){
+        $addressData = array();
+        $addressData['user_id'] = Session::get('userData')['user_id'];
+        $addressData['address_line_1'] = $_POST['address_line_1'];
+        $addressData['address_line_2'] = $_POST['address_line_2'];
+        $addressData['address_line_3'] = $_POST['address_line_3'];
+        $addressData['city'] = $_POST['city'];
+        $addressData['postal_code'] = $_POST['postal_code'];
+        $this->model->addNewAddress($addressData);
+        if(!empty($_POST['prev_url'])){
+            header('Location: '.$_POST['prev_url'].'#profile-card');
+        } else{
+            header('Location: '.URL.'#profile-card');
+        }
+        
     }
 }
