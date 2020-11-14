@@ -99,9 +99,15 @@
                         
                              if(strpos($_GET['size'],$size['sizes'])!==false){
                                     
+<<<<<<< Updated upstream
                                     echo '<label class="size-container"><input type="radio" name="size2" value="'.$trimSize.'" checked>';
                                 } else{
                                     echo '<label class="size-container"><input type="radio" name="size2" value="'.$trimSize.'">';
+=======
+                                    echo '<input type="radio" name="size2" value="'.$size['sizes'].'" checked>';
+                                } else{
+                                    echo '<input type="radio" name="size2" value="'.$size['sizes'].'">';
+>>>>>>> Stashed changes
                                 }?>
 
                             <span class="checkbox"><?php echo $trimSize?></span>
@@ -122,9 +128,15 @@
                             if(in_array($size['sizes'],$single_sizes_ladies)){
                                 if(strpos($_GET['size'],$size['sizes'])!==false){
                                     
+<<<<<<< Updated upstream
                                     echo '<label class="size-container"><input type="radio" name="size1" value="'.$trimSize.'" checked>';
                                 } else{
                                     echo '<label class="size-container"><input type="radio" name="size1" value="'.$trimSize.'">';
+=======
+                                    echo '<input type="radio" name="size1" value="'.$size['sizes'].'" checked>';
+                                } else{
+                                    echo '<input type="radio" name="size1" value="'.$size['sizes'].'">';
+>>>>>>> Stashed changes
                                 }?>
 
                                 <span class="checkbox"><?php echo $trimSize?></span>
