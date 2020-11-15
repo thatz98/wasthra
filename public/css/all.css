@@ -424,6 +424,22 @@ form .col-2{
     transition: transform 0.5s;
 }
 
+.col-70p{
+    flex-basis: 70%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+
+.col-30p{
+    flex-basis: 30%;
+    padding: 10px;
+    width: auto;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+
 h3{
     margin-bottom: 10px;
 }

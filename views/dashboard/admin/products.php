@@ -237,3 +237,5 @@
 
        
     </script>
+
+<?php require 'views/footer_dashboard.php'; ?>

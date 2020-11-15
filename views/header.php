@@ -22,6 +22,7 @@
 
     <?php require 'views/error/error_popup.php';?>
     <div class="header-plain">
+        
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">

@@ -290,6 +290,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
         <script>
         var loginFormPane = document.getElementById("loginForm_m");
