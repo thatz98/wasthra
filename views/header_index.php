@@ -37,7 +37,7 @@
                 </div></li>
                         <li><a href="<?php echo URL; ?>">Home</a></li>
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
-                        <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
+                        <li><a href="<?php echo URL; ?>contactUS">Contact Us</a></li>
                         <?php if(Session::get('loggedIn')!==true): ?>
                             <li><a href="<?php echo URL;?>login" onclick="passScreenSize()">Login/Signup</a></li>
                         
