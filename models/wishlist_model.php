@@ -47,6 +47,17 @@ class Wishlist_Model extends Model{
 
     }
 
+    public function listUserWishlist(){
+        $userId=Session::get('userId');
+        $productId=$this->db->query("SELECT product_id FROM wishlist WHERE wishlist.user_id='$userId'");
+        $id=$productId['product_id'];
+        print_r($id);
+        return $this->db->query("SELECT product.product_id,product.product_name,product.is_featured,product.is_new,product.is_published, price_category.product_price
+        FROM product INNER JOIN price_category on price_category.price_category_id=product.price_category_id
+        WHERE product.product_id='$id';");
+      
+    }
+
     public function create($id){
 
         $userId=Session::get('userId');

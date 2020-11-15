@@ -9,7 +9,8 @@ class Wishlist extends Controller{
     }
 
     function index(){
-    	     
+        
+        $this->view->userWishlist = $this->model->listUserWishlist();
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->imageList =  $this->model->getImages();
@@ -32,4 +33,6 @@ class Wishlist extends Controller{
     header('location: '.URL.'wishlist');
 
 }
+
+
 }

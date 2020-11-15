@@ -6,7 +6,7 @@
             <div class="row">
 
             <?php $count=0;
-                foreach($this->qtyList as $qty){
+                foreach($this->userWishlist as $qty){
                     if($qty['is_featured']=='yes' || $qty['is_new']=='yes'){
                         $count++;?>
                
