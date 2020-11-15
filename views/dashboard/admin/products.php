@@ -7,6 +7,38 @@
         <div class="row-right">
         <a href="<?php echo URL ?>inventory" class="btn">Manage Inventory</a><a href="<?php echo URL ?>inventory" class="btn">Generate Report</a>
     </div>
+    <div class="row">
+                <div class="col-3 fit-size">
+                    <div class="min-card primary">
+                        <div class="row">
+                        <h3>Published Products</h3>
+                        </div>
+                        <div class="row">
+                            <h1><?php echo $this->publishedCount;?></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 fit-size">
+                    <div class="min-card <?php if($this->reorderCount) echo 'notify';?>">
+                        <div class="row">
+                        <h3>Reordering Required</h3>
+                        </div>
+                        <div class="row">
+                            <h1><?php echo $this->reorderCount;?></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 fit-size">
+                    <div class="min-card <?php if($this->outStockCount) echo 'warning';?>" >
+                        <div class="row">
+                        <h3>Out of Stock</h3>
+                        </div>
+                        <div class="row">
+                            <h1><?php echo $this->outStockCount;?></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product</button>
             <form action="<?php echo URL; ?>products/create" id="addFrom" class="hidden-form" enctype="multipart/form-data" method="post">
@@ -157,7 +189,7 @@
                         echo rtrim($colorString," | ");
                     ?>
                     </td>
-                    <td><?php $sizeString='';
+                    <td style="max-width: 150px;"><?php $sizeString='';
                         foreach ($this->sizeList as $size){
                          if($qty['product_id']==$size['product_id']){
                                 $sizeString.=$size['sizes']; 

@@ -179,6 +179,15 @@ class Products_Model extends Model{
 
     }
 
+    function getPublishedCount(){
+        return $this->db->listWhere('product',array('COUNT(product_id)'),"is_published='yes'")['COUNT(product_id)'];;
+    }
+    function getReorderCount(){
+        return $this->db->listWhere('inventory',array('COUNT(product_id)'),"qty<=reorder_qty")['COUNT(product_id)'];
+    }
+    function getOutStockCount(){
+        return $this->db->listWhere('inventory',array('COUNT(product_id)'),"qty=0")['COUNT(product_id)'];
+    }
 
 
 

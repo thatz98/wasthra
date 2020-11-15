@@ -14,6 +14,10 @@ class Products extends Controller{
         $this->view->title = 'Products | Dashboard | Wasthra';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Products';
 
+        $this->view->publishedCount = $this->model->getPublishedCount();
+        $this->view->reorderCount = $this->model->getReorderCount();
+        $this->view->outStockCount = $this->model->getOutStockCount();
+
         $this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();

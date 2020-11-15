@@ -2090,6 +2090,19 @@ p.success{
   .breadcumbs a:hover{
     color: #ff523b;
 }
+.notify{
+    background-color: rgba(253, 255, 116, 0.616);
+    color:#ff523b;
+}
+
+.warning{
+    background-color: rgba(255, 190, 190, 0.562);
+    color:rgb(255, 0, 0);
+}
+.primary{
+    background-color: rgba(238, 252, 255, 0.671);
+    color:rgb(0, 110, 255);
+}
 
 @media screen and (max-width: 620px) {
 .user-box:hover > .user-info {

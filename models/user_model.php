@@ -127,7 +127,7 @@ function checkExistsWhere($username,$loginId){
     }
 
     function userCount($status){
-        return count($this->db->listWhere('login',array('login_id'),"user_status='$status'"));
+        return $this->db->listWhere('login',array('COUNT(login_id)'),"user_status='$status'")['COUNT(login_id)'];
     }
 
     
