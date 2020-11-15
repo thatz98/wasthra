@@ -1,11 +1,12 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URL ?>public/css/bag_dropdown.css">
-<div id="transparent-overlay" style="display: none;">
-<div class="cart-drop-container" id="cart-drop-container" style="display: none;" onclick="closeOverlay()" >
+<div id="transparent-overlay" style="display: none;" onclick="closeOverlay()">
+</div>
+<div class="cart-drop-container" id="cart-drop-container" style="display: none;" >
   <div class="shopping-cart">
     <div class="row" style="display: block;">
       
     <div class="shopping-cart-header">
-      <i class="fa fa-shopping-cart cart-icon"></i><?php if((Session::get('cartCount'))){ echo '<span class="badge">'.Session::get('cartCount').'</span>'; }?>
+      <i class="fa fa-shopping-bag cart-icon"></i>
 
       <div class="shopping-cart-total">
         <span class="lighter-text">Total:</span>
@@ -15,28 +16,8 @@
       </div>
     </div> <!--end shopping-cart-header -->
 
-  <ul class="shopping-cart-items" style="max-height: 320px;overflow-x: auto;">
-      <!-- <li class="clearfix">
-        <img src="<?php ; ?>public/images/product-1.jpg" alt="item1" />
-        <span class="item-name">Sony DSC-RX100M III</span>
-        <span class="item-price">$849.99</span>
-        <span class="item-quantity">Qty: 01</span>
-      </li>
-
-      <li class="clearfix">
-        <img src="<?php ; ?>public/images/product-2.jpg" alt="item1" />
-        <span class="item-name">KS Automatic Mechanic...</span>
-        <span class="item-price">$1,249.99</span>
-        <span class="item-quantity">Qty: 01</span>
-      </li>
-
-      <li class="clearfix">
-        <img src="<?php ; ?>public/images/product-3.jpg" alt="item1" />
-        <span class="item-name">Kindle, 6" Glare-Free To...</span>
-        <span class="item-price">$129.99</span>
-        <span class="item-quantity">Qty: 01</span>
-      </li>
-  -->
+  <ul class="shopping-cart-items" style="max-height: 320px;overflow-y: auto;">
+      
       <?php if((Session::get('cartCount'))){
       $this->subtotal=0.00;   
       foreach ( Session::get('cartData') as $cartDetails ): ?>
@@ -59,12 +40,6 @@
                                     echo $qty['product_name'];
                                 }
                             } 
-            
-                          //       foreach ($this->qtyList as $catName){
-                          //          // if($priceCategoryID==$catName['price_category_id']){
-                          //               $this->productPrice=$catName['product_price'];
-                          //           }
-                          // //  }
                             ?>
                 </span>           
                         <div>
@@ -90,7 +65,7 @@
     
   </div> <!--end shopping-cart -->
 </div>
-</div>
+
 
 <script type="text/javascript">
 

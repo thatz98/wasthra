@@ -9,6 +9,38 @@
     <div class="row-right">
         <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
     </div>
+    <div class="row">
+                <div class="col-3 fit-size">
+                    <div class="min-card">
+                        <div class="row">
+                        <h3>New Users</h3>
+                        </div>
+                        <div class="row">
+                            <h1><?php echo $this->newUserCount;?></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 fit-size">
+                    <div class="min-card">
+                        <div class="row">
+                        <h3>Verified Users</h3>
+                        </div>
+                        <div class="row">
+                            <h1><?php echo $this->verifiedUserCount;?></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 fit-size">
+                    <div class="min-card">
+                        <div class="row">
+                        <h3>Total Users</h3>
+                        </div>
+                        <div class="row">
+                            <h1><?php echo ($this->newUserCount+$this->verifiedUserCount);?></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <div class="">
         <button class="btn btn-square" onclick="formToggle()">+ Add New User</button>
         <form action="<?php echo URL; ?>user/create" id="addFrom" class="hidden-form" method="post">
@@ -62,7 +94,7 @@
         </form>
     </div>
     <div class="table-search">
-        <input type="text" id="keyword-input" style="width: 300px;" onkeyup="filterByKeyword('user-table',7)"
+        <input type="text" id="keyword-input" onkeyup="filterByKeyword('user-table',7)"
             placeholder="Search & filter entire table by keyword..">
     </div>
 

@@ -110,7 +110,7 @@ class Login extends Controller{
         $resetUrl = '<a href="'.URL.'login/resetPassword/'.$to.'/'.$token.'">here</a>';
         $emailBody = 'Hi, </br>To reset your password, click ' . $resetUrl;
         $subject = 'Reset Password';
-        $header = "From: ffutry123@gmail.com\r\nContent-Type: text/html;";
+        $header = "From: group15s2202@gmail.com\r\nContent-Type: text/html;";
         if(mail($to, $subject, $emailBody, $header)){
             echo 'mail sent';
         } else{ echo 'false';}

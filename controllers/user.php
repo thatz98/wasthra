@@ -12,7 +12,8 @@ class User extends Controller{
     function index(){
         $this->view->title = 'Users | Dashboard | Wasthra';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Users';
-
+        $this->view->newUserCount = $this->model->userCount('new');
+        $this->view->verifiedUserCount = $this->model->userCount('verified');
     	$this->view->userList = $this->model->listUsers();
         
    	    $this->view->render('dashboard/admin/user');
