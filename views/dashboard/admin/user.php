@@ -11,7 +11,7 @@
     </div>
     <div class="row">
                 <div class="col-3 fit-size">
-                    <div class="min-card">
+                    <div class="min-card primary">
                         <div class="row">
                         <h3>New Users</h3>
                         </div>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="col-3 fit-size">
-                    <div class="min-card">
+                    <div class="min-card primary">
                         <div class="row">
                         <h3>Verified Users</h3>
                         </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="col-3 fit-size">
-                    <div class="min-card">
+                    <div class="min-card primary">
                         <div class="row">
                         <h3>Total Users</h3>
                         </div>

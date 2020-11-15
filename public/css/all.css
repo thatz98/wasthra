@@ -296,6 +296,7 @@ form .col-2{
     border-style: none;
     border-radius: 5px;
     transition: background 0.5s;
+    cursor: pointer;
 }
 
 .btn:focus{
@@ -1008,6 +1009,7 @@ form a{
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
+    cursor: pointer;
 }
 
 .table-btn{
@@ -1018,10 +1020,15 @@ form a{
     border-radius: 5px;
     transition: background 0.5s;
     margin: 5px;
+    cursor: pointer;
 }
 
 .table-btn:focus{
     outline: none;
+}
+
+th i{
+    cursor: pointer;
 }
 
 .btn-blue{
@@ -2070,6 +2077,7 @@ p.success{
 
   .min-card{
     color: rgb(66, 66, 66);
+    min-width: 200px;
     margin: 10px;
     background-color: #fff;
     padding: 20px;
@@ -2077,6 +2085,10 @@ p.success{
     justify-content: center;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+}
+
+.table-container table{
+    overflow-x: auto;
 }
 
 .fit-size{
@@ -2091,16 +2103,18 @@ p.success{
     color: #ff523b;
 }
 .notify{
-    background-color: rgba(253, 255, 116, 0.616);
-    color:#ff523b;
+   
+    color:#e6bc00;
+    box-shadow: 0 0 20px 0 rgba(233, 178, 0, 0.2);
 }
 
 .warning{
-    background-color: rgba(255, 190, 190, 0.562);
+    
     color:rgb(255, 0, 0);
+    box-shadow: 0 0 20px 0 rgba(255,0,0,0.2);
 }
 .primary{
-    background-color: rgba(238, 252, 255, 0.671);
+    box-shadow: 0 0 20px 0 rgba(0, 110, 255,0.2);
     color:rgb(0, 110, 255);
 }
 

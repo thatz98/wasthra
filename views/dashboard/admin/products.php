@@ -156,7 +156,7 @@
                     </form>
                     </div>
         
-    
+    <div class="table-container">
     <table>
         <tr>
             <th>Product ID</th>
@@ -208,7 +208,7 @@
                     <td><?php echo $qty['is_published']; ?></td>
                     <td><?php echo $qty['is_featured']; ?></td>
                     <td><?php echo $qty['is_new']; ?></td>
-                    <td><a href="<?php echo URL ?>products/edit/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                    <td style="min-width:142px;"><a href="<?php echo URL ?>products/edit/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
                     <a href="<?php echo URL ?>products/delete/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
             
             </tr>
@@ -217,6 +217,7 @@
         
 
     </table>
+    </div>
 </div>
 
 <script>
