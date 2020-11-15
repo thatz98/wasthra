@@ -10,7 +10,7 @@ class Wishlist extends Controller{
 
     function index(){
         
-        $this->view->userWishlist = $this->model->listUserWishlist();
+       // $this->view->userWishlist = $this->model->listUserWishlist();
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->imageList =  $this->model->getImages();

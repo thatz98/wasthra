@@ -6,7 +6,8 @@
             <div class="row">
 
             <?php $count=0;
-                foreach($this->userWishlist as $qty){
+                foreach($this->qtyList as $qty){
+                    if(Session::get('userId')==$qty['user_id']){
                     if($qty['is_featured']=='yes' || $qty['is_new']=='yes'){
                         $count++;?>
                
@@ -52,7 +53,7 @@
                 <?php }
                 if($count>=4){
                     continue;
-                }} ?>
+                }}} ?>
               
                
                 
