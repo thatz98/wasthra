@@ -3,12 +3,12 @@
 class Login_Model extends Model
 {
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
     }
 
-    public function run()
+    function run()
     {
 
         $username = $_POST['username'];
@@ -84,7 +84,7 @@ class Login_Model extends Model
         }
     }
 
-    public function signup($data)
+    function signup($data)
     {
 
         $this->db->insert('login', array(
@@ -112,7 +112,7 @@ class Login_Model extends Model
         $this->db->insert('shopping_cart', array('user_id' => $user_id['user_id']));
     }
 
-    public function checkAccountExist($username)
+    function checkAccountExist($username)
     {
         if ($this->db->listWhere('login', array('username'), "username='$username'") == null) {
             return false;

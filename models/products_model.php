@@ -2,22 +2,22 @@
  
 class Products_Model extends Model{
 
-    public function __construct(){
+    function __construct(){
      	parent::__construct();
     }
 
-    public function listProducts(){
+    function listProducts(){
 
     	return $this->db->listAll('product',array('product_id','product_name','product_description','is_featured','is_new'));
         
     }
 
-    public function getProduct($id){
+    function getProduct($id){
 
         return $this->db->listWhere('product',array('product_id','product_name','product_description','is_featured','is_new','category_id','price_category_id','is_published'),"product_id='$id'");
     }
 
-    public function getAllDetails(){
+    function getAllDetails(){
         return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
 		FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
         
@@ -25,35 +25,35 @@ class Products_Model extends Model{
         INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
     }
 
-    public function getSizes(){
+    function getSizes(){
         return $this->db->query("SELECT product_size.sizes,product_size.product_id 
         FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
     }
-    public function getImages(){
+    function getImages(){
         return $this->db->query("SELECT product_images.image,product_images.product_id
         FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
     }
-    public function getColors(){
+    function getColors(){
         return $this->db->query("SELECT product_colors.colors,product_colors.product_id
         FROM product_colors INNER JOIN product on product_colors.product_id=product.product_id;");
     }
-    public function getCategories(){
+    function getCategories(){
         return $this->db->query("SELECT category.name,category.category_id
         FROM category ;");
     }
-    public function getPriceCategories(){
+    function getPriceCategories(){
         return $this->db->query("SELECT price_category.price_category_name,price_category.price_category_id
         FROM price_category ;");
     }
-    public function getQty(){
+    function getQty(){
         return $this->db->query("SELECT inventory.product_id,inventory.qty
         FROM inventory ;");
     }
-    public function getSizesByID($id){
+    function getSizesByID($id){
         return $this->db->query("SELECT product_size.sizes 
         FROM product_size WHERE product_size.product_id='$id';");
     }
-    public function getImagesByID($id){
+    function getImagesByID($id){
         return $this->db->query("SELECT product_images.image 
         FROM product_images WHERE product_images.product_id='$id';");
     }
@@ -61,7 +61,7 @@ class Products_Model extends Model{
 
 
 
-    public function create($data,$size,$imageList){
+    function create($data,$size,$imageList){
 
         $this->db->insert('product',array(
             'product_id' => $data['product_id'],
@@ -104,7 +104,7 @@ class Products_Model extends Model{
     }
 
 
-    public function update($data,$size,$imageList,$prevImageList){
+    function update($data,$size,$imageList,$prevImageList){
         $previous_id=$data['prev_id'];
         $this->db->update('product',array(
             'product_id' => $data['product_id'],
@@ -164,14 +164,14 @@ class Products_Model extends Model{
 
     }
 
-    public function delete($id){
+    function delete($id){
         
             
         $this->db->delete('product',"product_id='$id'");
         
 
     }
-    public function deleteImage($id,$name){
+    function deleteImage($id,$name){
         
             
         //$this->db->delete('product_images',"product_id='$id'");

@@ -1,6 +1,6 @@
-<?php require 'views/header.php'; ?>
-
-
+<?php require 'views/header_dashboard.php'; ?>
+<?php require 'views/dashboard/admin/order_status_popup.php'; ?>
+<?php require 'views/dashboard/admin/assign_delivery_popup.php'; ?>
 <div class="small-container">
     <div class="row">
         <h2 class="title title-min">Order Details</h2><br>
@@ -66,7 +66,7 @@
                               </div>
                         </div>
                         <div class="col-2" style="min-width: 0;">
-                            <a href="#" class="btn">Update Status</a>
+                            <a href="#updateOrderStatus" class="btn">Update Status</a>
                         </div>
                         </div>
                         
@@ -112,7 +112,7 @@
                                     Expected Delivery Date: 05/05/2020<br><br>
                                     Assiged deliver: Not set<br>
                                 </label>
-                                <a href="#" class="btn">Assign Delivery</a>
+                                <a href="#assignDeliverySraff" class="btn">Assign Delivery</a>
                             </div>
                         </div>
                     </div>

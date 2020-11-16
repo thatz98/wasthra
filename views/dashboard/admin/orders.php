@@ -58,7 +58,7 @@
                             <li style="color: red;">No delivery is set</li>
                         </div>
                     </td>
-                    <td><a href="#" class="btn table-btn">View Order</a></td>
+                    <td><a href="<?php echo URL ?>orders/orderDetails" class="btn table-btn">View Order</a></td>
                 </tr>
                 <tr>
 
@@ -76,7 +76,7 @@
                             <li style="color: red;">No delivery is set</li>
                         </div>
                     </td>
-                    <td><a href="#" class="btn table-btn">View Order</a></td>
+                    <td><a href="<?php echo URL ?>orders/orderDetails" class="btn table-btn">View Order</a></td>
                 </tr>
                 <tr>
 
@@ -94,7 +94,7 @@
                             <li style="color: red;">No delivery is set</li>
                         </div>
                     </td>
-                    <td><a href="#" class="btn table-btn">View Order</a></td>
+                    <td><a href="<?php echo URL ?>orders/orderDetails" class="btn table-btn">View Order</a></td>
                 </tr>
             </table>
         </div>

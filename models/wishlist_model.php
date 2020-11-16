@@ -2,13 +2,13 @@
 
 class Wishlist_Model extends Model{
 
-    public function __construct(){
+    function __construct(){
 
          parent::__construct();
          
     }
 
-    public function getAllDetails(){
+    function getAllDetails(){
         
         return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,wishlist.user_id,wishlist.product_id
 		FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
@@ -19,35 +19,35 @@ class Wishlist_Model extends Model{
     }
 
     
-    public function getImages(){
+    function getImages(){
 
         return $this->db->query("SELECT product_images.image,product_images.product_id
         FROM product_images INNER JOIN wishlist on product_images.product_id=wishlist.product_id;");
 
     }
 
-    public function getSizes(){
+    function getSizes(){
 
         return $this->db->query("SELECT product_size.sizes,product_size.product_id 
         FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
 
     }
 
-    public function getColors(){
+    function getColors(){
 
         return $this->db->query("SELECT product_colors.colors,product_colors.product_id
         FROM product_colors INNER JOIN product on product_colors.product_id=product.product_id;");
 
     }
 
-    public function getQty(){
+    function getQty(){
 
         return $this->db->query("SELECT inventory.product_id,inventory.qty
         FROM inventory ;");
 
     }
 
-    // public function listUserWishlist(){
+    // function listUserWishlist(){
     //     $userId=Session::get('userId');
     //     $productId=$this->db->query("SELECT product_id FROM wishlist WHERE wishlist.user_id='$userId'");
     //     $id=$productId[2]['product_id'];
@@ -58,7 +58,7 @@ class Wishlist_Model extends Model{
       
     // }
 
-    public function create($id){
+    function create($id){
 
         $userId=Session::get('userId');
         $this->db->insert('wishlist',array(
@@ -69,7 +69,7 @@ class Wishlist_Model extends Model{
            
     }
 
-    public function delete($id){
+    function delete($id){
 
         $this->db->delete('wishlist',"product_id='$id'");
 

@@ -29,7 +29,8 @@ class Orders extends Controller{
     function orderDetails(){
         $this->view->title = 'Order Details | Dashboard | Wasthra';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/myOrderDetails">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
-
+        $this->view->deliveryStaffList = $this->model->getDeliveryStaffList();
+      //  print_r($this->view->deliveryStaffList);
     	$this->view->render('dashboard/admin/order_details');
     }
 
