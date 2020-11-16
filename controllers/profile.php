@@ -66,6 +66,7 @@ function editProfile(){
         $addressData['city'] = $_POST['city'];
         $addressData['postal_code'] = $_POST['postal_code'];
         $this->model->addNewAddress($addressData);
+        
         if(!empty($_POST['prev_url'])){
             header('Location: '.$_POST['prev_url'].'#profile-card');
         } else{

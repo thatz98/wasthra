@@ -11,14 +11,13 @@ class Products extends Controller{
     
 
     function index(){
-        $this->view->title = 'Products | Dashboard | Wasthra';
+        $this->view->title = 'Products';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Products';
 
         $this->view->publishedCount = $this->model->getPublishedCount();
         $this->view->reorderCount = $this->model->getReorderCount();
         $this->view->outStockCount = $this->model->getOutStockCount();
 
-        $this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->imageList =  $this->model->getImages();
@@ -54,8 +53,8 @@ class Products extends Controller{
 
 
     function edit($id){
-        $this->view->title = 'Products | Dashboard | Wasthra';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'products">Products</a> <i class="fas fa-angle-right"></i>Edit Product';
+        $this->view->title = 'Products';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'products">Products</a> <i class="fas fa-angle-right"></i> Edit Product';
 
         $this->view->product = $this->model->getProduct($id);
         $this->view->product_colors = $this->model->getColors();

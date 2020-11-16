@@ -10,7 +10,7 @@ class User extends Controller{
     }
 
     function index(){
-        $this->view->title = 'Users | Dashboard | Wasthra';
+        $this->view->title = 'Users';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Users';
         $this->view->newUserCount = $this->model->userCount('new');
         $this->view->verifiedUserCount = $this->model->userCount('verified');
@@ -41,7 +41,7 @@ class User extends Controller{
     }
 
     function edit($id,$type){
-        $this->view->title = 'Users | Dashboard | Wasthra';
+        $this->view->title = 'Users';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'users">Users</a> <i class="fas fa-angle-right"></i>Edit User';
 
         $this->view->user = $this->model->getUser($id,$type);

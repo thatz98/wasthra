@@ -1,24 +1,19 @@
 <?php
 
-class Index extends Controller{
-    function __construct()
-    {
+class Index extends Controller {
+    function __construct() {
         parent::__construct();
     }
 
-    function index(){
-    	$this->view->title = 'Home | Wasthra';
-    	$this->view->product = array();
-    	$this->view->productList = $this->model->listProducts();
+    function index() {
+        $this->view->title = 'Home';
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
-        $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
         $this->view->cities = $this->model->getCityList();
 
-    	$this->view->render('index/index');
+        $this->view->render('index/index');
     }
-
-   }
+}

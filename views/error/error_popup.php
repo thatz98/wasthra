@@ -27,42 +27,67 @@
                             $msg = 'Account does not exist!
                             Check your username or Sign up to get one.';
                             break;
-                            case 'notVerified':
-                                if(isset($_GET['username'])){
-                                    $msg = 'Your account has not been verified! Please verfiy the account with the link which has been sent to your email.</p>
-                                    <p>Click <a href="'.URL.'login/resendVerificationEmail/'.$_GET['username'].'">here</a> to resend the mail.';
-                                }
-                                break;
-                                case 'currentPwdIncorrect':
-                                    $msg = 'Incorrect current password! Try
+                        case 'notVerified':
+                            if (isset($_GET['username'])) {
+                                $msg = 'Your account has not been verified! Please verfiy the account with the link which has been sent to your email.</p>
+                                    <p>Click <a href="' . URL . 'login/resendVerificationEmail/' . $_GET['username'] . '">here</a> to resend the mail.';
+                            }
+                            break;
+                        case 'currentPwdIncorrect':
+                            $msg = 'Incorrect current password! Try
                                     again.';
-                                    break;       
+                            break;
+                        case 'incorrectToken':
+                            $msg = 'Credentials does not match! Try
+                                        again.';
+                            break;
+                        case 'mailNotSent':
+                            $msg = 'Something wrong with the mail server! Try
+                                            again.';
+                            break;
+                        default:
+                            $msg = 'Something wrong! Try
+                                            again.';
+                            break;
                     } ?>
-                        <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?php echo $msg; ?></p>
-                    <?php 
+                    <p class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?php echo $msg; ?></p>
+                <?php
                 } else if (isset($_GET['success'])) {
-                    
+
                     switch ($_GET['success']) {
-                    case 'signUp':
-                        $msg = 'Your account has been made, <br />
+                        case 'signUp':
+                            $msg = 'Your account has been made, <br />
                         Please verify it by clicking the activation link
                         that has been send to your email...';
-                        break;
-                    case 'itemAddedToCart':
-                        $msg = 'Item added to cart successfully...';
-                        break;
+                            break;
+                        case 'itemAddedToCart':
+                            $msg = 'Item added to cart successfully...';
+                            break;
                         case 'accountVerfied':
                             $msg = 'Your acount has been verfied successfully, you can now login with you email and password.';
                             break;
-                            case 'resentVerification':
-                                $msg = 'Then verfication link has been resent to your email address successfully, <br />
+                        case 'resentVerification':
+                            $msg = 'Verfication link has been resent to your email address successfully, <br />
                                 Please verify it by clicking the link.';
+                            break;
+                        case 'pwdChanged':
+                            $msg = 'Your password has been updated successfully!';
+                            break;
+                            case 'resetLinkSent':
+                                $msg = 'Reset link has been sent to your email address successfully, <br />
+                                Please changes your password by it by clicking the link.';
                                 break;
-                                case 'pwdChanged':
-                                    $msg = 'Your password has been update successfully!';
+                                case 'itemUpdatedToCart':
+                                    $msg = 'Item updated to cart successfully...';
                                     break;
-                } ?>
-                        <p class="success"><i class="fa fa-check" aria-hidden="true"></i> <?php echo $msg; ?></p>
+                                    case 'itemDeleted':
+                                        $msg = 'Item removed from the cart successfully';
+                                        break;
+                                default:
+                                    $msg = 'Successfull!';
+                                    break;
+                    } ?>
+                    <p class="success"><i class="fa fa-check" aria-hidden="true"></i> <?php echo $msg; ?></p>
                 <?php } ?>
             </div>
         </div>

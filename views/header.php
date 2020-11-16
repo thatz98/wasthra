@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
+    <title><?=(isset($this->title)) ? $this->title.' | Wasthra' : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/libs/font-awesome.min.css">
@@ -39,16 +39,16 @@
                                 </form>
                             </div>
                         </li>
-                        <li><a href="<?php echo URL; ?>">Home</a></li>
-                        <li><a href="<?php echo URL; ?>shop">Shop</a></li>
-                        <li><a href="<?php echo URL; ?>contactUS">Contact Us</a></li>
+                        <li><a href="<?php echo URL; ?>" class="<?php if(isset($this->title) && $this->title == 'Home') echo 'active';?>">Home</a></li>
+                        <li><a href="<?php echo URL; ?>shop" class="<?php if(isset($this->title) && $this->title == 'Shop') echo 'active';?>">Shop</a></li>
+                        <li><a href="<?php echo URL; ?>contactUS" class="<?php if(isset($this->title) && $this->title == 'Contact Us') echo 'active';?>">Contact Us</a></li>
                         <?php if(Session::get('loggedIn')!==true): ?>
                             <li><a href="<?php echo URL;?>login">Login/Signup</a></li>
                         
                         <?php endif;
                          if(Session::get('loggedIn')==true && Session::get('userType')=='customer'): ?>
-                            <li><a href="<?php echo URL;?>orders/myOrders">My Orders</a></li>
-                            <li><a href="<?php echo URL;?>wishlist">Wishlist</a></li>
+                            <li><a href="<?php echo URL;?>orders/myOrders" class="<?php if(isset($this->title) && $this->title == 'My Orders') echo 'active';?>">My Orders</a></li>
+                            <li><a href="<?php echo URL;?>wishlist" class="<?php if(isset($this->title) && $this->title == 'Wishlist') echo 'active';?>">Wishlist</a></li>
                             <?php endif; ?>
                     </ul>
                 </nav>

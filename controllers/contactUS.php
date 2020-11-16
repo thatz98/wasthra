@@ -8,7 +8,7 @@ class ContactUs extends Controller{
     }
 
     function index(){
-    	
+    	$this->view->title = 'Contact Us';
     	$this->view->render('user/contactUS');
     }
 

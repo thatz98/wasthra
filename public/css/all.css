@@ -503,6 +503,11 @@ h4{
     background-size: cover;
 }
 
+.offer-2{
+    background-image: url(http://localhost/wasthra/public/images/offer_2.jpg);
+
+}
+
 .offer{
     margin-top: 40px;
     margin-bottom: 50px;
@@ -885,6 +890,9 @@ td img{
     width: 100%;
 }
 
+a.active{
+    color: tomato;
+}
 td:last-child{
     text-align: right;
 }
@@ -906,7 +914,8 @@ th:last-child{
 
 .account-page{
     padding: 50px 0;
-    background: radial-gradient(#fff,#ffd6d6);
+    background: linear-gradient(90deg, rgba(255,215,215,1) 0%, rgba(255,239,239,1) 50%, rgba(255,255,255,1) 100%);
+
 }
 
 .login-form-container{

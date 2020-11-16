@@ -8,7 +8,7 @@ class ProductCategories extends Controller{
     }
 
     function index(){
-        $this->view->title = 'Product Categories | Dashboard | Wasthra';
+        $this->view->title = 'Product Categories';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Product Categories';
 
     	$this->view->productcatList = $this->model->listProductcat();
@@ -27,7 +27,7 @@ class ProductCategories extends Controller{
      
 
     function edit($id){
-        $this->view->title = 'Product Categories | Dashboard | Wasthra';
+        $this->view->title = 'Product Categories';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'productCategories">Product Categories</a> <i class="fas fa-angle-right"></i>Edit Product Category';
 
        $this->view->getproductcategory = $this->model->getProductcat($id);

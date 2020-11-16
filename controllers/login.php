@@ -46,7 +46,7 @@ class Login extends Controller{
             if($this->sendVerficationEmail($data['email'], $token)){
                 header('location: ../login?success=signUp#message');
             } else{
-                header('location: ../login?error=wrong#message');
+                header('location: ../login?error=somethingWrong#message');
             }
 
         } else{
@@ -81,7 +81,7 @@ class Login extends Controller{
             $this->model->verifyAccount($username);
             header('Location: '.URL.'login?success=accountVerfied#message');
         } else{
-            echo 'incorrect token';
+            header('Location: '.URL.'login?error=incorrectToken#message');
         }
     }
 
@@ -112,8 +112,10 @@ class Login extends Controller{
         $subject = 'Reset Password';
         $header = "From: group15s2202@gmail.com\r\nContent-Type: text/html;";
         if(mail($to, $subject, $emailBody, $header)){
-            echo 'mail sent';
-        } else{ echo 'false';}
+            header('Location: '.URL.'login?success=resetLinkSent#message');
+        } else{
+            header('Location: '.URL.'login?error=mailNotSent#message');
+        }
     }
 
     function resetPassword($username,$token)
@@ -122,7 +124,7 @@ class Login extends Controller{
             $this->view->username = $username;
             $this->view->render('user/reset_password');
         } else{
-            echo 'incorrect token';
+            header('Location: '.URL.'login?error=incorrectToken#message');
         }
 
     }
@@ -135,7 +137,7 @@ class Login extends Controller{
 
         $this->model->updatePassword($data);
 
-        echo 'password updated';
+        header('Location: '.URL.'login?success=pwdChanged#message');
 
     }
 

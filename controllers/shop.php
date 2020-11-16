@@ -7,7 +7,7 @@ class Shop extends Controller{
     }
 
     function index(){
-        $this->view->title = 'Shop | Wasthra';
+        $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> Shop';
 
     	$this->view->productList = $this->model->listProducts();
@@ -22,7 +22,7 @@ class Shop extends Controller{
     }
 
     function productDetails($id){
-        $this->view->title = 'Product Details | Wasthra';
+        $this->view->title = 'Product Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
 
     	$this->view->productList = $this->model->listProducts();
@@ -40,7 +40,7 @@ class Shop extends Controller{
     }
 
     function byColor($color){
-    	$this->view->title = 'Shop | Wasthra';
+    	$this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Color';
 
     	$this->view->productList = $this->model->listProducts();
@@ -55,7 +55,7 @@ class Shop extends Controller{
     }
 
     function bySize($size){
-    	$this->view->title = 'Shop | Wasthra';
+    	$this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Size';
 
     	$this->view->productList = $this->model->listProducts();
@@ -70,7 +70,7 @@ class Shop extends Controller{
     }
 
     function byCategory($category){
-    	$this->view->title = 'Shop | Wasthra';
+    	$this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Category';
 
     	$this->view->productList = $this->model->listProducts();
