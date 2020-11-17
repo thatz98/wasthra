@@ -29,9 +29,9 @@
                 
                 <nav>
                     <ul id="menuItems">
-                    <li><div class="search-bar">
-                    <form onsubmit="event.preventDefault();" role="search">
-                        <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <li><div class="search-bar" >
+                    <form action="<?php echo URL;?>search/byMultiFilter" method="post">
+                        <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required />
                         <button type="submit"><i class="fa fa-search"></i></button>    
                     </form>
                 </div></li>

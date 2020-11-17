@@ -32,7 +32,7 @@
             
             <div class="row-top">
             <div class="filter-col">
-                <div class="filter-card">
+                <div class="filter-card" style="box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);padding:30px 10px;margin-top: 10px;width:90%;">
                     <div class="clear-filter">
                         <a href="<?php echo URL;?>shop"><h3>Show All Products</h3></a><br>
                     </div>
