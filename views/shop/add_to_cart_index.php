@@ -35,7 +35,28 @@
                     <?php 
                         }
                         
-                    }?>
+                    }
+                    if ($this->productPopup['name'] == 'Gents') : ?>
+                        <div class="gallery-col">
+                            <img src="<?php echo URL; ?>public/images/size_charts/gents" id="sizeC"
+                                onclick="swapImage('sizeC')" width="100%" class="view-gallery-img">
+                        </div>
+                        <?php else : if ($this->productPopup['name'] == 'Ladies') : ?>
+                        <div class="gallery-col">
+                            <img src="<?php echo URL; ?>public/images/size_charts/ladies" id="sizeCL"
+                                onclick="swapImage('sizeCL')" width="100%" class="view-gallery-img">
+                        </div>
+                        <?php else : ?>
+                        <div class="gallery-col">
+                            <img src="<?php echo URL; ?>public/images/size_charts/gents" id="sizeC"
+                                onclick="swapImage('sizeC')" width="100%" class="view-gallery-img">
+                        </div>
+                        <div class="gallery-col">
+                            <img src="<?php echo URL; ?>public/images/size_charts/ladies" id="sizeCL"
+                                onclick="swapImage('sizeCL')" width="100%" class="view-gallery-img">
+                        </div>
+                        <?php endif;
+                        endif; ?>
 
 
                 </div>

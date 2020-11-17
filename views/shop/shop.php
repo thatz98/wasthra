@@ -53,6 +53,12 @@
                         <div class="filter-size-list">
                         <?php $filter_sizes = array();
                     foreach($this->sizeList as $size){
+                        if(strpos($size['sizes'],'-G')!=false){
+                            $size['sizes']=rtrim($size['sizes'],'-G');
+                        } else if(strpos($size['sizes'],'-W')!=false){
+                            $size['sizes']=rtrim($size['sizes'],'-W');
+                        }
+                        
                         if(in_array($size['sizes'],$filter_sizes)){
                             continue;
                         }else{

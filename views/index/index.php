@@ -105,11 +105,9 @@
             <div class="col-2"></div>
             <div class="col-2">
                 <p>Exclusive offer for</p>
-                <h1>White & Black Couple T-Shirts</h1>
-                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae amet voluptate error sit ea
-                    obcaecati illo corrupti deserunt, fugiat atque dolor molestias? Magni corporis consectetur ad aut
-                    voluptatum vitae nihil!</small><br>
-                <a href="" class="btn">Buy Now &#8594</a>
+                <h1>Couple T-Shirts</h1>
+                <small>What is better than a couple in which both the people stay by each other’s side no matter what the scenario is. That is what true love is all about, right? Enjoying their life with them and sharing their happiness when the times are good and becoming their pillar to stand on when they get under the cloud. Wearing these tees will not only show the pure side of your love to the world but will also make you two fall in love a little harder all over again.</small><br>
+                <a href="<?php echo URL;?>shop/byCategory/Couple" class="btn">Shop Now &#8594</a>
             </div>
         </div>
     </div>
@@ -176,11 +174,11 @@
         <div class="col-2"></div>
             <div class="col-2">
                 <p>Exclusive offer for</p>
-                <h1>White & Black Couple T-Shirts</h1>
-                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae amet voluptate error sit ea
-                    obcaecati illo corrupti deserunt, fugiat atque dolor molestias? Magni corporis consectetur ad aut
-                    voluptatum vitae nihil!</small><br>
-                <a href="" class="btn">Buy Now &#8594</a>
+                <h1>Gents' T-Shirts</h1>
+                <small>The worst is when men try too hard, because it's not very masculine. Your outfit has to look like 'Oh, I just grabbed that.' Not too calculated. Jeans, a t-shirt: the simpler the better.<br>
+                Why are you waiting for checkout our latest gents collection...
+                </small><br>
+                <a href="<?php echo URL;?>shop/byCategory/Gents" class="btn">Shop Now &#8594</a>
             </div>
             
         </div>

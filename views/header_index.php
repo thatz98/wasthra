@@ -65,10 +65,8 @@
             <?php require 'views/shop/cart_dropdown.php'; ?>
             <div class="row">
                 <div class="col-2">
-                    <h1>It's all about <br>clothing!</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A praesentium aspernatur molestias
-                        dolor eius inventore voluptatem nostrum consequuntur dolorem. <br>Vero tempore deserunt hic
-                        laboriosam eligendi eos maiores ad. Consequuntur, ipsum.</p>
+                    <h1>It's all about <br>Tees!</h1>
+                    <p>Are you the person who just wakes up, puts your T-shirt on and runs out of the house? <br>Or do you wake up an hour early - get your mental notes together, fix you a little coffee... prepare yourself for the day and try to do something really great? It begins with you.</p>
                     <a href="" class="btn">Shop Now &#8594;</a>
                 </div>
                 <div class="col-2">
