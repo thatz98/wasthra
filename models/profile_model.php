@@ -41,6 +41,7 @@ class Profile_Model extends Model{
                 'address_line_1' => $data['address_line_1'],
                 'address_line_2' => $data['address_line_2'],
                 'address_line_3' => $data['address_line_3'],
+                'postal_code' => $data['postal_code'],
                 'city' => $data['city']
             ));
         } else{
@@ -48,6 +49,7 @@ class Profile_Model extends Model{
                 'address_line_1' => $data['address_line_1'],
                 'address_line_2' => $data['address_line_2'],
                 'address_line_3' => $data['address_line_3'],
+                'postal_code' => $data['postal_code'],
                 'city' => $data['city']),"address_id = '{$data['address_id']}'");
         }
         $addressData = $this->db->listWhere('delivery_address', array('address_id', 'postal_code', 'address_line_1', 'address_line_2', 'address_line_3', 'city'), "user_id='$userId' LIMIT 1");
