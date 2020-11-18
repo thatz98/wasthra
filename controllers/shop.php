@@ -9,7 +9,7 @@ class Shop extends Controller{
     function index(){
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> Shop';
-
+        $this->view->render('preloader');
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
@@ -24,7 +24,7 @@ class Shop extends Controller{
     function productDetails($id){
         $this->view->title = 'Product Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
-
+        $this->view->render('preloader');
     	$this->view->productList = $this->model->listProducts();
     	$this->view->product = $this->model->getProduct($id);
         $this->view->qtyList =  $this->model->getAllDetails();
@@ -42,7 +42,7 @@ class Shop extends Controller{
     function byColor($color){
     	$this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Color';
-
+        $this->view->render('preloader');
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('color','#'.$color);
         $this->view->sizeList =  $this->model->getSizes();
@@ -57,7 +57,7 @@ class Shop extends Controller{
     function bySize($size){
     	$this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Size';
-
+        $this->view->render('preloader');
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('size',$size);
         $this->view->sizeList =  $this->model->getSizes();
@@ -72,7 +72,7 @@ class Shop extends Controller{
     function byCategory($category){
     	$this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Category';
-
+        $this->view->render('preloader');
     	$this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('category',$category);
         $this->view->sizeList =  $this->model->getSizes();
@@ -91,7 +91,7 @@ class Shop extends Controller{
     }
 
     function submitReview(){
-
+        $this->view->render('preloader');
         $imageName['img']=$_FILES['img']['name'];
         $imageName['temp']=$_FILES['img']['tmp_name'];
         for ($x=0; $x<sizeof($imageName['temp']); $x++){
@@ -111,6 +111,7 @@ class Shop extends Controller{
     }
 
     function deleteReview($id,$productId){
+        $this->view->render('preloader');
         $this->model->deleteReview($id);
         header('Location: '.URL.'shop/productDetails/'.$productId);
     }

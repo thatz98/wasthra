@@ -16,12 +16,13 @@
 </head>
 
 <body>
+
     <?php if(Session::get('loggedIn')==true){
     require 'views/user/profile_card.php';
 } ?>
 
     <?php require 'views/error/error_popup.php';?>
-    <div class="header-plain">
+    <div class="header-plain" id="header">
         
         <div class="contaner">
             <div class="navbar">
@@ -78,3 +79,5 @@
            
         </div>
     </div>
+
+    <script type="text/javascript" src="<?php echo URL ?>public/js/preloader.js"></script>
