@@ -10,7 +10,7 @@ class Cart extends Controller {
     function index() {
         $this->view->title = 'Cart';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Cart';
-
+        
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->userCart = $this->model->listUserCart();
         $this->view->sizeList =  $this->model->getSizes();
@@ -21,6 +21,7 @@ class Cart extends Controller {
         $this->view->render('cart/cart');
     }
     function addToCart() {
+        
         $sizeGents = $_POST['size1'];
         $sizeLadies = $_POST['size2'];
         $sizeNormal = $_POST['size'];

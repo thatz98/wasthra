@@ -16,7 +16,8 @@
 </head>
 
 <body>
-
+<div id="preloader-overlay"></div>
+<div id="spinner"></div>
     <?php if(Session::get('loggedIn')==true){
     require 'views/user/profile_card.php';
 } ?>

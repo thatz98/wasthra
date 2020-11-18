@@ -7,6 +7,7 @@ class Index extends Controller {
 
     function index() {
         $this->view->title = 'Home';
+     
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->imageList =  $this->model->getImages();
