@@ -270,6 +270,11 @@ form .col-2{
 .col{
     flex-basis: 100%;
 }
+
+.wide-col{
+    margin-top: 5px;
+    flex-basis: 100%;
+}
 .col-2{
     flex-basis: 50%;
     min-width: 300px;
@@ -2418,4 +2423,4 @@ p.success{
 @media only screen and (max-width: 400px){
 .table-search input{
     width: 100%;
-}
+}}
