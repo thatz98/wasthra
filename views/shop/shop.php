@@ -183,15 +183,15 @@
 <script>
     function colorFilter(color){
         color = color.substring(1);
-        location.replace("http://localhost/wasthra/shop/byColor/"+color);
+        location.replace("http://127.0.0.1/wasthra/shop/byColor/"+color);
     }
 
     function sizeFilter(size){
-        location.replace("http://localhost/wasthra/shop/bySize/"+size);
+        location.replace("http://127.0.0.1/wasthra/shop/bySize/"+size);
     }
 
     function categoryFilter(category){
-        location.replace("http://localhost/wasthra/shop/byCategory/"+category);
+        location.replace("http://127.0.0.1/wasthra/shop/byCategory/"+category);
     }
 </script>
 <?php require 'views/footer.php'; ?>

@@ -1,7 +1,7 @@
 <?php
 
 define('DB_TYPE','mysql');
-define('DB_HOST','localhost');
+define('DB_HOST','127.0.0.1');
 define('DB_NAME','db_wasthra');
 //define('DB_NAME','hloy');
 define('DB_USER','root');
