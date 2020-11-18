@@ -19,9 +19,11 @@
 </head>
 
 <body>
+<div id="preloader-overlay"></div>
+<div id="spinner"></div>
     <?php require 'views/error/error_popup.php';?>
     <?php require 'views/user/forgot_password.php';?>
-    <div class="header-plain">
+    <div class="header-plain" id="header">
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">
@@ -291,7 +293,7 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="<?php echo URL ?>public/js/preloader.js"></script>
         <script>
         var loginFormPane = document.getElementById("loginForm_m");
         var regFormPane = document.getElementById("regForm_m");

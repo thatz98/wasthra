@@ -13,7 +13,6 @@ class Index extends Controller {
         $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
-        $this->view->cities = $this->model->getCityList();
 
         $this->view->render('index/index');
     }

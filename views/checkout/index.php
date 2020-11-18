@@ -1,5 +1,5 @@
 <?php require 'views/header.php'; ?>
-
+<script src="<?php echo URL ?>public/js/libs/maps.js"></script>
 <div class="small-container">
     <div class="row">
         <h2 class="title">Checkout</h2><br>
