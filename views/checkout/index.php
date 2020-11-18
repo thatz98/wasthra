@@ -3,45 +3,45 @@
 <div class="small-container">
     <div class="row">
         <h2 class="title">Checkout</h2><br>
+        <p></p>
     </div>
     <div class="row-top">
         <div class="col-60p">
             <div class="box-container">
-                <form action="<?php echo URL; ?>" id="editFrom"
-                    method="post">
+                <form action="<?php echo URL; ?>/checkout/create" id="editFrom" method="post">
                     <div class="row">
                         <h3 class="mar-b-20">Delivery Details</h3>
                     </div>
                     <div class="row">
                     <div class="col-3">
-                    <label>First Name : </label><br><input type="text" name="first_name" value=""><br>
+                    <label>First Name : </label><br><input type="text" name="first_name" value="<?php echo Session::get('userData')['first_name']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>Last Name : </label><br><input type="text" name="last_name" value=""><br>
+                    <label>Last Name : </label><br><input type="text" name="last_name" value="<?php echo Session::get('userData')['last_name']?>"><br>
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-3">
-                    <label>Address Line 1 : </label><br><input type="text" name="address_line_1" value=""><br>
+                    <label>Address Line 1 : </label><br><input type="text" name="address_line_1" value="<?php echo Session::get('addressData')['address_line_1']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>Address Line 2 : </label><br><input type="email" name="address_line_2" value=""><br>
+                    <label>Address Line 2 : </label><br><input type="text" name="address_line_2" value="<?php echo Session::get('addressData')['address_line_2']?>"><br>
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-3">
-                    <label>Address Line 3 : </label><br><input type="text" name="address_line_3" value=""><br>
+                    <label>Address Line 3 : </label><br><input type="text" name="address_line_3" value="<?php echo Session::get('addressData')['address_line_3']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>City : </label><br><input type="text" name="city" value=""><br>
+                    <label>City : </label><br><input type="text" name="city" value="<?php echo Session::get('addressData')['city']?>"><br>
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-3">
-                    <label>Postal Code : </label><br><input type="text" name="postal_code" value=""><br>
+                    <label>Postal Code : </label><br><input type="text" name="postal_code" value="<?php echo Session::get('addressData')['postal_code']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>Contact Number : </label><br><input type="text" name="contact_no" value=""><br>
+                    <label>Contact Number : </label><br><input type="text" name="contact_no" value="<?php echo Session::get('userData')['contact_no']?>"><br>
                     </div>
                     </div>
                     <div class="row">
