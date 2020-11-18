@@ -17,7 +17,7 @@
       									<p>Assinged Orders</p>
        							
       						</div></div>
-      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-10.png">
+      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-8.png">
       						<div class="content-details fadeIn-bottom">
        							<p>Assigned Orders</p>
       						</div>
@@ -33,7 +33,7 @@
       									<p>History</p>
        							
       						</div></div>
-      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-1.png">
+      						<img class="content-image" src="<?php echo URL; ?>public/images/dash-13.png">
       						<div class="content-details fadeIn-bottom">
        							<p>History</p>
       						</div>
