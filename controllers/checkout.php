@@ -14,4 +14,24 @@ class Checkout extends Controller{
 
     	$this->view->render('checkout/index');
     }
+
+    function create(){
+        $data = array();
+    	$data['address_line_1'] = $_POST['address_line_1'];
+        $data['address_line_2'] = $_POST['address_line_2'];
+        $data['address_line_3'] = $_POST['address_line_3'];
+        $data['city'] = $_POST['city'];
+        $data['postal_code'] = $_POST['postal_code'];
+        
+        if($data['address_line_1']!=Session::get('addressData')['address_line_1']
+            || $data['address_line_2']!=Session::get('addressData')['address_line_2']
+            || $data['address_line_3']!=Session::get('addressData')['address_line_3']
+            || $data['city']!=Session::get('addressData')['city']
+            || $data['postal_code']!=Session::get('addressData')['postal_code']){
+            
+            $this->model->create($data);
+        }
+        
+        header('location: '.URL.'shop');
+    }
 }
