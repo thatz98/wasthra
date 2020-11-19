@@ -107,7 +107,7 @@ class Shop extends Controller{
         date_default_timezone_set(" India Standard Time");
         $time = date("H:i:s");
         $this->model->addReview($data,$date,$time,$imageName['img']);
-        header('location: '.URL.'shop');
+        header('location: '.URL.'shop/productDetails/'.$data['product_id']);
     }
 
     function deleteReview($id,$productId){
