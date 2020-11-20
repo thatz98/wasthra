@@ -11,7 +11,8 @@ class Checkout extends Controller{
 
     	$this->view->title = 'Checkout';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'cart">Cart</a> <i class="fas fa-angle-right"></i> Checkout';
-
+        $this->view->qtyList =  $this->model->getAllDetails();
+        $this->view->imageList =  $this->model->getImages();
     	$this->view->render('checkout/index');
     }
 
