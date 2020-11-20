@@ -33,6 +33,6 @@ class Checkout extends Controller{
             $this->model->create($data);
         }
         
-        header('location: '.URL.'shop');
+        header('location: '.URL.'orders/myOrders');
     }
 }
