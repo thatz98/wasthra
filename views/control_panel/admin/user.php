@@ -138,9 +138,17 @@
         <input type="text" id="keyword-input" onkeyup="filterByKeyword('user-table',7)"
             placeholder="Search & filter entire table by keyword..">
     </div>
-<label>out of <?php echo ($this->newUserCount+$this->verifiedUserCount);?> rows</label>
+    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo ($this->newUserCount+$this->verifiedUserCount);?> results...</span>
+    <div class="per-page" style="float: right;">
+        <span>Rows per page: </span><select name="per-page" id="per-page">
+            <?php foreach(range(10,100,10) as $i){?>
+                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php }?>
+        </select>
+    </div>
     <div class="table-container">
         <table id="user-table">
+            <thead>
             <tr>
                 <th>User Type<i onclick="showFilters('user-table',0,'dropdown-filter-1','checkbox-1','checkbox-all-1')"
                         class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
@@ -365,11 +373,13 @@
                 </th>
                 <th>Options</th>
             </tr>
+            </thead>
             <tbody id="table-body">
 
 
                 <?php foreach ($this->userList as $user): ?>
-                <tr><?php if($user['is_deleted']=='yes'){continue;}?>
+                <?php if($user['is_deleted']=='yes'){continue;}?>
+                <tr>
                     <td><?php echo $user['user_type']; ?></td>
                     <td><?php echo $user['user_status']; ?></td>
                     <td><?php echo $user['first_name']; ?></td>
@@ -385,8 +395,8 @@
                                 class="table-btn btn-red">Delete</button></a>
                                 <?php }?>
                     </td>
-
-                </tr>
+                    </tr>
+                
 
                 <?php endforeach;?>
             </tbody>
@@ -396,53 +406,16 @@
 	<ol id="numbers"></ol>
 </div>
 </div>
-<script>
-    $(function() {
-	const rowsPerPage = 13;
-	const rows = $('#user-table tbody tr');
-	const rowsCount = rows.length;
-	const pageCount = Math.ceil(rowsCount / rowsPerPage); // avoid decimals
-	const numbers = $('#numbers');
-	
-	// Generate the pagination.
-	for (var i = 0; i < pageCount; i++) {
-		numbers.append('<li><a href="#">' + (i+1) + '</a></li>');
-	}
-		
-	// Mark the first page link as active.
-	$('#numbers li:first-child a').addClass('active');
 
-	// Display the first set of rows.
-	displayRows(1);
-	
-	// On pagination click.
-	$('#numbers li a').click(function(e) {
-		var $this = $(this);
-		
-		e.preventDefault();
-		
-		// Remove the active class from the links.
-		$('#numbers li a').removeClass('active');
-		
-		// Add the active class to the current link.
-		$this.addClass('active');
-		
-		// Show the rows corresponding to the clicked page ID.
-		displayRows($this.text());
-	});
-	
-	// Function that displays rows for a specific page.
-	function displayRows(index) {
-		var start = (index - 1) * rowsPerPage;
-		var end = start + rowsPerPage;
-		
-		// Hide all rows.
-		rows.hide();
-		
-		// Show the proper rows for this page.
-		rows.slice(start, end).show();
-	}
+<script type="text/javascript" src="<?php echo URL ?>public/js/table_pagination.js"></script>
+<script>
+$(pagination(10,'user-table'));
+
+$('#per-page').on('change',function() {
+	var rowsPerPage = parseInt($('#per-page').val());
+	pagination(rowsPerPage,'user-table');
 });
+
 </script>
 
 <script>
