@@ -5,6 +5,7 @@ class Cart extends Controller {
     function __construct() {
         parent::__construct();
         Authenticate::handleLogin();
+        Authenticate::customerOnly();
     }
 
     function index() {

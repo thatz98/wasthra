@@ -11,18 +11,18 @@ class Inventory extends Controller{
 
     function index(){
         $this->view->title = 'Inventory';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'products">Products</a> <i class="fas fa-angle-right"></i> Inventory';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'products">Products</a> <i class="fas fa-angle-right"></i> Inventory';
 
         $this->view->inventoryDetails = $this->model->listInventoryDetials();
-        $this->view->render('dashboard/admin/inventory');
+        $this->view->render('control_panel/admin/inventory');
     }
 
     function edit($id){
         $this->view->title = 'Inventory';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'products">Products</a> <i class="fas fa-angle-right"></i><a href="'.URL.'dashboard/inventory">Inventory</a> <i class="fas fa-angle-right"></i>Edit Inventory';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'products">Products</a> <i class="fas fa-angle-right"></i><a href="'.URL.'controlPanel/inventory">Inventory</a> <i class="fas fa-angle-right"></i>Edit Inventory';
 
         $this->view->getInventory = $this->model->getInventory($id);
-        $this->view->render('dashboard/admin/edit_inventory');
+        $this->view->render('control_panel/admin/edit_inventory');
      }
 
      function editSave(){

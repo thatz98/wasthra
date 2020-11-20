@@ -10,10 +10,10 @@ class DeliveryCharges extends Controller{
 
     function index(){
         $this->view->title = 'Delivery Charges';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i>Delivery Charges';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i>Delivery Charges';
 
         $this->view->deliverycharges = $this->model->listDeliveryCharges();
-        $this->view->render('dashboard/owner/delivery_charges');
+        $this->view->render('control_panel/owner/delivery_charges');
         
     }
 
@@ -30,10 +30,10 @@ class DeliveryCharges extends Controller{
 
     function edit($id){
         $this->view->title = 'Delivery Charges';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'deliveryCharges">Delivery Charges</a> <i class="fas fa-angle-right"></i>Edit Delivery Charges';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'deliveryCharges">Delivery Charges</a> <i class="fas fa-angle-right"></i>Edit Delivery Charges';
 
         $this->view->getcharges = $this->model->getDeliveryCharges($id);
-        $this->view->render('dashboard/owner/edit_delivery_charges');
+        $this->view->render('control_panel/owner/edit_delivery_charges');
 
      }
  

@@ -11,7 +11,6 @@ class Authenticate
 	public static function handleLogin(){
 		Session::init();
         $logged = $_SESSION['loggedIn'];
-        $userType = Session::get('userType');
         if($logged==false){
             Session::destroy();
             header('location: '.URL.'login?loginRequired=true');
@@ -37,6 +36,20 @@ class Authenticate
         if($logged==false || $userType=='customer'){
             Session::destroy();
             header('location: '.URL.'login?loginRequired=true');
+            exit;
+        }
+    }
+    
+    public static function customerOnly(){
+		Session::init();
+        $logged = $_SESSION['loggedIn'];
+        $userType = Session::get('userType');
+        if($logged==false){
+            Session::destroy();
+            header('location: '.URL.'login?loginRequired=true');
+            exit;
+        } else if($userType!='customer'){
+            header('location: ../?error=customerOnly#message');
             exit;
         }
 	}

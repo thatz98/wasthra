@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=(isset($this->title)) ? $this->title.' | Dashboard | Wasthra' : 'Wasthra'; ?></title>
+    <title><?=(isset($this->title)) ? $this->title.' | Control Panel | Wasthra' : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
     <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
@@ -28,13 +28,13 @@
                 <nav>
                     <ul id="menuItems">
                         <?php if(Session::get('userType')=='admin'){?>
-                            <li><a href="<?php echo URL; ?>dashboard" class="<?php if(isset($this->title) && $this->title == 'Dashboard') echo 'active';?>">Dashboard</a></li>
+                            <li><a href="<?php echo URL; ?>controlPanel" class="<?php if(isset($this->title) && $this->title == 'Control Panel') echo 'active';?>">Control Panel</a></li>
                         <li><a href="<?php echo URL; ?>user" class="<?php if(isset($this->title) && $this->title == 'Users') echo 'active';?>">Users</a></li>
                         <li><a href="<?php echo URL; ?>orders/orderDashboard" class="<?php if(isset($this->title) && $this->title == 'Orders') echo 'active';?>">Orders</a></li>
                         <li><a href="<?php echo URL; ?>products" class="<?php if(isset($this->title) && $this->title == 'Products') echo 'active';?>">Products</a></li>
                         <li><a href="<?php echo URL; ?>productCategories" class="<?php if(isset($this->title) && $this->title == 'Product Categories') echo 'active';?>">Product Categories</a></li>
                       <?php  } else if(Session::get('userType')=='owner'){?>
-                        <li><a href="<?php echo URL; ?>dashboard" class="<?php if(isset($this->title) && $this->title == 'Dashboard') echo 'active';?>">Dashboard</a></li>
+                        <li><a href="<?php echo URL; ?>controlPanel" class="<?php if(isset($this->title) && $this->title == 'Control Panel') echo 'active';?>">Control Panel</a></li>
                         <li><a href="<?php echo URL; ?>priceCategories" class="<?php if(isset($this->title) && $this->title == 'Price Categories') echo 'active';?>">Price Categories</a></li>
                         <li><a href="<?php echo URL; ?>deliveryCharges" class="<?php if(isset($this->title) && $this->title == 'Delivery Charges') echo 'active';?>">Delivery Charges</a></li>
                         <li><a href="<?php echo URL; ?>stats" class="<?php if(isset($this->title) && $this->title == 'Stats') echo 'active';?>">Stats</a></li>
@@ -44,9 +44,9 @@
                         <li><a href="<?php echo URL; ?>productCategories" class="<?php if(isset($this->title) && $this->title == 'Product Categories') echo 'active';?>">Product Categories</a></li>
                         
                     <?php  } else if(Session::get('userType')=='delivery_staff'){?>
-                        <li><a href="<?php echo URL; ?>dashboard" class="<?php if(isset($this->title) && $this->title == 'Dashboard') echo 'active';?>">Dashboard</a></li>
+                        <li><a href="<?php echo URL; ?>controlPanel" class="<?php if(isset($this->title) && $this->title == 'Control Panel') echo 'active';?>">Control Panel</a></li>
                         <li><a href="<?php echo URL; ?>orders/assignedOrders" class="<?php if(isset($this->title) && $this->title == 'Assigned Orders') echo 'active';?>">Assigned Orders</a></li>
-                        <li><a href="<?php echo URL; ?>orders/orderDashboard" class="<?php if(isset($this->title) && $this->title == 'Product Categories') echo 'active';?>">History</a></li>
+                        <li><a href="<?php echo URL; ?>orders/orderDashboard" class="<?php if(isset($this->title) && $this->title == 'History') echo 'active';?>">History</a></li>
                     <?php }?>  
                     </ul>
                 </nav>

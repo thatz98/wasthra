@@ -12,7 +12,7 @@ class Products extends Controller{
 
     function index(){
         $this->view->title = 'Products';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Products';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Products';
 
         $this->view->publishedCount = $this->model->getPublishedCount();
         $this->view->reorderCount = $this->model->getReorderCount();
@@ -24,7 +24,7 @@ class Products extends Controller{
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
-    	$this->view->render('dashboard/admin/products');
+    	$this->view->render('control_panel/admin/products');
     }
 
     function create(){
@@ -54,7 +54,7 @@ class Products extends Controller{
 
     function edit($id){
         $this->view->title = 'Products';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'products">Products</a> <i class="fas fa-angle-right"></i> Edit Product';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'products">Products</a> <i class="fas fa-angle-right"></i> Edit Product';
 
         $this->view->product = $this->model->getProduct($id);
         $this->view->product_colors = $this->model->getColors();
@@ -69,7 +69,7 @@ class Products extends Controller{
         }
         $this->view->sizes = $sizeArray;
 
-        $this->view->render('dashboard/admin/edit_products');
+        $this->view->render('control_panel/admin/edit_products');
     }
     function editSave(){
         $prevImages = rtrim($_POST['prev_images'],",");

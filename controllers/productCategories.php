@@ -9,10 +9,10 @@ class ProductCategories extends Controller{
 
     function index(){
         $this->view->title = 'Product Categories';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Product Categories';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Product Categories';
 
     	$this->view->productcatList = $this->model->listProductcat();
-    	$this->view->render('dashboard/admin/product_category');
+    	$this->view->render('control_panel/admin/product_category');
     }
 
    
@@ -28,10 +28,10 @@ class ProductCategories extends Controller{
 
     function edit($id){
         $this->view->title = 'Product Categories';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'productCategories">Product Categories</a> <i class="fas fa-angle-right"></i>Edit Product Category';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'productCategories">Product Categories</a> <i class="fas fa-angle-right"></i>Edit Product Category';
 
        $this->view->getproductcategory = $this->model->getProductcat($id);
-       $this->view->render('dashboard/admin/edit_productcat');
+       $this->view->render('control_panel/admin/edit_productcat');
     }
 
     function editSave(){

@@ -11,12 +11,12 @@ class User extends Controller{
 
     function index(){
         $this->view->title = 'Users';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Users';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Users';
         $this->view->newUserCount = $this->model->userCount('new');
         $this->view->verifiedUserCount = $this->model->userCount('verified');
     	$this->view->userList = $this->model->listUsers();
         
-   	    $this->view->render('dashboard/admin/user');
+   	    $this->view->render('control_panel/admin/user');
     }
 
     function create(){
@@ -42,10 +42,10 @@ class User extends Controller{
 
     function edit($id,$type){
         $this->view->title = 'Users';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'users">Users</a> <i class="fas fa-angle-right"></i>Edit User';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'users">Users</a> <i class="fas fa-angle-right"></i>Edit User';
 
         $this->view->user = $this->model->getUser($id,$type);
-        $this->view->render('dashboard/admin/edit_user');
+        $this->view->render('control_panel/admin/edit_user');
     }
 
     function editSave(){

@@ -21,44 +21,44 @@ class Orders extends Controller{
 
     function orderDashboard(){
         $this->view->title = 'Orders';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Orders';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Orders';
 
-    	$this->view->render('dashboard/admin/orders');
+    	$this->view->render('control_panel/admin/orders');
     }
 
     function orderDetails(){
         $this->view->title = 'Order Details';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/myOrderDetails">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/myOrderDetails">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
         $this->view->deliveryStaffList = $this->model->getDeliveryStaffList();
       //  print_r($this->view->deliveryStaffList);
-    	$this->view->render('dashboard/admin/order_details');
+    	$this->view->render('control_panel/admin/order_details');
     }
 
     function assignedOrders(){
         $this->view->title = 'Assigned Orders';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> Assigned Orders';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Assigned Orders';
 
-    	$this->view->render('dashboard/delivery/orders');
+    	$this->view->render('control_panel/delivery/orders');
     }
 
     function assignedOrderDetails(){
         $this->view->title = 'Assigned Order Details';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/assignedOrderDetails">Assigned Orders</a> <i class="fas fa-angle-right"></i> Assigned Order Details';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/assignedOrderDetails">Assigned Orders</a> <i class="fas fa-angle-right"></i> Assigned Order Details';
 
-    	$this->view->render('dashboard/delivery/order_details');
+    	$this->view->render('control_panel/delivery/order_details');
     }
 
     function history(){
         $this->view->title = 'History';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i> History';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> History';
 
-        $this->view->render('dashboard/delivery/history');
+        $this->view->render('control_panel/delivery/history');
     }
 
     function historyDetails(){
         $this->view->title = 'History Details';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'dashboard">Dashboard</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/historyDetails">History</a> <i class="fas fa-angle-right"></i> History Details';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/historyDetails">History</a> <i class="fas fa-angle-right"></i> History Details';
 
-        $this->view->render('dashboard/delivery/history_details');
+        $this->view->render('control_panel/delivery/history_details');
     }
 }

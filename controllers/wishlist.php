@@ -5,7 +5,7 @@ class Wishlist extends Controller{
     function __construct()
     {
         parent::__construct();
-
+        Authenticate::customerOnly();
     }
 
     function index(){

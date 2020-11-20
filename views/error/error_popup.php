@@ -45,6 +45,9 @@
                             $msg = 'Something wrong with the mail server! Try
                                             again.';
                             break;
+                            case 'customerOnly':
+                                $msg = 'Sorry! Only customers can perform this action.';
+                                break;
                         default:
                             $msg = 'Something wrong! Try
                                             again.';

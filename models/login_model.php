@@ -35,19 +35,19 @@ class Login_Model extends Model
                         $userData = $this->db->listWhere('admin', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
                         Session::set('userData', $userData);
                         Session::set('userId', $userData['user_id']);
-                        header('location: ../dashboard');
+                        header('location: ../controlPanel');
                     } else if (Session::get('userType') == 'owner') {
                         $loginId = Session::get('loginId');
                         $userData = $this->db->listWhere('owner', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
                         Session::set('userData', $userData);
                         Session::set('userId', $userData['user_id']);
-                        header('location: ../dashboard');
+                        header('location: ../controlPanel');
                     } else if (Session::get('userType') == 'delivery_staff') {
                         $loginId = Session::get('loginId');
                         $userData = $this->db->listWhere('delivery_staff', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
                         Session::set('userData', $userData);
                         Session::set('userId', $userData['user_id']);
-                        header('location: ../dashboard');
+                        header('location: ../controlPanel');
                     } else if (Session::get('userType') == 'customer') {
                         $loginId = Session::get('loginId');
                         $userData = $this->db->listWhere('customer', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");

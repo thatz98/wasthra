@@ -1,6 +1,6 @@
 <?php require 'views/header_dashboard.php'; ?>
-<?php require 'views/dashboard/admin/order_status_popup.php'; ?>
-<?php require 'views/dashboard/admin/assign_delivery_popup.php'; ?>
+<?php require 'views/control_panel/admin/order_status_popup.php'; ?>
+<?php require 'views/control_panel/admin/assign_delivery_popup.php'; ?>
 <div class="small-container">
     <div class="row">
         <h2 class="title title-min">Order Details</h2><br>

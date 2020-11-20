@@ -419,7 +419,7 @@ a:hover {
       <li>
         <a href="#" class="inbox">
           <i class="fa fa-dashboard"><span class="icon-bg rad-bg-success"></span></i>
-          <span class="rad-sidebar-item">Dashboard</span>
+          <span class="rad-sidebar-item">Control Panel</span>
         </a>
       </li>
       <li>

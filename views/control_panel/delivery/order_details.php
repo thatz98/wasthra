@@ -1,6 +1,6 @@
 <?php require 'views/header_dashboard.php'; ?>
 
-<?php require 'views/dashboard/delivery/update_status.php'; ?>
+<?php require 'views/control_panel/delivery/update_status.php'; ?>
 
 <div class="small-container">
     <div class="row">
