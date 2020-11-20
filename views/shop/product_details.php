@@ -229,7 +229,7 @@
                             <a
                                 href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id'] ?>">View</a><br><br>
                         </div>
-                        <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a
+                        <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $qty['product_id']?>"><i class="fa fa-2x fa-heart-o"></i></a><a
                             href="<?php echo '?id=' . $qty['product_id'] ?>#addToCartPopupIndex"><i
                                 class="fa fa-2x fa-cart-plus"></i></a>
                     </div>
