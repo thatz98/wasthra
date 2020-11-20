@@ -121,7 +121,7 @@ function checkExistsWhere($username,$loginId){
             return false;
         } else{
             $this->db->update('login',array('user_status' => 'blocked'),"login_id = '{$data['login_id']}'");
-            $this->db->update($data['user_type'],array('is_deleted' => 'yes'),"user_id = '$userId'");
+            $this->db->update($userType,array('is_deleted' => 'yes'),"user_id = '$userId'");
         }
 
     }

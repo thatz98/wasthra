@@ -45,7 +45,12 @@ class User extends Controller{
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'users">Users</a> <i class="fas fa-angle-right"></i>Edit User';
 
         $this->view->user = $this->model->getUser($id,$type);
-        $this->view->render('control_panel/admin/edit_user');
+        if($this->user[0]['user_type']=='owner' && Session::get('userType')!='owner'){
+            header('Location: '.URL.'user?error=accessDenied#message');
+        } else{
+            $this->view->render('control_panel/admin/edit_user');
+        }
+        
     }
 
     function editSave(){

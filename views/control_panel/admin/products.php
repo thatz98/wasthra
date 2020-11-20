@@ -155,9 +155,17 @@
                         </div>
                     </form>
                     </div>
-        
+    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo count($this->qtyList);?> results...</span>
+    <div class="per-page" style="float: right;">
+        <span>Rows per page: </span><select name="per-page" id="per-page">
+            <?php foreach(range(10,100,10) as $i){?>
+                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php }?>
+        </select>
+    </div>   
     <div class="table-container">
-    <table>
+    <table id="product-table">
+        <thead>
         <tr>
             <th>Product ID</th>
             <th>Product Name</th>
@@ -173,6 +181,8 @@
             <th>Options</th>
             
         </tr>
+        </thead>
+        <tbody>
         <?php foreach ($this->qtyList as $qty): ?>
             <tr>
                 <td><?php echo $qty['product_id']; ?></td>
@@ -212,14 +222,125 @@
                     <a href="<?php echo URL ?>products/delete/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
             
             </tr>
-
+            
         <?php endforeach;?>
-        
+        </tbody>
 
     </table>
     </div>
+    <div class="pagination">
+    <ol id="numbers"></ol>
+    </div>
 </div>
 
+<script>
+
+$(function() {
+	var rowsPerPage = 10;
+	const rows = $('#product-table tbody tr');
+	const rowsCount = rows.length;
+	const pageCount = Math.ceil(rowsCount / rowsPerPage); // avoid decimals
+	const numbers = $('#numbers');
+	numbers.empty();
+	// Generate the pagination.
+	for (var i = 0; i < pageCount; i++) {
+		numbers.append('<li><a href="#">' + (i+1) + '</a></li>');
+	}
+		
+	// Mark the first page link as active.
+	$('#numbers li:first-child a').addClass('active');
+
+	// Display the first set of rows.
+	displayRows(1,rowsCount);
+	
+	// On pagination click.
+	$('#numbers li a').click(function(e) {
+		var $this = $(this);
+		
+		e.preventDefault();
+		
+		// Remove the active class from the links.
+		$('#numbers li a').removeClass('active');
+		
+		// Add the active class to the current link.
+		$this.addClass('active');
+		
+		// Show the rows corresponding to the clicked page ID.
+		displayRows($this.text(),rowsCount);
+	});
+	
+	// Function that displays rows for a specific page.
+	function displayRows(index,total) {
+		var start = (index - 1) * rowsPerPage;
+		var end = start + rowsPerPage;
+        $('#start').text(start+1);
+if (total<=end) {
+    $('#end').text(total);
+} else{
+    $('#end').text(end);
+}
+		
+		// Hide all rows.
+		rows.hide();
+		
+		// Show the proper rows for this page.
+		rows.slice(start, end).show();
+	}
+});
+
+$('#per-page').on('load change',function() {
+	var rowsPerPage = parseInt($('#per-page').val());
+	const rows = $('#product-table tbody tr');
+	const rowsCount = rows.length;
+	const pageCount = Math.ceil(rowsCount / rowsPerPage); // avoid decimals
+	const numbers = $('#numbers');
+	numbers.empty();
+	// Generate the pagination.
+	for (var i = 0; i < pageCount; i++) {
+		numbers.append('<li><a href="#">' + (i+1) + '</a></li>');
+	}
+		
+	// Mark the first page link as active.
+	$('#numbers li:first-child a').addClass('active');
+
+	// Display the first set of rows.
+	displayRows(1,rowsCount);
+	
+	// On pagination click.
+	$('#numbers li a').click(function(e) {
+		var $this = $(this);
+		
+		e.preventDefault();
+		
+		// Remove the active class from the links.
+		$('#numbers li a').removeClass('active');
+		
+		// Add the active class to the current link.
+		$this.addClass('active');
+		
+		// Show the rows corresponding to the clicked page ID.
+		displayRows($this.text(),rowsCount);
+	});
+	
+	// Function that displays rows for a specific page.
+	function displayRows(index,total) {
+		var start = (index - 1) * rowsPerPage;
+		var end = start + rowsPerPage;
+        $('#start').text(start+1);
+if (total<=end) {
+    $('#end').text(total);
+} else{
+    $('#end').text(end);
+}
+		
+		// Hide all rows.
+		rows.hide();
+		
+		// Show the proper rows for this page.
+		rows.slice(start, end).show();
+	}
+});
+</script>
 <script>
 
       //  var addFrom = document.getElementByClassName("dash-form-container");

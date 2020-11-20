@@ -10,83 +10,124 @@
         <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
     </div>
     <div class="row">
-                <div class="col-3 fit-size">
-                    <div class="min-card primary">
-                        <div class="row">
-                        <h3>New Users</h3>
-                        </div>
-                        <div class="row">
-                            <h1><?php echo $this->newUserCount;?></h1>
-                        </div>
-                    </div>
+        <div class="col-3 fit-size">
+            <div class="min-card primary">
+                <div class="row">
+                    <h3>New Users</h3>
                 </div>
-                <div class="col-3 fit-size">
-                    <div class="min-card primary">
-                        <div class="row">
-                        <h3>Verified Users</h3>
-                        </div>
-                        <div class="row">
-                            <h1><?php echo $this->verifiedUserCount;?></h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 fit-size">
-                    <div class="min-card primary">
-                        <div class="row">
-                        <h3>Total Users</h3>
-                        </div>
-                        <div class="row">
-                            <h1><?php echo ($this->newUserCount+$this->verifiedUserCount);?></h1>
-                        </div>
-                    </div>
+                <div class="row">
+                    <h1><?php echo $this->newUserCount;?></h1>
                 </div>
             </div>
+        </div>
+        <div class="col-3 fit-size">
+            <div class="min-card primary">
+                <div class="row">
+                    <h3>Verified Users</h3>
+                </div>
+                <div class="row">
+                    <h1><?php echo $this->verifiedUserCount;?></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 fit-size">
+            <div class="min-card primary">
+                <div class="row">
+                    <h3>Total Users</h3>
+                </div>
+                <div class="row">
+                    <h1><?php echo ($this->newUserCount+$this->verifiedUserCount);?></h1>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="">
         <button class="btn btn-square" onclick="formToggle()">+ Add New User</button>
         <form action="<?php echo URL; ?>user/create" id="addFrom" class="hidden-form" method="post">
             <div class="row-top">
-                <div class="col-3">
-                    <label>First Name</label><br>
+            </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="helper-text">
+                        <label>First Name</label><br>
                     <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()"
                         id="first_name_u">
-                    <div class="helper-text"><span></span></div>
-                    <label>Mobile Number</label><br>
-                    <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX"
-                        onfocusout="validateContactNo()" id="contact_no_u">
-                    <div class="helper-text"><span></span></div>
-                    <label>Password</label><br>
-                    <input type="password" name="password" data-helper="Password" onfocusout="validatePassword()"
-                        id="password_u">
-                    <div class="helper-text"><span></span></div>
-                </div>
-                <div class="col-3">
-                    <label>Last Name</label><br>
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="helper-text">
+                        <label>Last Name</label><br>
                     <input type="text" name="last_name" data-helper="Last Name" onfocusout="validateLastName()"
                         id="last_name_u">
-                    <div class="helper-text"><span></span></div>
-                    <label>Email</label><br>
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="helper-text">
+                        <label>Email</label><br>
                     <input type="email" name="email" data-helper="Email" onfocusout="validateEmail()" id="email_u">
-                    <div class="helper-text"><span></span></div>
-                    <label>Confirm Password</label><br>
-                    <input type="password" name="conf_password" onfocusout="validateConfirmPassword()"
-                        id="conf_password_u">
-                    <div class="helper-text"><span></span></div>
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-3">
-                    <label>Gender</label><br>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="helper-text">
+                        <label>Mobile Number</label><br>
+                    <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX"
+                        onfocusout="validateContactNo()" id="contact_no_u">
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="helper-text">
+                        <label>Gender</label><br>
                     <select name="gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
-                    <div class="helper-text"><span></span></div>
-                    <label>User Type : </label><br>
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="helper-text">
+                        <label>User Type : </label><br>
                     <select name="user_type">
                         <option value="admin">Admin</option>
-                        <option value="owner">Owner</option>
+                        <?php if(Session::get('userType')=='owner'){?>
+                        <option value="owner">Owner</option><?php }?>
                         <option value="delivery_staff">Delivery</option>
                     </select>
-                    <div class="helper-text"><span></span></div>
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="helper-text">
+                        <label>Password</label><br>
+                    <input type="password" name="password" data-helper="Password" onfocusout="validatePassword()"
+                        id="password_u">
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="helper-text">
+                        <label>Confirm Password</label><br>
+                    <input type="password" name="conf_password" onfocusout="validateConfirmPassword()"
+                        id="conf_password_u">
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="helper-text">
+                            
+                            <span class="popuptext"></span>
+                        </div>
+                    </div>
+                
+                
             </div>
             <div class="center-btn">
                 <button type="submit" class="btn">Add New User</button>
@@ -97,7 +138,7 @@
         <input type="text" id="keyword-input" onkeyup="filterByKeyword('user-table',7)"
             placeholder="Search & filter entire table by keyword..">
     </div>
-
+<label>out of <?php echo ($this->newUserCount+$this->verifiedUserCount);?> rows</label>
     <div class="table-container">
         <table id="user-table">
             <tr>
@@ -336,10 +377,13 @@
                     <td><?php echo $user['gender']; ?></td>
                     <td><?php echo $user['contact_no']; ?></td>
                     <td><?php echo $user['email']; ?></td>
-                    <td><a href="<?php echo URL ?>user/edit/<?php echo $user['user_id'].'/'.$user['user_type']; ?>"><button
+                    <td><?php if($user['user_type']=='owner' && Session::get('userType')!='owner'){
+                        } else{?>
+                        <a href="<?php echo URL ?>user/edit/<?php echo $user['user_id'].'/'.$user['user_type']; ?>"><button
                                 class="table-btn btn-blue">Edit</button></a>
                         <a href="<?php echo URL ?>user/delete/<?php echo $user['user_id'].'/'.$user['user_type']; ?>"><button
                                 class="table-btn btn-red">Delete</button></a>
+                                <?php }?>
                     </td>
 
                 </tr>
@@ -348,7 +392,58 @@
             </tbody>
         </table>
     </div>
+    <div class="pagination">
+	<ol id="numbers"></ol>
 </div>
+</div>
+<script>
+    $(function() {
+	const rowsPerPage = 13;
+	const rows = $('#user-table tbody tr');
+	const rowsCount = rows.length;
+	const pageCount = Math.ceil(rowsCount / rowsPerPage); // avoid decimals
+	const numbers = $('#numbers');
+	
+	// Generate the pagination.
+	for (var i = 0; i < pageCount; i++) {
+		numbers.append('<li><a href="#">' + (i+1) + '</a></li>');
+	}
+		
+	// Mark the first page link as active.
+	$('#numbers li:first-child a').addClass('active');
+
+	// Display the first set of rows.
+	displayRows(1);
+	
+	// On pagination click.
+	$('#numbers li a').click(function(e) {
+		var $this = $(this);
+		
+		e.preventDefault();
+		
+		// Remove the active class from the links.
+		$('#numbers li a').removeClass('active');
+		
+		// Add the active class to the current link.
+		$this.addClass('active');
+		
+		// Show the rows corresponding to the clicked page ID.
+		displayRows($this.text());
+	});
+	
+	// Function that displays rows for a specific page.
+	function displayRows(index) {
+		var start = (index - 1) * rowsPerPage;
+		var end = start + rowsPerPage;
+		
+		// Hide all rows.
+		rows.hide();
+		
+		// Show the proper rows for this page.
+		rows.slice(start, end).show();
+	}
+});
+</script>
 
 <script>
 var addFrom = document.getElementById("addFrom");
