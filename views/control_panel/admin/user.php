@@ -48,28 +48,28 @@
                 <div class="col-3">
                     <label>First Name</label><br>
                     <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()"
-                        id="first_name">
+                        id="first_name_u">
                     <div class="helper-text"><span></span></div>
                     <label>Mobile Number</label><br>
                     <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX"
-                        onfocusout="validateContactNo()" id="contact_no">
+                        onfocusout="validateContactNo()" id="contact_no_u">
                     <div class="helper-text"><span></span></div>
-                    <label>Password : </label><br>
+                    <label>Password</label><br>
                     <input type="password" name="password" data-helper="Password" onfocusout="validatePassword()"
-                        id="password">
+                        id="password_u">
                     <div class="helper-text"><span></span></div>
                 </div>
                 <div class="col-3">
                     <label>Last Name</label><br>
                     <input type="text" name="last_name" data-helper="Last Name" onfocusout="validateLastName()"
-                        id="last_name">
+                        id="last_name_u">
                     <div class="helper-text"><span></span></div>
                     <label>Email</label><br>
-                    <input type="email" name="email" data-helper="Email" onfocusout="validateEmail()" id="email">
+                    <input type="email" name="email" data-helper="Email" onfocusout="validateEmail()" id="email_u">
                     <div class="helper-text"><span></span></div>
                     <label>Confirm Password</label><br>
                     <input type="password" name="conf_password" onfocusout="validateConfirmPassword()"
-                        id="conf_password">
+                        id="conf_password_u">
                     <div class="helper-text"><span></span></div>
                 </div>
                 <div class="col-3">

@@ -1,12 +1,11 @@
 
     // Input fields
-const firstName = document.getElementById('first_name');
-const lastName = document.getElementById('last_name');
-const password = document.getElementById('password');
-const confirmPassword = document.getElementById('conf_password');
-const email = document.getElementById('email');
-const contactNo = document.getElementById('contact_no');
-const nic = document.getElementById('nic');
+const firstName = document.getElementById('first_name_u');
+const lastName = document.getElementById('last_name_u');
+const password = document.getElementById('password_u');
+const confirmPassword = document.getElementById('conf_password_u');
+const email = document.getElementById('email_u');
+const contactNo = document.getElementById('contact_no_u');
 // Form
 const form = document.getElementById('addFrom');
 // Validation colors
