@@ -52,6 +52,8 @@ class Login_Model extends Model
                         $loginId = Session::get('loginId');
                         $userData = $this->db->listWhere('customer', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
                         Session::set('userData', $userData);
+                        $cities = $this->db->query("SELECT city FROM delivery_charges;");
+                        Session::set('city', $cities);
                         Session::set('userId', $userData['user_id']);
                         $userId = $userData['user_id'];
                         $addressData = $this->db->listWhere('delivery_address', array('address_id', 'postal_code', 'address_line_1', 'address_line_2', 'address_line_3', 'city'), "user_id='$userId' LIMIT 1");

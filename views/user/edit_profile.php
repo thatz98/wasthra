@@ -68,7 +68,7 @@
                         <label>City</label><br>
                         <select name="city"
                             value="<?php if(isset(Session::get('addressData')['city'])){echo Session::get('addressData')['city'];} ?>">
-                            <?php foreach($this->cities as $city){
+                            <?php foreach(Session::get('city') as $city){
                             if(Session::get('addressData')['city']==$city['city']){?>
                             <option value="<?php echo $city['city'];?>" selected><?php echo $city['city'];?></option>
                             <?php 
