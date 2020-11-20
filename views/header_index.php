@@ -45,6 +45,10 @@
                          if(Session::get('loggedIn')==true && Session::get('userType')=='customer'): ?>
                             <li><a href="<?php echo URL;?>orders/myOrders"  class="<?php if(isset($this->title) && $this->title == 'My Orders') echo 'active';?>">My Orders</a></li>
                             <li><a href="<?php echo URL; ?>wishlist"  class="<?php if(isset($this->title) && $this->title == 'Wishlist') echo 'active';?>">Wishlist</a></li>
+                            <?php endif;
+                            if(Session::get('loggedIn')==true && Session::get('userType')!=='customer'): ?>
+                            <li><a href="<?php echo URL;?>controlPanel" >Control Panel</a></li>
+                            
                             <?php endif; ?>
                     </ul>
                 </nav>

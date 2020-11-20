@@ -189,6 +189,15 @@ form textarea:hover{
     display: inline-block;
 }
 
+.radio-container{
+    
+    display: inline-flex;
+    align-items: center;
+}
+
+.radio-container input{
+    margin: 0 5px 0 10px;
+}
 
 .form-container form{
     padding: 10px 0 10px 0;

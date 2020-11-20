@@ -8,7 +8,9 @@ class ContactUs extends Controller{
     }
 
     function index(){
-    	$this->view->title = 'Contact Us';
+        $this->view->title = 'Contact Us';
+        $this->view->qtyList =  $this->model->getAllDetails();
+        $this->view->imageList =  $this->model->getImages();
     	$this->view->render('user/contactUS');
     }
 

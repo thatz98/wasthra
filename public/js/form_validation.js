@@ -16,6 +16,17 @@ function isEmpty(value) {
   if (value === '') return true;
   return false;
 }
+
+function checkIfChecked(field) {
+  for (i in field) {
+    if (field[i].checked==true) {
+      return true ;
+    }
+  }
+  setinvalidWithoutColor(field[field.length-1], `Should be selected`);
+  return false;
+}
+
 function setInvalid(field, message) {
   field.style.borderColor = red;
   field.nextElementSibling.classList.add("show");
@@ -27,6 +38,12 @@ function setValid(field) {
   field.style.borderColor = green;
   field.nextElementSibling.innerHTML = '';
   field.nextElementSibling.classList.remove("show");
+}
+
+function setinvalidWithoutColor(field,message) {
+  field.nextElementSibling.classList.add("show");
+  field.nextElementSibling.style.color = red;
+  field.nextElementSibling.innerHTML = message;
 }
 
 function checkIfOnlyLetters(field) {

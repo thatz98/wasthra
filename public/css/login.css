@@ -14,7 +14,7 @@ body{
    overflow: hidden;
    position: relative;
    width: 900px;
-   height: 550px;
+   height: 560px;
    margin: 0 auto 100px;
    background: #fff;
 }
@@ -278,7 +278,7 @@ body{
   border-radius: 5px;
   width: 50%;
   position: relative;
-  transition: all 5s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .popup h2 {
@@ -540,8 +540,8 @@ body{
    }
    .helper-text .popuptext {
 
-      width: 200px;
-
+      width: 200px !important;
+font-weight: normal !important;
       margin-left: -50px;
     }
 

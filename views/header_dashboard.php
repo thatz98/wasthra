@@ -46,7 +46,7 @@
                     <?php  } else if(Session::get('userType')=='delivery_staff'){?>
                         <li><a href="<?php echo URL; ?>controlPanel" class="<?php if(isset($this->title) && $this->title == 'Control Panel') echo 'active';?>">Control Panel</a></li>
                         <li><a href="<?php echo URL; ?>orders/assignedOrders" class="<?php if(isset($this->title) && $this->title == 'Assigned Orders') echo 'active';?>">Assigned Orders</a></li>
-                        <li><a href="<?php echo URL; ?>orders/orderDashboard" class="<?php if(isset($this->title) && $this->title == 'History') echo 'active';?>">History</a></li>
+                        <li><a href="<?php echo URL; ?>orders/history" class="<?php if(isset($this->title) && $this->title == 'History') echo 'active';?>">History</a></li>
                     <?php }?>  
                     </ul>
                 </nav>

@@ -13,17 +13,18 @@ const form = document.getElementById('regForm');
 // Handle form
 form.addEventListener('submit', function(event) {
   // Prevent default behaviour
-  event.preventDefault();
-  if (
-    validateFirstName() &&
-    validateLastName() &&
-    validatePassword() &&
-    validateConfirmPassword() &&
-    validateEmail() && 
-    validateContactNo()
-  ) {
-    form.submit();
-  }
+  event.preventDefault();      
+      if (
+        validateGender() && validateFirstName()
+      && validateLastName()
+      && validatePassword()
+      && validateConfirmPassword()
+      && validateEmail()
+      && validateContactNo()
+       
+      ) {
+        form.submit();
+      }
 });
 
 // Validators
@@ -89,6 +90,12 @@ function validateEmail() {
   return true;
 }
 
+function validateGender() {
+        
+  if (document.getElementById('male').checked==true || document.getElementById('female').checked==true || document.getElementById('other').checked==true) return true;
+      setinvalidWithoutColor(document.getElementById('gender-radio'),'Must be selected');
+      return false;
+}
 //mobile----->
 
 
@@ -99,6 +106,7 @@ function validateEmail() {
     const confirmPasswordM = document.getElementById('conf_password_m');
     const emailM = document.getElementById('email_m');
     const contactNoM = document.getElementById('contact_no_m');
+
     // Form
     const formM = document.getElementById('regForm_m');
     // Validation colors
@@ -107,15 +115,16 @@ function validateEmail() {
     formM.addEventListener('submit', function(event) {
       // Prevent default behaviour
       event.preventDefault();
-      if (
-        validateFirstNameM() &&
-        validateLastNameM() &&
-        validatePasswordM() &&
-        validateConfirmPasswordM() &&
-        validateEmailM() && 
-        validateContactNoM()
+      
+      if (validateFirstNameM()
+      && validateLastNameM()
+      && validatePasswordM()
+      && validateConfirmPasswordM()
+      && validateEmailM()
+      && validateContactNoM()
+      && validateGenderM()
       ) {
-        form.submit();
+        formM.submit();
       }
     });
     
@@ -182,3 +191,10 @@ function validateEmail() {
       return true;
     }
     
+    function validateGenderM() {
+        
+      if (document.getElementById('male-m').checked==true || document.getElementById('female-m').checked==true || document.getElementById('other-m').checked==true) return true;
+      setinvalidWithoutColor(document.getElementById('gender-radio-m'),'Must be selected');
+      return false;
+    }
+

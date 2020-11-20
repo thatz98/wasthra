@@ -8,14 +8,16 @@ class Orders extends Controller{
     function myOrders(){
         $this->view->title = 'My Orders';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> My Orders';
-
+        $this->view->qtyList =  $this->model->getAllDetails();
+        $this->view->imageList =  $this->model->getImages();
     	$this->view->render('order/index');
     }
 
     function myOrderDetails(){
         $this->view->title = 'My Order Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'orders/myOrders">My Orders</a> <i class="fas fa-angle-right"></i>My Order Details';
-
+        $this->view->qtyList =  $this->model->getAllDetails();
+        $this->view->imageList =  $this->model->getImages();
     	$this->view->render('order/order_details');
     }
 
