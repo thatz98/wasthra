@@ -76,11 +76,13 @@
                 <div>
                     <h4><?php echo $qty['product_name'];?></h4>
                     <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
+                    <?php 
+                            for($j = 0; $j < ceil($qty['review_rate']); $j++){
+                                echo '<i class="fa fa-star"></i>';
+                            }
+                            for($j = 0; $j < (5 - ceil($qty['review_rate'])); $j++){
+                                echo '<i class="fa fa-star-o"></i>';
+                            }?>
                     </div>
                     <p>LKR <?php echo $qty['product_price'];?></p>
                 </div>
@@ -145,11 +147,13 @@
                 <div>
                     <h4><?php echo $qty['product_name'];?></h4>
                     <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
+                    <?php 
+                            for($j = 0; $j < ceil($qty['review_rate']); $j++){
+                                echo '<i class="fa fa-star"></i>';
+                            }
+                            for($j = 0; $j < (5 - ceil($qty['review_rate'])); $j++){
+                                echo '<i class="fa fa-star-o"></i>';
+                            }?>
                     </div>
                     <p>LKR <?php echo $qty['product_price'];?></p>
                 </div>

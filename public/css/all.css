@@ -499,6 +499,7 @@ h3{
     font-size: 10px;
     color: #ff523b;
     padding-bottom: 7px;
+    margin: 0 3px 0 0;
 }
 
 .small-container{
@@ -882,6 +883,9 @@ table{
 
 }
 
+p.price{
+    margin: 0;
+}
 .table-container{
     margin-top: 20px;
     min-height: 400px;

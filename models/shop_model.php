@@ -34,11 +34,12 @@ class Shop_Model extends Model{
 
     function getAllDetails(){
         
-        return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
-		FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
-        
-        INNER JOIN category on category.category_id=product.category_id
-        INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
+        return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,AVG(review.rate) AS review_rate 
+        FROM product 
+        INNER JOIN inventory ON product.product_id=inventory.product_id 
+        INNER JOIN category on category.category_id=product.category_id 
+        INNER JOIN price_category on price_category.price_category_id=product.price_category_id 
+        LEFT JOIN review on review.product_id=product.product_id GROUP BY product_id;");
     }
 
     function getAllDetailsBy($field,$value){
