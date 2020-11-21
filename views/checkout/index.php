@@ -47,7 +47,12 @@
                     <div class="row">
                     <div class="col-3">
                     <label>Location : </label><br>
-                            <div id="map" name="location"></div><br>
+                            <div id="map" name="location">
+                            <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4321638056863!2d80.06114251398914!3d6.716999922749031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24b2a184e0ac7%3A0x10a5ca84af51cc59!2sHORANA%20BUS%20STAND!5e0!3m2!1sen!2slk!4v1605302096473!5m2!1sen!2slk"
+                        width="80%" height="150" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
+                            </div><br>
                         </div>
                     
                     <div class="col-3">
