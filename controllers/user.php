@@ -67,6 +67,8 @@ class User extends Controller{
         $data['prev_user_type'] = $_POST['prev_user_type'];
         $data['login_id'] = $_POST['login_id'];
         
+        
+        
         if(!$this->model->checkExistsWhere($data['username'],$data['login_id'])){
             $this->model->update($data);
             header('location: '.URL.'user');

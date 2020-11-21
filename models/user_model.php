@@ -73,6 +73,7 @@ class User_Model extends Model{
                     'contact_no' => $data['contact_no']),"user_id = '{$data['user_id']}'");
         
                     $this->db->update('login',array('user_status' => $data['user_status'],'username' => $data['username']),"login_id = '{$data['login_id']}'");
+
             
         } else{    
             $this->db->insert($data['user_type'],array(
@@ -86,7 +87,7 @@ class User_Model extends Model{
 
             $this->db->update('login',array('user_type' => $data['user_type'],'user_status' => $data['user_status'],'username' => $data['username']),"login_id = '{$data['login_id']}'");
 
-            $this->db->update($data['prev_user_type'],array('is_deleted' => 'yes'),"user_id = '{$data['user_id']}'");
+            $this->db->delete($data['prev_user_type'],"user_id = '{$data['user_id']}'");
         }
         
         
