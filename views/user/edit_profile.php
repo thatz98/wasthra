@@ -40,7 +40,7 @@
                         <label>Email</label><br>
                         <input type="text" name="email" data-helper="First Name"
                             value="<?php echo Session::get('userData')['email'] ?>" onfocusout="validateEmail()"
-                            id="email">
+                            id="email" disabled>
                         <span class="popuptext"></span>
                     </div>
                 </div>

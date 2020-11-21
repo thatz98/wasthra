@@ -12,9 +12,9 @@
                             <label>First Name : </label><br><input type="text" name="first_name" value="<?php echo $this->user[0]['first_name'] ?>"><br>
                             <label>Mobile Number : </label><br><input type="text" name="contact_no" value="<?php echo $this->user[0]['contact_no'] ?>"><br>
                             <label>User Type : </label><br><select name="user_type">
-                              <option value="customer" <?php if($this->user[0]['user_type']=='customer') echo "selected=\"selected\"";?>>Customer</option>
+                              
                               <option value="admin" <?php if($this->user[0]['user_type']=='admin') echo "selected=\"selected\"";?>>Admin</option>
-                              <option value="owner" <?php if($this->user[0]['user_type']=='owner') echo "selected=\"selected\"";?>>Owner</option>
+                              
                               <option value="delivery_staff" <?php if($this->user[0]['user_type']=='delivery_staff') echo "selected=\"selected\"";?>>Delivery</option>
                         </select><br>
                         <label>User Status : </label><br><select name="user_status" value="<?php echo $this->user[0]['user_status'] ?>">
@@ -27,7 +27,7 @@
                         <div class="col-2 pad-l-55" >
                             <label>Last Name : </label><br><input type="text" name="last_name" value="<?php echo $this->user[0]['last_name'] ?>"><br>
                         
-                        <label>Email : </label><br><input type="email" name="email" value="<?php echo $this->user[0]['email'] ?>"><br>
+                        <label>Email : </label><br><input type="email" name="email" value="<?php echo $this->user[0]['email'] ?>" disabled><br>
                         
                         <label>Gender : </label><br><select name="gender" value="<?php echo $this->user[0]['gender'] ?>">
                               <option value="male" <?php if($this->user[0]['gender']=='male') echo "selected=\"selected\"";?>>Male</option>
