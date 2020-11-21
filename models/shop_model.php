@@ -44,25 +44,31 @@ class Shop_Model extends Model{
 
     function getAllDetailsBy($field,$value){
         if($field=='color'){
-            return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
+            return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,AVG(review.rate) AS review_rate 
             FROM product INNER JOIN inventory ON product.product_id=inventory.product_id  
             INNER JOIN category on category.category_id=product.category_id
             INNER JOIN price_category on price_category.price_category_id=product.price_category_id
             INNER JOIN product_colors on product_colors.product_id=product.product_id
-            WHERE product_colors.colors='$value';");
+            LEFT JOIN review on review.product_id=product.product_id GROUP BY product_id
+            WHERE product_colors.colors='$value'
+            GROUP BY product_id;");
         } else if($field=='size'){
-            return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
+            return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,AVG(review.rate) AS review_rate 
             FROM product INNER JOIN inventory ON product.product_id=inventory.product_id  
             INNER JOIN category on category.category_id=product.category_id
             INNER JOIN price_category on price_category.price_category_id=product.price_category_id
             INNER JOIN product_size on product_size.product_id=product.product_id
-            WHERE product_size.sizes='$value';");
+            LEFT JOIN review on review.product_id=product.product_id GROUP BY product_id
+            WHERE product_size.sizes='$value';
+            GROUP BY product_id");
         } else if($field=='category'){
-            return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
+            return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,AVG(review.rate) AS review_rate 
             FROM product INNER JOIN inventory ON product.product_id=inventory.product_id  
             INNER JOIN category on category.category_id=product.category_id
             INNER JOIN price_category on price_category.price_category_id=product.price_category_id
-            WHERE category.name='$value';");
+            LEFT JOIN review on review.product_id=product.product_id
+            WHERE category.name='$value'
+            GROUP BY product_id;");
         }
         
     }
