@@ -33,8 +33,11 @@
               <h4 class="data-val">Not set - <a href="#add-new-address">Add new</a></h4><br>
             <?php } else{
               ?><h4 class="data-val"><?php echo Session::get('addressData')['address_line_1'].', '.Session::get('addressData')['address_line_2'].', '.Session::get('addressData')['address_line_3'];?></h4><br>
-           <?php } }?>
-              
+           <?php } } else{?>
+            <label class="field">User Type</label><br>
+            
+              <h4 class="data-val"><?php echo Session::get('userType');?></h4><br>
+           <?php }?>
       </div>
             </div>
             
