@@ -6,7 +6,7 @@
             <div class="row">
 
             <?php $count=0;
-                foreach($this->qtyList as $qty){
+                foreach($this->wishlistqtyList as $qty){
                     if(Session::get('userId')==$qty['user_id']){
                     if($qty['is_featured']=='yes' || $qty['is_new']=='yes'){
                         $count++;?>
@@ -15,7 +15,7 @@
                 <div class="content">
                         <div class="content-overlay"></div>
 
-                        <?php foreach ($this->imageList as $image){
+                        <?php foreach ($this->wishlistimageList as $image){
                         if($qty['product_id']==$image['product_id']){?>
                             <img src="<?php echo URL.$image['image']?>">
                             <?php break;
