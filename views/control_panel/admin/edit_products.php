@@ -74,12 +74,12 @@
                             foreach ($this->allSizes as $item) {
                                 if(in_array($item,$this->sizes)){?>
                                 <div class="checkboxes">
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><span class="custom-size"><?php echo $item?></span>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><span class="custom-size"><?php echo rtrim($item,"-G")?></span>
                                     </div><?php
                                 } else{
                                     ?>
                                     <div class="checkboxes">
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><span class="custom-size"><?php echo $item?></span>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><span class="custom-size"><?php echo rtrim($item,"-G")?></span>
                                     </div><?php
                                 }
                             } ?>
@@ -90,12 +90,12 @@
                             foreach ($this->allSizes as $item) {
                                 if(in_array($item,$this->sizes)){?>
                                 <div class="checkboxes">
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><span class="custom-size"><?php echo $item?></span>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>" checked><span class="custom-size"><?php echo rtrim($item,"-W")?></span>
                                     </div><?php
                                 } else{
                                     ?>
                                     <div class="checkboxes">
-                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><span class="custom-size"><?php echo $item?></span>
+                                    <input type="checkbox" name="size[]" value="<?php echo $item?>"><span class="custom-size"><?php echo rtrim($item,"-W")?></span>
                                     </div>
                                     <?php
                                 }
