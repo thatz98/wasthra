@@ -49,7 +49,7 @@ class Shop_Model extends Model{
             INNER JOIN category on category.category_id=product.category_id
             INNER JOIN price_category on price_category.price_category_id=product.price_category_id
             INNER JOIN product_colors on product_colors.product_id=product.product_id
-            LEFT JOIN review on review.product_id=product.product_id GROUP BY product_id
+            LEFT JOIN review on review.product_id=product.product_id
             WHERE product_colors.colors='$value'
             GROUP BY product_id;");
         } else if($field=='size'){
@@ -58,7 +58,7 @@ class Shop_Model extends Model{
             INNER JOIN category on category.category_id=product.category_id
             INNER JOIN price_category on price_category.price_category_id=product.price_category_id
             INNER JOIN product_size on product_size.product_id=product.product_id
-            LEFT JOIN review on review.product_id=product.product_id GROUP BY product_id
+            LEFT JOIN review on review.product_id=product.product_id
             WHERE product_size.sizes='$value';
             GROUP BY product_id");
         } else if($field=='category'){
