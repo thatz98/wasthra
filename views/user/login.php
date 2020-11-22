@@ -91,8 +91,18 @@
                                 <div class="forget-password">
                                     <a href="#forgotPassword">Forgot Password?</a>
                                 </div>
+                                <div class="social-login">
+                        <div class="row">
+                           <small>Or, Login with</small>
+                        </div>
+                        <div class="row" style="justify-content: center;">
+                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
+                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
+                        </div>
+                        </div>
                             </form>
                         </div>
+                        
                     </div>
                     <div class="sub-cont">
                         <div class="img">
@@ -173,7 +183,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-3" style="margin-bottom: 0;">
                                             <div class="helper-text">
                                                 <label>Gender</label><br>
                                                 <div class="radio-container" id="gender-radio"><input type="radio"
@@ -200,6 +210,15 @@
 
 
                                     <button type="submit" class="btn">Sign Up</button>
+                                    <div class="social-login">
+                        <div class="row">
+                           <small>Or, Signup with</small>
+                        </div>
+                        <div class="row" style="justify-content: center;">
+                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
+                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
+                        </div>
+                        </div>
                                 </form>
                             </div>
                         </div>
@@ -260,6 +279,17 @@
                             <button type="submit" class="btn" style="margin-bottom: 10px;">Login</button>
                             <div class="forget-password">
                                 <a href="#forgotPassword">Forgot Password?</a>
+                            </div>
+                            <div class="row">
+                            <div class="social-login">
+                        <div class="row">
+                           <small>Or, Login with</small>
+                        </div>
+                        <div class="row" style="justify-content: center;">
+                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
+                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
+                        </div>
+                        </div>
                             </div>
                         </form>
 
@@ -334,6 +364,7 @@
                                                 <span class="popuptext"></span>
                                             </div>
                                         </div>
+                                    </div>
                                     <div class="row">
 
                                         <div class="col-3">
@@ -388,7 +419,19 @@
 
                                 </div>---->
                             </div>
-                            <button type="submit" class="btn">Sign Up</button>
+                            <div class="row"><button type="submit" class="btn">Sign Up</button></div>
+                            
+                            <div class="row">
+                            <div class="social-login">
+                        <div class="row">
+                           <small>Or, Signup with</small>
+                        </div>
+                        <div class="row" style="justify-content: center;">
+                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
+                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
+                        </div>
+                        </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -403,14 +446,14 @@
     var formContianer = document.getElementById("mobile-form-container");
 
     function register() {
-        formContianer.style.height = "830px";
+        formContianer.style.height = "900px";
         regFormPane.style.transform = "translateX(-300px)";
         loginFormPane.style.transform = "translateX(-300px)";
         indicator.style.transform = "translateX(100px)";
     }
 
     function login() {
-        formContianer.style.height = "400px";
+        formContianer.style.height = "470px";
         regFormPane.style.transform = "translateX(0px)";
         loginFormPane.style.transform = "translateX(0px)";
         indicator.style.transform = "translateX(0px)";
