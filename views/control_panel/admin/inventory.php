@@ -13,8 +13,8 @@
         <tr>
             <th>Product ID</th>
             <th>Quantity</th>
-            <th>Reorder Quantity</th>
             <th>Reorder Level</th>
+            <th>Reorder Quantity</th>
             <th>Option</th>
             
         </tr>

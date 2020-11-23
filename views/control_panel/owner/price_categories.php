@@ -9,13 +9,13 @@
             <form action="<?php echo URL; ?>priceCategories/create" id="addFrom" class="hidden-form" method="post">
    
                     <div class="row-top">                            
-                            <div class="col-4 pad-30-0-0-85">
-                                <label>Price Category ID : </label><br><input type="text" name="category_id" id="category_id" ><br><br>                            
-                                <label>Production Cost : </label><br><input type="text" name="production_cost" id="production_cost" placeholder="LKR"><br>
+                            <div class="col-3">
+                                <label>Price Category ID</label><br><input type="text" name="category_id" id="category_id" ><br><br>                            
+                                <label>Production Cost</label><br><input type="text" name="production_cost" id="production_cost" placeholder="LKR"><br>
                             </div>
-                            <div class="col-4 pad-30-0-0-85">
-                                <label>Price Category Name: </label><br><input type="text" name="category_name"  id="category_name"><br><br>
-                                <label>Additional Market Price: </label><br><input type="text" name="market_price" id="market_price" placeholder="LKR"><br>  
+                            <div class="col-3">
+                                <label>Price Category Name</label><br><input type="text" name="category_name"  id="category_name"><br><br>
+                                <label>Additional Market Price</label><br><input type="text" name="market_price" id="market_price" placeholder="LKR"><br>  
                             </div>
 
                            <script type="text/javascript">
@@ -34,8 +34,8 @@
                                 <span onclick="calculateRetail()" class="btn btn-grey">Calculate Retail Price</span>
                         </div>
 
-                        <div class="center-content">
-                                <label>Reatil Price : LKR </label><br>
+                        <div class="center-content" style="margin-bottom: 20px;">
+                                <label>Reatil Price : LKR&nbsp;</label><br>
                                 <div id="retail-display">
                                     
                                 </div><br>
@@ -50,7 +50,7 @@
                         </div>
                         
                         <div class="center-content">
-                                <label>Net Price : LKR</label><br>
+                                <label>Net Price : LKR&nbsp;</label><br>
                                 <div id="net-display">
 
                                 </div><br>

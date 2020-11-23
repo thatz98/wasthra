@@ -165,8 +165,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-3">
-                                            <label>Password</label><br>
+                                            
                                             <div class="helper-text">
+                                            <label>Password</label><br>
                                                 <input type="password" name="password" data-helper="Password"
                                                     onfocusout="validatePassword()" id="password">
                                                 <span class="popuptext"></span>
