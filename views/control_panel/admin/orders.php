@@ -31,7 +31,7 @@
         <div class="col-3 fit-size">
             <div class="min-card">
                 <div class="row">
-                    <h3>Pending Deliveries</h3>
+                    <h3>Pending Returns</h3>
                 </div>
                 <div class="row">
                     <h1>3420</h1>
