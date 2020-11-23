@@ -37,18 +37,18 @@
                         <div class="row-top">
                             <div class="col-2">
                             <input type="text" name="prev_id" value="<?php echo $this->product['product_id']?>" style="display:none">
-                            <label>Product ID : </label><br><input type="text" name="product_id" value="<?php echo $this->product['product_id'] ?>" ><br>
+                            <label>Product ID</label><br><input type="text" name="product_id" value="<?php echo $this->product['product_id'] ?>" ><br>
                             
-                            <label>Product Name : </label><br><input type="text" name="product_name" value="<?php echo $this->product['product_name'] ?>"><br>
-                            <label>Product Category : </label><br><select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
+                            <label>Product Name</label><br><input type="text" name="product_name" value="<?php echo $this->product['product_name'] ?>"><br>
+                            <label>Product Category</label><br><select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
                             <?php foreach ($this->product_category as $category): ?><option value="<?php echo $category['name']; ?>" <?php if($this->product['category_id']==$category['category_id']){echo "selected=\"selected\""; $this->selectedCat=$category['name'];}?>><?php echo $category['name'];?></option> <?php endforeach;?>
 
                         </select><br>
-                        <label>Quantity : </label><br><input type="text" name="quantity" value="<?php foreach ($this->quantity as $qty): ?><?php if($qty['product_id']==$this->product['product_id']){echo $qty['qty'];}?><?php endforeach;?>"><br>
+                        <label>Quantity</label><br><input type="text" name="quantity" value="<?php foreach ($this->quantity as $qty): ?><?php if($qty['product_id']==$this->product['product_id']){echo $qty['qty'];}?><?php endforeach;?>"><br>
                         
                         
                         <div id="size-field" <?php if($this->selectedCat=='Couple') echo 'hidden';?>>
-                            <label>Available Sizes : </label><br>
+                            <label>Available Sizes</label><br>
                             <?php $this->allSizes=array('XS','S','M','L','XL');
                             //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
@@ -68,7 +68,7 @@
                             <br>
                             </div>
                             <div id="size-field-couple" <?php if($this->selectedCat!='Couple') echo 'hidden';?>>
-                            <label>Available Sizes Couple Gents : </label><br>
+                            <label>Available Sizes Couple Gents</label><br>
                             <?php $this->allSizes=array('XS-G','S-G','M-G','L-G','XL-G');
                             //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
@@ -84,7 +84,7 @@
                                 }
                             } ?>
                             <br>
-                            <label>Available Sizes Couple Ladies : </label><br>
+                            <label>Available Sizes Couple Ladies</label><br>
                             <?php $this->allSizes=array('XS-W','S-W','M-W','L-W','XL-W');
                             //$this->mySizes=array('S','M','L');
                             foreach ($this->allSizes as $item) {
@@ -102,7 +102,7 @@
                             } ?>
                             <br>
                             </div>
-                        <label>Published : </label><br><select name="is_published">
+                        <label>Published</label><br><select name="is_published">
                             <option value="yes" <?php if($this->product['is_published']=='yes') echo "selected=\"selected\"";?>>YES</option>
                             <option value="no"  <?php if($this->product['is_published']=='no') echo "selected=\"selected\"";?>>NO</option>
                         </select><br>
@@ -110,19 +110,19 @@
                         </div>
                         <div class="col-2">
 
-                        <label>Featured : </label><br><select name="is_featured">
+                        <label>Featured</label><br><select name="is_featured">
                             <option value="yes"  <?php if($this->product['is_featured']=='yes') echo "selected=\"selected\"";?>>YES</option>
                             <option value="no"  <?php if($this->product['is_featured']=='no') echo "selected=\"selected\"";?>>NO</option>
                         </select><br>
                         
-                        <label>New : </label><br><select name="is_new">
+                        <label>New</label><br><select name="is_new">
                             <option value="yes"  <?php if($this->product['is_new']=='yes') echo "selected=\"selected\"";?>>YES</option>
                             <option value="no"  <?php if($this->product['is_new']=='no') echo "selected=\"selected\"";?>>NO</option>
                         </select><br>
                         
                         
                         
-                            <label>Colors : </label><br><input type="text" name="colors" value="<?php $colorString='';
+                            <label>Colors</label><br><input type="text" name="colors" value="<?php $colorString='';
                             foreach ($this->product_colors as $color){
                                 if($this->product['product_id']==$color['product_id']){
                                     $colorString .= $color['colors']; 
@@ -131,12 +131,12 @@
                                 }
                                 echo rtrim($colorString,",");  
                                 ?>"><br>
-                            <label>Price Category : </label><br><select name="price_category">
+                            <label>Price Category</label><br><select name="price_category">
                             <?php foreach ($this->price_category as $price): ?><option value="<?php echo $price['price_category_name']; ?>" <?php if($this->product['price_category_id']==$price['price_category_id']) echo "selected=\"selected\"";?>><?php echo $price['price_category_name']; ?></option> <?php endforeach;?>
 </select>
 
                             <br>
-                            <label>Description : </label><br>
+                            <label>Description</label><br>
                             <textarea rows="6" cols="20" name="product_description" style="width: 80%;"><?php echo $this->product['product_description'] ?></textarea><br>
 
                         </div>

@@ -9,12 +9,12 @@
             <form action="<?php echo URL; ?>user/editSave/<?php echo $this->user[0]['user_id'] ?>" id="editFrom"
                 method="post">
                 <div class="row-top">
-                    <div class="col-2 pad-l-55">
-                        <label>First Name : </label><br><input type="text" name="first_name"
+                    <div class="col-2">
+                        <label>First Name</label><br><input type="text" name="first_name"
                             value="<?php echo $this->user[0]['first_name'] ?>"><br>
-                        <label>Mobile Number : </label><br><input type="text" name="contact_no"
+                        <label>Mobile Number</label><br><input type="text" name="contact_no"
                             value="<?php echo $this->user[0]['contact_no'] ?>"><br>
-                        <label>User Type : </label><br><select name="user_type" <?php if($this->user[0]['user_type']=='owner') echo 'disabled';?>>
+                        <label>User Type</label><br><select name="user_type" <?php if($this->user[0]['user_type']=='owner') echo 'disabled';?>>
                             <option value="customer"
                                 <?php if($this->user[0]['user_type']=='customer') echo "selected=\"selected\"";?>>
                                 Customer</option>
@@ -27,7 +27,7 @@
                                 Delivery</option>
                         </select><br>
                         <?php if($this->user[0]['user_type']=='owner') echo '<input type="text" name="user_type" value="owner" hidden>';?>
-                        <label>User Status : </label><br><select name="user_status"
+                        <label>User Status</label><br><select name="user_status"
                             value="<?php echo $this->user[0]['user_status'] ?>">
                             <option value="new"
                                 <?php if($this->user[0]['user_status']=='new') echo "selected=\"selected\"";?>>New
@@ -43,14 +43,14 @@
                                 Retired</option>
                         </select><br>
                     </div>
-                    <div class="col-2 pad-l-55">
-                        <label>Last Name : </label><br><input type="text" name="last_name"
+                    <div class="col-2">
+                        <label>Last Name</label><br><input type="text" name="last_name"
                             value="<?php echo $this->user[0]['last_name'] ?>"><br>
 
-                        <label>Email : </label><br><input type="email" name="email"
+                        <label>Email</label><br><input type="email" name="email"
                             value="<?php echo $this->user[0]['email'] ?>"><br>
 
-                        <label>Gender : </label><br><select name="gender"
+                        <label>Gender</label><br><select name="gender"
                             value="<?php echo $this->user[0]['gender'] ?>">
                             <option value="male"
                                 <?php if($this->user[0]['gender']=='male') echo "selected=\"selected\"";?>>Male</option>

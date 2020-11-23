@@ -21,9 +21,12 @@
                     </div>
                 </div>
                 <div class="row">
-                <label>Comments</label><br><br>
-
-<textarea name="" id="" cols="30" rows="10"></textarea>
+                <div class="col-2">
+                <label>Comments</label>
+                </div>
+                </div>
+                <div class="row">
+                <textarea name="" id="" cols="20" rows="5"></textarea>
                 </div>
                 <div class="row">
                     <button type="submit" class="btn">Update</button>

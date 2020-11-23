@@ -13,11 +13,11 @@
             <button class="btn btn-square" onclick="formToggle()">+ Add New Delivery Charge</button>
             <form action="<?php echo URL; ?>deliveryCharges/create" id="addFrom" class="hidden-form" method="post">
                         <div class="row-top">
-                            <div class="col-3 pad-30-0-0-85">
-                                  <label>City : </label><br><input type="text" name="city"><br>
+                            <div class="col-3">
+                                  <label>City</label><br><input type="text" name="city"><br>
                            </div>
-                           <div class="col-3 pad-30-0-0-85">
-                                  <label>Delivery Fee : </label><br><input type="text" name="delivery_fee"><br>
+                           <div class="col-3">
+                                  <label>Delivery Fee</label><br><input type="text" name="delivery_fee"><br>
             
                            </div>
                         </div>

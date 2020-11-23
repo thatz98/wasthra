@@ -8,15 +8,15 @@
         <div class="form-container" >
             <form action="<?php echo URL; ?>inventory/editSave/" id="editFrom" method="post">
                         <div class="row">
-                            <div class="col-2 pad-l-55">
+                            <div class="col-2">
                             <input type="text" name="product_id" value="<?php echo $this->getInventory['product_id']?>" hidden>   
-                            <label>Reorder Level : </label><br>
+                            <label>Reorder Level</label><br>
                             <input type="text" name="reorder_level"  value="<?php echo $this->getInventory['reorder_level'] ?>"><br><br>
                            
                     
                         </div>
-                        <div class="col-2 pad-l-55" >
-                            <label>Reorder Quantity : </label><br><input type="text" name="reorder_quantity" id="category_name" value="<?php echo $this->getInventory['reorder_qty'] ?>"><br><br>
+                        <div class="col-2" >
+                            <label>Reorder Quantity</label><br><input type="text" name="reorder_quantity" id="category_name" value="<?php echo $this->getInventory['reorder_qty'] ?>"><br><br>
                         
                         </div>
                     </div>

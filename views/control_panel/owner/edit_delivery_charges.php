@@ -11,16 +11,16 @@
             <form action="<?php echo URL; ?>deliveryCharges/editSave/" id="editFrom" method="post">
                         <div class="row">
 
-                            <div class="col-2 pad-l-55">
+                            <div class="col-2">
 
                               <input type="text" name="prev_city" value="<?php echo $this->getcharges['city']?>" style="display:none">   
-                              <label>City : </label><br><input type="text" name="city" id="city" value="<?php echo $this->getcharges['city'] ?>"><br><br>
+                              <label>City</label><br><input type="text" name="city" id="city" value="<?php echo $this->getcharges['city'] ?>"><br><br>
                            
                            </div>
 
-                            <div class="col-2 pad-l-55" >
+                            <div class="col-2" >
 
-                              <label>Delivery Fee : </label><br><input type="text" name="delivery_fee" id="delivery_fee" value="<?php echo $this->getcharges['delivery_fee'] ?>"><br><br>
+                              <label>Delivery Fee</label><br><input type="text" name="delivery_fee" id="delivery_fee" value="<?php echo $this->getcharges['delivery_fee'] ?>"><br><br>
                         
                            </div>
 

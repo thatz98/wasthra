@@ -15,6 +15,14 @@
 </select>
                     </div>
                     <div class="row">
+                <div class="col-2">
+                <label>Comments</label>
+                </div>
+                </div>
+                <div class="row">
+                <textarea name="" id="" cols="20" rows="5"></textarea>
+                </div>
+                    <div class="row">
                     <button type="submit" class="btn">Submit</button>
                 </div>
                     </form>

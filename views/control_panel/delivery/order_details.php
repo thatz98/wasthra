@@ -12,7 +12,7 @@
                 <h3>Items</h3>
                 <table class="order-list order-items">
                     <tr>
-                        <td><img src="<?php echo URL ?>public/images/product-1.jpg"></td>
+                        <td><img src="<?php echo URL ?>public/images/products/product_img_3.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -24,7 +24,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><img src="<?php echo URL ?>public/images/product-2.jpg"></td>
+                        <td><img src="<?php echo URL ?>public/images/products/product_img_4.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -36,7 +36,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><img src="<?php echo URL ?>public/images/product-3.jpg"></td>
+                        <td><img src="<?php echo URL ?>public/images/products/product_img_5.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>

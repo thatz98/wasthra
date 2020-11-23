@@ -52,20 +52,20 @@
                         </div>  
                         <div class="row-top">
                             <div class="col-3">
-                            <label>Product ID : </label><br><input type="text" name="product_id"><br>
+                            <label>Product ID</label><br><input type="text" name="product_id"><br>
                             
-                            <label>Product Name : </label><br><input type="text" name="product_name"><br>
-<label>Product Category : </label><br><select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
+                            <label>Product Name</label><br><input type="text" name="product_name"><br>
+<label>Product Category</label><br><select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
                             <?php foreach ($this->categoryList as $category): ?><option value="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></option> <?php endforeach;?>
                             <!-- <option value="ladies">Ladies</option>
                             <option value="couple">Couple</option> -->
                         </select><br>
-                        <label>Quantity : </label><br><input type="text" name="quantity"><br>
+                        <label>Quantity</label><br><input type="text" name="quantity"><br>
                         
                         </div>
                         <div class="col-3">
                             <div id="size-field">
-                            <label>Available Sizes : </label><br>
+                            <label>Available Sizes</label><br>
                             <div class="checkboxes">
                                 <input type="checkbox" name="size[]" value="XS"><span>XS</span>
                             </div>
@@ -84,7 +84,7 @@
                             <br>
                             </div>
                             <div id="size-field-couple" hidden>
-                            <label>Available Sizes for Couple Gents: </label><br>
+                            <label>Available Sizes for Couple Gents</label><br>
                             <div class="checkboxes">
                                 <input type="checkbox" name="size[]" value="XS-G"><span>XS</span>
                             </div>
@@ -102,7 +102,7 @@
                             </div>
                             <br>
                             
-                            <label>Available Sizes for Couple Ladies: </label><br>
+                            <label>Available Sizes for Couple Ladies</label><br>
                             <div class="checkboxes">
                                 <input type="checkbox" name="size[]" value="XS-W"><span>XS</span>
                             </div>
@@ -120,31 +120,31 @@
                             </div>
                             <br>
                             </div>
-                        <label>Published : </label><br><select name="is_published">
+                        <label>Published</label><br><select name="is_published">
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
                         
                         
                         
-                        <label>Featured : </label><br><select name="is_featured">
+                        <label>Featured</label><br><select name="is_featured">
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
                         
-                        <label>New : </label><br><select name="is_new">
+                        <label>New</label><br><select name="is_new">
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
                         
                         </div>
                         <div class="col-3">
-                            <label>Colors : </label><br><input type="text" name="colors"><br>
-                            <label>Price Category : </label><br><select name="price_category">
+                            <label>Colors</label><br><input type="text" name="colors"><br>
+                            <label>Price Category</label><br><select name="price_category">
                             <?php foreach ($this->pricecategoryList as $priceCategory): ?><option value="<?php echo $priceCategory['price_category_name']; ?>"><?php echo $priceCategory['price_category_name']; ?></option> <?php endforeach;?>
                             </select><br>
                             
-                            <label>Description : </label><br>
+                            <label>Description</label><br>
                             <textarea rows="6" cols="30" name="product_description"></textarea><br>
 
                         </div>
