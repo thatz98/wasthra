@@ -22,7 +22,7 @@
                                 <h5 style="color: #04CBE0"> 24/05/2020</h5>
                               </div>
                             </td>
-                           <td><a href="#" class="btn table-btn">View Details</a></td>
+                           <td><a href="<?php echo URL;?>orders/historyDetails" class="btn table-btn">View Details</a></td>
                        </tr>
                        <tr>
                            <td><img src="public/images/product-2.jpg"></td>
@@ -32,7 +32,7 @@
                             <td class="order-messages"><h4>Message </h4>
                             <h5>Message</h5>
                             <h5>message</h5></td>
-                           <td><a href="#" class="btn table-btn">View Details</a></td>
+                           <td><a href="<?php echo URL;?>orders/historyDetails" class="btn table-btn">View Details</a></td>
                        </tr>
                        <tr>
                            <td><img src="public/images/product-3.jpg"></td>
@@ -42,7 +42,7 @@
                             <td class="order-messages"><h4>Message </h4>
                             <h5>Message</h5>
                             <h5>message</h5></td>
-                           <td><a href="#" class="btn table-btn">View Details</a></td>
+                           <td><a href="<?php echo URL;?>orders/historyDetails" class="btn table-btn">View Details</a></td>
                        </tr>
                    </table>     
                     </div>
