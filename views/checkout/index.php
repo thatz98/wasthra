@@ -14,39 +14,39 @@
                     </div>
                     <div class="row">
                     <div class="col-3">
-                    <label>First Name : </label><br><input type="text" name="first_name" value="<?php echo Session::get('userData')['first_name']?>"><br>
+                    <label>First Name</label><br><input type="text" name="first_name" value="<?php echo Session::get('userData')['first_name']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>Last Name : </label><br><input type="text" name="last_name" value="<?php echo Session::get('userData')['last_name']?>"><br>
+                    <label>Last Name</label><br><input type="text" name="last_name" value="<?php echo Session::get('userData')['last_name']?>"><br>
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-3">
-                    <label>Address Line 1 : </label><br><input type="text" name="address_line_1" value="<?php echo Session::get('addressData')['address_line_1']?>"><br>
+                    <label>Address Line 1</label><br><input type="text" name="address_line_1" value="<?php if(isset(Session::get('addressData')['address_line_1'])) echo Session::get('addressData')['address_line_1']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>Address Line 2 : </label><br><input type="text" name="address_line_2" value="<?php echo Session::get('addressData')['address_line_2']?>"><br>
+                    <label>Address Line 2</label><br><input type="text" name="address_line_2" value="<?php if(isset(Session::get('addressData')['address_line_2'])) echo Session::get('addressData')['address_line_2']?>"><br>
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-3">
-                    <label>Address Line 3 : </label><br><input type="text" name="address_line_3" value="<?php echo Session::get('addressData')['address_line_3']?>"><br>
+                    <label>Address Line 3</label><br><input type="text" name="address_line_3" value="<?php if(isset(Session::get('addressData')['address_line_3'])) echo Session::get('addressData')['address_line_3']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>City : </label><br><input type="text" name="city" value="<?php echo Session::get('addressData')['city']?>"><br>
+                    <label>City</label><br><input type="text" name="city" value="<?php if(isset(Session::get('addressData')['city']))echo Session::get('addressData')['city']?>"><br>
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-3">
-                    <label>Postal Code : </label><br><input type="text" name="postal_code" value="<?php echo Session::get('addressData')['postal_code']?>"><br>
+                    <label>Postal Code</label><br><input type="text" name="postal_code" value="<?php if(isset(Session::get('addressData')['postal_code']))echo Session::get('addressData')['postal_code']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>Contact Number : </label><br><input type="text" name="contact_no" value="<?php echo Session::get('userData')['contact_no']?>"><br>
+                    <label>Contact Number</label><br><input type="text" name="contact_no" value="<?php echo Session::get('userData')['contact_no']?>"><br>
                     </div>
                     </div>
                     <div class="row">
-                    <div class="col-3">
-                    <label>Location : </label><br>
+                    <div class="col-3" style="min-width: unset;">
+                    <label>Location</label><br>
                             <div id="map" name="location">
                             <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4321638056863!2d80.06114251398914!3d6.716999922749031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24b2a184e0ac7%3A0x10a5ca84af51cc59!2sHORANA%20BUS%20STAND!5e0!3m2!1sen!2slk!4v1605302096473!5m2!1sen!2slk"
@@ -55,13 +55,27 @@
                             </div><br>
                         </div>
                     
-                    <div class="col-3">
-                    <label>Delivery Comments : </label><br><textarea rows="5" cols="22"
+                    <div class="col-3" style="min-width: unset;">
+                    <label>Delivery Comments</label><br><textarea rows="5" cols="22"
                                 name="delivery_comments">
          </textarea><br>
                     </div>
                     </div>
-                        
+                    <div class="row">
+                        <h3 class="mar-b-20">Payment Method</h3>
+                    </div>
+                    <div class="row">
+                    <div class="col-2">
+                                                <div class="radio-container" id="gender-radio-m">
+                                                   
+                                                    
+                                                    <input type="radio" id="online" name="payement_method" value="online">
+                                                    <label for="male-m">Online</label>
+                                                    <input type="radio" id="cash-on-delivery" name="payement_method" value="cashOnDelivery">
+                                                    <label for="female-m">Cash on Delivery</label>
+                                                </div>
+                    </div>
+                    </div>   
                     
 
                     <div class="center-content">
