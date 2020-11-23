@@ -40,7 +40,7 @@ class Search extends Controller{
             $this->view->selectedKeyword = $filters['keyword'];
         }
     	$this->view->title = 'Search Results';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop/search">Advanced Search</a> <i class="fas fa-angle-right"></i> Search Results';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'shop">Shop</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'search">Advanced Search</a> <i class="fas fa-angle-right"></i> Search Results';
         
 
         $this->view->qtyList =  $this->model->getAllDetailsByMultipleFilters($filters);

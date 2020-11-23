@@ -91,6 +91,9 @@
                     </div>
                 </div>
                 <div class="row">
+                <div class="col-2">
+                <span class="search-reset" onclick="$('input[name=search_color]').attr('checked',false);$('input[name=search_category]').attr('checked',false);$('input[name=search_size]').attr('checked',false);">Clear Search Filters</span></div></div>
+                <div class="row">
     <div class="col-2">
     <h4>Enter Keyword</h4><input type="search" name="keyword" value="<?php if(isset($this->selectedKeyword)){ echo $this->selectedKeyword;}?>">
     </div>
