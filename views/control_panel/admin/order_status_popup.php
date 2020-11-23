@@ -10,7 +10,7 @@
                             <label>Select the Status</label><br><br>
 
                             <select name="assigned_deliver">
-                                <?php $this->statuses=array('New','Assigned for delivery','In transit','Delivered','Delivery failed','Closed','Cancelled');
+                                <?php $this->statuses=array('New','Assigned for delivery','In transit','Out for Delivery','Delivered','Delivery failed','Closed','Cancelled');
                             foreach($this->statuses as $status){?>
                                 <option value="<?php echo $status;?>">
                                     <?php echo $status;?>
@@ -19,6 +19,11 @@
                             </select>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                <label>Comments</label><br><br>
+
+<textarea name="" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="row">
                     <button type="submit" class="btn">Update</button>
