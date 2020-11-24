@@ -1,5 +1,5 @@
 <?php require 'views/header.php'; ?>
-<script src="<?php echo URL ?>public/js/libs/maps.js"></script>
+
 <div class="small-container">
     <div class="row">
         <h2 class="title">Checkout</h2><br>
@@ -8,7 +8,7 @@
     <div class="row-top">
         <div class="col-60p">
             <div class="box-container">
-                <form action="<?php echo URL; ?>/checkout/create" id="editFrom" method="post">
+                <form action="<?php echo URL; ?>/checkout/pay" id="editFrom" method="post">
                     <div class="row">
                         <h3 class="mar-b-20">Delivery Details</h3>
                     </div>
@@ -69,10 +69,10 @@
                                                 <div class="radio-container" id="gender-radio-m">
                                                    
                                                     
-                                                    <input type="radio" id="online" name="payement_method" value="online">
-                                                    <label for="male-m">Online</label>
-                                                    <input type="radio" id="cash-on-delivery" name="payement_method" value="cashOnDelivery">
-                                                    <label for="female-m">Cash on Delivery</label>
+                                                    <input type="radio" id="online" name="payment_method" value="online" required>
+                                                    <label for="online">Online</label>
+                                                    <input type="radio" id="cash-on-delivery" name="payment_method" value="cashOnDelivery">
+                                                    <label for="cash-on-delivery">Cash on Delivery</label>
                                                 </div>
                     </div>
                     </div>   
@@ -82,6 +82,7 @@
                         <button type="submit" class="btn">Continue</button>
                         <a href="<?php echo URL ?>cart" class="btn btn-grey">Return</a>
                     </div>
+                    
                 </form>
                 </div>
                 </div>
@@ -118,21 +119,5 @@
 </div>
     </div>
 </div>
-
-
-
-<script type="text/javascript">
-let map;
-
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: {
-            lat: -34.397,
-            lng: 150.644
-        },
-        zoom: 8,
-    });
-}
-</script>
 
 <?php require 'views/footer.php'; ?>

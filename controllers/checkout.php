@@ -16,6 +16,16 @@ class Checkout extends Controller{
     	$this->view->render('checkout/index');
     }
 
+    function pay(){
+        $this->view->title = 'Payment';
+        if($_POST['payment_method']=='online'){
+            $this->view->render('checkout/payment');
+        } else{
+            $this->view->render('order/order_details');
+        }
+        
+    }
+
     function create(){
         $data = array();
     	$data['address_line_1'] = $_POST['address_line_1'];
