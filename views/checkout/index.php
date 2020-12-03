@@ -8,7 +8,7 @@
     <div class="row-top">
         <div class="col-60p">
             <div class="box-container">
-                <form action="<?php echo URL; ?>/checkout/pay" id="editFrom" method="post">
+                <form action="<?php echo URL; ?>/shop/pay" id="editFrom" method="post">
                     <div class="row">
                         <h3 class="mar-b-20">Delivery Details</h3>
                     </div>

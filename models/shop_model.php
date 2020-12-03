@@ -143,4 +143,47 @@ class Shop_Model extends Model{
         $this->db->update('review',array('is_deleted' => 'yes'), "review_id='$id'");
     }
 
+    function create($data){
+
+        $this->db->insert( 'delivery_address' , array(
+            'address_line_1' => $data['address_line_1'],
+            'address_line_2' => $data['address_line_2'],
+            'address_line_3' => $data['address_line_3'],
+            'city' => $data['city'],
+            'postal_code' => $data['postal_code'],
+            'user_id' => Session::get('userId')
+        ));
+    }
+
+    function placeOrder($date,$time,$orderID,$payMethod){
+        $this->db->insert( 'orders' , array(
+            'order_id' => $orderID,
+            'order_status' => 'new',
+            'is_deleted' => 'no',
+            'date' => $date,
+            'time' => $time, 
+        ));
+        
+        $this->db->insert( 'payment' , array(
+            'order_id' => $orderID,
+            'payment_method' => $payMethod,
+            'is_deleted' => 'no',
+            'payment_status' => 'successfull',
+        ));
+
+        $userId=Session::get('userId');
+        $cartId=$this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
+        $cartIdActual=$cartId[0][0];
+        $cartItems = $this->db->query("SELECT * FROM cart_item WHERE cart_item.cart_id='$cartIdActual'");
+        foreach ($cartItems as $item){
+            $this->db->insert( 'order_item' , array(
+                'order_id' => $orderID,
+                'product_id' => $item['product_id'],
+                'item_size' => $item['item_size'],
+                'item_qty' => $item['item_qty'],
+                'item_color' => $item['item_color'],
+                'is_deleted' => 'no', 
+            ));
+        }
+    }
 }
