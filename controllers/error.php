@@ -3,6 +3,7 @@
 class ErrorE extends Controller{
 
     function __construct(){
+        
         parent::__construct();   
     }
     
@@ -13,7 +14,9 @@ class ErrorE extends Controller{
      * @return void
      */
     function index($msg){
-    	$this->view->msg = "$msg";
+
+        $this->view->msg = "$msg";
+        
         $this->view->render('error/index');
     }
 }

@@ -3,6 +3,7 @@
 class DeliveryCharges extends Controller {
 
     function __construct() {
+
         parent::__construct();
     }
 
@@ -12,10 +13,13 @@ class DeliveryCharges extends Controller {
      * @return void
      */
     function index() {
+        
         $this->view->title = 'Delivery Charges';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i>Delivery Charges';
 
+        // get the list of delivery charges
         $this->view->deliverycharges = $this->model->listDeliveryCharges();
+
         $this->view->render('control_panel/owner/delivery_charges');
     }
 
@@ -31,6 +35,7 @@ class DeliveryCharges extends Controller {
         $data['delivery_fee'] = $_POST['delivery_fee'];
 
         $this->model->create($data);
+
         header('location: ' . URL . 'deliveryCharges');
     }
 
@@ -41,10 +46,13 @@ class DeliveryCharges extends Controller {
      * @return void
      */
     function edit($id) {
+
         $this->view->title = 'Delivery Charges';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'deliveryCharges">Delivery Charges</a> <i class="fas fa-angle-right"></i>Edit Delivery Charges';
 
+        // get delivery charge details for the given id
         $this->view->getcharges = $this->model->getDeliveryCharges($id);
+
         $this->view->render('control_panel/owner/edit_delivery_charges');
     }
 
@@ -61,6 +69,7 @@ class DeliveryCharges extends Controller {
         $data['delivery_fee'] = $_POST['delivery_fee'];
 
         $this->model->update($data);
+
         header('location: ' . URL . 'deliveryCharges');
     }
 
@@ -74,6 +83,7 @@ class DeliveryCharges extends Controller {
     function delete($id) {
 
         $this->model->delete($id);
+
         header('location:' . URL . 'deliveryCharges');
     }
 }

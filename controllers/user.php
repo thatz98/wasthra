@@ -3,7 +3,9 @@
 class User extends Controller {
 
     function __construct() {
+
         parent::__construct();
+        // restrict access only to admin and onwer
         Authenticate::adminAuth();
     }
 
@@ -13,21 +15,27 @@ class User extends Controller {
      * @return void
      */
     function index() {
+
         $this->view->title = 'Users';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Users';
+
+        // get number of new users
         $this->view->newUserCount = $this->model->userCount('new');
+        // get number of verified users
         $this->view->verifiedUserCount = $this->model->userCount('verified');
+        // get the userlist with their details
         $this->view->userList = $this->model->listUsers();
 
         $this->view->render('control_panel/admin/user');
     }
-    
+
     /**
      * Add new user
      *
      * @return void
      */
     function create() {
+
         $data = array();
         $data['first_name'] = $_POST['first_name'];
         $data['last_name'] = $_POST['last_name'];
@@ -39,6 +47,7 @@ class User extends Controller {
         $data['user_status'] = 'new';
         $data['user_type'] = $_POST['user_type'];
 
+        //check whether the user exists already
         if (!$this->model->checkExists($data['username'])) {
             $this->model->create($data);
             header('location: ' . URL . 'user');
@@ -46,7 +55,7 @@ class User extends Controller {
             header('location: ' . URL . 'user?error=usernameExists#message');
         }
     }
-    
+
     /**
      * Display edit user page
      *
@@ -55,23 +64,27 @@ class User extends Controller {
      * @return void
      */
     function edit($id, $type) {
+
         $this->view->title = 'Users';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'users">Users</a> <i class="fas fa-angle-right"></i>Edit User';
 
+        // get the particular user details to load to the edit form
         $this->view->user = $this->model->getUser($id, $type);
+        //if the action is performed by the admin and the corresponding user is the owner, deny the access
         if ($this->view->user[0]['user_type'] == 'owner' && Session::get('userType') != 'owner') {
             header('Location: ' . URL . 'user?error=accessDenied#message');
         } else {
             $this->view->render('control_panel/admin/edit_user');
         }
     }
-    
+
     /**
      * Update exisiting user details
      *
      * @return void
      */
     function editSave() {
+
         $data = array();
         $data['first_name'] = $_POST['first_name'];
         $data['last_name'] = $_POST['last_name'];
@@ -85,8 +98,7 @@ class User extends Controller {
         $data['prev_user_type'] = $_POST['prev_user_type'];
         $data['login_id'] = $_POST['login_id'];
 
-
-
+        // check whether the new email address already exists
         if (!$this->model->checkExistsWhere($data['username'], $data['login_id'])) {
             $this->model->update($data);
             header('location: ' . URL . 'user');
@@ -94,7 +106,7 @@ class User extends Controller {
             header('location: ' . URL . 'user?error=usernameExists#message');
         }
     }
-    
+
     /**
      * Delete exisiting user
      *
@@ -103,10 +115,17 @@ class User extends Controller {
      * @return void
      */
     function delete($id, $type) {
-        $this->model->delete($id, $type);
-        header('location: ' . URL . 'user');
+
+        $this->view->user = $this->model->getUser($id, $type);
+        //if the action is performed by the admin and the corresponding user is the owner, deny the access
+        if ($this->view->user[0]['user_type'] == 'owner' && Session::get('userType') != 'owner') {
+            header('Location: ' . URL . 'user?error=accessDenied#message');
+        } else {
+            $this->model->delete($id, $type);
+            header('location: ' . URL . 'user');
+        }
     }
-    
+
     /**
      * Load the data of a particular user
      *

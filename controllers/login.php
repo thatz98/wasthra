@@ -3,6 +3,7 @@
 class Login extends Controller {
 
     function __construct() {
+
         parent::__construct();
     }
 
@@ -12,6 +13,7 @@ class Login extends Controller {
      * @return void
      */
     function index() {
+
         $this->view->render('user/login');
     }
 
@@ -21,6 +23,7 @@ class Login extends Controller {
      * @return void
      */
     function cartRequireLogin() {
+
         $this->view->render('user/login');
     }
 
@@ -30,6 +33,7 @@ class Login extends Controller {
      * @return void
      */
     function run() {
+
         $this->model->run();
     }
 
@@ -39,8 +43,11 @@ class Login extends Controller {
      * @return void
      */
     function logout() {
+
         Session::destroy();
+
         header('location: ../');
+
         exit;
     }
 
@@ -51,8 +58,11 @@ class Login extends Controller {
      */
     function signup() {
 
+        // check whether the given email exists
         if (!$this->model->checkAccountExist($_POST['email'])) {
+            // generate a random string to be stored in the db to verify the user
             $token = $this->generateRandomString(97);
+
             $data = array();
             $data['first_name'] = $_POST['first_name'];
             $data['last_name'] = $_POST['last_name'];
@@ -67,6 +77,7 @@ class Login extends Controller {
 
             $this->model->signup($data);
 
+            // send the verification email
             if ($this->sendVerficationEmail($data['email'], $token)) {
                 header('location: ../login?success=signUp#message');
             } else {
@@ -82,13 +93,19 @@ class Login extends Controller {
      *
      * @param  mixed $to Email address of the new registered customer
      * @param  mixed $token Used to identify the user
-     * @return void
+     * @return bool
      */
     function sendVerficationEmail($to, $token) {
+
+        // create verifcation link
         $verificationUrl = '<a href="' . URL . 'login/verifyAccount/' . $to . '/' . $token . '">here</a>';
+        
+        // set email params
         $emailBody = 'Hi, <br>To verfiy your account, click ' . $verificationUrl;
         $subject = 'Verify Account';
         $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
+        
+        // check whether the mail has been sent or not
         if (mail($to, $subject, $emailBody, $header)) {
             return true;
         } else {
@@ -103,9 +120,14 @@ class Login extends Controller {
      * @return void
      */
     function resendVerificationEmail($username) {
+
+        // regenerate a token
         $token = $this->generateRandomString(97);
+        // update the token in the database
         $this->model->updateToken($username, $token);
+        // resend the verfication mail
         $this->sendVerficationEmail($username, $token);
+
         header('Location: ' . URL . 'login?success=resentVerification#message');
     }
 
@@ -117,8 +139,11 @@ class Login extends Controller {
      * @return void
      */
     function verifyAccount($username, $token) {
+
+        // verify with the token in the url against the database
         if ($this->model->checkVerifyToken($username, $token)) {
             $this->model->verifyAccount($username);
+
             header('Location: ' . URL . 'login?success=accountVerfied#message');
         } else {
             header('Location: ' . URL . 'login?error=incorrectToken#message');
@@ -131,10 +156,16 @@ class Login extends Controller {
      * @return void
      */
     function forgotPassword() {
+
         $username = $_POST['check_username'];
+
+        // check whether the user exists
         if ($this->model->checkAccountExist($username)) {
+            // generate a token
             $token = $this->generateRandomString(97);
+            // create a reacord in the pasword reset table
             $this->model->createRecord($username, $token);
+            // resend the verification email
             $this->sendResetPasswordEmail($username, $token);
         } else {
             // sleep for 2 seconds to mimic email sending duration
@@ -150,10 +181,15 @@ class Login extends Controller {
      * @return void
      */
     function sendResetPasswordEmail($to, $token) {
+
+        // create password reset link
         $resetUrl = '<a href="' . URL . 'login/resetPassword/' . $to . '/' . $token . '">here</a>';
+
+        //set email params
         $emailBody = 'Hi, </br>To reset your password, click ' . $resetUrl;
         $subject = 'Reset Password';
         $header = "From: group15s2202@gmail.com\r\nContent-Type: text/html;";
+        
         if (mail($to, $subject, $emailBody, $header)) {
             header('Location: ' . URL . 'login?success=resetLinkSent#message');
         } else {
@@ -169,8 +205,11 @@ class Login extends Controller {
      * @return void
      */
     function resetPassword($username, $token) {
+
+        // verify the token in thhe url against the database
         if ($this->model->checkToken($username, $token)) {
             $this->view->username = $username;
+
             $this->view->render('user/reset_password');
         } else {
             header('Location: ' . URL . 'login?error=incorrectToken#message');
@@ -183,6 +222,7 @@ class Login extends Controller {
      * @return void
      */
     function updatePassword() {
+
         $data = array();
         $data['username'] = $_POST['username'];
         $data['password'] = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
@@ -210,12 +250,15 @@ class Login extends Controller {
      * Generate a random string
      *
      * @param  mixed $length Length of the string that need to be generated
-     * @return void
+     * @return string
      */
     function generateRandomString($length = 10) {
+
+        // characters to be used to generate the string
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
+        
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }

@@ -3,7 +3,10 @@
 class PriceCategories extends Controller {
 
     function __construct() {
+
         parent::__construct();
+        // restrict access only to the owner
+
     }
 
     /**
@@ -12,10 +15,13 @@ class PriceCategories extends Controller {
      * @return void
      */
     function index() {
+        
         $this->view->title = 'Price Categories';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Price Categories';
 
+        // get the price category list
         $this->view->pricecatList = $this->model->listPricecat();
+
         $this->view->render('control_panel/owner/price_categories');
     }
 
@@ -26,6 +32,7 @@ class PriceCategories extends Controller {
      * @return void
      */
     function create() {
+
         $data = array();
         $data['price_category_id'] = $_POST['category_id'];
         $data['price_category_name'] = $_POST['category_name'];
@@ -35,6 +42,7 @@ class PriceCategories extends Controller {
 
 
         $this->model->create($data);
+
         header('location: ' . URL . 'priceCategories');
     }
 
@@ -46,10 +54,13 @@ class PriceCategories extends Controller {
      * @return void
      */
     function edit($id) {
+
         $this->view->title = 'Price Categories';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'priceCategories">Price Categories</a> <i class="fas fa-angle-right"></i>Edit Price Category';
 
+        // get category details of the given id
         $this->view->getpricecat = $this->model->getPriceCategory($id);
+
         $this->view->render('control_panel/owner/edit_price_categories');
     }
 
@@ -60,6 +71,7 @@ class PriceCategories extends Controller {
      * @return void
      */
     function editSave() {
+
         $data = array();
         $data['prev_id'] = $_POST['prev_id'];
         $data['price_category_id'] = $_POST['category_id'];
@@ -69,6 +81,7 @@ class PriceCategories extends Controller {
         $data['discount'] = $_POST['discount'];
 
         $this->model->update($data);
+
         header('location: ' . URL . 'priceCategories');
     }
 
@@ -80,7 +93,9 @@ class PriceCategories extends Controller {
      * @return void
      */
     function delete($id) {
+
         $this->model->delete($id);
+
         header('location: ' . URL . 'priceCategories');
     }
 }
