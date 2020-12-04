@@ -1,11 +1,17 @@
 <?php
 
 class ControlPanel extends Controller{
+    
     function __construct(){
         parent::__construct();
         Authenticate::staffAuth();
     }
-
+    
+    /**
+     * Display the control panel page based on the user type
+     *
+     * @return void
+     */
     function index(){
         $userType = Session::get('userType');
         $this->view->title = 'Home';

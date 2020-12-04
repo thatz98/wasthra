@@ -7,7 +7,12 @@ class PriceCategories extends Controller{
         parent::__construct();
     
     }
-
+    
+    /**
+     * Display the price category page
+     *
+     * @return void
+     */
     function index(){
         $this->view->title = 'Price Categories';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Price Categories';

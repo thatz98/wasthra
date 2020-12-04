@@ -1,13 +1,18 @@
 <?php
 
 class Cart extends Controller {
-
+    
     function __construct() {
         parent::__construct();
         Authenticate::handleLogin();
         Authenticate::customerOnly();
     }
-
+    
+    /**
+     * Display the cart
+     *
+     * @return void
+     */
     function index() {
         $this->view->title = 'Cart';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Cart';
@@ -21,6 +26,13 @@ class Cart extends Controller {
 
         $this->view->render('cart/cart');
     }
+
+        
+    /**
+     * Add items to cart
+     *
+     * @return void
+     */
     function addToCart() {
         
         $sizeGents = $_POST['size1'];
@@ -47,6 +59,12 @@ class Cart extends Controller {
         }
     }
 
+        
+    /**
+     * Add items to cart after login (if the customer has not already logged in by the time he/she clicks 'Add to cart')
+     *
+     * @return void
+     */
     function addToCartAfterLogin() {
         $data = array();
         $data['product_id'] = $_GET['productId'];
@@ -61,7 +79,13 @@ class Cart extends Controller {
             header('location: ' . URL . 'login/cartRequireLogin?productId=' . $data['product_id'] . '&qty=' . $data['item_qty'] . '&color=' . $data['item_color'] . '&size=' . $data['item_size'] . '&loginRequired=true');
         }
     }
-
+    
+    /**
+     * Update the exisiting items in the cart
+     *
+     * @param  mixed $itemId Id of the item that need to be updated
+     * @return void
+     */
     function updateCartItem($itemId) {
         $sizeGents = $_POST['size1'];
         $sizeLadies = $_POST['size2'];
@@ -82,6 +106,13 @@ class Cart extends Controller {
         header('location: ' . URL . 'cart?success=itemUpdatedToCart#message');
     }
 
+        
+    /**
+     * Delete an item from the cart
+     *
+     * @param  mixed $id Id of the item that need to be deleted
+     * @return void
+     */
     function delete($id) {
         $this->model->delete($id);
         header('location: ' . URL . 'cart?success=itemDeleted#message');

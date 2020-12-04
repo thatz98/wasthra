@@ -1,33 +1,57 @@
 <?php
 
-class Login extends Controller{
+class Login extends Controller {
 
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
     }
 
-    function index(){
-            $this->view->render('user/login');
-    }
-
-    function cartRequireLogin(){
+    /**
+     * Display login page
+     *
+     * @return void
+     */
+    function index() {
         $this->view->render('user/login');
     }
 
-    function run(){
-    	$this->model->run();
+    /**
+     * Display login page when the customer clicks on the cart without having logged in
+     *
+     * @return void
+     */
+    function cartRequireLogin() {
+        $this->view->render('user/login');
     }
 
-    function logout(){
-        	Session::destroy();
-        	header('location: ../');
-        	exit;
+    /**
+     * Login the user to the system
+     *
+     * @return void
+     */
+    function run() {
+        $this->model->run();
     }
 
-    function signup(){
+    /**
+     * Logout the user from the system
+     *
+     * @return void
+     */
+    function logout() {
+        Session::destroy();
+        header('location: ../');
+        exit;
+    }
 
-        if(!$this->model->checkAccountExist($_POST['email'])){
+    /**
+     * Sign up customer to the system
+     *
+     * @return void
+     */
+    function signup() {
+
+        if (!$this->model->checkAccountExist($_POST['email'])) {
             $token = $this->generateRandomString(97);
             $data = array();
             $data['first_name'] = $_POST['first_name'];
@@ -42,146 +66,159 @@ class Login extends Controller{
             $data['token'] = $token;
 
             $this->model->signup($data);
-            
-            if($this->sendVerficationEmail($data['email'], $token)){
+
+            if ($this->sendVerficationEmail($data['email'], $token)) {
                 header('location: ../login?success=signUp#message');
-            } else{
+            } else {
                 header('location: ../login?error=somethingWrong#message');
             }
-
-        } else{
+        } else {
             header('Location: ./?error=accountExists#message');
         }
-        
     }
 
-    function sendVerficationEmail($to, $token)
-    {
-        $verificationUrl = '<a href="'.URL.'login/verifyAccount/'.$to.'/'.$token.'">here</a>';
+    /**
+     * Send verification email after sign up
+     *
+     * @param  mixed $to Email address of the new registered customer
+     * @param  mixed $token Used to identify the user
+     * @return void
+     */
+    function sendVerficationEmail($to, $token) {
+        $verificationUrl = '<a href="' . URL . 'login/verifyAccount/' . $to . '/' . $token . '">here</a>';
         $emailBody = 'Hi, <br>To verfiy your account, click ' . $verificationUrl;
         $subject = 'Verify Account';
         $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
-        if(mail($to, $subject, $emailBody, $header)){
+        if (mail($to, $subject, $emailBody, $header)) {
             return true;
-        } else{
+        } else {
             return false;
         }
     }
 
-    function resendVerificationEmail($username){
+    /**
+     * Resend the verification email
+     *
+     * @param  mixed $username Email address of the user
+     * @return void
+     */
+    function resendVerificationEmail($username) {
         $token = $this->generateRandomString(97);
-        $this->model->updateToken($username,$token);
-        $this->sendVerficationEmail($username,$token);
-        header('Location: '.URL.'login?success=resentVerification#message');
+        $this->model->updateToken($username, $token);
+        $this->sendVerficationEmail($username, $token);
+        header('Location: ' . URL . 'login?success=resentVerification#message');
     }
 
-    function verifyAccount($username, $token)
-    {
-        if($this->model->checkVerifyToken($username,$token)){
+    /**
+     * Verify the account once the user click on the verification link which has been sent to the mail
+     *
+     * @param  mixed $username Email address of the user
+     * @param  mixed $token Token which has been generated while sending the verification mail
+     * @return void
+     */
+    function verifyAccount($username, $token) {
+        if ($this->model->checkVerifyToken($username, $token)) {
             $this->model->verifyAccount($username);
-            header('Location: '.URL.'login?success=accountVerfied#message');
-        } else{
-            header('Location: '.URL.'login?error=incorrectToken#message');
+            header('Location: ' . URL . 'login?success=accountVerfied#message');
+        } else {
+            header('Location: ' . URL . 'login?error=incorrectToken#message');
         }
     }
 
-    function changePassword(){
-        $this->view->render('user/change_password');
-    }
-
-    function forgotPassword(){
+    /**
+     * Handles initial forgot password process
+     *
+     * @return void
+     */
+    function forgotPassword() {
         $username = $_POST['check_username'];
-            if($this->model->checkAccountExist($username)){
-                $token = $this->generateRandomString(97);
-                $this->model->createRecord($username, $token);
-                $this->sendResetPasswordEmail($username, $token);
-            } else {
-                // the input username is invalid
-                // do not display a message saying 'username as invalid'
-                // that is a security issue. Instead,
-                // sleep for 2 seconds to mimic email sending duration
-                sleep(2);
-            }
+        if ($this->model->checkAccountExist($username)) {
+            $token = $this->generateRandomString(97);
+            $this->model->createRecord($username, $token);
+            $this->sendResetPasswordEmail($username, $token);
+        } else {
+            // sleep for 2 seconds to mimic email sending duration
+            sleep(2);
         }
-        // whatever be the case, show the same message for security purposes
+    }
 
-    function sendResetPasswordEmail($to, $token)
-    {
-        $resetUrl = '<a href="'.URL.'login/resetPassword/'.$to.'/'.$token.'">here</a>';
+    /**
+     * Send password reset email to the user
+     *
+     * @param  mixed $to Email address of the user that request password reset
+     * @param  mixed $token Generated to identify the user when he clicks the reset link
+     * @return void
+     */
+    function sendResetPasswordEmail($to, $token) {
+        $resetUrl = '<a href="' . URL . 'login/resetPassword/' . $to . '/' . $token . '">here</a>';
         $emailBody = 'Hi, </br>To reset your password, click ' . $resetUrl;
         $subject = 'Reset Password';
         $header = "From: group15s2202@gmail.com\r\nContent-Type: text/html;";
-        if(mail($to, $subject, $emailBody, $header)){
-            header('Location: '.URL.'login?success=resetLinkSent#message');
-        } else{
-            header('Location: '.URL.'login?error=mailNotSent#message');
+        if (mail($to, $subject, $emailBody, $header)) {
+            header('Location: ' . URL . 'login?success=resetLinkSent#message');
+        } else {
+            header('Location: ' . URL . 'login?error=mailNotSent#message');
         }
     }
 
-    function resetPassword($username,$token)
-    {
-        if($this->model->checkToken($username,$token)){
+    /**
+     * Validate the link and display the password reset page
+     *
+     * @param  mixed $username Email address of the user
+     * @param  mixed $token Token which has been sent to the user with the email
+     * @return void
+     */
+    function resetPassword($username, $token) {
+        if ($this->model->checkToken($username, $token)) {
             $this->view->username = $username;
             $this->view->render('user/reset_password');
-        } else{
-            header('Location: '.URL.'login?error=incorrectToken#message');
+        } else {
+            header('Location: ' . URL . 'login?error=incorrectToken#message');
         }
-
     }
 
-    function updatePassword()
-    {
+    /**
+     * Update the existing password
+     *
+     * @return void
+     */
+    function updatePassword() {
         $data = array();
         $data['username'] = $_POST['username'];
         $data['password'] = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
         $this->model->updatePassword($data);
 
-        header('Location: '.URL.'login?success=pwdChanged#message');
-
+        header('Location: ' . URL . 'login?success=pwdChanged#message');
     }
 
-    /**
-     * use this function if you have PHP version 7 or greater
-     * else use the below fuction generateRandomString
-     *
-     * @param int $length
-     * @param string $keyspace
-     * @throws \RangeException
-     * @return string
-     */
-    function getRandomString(int $length = 64, string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string
-    {
+    /*
+    function getRandomString(int $length = 64, string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string {
         if ($length < 1) {
             throw new \RangeException("Length must be a positive integer");
         }
         $pieces = [];
         $max = mb_strlen($keyspace, '8bit') - 1;
-        for ($i = 0; $i < $length; ++ $i) {
+        for ($i = 0; $i < $length; ++$i) {
             $pieces[] = $keyspace[random_int(0, $max)];
         }
         return implode('', $pieces);
     }
+    */
 
     /**
-     * this generates predictable random strings.
-     * So the best
-     * option is to use the above function getRandomString
-     * and to use that, you need PHP 7 or above
+     * Generate a random string
      *
-     * @param number $length
-     * @return string
+     * @param  mixed $length Length of the string that need to be generated
+     * @return void
      */
-    function generateRandomString($length = 10)
-    {
+    function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
-        for ($i = 0; $i < $length; $i ++) {
+        for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
     }
-
-
 }
