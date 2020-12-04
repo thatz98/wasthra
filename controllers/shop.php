@@ -104,7 +104,7 @@ class Shop extends Controller{
         $data['user_id'] = $_POST['user_id'];
 
         $date = date("Y-m-d");
-        date_default_timezone_set(" India Standard Time");
+        date_default_timezone_set("Asia/Kolkata");
         $time = date("H:i:s");
         $this->model->addReview($data,$date,$time,$imageName['img']);
         header('location: '.URL.'shop/productDetails/'.$data['product_id']);
@@ -130,7 +130,7 @@ class Shop extends Controller{
         if($_POST['payment_method']=='online'){
             $this->view->render('checkout/payment');
         } else{
-            $this->view->render('order/order_details');
+            $this->view->render('order/index');
         }
         
         $data = array();
@@ -149,7 +149,7 @@ class Shop extends Controller{
             $this->model->create($data);
         }
         $date = date("Y-m-d");
-        date_default_timezone_set(" India Standard Time");
+        date_default_timezone_set("Asia/Kolkata");
         $time = date("H:i:s");
         $orderID = 'ORD';
         $orderID .= $date;
