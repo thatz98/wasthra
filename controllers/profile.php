@@ -1,15 +1,20 @@
 <?php
 
-class Profile extends Controller{
+class Profile extends Controller {
 
-    function __construct()
-    {
+    function __construct() {
+
         parent::__construct();
-        
     }
 
-function editProfile(){
-    	$data = array();
+    /**
+     * Update the profile info
+     *
+     * @return void
+     */
+    function editProfile() {
+
+        $data = array();
         $data['first_name'] = $_POST['first_name'];
         $data['last_name'] = $_POST['last_name'];
         $data['gender'] = $_POST['gender'];
@@ -19,31 +24,37 @@ function editProfile(){
         $data['user_type'] = $_POST['user_type'];
         $data['user_id'] = $_POST['user_id'];
         $data['login_id'] = $_POST['login_id'];
-        
-        
 
-        if(!$this->model->checkExistsWhere($data['username'],$data['login_id'])){
-            
+        // check whether the new email already exists
+        if (!$this->model->checkExistsWhere($data['username'], $data['login_id'])) {
+
             $this->model->updateProfile($data);
-            if($data['user_type']=='customer'){
+            if ($data['user_type'] == 'customer') {
                 $addressData = array();
-        $addressData['user_id'] = $_POST['user_id'];
-        $addressData['address_id'] = $_POST['address_id'];
-        $addressData['address_line_1'] = $_POST['address_line_1'];
-        $addressData['address_line_2'] = $_POST['address_line_2'];
-        $addressData['address_line_3'] = $_POST['address_line_3'];
-        $addressData['city'] = $_POST['city'];
-        $addressData['postal_code'] = $_POST['postal_code'];
+                $addressData['user_id'] = $_POST['user_id'];
+                $addressData['address_id'] = $_POST['address_id'];
+                $addressData['address_line_1'] = $_POST['address_line_1'];
+                $addressData['address_line_2'] = $_POST['address_line_2'];
+                $addressData['address_line_3'] = $_POST['address_line_3'];
+                $addressData['city'] = $_POST['city'];
+                $addressData['postal_code'] = $_POST['postal_code'];
+                
                 $this->model->updateAddress($addressData);
             }
-            header('location: '.URL.'');
-        } else{
-        header('location: '.URL.'?error=anotherAccountExists#edit-profile#message');
+            header('location: ' . URL . '');
+        } else {
+            header('location: ' . URL . '?error=anotherAccountExists#edit-profile#message');
         }
-        
     }
+    
+    /**
+     * Change password
+     *
+     * @return void
+     */
+    function changePassword() {
 
-    function changePassword(){
+        // get the previous URL
         $prev_url = $_POST['prev_url'];
         if (empty($prev_url)) {
             $prev_url = URL;
@@ -56,8 +67,14 @@ function editProfile(){
 
         $this->model->changePassword($data);
     }
+    
+    /**
+     * Add new address - customer
+     *
+     * @return void
+     */
+    function addNewAddress() {
 
-    function addNewAddress(){
         $addressData = array();
         $addressData['user_id'] = Session::get('userData')['user_id'];
         $addressData['address_line_1'] = $_POST['address_line_1'];
@@ -65,13 +82,13 @@ function editProfile(){
         $addressData['address_line_3'] = $_POST['address_line_3'];
         $addressData['city'] = $_POST['city'];
         $addressData['postal_code'] = $_POST['postal_code'];
+        
         $this->model->addNewAddress($addressData);
-        
-        if(!empty($_POST['prev_url'])){
-            header('Location: '.$_POST['prev_url'].'#profile-card');
-        } else{
-            header('Location: '.URL.'#profile-card');
+
+        if (!empty($_POST['prev_url'])) {
+            header('Location: ' . $_POST['prev_url'] . '#profile-card');
+        } else {
+            header('Location: ' . URL . '#profile-card');
         }
-        
     }
 }
