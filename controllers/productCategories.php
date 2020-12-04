@@ -1,52 +1,77 @@
 <?php
 
-class ProductCategories extends Controller{
-    function __construct()
-    {
+class ProductCategories extends Controller {
+    function __construct() {
         parent::__construct();
-        // Authenticate::adminAuth();
+        Authenticate::adminAuth();
     }
-
-    function index(){
+    
+    /**
+     * Display product category page
+     *
+     * @return void
+     */
+    function index() {
         $this->view->title = 'Product Categories';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Product Categories';
+        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Product Categories';
 
-    	$this->view->productcatList = $this->model->listProductcat();
-    	$this->view->render('control_panel/admin/product_category');
+        $this->view->productcatList = $this->model->listProductcat();
+        $this->view->render('control_panel/admin/product_category');
     }
 
-   
-    function create(){
-    	$data= array();
-    	$data['category_id']= $_POST['product_category_id'];
-    	$data['name']=$_POST['category_name'];
+    
+    /**
+     * Add new product category
+     *
+     * @return void
+     */
+    function create() {
+        $data = array();
+        $data['category_id'] = $_POST['product_category_id'];
+        $data['name'] = $_POST['category_name'];
 
-    	$this->model->create($data);
-    	header('location: '.URL.'productCategories');
+        $this->model->create($data);
+        header('location: ' . URL . 'productCategories');
     }
-     
 
-    function edit($id){
+    
+    /**
+     * Display edit product category page
+     *
+     * @param  mixed $id Id of the product that need to be updated
+     * @return void
+     */
+    function edit($id) {
         $this->view->title = 'Product Categories';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'productCategories">Product Categories</a> <i class="fas fa-angle-right"></i>Edit Product Category';
+        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'productCategories">Product Categories</a> <i class="fas fa-angle-right"></i>Edit Product Category';
 
-       $this->view->getproductcategory = $this->model->getProductcat($id);
-       $this->view->render('control_panel/admin/edit_productcat');
+        $this->view->getproductcategory = $this->model->getProductcat($id);
+        $this->view->render('control_panel/admin/edit_productcat');
     }
-
-    function editSave(){
+    
+    /**
+     * Update existing product cateogry
+     *
+     * @return void
+     */
+    function editSave() {
         $data = array();
         $data['prev_id'] = $_POST['prev_id'];
         $data['category_id'] = $_POST['product_category_id'];
         $data['name'] = $_POST['category_name'];
 
         $this->model->update($data);
-        header('location: '.URL.'productCategories');
+        header('location: ' . URL . 'productCategories');
     }
-
-    function delete($id){
+    
+    /**
+     * Delete existing product category
+     *
+     * @param  mixed $id Id of the product category that need to be deleted
+     * @return void
+     */
+    function delete($id) {
         $this->model->delete($id);
-        header('location:'.URL.'productCategories');
+        header('location:' . URL . 'productCategories');
     }
-
 }
