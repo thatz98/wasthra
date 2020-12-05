@@ -7,7 +7,7 @@
     <div class="row-top">
         <div class="order-container" >
                    <table class="order-list">
-                    <?php foreach $this->orderList as $order_list ?>
+                    <?php foreach ($this->orderList as $order_list): ?>
                        <tr>
                            <td><img src="<?php echo URL?>public/images/product-1.jpg"></td>
                            <td class="order-details"><h4>ORDER ID:<?php echo $order_list['order_id']; ?></h4>

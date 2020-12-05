@@ -77,9 +77,10 @@
 
     function assignedOrders(){
 
-        $userId=Session::get('user_id');
+        $userId=Session::get('userId');
         $orderId=$this->db->query("SELECT order_id FROM delivery WHERE delivery.user_id='$userId'");
-        return $this->db->query("SELECT orders.order_id,orders.date,orders.time FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE orders.order_id='$orderId'");
+         $id=$orderId[0]['order_id'];
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE orders.order_id='$id'");
     }
 
 }
