@@ -148,7 +148,7 @@ class Shop extends Controller {
         $data['user_id'] = $_POST['user_id'];
 
         $date = date("Y-m-d");
-        date_default_timezone_set(" India Standard Time");
+        date_default_timezone_set("Asia/Kolkata");
         $time = date("H:i:s");
         $this->model->addReview($data, $date, $time, $imageName['img']);
         
@@ -219,7 +219,7 @@ class Shop extends Controller {
             $this->model->create($data);
         }
         $date = date("Y-m-d");
-        date_default_timezone_set(" India Standard Time");
+        date_default_timezone_set("Asia/Kolkata");
         $time = date("H:i:s");
         $orderID = 'ORD';
         $orderID .= $date;
