@@ -68,4 +68,10 @@
 
     }
     
+    function update($data){
+        
+        $this->db->update('orders',array(
+            'order_status' => $data['order_status']),"order_id = '{$data['order_id']}'");
+
+    }
 }
