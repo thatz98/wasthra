@@ -68,4 +68,10 @@
 
     }
 
+    function assignedOrders(){
+        $userId=Session::get('user_id');
+        $orderId=$this->db->query("SELECT order_id FROM delivery WHERE delivery.user_id='$userId'");
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time FROM orders WHERE orders.order_id='$orderId'");
+    }
+
 }
