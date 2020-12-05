@@ -18,7 +18,7 @@
 
                         <td><?php foreach ($this->imageList as $image){
                               if($order_items['product_id']==$image['product_id']){?>
-                                   <img src="<?php echo $image['image']?>" width="50px" height="50px">
+                                   <img src="<?php echo URL.$image['image']?>" width="50px" height="50px">
                             <?php 
                             break;
                           }
