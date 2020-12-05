@@ -7,10 +7,11 @@
     <div class="row-top">
         <div class="order-container" >
                    <table class="order-list">
+                    <?php foreach $this->orderList as $order_list ?>
                        <tr>
                            <td><img src="<?php echo URL?>public/images/product-1.jpg"></td>
-                           <td class="order-details"><h4>ORDER ID: ORD0001</h4>
-                            <h5>Date: 10/05/2020</h5>
+                           <td class="order-details"><h4>ORDER ID:<?php echo $order_list['order_id']; ?></h4>
+                            <h5>Date: <?php echo $order_list['date']; ?></h5>
                             <h5>Total Price: LKR 2400.00</h5></td>
                             <td class="order-messages">
                               <div class="oder-status">
@@ -24,40 +25,7 @@
                             </td>
                            <td><a href="<?php echo URL;?>orders/assignedOrderDetails" class="btn table-btn">View Order</a></td>
                        </tr>
-                       <tr>
-                       <td><img src="<?php echo URL?>public/images/product-1.jpg"></td>
-                           <td class="order-details"><h4>ORDER ID: ORD0001</h4>
-                            <h5>Date: 10/05/2020</h5>
-                            <h5>Total Price: LKR 2400.00</h5></td>
-                            <td class="order-messages">
-                              <div class="oder-status">
-                                <h5>Order Type: </h5>
-                                <h5 style="color: #04CBE0"> Delivery</h5><br>
-                              </div>
-                              <div class="oder-date">
-                                <h5>Expected Delivery Date: </h5>
-                                <h5 style="color: #04CBE0"> 24/05/2020</h5>
-                              </div>
-                            </td>
-                           <td><a href="<?php echo URL;?>orders/assignedOrderDetails" class="btn table-btn">View Order</a></td>
-                       </tr>
-                       <tr>
-                       <td><img src="<?php echo URL?>public/images/product-1.jpg"></td>
-                           <td class="order-details"><h4>ORDER ID: ORD0001</h4>
-                            <h5>Date: 10/05/2020</h5>
-                            <h5>Total Price: LKR 2400.00</h5></td>
-                            <td class="order-messages">
-                              <div class="oder-status">
-                                <h5>Order Type: </h5>
-                                <h5 style="color: #04CBE0"> Delivery</h5><br>
-                              </div>
-                              <div class="oder-date">
-                                <h5>Expected Delivery Date: </h5>
-                                <h5 style="color: #04CBE0"> 24/05/2020</h5>
-                              </div>
-                            </td>
-                           <td><a href="<?php echo URL;?>orders/assignedOrderDetails" class="btn table-btn">View Order</a></td>
-                       </tr>
+                       <?php endforeach; ?>
                    </table>     
                     </div>
 
