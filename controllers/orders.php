@@ -10,15 +10,19 @@ class Orders extends Controller{
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> My Orders';
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->imageList =  $this->model->getImages();
+        $this->view->orderList = $this->model->getOrders();
     	$this->view->render('order/index');
     }
 
-    function myOrderDetails(){
+    function myOrderDetails($id){
         $this->view->title = 'My Order Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'orders/myOrders">My Orders</a> <i class="fas fa-angle-right"></i>My Order Details';
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->imageList =  $this->model->getImages();
-    	$this->view->render('order/order_details');
+        $this->view->orderDetails = $this->model->getOrderDetails($id);
+        $this->view->orderList = $this->model->getMyOrder($id);
+        $this->view->payMethod = $this->model->getPayDetails($id);
+        $this->view->render('order/order_details');
     }
 
     function orderDashboard(){

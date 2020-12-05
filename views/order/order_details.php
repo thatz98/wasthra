@@ -10,19 +10,31 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
+                <?php foreach($this->orderDetails as $details){?>
                     <tr>
-                        <td><img src="<?php echo URL ?>public/images/product-1.jpg"></td>
+                        <?php foreach($this->imageList as $image){
+                            if($image['product_id']==$details['product_id']){
+                                $ordID='';
+                                $ordID=$details['order_id']?>
+                        <td><img src="<?php echo URL.$image['image']?>"></td><?php break;}}?>
                         <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
+                        <?php foreach($this->qtyList as $product){
+                                if ($product['product_id']==$details['product_id']){?>
+                            
+                            <h4>
+                                <?php echo $product['price_category_name']?>
+                            </h4>
+                            <h5><?php echo $product['product_price']?></h5>
+                                <?php }}?>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
+                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $details['item_color']?>"></span>
+                                <label class="input-data">Size: <?php echo $details['item_size']?></label>
+                                <label class="input-data">Qty: <?php echo $details['item_qty']?></label>
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                <?php }?>
+                    <!-- <tr>
                         <td><img src="<?php echo URL ?>public/images/product-2.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
@@ -45,7 +57,7 @@
                                 <label class="input-data">Qty: 1</label>
                             </div>
                         </td>
-                    </tr>
+                    </tr> -->
                 </table>     
             </div>
         </div>
@@ -56,9 +68,9 @@
                     <div class="summary-info">
                         <div class="row">
                             <div class="col-2" style="min-width: 0;">
-                            <h4>Order ID: OD123456</h4>
-                            <h5>Date: 20/05/2020    Time: 15:20</h5>
-                            <h5>Payment Method: Online</h5><br>
+                            <h4>Order ID: <?php echo($this->orderList[0][0])?></h4>
+                            <h5>Date: <?php echo($this->orderList[0][1])?>    Time: <?php echo($this->orderList[0][2])?></h5>
+                            <h5>Payment Method: <?php echo $this->payMethod[0][1]?></h5><br>
                         </div>
                         <div class="col-2" style="min-width: 0;">
                             <a href="#" class="btn">Request to Return</a>
