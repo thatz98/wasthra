@@ -14,15 +14,19 @@ class Wishlist extends Controller {
      */
     function index() {
 
+        $this->view->title = 'Wishlist';
+        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Wishlist';
+        
+        // get items in the wishlist
         $this->view->wishlistqtyList =  $this->model->getwishlistDetails();
         $this->view->wishlistimageList =  $this->model->getwishlistImages();
 
+        // get all product details
         $this->view->qtyList = $this->model->getAllDetails();
         $this->view->imageList =  $this->model->getImages();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->colorList =  $this->model->getColors();
-
-        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Wishlist';
+        
         $this->view->render('user/wish_list');
     }
     
@@ -35,6 +39,7 @@ class Wishlist extends Controller {
     function addToWishlist($id) {
 
         $this->model->create($id);
+
         header('location: ' . URL . '');
     }
     
@@ -47,6 +52,7 @@ class Wishlist extends Controller {
     function removeFromWishlist($id) {
 
         $this->model->delete($id);
+        
         header('location: ' . URL . 'wishlist');
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
 class Shop extends Controller {
+
     function __construct() {
+
         parent::__construct();
     }
     
@@ -11,9 +13,11 @@ class Shop extends Controller {
      * @return void
      */
     function index() {
+
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Shop';
 
+        // get all product details
         $this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
@@ -32,9 +36,11 @@ class Shop extends Controller {
      * @return void
      */
     function productDetails($id) {
+
         $this->view->title = 'Product Details';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
 
+        // get all product details
         $this->view->productList = $this->model->listProducts();
         $this->view->product = $this->model->getProduct($id);
         $this->view->qtyList =  $this->model->getAllDetails();
@@ -56,9 +62,11 @@ class Shop extends Controller {
      * @return void
      */
     function byColor($color) {
+
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Color';
 
+        // get all product details in the given color
         $this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('color', '#' . $color);
         $this->view->sizeList =  $this->model->getSizes();
@@ -67,6 +75,7 @@ class Shop extends Controller {
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
         $this->view->selected = '#' . $color;
+        
         $this->view->render('shop/shop');
     }
     
@@ -77,9 +86,11 @@ class Shop extends Controller {
      * @return void
      */
     function bySize($size) {
+
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Size';
 
+        // get all product details in the given size
         $this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('size', $size);
         $this->view->sizeList =  $this->model->getSizes();
@@ -88,6 +99,7 @@ class Shop extends Controller {
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
         $this->view->selected = $size;
+        
         $this->view->render('shop/shop');
     }
     
@@ -98,9 +110,11 @@ class Shop extends Controller {
      * @return void
      */
     function byCategory($category) {
+
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Category';
 
+        // get all product details in the given category
         $this->view->productList = $this->model->listProducts();
         $this->view->qtyList =  $this->model->getAllDetailsBy('category', $category);
         $this->view->sizeList =  $this->model->getSizes();
@@ -109,6 +123,7 @@ class Shop extends Controller {
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
         $this->view->selected = $category;
+        
         $this->view->render('shop/shop');
     }
     
@@ -121,9 +136,11 @@ class Shop extends Controller {
 
         $imageName['img'] = $_FILES['img']['name'];
         $imageName['temp'] = $_FILES['img']['tmp_name'];
+        // upload all the images to the directory
         for ($x = 0; $x < sizeof($imageName['temp']); $x++) {
             move_uploaded_file($imageName['temp'][$x], 'C:\xampp\htdocs\wasthra\public\images\Review_images\\' . $imageName['img'][$x]);
         }
+
         $data = array();
         $data['product_id'] = $_POST['product_id'];
         $data['comment'] = $_POST['comment'];
@@ -134,6 +151,7 @@ class Shop extends Controller {
         date_default_timezone_set(" India Standard Time");
         $time = date("H:i:s");
         $this->model->addReview($data, $date, $time, $imageName['img']);
+        
         header('location: ' . URL . 'shop/productDetails/' . $data['product_id']);
     }
     
@@ -147,6 +165,7 @@ class Shop extends Controller {
     function deleteReview($id, $productId) {
 
         $this->model->deleteReview($id);
+
         header('Location: ' . URL . 'shop/productDetails/' . $productId);
     }
     
@@ -159,8 +178,11 @@ class Shop extends Controller {
 
         $this->view->title = 'Checkout';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'cart">Cart</a> <i class="fas fa-angle-right"></i> Checkout';
+        
+        // get product details
         $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->imageList =  $this->model->getImages();
+        
         $this->view->render('checkout/index');
     }
     
@@ -170,7 +192,9 @@ class Shop extends Controller {
      * @return void
      */
     function pay() {
+
         $this->view->title = 'Payment';
+        
         if ($_POST['payment_method'] == 'online') {
             $this->view->render('checkout/payment');
         } else {
@@ -204,6 +228,7 @@ class Shop extends Controller {
         $orderID = str_replace("-", "", $orderID);
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
+        
         $this->model->placeOrder($date, $time, $orderID, $payMethod);
     }
 
