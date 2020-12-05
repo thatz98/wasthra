@@ -82,8 +82,31 @@
 
                     <div class="total-price">
 
-                        <table>
-                        </table>
+                      <table>
+
+                        <tr>
+                            <td>Subtotal</td>
+                            <td>LKR <span id="subtotal"><?php echo number_format($this->subtotal,2,'.','');?></span></td>  
+                            <div id="sub-display">
+                            </div>
+                        </tr>
+
+                        <tr>
+                         
+
+                        </tr>
+
+                        <tr>
+                            <td>Delivery chargers</td>
+                            <td>LKR <span id="dCharges">-</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Total Price</td>
+                            <td>LKR <span id="totalPrice"><?php echo number_format($this->subtotal,2,'.','');?></span></td>
+                        </tr>
+
+                      </table>
 
                     </div>
                 </div>
