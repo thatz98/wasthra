@@ -30,11 +30,6 @@
                                     }
                                 } 
 
-                                // foreach ($this->qtyList as $qty){
-                                //     if($priceCategoryID==$catName['price_category_id']){
-                                //         $this->productPrice=$catName['product_price'];
-                                //     }
-                                // }
                             ?>
                             </h4>  
                             <h5><?php echo $this->productPrice;?></h5>     
