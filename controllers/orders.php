@@ -92,4 +92,16 @@ class Orders extends Controller{
 
     }
 
+    function updateOrderStatus(){
+
+        $this->view->orderList = $this->model->getAllOrders();
+        $data = array();
+        $data['order_id'] = $_POST['prev_id'];
+        $data['order_status'] = $_POST['assigned_deliver'];
+
+        $this->model->update($data);
+
+        header('location: ' . URL . '');
+    }
+
 }

@@ -42,7 +42,7 @@
 
                         <td>
                             <a href="<?php echo '?id='.$cartDetails['product_id'].'&item='.$cartDetails['item_id'].'&color='.str_replace('#','',$cartDetails['item_color']).'&qty='.$cartDetails['item_qty'].'&size='.$cartDetails['item_size']?>#updateCartPopup" class="btn table-btn">Update</a>
-                            <a href="<?php echo URL ?>cart/delete/<?php echo $cartDetails['product_id'] ?>" class="btn table-btn">Remove</a>
+                            <a href="<?php echo URL ?>cart/delete/<?php echo $cartDetails['item_id'] ?>" class="btn table-btn">Remove</a>
                         </td>
                     </tr>
                     
