@@ -59,6 +59,7 @@ class Orders extends Controller{
 
         $this->view->title = 'Assigned Orders';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Assigned Orders';
+        $this->view->orderList = $this->model->assignedOrders();
 
         $this->view->render('control_panel/delivery/orders');
         
