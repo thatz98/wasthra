@@ -40,4 +40,10 @@
     function getPayDetails($id){
         return $this->db->query("SELECT * FROM payment WHERE order_id='$id'");
     }
+
+    function assigned_orders(){
+        $userID=Session::get('user_id');
+        $orderID=$this->db->query("SELECT order_id FROM delivery WHERE delivery.user_id='$userID'");
+        print_r($userID);
+    }
 }
