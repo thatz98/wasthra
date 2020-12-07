@@ -20,7 +20,7 @@
                               </div>
                               <div class="oder-date">
                                 <h5>Expected Delivery Date: </h5>
-                                <h5 style="color: #04CBE0"> 24/05/2020</h5>
+                                <h5 style="color: #04CBE0"><?php echo $order_list['expected_delivery_date'] ; ?> </h5>
                               </div>
                             </td>
                            <td><a href="<?php echo URL;?>orders/assignedOrderDetails" class="btn table-btn">View Order</a></td>
