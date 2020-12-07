@@ -104,13 +104,14 @@ class Cart_Model extends Model{
 
      function delete($id){
 
-        $this->db->delete('cart_item',"product_id='$id'");
+        $this->db->delete('cart_item',"item_id='$id'");
+
         $userId = Session::get('userId');
         $cartId = $this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
         $id = $cartId[0]['cart_id'];
         //  print_r($id);
         $cartData = $this->db->query("SELECT cart_item.product_id,cart_item.item_id,cart_item.item_qty,cart_item.item_color,cart_item.item_size
-    FROM cart_item WHERE cart_item.cart_id='$id';");
+        FROM cart_item WHERE cart_item.cart_id='$id';");
         Session::set('cartCount', count($cartData));
         Session::set('cartData', $cartData);
    }
