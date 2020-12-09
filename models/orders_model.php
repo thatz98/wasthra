@@ -83,4 +83,8 @@
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,delivery.expected_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE orders.order_id='$id'");
     }
 
+    function assignedOrder_Details($id){
+        return $this->db->query("SELECT order_item.item_size,order_item.item_qty,order_item.item_color FROM order_item INNER JOIN orders ON order_item.order_id=orders.order_id WHERE order_item.order_id='$id' ");
+    }
+
 }

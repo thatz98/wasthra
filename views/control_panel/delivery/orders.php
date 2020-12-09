@@ -23,7 +23,7 @@
                                 <h5 style="color: #04CBE0"><?php echo $order_list['expected_delivery_date'] ; ?> </h5>
                               </div>
                             </td>
-                           <td><a href="<?php echo URL;?>orders/assignedOrderDetails" class="btn table-btn">View Order</a></td>
+                           <td><a href="<?php echo URL;?>orders/assignedOrderDetails/<?php echo $order_list['order_id'] ?>" class="btn table-btn">View Order</a></td>
                        </tr>
                        <?php endforeach; ?>
                    </table>     

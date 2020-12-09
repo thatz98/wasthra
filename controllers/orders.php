@@ -65,10 +65,11 @@ class Orders extends Controller{
         
     }
 
-    function assignedOrderDetails(){
+    function assignedOrderDetails($id){
 
         $this->view->title = 'Assigned Order Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/assignedOrderDetails">Assigned Orders</a> <i class="fas fa-angle-right"></i> Assigned Order Details';
+        $this->view->orderDetails =$this->model->getOrderItems($id);
 
         $this->view->render('control_panel/delivery/order_details');
         
