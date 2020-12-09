@@ -40,4 +40,10 @@
     function getPayDetails($id){
         return $this->db->query("SELECT * FROM payment WHERE order_id='$id'");
     }
+
+    function getAddressDetails($id){
+        $address_id = $this->db->query("SELECT address_id FROM checkout WHERE order_id='$id'");
+        $address_id_actual = $address_id[0][0];
+        return $this->db->query("SELECT * FROM delivery_address WHERE address_id='$address_id_actual'");
+    }
 }

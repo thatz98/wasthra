@@ -155,7 +155,18 @@ class Shop_Model extends Model{
         ));
     }
 
-    function placeOrder($date,$time,$orderID,$payMethod){
+    function getAddressId($data){
+        $userId = Session::get('userId');
+        $postal_code = $data['postal_code'];
+        $address_line_1 = $data['address_line_1'];
+        $address_line_2 = $data['address_line_2'];
+        $address_line_3 = $data['address_line_3'];
+        $city = $data['city'];
+        return $this->db->query("SELECT address_id FROM delivery_address WHERE user_id='$userId' AND postal_code='$postal_code'
+        AND city='$city' AND address_line_1='$address_line_1' AND address_line_2='$address_line_2' AND address_line_3='$address_line_3' ");
+    }
+
+    function placeOrder($date,$time,$orderID,$payMethod,$aId){
         $this->db->insert( 'orders' , array(
             'order_id' => $orderID,
             'order_status' => 'new',
@@ -168,8 +179,9 @@ class Shop_Model extends Model{
             'order_id' => $orderID,
             'payment_method' => $payMethod,
             'is_deleted' => 'no',
-            'payment_status' => 'successfull',
+            'payment_status' => 'pending',
         ));
+
 
         $userId=Session::get('userId');
         $cartId=$this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
@@ -185,5 +197,15 @@ class Shop_Model extends Model{
                 'is_deleted' => 'no', 
             ));
         }
+        echo $orderID;
+        echo $aId;
+        echo $cartIdActual;
+        echo $userId;
+        $this->db->insert( 'checkout' , array(
+            'order_id' => $orderID,
+            'address_id' => $aId,
+            'cart_id' => $cartIdActual,
+            'user_id' => $userId,
+        ));
     }
 }

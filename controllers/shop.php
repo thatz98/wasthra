@@ -174,7 +174,8 @@ class Shop extends Controller {
         if ($_POST['payment_method'] == 'online') {
             $this->view->render('checkout/payment');
         } else {
-            $this->view->render('order/order_details');
+
+            header('location: ' . URL . 'orders/myOrders');
         }
 
         $data = array();
@@ -194,6 +195,8 @@ class Shop extends Controller {
 
             $this->model->create($data);
         }
+        $aId = $this->model->getAddressId($data);
+        echo $aId[0][0];
         $date = date("Y-m-d");
         date_default_timezone_set("Asia/Kolkata");
         $time = date("H:i:s");
@@ -204,7 +207,7 @@ class Shop extends Controller {
         $orderID = str_replace("-", "", $orderID);
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
-        $this->model->placeOrder($date, $time, $orderID, $payMethod);
+        $this->model->placeOrder($date, $time, $orderID, $payMethod,$aId[0][0]);
     }
 
     // function placeOrder(){
