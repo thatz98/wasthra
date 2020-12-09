@@ -1,22 +1,20 @@
-
-.row{
+.row {
     justify-content: space-between;
-    
 }
 
-h3{
+h3 {
     width: 100%;
 }
-.center{
+
+.center {
     justify-content: center;
 }
 
-
-
-.col-3{
-padding: 0;
-flex-basis: 33%;
+.col-3 {
+    padding: 0;
+    flex-basis: 33%;
 }
+
 /*
 #myChart{
 
@@ -26,7 +24,7 @@ flex-basis: 33%;
   }
   */
 
-.col-60p{
+.col-60p {
     flex-basis: 60%;
     padding: 10px;
     min-width: 0;
@@ -34,7 +32,7 @@ flex-basis: 33%;
     transition: transform 0.5s;
 }
 
-.col-40p{
+.col-40p {
     flex-basis: 40%;
     padding: 10px;
     min-width: 0;
@@ -42,7 +40,7 @@ flex-basis: 33%;
     transition: transform 0.5s;
 }
 
-.card{
+.card {
     margin: 10px;
     background-color: #fff;
     min-height: 200px;
@@ -50,44 +48,44 @@ flex-basis: 33%;
     display: block;
     justify-content: center;
     text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 }
 
-.col-4{
+.col-4 {
     padding: 0;
     margin-bottom: 10px;
 }
 
-.col-2{
+.col-2 {
     margin-top: 15px;
     margin-bottom: 10px;
 }
 
-.pad-l-r-50{
+.pad-l-r-50 {
     padding-left: 50px;
     padding-right: 50px;
 }
 
-.col{
+.col {
     margin-top: 20px;
     margin-bottom: 15px;
 }
 
-.filter-time{
-text-align: center;
-margin: 20px;
+.filter-time {
+    text-align: center;
+    margin: 20px;
 }
 
-.col-4 .card{
+.col-4 .card {
     min-height: unset;
 }
 
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5 {
     color: #2A2A2A;
 }
 
-@media only screen and (max-width: 1150px){
-    .col-40p, .col-60p{
+@media only screen and (max-width: 1150px) {
+    .col-40p, .col-60p {
         flex-basis: 100%;
     }
 }
