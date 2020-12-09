@@ -18,32 +18,27 @@
                     } else {
                         $id += 1;
                         $single_images[] .= $single['image']; ?>
-                <div class="gallery-col">
-                    <img src="<?php echo URL . $single['image']; ?>" id="<?php echo $id ?>"
-                        onclick="swapViewImage('<?php echo $id ?>')" width="100%" class="view-gallery-img">
-                </div>
-                <?php
+                        <div class="gallery-col">
+                            <img src="<?php echo URL . $single['image']; ?>" id="<?php echo $id ?>" onclick="swapViewImage('<?php echo $id ?>')" width="100%" class="view-gallery-img">
+                        </div>
+                    <?php
                     }
                 }
                 if ($this->product[0]['name'] == 'Gents') : ?>
-                <div class="gallery-col">
-                    <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC"
-                        onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
-                </div>
-                <?php else : if ($this->product[0]['name'] == 'Ladies') : ?>
-                <div class="gallery-col">
-                    <img src="<?php echo URL; ?>public/images/size_charts/ladies.png" id="sizeCL"
-                        onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
-                </div>
-                <?php else : ?>
-                <div class="gallery-col">
-                    <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC"
-                        onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
-                </div>
-                <div class="gallery-col">
-                    <img src="<?php echo URL; ?>public/images/size_charts/ladies.png" id="sizeCL"
-                        onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
-                </div>
+                    <div class="gallery-col">
+                        <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
+                    </div>
+                    <?php else : if ($this->product[0]['name'] == 'Ladies') : ?>
+                        <div class="gallery-col">
+                            <img src="<?php echo URL; ?>public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
+                        </div>
+                    <?php else : ?>
+                        <div class="gallery-col">
+                            <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
+                        </div>
+                        <div class="gallery-col">
+                            <img src="<?php echo URL; ?>public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
+                        </div>
                 <?php endif;
                 endif; ?>
             </div>
@@ -60,9 +55,9 @@
                         continue;
                     } else {
                         $single_colors[] .= $single['colors']; ?>
-                <span class="color-dot" style="background-color: <?php echo $single['colors'] ?>"></span><?php
-                                                                                                            }
-                                                                                                        } ?>
+                        <span class="color-dot" style="background-color: <?php echo $single['colors'] ?>"></span><?php
+                                                                                                                }
+                                                                                                            } ?>
             </div>
             <label class="text-label">Available Sizes</label>
             <div class="product-sizes">
@@ -78,38 +73,36 @@
                             continue;
                         } else {
                             $single_sizes[] .= $single['sizes']; ?>
-                <span class="size-box"><?php echo $single['sizes'] ?></span><?php
+                            <span class="size-box"><?php echo $single['sizes'] ?></span><?php
                                                                                     }
                                                                                 }
                                                                             } else { ?>
-                <label class="text-label">Gents</label><br>
-                <?php
+                    <label class="text-label">Gents</label><br>
+                    <?php
                                                                                 foreach ($this->product as $single) {
                                                                                     //echo $single['sizes'][0];
                                                                                     if (in_array($single['sizes'], $single_sizes_ladies)) {
                                                                                         continue;
                                                                                     } else {
                                                                                         $single_sizes_ladies[] .= $single['sizes']; ?>
-                <span class="size-box"
-                    style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($single['sizes'], "-G") ?></span><?php
-                                                                                                                                            }
-                                                                                                                                        } ?>
-                <br>
-                <label class="text-label">Ladies</label>
-                <br>
-                <?php
+                            <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($single['sizes'], "-G") ?></span><?php
+                                                                                                                                                }
+                                                                                                                                            } ?>
+                    <br>
+                    <label class="text-label">Ladies</label>
+                    <br>
+                    <?php
                                                                                 foreach ($this->product as $single) {
                                                                                     //echo $single['sizes'][0];
                                                                                     if (in_array($single['sizes'], $single_sizes_gents)) {
                                                                                         continue;
                                                                                     } else {
                                                                                         $single_sizes_gents[] .= $single['sizes']; ?>
-                <span class="size-box"
-                    style="margin-top: 7px;"><?php echo rtrim($single['sizes'], "-W") ?></span><?php
+                            <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($single['sizes'], "-W") ?></span><?php
+                                                                                                                            }
                                                                                                                         }
                                                                                                                     }
-                                                                                                                }
-                                                                                                                            ?>
+                                                                                                                                ?>
             </div>
 
             <a href="#addToCartPopup" class="btn prd-btn">Add to Cart</a>
@@ -139,60 +132,51 @@
 
 
         <?php foreach ($this->reviews as $showreviews) : ?>
-        <div class="col-2" style="min-height: 100px;">
-            <div class="product-review">
-                <div class="row-left">
-                    <div class="col-2">
-                        <div class="row-left">
-                            <?php echo $showreviews['first_name']; ?> <?php echo $showreviews['last_name']; ?>
-                            &nbsp&nbsp
-                            <?php if ($showreviews['user_id'] == Session::get('userId') || Session::get('userType') == 'admin' || Session::get('userType') == 'owner') { ?><small><a
-                                    href="<?php echo URL . 'shop/deleteReview/' . $showreviews['review_id'] . '/' . $showreviews['product_id'] ?>">Remove</a></small><?php } ?>
+            <div class="col-2" style="min-height: 100px;">
+                <div class="product-review">
+                    <div class="row-left">
+                        <div class="col-2">
+                            <div class="row-left">
+                                <?php echo $showreviews['first_name']; ?> <?php echo $showreviews['last_name']; ?>
+                                &nbsp&nbsp
+                                <?php if ($showreviews['user_id'] == Session::get('userId') || Session::get('userType') == 'admin' || Session::get('userType') == 'owner') { ?><small><a href="<?php echo URL . 'shop/deleteReview/' . $showreviews['review_id'] . '/' . $showreviews['product_id'] ?>">Remove</a></small><?php } ?>
+                            </div>
+                            <div class="row-left">
+                                <small><?php echo $showreviews['date']; ?> &nbsp&nbsp
+                                    <?php echo $showreviews['time']; ?></small>
+                            </div>
+                            <div class="row-left">
+                                <?php for ($i = 0; $i < $showreviews['rate']; $i++) { ?>
+                                    <i class="fa fa-star"></i>
+                                <?php } ?>
+                                <?php for ($i = 0; $i < (5 - $showreviews['rate']); $i++) { ?>
+                                    <i class="fa fa-star-o"></i>
+                                <?php } ?>
+                            </div>
+
+                            <div class="row-left">
+                                <p><?php echo $showreviews['review_text']; ?></p>
+                            </div>
                         </div>
-                        <div class="row-left">
-                            <small><?php echo $showreviews['date']; ?> &nbsp&nbsp
-                                <?php echo $showreviews['time']; ?></small>
-                        </div>
-                        <div class="row-left">
-                            <?php for ($i = 0; $i < $showreviews['rate']; $i++) { ?>
-                            <i class="fa fa-star"></i>
-                            <?php } ?>
-                            <?php for ($i = 0; $i < (5 - $showreviews['rate']); $i++) { ?>
-                            <i class="fa fa-star-o"></i>
-                            <?php } ?>
-
-                            <!-- <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i> -->
-                        </div>
-
-
-
-
-                        <div class="row-left">
-                            <p><?php echo $showreviews['review_text']; ?></p>
-                        </div>
-                    </div>
-                    <?php $imgCount = 0;
+                        <?php $imgCount = 0;
                         foreach ($this->reviewImageList  as $images) {
                             if ($showreviews['review_id'] == $images['review_id']) $imgCount++;
                         } ?>
-                    <div class="col-2" <?php if ($imgCount == 0) echo 'hidden'; ?>>
-                        <div class="row-left">
-                            <div class="col-images">
-                                <?php foreach ($this->reviewImageList  as $images) {
+                        <div class="col-2" <?php if ($imgCount == 0) echo 'hidden'; ?>>
+                            <div class="row-left">
+                                <div class="col-images">
+                                    <?php foreach ($this->reviewImageList  as $images) {
                                         if ($showreviews['review_id'] == $images['review_id']) { ?>
-                                <img src="<?php echo URL . $images['image']  ?>">
-                                <?php }
+                                            <img src="<?php echo URL . $images['image']  ?>">
+                                    <?php }
                                     } ?>
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         <?php endforeach; ?>
 
     </div>
@@ -214,42 +198,39 @@
         foreach ($this->qtyList as $qty) {
             if ($qty['is_featured'] == 'yes') {
                 $featured_count++; ?>
-        <div class="col-4">
-            <div class="content">
-                <div class="content-overlay"></div>
-                <?php foreach ($this->imageList as $image) {
+                <div class="col-4">
+                    <div class="content">
+                        <div class="content-overlay"></div>
+                        <?php foreach ($this->imageList as $image) {
                             if ($qty['product_id'] == $image['product_id']) { ?>
-                <img src="<?php echo URL . $image['image'] ?>">
-                <?php break;
+                                <img src="<?php echo URL . $image['image'] ?>">
+                        <?php break;
                             }
                         } ?>
-                <div class="content-details fadeIn-bottom">
-                    <div class="options">
-                        <div class="text">
-                            <a
-                                href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id'] ?>">View</a><br><br>
+                        <div class="content-details fadeIn-bottom">
+                            <div class="options">
+                                <div class="text">
+                                    <a href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id'] ?>">View</a><br><br>
+                                </div>
+                                <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $qty['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $qty['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                            </div>
                         </div>
-                        <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $qty['product_id']?>"><i class="fa fa-2x fa-heart-o"></i></a><a
-                            href="<?php echo '?id=' . $qty['product_id'] ?>#addToCartPopupIndex"><i
-                                class="fa fa-2x fa-cart-plus"></i></a>
+                        <div>
+                            <h4><?php echo $qty['product_name']; ?></h4>
+                            <div class="ratings">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <p>LKR <?php echo $qty['product_price']; ?></p>
+                        </div>
+
                     </div>
+
+
                 </div>
-                <div>
-                    <h4><?php echo $qty['product_name']; ?></h4>
-                    <div class="ratings">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>LKR <?php echo $qty['product_price']; ?></p>
-                </div>
-
-            </div>
-
-
-        </div>
         <?php }
             if ($featured_count >= 4) {
                 break;
