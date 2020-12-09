@@ -3,12 +3,15 @@
     class Orders_Model extends Model{
 
     function __construct(){
+
         parent::__construct();
+
     }
 
     function getDeliveryStaffList(){
 
         return $this->db->listAll('delivery_staff',array('user_id','first_name','last_name'));
+
     }
 
     function getAllDetails(){
@@ -18,27 +21,51 @@
         
         INNER JOIN category on category.category_id=product.category_id
         INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
+
     }
 
     function getImages(){
+
         return $this->db->query("SELECT product_images.image,product_images.product_id
         FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
+
     }
 
     function getOrders(){
+
         return $this->db->query("SELECT * FROM orders");
+
     }
 
     function getMyOrder($id){
+
         return $this->db->query("SELECT * FROM orders WHERE order_id='$id'");
+
     }
 
     function getOrderDetails($id){
+
         return $this->db->query("SELECT * FROM order_item WHERE order_id='$id'");
+
     }
 
     function getPayDetails($id){
+
         return $this->db->query("SELECT * FROM payment WHERE order_id='$id'");
+
+    }
+
+    function getAllorders(){
+
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.order_status FROM orders");
+
+    }
+     
+    function getOrderItems($id){
+            
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,order_item.product_id,order_item.item_size,order_item.item_color,order_item.item_qty,order_item.is_deleted
+        FROM orders INNER JOIN order_item ON orders.order_id=order_item.order_id WHERE orders.order_id='$id';");
+
     }
 
     function getAddressDetails($id){
@@ -46,4 +73,24 @@
         $address_id_actual = $address_id[0][0];
         return $this->db->query("SELECT * FROM delivery_address WHERE address_id='$address_id_actual'");
     }
+    
+    function update($data){
+        
+         $this->db->update('orders',array(
+        'order_status' => $data['order_status']),"order_id = '{$data['order_id']}'");
+
+    }
+
+    function assignedOrders(){
+
+        $userId=Session::get('userId');
+        $orderId=$this->db->query("SELECT order_id FROM delivery WHERE delivery.user_id='$userId'");
+         $id=$orderId[0]['order_id'];
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,delivery.expected_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE orders.order_id='$id'");
+    }
+
+    function assignedOrder_Details($id){
+        return $this->db->query("SELECT order_item.item_size,order_item.item_qty,order_item.item_color FROM order_item INNER JOIN orders ON order_item.order_id=orders.order_id WHERE order_item.order_id='$id' ");
+    }
+
 }

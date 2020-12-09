@@ -11,6 +11,7 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
+                     <?php foreach ($this->orderDetails as $order_Details): ?>
                     <tr>
                         <td><img src="<?php echo URL ?>public/images/products/product_img_3.jpg"></td>
                         <td class="order-details">
@@ -18,13 +19,14 @@
                             <h5>LKR 800.00</h5>
                             <div class="item-input">
                                 <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
+                                <label class="input-data">Size:<?php echo $order_Details['item_size']; ?></label>
+                                <label class="input-data">Qty: <?php echo $order_Details['item_qty']; ?></label>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td><img src="<?php echo URL ?>public/images/products/product_img_4.jpg"></td>
+                <?php endforeach; ?>
+                    <!-- <tr>
+                        <td><img src="<?php  ?>public/images/products/product_img_4.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -36,7 +38,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><img src="<?php echo URL ?>public/images/products/product_img_5.jpg"></td>
+                        <td><img src="<?php  ?>public/images/products/product_img_5.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -46,7 +48,7 @@
                                 <label class="input-data">Qty: 1</label>
                             </div>
                         </td>
-                    </tr>
+                    </tr> -->
                 </table>     
             </div>
         </div>
