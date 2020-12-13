@@ -47,7 +47,7 @@ class Orders extends Controller{
         $this->view->title = 'Order Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/myOrderDetails">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
         $this->view->deliveryStaffList = $this->model->getDeliveryStaffList();
-      //  print_r($this->view->deliveryStaffList);
+    
         $this->view->qtyList = $this->model->getAllDetails();
         $this->view->imageList = $this->model->getImages();
         $this->view->orderItems = $this->model->getOrderItems($id);
