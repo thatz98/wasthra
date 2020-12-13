@@ -137,9 +137,6 @@ class Products_Model extends Model{
             $this->db->delete('product_images',"product_id='$previous_id'");
             
             foreach($imageList as $img){
-                // if($img=' '){
-                // break;
-                // }
                 $m="public/images/products/";
                 $m.=$img;
                 echo $m;
