@@ -6,17 +6,10 @@
         <div class="row">
             <form action="#" id="updateFrom"
                 enctype="multipart/form-data" method="post">
-                <!-- <div class="col-2">
-                        <label>Update Status</label><br><br>
-<select>
-    <option>Delivered</option>
-    <option>In Transit</option>
-    <option>Rejected</option>
-</select>
-                    </div> -->
+
                     <div class="row">
                 <div class="col-2">
-                <label>Reason to cancel</label>
+                <label>Reason to return</label>
                 </div>
                 </div>
                 <div class="row">
