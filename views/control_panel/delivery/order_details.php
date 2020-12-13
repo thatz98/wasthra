@@ -18,7 +18,7 @@
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
+                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $order_Details['item_color']; ?>"></span>
                                 <label class="input-data">Size:<?php echo $order_Details['item_size']; ?></label>
                                 <label class="input-data">Qty: <?php echo $order_Details['item_qty']; ?></label>
                             </div>
