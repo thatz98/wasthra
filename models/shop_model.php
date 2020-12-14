@@ -166,13 +166,14 @@ class Shop_Model extends Model{
         AND city='$city' AND address_line_1='$address_line_1' AND address_line_2='$address_line_2' AND address_line_3='$address_line_3' ");
     }
 
-    function placeOrder($date,$time,$orderID,$payMethod,$aId){
+    function placeOrder($date,$time,$orderID,$payMethod,$aId,$comment){
         $this->db->insert( 'orders' , array(
             'order_id' => $orderID,
             'order_status' => 'new',
             'is_deleted' => 'no',
             'date' => $date,
-            'time' => $time, 
+            'time' => $time,
+            'delivery_comment' => $comment, 
         ));
         
         $this->db->insert( 'payment' , array(

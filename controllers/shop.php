@@ -208,6 +208,7 @@ class Shop extends Controller {
         $data['address_line_3'] = $_POST['address_line_3'];
         $data['city'] = $_POST['city'];
         $data['postal_code'] = $_POST['postal_code'];
+        $comment = $_POST['delivery_comments'];
 
         if (
             $data['address_line_1'] != Session::get('addressData')['address_line_1']
@@ -230,7 +231,7 @@ class Shop extends Controller {
         $orderID = str_replace("-", "", $orderID);
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
-        $this->model->placeOrder($date, $time, $orderID, $payMethod,$aId[0][0]);
+        $this->model->placeOrder($date, $time, $orderID, $payMethod,$aId[0][0],$comment);
     }
 
 
