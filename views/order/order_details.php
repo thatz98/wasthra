@@ -103,8 +103,16 @@
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
-                                    Date: 05/05/2020<br><br>
-                                    Delivered By: FIrst Name Last Name<br>
+                                    ~Delivery Staff Details~<br>
+                                    <?php if($this->orderList[0][3]=='delivered'){?>
+                                    Delivered Date: <?php echo $this->deliveryDetails[0][3]?><br><br>
+                                    Delivered By: <?php echo $this->memberDetails[0][1]?> <?php echo $this->memberDetails[0][2]?><br>
+                                    <?php } 
+                                    
+                                        else{?>
+                                    Expected Delivery Date: <?php echo $this->deliveryDetails[0][4]?><br><br>
+                                    Delivery Will Be Completed By: <?php echo $this->memberDetails[0][1]?> <?php echo $this->memberDetails[0][2]?><br>
+                                    <?php }?>
                                 </label>
                             </div>
                         </div>
