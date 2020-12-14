@@ -1,5 +1,6 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/order/cancel_order_popup.php'; ?>
+<?php require 'views/order/request_return_popup.php'; ?>
 
 <div class="small-container">
     <div class="row">
@@ -50,7 +51,13 @@
                             <h5>Payment Method: <?php echo $this->payMethod[0][1]?></h5><br>
                         </div>
                         <div class="col-2" style="min-width: 0;">
-                            <a href="#cancelOrder" class="btn">Request to Return</a>
+                        <?php if($this->orderList[0][3]=='new'){?>
+                            <a href="#cancelOrder" class="btn">Request to Cancel</a>
+                            <?php } 
+                            
+                                elseif($this->orderList[0][3]=='delivered'){?>
+                                <a href="#requestReturn" class="btn">Request to Return</a>
+                                <?php } ?>
                         </div>
                         </div>
                         
