@@ -28,6 +28,8 @@ class Orders extends Controller{
         $this->view->orderList = $this->model->getMyOrder($id);
         $this->view->payMethod = $this->model->getPayDetails($id);
         $this->view->addressDetails = $this->model->getAddressDetails($id);
+        $this->view->deliveryDetails = $this->model->getDeliveryDetails($id);
+        $this->view->memberDetails = $this->model->getMemberDetails($id);
         $this->view->render('order/order_details');
 
     }
