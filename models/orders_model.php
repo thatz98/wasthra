@@ -98,6 +98,15 @@
         $address_id_actual = $address_id[0][0];
         return $this->db->query("SELECT * FROM delivery_address WHERE address_id='$address_id_actual'");
     }
+
+    function getCustomerDetails($id){
+            
+        return $this->db->query("SELECT orders.order_id,checkout.user_id,customer.first_name,customer.last_name
+        FROM orders INNER JOIN checkout ON orders.order_id=checkout.order_id
+        INNER JOIN customer on customer.user_id=checkout.user_id WHERE orders.order_id='$id';");
+
+    }
+
     
     function update($data){
         
@@ -115,7 +124,9 @@
     }
 
     function assignedOrder_Details($id){
+
         return $this->db->query("SELECT order_item.item_size,order_item.item_qty,order_item.item_color FROM order_item INNER JOIN orders ON orders.order_id=order_item.order_id WHERE order_item.order_id='$id' ");
+    
     }
 
 }
