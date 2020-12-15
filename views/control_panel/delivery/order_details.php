@@ -61,13 +61,15 @@
                         <div class="row">
                             
                             <div class="col-2" style="min-width: 0;">
-                             <h4>Order ID:00154</h4>
-                             <h5>Date:2020/12/13   Time:11.02</h5>
+                            <?php foreach ($this->order_Summary as $summary_details): ?>
+                             <h4>Order ID:<?php echo $summary_details['order_id']; ?></h4>
+                             <h5>Date: <?php echo $summary_details['date']; ?>   Time: <?php echo $summary_details['time']; ?></h5>
                              <h5>Payment Method: Online</h5>
                             <div class="oder-status">
                                 <h5>Order Status: </h5>
-                                <h5 style="color: #04CBE0"> New</h5>
+                                <h5 style="color: #04CBE0"><?php echo $summary_details['order_status']; ?></h5>
                               </div>
+                               <?php endforeach; ?>
                         </div>
                         <div class="col-2" style="min-width: 0;">
                             <a href="#updateStatus" class="btn">Update Status</a>
