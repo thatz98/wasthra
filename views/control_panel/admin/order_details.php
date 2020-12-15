@@ -66,7 +66,7 @@
                             <div class="col-2" style="min-width: 0;">
                             <h4>Order ID: <?php echo $order_items['order_id']; ?> </h4>
                             <h5>Date: <?php echo $order_items['date']; ?>    Time: <?php echo $order_items['time']; ?> </h5>
-                            <h5>Payment Method: Online</h5>
+                            <h5>Payment Method: <?php echo $this->payMethod[0][1]?></h5>
                             <div class="oder-status">
                                 <h5>Order Status: </h5>
                                 <h5 style="color: #04CBE0"> New</h5>
