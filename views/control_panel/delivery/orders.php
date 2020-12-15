@@ -9,7 +9,7 @@
                    <table class="order-list">
                     <?php foreach ($this->orderList as $order_list): ?>
                        <tr>
-                           <td><img src="<?php echo URL?>public/images/product-1.jpg"></td>
+                           <!-- <td><img src="<?php echo URL?>public/images/product-1.jpg"></td> -->
                            <td class="order-details"><h4>ORDER ID:<?php echo $order_list['order_id']; ?></h4>
                             <h5>Date: <?php echo $order_list['date']; ?></h5>
                             <h5>Total Price: LKR 2400.00</h5></td>
