@@ -73,7 +73,8 @@ class Orders extends Controller{
         $this->view->title = 'Assigned Order Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/assignedOrderDetails">Assigned Orders</a> <i class="fas fa-angle-right"></i> Assigned Order Details';
         $this->view->orderDetails = $this->model->assignedOrder_Details($id);
-        $this->view->order_Summary = $this->model->orderSummary($id);
+        $this->view->order_Summary = $this->model->assignedOrderSummary($id);
+        
 
         $this->view->render('control_panel/delivery/order_details');
         

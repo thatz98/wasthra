@@ -103,16 +103,19 @@
                             <h3>Delivery Info</h3>
                         </div>
                         <div class="row">
+                            
                             <div class="col-2" style="min-width: 0;">
+                                <?php foreach ($this->deliveryInfo as $delivery_Info):?>
                                 <label class="address">
                                     To:<br>
-                                    First Name Last Name<br>
-                                    Address Line 1<br>
-                                    Address Line 2<br>
-                                    Address Line 3<br>
-                                    City<br>
-                                    Postal Code
+                                    <?php echo $delivery_Info['first_name']; ?> <?php echo $delivery_Info['last_name']; ?><br>
+                                    <?php echo $delivery_Info['address_line_1']; ?><br>
+                                    <?php echo $delivery_Info['address_line_2']; ?><br>
+                                    <?php echo $delivery_Info['address_line_3']; ?><br>
+                                    <?php echo $delivery_Info['city']; ?><br>
+                                    <?php echo $delivery_Info['postal_code']; ?>
                                 </label>
+                            <?php endforeach; ?>
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
