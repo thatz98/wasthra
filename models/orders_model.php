@@ -51,15 +51,27 @@
 
     function getDeliveryDetails($id){
 
-        return $this->db->query("SELECT * FROM delivery WHERE order_id='$id'");
+        $delivery = $this->db->query("SELECT * FROM delivery WHERE order_id='$id'");
+        if (!empty($delivery)){
+            return $delivery;
+        }
+        else{
+            return NULL;
+        }
 
     }
 
     function getMemberDetails($id){
 
         $delivery = $this->db->query("SELECT * FROM delivery WHERE order_id='$id'");
-        $user_ID = $delivery[0][2];
-        return $this->db->query("SELECT * FROM delivery_staff WHERE user_id='$user_ID'");
+        if (!empty($delivery)){
+            $user_ID = $delivery[0][2];
+            return $this->db->query("SELECT * FROM delivery_staff WHERE user_id='$user_ID'");
+        }
+        else{
+            return NULL;
+        }
+        
     }
 
     function getPayDetails($id){
