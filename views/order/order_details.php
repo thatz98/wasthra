@@ -104,6 +104,8 @@
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
                                     ~Delivery Staff Details~<br>
+                                    <?php $data=$this->deliveryDetails; 
+                                    if(!empty($data)){?>
                                     <?php if($this->orderList[0][3]=='delivered'){?>
                                     Delivered Date: <?php echo $this->deliveryDetails[0][3]?><br><br>
                                     Delivered By: <?php echo $this->memberDetails[0][1]?> <?php echo $this->memberDetails[0][2]?><br>
@@ -112,6 +114,13 @@
                                         else{?>
                                     Expected Delivery Date: <?php echo $this->deliveryDetails[0][4]?><br><br>
                                     Delivery Will Be Completed By: <?php echo $this->memberDetails[0][1]?> <?php echo $this->memberDetails[0][2]?><br>
+                                    <?php }?>
+                                    <?php }
+                                    else{?>
+
+                                    Expected Delivery Date: Not Set<br><br>
+                                    Delivery Will Be Completed By: Not Assigned<br>
+                                    
                                     <?php }?>
                                 </label>
                             </div>
