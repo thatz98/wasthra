@@ -66,7 +66,7 @@
                             <div class="col-2" style="min-width: 0;">
                             <h4>Order ID: <?php echo $order_items['order_id']; ?> </h4>
                             <h5>Date: <?php echo $order_items['date']; ?>    Time: <?php echo $order_items['time']; ?> </h5>
-                            <h5>Payment Method: Online</h5>
+                            <h5>Payment Method: <?php echo $this->payMethod[0][1]?></h5>
                             <div class="oder-status">
                                 <h5>Order Status: </h5>
                                 <h5 style="color: #04CBE0"> New</h5>
@@ -120,13 +120,15 @@
                         <div class="row">
                             <div class="col-2" style="min-width: 0;">
                                 <label class="address">
+
                                     To:<br>
-                                    First Name Last Name<br>
-                                    Address Line 1<br>
-                                    Address Line 2<br>
-                                    Address Line 3<br>
-                                    City<br>
-                                    Postal Code
+                                    <?php echo $this->customerDetails[0][2] ?> <?php echo $this->customerDetails[0][3] ?><br>
+                                    <?php echo $this->addressDetails[0][3]?><br>
+                                    <?php echo $this->addressDetails[0][4]?><br>
+                                    <?php echo $this->addressDetails[0][5]?><br>
+                                    City :<?php echo $this->addressDetails[0][6]?><br>
+                                    Postal Code :<?php echo $this->addressDetails[0][2]?>
+
                                 </label>
                             </div>
                             <div class="col-2" style="min-width: 0;">
@@ -146,7 +148,6 @@
 
 
 <?php require 'views/footer.php'; ?>
-
 
 
 
