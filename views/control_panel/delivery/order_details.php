@@ -64,7 +64,7 @@
                             <?php foreach ($this->order_Summary as $summary_details): ?>
                              <h4>Order ID:<?php echo $summary_details['order_id']; ?></h4>
                              <h5>Date: <?php echo $summary_details['date']; ?>   Time: <?php echo $summary_details['time']; ?></h5>
-                             <h5>Payment Method: Online</h5>
+                             <h5>Payment Method:<?php echo $summary_details['payment_method']; ?></h5>
                             <div class="oder-status">
                                 <h5>Order Status: </h5>
                                 <h5 style="color: #04CBE0"><?php echo $summary_details['order_status']; ?></h5>

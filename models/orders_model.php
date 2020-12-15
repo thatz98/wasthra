@@ -136,7 +136,9 @@
     }
 
     function orderSummary($id){
-        return $this->db->query("SELECT * FROM orders WHERE orders.order_id='$id'");
+        $orderId=$this->db->query("SELECT order_id FROM payment WHERE payment.order_id='$id'");
+        $newId=$orderId[0]['order_id'];
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
     }
 
 }
