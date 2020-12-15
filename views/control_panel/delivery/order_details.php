@@ -13,7 +13,7 @@
                 <table class="order-list order-items">
                      <?php foreach ($this->orderDetails as $order_Details): ?>
                     <tr>
-                        <td><img src="<?php echo URL ?>public/images/products/product_img_3.jpg"></td>
+                        <td><img src="<?php echo URL ?>public/images/products/product_img_3.jpg"></td> 
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -57,11 +57,13 @@
                 <div class="box-container" >
                     <h3>Summary</h3>
                     <div class="summary-info">
+                        
                         <div class="row">
+                            
                             <div class="col-2" style="min-width: 0;">
-                            <h4>Order ID: OD123456</h4>
-                            <h5>Date: 20/05/2020    Time: 15:20</h5>
-                            <h5>Payment Method: Online</h5>
+                             <h4>Order ID:00154</h4>
+                             <h5>Date:2020/12/13   Time:11.02</h5>
+                             <h5>Payment Method: Online</h5>
                             <div class="oder-status">
                                 <h5>Order Status: </h5>
                                 <h5 style="color: #04CBE0"> New</h5>
@@ -70,6 +72,7 @@
                         <div class="col-2" style="min-width: 0;">
                             <a href="#updateStatus" class="btn">Update Status</a>
                         </div>
+                   
                         </div>
                         
                     </div>
