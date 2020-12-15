@@ -54,10 +54,7 @@ class Orders extends Controller{
         $this->view->qtyList = $this->model->getAllDetails();
         $this->view->imageList = $this->model->getImages();
         $this->view->orderItems = $this->model->getOrderItems($id);
-        $this->view->addressDetails = $this->model->getAddressDetails($id);
-        $this->view->customerDetails = $this->model->getCustomerDetails($id);
-        $this->view->payMethod = $this->model->getPayDetails($id);
-
+        
         $this->view->render('control_panel/admin/order_details');
         
     }
@@ -77,6 +74,7 @@ class Orders extends Controller{
         $this->view->title = 'Assigned Order Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/assignedOrderDetails">Assigned Orders</a> <i class="fas fa-angle-right"></i> Assigned Order Details';
         $this->view->orderDetails = $this->model->assignedOrder_Details($id);
+        $this->view->order_Summary = $this->model->orderSummary($id);
 
         $this->view->render('control_panel/delivery/order_details');
         
@@ -110,7 +108,6 @@ class Orders extends Controller{
         $this->model->update($data);
 
         header('location: ' . URL . '');
-
     }
 
 }
