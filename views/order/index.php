@@ -16,7 +16,22 @@
                        <tr>
                            <td class="order-details"><h4><?php echo $orders['order_id']?></h4>
                             <h5>Date: <?php echo $orders['date']?></h5>
-                            <h5>Total Price: LKR 2400.00</h5></td>
+                            <?php $product=array();
+                                    $price=0.0;
+                                    foreach($this->itemList as $item){
+                                    
+                                    
+                                    $ordID=$item['order_id'];
+                                    if($orders['order_id']==$ordID){
+                                        array_push($product,$item['product_id']);
+                                    }
+                                }
+                             foreach($this->qtyList as $single){
+                                    if(in_array($single['product_id'],$product)){
+                                        $price+=$single['product_price'];
+                                    }
+                            }?>
+                            <h5><?php echo($price);?> Total Price: LKR 2400.00</h5></td>
                            <td> <div class="oder-status">
                                 <h5>Order Status: </h5>
                                 <h5 style="color: #04CBE0"> <?php echo $orders['order_status']?></h5>
