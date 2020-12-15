@@ -53,6 +53,7 @@ class Orders extends Controller{
         $this->view->qtyList = $this->model->getAllDetails();
         $this->view->imageList = $this->model->getImages();
         $this->view->orderItems = $this->model->getOrderItems($id);
+        $this->view->addressDetails = $this->model->getAddressDetails($id);
         
         $this->view->render('control_panel/admin/order_details');
         
