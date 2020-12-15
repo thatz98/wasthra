@@ -37,6 +37,12 @@
 
     }
 
+    function getAllOrderItems(){
+
+        $ord_id = $this->db->query("SELECT order_id FROM order_item");
+
+    }
+
     function getMyOrder($id){
 
         return $this->db->query("SELECT * FROM orders WHERE order_id='$id'");
