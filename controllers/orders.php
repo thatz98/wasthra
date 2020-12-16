@@ -113,7 +113,7 @@ class Orders extends Controller{
 
         $this->model->update($data);
 
-        header('location: ' . URL . '');
+        header('location: ' . URL . 'orders/orderDashboard');
     }
 
 }
