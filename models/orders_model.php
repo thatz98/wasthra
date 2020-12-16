@@ -39,7 +39,7 @@
 
     function getAllOrderItems(){
 
-        $ord_id = $this->db->query("SELECT order_id FROM order_item");
+        return $this->db->query("SELECT * FROM order_item");
 
     }
 

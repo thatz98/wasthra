@@ -11,7 +11,8 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
-                <?php foreach($this->orderDetails as $details){?>
+                <?php $subTotal=0;
+                    foreach($this->orderDetails as $details){?>
                     <tr>
                         <?php foreach($this->imageList as $image){
                             if($image['product_id']==$details['product_id']){
@@ -25,7 +26,8 @@
                             <h4>
                                 <?php echo $product['price_category_name']?>
                             </h4>
-                            <h5><?php echo $product['product_price']?></h5>
+                            <h5><?php $subTotal+=$product['product_price']*$details['item_qty']; 
+                                    echo $product['product_price']?></h5>
                                 <?php }}?>
                             <div class="item-input">
                                 <label>Color:</label><span class="color-dot" style="background-color:<?php echo $details['item_color']?>"></span>
@@ -69,15 +71,15 @@
                         <table>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
                             </tr>
                             <tr>
                                 <td>Delivery chargers</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR -</td>
                             </tr>
                             <tr>
                                 <td>Total Price</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
                             </tr>
                         </table>
                     </div>
