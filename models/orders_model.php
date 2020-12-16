@@ -43,6 +43,17 @@
 
     }
 
+    function getRequiredDetails(){
+
+        return $this->db->query("SELECT price_category.price_category_name,price_category.product_price,category.name,
+        product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,order_item.item_qty,
+        order_item.order_id FROM product INNER JOIN inventory ON product.product_id=inventory.product_id 
+        INNER JOIN category on category.category_id=product.category_id 
+        INNER JOIN price_category on price_category.price_category_id=product.price_category_id 
+        INNER JOIN order_item ON order_item.product_id=product.product_id ");
+
+    }
+
     function getMyOrder($id){
 
         return $this->db->query("SELECT * FROM orders WHERE order_id='$id'");

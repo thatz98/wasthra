@@ -15,6 +15,7 @@ class Orders extends Controller{
         $this->view->imageList =  $this->model->getImages();
         $this->view->orderList = $this->model->getOrders();
         $this->view->itemList = $this->model->getAllOrderItems();
+        $this->view->reqDetailList = $this->model->getRequiredDetails();
         $this->view->render('order/index');
         
     }
