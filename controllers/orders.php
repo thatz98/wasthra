@@ -48,12 +48,15 @@ class Orders extends Controller{
     function orderDetails($id){
 
         $this->view->title = 'Order Details';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/myOrderDetails">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/orderDashboard">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
         $this->view->deliveryStaffList = $this->model->getDeliveryStaffList();
     
         $this->view->qtyList = $this->model->getAllDetails();
         $this->view->imageList = $this->model->getImages();
         $this->view->orderItems = $this->model->getOrderItems($id);
+        $this->view->addressDetails = $this->model->getAddressDetails($id);
+        $this->view->customerDetails = $this->model->getCustomerDetails($id);
+        $this->view->payMethod = $this->model->getPayDetails($id);
         
         $this->view->render('control_panel/admin/order_details');
         
