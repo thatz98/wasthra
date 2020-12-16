@@ -105,7 +105,7 @@
      
     function getOrderItems($id){
             
-        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,order_item.product_id,order_item.item_size,order_item.item_color,order_item.item_qty,order_item.is_deleted
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,order_item.product_id,order_item.item_size,order_item.item_color,order_item.item_qty,order_item.is_deleted
         FROM orders INNER JOIN order_item ON orders.order_id=order_item.order_id WHERE orders.order_id='$id';");
 
     }
