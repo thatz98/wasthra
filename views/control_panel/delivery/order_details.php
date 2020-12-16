@@ -13,7 +13,11 @@
                 <table class="order-list order-items">
                      
                     <tr>
-                    
+                    <td>
+                    <?php foreach ($this->product_Image as $getImage):?>
+                        <img src="<?php echo URL.$getImage['image'] ?>> 
+                    <?php endforeach;?> 
+                    </td> 
                     <?php foreach ($this->orderDetails as $order_Details):?>  
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
