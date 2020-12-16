@@ -155,7 +155,9 @@
     function assignedDeliveryInfo($id){
         $userId=$this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
         $addressId=$userId[0]['address_id'];
-        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
+        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,delivery_address.postal_code,
+        delivery_address.city,customer.first_name,customer.last_name 
+        FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
     }
 
     function getAssignedOrderImage($id){
