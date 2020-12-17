@@ -24,7 +24,7 @@
                     <h3>Pending Deliveries</h3>
                 </div>
                 <div class="row">
-                    <h1>3420</h1>
+                    <h1><?php echo ($this->processCount+$this->outForDeliveryCount);?></h1>
                 </div>
             </div>
         </div>
