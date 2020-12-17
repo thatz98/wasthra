@@ -14,7 +14,7 @@
                     <h3>New Orders</h3>
                 </div>
                 <div class="row">
-                    <h1>3420</h1>
+                    <h1><?php echo $this->newOrderCount;?></h1>
                 </div>
             </div>
         </div>
