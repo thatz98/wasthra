@@ -24,7 +24,7 @@
                                         }
                                     }
 
-                            }?>
+                            ?>
                             <h5>Total Price: <?php echo number_format($price,2,'.',''); $price=0;?></h5></td>
                            <td> <div class="oder-status">
                                 <h5>Order Status: </h5>
@@ -34,7 +34,7 @@
                             
                            <td><a href="<?php echo URL;?>orders/myOrderDetails/<?php echo $orders['order_id']?>" class="btn table-btn">View Order</a></td>
                        </tr>
-                        <?php }?>
+                        <?php }}?>
 
                        </tr> 
                    </table>     
