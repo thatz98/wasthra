@@ -41,10 +41,11 @@ class Orders extends Controller{
         $this->view->title = 'Orders';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Orders';
         $this->view->orderList = $this->model->getAllOrders();
+        $this->view->reqDetailList = $this->model->getRequiredDetails();
         $this->view->newOrderCount = $this->model->orderCount('new');
         $this->view->processCount = $this->model->orderCount('processing');
         $this->view->outForDeliveryCount = $this->model->orderCount('outForDelivery');
-        
+
         $this->view->render('control_panel/admin/orders');
         
     }
