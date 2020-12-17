@@ -80,6 +80,7 @@ class Orders extends Controller{
         $this->view->orderDetails = $this->model->assignedOrder_Details($id);
         $this->view->order_Summary = $this->model->assignedOrderSummary($id);
         $this->view->deliveryInfo = $this->model->assignedDeliveryInfo($id);
+        $this->view->product_Image = $this->model-> getAssignedOrderImage($id);
 
         $this->view->render('control_panel/delivery/order_details');
         
@@ -112,7 +113,7 @@ class Orders extends Controller{
 
         $this->model->update($data);
 
-        header('location: ' . URL . '');
+        header('location: ' . URL . 'orders/orderDashboard');
     }
 
 }

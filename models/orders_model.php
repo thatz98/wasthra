@@ -153,9 +153,17 @@
     }
 
     function assignedDeliveryInfo($id){
-        $userId=$this->db->query("SELECT user_id FROM checkout WHERE checkout.order_id='$id'");
-        $addressId=$userId[0]['user_id'];
-        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.user_id='$addressId' ");
+        $userId=$this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
+        $addressId=$userId[0]['address_id'];
+        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
+         FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
     }
 
-}
+    function getAssignedOrderImage($id){
+        // $productId=$this->db->query("SELECT product_id FROM order_item WHERE order_item.order_id='$id'");
+        // $productImage=$productId[0]['product_id'];
+        // return $this->db->query("SELECT image FROM product_images  WHERE product_images.product_id='$productImage'");
+        return $this->db->query("SELECT image FROM product_images INNER JOIN order_item ON order_item.product_id=product_images.product_id WHERE order_item.order_id='$id'");
+    }
+
+} 
