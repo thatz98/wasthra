@@ -138,6 +138,7 @@
         $orderId=$this->db->query("SELECT order_id FROM delivery WHERE delivery.user_id='$userId'");
          $id=$orderId[0]['order_id'];
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,delivery.expected_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE orders.order_id='$id'");
+    
     }
 
     function assignedOrder_Details($id){
@@ -147,23 +148,33 @@
     }
 
     function assignedOrderSummary($id){
+
         $orderId=$this->db->query("SELECT order_id FROM payment WHERE payment.order_id='$id'");
         $newId=$orderId[0]['order_id'];
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
     }
 
     function assignedDeliveryInfo($id){
+
         $userId=$this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
         $addressId=$userId[0]['address_id'];
         return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
-         FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
-    }
+        FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
+    
+}
 
     function getAssignedOrderImage($id){
         // $productId=$this->db->query("SELECT product_id FROM order_item WHERE order_item.order_id='$id'");
         // $productImage=$productId[0]['product_id'];
         // return $this->db->query("SELECT image FROM product_images  WHERE product_images.product_id='$productImage'");
         return $this->db->query("SELECT image FROM product_images INNER JOIN order_item ON order_item.product_id=product_images.product_id WHERE order_item.order_id='$id'");
+   
+    }
+    
+    function orderCount($status){
+
+        return $this->db->listWhere('orders',array('COUNT(order_status)'),"order_status='$status'")['COUNT(order_status)'];
+    
     }
 
 } 
