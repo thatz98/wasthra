@@ -80,7 +80,7 @@ class Orders extends Controller{
         $this->view->orderDetails = $this->model->assignedOrder_Details($id);
         $this->view->order_Summary = $this->model->assignedOrderSummary($id);
         $this->view->deliveryInfo = $this->model->assignedDeliveryInfo($id);
-        $this->view->product_Image = $this->model-> getAssignedOrderImage($id);
+        $this->view->imageList =  $this->model->getImages();
 
         $this->view->render('control_panel/delivery/order_details');
         

@@ -11,14 +11,19 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
-                     
+                <?php foreach ($this->orderDetails as $order_Details):?>
                     <tr>
-                    <td>
-                    <?php foreach ($this->product_Image as $getImage):?>
-                        <img src="<?php echo URL.$getImage['image'] ?>> 
-                    <?php endforeach;?> 
-                    </td> 
-                    <?php foreach ($this->orderDetails as $order_Details):?>  
+                    <td><?php foreach ($this->imageList as $image){
+                              if($order_items['product_id']==$image['product_id']){?>
+                                   <img src="<?php echo URL.$image['image']?>" width="50px" height="50px">
+                            <?php 
+                            break;
+                          }
+                         }?>
+                        </td>
+ 
+         
+                     
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -28,8 +33,9 @@
                                 <label class="input-data">Qty: <?php echo $order_Details['item_qty']; ?></label>
                             </div>
                         </td>
-                        <?php endforeach; ?>
+                        
                     </tr>
+                    <?php endforeach; ?>
                 
                     <!-- <tr>
                         <td><img src="<?php  ?>public/images/products/product_img_4.jpg"></td>
