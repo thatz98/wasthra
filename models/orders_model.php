@@ -163,13 +163,13 @@
     
 }
 
-    function getAssignedOrderImage($id){
-        // $productId=$this->db->query("SELECT product_id FROM order_item WHERE order_item.order_id='$id'");
-        // $productImage=$productId[0]['product_id'];
-        // return $this->db->query("SELECT image FROM product_images  WHERE product_images.product_id='$productImage'");
-        return $this->db->query("SELECT image FROM product_images INNER JOIN order_item ON order_item.product_id=product_images.product_id WHERE order_item.order_id='$id'");
+    // function getAssignedOrderImage($id){
+    //     $productId=$this->db->query("SELECT product_id FROM order_item WHERE order_item.order_id='$id'");
+    //     $productImage=$productId[0]['product_id'];
+    //     return $this->db->query("SELECT image FROM product_images  WHERE product_images.product_id='$productImage'");
+    //     return $this->db->query("SELECT image FROM product_images INNER JOIN order_item ON order_item.product_id=product_images.product_id WHERE order_item.order_id='$id'");
    
-    }
+    // }
     
     function orderCount($status){
 
