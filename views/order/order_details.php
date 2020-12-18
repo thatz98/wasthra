@@ -50,7 +50,7 @@
                             <div class="col-2" style="min-width: 0;">
                             <h4>Order ID: <?php echo($this->orderList[0][0])?></h4>
                             <h5>Date: <?php echo($this->orderList[0][1])?>    Time: <?php echo($this->orderList[0][2])?></h5>
-                            <h5>Payment Method: <?php echo $this->payMethod[0][1]?></h5><br>
+                            <h5>Payment Method: <?php if($this->payMethod[0][1]=='cashOnDelivery')echo 'Cash On Delivery';?></h5><br>
                         </div>
                         <div class="col-2" style="min-width: 0;">
                         <?php if($this->orderList[0][3]=='new'){?>
@@ -105,7 +105,7 @@
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
-                                    ~Delivery Staff Details~<br>
+                                    Delivery Staff Details<br>
                                     <?php $data=$this->deliveryDetails; 
                                     if(!empty($data)){?>
                                     <?php if($this->orderList[0][3]=='delivered'){?>
