@@ -158,18 +158,7 @@
 
 
 
-<!-- <tr>
-                        <td><img src="<?php  ?>public/images/products/product_img_5.jpg"></td>
-                        <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
-                            </div>
-                        </td>
-                    </tr>
+<!-- 
                     <tr>
                         <td><img src="<?php  ?>public/images/products/product_img_4.jpg"></td>
                         <td class="order-details">
