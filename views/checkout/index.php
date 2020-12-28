@@ -99,8 +99,8 @@
                             <td>Subtotal</td>
                             <td>LKR <span id="subtotal"><?php $this->subtotal=0; 
                             foreach ($this->qtyList as $qty){
-                                foreach ($this->cartItems as $items){
-                                    if($qty['product_id']==$items['product_id']){
+                                foreach ($this->cartItems as $item){
+                                    if($qty['product_id']==$item['product_id']){
                                         $this->subtotal+=$qty['product_price'];
                                     }
                                 }
