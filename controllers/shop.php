@@ -232,6 +232,7 @@ class Shop extends Controller {
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
         $this->model->placeOrder($date, $time, $orderID, $payMethod,$aId[0][0],$comment);
+        $this->model->deleteCartItems();
     }
 
 

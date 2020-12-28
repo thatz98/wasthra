@@ -209,4 +209,11 @@ class Shop_Model extends Model{
             'user_id' => $userId,
         ));
     }
+
+    function deleteCartItems(){
+        $userId=Session::get('userId');
+        $cartId=$this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
+        $cartIdActual=$cartId[0][0];
+        $this->db->queryExecuteOnly("DELETE FROM cart_item WHERE cart_id='$cartIdActual'");
+    }
 }
