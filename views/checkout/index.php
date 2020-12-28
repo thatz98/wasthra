@@ -66,14 +66,14 @@
                     </div>
                     <div class="row">
                     <div class="col-2">
-                                                <div class="radio-container" id="gender-radio-m">
-                                                   
-                                                    
-                                                    <input type="radio" id="online" name="payment_method" value="online" required>
-                                                    <label for="online">Online</label>
-                                                    <input type="radio" id="cash-on-delivery" name="payment_method" value="cashOnDelivery">
-                                                    <label for="cash-on-delivery">Cash on Delivery</label>
-                                                </div>
+                        <div class="radio-container" id="gender-radio-m">
+                            
+                            
+                            <input type="radio" id="online" name="payment_method" value="online" required>
+                            <label for="online">Online</label>
+                            <input type="radio" id="cash-on-delivery" name="payment_method" value="cashOnDelivery">
+                            <label for="cash-on-delivery">Cash on Delivery</label>
+                        </div>
                     </div>
                     </div>   
                     
@@ -94,22 +94,44 @@
                         <h3>Summary</h3>
                     </div>
                     <div class="total-price">
-                        <table>
-                            <tr>
-                                <td>Subtotal</td>
-                                <td>LKR </td>
-                                <div id="sub-display">
-                                </div>
-                            </tr>
-                            <tr>
-                                <td>Delivery chargers</td>
-                                <td>LKR 2400.00</td>
-                            </tr>
-                            <tr>
-                                <td>Total Price</td>
-                                <td>LKR 2400.00</td>
-                            </tr>
-                        </table>
+                    <table>
+                        <tr>
+                            <td>Subtotal</td>
+                            <td>LKR <span id="subtotal"><?php $this->subtotal=0; 
+                            foreach ($this->qtyList as $qty){
+                                foreach ($this->cartItems as $items){
+                                    if($qty['product_id']==$items['product_id']){
+                                        $this->subtotal+=$qty['product_price'];
+                                    }
+                                }
+                            }
+                            echo number_format($this->subtotal,2,'.','');?></span></td>  
+                            <div id="sub-display">
+                            </div>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label style="font-size:11px;">Select the city to get the estimated delivery fee</label>
+                            </td>
+                            <td> 
+                                <select style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value;calculateDelivery();">
+                                    <option value="0">Select</option>
+                                <?php foreach($this->deliveryCharges as $deliveryCharges){?>
+                                        <option value="<?php echo $deliveryCharges['delivery_fee'];?>"><?php echo $deliveryCharges['city'];?></option>
+                                  <?php  }?>
+                                </select>
+                        
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>Delivery chargers</td>
+                            <td>LKR <span id="dCharges">-</span></td>
+                        </tr>
+                        <tr>
+                            <td>Total Price</td>
+                            <td>LKR <span id="totalPrice"><?php echo number_format($this->subtotal,2,'.','');?></span></td>
+                        </tr>
+                    </table>
                     </div>
                 </div>
             </div>
@@ -119,5 +141,12 @@
 </div>
     </div>
 </div>
-
+<script>
+    function calculateDelivery(){
+        
+        var dCharges = parseFloat(document.getElementById('dCharges').innerHTML);
+        var subtotal = parseFloat(document.getElementById('subtotal').innerHTML);
+        document.getElementById('totalPrice').innerHTML=(dCharges+subtotal).toFixed(2);
+    }
+</script>
 <?php require 'views/footer.php'; ?>
