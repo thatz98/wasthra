@@ -66,16 +66,8 @@
                 <div class="col-3">
                     <div class="helper-text">
                         <label>City</label><br>
-                        <select name="city"
-                            value="<?php if(isset(Session::get('addressData')['city'])){echo Session::get('addressData')['city'];} ?>">
-                            <?php foreach(Session::get('city') as $city){
-                            if(Session::get('addressData')['city']==$city['city']){?>
-                            <option value="<?php echo $city['city'];?>" selected><?php echo $city['city'];?></option>
-                            <?php 
-                        } else{?>
-                            <option value="<?php echo $city['city'];?>"><?php echo $city['city'];?></option>
-                            <?php }} ?>
-                        </select>
+                        <input type="text" value="<?php if(isset(Session::get('addressData')['city'])){echo Session::get('addressData')['city'];} ?>" name="city" data-helper="City" onfocusout="validateCity()"
+                            id="city">
                         <span class="popuptext"></span>
                     </div>
                 </div>
