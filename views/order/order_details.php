@@ -51,8 +51,42 @@
                             <h4>Order ID: <?php echo($this->orderList[0][0])?></h4>
                             <h5>Date: <?php echo($this->orderList[0][1])?>    Time: <?php echo($this->orderList[0][2])?></h5>
                             <h5>Payment Method: <?php if($this->payMethod[0][1]=='cashOnDelivery')echo 'Cash On Delivery';?></h5><br>
-                            <h5>Order Status: </h5>
-                            <h5 style="color: #04CBE0"> <?php echo $this->orderList[0][3]?></h5>
+                            
+                            <?php if($this->orderList[0][3]=='new'){?>
+                                <h5>Order Status: </h5><h5 style="color: #04CBE0">New</h5>
+                            <?php } 
+                                elseif($this->orderList[0][3]=='outForDelivery'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #2539e2">Out for Delivery</h5>
+                            <?php }
+                                elseif($this->orderList[0][3]=='inTransit'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #e22525">In Transcit</h5>
+                            <?php }
+                                elseif($this->orderList[0][3]=='delivered'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #d1af15">Delivered</h5>
+                            <?php }
+                                elseif($this->orderList[0][3]=='deliveryFailed'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #31d115">Delivery Failed</h5>
+                            <?php }
+                                elseif($this->orderList[0][3]=='closed'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #d115cb">Closed</h5>
+                            <?php }
+                                elseif($this->orderList[0][3]=='cancelled'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #18ea32">Cancelled</h5>
+                            <?php }
+                                elseif($this->orderList[0][3]=='returned'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #0710de">Returned</h5>
+                            <?php }
+                                elseif($this->orderList[0][3]=='requestToReturn'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #de7207">Requested to Return</h5>
+                            <?php }
+                                 elseif($this->orderList[0][3]=='requestToClose'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #999b4f">Requested to Close</h5>
+                            <?php }
+                                elseif($this->orderList[0][3]=='processing'){?>
+                                    <h5>Order Status: </h5><h5 style="color: #b79ce7">Processing</h5>
+                            <?php }?>
+                            
+                            
                         </div>
                         <div class="col-2" style="min-width: 0;">
                         <?php if($this->orderList[0][3]=='new'){?>
