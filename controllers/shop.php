@@ -236,6 +236,8 @@ class Shop extends Controller {
         $payMethod = $_POST['payment_method'];
         $this->model->placeOrder($date, $time, $orderID, $payMethod,$aId[0][0],$comment);
         $this->model->deleteCartItems();
+        Session::set('cartData', '');
+        Session::set('cartCount', 0);
     }
 
 
