@@ -232,4 +232,12 @@ class Shop_Model extends Model{
         $this->db->queryExecuteOnly("UPDATE orders SET cancel_comment='$comment' WHERE order_id='$id'");
         $this->db->queryExecuteOnly("UPDATE orders SET order_status='requestToCancel' WHERE order_id='$id'");
     }
+
+    function returnOrder($comment,$id){
+        $date = $this->db->query("SELECT actual_delivery_date FROM delivery WHERE order_id='$id'");
+        $day = $date[0][0];
+        $day = date('Y-m-d', strtotime($day. ' + 5 days'));
+        $this->db->queryExecuteOnly("INSERT INTO returns (order_id,expected_return_date,return_comment) VALUES ('$id','$day','$comment')");
+        $this->db->queryExecuteOnly("UPDATE orders SET order_status='requestToReturn' WHERE order_id='$id'");
+     }
 }

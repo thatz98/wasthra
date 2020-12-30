@@ -4,7 +4,7 @@
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
 
         <div class="row">
-            <form action="#" id="updateFrom"
+            <form action="<?php echo URL; ?>shop/returnOrder" id="updateFrom"
                 enctype="multipart/form-data" method="post">
 
                     <div class="row">
@@ -13,8 +13,9 @@
                 </div>
                 </div>
                 <div class="row">
-                <textarea name="" id="" cols="20" rows="5"></textarea>
+                <textarea name="return_comment" id="" cols="20" rows="5"></textarea>
                 </div>
+                <input type="text" value="<?php echo $this->orderDetails[0][1]?>" name="order_id" hidden>
                     <div class="row">
                     <button type="submit" class="btn">Submit</button>
                 </div>

@@ -247,6 +247,11 @@ class Shop extends Controller {
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
 
-
+    function returnOrder(){
+        $comment = $_POST['return_comment'];
+        $id = $_POST['order_id'];
+        $this->model->returnOrder($comment,$id);
+        header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
+    }
 
 }
