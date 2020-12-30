@@ -70,9 +70,9 @@
                                         $color='31d115';
                                         $status='Delivery Failed';
                                         break;
-                                    case 'closed':
+                                    case 'completed':
                                         $color='d115cb';
-                                        $status='Closed';
+                                        $status='Completed';
                                         break;
                                     case 'cancelled':
                                         $color='18ea32';
@@ -86,9 +86,9 @@
                                         $color='de7207';
                                         $status='Requested to Return';
                                         break;
-                                    case 'requestToClose':
+                                    case 'requestToCancel':
                                         $color='999b4f';
-                                        $status='Requested to Close';
+                                        $status='Requested to Cancel';
                                         break;
                                     case 'processing':
                                         $color='b79ce7';
@@ -101,13 +101,20 @@
                         <div class="col-2" style="min-width: 0;">
                         <?php if($this->orderList[0][3]=='new'){?>
                             <a href="#cancelOrder" class="btn">Request to Cancel</a>
+                            <a href="#" class="btn">Track Order</a>
                             <?php } 
                             
                                 elseif($this->orderList[0][3]=='delivered'){?>
                                 <a href="#requestReturn" class="btn">Request to Return</a>
                                 <?php } 
                                 
-                                else{}?>
+                                elseif($this->orderList[0][3]=='completed'){?>
+                                    <a href="#" class="btn">Review Products</a>
+                                    <?php } 
+
+                                else{?>
+                                    <a href="#" class="btn">Track Order</a>
+                                    <?php }?>
 
                         </div>
                         </div>

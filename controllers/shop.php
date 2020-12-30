@@ -240,6 +240,13 @@ class Shop extends Controller {
         Session::set('cartCount', 0);
     }
 
+    function cancelOrder(){
+        $comment = $_POST['cancel_comment'];
+        $id = $_POST['order_id'];
+        $this->model->cancelOrder($comment,$id);
+        header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
+    }
+
 
 
 }

@@ -227,4 +227,9 @@ class Shop_Model extends Model{
         $cartIdActual=$cartId[0][0];
         return $this->db->query("SELECT * FROM cart_item WHERE cart_item.cart_id='$cartIdActual'");
     }
+
+    function cancelOrder($comment,$id){
+        $this->db->queryExecuteOnly("UPDATE orders SET cancel_comment='$comment' WHERE order_id='$id'");
+        $this->db->queryExecuteOnly("UPDATE orders SET order_status='requestToCancel' WHERE order_id='$id'");
+    }
 }

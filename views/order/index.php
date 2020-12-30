@@ -46,9 +46,9 @@
                                         $color='31d115';
                                         $status='Delivery Failed';
                                         break;
-                                    case 'closed':
+                                    case 'completed':
                                         $color='d115cb';
-                                        $status='Closed';
+                                        $status='Completed';
                                         break;
                                     case 'cancelled':
                                         $color='18ea32';
@@ -62,9 +62,9 @@
                                         $color='de7207';
                                         $status='Requested to Return';
                                         break;
-                                    case 'requestToClose':
+                                    case 'requestToCancel':
                                         $color='999b4f';
-                                        $status='Requested to Close';
+                                        $status='Requested to Cancel';
                                         break;
                                     case 'processing':
                                         $color='b79ce7';
