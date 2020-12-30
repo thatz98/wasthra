@@ -4,16 +4,17 @@
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
 
         <div class="row">
-            <form action="#" id="updateFrom"
+            <form action="<?php echo URL; ?>shop/cancelOrder" id="updateFrom"
                 enctype="multipart/form-data" method="post">
 
                     <div class="row">
                 <div class="col-2">
                 <label>Reason to cancel</label>
                 </div>
+                <input type="text" value="<?php echo $this->orderDetails[0][1]?>" name="order_id" hidden>
                 </div>
                 <div class="row">
-                <textarea name="" id="" cols="20" rows="5"></textarea>
+                <textarea name="cancel_comment" id="" cols="20" rows="5"></textarea>
                 </div>
                     <div class="row">
                     <button type="submit" class="btn">Submit</button>
