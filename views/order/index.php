@@ -28,7 +28,7 @@
                             <h5>Total Price: <?php echo number_format($price,2,'.',''); $price=0;?></h5></td>
                            <td> <div class="oder-status">
 
-                           <?php $status=$this->orderList[0][3]; $color='';
+                           <?php $status=$orders['order_status']; $color='';
                                 switch($status){
                                     case 'new':
                                         $color='04CBE0';
