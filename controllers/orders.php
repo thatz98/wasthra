@@ -67,6 +67,12 @@ class Orders extends Controller{
         
     }
 
+    function trackMyOrder($id){
+        $this->view->title = 'Track Order';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/orderDashboard">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
+        $this->view->render('order/track_order');
+    }
+
     function assignedOrders(){
 
         $this->view->title = 'Assigned Orders';
