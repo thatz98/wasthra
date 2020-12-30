@@ -8,8 +8,8 @@
                     <div class="col-2">
                         <div class="">
                             <label>Select the Status</label><br><br>
-                            <input type="text" name="prev_id" value="<?php echo $this->orderList['order_id']?>" style="display:none">   
-                            <select name="assigned_deliver">
+                            <input type="text" name="order_id" value="<?php echo $this->orderItems[0]['order_id']?>" style="display:none">   
+                            <select name="order_status">
                                <option value="new" <?php if($this->orderItems[0]['order_status']=='new') echo "selected=\"selected\"";?>>New</option>
                                <option value="processing"  <?php if($this->orderItems[0]['order_status']=='processing') echo "selected=\"selected\"";?>>Processing</option>
                                <option value="outForDelivery" <?php if($this->orderItems[0]['order_status']=='outForDelivery') echo "selected=\"selected\"";?>>Out for Delivery</option>
