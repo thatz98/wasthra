@@ -8,6 +8,11 @@
     </div>
     <div class="row-top">
         <div class="box-container tracking-box">
+            <div class="row mar-b-30">
+                <div class="col">
+                <h2>Order ID: ORD2020121613013226</h2>
+                </div>
+            </div>
             <div class="row-top">
                         <div class="order-tracking completed">
                             <span class="is-complete"></span>

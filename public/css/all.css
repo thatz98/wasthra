@@ -442,6 +442,10 @@ form textarea:hover {
     margin-bottom: 20px !important;
 }
 
+.mar-b-30 {
+    margin-bottom: 30px !important;
+}
+
 .mar-t-40 {
     margin-top: 50px;
     margin-left: 135px;
