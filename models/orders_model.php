@@ -126,10 +126,10 @@
 
     
     function update($data){
-        
-         $this->db->update('orders',array(
-        'order_status' => $data['order_status']),"order_id = '{$data['order_id']}'");
-
+        $orderId=$data['order_id'];
+        $orderStatus=$data['order_status'];
+        $this->db-> queryExecuteOnly("UPDATE orders SET order_status='$orderStatus' WHERE order_id ='$orderId'");
+       
     }
 
     function assignedOrders(){

@@ -112,8 +112,8 @@ class Orders extends Controller{
 
         $this->view->orderList = $this->model->getAllOrders();
         $data = array();
-        $data['order_id'] = $_POST['prev_id'];
-        $data['order_status'] = $_POST['assigned_deliver'];
+        $data['order_id'] = $_POST['order_id'];
+        $data['order_status'] = $_POST['order_status'];
 
         $this->model->update($data);
 
