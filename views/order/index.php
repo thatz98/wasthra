@@ -28,39 +28,50 @@
                             <h5>Total Price: <?php echo number_format($price,2,'.',''); $price=0;?></h5></td>
                            <td> <div class="oder-status">
 
-                                <?php if($orders['order_status']=='new'){?>
-                                <h5>Order Status: </h5><h5 style="color: #04CBE0">New</h5>
-                            <?php } 
-                                elseif($orders['order_status']=='outForDelivery'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #2539e2">Out for Delivery</h5>
-                            <?php }
-                                elseif($orders['order_status']=='inTransit'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #e22525">In Transcit</h5>
-                            <?php }
-                                elseif($orders['order_status']=='delivered'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #d1af15">Delivered</h5>
-                            <?php }
-                                elseif($orders['order_status']=='deliveryFailed'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #31d115">Delivery Failed</h5>
-                            <?php }
-                                elseif($orders['order_status']=='closed'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #d115cb">Closed</h5>
-                            <?php }
-                                elseif($orders['order_status']=='cancelled'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #18ea32">Cancelled</h5>
-                            <?php }
-                                elseif($orders['order_status']=='returned'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #0710de">Returned</h5>
-                            <?php }
-                                elseif($orders['order_status']=='requestToReturn'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #de7207">Requested to Return</h5>
-                            <?php }
-                                 elseif($orders['order_status']=='requestToClose'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #999b4f">Requested to Close</h5>
-                            <?php }
-                                elseif($orders['order_status']=='processing'){?>
-                                    <h5>Order Status: </h5><h5 style="color: #b79ce7">Processing</h5>
-                            <?php }?>
+                           <?php $status=$this->orderList[0][3]; $color='';
+                                switch($status){
+                                    case 'new':
+                                        $color='04CBE0';
+                                        $status='New';
+                                        break;
+                                    case 'inTransit':
+                                        $color='e22525';
+                                        $status='In Transit';
+                                        break;
+                                    case 'delivered':
+                                        $color='d1af15';
+                                        $status='Delivered';
+                                        break;
+                                    case 'deliveryFailed':
+                                        $color='31d115';
+                                        $status='Delivery Failed';
+                                        break;
+                                    case 'closed':
+                                        $color='d115cb';
+                                        $status='Closed';
+                                        break;
+                                    case 'cancelled':
+                                        $color='18ea32';
+                                        $status='Cancelled';
+                                        break;
+                                    case 'returned':
+                                        $color='0710de';
+                                        $status='Returned';
+                                        break;
+                                    case 'requestToReturn':
+                                        $color='de7207';
+                                        $status='Requested to Return';
+                                        break;
+                                    case 'requestToClose':
+                                        $color='999b4f';
+                                        $status='Requested to Close';
+                                        break;
+                                    case 'processing':
+                                        $color='b79ce7';
+                                        $status='Processing';
+                                        break;}?>
+
+                            <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                               </div>
                             </td>
                             
