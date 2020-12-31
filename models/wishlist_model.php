@@ -94,6 +94,9 @@ class Wishlist_Model extends Model{
 
    }
 
+   function getDeliveryCharges(){
+    return $this->db->listAll('delivery_charges','*');
+}
 
 
 

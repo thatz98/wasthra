@@ -16,6 +16,7 @@ class Orders extends Controller{
         $this->view->orderList = $this->model->getOrders();
         $this->view->itemList = $this->model->getAllOrderItems();
         $this->view->reqDetailList = $this->model->getRequiredDetails();
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('order/index');
         
     }
@@ -30,6 +31,7 @@ class Orders extends Controller{
         $this->view->orderList = $this->model->getMyOrder($id);
         $this->view->payMethod = $this->model->getPayDetails($id);
         $this->view->addressDetails = $this->model->getAddressDetails($id);
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->deliveryDetails = $this->model->getDeliveryDetails($id);
         $this->view->memberDetails = $this->model->getMemberDetails($id);
         $this->view->render('order/order_details');

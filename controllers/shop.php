@@ -25,7 +25,7 @@ class Shop extends Controller {
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
-
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('shop/shop');
     }
     
@@ -51,7 +51,7 @@ class Shop extends Controller {
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
         $this->view->reviews = $this->model->reviewDetails($id);
         $this->view->reviewImageList = $this->model->reviewImages();
-
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('shop/product_details');
     }
     

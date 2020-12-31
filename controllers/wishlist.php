@@ -26,7 +26,7 @@ class Wishlist extends Controller {
         $this->view->imageList =  $this->model->getImages();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->colorList =  $this->model->getColors();
-        
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('user/wish_list');
     }
     
