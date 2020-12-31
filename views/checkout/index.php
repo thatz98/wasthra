@@ -33,7 +33,16 @@
                     <label>Address Line 3</label><br><input type="text" name="address_line_3" value="<?php if(isset(Session::get('addressData')['address_line_3'])) echo Session::get('addressData')['address_line_3']?>"><br>
                     </div>
                     <div class="col-3">
-                    <label>City</label><br><input type="text" name="city" value="<?php if(isset(Session::get('addressData')['city']))echo Session::get('addressData')['city']?>"><br>
+                    <label>City</label><br>
+                    <select style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value;calculateDelivery();">
+                        <option value="0">Select</option>
+                    <?php foreach($this->deliveryCharges as $deliveryCharges){?>
+                        <option value="<?php echo $deliveryCharges['delivery_fee'];?>"
+                                        <?php if(Session::get('addressData')['city']==$deliveryCharges['city']) echo "selected=\"selected\"";?>>
+                                        <?php echo $deliveryCharges['city'];?>
+                                        </option>
+                        <?php  }?>
+                    </select>
                     </div>
                     </div>
                     <div class="row">
@@ -108,20 +117,6 @@
                             echo number_format($this->subtotal,2,'.','');?></span></td>  
                             <div id="sub-display">
                             </div>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label style="font-size:11px;">Select the city to get the estimated delivery fee</label>
-                            </td>
-                            <td> 
-                                <select style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value;calculateDelivery();">
-                                    <option value="0">Select</option>
-                                <?php foreach($this->deliveryCharges as $deliveryCharges){?>
-                                        <option value="<?php echo $deliveryCharges['delivery_fee'];?>"><?php echo $deliveryCharges['city'];?></option>
-                                  <?php  }?>
-                                </select>
-                        
-                        </td>
                         </tr>
                         <tr>
                             <td>Delivery chargers</td>

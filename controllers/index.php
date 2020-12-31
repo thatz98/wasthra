@@ -22,7 +22,7 @@ class Index extends Controller {
         $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
-
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('index/index');
     }
     
