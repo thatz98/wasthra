@@ -54,6 +54,11 @@
 
     }
 
+    function getCity(){
+        return $this->db->query("SELECT checkout.order_id,delivery_address.city 
+        FROM checkout INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id");
+    }
+
     function getMyOrder($id){
 
         return $this->db->query("SELECT * FROM orders WHERE order_id='$id'");
