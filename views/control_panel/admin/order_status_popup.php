@@ -10,17 +10,17 @@
                             <label>Select the Status</label><br><br>
                             <input type="text" name="order_id" value="<?php echo $this->orderItems[0]['order_id']?>" style="display:none">   
                             <select name="order_status">
-                               <option value="new" <?php if($this->orderItems[0]['order_status']=='new') echo "selected=\"selected\"";?>>New</option>
-                               <option value="processing"  <?php if($this->orderItems[0]['order_status']=='processing') echo "selected=\"selected\"";?>>Processing</option>
-                               <option value="outForDelivery" <?php if($this->orderItems[0]['order_status']=='outForDelivery') echo "selected=\"selected\"";?>>Out for Delivery</option>
-                               <option value="inTransit" <?php if($this->orderItems[0]['order_status']=='inTransit') echo "selected=\"selected\"";?>>In Transit</option>
-                               <option value="delivered" <?php if($this->orderItems[0]['order_status']=='delivered') echo "selected=\"selected\"";?>>Delivered</option>
-                               <option value="deliveryFailed" <?php if($this->orderItems[0]['order_status']=='deliveryFailed') echo "selected=\"selected\"";?>>Delivery Failed</option>
-                               <option value="requestToReturn" <?php if($this->orderItems[0]['order_status']=='requestToReturn') echo "selected=\"selected\"";?>>Request to Return</option>
-                               <option value="requestToClose" <?php if($this->orderItems[0]['order_status']=='requestToClose') echo "selected=\"selected\"";?>>Request to Close</option>
-                               <option value="closed" <?php if($this->orderItems[0]['order_status']=='closed') echo "selected=\"selected\"";?>>Closed</option>
-                               <option value="cancelled" <?php if($this->orderItems[0]['order_status']=='cancelled') echo "selected=\"selected\"";?>>Cancelled</option>
-                               <option value="returned" <?php if($this->orderItems[0]['order_status']=='returned') echo "selected=\"selected\"";?>>Returned</option>
+                               <option value="New" <?php if($this->orderItems[0]['order_status']=='New') echo "selected=\"selected\"";?>>New</option>
+                               <option value="Processing"  <?php if($this->orderItems[0]['order_status']=='Processing') echo "selected=\"selected\"";?>>Processing</option>
+                               <option value="Out for Delivery" <?php if($this->orderItems[0]['order_status']=='Out for Delivery') echo "selected=\"selected\"";?>>Out for Delivery</option>
+                               <option value="In Transit" <?php if($this->orderItems[0]['order_status']=='In Transit') echo "selected=\"selected\"";?>>In Transit</option>
+                               <option value="Delivered" <?php if($this->orderItems[0]['order_status']=='Delivered') echo "selected=\"selected\"";?>>Delivered</option>
+                               <option value="Delivery Failed" <?php if($this->orderItems[0]['order_status']=='Delivery Failed') echo "selected=\"selected\"";?>>Delivery Failed</option>
+                               <option value="Requested to Return" <?php if($this->orderItems[0]['order_status']=='Requested to Return') echo "selected=\"selected\"";?>>Requested to Return</option>
+                               <option value="Requested to Cancel" <?php if($this->orderItems[0]['order_status']=='Requested to Cancel') echo "selected=\"selected\"";?>>Requested to Cancel</option>
+                               <option value="Completed" <?php if($this->orderItems[0]['order_status']=='Completed') echo "selected=\"selected\"";?>>Completed</option>
+                               <option value="Cancelled" <?php if($this->orderItems[0]['order_status']=='Cancelled') echo "selected=\"selected\"";?>>Cancelled</option>
+                               <option value="Returned" <?php if($this->orderItems[0]['order_status']=='Returned') echo "selected=\"selected\"";?>>Returned</option>
                             </select>
                         </div>
                     </div>
