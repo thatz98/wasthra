@@ -65,6 +65,7 @@ class Orders extends Controller{
         $this->view->addressDetails = $this->model->getAddressDetails($id);
         $this->view->customerDetails = $this->model->getCustomerDetails($id);
         $this->view->payMethod = $this->model->getPayDetails($id);
+      
         
         $this->view->render('control_panel/admin/order_details');
         

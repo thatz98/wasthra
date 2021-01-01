@@ -67,10 +67,52 @@
                             <h4>Order ID: <?php echo $order_items['order_id']; ?> </h4>
                             <h5>Date: <?php echo $order_items['date']; ?>    Time: <?php echo $order_items['time']; ?> </h5>
                             <h5>Payment Method: <?php echo $this->payMethod[0][1]?></h5>
-                            <div class="oder-status">
-                                <h5>Order Status: </h5>
-                                <h5 style="color: #04CBE0"> <?php echo $order_items['order_status']; ?></h5>
-                            </div>
+
+                            
+                            <?php $status=$this->orderItems[0][3]; $color='';
+                                switch($status){
+                                    case 'New':
+                                        $color='04CBE0';
+                                        $status='New';
+                                        break;
+                                    case 'In Transit':
+                                        $color='e22525';
+                                        $status='In Transit';
+                                        break;
+                                    case 'Delivered':
+                                        $color='d1af15';
+                                        $status='Delivered';
+                                        break;
+                                    case 'Delivery Failed':
+                                        $color='31d115';
+                                        $status='Delivery Failed';
+                                        break;
+                                    case 'Completed':
+                                        $color='d115cb';
+                                        $status='Completed';
+                                        break;
+                                    case 'Cancelled':
+                                        $color='18ea32';
+                                        $status='Cancelled';
+                                        break;
+                                    case 'Returned':
+                                        $color='0710de';
+                                        $status='Returned';
+                                        break;
+                                    case 'Requested to Return':
+                                        $color='de7207';
+                                        $status='Requested to Return';
+                                        break;
+                                    case 'Requested to Cancel':
+                                        $color='999b4f';
+                                        $status='Requested to Cancel';
+                                        break;
+                                    case 'Processing':
+                                        $color='b79ce7';
+                                        $status='Processing';
+                                        break;}?>
+                                        
+                                    <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                             </div>
 
                             <div class="col-2" style="min-width: 0;">
