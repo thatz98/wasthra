@@ -111,7 +111,7 @@
                                         $color='b79ce7';
                                         $status='Processing';
                                         break;}?>
-                                        
+
                                     <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                             </div>
 
@@ -140,7 +140,18 @@
 
                         <tr>
                             <td>Delivery chargers</td>
-                            <td>LKR <span id="dCharges">-</span></td>
+                                    
+                                <?php $fee=0;
+                                    foreach ($this->deliveryCharges as $delivery){
+                                        if($delivery['city']==$this->addressDetails[0][6]){
+                                    
+                                            $fee=$delivery['delivery_fee'];
+                                            $this->subtotal+=$fee;
+                                            
+                                        }
+                                    }?>
+                                    
+                            <td>LKR <?php echo number_format($fee,2,'.','');?></td>
                         </tr>
 
                         <tr>
