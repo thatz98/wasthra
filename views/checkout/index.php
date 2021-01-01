@@ -34,10 +34,10 @@
                     </div>
                     <div class="col-3">
                     <label>City</label><br>
-                    <select style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value;calculateDelivery();">
+                    <select name='city' style="padding: 5px;font-size:12px;background:transparent;" ">
                         <option value="0">Select</option>
                     <?php foreach($this->deliveryCharges as $deliveryCharges){?>
-                        <option value="<?php echo $deliveryCharges['delivery_fee'];?>"
+                        <option value="<?php echo $deliveryCharges['city'];?>"
                                         <?php if(Session::get('addressData')['city']==$deliveryCharges['city']) echo "selected=\"selected\"";?>>
                                         <?php echo $deliveryCharges['city'];?>
                                         </option>
@@ -110,7 +110,7 @@
                             foreach ($this->qtyList as $qty){
                                 foreach ($this->cartItems as $item){
                                     if($qty['product_id']==$item['product_id']){
-                                        $this->subtotal+=$qty['product_price'];
+                                        $this->subtotal+=$qty['product_price']*$qty['qty'];
                                     }
                                 }
                             }

@@ -128,7 +128,16 @@
                             </tr>
                             <tr>
                                 <td>Delivery chargers</td>
-                                <td>LKR -</td>
+                                
+                                <?php $fee=0;
+                                    foreach ($this->deliveryCharges as $delivery){
+                                        if($delivery['city']==$this->addressDetails[0][6]){
+                                            //echo $this->addressDetails[0][6];
+                                            $fee=$delivery['delivery_fee'];
+                                            $subTotal+=$fee;
+                                        }
+                                    }?>
+                                <td>LKR <?php echo number_format($fee,2,'.','');?></td>
                             </tr>
                             <tr>
                                 <td>Total Price</td>

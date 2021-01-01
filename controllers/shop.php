@@ -212,7 +212,7 @@ class Shop extends Controller {
         $data['city'] = $_POST['city'];
         $data['postal_code'] = $_POST['postal_code'];
         $comment = $_POST['delivery_comments'];
-
+        print_r($data);
         if (
             $data['address_line_1'] != Session::get('addressData')['address_line_1']
             || $data['address_line_2'] != Session::get('addressData')['address_line_2']
