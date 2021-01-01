@@ -132,4 +132,16 @@ class Orders extends Controller{
         header('location: ' . URL . 'orders/orderDashboard');
     }
 
+    function create() {
+
+        $data = array();
+        $data['user_id'] = $_POST['assigned_deliver'];
+        $data['order_id'] = $_POST['order_id'];
+
+        $this->model->create($data);
+      //  print_r($data);
+        header('location: ' . URL . 'orders/orderDashboard');
+        
+    }
+
 }

@@ -193,4 +193,22 @@
     function getDeliveryCharges(){
         return $this->db->listAll('delivery_charges','*');
     }
+
+
+    function create($data){
+        
+       
+        $this->db->insert('delivery',array(
+            'order_id' => $data['order_id'],     
+            'user_id' => $data['user_id']
+           ));
+
+        }
+
 } 
+
+
+
+// 'delivery_id' => $data[''],
+// 'actual_delivery_date' => $data[''],
+// 'expected_delivery_date' => $data['']
