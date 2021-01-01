@@ -110,7 +110,7 @@
                             foreach ($this->qtyList as $qty){
                                 foreach ($this->cartItems as $item){
                                     if($qty['product_id']==$item['product_id']){
-                                        $this->subtotal+=$qty['product_price']*$qty['qty'];
+                                        $this->subtotal+=$qty['product_price']*$item['item_qty'];
                                     }
                                 }
                             }

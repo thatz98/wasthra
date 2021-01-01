@@ -17,6 +17,7 @@ class Orders extends Controller{
         $this->view->itemList = $this->model->getAllOrderItems();
         $this->view->reqDetailList = $this->model->getRequiredDetails();
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+        $this->view->cities = $this->model->getCity();
         $this->view->render('order/index');
         
     }
