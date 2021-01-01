@@ -42,48 +42,52 @@
                             ?>
                             <h5>Total Price: <?php echo number_format($price,2,'.',''); $price=0;?></h5></td>
                            <td> <div class="oder-status">
-
+                           
                            <?php $status=$orders['order_status']; $color='';
                                 switch($status){
-                                    case 'new':
+                                    case 'New':
                                         $color='04CBE0';
                                         $status='New';
                                         break;
-                                    case 'inTransit':
+                                    case 'In Transit':
                                         $color='e22525';
                                         $status='In Transit';
                                         break;
-                                    case 'delivered':
+                                    case 'Delivered':
                                         $color='d1af15';
                                         $status='Delivered';
                                         break;
-                                    case 'deliveryFailed':
+                                    case 'Delivery Failed':
                                         $color='31d115';
                                         $status='Delivery Failed';
                                         break;
-                                    case 'completed':
+                                    case 'Completed':
                                         $color='d115cb';
                                         $status='Completed';
                                         break;
-                                    case 'cancelled':
+                                    case 'Cancelled':
                                         $color='18ea32';
                                         $status='Cancelled';
                                         break;
-                                    case 'returned':
+                                    case 'Returned':
                                         $color='0710de';
                                         $status='Returned';
                                         break;
-                                    case 'requestToReturn':
+                                    case 'Requested to Return':
                                         $color='de7207';
                                         $status='Requested to Return';
                                         break;
-                                    case 'requestToCancel':
+                                    case 'Requested to Cancel':
                                         $color='999b4f';
                                         $status='Requested to Cancel';
                                         break;
-                                    case 'processing':
+                                    case 'Processing':
                                         $color='b79ce7';
                                         $status='Processing';
+                                        break;
+                                    case 'Out for Delivery':
+                                        $color='45d2b4';
+                                        $status='Out for Delivery';
                                         break;}?>
 
                             <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>

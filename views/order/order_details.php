@@ -54,61 +54,65 @@
                             
                             <?php $status=$this->orderList[0][3]; $color='';
                                 switch($status){
-                                    case 'new':
+                                    case 'New':
                                         $color='04CBE0';
                                         $status='New';
                                         break;
-                                    case 'inTransit':
+                                    case 'In Transit':
                                         $color='e22525';
                                         $status='In Transit';
                                         break;
-                                    case 'delivered':
+                                    case 'Delivered':
                                         $color='d1af15';
                                         $status='Delivered';
                                         break;
-                                    case 'deliveryFailed':
+                                    case 'Delivery Failed':
                                         $color='31d115';
                                         $status='Delivery Failed';
                                         break;
-                                    case 'completed':
+                                    case 'Completed':
                                         $color='d115cb';
                                         $status='Completed';
                                         break;
-                                    case 'cancelled':
+                                    case 'Cancelled':
                                         $color='18ea32';
                                         $status='Cancelled';
                                         break;
-                                    case 'returned':
+                                    case 'Returned':
                                         $color='0710de';
                                         $status='Returned';
                                         break;
-                                    case 'requestToReturn':
+                                    case 'Requested to Return':
                                         $color='de7207';
                                         $status='Requested to Return';
                                         break;
-                                    case 'requestToCancel':
+                                    case 'Requested to Cancel':
                                         $color='999b4f';
                                         $status='Requested to Cancel';
                                         break;
-                                    case 'processing':
+                                    case 'Processing':
                                         $color='b79ce7';
                                         $status='Processing';
+                                        break;
+                                    case 'Out for Delivery':
+                                        $color='45d2b4';
+                                        $status='Out for Delivery';
                                         break;}?>
 
                             <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                             
                         </div>
                         <div class="col-2" style="min-width: 0;">
-                        <?php if($this->orderList[0][3]=='new'){?>
+                        <?php if($this->orderList[0][3]=='New'){?>
                             <a href="#cancelOrder" class="btn">Request to Cancel</a>
                             <a href="#" class="btn">Track Order</a>
                             <?php } 
                             
-                                elseif($this->orderList[0][3]=='delivered'){?>
+                                elseif($this->orderList[0][3]=='Delivered'){?>
                                 <a href="#requestReturn" class="btn">Request to Return</a>
                                 <?php } 
                                 
-                                elseif($this->orderList[0][3]=='completed'){?>
+                                elseif($this->orderList[0][3]=='Completed'){?>
                                     <a href="#" class="btn">Review Products</a>
                                     <?php } 
 
@@ -170,7 +174,7 @@
                                     Delivery Staff Details<br>
                                     <?php $data=$this->deliveryDetails; 
                                     if(!empty($data)){?>
-                                    <?php if($this->orderList[0][3]=='delivered'){?>
+                                    <?php if($this->orderList[0][3]=='Delivered' || $this->orderList[0][3]=='Delivered'){?>
                                     Delivered Date: <?php echo $this->deliveryDetails[0][3]?><br><br>
                                     Delivered By: <?php echo $this->memberDetails[0][1]?> <?php echo $this->memberDetails[0][2]?><br>
                                     <?php } 
