@@ -133,7 +133,7 @@ class Orders extends Controller{
         header('location: ' . URL . 'orders/orderDashboard');
     }
 
-    function create() {
+    function createDelivery() {
 
         $data = array();
         $data['user_id'] = $_POST['assigned_deliver'];
