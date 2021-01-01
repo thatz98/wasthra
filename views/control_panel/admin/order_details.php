@@ -69,7 +69,7 @@
                             <h5>Payment Method: <?php echo $this->payMethod[0][1]?></h5>
                             <div class="oder-status">
                                 <h5>Order Status: </h5>
-                                <h5 style="color: #04CBE0"> New</h5>
+                                <h5 style="color: #04CBE0"> <?php echo $order_items['order_status']; ?></h5>
                             </div>
                             </div>
 
