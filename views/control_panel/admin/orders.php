@@ -126,9 +126,19 @@
 
                             <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                         </div>
+
+                        <?php $data=$this->deliveryList; 
+                                         if(!empty($data)){ ?>
+                        <div class="order-note">
+                            <li style="color: red;">Delivery is set</li>
+                        </div>
+                        <?php }
+                                        else{?>
                         <div class="order-note">
                             <li style="color: red;">No delivery is set</li>
                         </div>
+
+                        <?php }?>
                     </td>
                     <td><a href="<?php echo URL ?>orders/orderDetails/<?php echo $order_list['order_id']; ?>" class="btn table-btn">View Order</a></td>
                 </tr>

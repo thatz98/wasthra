@@ -44,6 +44,7 @@ class Orders extends Controller{
         $this->view->title = 'Orders';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Orders';
         $this->view->orderList = $this->model->getAllOrders();
+        $this->view->deliveryList = $this->model->getAllDelivery();
         $this->view->reqDetailList = $this->model->getRequiredDetails();
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->cities = $this->model->getCity();
