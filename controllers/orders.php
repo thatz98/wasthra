@@ -69,9 +69,9 @@ class Orders extends Controller{
         $this->view->customerDetails = $this->model->getCustomerDetails($id);
         $this->view->payMethod = $this->model->getPayDetails($id);
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
-        
+        $this->view->deliveryDetails = $this->model->getDeliveryDetails($id);
+        $this->view->memberDetails = $this->model->getMemberDetails($id);
       
-        
         $this->view->render('control_panel/admin/order_details');
         
     }
