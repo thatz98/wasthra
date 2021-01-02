@@ -77,7 +77,9 @@
                              <h4>Order ID:<?php echo $summary_details['order_id']; ?></h4>
                              <h5>Date: <?php echo $summary_details['date']; ?>   Time: <?php echo $summary_details['time']; ?></h5>
                              <h5>Payment Method:<?php echo $summary_details['payment_method']; ?></h5>
-                             <?php $status=$this->orderItems[0][3]; $color='';
+                            
+                            
+                             <?php $status=$this->orderDetails[0][3]; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
@@ -121,11 +123,7 @@
                                         break;}?>
 
                                     <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
-
-                            <!-- <div class="oder-status">
-                                <h5>Order Status: </h5>
-                                <h5 style="color: #04CBE0"><?php echo $summary_details['order_status']; ?></h5>
-                              </div> -->
+                                        
                                <?php endforeach; ?>
                         </div>
                         <div class="col-2" style="min-width: 0;">
