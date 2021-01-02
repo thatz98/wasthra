@@ -60,6 +60,22 @@
 
                             ?>
 
+                           <?php $fee=0;$city='';
+                                foreach ($this->cities as $delivery_city){
+                                    if($delivery_city['order_id']==$order_list['order_id']){
+                                        $city=$delivery_city['city'];
+                                    }
+                                }?>
+
+                            <?php 
+                                foreach ($this->deliveryCharges as $deliveryFee){
+                                    if($deliveryFee['city']==$city){
+                                        $fee=$deliveryFee['delivery_fee'];
+                                        $price+=$fee;
+                                    }
+                                }
+                            ?>    
+
                         <h5>Total Price: <?php echo number_format($price,2,'.',''); $price=0;?></h5>
                     </td>
                     <td class="order-messages">

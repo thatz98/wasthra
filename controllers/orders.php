@@ -45,6 +45,8 @@ class Orders extends Controller{
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Orders';
         $this->view->orderList = $this->model->getAllOrders();
         $this->view->reqDetailList = $this->model->getRequiredDetails();
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+        $this->view->cities = $this->model->getCity();
         $this->view->newOrderCount = $this->model->orderCount('New');
         $this->view->processCount = $this->model->orderCount('Processing');
         $this->view->outForDeliveryCount = $this->model->orderCount('Out for Delivery');
