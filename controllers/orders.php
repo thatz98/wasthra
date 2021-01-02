@@ -144,7 +144,7 @@ class Orders extends Controller{
 
         $this->model->create($data);
       //  print_r($data);
-        header('location: ' . URL . 'orders/orderDashboard');
+        header("location: " . URL . "orders/orderDetails/{$data['order_id']}");
         
     }
 
