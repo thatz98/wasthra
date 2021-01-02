@@ -43,7 +43,7 @@
         <div class="order-container" style="min-width: 70%">
             <table class="order-list">
                
-            <?php foreach ($this->orderList as $order_list ): ?>
+            <?php if($this->orderList==FALSE){echo "No Placed Orders";}else{ foreach ($this->orderList as $order_list ): ?>
                 <tr>
 
                     <td class="order-details">
@@ -143,7 +143,7 @@
                     <td><a href="<?php echo URL ?>orders/orderDetails/<?php echo $order_list['order_id']; ?>" class="btn table-btn">View Order</a></td>
                 </tr>
             
-            <?php endforeach; ?>
+            <?php endforeach; } ?>
 
             </table>
         </div>

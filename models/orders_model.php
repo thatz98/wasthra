@@ -104,7 +104,14 @@
 
     function getAllorders(){
 
+        $orderId=$this->db->query("SELECT order_id FROM orders");
+        if(!empty($orderId)) {
+            $id=$orderId[0]['order_id'];
         return $this->db->query("SELECT orders.order_id,orders.date,orders.order_status FROM orders");
+
+    }else{
+        return FALSE;
+    }
 
     }
 
