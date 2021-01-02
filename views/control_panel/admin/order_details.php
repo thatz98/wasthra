@@ -187,7 +187,16 @@
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
                                     Expected Delivery Date: 05/05/2020<br><br>
-                                    Assiged deliver: Not set<br>
+                                   
+                                <?php $data=$this->deliveryDetails; 
+                                         if(!empty($data)){ ?>
+                                   
+                                    Assiged deliver: <?php echo $this->memberDetails[0][1]?> <?php echo $this->memberDetails[0][2]?><br>
+                                <?php }
+                                        else{?>
+                                    Assiged deliver: Not Set<br>  
+                                <?php }?>
+                                
                                 </label>
                                 <a href="#assignDeliverySraff" class="btn">Assign Delivery</a>
                             </div>
