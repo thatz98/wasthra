@@ -4,7 +4,7 @@
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
 
         <div class="row">
-            <form action="#" id="updateFrom"
+            <form action="<?php echo URL; ?>orders/updateOrderStatus" id="updateFrom"
                 enctype="multipart/form-data" method="post">
                 <div class="col-2">
                         <label>Update Status</label><br><br>
