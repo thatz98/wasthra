@@ -176,7 +176,7 @@
 
     function assignedOrder_Details($id){
 
-        return $this->db->query("SELECT order_item.item_size,order_item.item_qty,order_item.item_color,order_item.product_id FROM order_item INNER JOIN orders ON orders.order_id=order_item.order_id WHERE order_item.order_id='$id' ");
+        return $this->db->query("SELECT order_item.item_size,order_status,order_item.item_qty,order_item.item_color,order_item.product_id FROM order_item INNER JOIN orders ON orders.order_id=order_item.order_id WHERE order_item.order_id='$id' ");
     
     }
 
