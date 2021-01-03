@@ -28,9 +28,9 @@
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $order_Details['item_color']; ?>"></span>
-                                <label class="input-data">Size:<?php echo $order_Details['item_size']; ?></label>
-                                <label class="input-data">Qty: <?php echo $order_Details['item_qty']; ?></label>
+                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $orderDetails['item_color']; ?>"></span>
+                                <label class="input-data">Size:<?php echo $orderDetails['item_size']; ?></label>
+                                <label class="input-data">Qty: <?php echo $orderDetails['item_qty']; ?></label>
                             </div>
                         </td>
                         
@@ -120,11 +120,12 @@
                                     // case 'Processing':
                                     //     $color='b79ce7';
                                     //     $status='Processing';
-                                    //     break;}?>
+                                    //     break;
+                                    }?>
 
                                     <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                                         
-                               <?php endforeach; ?>
+                               <!-- <?php endforeach; ?> -->
                         </div>
                         <div class="col-2" style="min-width: 0;">
                             <a href="#updateStatus" class="btn">Update Status</a>
