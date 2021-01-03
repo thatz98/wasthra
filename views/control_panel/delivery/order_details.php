@@ -25,13 +25,17 @@
          
                      
                         <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $order_Details['item_color']; ?>"></span>
-                                <label class="input-data">Size:<?php echo $order_Details['item_size']; ?></label>
-                                <label class="input-data">Qty: <?php echo $order_Details['item_qty']; ?></label>
-                            </div>
+                        <h4><?php 
+                                $this->productPrice=0.00;
+                                foreach ($this->qty_List as $qty){
+                                    if($qty['product_id']==$order_items['product_id']){
+                                        $this->productPrice=$qty['product_price'];
+                                        echo $qty['product_name'];
+                                    }
+                                } 
+
+                          ?>
+                        <?php endforeach; ?>
                         </td>
                         
                     </tr>
