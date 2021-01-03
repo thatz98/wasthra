@@ -74,7 +74,7 @@
                              <h5>Payment Method:<?php echo $summary_details['payment_method']; ?></h5>
                             
                             
-                             <?php $status=$this->orderDetails[0][3]; $color='';
+                             <?php $status=$this->orderDetails[0]['order_status']; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
