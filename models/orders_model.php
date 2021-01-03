@@ -224,6 +224,15 @@
            ));
 
         }
+    function getDeliveryInfo($id){
+
+       return $this->db->query("SELECT order_item.item_size,order_item.item_color,order_item.item_qty,product.product_name,
+       product_images.image FROM order_item 
+       INNER JOIN orders ON orders.order_id=order_item.order_id
+       INNER JOIN product_images on product_images.product_id=order_item.product_id 
+       INNER JOIN product on product.product_id = order_item.product_id
+       WHERE orders.order_id='$id' GROUP BY order_item.product_id");
+    }    
 
 } 
 

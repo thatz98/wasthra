@@ -103,6 +103,7 @@ class Orders extends Controller{
         $this->view->imageList =  $this->model->getImages();
         $this->view->order_Details = $this->model->getOrderItems($id);
         $this->view->itemName = $this->model->getAllDetails();
+        $this->view->allInfo = $this->model->getDeliveryInfo($id);
 
         $this->view->render('control_panel/delivery/order_details');
         

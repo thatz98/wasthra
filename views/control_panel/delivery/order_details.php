@@ -11,26 +11,21 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
-                <?php foreach ($this->orderDetails as $order_Details):?>
+                <?php foreach ($this->allInfo as $order_Details):?>
                     <tr>
-                    <td><?php foreach ($this->imageList as $image){
-                              if($order_Details['product_id']==$image['product_id']){?>
-                                   <img src="<?php echo URL.$image['image']?>" width="50px" height="50px">
-                            <?php 
-                            break;
-                          }
-                         }?>
-                        </td>
- 
+                     <td>
+                       <img src="<?php echo $order_Details['image'];?>" width="50px" height="50px">
+                     </td>
+  
          
                      
                         <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
+                            <h4><?php echo $order_Details['product_name'];?></h4>
                             <h5>LKR 800.00</h5>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $orderDetails['item_color']; ?>"></span>
-                                <label class="input-data">Size:<?php echo $orderDetails['item_size']; ?></label>
-                                <label class="input-data">Qty: <?php echo $orderDetails['item_qty']; ?></label>
+                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $order_Details['item_color']; ?>"></span>
+                                <label class="input-data">Size:<?php echo $order_Details['item_size']; ?></label>
+                                <label class="input-data">Qty: <?php echo $order_Details['item_qty']; ?></label>
                             </div>
                         </td>
                         
@@ -79,7 +74,7 @@
                              <h5>Payment Method:<?php echo $summary_details['payment_method']; ?></h5>
                             
                             
-                             <?php $status=$this->orderDetails[0]['order_status']; $color='';
+                             <?php $status=$this->orderDetails[0][3]; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
