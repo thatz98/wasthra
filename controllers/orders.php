@@ -135,7 +135,7 @@ class Orders extends Controller{
 
         $this->model->update($data);
 
-        header('location: ' . URL . 'orders/orderDashboard');
+        header('location: ' . URL . "orders/assignedOrderDetails/{$data['order_id']}");
     }
 
     function createDelivery() {
