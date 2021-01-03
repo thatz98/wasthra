@@ -7,12 +7,16 @@
             <form action="<?php echo URL; ?>orders/updateOrderStatus" id="updateFrom"
                 enctype="multipart/form-data" method="post">
                 <div class="col-2">
-                        <label>Update Status</label><br><br>
-<select>
-    <option>Delivered</option>
-    <option>In Transit</option>
-    <option>Rejected</option>
-</select>
+                        
+                        <div class="">
+                            <label>Update Status</label><br><br>
+                            <input type="text" name="order_id" value="<?php echo $this->orderItems[0]['order_id']?>" style="display:none">   
+                            <select name="order_status">
+                               <option value="In Transit" <?php if($this->orderItems[0]['order_status']=='In Transit') echo "selected=\"selected\"";?>>In Transit</option>
+                               <option value="Delivered" <?php if($this->orderItems[0]['order_status']=='Delivered') echo "selected=\"selected\"";?>>Delivered</option>
+                               <option value="Cancelled" <?php if($this->orderItems[0]['order_status']=='Cancelled') echo "selected=\"selected\"";?>>Cancelled</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row">
                 <div class="col-2">
