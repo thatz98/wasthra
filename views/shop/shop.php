@@ -201,4 +201,5 @@ if (isset($_GET['page'])) {
         location.replace("http://127.0.0.1/wasthra/shop/byCategory/" + category);
     }
 </script>
+<script type="text/javascript" src="<?php echo URL ?>public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>

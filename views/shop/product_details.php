@@ -53,7 +53,7 @@ require 'views/header.php'; ?>
             <label class="text-label">Available Sizes</label>
             <div class="product-sizes">
                 <?php
-                $catName = $this->product[0][1];
+                $catName = $this->product[0]['name'];
                 $single_sizes = array();
                 $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
                 $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
@@ -66,20 +66,30 @@ require 'views/header.php'; ?>
                     <label class="text-label">Gents</label><br>
                     <?php
                                                                         foreach ($this->product[0]['product_sizes'] as $size) {
-                    ?>
-                        <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($size, "-G") ?></span><?php
+                                                                            if (in_array($size, $single_sizes_gents)) {
+                                                                                continue;
+                                                                            } else {
+                                                                                $single_sizes_gents[] .= $size;
+                            ?>
+                            <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($size, "-W") ?></span><?php
+                                                                                                                                    }
                                                                                                                                 }
-                                                                                                                                    ?>
+                                                                                                                                        ?>
                     <br>
                     <label class="text-label">Ladies</label>
                     <br>
                     <?php
                                                                         foreach ($this->product[0]['product_sizes'] as $size) {
+                                                                            if (in_array($size, $single_sizes_ladies)) {
+                                                                                continue;
+                                                                            } else {
+                                                                                $single_sizes_ladies[] .= $size;
                     ?>
-                        <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($size, "-W") ?></span><?php
+                            <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($size, "-G") ?></span><?php
+                                                                                                                }
                                                                                                             }
                                                                                                         }
-                                                                                                                ?>
+                                                                                                                    ?>
             </div>
 
             <a href="#addToCartPopup" class="btn prd-btn">Add to Cart</a>
@@ -138,9 +148,9 @@ require 'views/header.php'; ?>
                         <div class="col-2" <?php if (empty($review['review_images'])) echo 'hidden'; ?>>
                             <div class="row-left">
                                 <div class="col-images">
-                                    <?php foreach ($review['review_images']  as $image) {?>
-                                            <img src="<?php echo URL . $image  ?>">
-                                    <?php }?>
+                                    <?php foreach ($review['review_images']  as $image) { ?>
+                                        <img src="<?php echo URL . $image  ?>">
+                                    <?php } ?>
 
                                 </div>
                             </div>

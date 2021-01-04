@@ -58,14 +58,12 @@
                 <form action="<?php echo URL; ?>cart/addToCart" method="post" id="addToCartForm">
                     <label class="text-label">Select Color</label>
                     <div class="colors">
-                        <?php foreach ($this->colorList as $color){
-                        if($this->productPopup['product_id']==$color['product_id']){?>
+                        <?php foreach ($this->productPopup['product_colors'] as $color){?>
                         <label class="color-container">
-                            <input type="radio" name="color" value="<?php echo $color['colors']?>" required>
-                            <span class="checkmark" style="background-color: <?php echo $color['colors']?>"></span>
+                            <input type="radio" name="color" value="<?php echo $color?>" required>
+                            <span class="checkmark" style="background-color: <?php echo $color?>"></span>
                         </label>
-                        <?php }
-                    } ?>
+                        <?php }?>
                     </div><br>
 
 
@@ -77,16 +75,13 @@
                     <label class="text-label">Select Size</label>
                     <div class="sizes">
                         <?php
-                            foreach ($this->sizeList as $size){
-                                
-                            if($this->productPopup['product_id']==$size['product_id']){?>
+                            foreach ($this->productPopup['product_sizes'] as $size){?>
                         <label class="size-container">
-                            <input type="radio" name="size" value="<?php echo $size['sizes']?>" required>
-                            <span class="checkbox"><?php echo $size['sizes']?></span>
+                            <input type="radio" name="size" value="<?php echo $size?>" required>
+                            <span class="checkbox"><?php echo $size?></span>
                         </label>
                         <?php
-                            }
-                        } ?>
+                            }?>
                     </div>
                     <?php
                     }else{?>
@@ -95,17 +90,14 @@
                     <div class="sizes">
                         <?php  
 
-                        foreach ($this->sizeList as $size){
-                        
-                            if($this->productPopup['product_id']==$size['product_id']){
-                                if(in_array($size['sizes'],$single_sizes_gents)){?>
+                        foreach ($this->productPopup['product_sizes'] as $size){
+                                if(in_array($size,$single_sizes_gents)){?>
                         <label class="size-container">
-                            <input type="radio" name="size1" value="<?php echo $size['sizes']?>" required>
-                            <span class="checkbox"><?php echo rtrim($size['sizes'],"-G")?></span>
+                            <input type="radio" name="size1" value="<?php echo $size?>" required>
+                            <span class="checkbox"><?php echo rtrim($size,"-G")?></span>
                         </label>
                         <?php
                             }
-                        }
                         } 
 
                         ?>
@@ -116,17 +108,14 @@
                     <div class="sizes">
                         <?php  
 
-                        foreach ($this->sizeList as $size){
-                        
-                            if($this->productPopup['product_id']==$size['product_id']){
-                                if(in_array($size['sizes'],$single_sizes_ladies)){?>
+                        foreach ($this->productPopup['product_sizes'] as $size){
+                                if(in_array($size,$single_sizes_ladies)){?>
                         <label class="size-container">
-                            <input type="radio" name="size2" value="<?php echo $size['sizes']?>" required>
-                            <span class="checkbox"><?php echo rtrim($size['sizes'],"-W")?></span>
+                            <input type="radio" name="size2" value="<?php echo $size?>" required>
+                            <span class="checkbox"><?php echo rtrim($size,"-W")?></span>
                         </label>
                         <?php
                             }
-                        }
                         }?>
                         </div>
 
