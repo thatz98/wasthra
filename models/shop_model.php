@@ -15,17 +15,24 @@ class Shop_Model extends Model{
 
     function getProduct($id){
 
-        return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.product_description,product.is_new,inventory.qty,product_size.sizes,product_colors.colors,product_images.image
-        FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
-        
-        INNER JOIN category on category.category_id=product.category_id
-        INNER JOIN price_category on price_category.price_category_id=product.price_category_id
-        INNER JOIN product_size on product_size.product_id=product.product_id
-        INNER JOIN product_colors on product_colors.product_id=product.product_id
-        INNER JOIN product_images on product_images.product_id=product.product_id
-         WHERE product.product_id='$id';");
+        $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
+         INNER JOIN inventory ON product.product_id=inventory.product_id
+         INNER JOIN category ON product.category_id=category.category_id
+         INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+         INNER JOIN product_images ON product.product_id=product_images.product_id
+         INNER JOIN product_size ON product.product_id=product_size.product_id
+         INNER JOIN product_colors ON product.product_id=product_colors.product_id
+         LEFT JOIN review on review.product_id=product.product_id 
+         WHERE product.product_id='$id'
+         GROUP BY product.product_id");
 
-        //$this->db->listWhere('product',array('product_id','product_name','product_description','is_featured','is_new','category_id','price_category_id','is_published'),"product_id='$id'");
+         foreach($data as $key => $value){
+            $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
+            $data[$key]['product_sizes'] = explode(',', $data[$key]['product_sizes']);
+            $data[$key]['product_colors'] = explode(',', $data[$key]['product_colors']);
+         }
+
+         return $data;
     }
 
     function getProductName($id){
@@ -131,8 +138,12 @@ class Shop_Model extends Model{
         
     }
 
-    function reviewDetails($id){
-        return $this->db->query("SELECT review.product_id,review.user_id,customer.first_name,customer.last_name,review.rate,review.review_text,review.date,review.time,review.review_id FROM review INNER JOIN customer ON review.user_id=customer.user_id WHERE review.product_id='$id' AND review.is_deleted='no'");
+    function getReviewDetails($id){
+        return $this->db->query("SELECT review.product_id,review.user_id,customer.first_name,customer.last_name,review.rate,review.review_text,review.date,review.time,review.review_id, GROUP_CONCAT(DISTINCT review_image.image) as review_images FROM review
+        INNER JOIN customer ON review.user_id=customer.user_id
+        LEFT JOIN review_image ON review_image.review_id=review.review_id
+        WHERE review.product_id='$id' AND review.is_deleted='no'
+        GROUP BY review.review_id");
     }
 
     function reviewImages(){

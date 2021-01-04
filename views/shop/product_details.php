@@ -1,4 +1,5 @@
-<?php require 'views/header.php'; ?>
+<?php print_r($this->product);
+require 'views/header.php'; ?>
 <?php require 'views/shop/add_to_cart.php'; ?>
 <?php require 'views/shop/add_review.php'; ?>
 <?php if (isset($_GET['id'])) {
@@ -8,21 +9,16 @@
 <div class="small-container single-product">
     <div class="row">
         <div class="col-2 right-align-wide">
-            <img src="<?php echo URL . $this->product[0]['image']; ?>" id="view-product-img">
+            <img src="<?php echo URL . $this->product[0]['product_images'][0]; ?>" id="view-product-img">
             <div class="gallery-row">
-                <?php $single_images = array();
+                <?php
                 $id = 0;
-                foreach ($this->product as $single) {
-                    if (in_array($single['image'], $single_images)) {
-                        continue;
-                    } else {
-                        $id += 1;
-                        $single_images[] .= $single['image']; ?>
-                        <div class="gallery-col">
-                            <img src="<?php echo URL . $single['image']; ?>" id="<?php echo $id ?>" onclick="swapViewImage('<?php echo $id ?>')" width="100%" class="view-gallery-img">
-                        </div>
-                    <?php
-                    }
+                foreach ($this->product[0]['product_images'] as $image) {
+                    $id += 1; ?>
+                    <div class="gallery-col">
+                        <img src="<?php echo URL . $image; ?>" id="<?php echo $id ?>" onclick="swapViewImage('<?php echo $id ?>')" width="100%" class="view-gallery-img">
+                    </div>
+                <?php
                 }
                 if ($this->product[0]['name'] == 'Gents') : ?>
                     <div class="gallery-col">
@@ -49,15 +45,10 @@
             <h4>LKR <?php echo $this->product[0]['product_price'] ?></h4>
             <label class="text-label">Available Colors</label>
             <div class="product-colors">
-                <?php $single_colors = array();
-                foreach ($this->product as $single) {
-                    if (in_array($single['colors'], $single_colors)) {
-                        continue;
-                    } else {
-                        $single_colors[] .= $single['colors']; ?>
-                        <span class="color-dot" style="background-color: <?php echo $single['colors'] ?>"></span><?php
-                                                                                                                }
-                                                                                                            } ?>
+                <?php
+                foreach ($this->product[0]['product_colors'] as $color) { ?>
+                    <span class="color-dot" style="background-color: <?php echo $color ?>"></span><?php
+                                                                                                } ?>
             </div>
             <label class="text-label">Available Sizes</label>
             <div class="product-sizes">
@@ -68,41 +59,27 @@
                 $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
                 if ($catName != "Couple") {
 
-                    foreach ($this->product as $single) {
-                        if (in_array($single['sizes'], $single_sizes)) {
-                            continue;
-                        } else {
-                            $single_sizes[] .= $single['sizes']; ?>
-                            <span class="size-box"><?php echo $single['sizes'] ?></span><?php
-                                                                                    }
-                                                                                }
-                                                                            } else { ?>
+                    foreach ($this->product[0]['product_sizes'] as $size) { ?>
+                        <span class="size-box"><?php echo $size ?></span><?php
+                                                                        }
+                                                                    } else { ?>
                     <label class="text-label">Gents</label><br>
                     <?php
-                                                                                foreach ($this->product as $single) {
-                                                                                    //echo $single['sizes'][0];
-                                                                                    if (in_array($single['sizes'], $single_sizes_ladies)) {
-                                                                                        continue;
-                                                                                    } else {
-                                                                                        $single_sizes_ladies[] .= $single['sizes']; ?>
-                            <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($single['sizes'], "-G") ?></span><?php
-                                                                                                                                                }
-                                                                                                                                            } ?>
+                                                                        foreach ($this->product[0]['product_sizes'] as $size) {
+                    ?>
+                        <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($size, "-G") ?></span><?php
+                                                                                                                                }
+                                                                                                                                    ?>
                     <br>
                     <label class="text-label">Ladies</label>
                     <br>
                     <?php
-                                                                                foreach ($this->product as $single) {
-                                                                                    //echo $single['sizes'][0];
-                                                                                    if (in_array($single['sizes'], $single_sizes_gents)) {
-                                                                                        continue;
-                                                                                    } else {
-                                                                                        $single_sizes_gents[] .= $single['sizes']; ?>
-                            <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($single['sizes'], "-W") ?></span><?php
-                                                                                                                            }
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                                ?>
+                                                                        foreach ($this->product[0]['product_sizes'] as $size) {
+                    ?>
+                        <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($size, "-W") ?></span><?php
+                                                                                                            }
+                                                                                                        }
+                                                                                                                ?>
             </div>
 
             <a href="#addToCartPopup" class="btn prd-btn">Add to Cart</a>
@@ -131,45 +108,39 @@
     <div class="row-left">
 
 
-        <?php foreach ($this->reviews as $showreviews) : ?>
+        <?php foreach ($this->reviews as $review) : ?>
             <div class="col-2" style="min-height: 100px;">
                 <div class="product-review">
                     <div class="row-left">
                         <div class="col-2">
                             <div class="row-left">
-                                <?php echo $showreviews['first_name']; ?> <?php echo $showreviews['last_name']; ?>
+                                <?php echo $review['first_name']; ?> <?php echo $review['last_name']; ?>
                                 &nbsp&nbsp
-                                <?php if ($showreviews['user_id'] == Session::get('userId') || Session::get('userType') == 'admin' || Session::get('userType') == 'owner') { ?><small><a href="<?php echo URL . 'shop/deleteReview/' . $showreviews['review_id'] . '/' . $showreviews['product_id'] ?>">Remove</a></small><?php } ?>
+                                <?php if ($review['user_id'] == Session::get('userId') || Session::get('userType') == 'admin' || Session::get('userType') == 'owner') { ?><small><a href="<?php echo URL . 'shop/deleteReview/' . $showreviews['review_id'] . '/' . $showreviews['product_id'] ?>">Remove</a></small><?php } ?>
                             </div>
                             <div class="row-left">
-                                <small><?php echo $showreviews['date']; ?> &nbsp&nbsp
-                                    <?php echo $showreviews['time']; ?></small>
+                                <small><?php echo $review['date']; ?> &nbsp&nbsp
+                                    <?php echo $review['time']; ?></small>
                             </div>
                             <div class="row-left">
-                                <?php for ($i = 0; $i < $showreviews['rate']; $i++) { ?>
+                                <?php for ($i = 0; $i < $review['rate']; $i++) { ?>
                                     <i class="fa fa-star"></i>
                                 <?php } ?>
-                                <?php for ($i = 0; $i < (5 - $showreviews['rate']); $i++) { ?>
+                                <?php for ($i = 0; $i < (5 - $review['rate']); $i++) { ?>
                                     <i class="fa fa-star-o"></i>
                                 <?php } ?>
                             </div>
 
                             <div class="row-left">
-                                <p><?php echo $showreviews['review_text']; ?></p>
+                                <p><?php echo $review['review_text']; ?></p>
                             </div>
                         </div>
-                        <?php $imgCount = 0;
-                        foreach ($this->reviewImageList  as $images) {
-                            if ($showreviews['review_id'] == $images['review_id']) $imgCount++;
-                        } ?>
-                        <div class="col-2" <?php if ($imgCount == 0) echo 'hidden'; ?>>
+                        <div class="col-2" <?php if (empty($review['review_images'])) echo 'hidden'; ?>>
                             <div class="row-left">
                                 <div class="col-images">
-                                    <?php foreach ($this->reviewImageList  as $images) {
-                                        if ($showreviews['review_id'] == $images['review_id']) { ?>
-                                            <img src="<?php echo URL . $images['image']  ?>">
-                                    <?php }
-                                    } ?>
+                                    <?php foreach ($review['review_images']  as $image) {?>
+                                            <img src="<?php echo URL . $image  ?>">
+                                    <?php }?>
 
                                 </div>
                             </div>

@@ -1,8 +1,8 @@
 <div id="addToCartPopupIndex" class="overlay">
     <?php if (isset($_GET['id'])){
-                foreach($this->qtyList as $qty){
-                    if($qty['product_id']==$_GET['id']){
-                        $this->productPopup = array_slice($qty, 0,count($qty));
+                foreach($this->products as $product){
+                    if($product['product_id']==$_GET['id']){
+                        $this->productPopup = array_slice($product, 0,count($product));
                         break;
                     }
     }
@@ -12,30 +12,20 @@
         <div class="row">
             <div class="col-2">
 
-                <?php foreach ($this->imageList as $image){
-                        if($this->productPopup['product_id']==$image['product_id']){?>
-                <img src="<?php echo URL.$image['image']?>" id="product-img">
-                <?php
-                            break; 
-                        }
-                    }?>
+                <img src="<?php echo URL.$this->productPopup['product_images'][0]?>" id="product-img">
+
                 <div class="gallery-row">
                     <?php $single_images = array();
                         $iid=0;
-                        foreach ($this->imageList as $image){
-                            if(in_array($image['image'],$single_images)){
-                                continue;
-                            }else if($this->productPopup['product_id']==$image['product_id']){
-                                    $single_images[] .= $image['image'];
+                        foreach ($this->productPopup['product_images'] as $image){
                             $iid += 1;?>
                     <div class="gallery-col">
-                        <img src="<?php echo URL.$image['image']?>" id="<?php echo $iid?>"
+                        <img src="<?php echo URL.$image?>" id="<?php echo $iid?>"
                             onclick="swapImage('<?php echo $iid?>')" width="100%" class="gallery-img">
                     </div>
                     <?php 
                         }
-                        
-                    }
+                    
                     if ($this->productPopup['name'] == 'Gents') : ?>
                         <div class="gallery-col">
                             <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC"

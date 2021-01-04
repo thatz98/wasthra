@@ -19,14 +19,11 @@ class Shop extends Controller {
 
         // get all product details
         $this->view->products = $this->model->getProductList();
-     //   $this->view->productList = $this->model->listProducts();
-      //  $this->view->qtyList =  $this->model->getAllDetails();
+
         $this->view->sizeList =  $this->model->getSizes();
-     //   $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
-     //   $this->view->pricecategoryList =  $this->model->getPriceCategories();
-        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+
         $this->view->render('shop/shop');
     }
     
@@ -42,17 +39,11 @@ class Shop extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
 
         // get all product details
-        $this->view->productList = $this->model->listProducts();
         $this->view->product = $this->model->getProduct($id);
-        $this->view->qtyList =  $this->model->getAllDetails();
-        $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
-        $this->view->colorList =  $this->model->getColors();
-        $this->view->categoryList =  $this->model->getCategories();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
-        $this->view->reviews = $this->model->reviewDetails($id);
-        $this->view->reviewImageList = $this->model->reviewImages();
-        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+        $this->view->reviews = $this->model->getReviewDetails($id);
+
+        $this->view->products = $this->model->getProductList();
+
         $this->view->render('shop/product_details');
     }
     
