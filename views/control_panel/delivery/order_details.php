@@ -14,7 +14,7 @@
                 <?php foreach ($this->allInfo as $order_Details):?>
                     <tr>
                      <td>
-                       <img src="<?php echo $order_Details['image'];?>" width="50px" height="50px">
+                       <img src="<?php echo URL.$order_Details['image'];?>" width="50px" height="50px">
                      </td>
   
          
