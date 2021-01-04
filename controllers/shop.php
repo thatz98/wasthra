@@ -18,13 +18,14 @@ class Shop extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Shop';
 
         // get all product details
-        $this->view->productList = $this->model->listProducts();
-        $this->view->qtyList =  $this->model->getAllDetails();
+        $this->view->products = $this->model->getProductList();
+     //   $this->view->productList = $this->model->listProducts();
+      //  $this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
+     //   $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
+     //   $this->view->pricecategoryList =  $this->model->getPriceCategories();
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('shop/shop');
     }
