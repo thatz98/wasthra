@@ -7,7 +7,8 @@
     <div class="row-top">
         <div class="order-container" >
                    <table class="order-list" style="min-width: 70%">
-                      <?php foreach($this->orderList as $orders){
+                      <?php if(!empty($this->orderList)){ 
+                        foreach($this->orderList as $orders){
                         $uID = $orders['order_id'];
                         $uID = substr($uID,17);
                         $order_id = $orders['order_id'];
@@ -50,7 +51,7 @@
                                         $status='New';
                                         break;
                                     case 'In Transit':
-                                        $color='e22525';
+                                        $color='18ea32';
                                         $status='In Transit';
                                         break;
                                     case 'Delivered':
@@ -66,7 +67,7 @@
                                         $status='Completed';
                                         break;
                                     case 'Cancelled':
-                                        $color='18ea32';
+                                        $color='e22525';
                                         $status='Cancelled';
                                         break;
                                     case 'Returned':
@@ -96,7 +97,8 @@
                             
                            <td><a href="<?php echo URL;?>orders/myOrderDetails/<?php echo $orders['order_id']?>" class="btn table-btn">View Order</a></td>
                        </tr>
-                        <?php }}?>
+                        <?php }}}
+                        else{echo "No orders placed yet";} ?>
 
                        </tr> 
                    </table>     
