@@ -59,13 +59,12 @@ class Shop extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Color';
 
         // get all product details in the given color
-        $this->view->productList = $this->model->listProducts();
-        $this->view->qtyList =  $this->model->getAllDetailsBy('color', '#' . $color);
+        $this->view->products = $this->model->getProductListBy('color', '#' . $color);
+
         $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
+        
         $this->view->selected = '#' . $color;
         
         $this->view->render('shop/shop');
@@ -83,13 +82,12 @@ class Shop extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Size';
 
         // get all product details in the given size
-        $this->view->productList = $this->model->listProducts();
-        $this->view->qtyList =  $this->model->getAllDetailsBy('size', $size);
+        $this->view->products = $this->model->getProductListBy('size', $size);
+
         $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
+
         $this->view->selected = $size;
         
         $this->view->render('shop/shop');
@@ -107,13 +105,12 @@ class Shop extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Category';
 
         // get all product details in the given category
-        $this->view->productList = $this->model->listProducts();
-        $this->view->qtyList =  $this->model->getAllDetailsBy('category', $category);
+        $this->view->products = $this->model->getProductListBy('category', $category);
+
         $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
+
         $this->view->selected = $category;
         
         $this->view->render('shop/shop');

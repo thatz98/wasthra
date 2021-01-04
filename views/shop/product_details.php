@@ -1,5 +1,4 @@
-<?php print_r($this->product);
-require 'views/header.php'; ?>
+<?php require 'views/header.php'; ?>
 <?php require 'views/shop/add_to_cart.php'; ?>
 <?php require 'views/shop/add_review.php'; ?>
 <?php if (isset($_GET['id'])) {

@@ -4,23 +4,19 @@
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         <div class="row">
             <div class="col-2">
-                <img src="<?php echo URL . $this->product[0]['image']; ?>" id="product-img-p">
+                <img src="<?php echo URL . $this->product[0]['product_images'][0]; ?>" id="product-img-p">
                 <div class="gallery-row">
-                    <?php $single_images = array();
+                    <?php
                     $iid = 10;
-                    foreach ($this->product as $single) {
-                        if (in_array($single['image'], $single_images)) {
-                            continue;
-                        } else {
-                            $iid += 1;
-                            $single_images[] .= $single['image']; ?>
+                    foreach ($this->product[0]['product_images'] as $image) {
+                            $iid += 1;?>
                     <div class="gallery-col">
-                        <img src="<?php echo URL . $single['image']; ?>" id="<?php echo $iid ?>"
+                        <img src="<?php echo URL . $image; ?>" id="<?php echo $iid ?>"
                             onclick="swapImageP('<?php echo $iid ?>')" width="100%" class="gallery-img">
                     </div>
                     <?php
                         }
-                    }
+                    
                     if ($this->product[0]['name'] == 'Gents') : ?>
                     <div class="gallery-col">
                         <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC"
@@ -52,26 +48,20 @@
                 <form action="<?php echo URL; ?>cart/addToCart" method="post">
                     <label class="text-label">Select Color</label>
                     <div class="colors">
-                        <?php $single_colors = array();
-                        foreach ($this->product as $single) {
-                            if (in_array($single['colors'], $single_colors)) {
-                                continue;
-                            } else {
-                                $single_colors[] .= $single['colors']; ?>
+                        <?php
+                        foreach ($this->product[0]['product_colors'] as $color) {?>
                         <label class="color-container">
-                            <input type="radio" name="color" value="<?php echo $single['colors'] ?>" required>
-                            <span class="checkmark" style="background-color: <?php echo $single['colors'] ?>"></span>
+                            <input type="radio" name="color" value="<?php echo $color ?>" required>
+                            <span class="checkmark" style="background-color: <?php echo $color ?>"></span>
                         </label>
                         <?php
-                            }
-                        } ?>
+                            } ?>
 
 
                     </div><br>
 
                     <?php
-                    $catName = $this->product[0][1];
-                    $single_sizes = array();
+                    $catName = $this->product[0]['name'];
                     $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
                     $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
                     if ($catName != "Couple") { ?>
@@ -79,19 +69,15 @@
                     <br>
                     <div class="sizes">
                         <?php
-                            foreach ($this->product as $single) {
-                                if (in_array($single['sizes'], $single_sizes)) {
-                                    continue;
-                                } else {
-                                    $single_sizes[] .= $single['sizes']; ?>
+                            foreach ($this->product[0]['product_sizes'] as $size) {?>
                         <label class="size-container">
-                            <input type="radio" name="size" value="<?php echo $single['sizes'] ?>" required>
-                            <span class="checkbox"><?php echo $single['sizes'] ?></span>
+                            <input type="radio" name="size" value="<?php echo $size ?>" required>
+                            <span class="checkbox"><?php echo $size ?></span>
 
                         </label>
                         <?php
                                 }
-                            } ?>
+                             ?>
                     </div>
                     <?php
                     } else { ?>
@@ -99,14 +85,14 @@
                     <br>
                     <div class="sizes">
                         <?php
-                            foreach ($this->product as $single) {
-                                if (in_array($single['sizes'], $single_sizes_ladies)) {
+                            foreach ($this->product[0]['product_sizes'] as $size) {
+                                if (in_array($size, $single_sizes_ladies)) {
                                     continue;
                                 } else {
-                                    $single_sizes_ladies[] .= $single['sizes']; ?>
+                                    $single_sizes_ladies[] .= $size; ?>
                         <label class="size-container">
-                            <input type="radio" name="size2" value="<?php echo $single['sizes'] ?>" required>
-                            <span class="checkbox"><?php echo rtrim($single['sizes'], "-G") ?></span>
+                            <input type="radio" name="size2" value="<?php echo $size ?>" required>
+                            <span class="checkbox"><?php echo rtrim($size, "-G") ?></span>
 
                         </label>
                         <?php
@@ -118,14 +104,14 @@
                     <br>
                     <div class="sizes">
                         <?php
-                            foreach ($this->product as $single) {
-                                if (in_array($single['sizes'], $single_sizes_gents)) {
+                            foreach ($this->product[0]['product_sizes'] as $size) {
+                                if (in_array($size, $single_sizes_gents)) {
                                     continue;
                                 } else {
-                                    $single_sizes_gents[] .= $single['sizes']; ?>
+                                    $single_sizes_gents[] .= $size; ?>
                         <label class="size-container">
-                            <input type="radio" name="size1" value="<?php echo $single['sizes'] ?>" required>
-                            <span class="checkbox"><?php echo rtrim($single['sizes'], "-W") ?></span>
+                            <input type="radio" name="size1" value="<?php echo $size ?>" required>
+                            <span class="checkbox"><?php echo rtrim($size, "-W") ?></span>
 
                         </label>
                         <?php
