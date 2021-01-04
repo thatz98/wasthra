@@ -37,8 +37,9 @@
                             </div>
                             
                             <div style='float: left;'>
-                           
-                            <a href="<?php echo '?id='.$product_id?>#addReview" class="btn">Review Product</a>
+                                <?php if($this->orderList[0][3]=='Completed' || $this->orderList[0][3]=='Returned'){?>
+                                <a href="<?php echo '?id='.$product_id?>#addReview" class="btn">Review Product</a>
+                                <?php }?>
                             </div>
                         </td>
                     </tr>
