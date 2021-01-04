@@ -21,7 +21,7 @@
                         <td><img src="<?php echo URL.$image['image']?>"></td><?php break;}}?>
                         <td class="order-details">
                         <?php foreach($this->qtyList as $product){
-                                if ($product['product_id']==$details['product_id']){?>
+                                if ($product['product_id']==$details['product_id']){$product_id=$product['product_id'];?>
                             
                             <h4>
                                 <?php echo $product['product_name']?>
@@ -33,6 +33,9 @@
                                 <label>Color:</label><span class="color-dot" style="background-color:<?php echo $details['item_color']?>"></span>
                                 <label class="input-data">Size: <?php echo $details['item_size']?></label>
                                 <label class="input-data">Qty: <?php echo $details['item_qty']?></label>
+                            </div>
+                            <div style='float: left;'>
+                            <a href="<?php echo URL; ?>shop/submitReview/<?php echo $product_id?>" class="btn">Review Product</a>
                             </div>
                         </td>
                     </tr>
@@ -113,7 +116,7 @@
                                 <?php } 
                                 
                                 elseif($this->orderList[0][3]=='Completed'){?>
-                                    <a href="#" class="btn">Review Products</a>
+                                    <a href="#" class="btn">Track Order</a>
                                     <?php } 
 
                                 else{?>
@@ -136,7 +139,6 @@
                                 <?php $fee=0;
                                     foreach ($this->deliveryCharges as $delivery){
                                         if($delivery['city']==$this->addressDetails[0][6]){
-                                            //echo $this->addressDetails[0][6];
                                             $fee=$delivery['delivery_fee'];
                                             $subTotal+=$fee;
                                         }
