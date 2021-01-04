@@ -24,7 +24,7 @@
                                 if ($product['product_id']==$details['product_id']){?>
                             
                             <h4>
-                                <?php echo $product['price_category_name']?>
+                                <?php echo $product['product_name']?>
                             </h4>
                             <h5><?php $subTotal+=$product['product_price']*$details['item_qty']; 
                                     echo $product['product_price']?></h5>
