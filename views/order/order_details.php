@@ -1,6 +1,7 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/order/cancel_order_popup.php'; ?>
 <?php require 'views/order/request_return_popup.php'; ?>
+<?php require 'views/order/addReview.php'; ?>
 
 <div class="small-container">
     <div class="row">
@@ -11,8 +12,8 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
-                <?php $subTotal=0;
-                    foreach($this->orderDetails as $details){?>
+                <?php $subTotal=0; 
+                    foreach($this->orderDetails as $details){$this->productname=''; ?>
                     <tr>
                         <?php foreach($this->imageList as $image){
                             if($image['product_id']==$details['product_id']){
@@ -24,7 +25,7 @@
                                 if ($product['product_id']==$details['product_id']){$product_id=$product['product_id'];?>
                             
                             <h4>
-                                <?php echo $product['product_name']?>
+                                <?php $this->productname=$product['product_name']; echo $product['product_name'];?>
                             </h4>
                             <h5><?php $subTotal+=$product['product_price']*$details['item_qty']; 
                                     echo $product['product_price']?></h5>
@@ -34,8 +35,10 @@
                                 <label class="input-data">Size: <?php echo $details['item_size']?></label>
                                 <label class="input-data">Qty: <?php echo $details['item_qty']?></label>
                             </div>
+                            
                             <div style='float: left;'>
-                            <a href="<?php echo URL; ?>shop/submitReview/<?php echo $product_id?>" class="btn">Review Product</a>
+                           
+                            <a href="<?php echo '?id='.$product_id?>#addReview" class="btn">Review Product</a>
                             </div>
                         </td>
                     </tr>
