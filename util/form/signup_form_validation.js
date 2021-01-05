@@ -6,9 +6,9 @@ const password = document.getElementById('password');
 const confirmPassword = document.getElementById('conf_password');
 const email = document.getElementById('email');
 const contactNo = document.getElementById('contact_no');
+
 // Form
 const form = document.getElementById('regForm');
-// Validation colors
 
 // Handle form
 form.addEventListener('submit', function(event) {
@@ -29,6 +29,7 @@ form.addEventListener('submit', function(event) {
 
 // Validators
 function validateFirstName() {
+  console.log(firstName);
   // check if is empty
   if (checkIfEmpty(firstName)) return;
   // is if it has only letters
