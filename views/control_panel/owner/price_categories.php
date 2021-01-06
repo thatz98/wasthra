@@ -14,7 +14,7 @@
                                    <label>Price Category ID</label><br>
                                    <input type="text" name="category_id" id="category_id" data-helper="Category ID" onfocusout="validateCategoryId()" placeholder="PRCXXXX"> 
                                    <span class="popuptext"></span>
-                                </div><br><br>  
+                                </div><br><br><br>  
                                 <div class="helper-text">                         
                                    <label>Production Cost</label><br>
                                    <input type="text" name="production_cost" id="production_cost" placeholder="LKR" data-helper="Cost" onfocusout="validateProductionCost()">
@@ -26,7 +26,7 @@
                                    <label>Price Category Name</label><br>
                                    <input type="text" name="category_name"  id="category_name" data-helper="Category Name" onfocusout="validateCategoryName()">
                                    <span class="popuptext"></span>
-                                </div><br><br>
+                                </div><br><br><br>
                                 <div class="helper-text">
                                    <label>Additional Market Price </label><br>
                                    <input type="text" name="market_price" id="market_price" placeholder="LKR" data-helper="Market Price" onfocusout="validateMarketPrice()">
