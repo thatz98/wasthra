@@ -59,7 +59,8 @@
 
                         <div class="center-content pad-auto">
                                <label>Discount: </label><br>
-                               <input type="text" name="discount" id="discount">%<br>
+                               <input type="text" name="discount" id="discount" data-helper="Discount" onfocusout="validateDiscount()">%  
+                               <span class="popuptext"></span><br>
                         </div> 
 
                         <div class="center-btn">
