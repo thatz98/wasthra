@@ -10,12 +10,28 @@
    
                     <div class="row-top">                            
                             <div class="col-3">
-                                <label>Price Category ID</label><br><input type="text" name="category_id" id="category_id" ><br><br>                            
-                                <label>Production Cost</label><br><input type="text" name="production_cost" id="production_cost" placeholder="LKR"><br>
+                               <div class="helper-text">
+                                   <label>Price Category ID</label><br>
+                                   <input type="text" name="category_id" id="category_id" data-helper="Category ID" onfocusout="validateCategoryId()" placeholder="PRCXXXX"> 
+                                   <span class="popuptext"></span>
+                                </div><br><br>  
+                                <div class="helper-text">                         
+                                   <label>Production Cost</label><br>
+                                   <input type="text" name="production_cost" id="production_cost" placeholder="LKR" data-helper="Cost" onfocusout="validateProductionCost()">
+                                   <span class="popuptext"></span>
+                                </div><br>
                             </div>
                             <div class="col-3">
-                                <label>Price Category Name</label><br><input type="text" name="category_name"  id="category_name"><br><br>
-                                <label>Additional Market Price</label><br><input type="text" name="market_price" id="market_price" placeholder="LKR"><br>  
+                                <div class="helper-text">
+                                   <label>Price Category Name</label><br>
+                                   <input type="text" name="category_name"  id="category_name" data-helper="Category Name" onfocusout="validateCategoryName()">
+                                   <span class="popuptext"></span>
+                                </div><br><br>
+                                <div class="helper-text">
+                                   <label>Additional Market Price </label><br>
+                                   <input type="text" name="market_price" id="market_price" placeholder="LKR" data-helper="Market Price" onfocusout="validateMarketPrice()">
+                                   <span class="popuptext"></span>
+                                </div><br>  
                             </div>
 
                            <script type="text/javascript">
@@ -42,7 +58,8 @@
                         </div>
 
                         <div class="center-content pad-auto">
-                               <label>Discount: </label><br><input type="text" name="discount" id="discount">%<br>
+                               <label>Discount: </label><br>
+                               <input type="text" name="discount" id="discount">%<br>
                         </div> 
 
                         <div class="center-btn">
@@ -93,6 +110,12 @@
         <?php endforeach;?>
     </table>
 </div>
+
+
+
+<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/price_category_form_validation.js"></script>
+
 
 <?php require 'views/footer.php'; ?>
 
