@@ -14,11 +14,18 @@
             <form action="<?php echo URL; ?>deliveryCharges/create" id="addFrom" class="hidden-form" method="post">
                         <div class="row-top">
                             <div class="col-3">
-                                  <label>City</label><br><input type="text" name="city"><br>
+                                <div class="helper-text">
+                                   <label>City</label><br>
+                                   <input type="text" name="city" id="city" data-helper="City" onfocusout="validateCity()" >
+                                   <span class="popuptext"></span>
+                                </div><br>
                            </div>
                            <div class="col-3">
-                                  <label>Delivery Fee</label><br><input type="text" name="delivery_fee"><br>
-            
+                                <div class="helper-text">
+                                   <label>Delivery Fee</label><br>
+                                   <input type="text" name="delivery_fee" id="delivery_fee" data-helper="Delivery Fee" onfocusout="validateDeliveryFee()">
+                                   <span class="popuptext"></span>
+                                </div><br>
                            </div>
                         </div>
 
@@ -62,6 +69,11 @@
 </div>
 </div>
 </div>
+
+
+<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/delivery_charges_form_validation.js"></script>
+
 
 <?php require 'views/footer_dashboard.php'; ?>
 
