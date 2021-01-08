@@ -31,7 +31,7 @@ class DeliveryCharges extends Controller {
     function create() {
 
         $data = array();
-        $data['city'] = $_POST['city'];
+        $data['city'] = $_POST['delivery_city'];
         $data['delivery_fee'] = $_POST['delivery_fee'];
 
         $this->model->create($data);
@@ -65,7 +65,7 @@ class DeliveryCharges extends Controller {
 
         $data = array();
         $data['prev_city'] = $_POST['prev_city'];
-        $data['city'] = $_POST['city'];
+        $data['city'] = $_POST['delivery_city'];
         $data['delivery_fee'] = $_POST['delivery_fee'];
 
         $this->model->update($data);

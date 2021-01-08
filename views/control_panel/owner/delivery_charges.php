@@ -16,7 +16,7 @@
                             <div class="col-3">
                                 <div class="helper-text">
                                    <label>City</label><br>
-                                   <input type="text" name="city" id="city" data-helper="City" onfocusout="validateCity()" >
+                                   <input type="text" name="delivery_city" id="delivery_city" data-helper="City" onfocusout="validateDeliveryCity()">
                                    <span class="popuptext"></span>
                                 </div><br>
                            </div>
