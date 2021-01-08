@@ -61,7 +61,8 @@
             </div>
         
         </div>
- <?php require 'public/js/nav_menu.js'; ?>   
+ <?php require 'public/js/nav_menu.js'; ?>
+ <script src="public/js/live_search.js"></script>
 </body>
 
 </html>
