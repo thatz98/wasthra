@@ -1,5 +1,4 @@
 <?php require 'views/header_dashboard.php'; ?>
-
 <div class="small-container">
     <div class="row">
         <h2 class="title title-min">Edit User</h2>
@@ -10,10 +9,18 @@
                 method="post">
                 <div class="row-top">
                     <div class="col-2">
-                        <label>First Name</label><br><input type="text" name="first_name"
-                            value="<?php echo $this->user[0]['first_name'] ?>"><br>
-                        <label>Mobile Number</label><br><input type="text" name="contact_no"
-                            value="<?php echo $this->user[0]['contact_no'] ?>"><br>
+                      <div class="helper-text">
+                          <label>First Name</label><br>
+                          <input type="text" name="first_name" value="<?php echo $this->user[0]['first_name'] ?>"
+                           data-helper="First Name" onfocusout="validateFirstName()" id="first_name_u"><br>
+                          <span class="popuptext"></span><br>
+                      </div>
+                      <div class="helper-text">
+                          <label>Mobile Number</label><br>
+                          <input type="text" name="contact_no" value="<?php echo $this->user[0]['contact_no'] ?>" placeholder="07XXXXXXXX"
+                           data-helper="Mobile No." onfocusout="validateContactNo()" id="contact_no_u"><br>
+                          <span class="popuptext"></span>
+                      </div>
                         <label>User Type</label><br><select name="user_type" <?php if($this->user[0]['user_type']=='owner') echo 'disabled';?>>
                             <option value="customer"
                                 <?php if($this->user[0]['user_type']=='customer') echo "selected=\"selected\"";?>>
@@ -44,12 +51,18 @@
                         </select><br>
                     </div>
                     <div class="col-2">
-                        <label>Last Name</label><br><input type="text" name="last_name"
-                            value="<?php echo $this->user[0]['last_name'] ?>"><br>
-
-                        <label>Email</label><br><input type="email" name="email"
-                            value="<?php echo $this->user[0]['email'] ?>"><br>
-
+                        <div class="helper-text">
+                           <label>Last Name</label><br>
+                           <input type="text" name="last_name" value="<?php echo $this->user[0]['last_name'] ?>" 
+                            data-helper="Last Name" onfocusout="validateLastName()" id="last_name_u"><br>
+                           <span class="popuptext"></span>
+                        </div>
+                        <div class="helper-text">
+                           <label>Email</label><br>
+                           <input type="email" name="email" value="<?php echo $this->user[0]['email'] ?>" 
+                            data-helper="Email" onfocusout="validateEmail()" id="email_u"><br>
+                           <span class="popuptext"></span>
+                        </div>
                         <label>Gender</label><br><select name="gender"
                             value="<?php echo $this->user[0]['gender'] ?>">
                             <option value="male"
@@ -75,6 +88,8 @@
 
         </div>
 
+<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/edit_user_form_validation.js"></script>
 
     </div>
 </div>

@@ -1,16 +1,16 @@
 const deliveryFee = document.getElementById('delivery_fee');
 const deliveryCity = document.getElementById('delivery_city');
 
-const form = document.getElementById('addFrom');
+const editform = document.getElementById('editFrom');
 
-form.addEventListener('submit', function(event) {
+editform.addEventListener('submit', function(event) {
 
     event.preventDefault();
     if (
       validateDeliveryCity() &&
       validateDeliveryFee()
     ) {
-      form.submit();
+      editform.submit();
     }
   });
 

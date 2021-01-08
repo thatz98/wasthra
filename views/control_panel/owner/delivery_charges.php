@@ -1,5 +1,4 @@
 <?php require 'views/header_dashboard.php'; ?>
-
 <div class="small-container">
 
     <div class="row">
@@ -16,7 +15,7 @@
                             <div class="col-3">
                                 <div class="helper-text">
                                    <label>City</label><br>
-                                   <input type="text" name="city" id="city" data-helper="City" onfocusout="validateCity()" >
+                                   <input type="text" name="delivery_city" id="delivery_city" data-helper="City" onfocusout="validateDeliveryCity()">
                                    <span class="popuptext"></span>
                                 </div><br>
                            </div>
@@ -70,13 +69,10 @@
 </div>
 </div>
 
-
 <script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>util/form/delivery_charges_form_validation.js"></script>
 
-
 <?php require 'views/footer_dashboard.php'; ?>
-
 
 <script>
       //  var addFrom = document.getElementByClassName("dash-form-container");
