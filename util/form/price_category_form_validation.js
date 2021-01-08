@@ -15,7 +15,7 @@ form.addEventListener('submit', function(event) {
       validateCategoryName() &&
       validateProductionCost() &&
       validateMarketPrice() &&
-      validateDiscout()
+      validateDiscount()
     ) {
       form.submit();
     }

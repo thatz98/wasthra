@@ -40,7 +40,6 @@ class PriceCategories extends Controller {
         $data['add_market_price'] = $_POST['market_price'];
         $data['discount'] = $_POST['discount'];
 
-
         $this->model->create($data);
 
         header('location: ' . URL . 'priceCategories');
