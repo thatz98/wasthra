@@ -58,6 +58,8 @@ function validateDiscount() {
     
     if (checkIfEmpty(discount)) return;
 
+    if (!meetLength(discount,1,4)) return;
+    
     if (!checkIfOnlyNumbers(discount)) return;
     return true;
 

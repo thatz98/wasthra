@@ -118,7 +118,7 @@ function checkIfOnlyLetters(field) {
  * @return bool
  */
 function checkIfOnlyNumbers(field) {
-  if (/^[0-9]+$/.test(field.value)) {
+  if (/^[0-9]+$/.test(field.value)) {  
     setValid(field);
     return true;
   } else {
