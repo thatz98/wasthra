@@ -1,5 +1,4 @@
 <?php require 'views/header_dashboard.php'; ?>
-
 <div class="small-container">
 
     <div class="row">
@@ -70,13 +69,10 @@
 </div>
 </div>
 
-
 <script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>util/form/delivery_charges_form_validation.js"></script>
 
-
 <?php require 'views/footer_dashboard.php'; ?>
-
 
 <script>
       //  var addFrom = document.getElementByClassName("dash-form-container");
