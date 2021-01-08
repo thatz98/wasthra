@@ -5,7 +5,6 @@ const marketPrice = document.getElementById('market_price');
 const discount = document.getElementById('discount');
 
 const form = document.getElementById('addFrom');
-const editform = document.getElementById('editFrom');
 
 form.addEventListener('submit', function(event) {
 
@@ -20,22 +19,6 @@ form.addEventListener('submit', function(event) {
       form.submit();
     }
   });
-
-  editform.addEventListener('submit', function(event) {
-
-    event.preventDefault();
-    if (
-      validateCategoryId() &&
-      validateCategoryName() &&
-      validateProductionCost() &&
-      validateMarketPrice() &&
-      validateDiscout()
-    ) {
-      editform.submit();
-    }
-  });
-
-
 
 function validateCategoryId() {
 
