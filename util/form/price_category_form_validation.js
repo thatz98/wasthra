@@ -23,6 +23,8 @@ form.addEventListener('submit', function(event) {
 function validateCategoryId() {
 
     if (checkIfEmpty(categoryId)) return;
+
+    if (!containsCharacters(categoryId,7)) return;
     return true;
 
 }

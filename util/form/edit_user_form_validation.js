@@ -5,12 +5,14 @@ const contactNo = document.getElementById('contact_no_u');
     
 const editform = document.getElementById('editFrom');
 
+
 editform.addEventListener('submit', function(event) {
 
       event.preventDefault();
       if (
         validateFirstName() &&
         validateLastName() &&
+        validateContactNo() &&
         validateEmail()
       ) {
         editform.submit();

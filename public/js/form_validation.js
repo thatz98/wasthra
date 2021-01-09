@@ -209,6 +209,10 @@ function containsCharacters(field, type) {
     case 6:
       regEx = /^[0-9]{1,4}(([\-\/][0-9]{1,4})|(\/[A-Z]{1,2})|(\/[0-9][A-Z]))*$/; 
       return matchWithRegEx(regEx, field, 'Must be a valid address line 1');
+      //check price categoryID
+    case 7:
+      regEx = /^[P][R][C][0-9]{3,}$/;
+      return matchWithRegEx(regEx,field,'Must be contain a format of PRCXXX');  
     default:
       return false;
   }

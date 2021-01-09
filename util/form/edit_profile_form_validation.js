@@ -10,11 +10,10 @@ const postalCode = document.getElementById('postal_code');
 
 const editprofileform = document.getElementById('editProfileFrom');
 
-        
 editprofileform.addEventListener('submit', function(event) {
     
       event.preventDefault();
-      if (
+      if ( 
         validateFirstName() &&
         validateLastName() &&
         validateContactNo() &&
