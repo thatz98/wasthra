@@ -3,7 +3,7 @@ $(document).ready(function () {
     var inputVal = $(this).val();
     if (!inputVal == "") {
       $.ajax({
-        url: './util/live_search.php',
+        url: 'http://127.0.0.1/wasthra/search',
         type: 'POST',
         dataType: 'JSON',
         data: { 'term': inputVal },

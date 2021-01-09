@@ -6,6 +6,12 @@ class Search extends Controller {
     }
 
     function index() {
+        if (isset($_POST["term"])) {
+            echo json_encode($this->model->liveSearch($_POST["term"]));
+        }
+    }
+
+    function advancedSearch() {
         $this->view->title = 'Advanced Search';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Advanced Search';
 

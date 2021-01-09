@@ -6,6 +6,11 @@ class Search_Model extends Model{
      	parent::__construct();
     }
 
+    function liveSearch($term){
+            $term .= '*';
+            return $this->db->query("SELECT * FROM product WHERE MATCH (product_name,product_description) AGAINST ('$term' IN BOOLEAN MODE);");
+    }
+
     function getProductName($id){
         return $this->db->query("SELECT product_id,product_name FROM product WHERE product_id='$id';");
     }
