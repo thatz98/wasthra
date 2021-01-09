@@ -43,7 +43,7 @@ function validateProductionCost() {
 
     if (checkIfEmpty(productionCost)) return;
     
-    if (!checkIfOnlyNumbers(productionCost)) return;
+    if (!checkIfOnlyPrice(productionCost)) return;
     return true;
 
 }
@@ -52,7 +52,7 @@ function validateMarketPrice() {
  
     if (checkIfEmpty(marketPrice)) return;
 
-    if (!checkIfOnlyNumbers(marketPrice)) return;
+    if (!checkIfOnlyPrice(marketPrice)) return;
     return true;
 
 }

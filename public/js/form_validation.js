@@ -127,6 +127,16 @@ function checkIfOnlyNumbers(field) {
   }
 }
 
+function checkIfOnlyPrice(field) {
+  if (/^[0-9]+\.?[0-9]{1,2}$/.test(field.value)) {  
+    setValid(field);
+    return true;
+  } else {
+    setInvalid(field, `${field.dataset.helper} must contain only numbers`);
+    return false;
+  }
+}
+
 /**
  * Check whether the field contains given number of characters
  *
@@ -147,6 +157,21 @@ function meetLength(field, minLength, maxLength) {
     setInvalid(field, `${field.dataset.helper} must be shorter than ${maxLength} characters`);
     return false;
   }
+}
+
+function meetValue(field, minLength, maxLength) {
+
+  if (field.value >= minLength && field.value < maxLength) {
+    setValid(field);
+    return true;
+  } else if (field.value < minLength) {
+    setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength-1}`);
+    return false;
+  } else {
+    setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength-1}`);
+    return false;
+  }
+  
 }
 
 /**
