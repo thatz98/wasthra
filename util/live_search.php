@@ -9,9 +9,9 @@ try{
 
 try{
     if(isset($_POST["term"])){
-        $sql = "SELECT * FROM product WHERE product_name LIKE :term";
+        $sql = "SELECT * FROM product WHERE MATCH (product_name,product_description) AGAINST (:term IN BOOLEAN MODE);";
         $stmt = $search_db->prepare($sql);
-        $term = $_POST["term"] . '%';
+        $term = $_POST["term"] . '*';
         $stmt->bindParam(":term", $term);
         $stmt->execute();
         if($stmt->rowCount() > 0){

@@ -1,29 +1,35 @@
 $(document).ready(function () {
   $('#search').on("keyup", function () {
-    console.log("hi");
     var inputVal = $(this).val();
-    $.ajax({
-      url: './util/live_search.php',
-      type: 'POST',
-      dataType: 'JSON',
-      data: { 'term': inputVal },
-      success: function (data) {
-        results = "";
-        document.getElementById('results').innerHTML= "";
-        data.forEach(product => {
-          console.log(product.product_name);
+    if (!inputVal == "") {
+      $.ajax({
+        url: './util/live_search.php',
+        type: 'POST',
+        dataType: 'JSON',
+        data: { 'term': inputVal },
+        success: function (data) {
+          results = "";
+          document.getElementById('results').innerHTML = "";
+          if(data.length>0){
+            data.forEach(product => {
+              var list_item = document.createElement("li");
+              list_item.innerHTML = product.product_name;
+              document.getElementById('results').appendChild(list_item);
+            });
+          }
+        },
+        error: function() { 
+          results = "";
+          document.getElementById('results').innerHTML = "";
           var list_item = document.createElement("li");
-          list_item.innerHTML = product.product_name;
-          document.getElementById('results').appendChild(list_item);
-        });
-        // const searched = data.map(item=>{
-        //   const regex = new RegExp(this.value,'gi');
-        //   const term = item.name.replace(regex,`<b>${this.value}</b>`)
-        //   return `<li>${term}</li>`;
-        // }).join('');
+              list_item.innerHTML = 'No matching results';
+              document.getElementById('results').appendChild(list_item);
+      } 
+      });
 
-      }
-    });
+    } else {
+      document.getElementById('results').innerHTML = "";
+    }
+
   });
-
 });
