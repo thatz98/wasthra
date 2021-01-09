@@ -171,7 +171,7 @@ function meetValue(field, minLength, maxLength) {
     setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength-1}`);
     return false;
   }
-  
+
 }
 
 /**
@@ -205,6 +205,10 @@ function containsCharacters(field, type) {
       // check for email pattern
       regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return matchWithRegEx(regEx, field, 'Must be a valid email address');
+      //check address line 1
+    case 6:
+      regEx = /^[0-9]{1,4}(([\-\/][0-9]{1,4})|(\/[A-Z]{1,2})|(\/[0-9][A-Z]))*$/; 
+      return matchWithRegEx(regEx, field, 'Must be a valid address line 1');
     default:
       return false;
   }
