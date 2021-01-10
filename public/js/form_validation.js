@@ -213,6 +213,9 @@ function containsCharacters(field, type) {
     case 7:
       regEx = /^[P][R][C][0-9]{3,}$/;
       return matchWithRegEx(regEx,field,'Must be contain a format of PRCXXX');  
+    case 8:
+      regEx = /^[P][R][D][0-9]{3,}$/;
+      return matchWithRegEx(regEx,field,'Must be contain a format of PRDXXX');  
     default:
       return false;
   }
