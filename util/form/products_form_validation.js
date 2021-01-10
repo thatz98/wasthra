@@ -34,8 +34,6 @@ editform.addEventListener('submit', function(event) {
 function validateproductName() {
     
     if (checkIfEmpty(productName)) return;
-    
-    // if (!checkIfOnlyLetters(productName)) return;
     return true;
 
 }
@@ -44,7 +42,7 @@ function validateColors() {
     
   if (checkIfEmpty(colors)) return;
   
-  // if (!checkIfOnlyLetters(productName)) return;
+  if (!containsCharacters(colors,9)) return;
   return true;
 
 }
@@ -61,8 +59,6 @@ function validateQuantity() {
 function validateDescription() {
     
   if (checkIfEmpty(description)) return;
-  
-  // if (!checkIfOnlyLetters(productName)) return;
   return true;
 
 }
