@@ -52,13 +52,16 @@
                         </div>  
                         <div class="row-top">
                             <div class="col-3">
-                            <label>Product ID</label><br><input type="text" name="product_id"><br>
+                            <label>Product ID</label><br><input type="text" name="product_id" placeholder="PRDXXXX"><br>
                             
                             <label>Product Name</label><br><input type="text" name="product_name"><br>
-<label>Product Category</label><br><select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
-                            <?php foreach ($this->categoryList as $category): ?><option value="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></option> <?php endforeach;?>
-                            <!-- <option value="ladies">Ladies</option>
-                            <option value="couple">Couple</option> -->
+                            <label>Product Category</label>
+                            <br>
+                            <select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
+                            <option value="">Select</option>
+                            <?php foreach ($this->categoryList as $category): ?><option value="<?php echo $category['name']; ?>">
+                            <?php echo $category['name']; ?></option> <?php endforeach;?>
+
                         </select><br>
                         <label>Quantity</label><br><input type="text" name="quantity"><br>
                         
@@ -121,6 +124,7 @@
                             <br>
                             </div>
                         <label>Published</label><br><select name="is_published">
+                            <option value="">Select</option>
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
@@ -128,11 +132,13 @@
                         
                         
                         <label>Featured</label><br><select name="is_featured">
+                            <option value="">Select</option>
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
                         
                         <label>New</label><br><select name="is_new">
+                            <option value="">Select</option>
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select><br>
@@ -140,7 +146,9 @@
                         </div>
                         <div class="col-3">
                             <label>Colors</label><br><input type="text" name="colors"><br>
-                            <label>Price Category</label><br><select name="price_category">
+                            <label>Price Category</label><br>
+                            <select name="price_category">
+                            <option value=" ">Select</option>
                             <?php foreach ($this->pricecategoryList as $priceCategory): ?><option value="<?php echo $priceCategory['price_category_name']; ?>"><?php echo $priceCategory['price_category_name']; ?></option> <?php endforeach;?>
                             </select><br>
                             
