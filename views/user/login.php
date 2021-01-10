@@ -187,8 +187,8 @@
                                         <div class="col-3" style="margin-bottom: 0;">
                                             <div class="helper-text">
                                                 <label>Gender</label><br>
-                                                <div class="radio-container" id="gender-radio"><input type="radio"
-                                                        id="male" name="gender" value="male">
+                                                <div class="radio-container" id="gender-radio">
+                                                    <input type="radio" id="male" name="gender" value="male">
                                                     <label for="male">Male</label>
                                                     <input type="radio" id="female" name="gender" value="female">
                                                     <label for="female">Female</label>
