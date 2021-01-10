@@ -1,5 +1,6 @@
 <?php require 'views/header_dashboard.php'; ?>
 
+
 <div class="small-container">
     <div class="row">
         <h2 class="title title-min">Edit Inventory</h2>
@@ -10,14 +11,21 @@
                         <div class="row">
                             <div class="col-2">
                             <input type="text" name="product_id" value="<?php echo $this->getInventory['product_id']?>" hidden>   
-                            <label>Reorder Level</label><br>
-                            <input type="text" name="reorder_level"  value="<?php echo $this->getInventory['reorder_level'] ?>"><br><br>
-                           
+                            <div class="helper-text">
+                                <label>Reorder Level</label><br>
+                                <input type="text" id="reorder_level"   name="reorder_level"  value="<?php echo $this->getInventory['reorder_level'] ?>"
+                                data-helper="Reorder Level" onfocusout="validateReorderLevel()"><br><br>
+                                <span class="popuptext"></span>
+                            </div>
                     
                         </div>
                         <div class="col-2" >
-                            <label>Reorder Quantity</label><br><input type="text" name="reorder_quantity" id="category_name" value="<?php echo $this->getInventory['reorder_qty'] ?>"><br><br>
-                        
+                            <div class="helper-text">
+                            <label>Reorder Quantity</label><br>
+                            <input type="text" name="reorder_quantity"   id="reorder_quantity" value="<?php echo $this->getInventory['reorder_qty'] ?>"
+                            data-helper="Reorder Quantity" onfocusout="validateReorderQuantity()"><br><br>
+                            <span class="popuptext"></span>
+                            </div>
                         </div>
                     </div>
                         
@@ -29,7 +37,10 @@
 
                     </div>
 
+
         
 </div>
 </div>
+<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/edit_inventory_form_validation.js"></script>
 <?php require 'views/footer_dashboard.php'; ?>
