@@ -52,9 +52,20 @@
                         </div>  
                         <div class="row-top">
                             <div class="col-3">
-                            <label>Product ID</label><br><input type="text" name="product_id" placeholder="PRDXXXX"><br>
-                            
-                            <label>Product Name</label><br><input type="text" name="product_name"><br>
+                            <div class="helper-text">
+                                <label>Product ID</label><br><input type="text" id="product_id" name="product_id" placeholder="PRDXXXX"
+                                data-helper="Product ID" onfocusout="validateProductId()">
+                                <span class="popuptext"></span>
+                                <br>
+                                
+                            </div>
+                            <div class="helper-text">
+                                <label>Product Name</label><br><input type="text" id="product_name" name="product_name" 
+                                data-helper="Product Name" onfocusout="validateproductName()">
+                                <span class="popuptext"></span>
+                                <br>
+
+                            </div>
                             <label>Product Category</label>
                             <br>
                             <select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
@@ -63,66 +74,74 @@
                             <?php echo $category['name']; ?></option> <?php endforeach;?>
 
                         </select><br>
-                        <label>Quantity</label><br><input type="text" name="quantity"><br>
-                        
+                        <div class="helper-text">
+                            <label>Quantity</label><br><input id="quantity" type="text" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
+                            <span class="popuptext"></span>
+                            <br>
+                        </div>
                         </div>
                         <div class="col-3">
+                            <div class="helper-text">
                             <div id="size-field">
                             <label>Available Sizes</label><br>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="XS"><span>XS</span>
+                                <input type="checkbox" name="size[]" id="XS" value="XS"><span>XS</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="S"><span>S</span>
+                                <input type="checkbox" name="size[]" id="S" value="S"><span>S</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="M"><span>M</span>
+                                <input type="checkbox" name="size[]" id="M" value="M"><span>M</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L"><span>L</span>
+                                <input type="checkbox" name="size[]" id="L" value="L"><span>L</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="XL"><span>XL</span>
+                                <input type="checkbox" name="size[]" id="XL" value="XL"><span>XL</span>
                             </div>
                             <br>
+                            </div>
+                            <span class="popuptext"></span>
                             </div>
                             <div id="size-field-couple" hidden>
                             <label>Available Sizes for Couple Gents</label><br>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="XS-G"><span>XS</span>
+                                <input type="checkbox" name="size[]" id="XS-G" value="XS-G"><span>XS</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="S-G"><span>S</span>
+                                <input type="checkbox" name="size[]" id="S-G" value="S-G"><span>S</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="M-G"><span>M</span>
+                                <input type="checkbox" name="size[]" id="M-G" value="M-G"><span>M</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L-G"><span>L</span>
+                                <input type="checkbox" name="size[]" id="L-G" value="L-G"><span>L</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="XL-G"><span>XL</span>
+                                <input type="checkbox" name="size[]" id="XL-G" value="XL-G"><span>XL</span>
                             </div>
                             <br>
                             
                             <label>Available Sizes for Couple Ladies</label><br>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="XS-W"><span>XS</span>
+                                <input type="checkbox" name="size[]" id="XS-W" value="XS-W"><span>XS</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="S-W"><span>S</span>
+                                <input type="checkbox" name="size[]" id="S-W" value="S-W"><span>S</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="M-W"><span>M</span>
+                                <input type="checkbox" name="size[]" id="M-W" value="M-W"><span>M</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="L-W"><span>L</span>
+                                <input type="checkbox" name="size[]" id="L-W" value="L-W"><span>L</span>
                             </div>
                             <div class="checkboxes">
-                                <input type="checkbox" name="size[]" value="XL-W"><span>XL</span>
+                                <input type="checkbox" name="size[]" id="XL-W" value="XL-W"><span>XL</span>
                             </div>
+                            
                             <br>
                             </div>
+
                         <label>Published</label><br><select name="is_published">
                             <option value="">Select</option>
                             <option value="yes">YES</option>
@@ -145,16 +164,26 @@
                         
                         </div>
                         <div class="col-3">
-                            <label>Colors</label><br><input type="text" name="colors"><br>
+                            <div class="helper-text">
+                                <label>Colors</label><br>
+                                <input id="color" type="text" name="colors" data-helper="Colors" onfocusout="validateColors()">
+                                <span class="popuptext"></span>
+                                <br>
+                                    
+                            </div>
+
                             <label>Price Category</label><br>
                             <select name="price_category">
                             <option value=" ">Select</option>
                             <?php foreach ($this->pricecategoryList as $priceCategory): ?><option value="<?php echo $priceCategory['price_category_name']; ?>"><?php echo $priceCategory['price_category_name']; ?></option> <?php endforeach;?>
                             </select><br>
                             
-                            <label>Description</label><br>
-                            <textarea rows="6" cols="30" name="product_description"></textarea><br>
-
+                            <div class="helper-text">
+                                <label>Description</label><br>
+                                <textarea id="description" rows="6" cols="30" name="product_description" data-helper="Description" onfocusout="validateDescription()"></textarea>
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
                         </div>
                     </div>
                         
@@ -242,6 +271,8 @@
 </div>
 
 <script type="text/javascript" src="<?php echo URL ?>public/js/table_pagination.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/products_form_validation.js"></script>
 
 <script>
 
