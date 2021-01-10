@@ -166,7 +166,7 @@
                         <div class="col-3">
                             <div class="helper-text">
                                 <label>Colors</label><br>
-                                <input id="color" type="text" name="colors" data-helper="Colors" onfocusout="validateColors()">
+                                <input id="color" type="text" name="colors" placeholder="#12ab87,#abc123" data-helper="Colors" onfocusout="validateColors()">
                                 <span class="popuptext"></span>
                                 <br>
                                     
