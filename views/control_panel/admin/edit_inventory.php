@@ -13,9 +13,10 @@
                             <input type="text" name="product_id" value="<?php echo $this->getInventory['product_id']?>" hidden>   
                             <div class="helper-text">
                                 <label>Reorder Level</label><br>
-                                <input type="text" id="reorder_level"   name="reorder_level"  value="<?php echo $this->getInventory['reorder_level'] ?>"
-                                data-helper="Reorder Level" onfocusout="validateReorderLevel()"><br><br>
-                                <span class="popuptext"></span>
+                                <input type="text" id="reorder_level" name="reorder_level"  value="<?php echo $this->getInventory['reorder_level'] ?>"
+                                data-helper="Reorder Level" onfocusout="validateReorderLevel()">
+                                <span class="popuptext"></span><br><br>
+                                
                             </div>
                     
                         </div>
@@ -23,8 +24,9 @@
                             <div class="helper-text">
                             <label>Reorder Quantity</label><br>
                             <input type="text" name="reorder_quantity"   id="reorder_quantity" value="<?php echo $this->getInventory['reorder_qty'] ?>"
-                            data-helper="Reorder Quantity" onfocusout="validateReorderQuantity()"><br><br>
-                            <span class="popuptext"></span>
+                            data-helper="Reorder Quantity" onfocusout="validateReorderQuantity()">
+                            <span class="popuptext"></span><br><br>
+                            
                             </div>
                         </div>
                     </div>
