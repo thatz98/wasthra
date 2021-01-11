@@ -1,5 +1,5 @@
-const green = '#4CAF50';
-const red = '#F44336';
+var green = '#4CAF50';
+var red = '#F44336';
 
 /**
  * Check whether the input field is empty

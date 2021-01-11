@@ -17,11 +17,8 @@ class Index extends Controller {
         $this->view->title = 'Home';
      
         // get all product details
-        $this->view->qtyList =  $this->model->getAllDetails();
-        $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
-        $this->view->colorList =  $this->model->getColors();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
+        $this->view->featuredProducts =  $this->model->getFeaturedProducts();
+        $this->view->newProducts =  $this->model->getNewProducts();
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('index/index');
     }

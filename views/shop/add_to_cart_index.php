@@ -1,12 +1,31 @@
 <div id="addToCartPopupIndex" class="overlay">
     <?php if (isset($_GET['id'])){
+            if(isset($_GET['tag'])){
+                if($_GET['tag']=='featured'){
+                    foreach($this->featuredProducts as $product){
+                        if($product['product_id']==$_GET['id']){
+                            $this->productPopup = array_slice($product, 0,count($product));
+                            break;
+                        }
+                    }
+                } else if($_GET['tag']=='new'){
+                    foreach($this->newProducts as $product){
+                        if($product['product_id']==$_GET['id']){
+                            $this->productPopup = array_slice($product, 0,count($product));
+                            break;
+                        }
+                    }
+                }   
+            } else{
                 foreach($this->products as $product){
                     if($product['product_id']==$_GET['id']){
                         $this->productPopup = array_slice($product, 0,count($product));
                         break;
                     }
-    }
-} ?>
+                }
+            }
+        }
+ ?>
     <div class="popup" style="padding:30px;">
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         <div class="row">
@@ -27,25 +46,25 @@
                         }
                     
                     if ($this->productPopup['name'] == 'Gents') : ?>
-                        <div class="gallery-col">
-                            <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC"
-                                onclick="swapImage('sizeC')" width="100%" class="view-gallery-img">
-                        </div>
-                        <?php else : if ($this->productPopup['name'] == 'Ladies') : ?>
-                        <div class="gallery-col">
-                            <img src="<?php echo URL; ?>public/images/size_charts/ladies.png" id="sizeCL"
-                                onclick="swapImage('sizeCL')" width="100%" class="view-gallery-img">
-                        </div>
-                        <?php else : ?>
-                        <div class="gallery-col">
-                            <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC"
-                                onclick="swapImage('sizeC')" width="100%" class="view-gallery-img">
-                        </div>
-                        <div class="gallery-col">
-                            <img src="<?php echo URL; ?>public/images/size_charts/ladies.png" id="sizeCL"
-                                onclick="swapImage('sizeCL')" width="100%" class="view-gallery-img">
-                        </div>
-                        <?php endif;
+                    <div class="gallery-col">
+                        <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC"
+                            onclick="swapImage('sizeC')" width="100%" class="view-gallery-img">
+                    </div>
+                    <?php else : if ($this->productPopup['name'] == 'Ladies') : ?>
+                    <div class="gallery-col">
+                        <img src="<?php echo URL; ?>public/images/size_charts/ladies.png" id="sizeCL"
+                            onclick="swapImage('sizeCL')" width="100%" class="view-gallery-img">
+                    </div>
+                    <?php else : ?>
+                    <div class="gallery-col">
+                        <img src="<?php echo URL; ?>public/images/size_charts/gents.png" id="sizeC"
+                            onclick="swapImage('sizeC')" width="100%" class="view-gallery-img">
+                    </div>
+                    <div class="gallery-col">
+                        <img src="<?php echo URL; ?>public/images/size_charts/ladies.png" id="sizeCL"
+                            onclick="swapImage('sizeCL')" width="100%" class="view-gallery-img">
+                    </div>
+                    <?php endif;
                         endif; ?>
 
 
@@ -117,9 +136,9 @@
                         <?php
                             }
                         }?>
-                        </div>
+                    </div>
 
-                 <?php   }?>
+                    <?php   }?>
 
                     <br>
                     <label class="text-label">Select Quantity</label>

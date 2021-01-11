@@ -54,6 +54,8 @@ class Products extends Controller {
         $data['price_category'] = $_POST['price_category'];
         $data['quantity'] = $_POST['quantity'];
         $data['colors'] = $_POST['colors'];
+        $data['meta_product_name'] = metaphone($_POST['product_name']);
+        $data['meta_product_description'] = metaphone($_POST['product_description']);
 
         $size = $_POST['size'];
         $imageName['img'] = $_FILES['img']['name'];

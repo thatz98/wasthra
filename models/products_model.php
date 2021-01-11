@@ -69,7 +69,9 @@ class Products_Model extends Model{
             'product_description' => $data['product_description'],
             'is_featured' => $data['is_featured'],
             'is_new' => $data['is_new'],
-            'is_published' => $data['is_published']
+            'is_published' => $data['is_published'],
+            'meta_product_name' => $data['meta_product_name'],
+            'meta_product_description' => $data['meta_product_description']
 
             
 
