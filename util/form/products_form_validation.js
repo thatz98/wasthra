@@ -22,8 +22,8 @@ editform.addEventListener('submit', function(event) {
         validateIsNew() &&
         validateIsFeatured() &&
         validatePriceCategory() &&
-        validateProductCategory() 
-        // validateImage()
+        validateProductCategory() &&
+        validateImage()
 
     ) {
       editform.submit();
@@ -117,5 +117,5 @@ function validateImage(){
   if (checkIfEmpty(image)) return;
   // if(document.getElementById('image').value!=NULL) return true;
   // setinvalidWithoutColor(document.getElementById('image'),'Must be selected');
-       return false;
+       return true;
 }

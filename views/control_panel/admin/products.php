@@ -47,8 +47,10 @@
                         <div class="center-btn">
                             <div class="helper-text">
                                 <label>Product images : </label>
-                                <input id="image" type="file" accept="image/*" name="img[]"  multipledata-helper="Image" onfocusout="validateImage()"><br>
+                                <input id="image" type="file" accept="image/*" name="img[]"  data-helper="Image" onfocusout="validateImage()" multiple>
                                 <span class="popuptext"></span>
+                                <br>
+                                
                             </div>
                         </div>
                     </div>  
