@@ -58,7 +58,7 @@
                             <div class="text">
                                 <a href="<?php echo URL; ?>shop/productDetails/<?php echo $product['product_id'] ?>">View</a><br><br>
                             </div>
-                            <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $qty['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>&tag=featured#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                            <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $product['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>&tag=featured#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
                         </div>
                     </div>
                     <div>
@@ -115,7 +115,7 @@
                             <div class="text">
                                 <a href="<?php echo URL; ?>shop/productDetails/<?php echo $product['product_id'] ?>">View</a><br><br>
                             </div>
-                            <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $qty['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>&tag=new#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                            <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $product['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>&tag=new#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
                         </div>
                     </div>
                     <div>
