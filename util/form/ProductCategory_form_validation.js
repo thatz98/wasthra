@@ -1,7 +1,7 @@
 const productId = document.getElementById('product_category_id');
 const productId = document.getElementById('category_name');
 
-const editform = document.getElementById('addFrom');
+// const editform = document.getElementById('addFrom');
 
 editform.addEventListener('submit', function(event) {
 
@@ -16,10 +16,16 @@ editform.addEventListener('submit', function(event) {
   });
 
   function validateCategorytId(){
-    if (checkIfEmpty('categoryId')) return;
+    if (checkIfEmpty(categoryId)) return;
 
-    if (!containsCharacters(productId,10)) return;
+    if (!containsCharacters(categoryId,10)) return;
     return true;
 }
+
+
+  function validateCategoryName(){
+    if (checkIfEmpty(productName)) return;
+    return true;
+  }
 
  
