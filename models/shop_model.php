@@ -229,13 +229,6 @@ class Shop_Model extends Model {
         return $this->db->listAll('delivery_charges', '*');
     }
 
-    function getCartItems() {
-        $userId = Session::get('userId');
-        $cartId = $this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
-        $cartIdActual = $cartId[0][0];
-        return $this->db->query("SELECT * FROM cart_item WHERE cart_item.cart_id='$cartIdActual'");
-    }
-
     function cancelOrder($comment, $id) {
         $this->db->queryExecuteOnly("UPDATE orders SET cancel_comment='$comment' WHERE order_id='$id'");
         $this->db->queryExecuteOnly("UPDATE orders SET order_status='Requested to Cancel' WHERE order_id='$id'");
@@ -290,7 +283,7 @@ class Shop_Model extends Model {
         INNER JOIN product_size ON product.product_id=product_size.product_id
         INNER JOIN product_colors ON product.product_id=product_colors.product_id
         LEFT JOIN review on review.product_id=product.product_id
-            WHERE product_size.sizes='$value';
+            WHERE product_size.sizes='$value' OR product_size.sizes LIKE '$value-%'
             GROUP BY product_id");
         } else if ($field == 'category') {
             $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product

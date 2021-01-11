@@ -19,7 +19,8 @@ class Shop extends Controller {
 
         // get all product details
         $this->view->products = $this->model->getProductList();
-
+        
+        // get filter data
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
