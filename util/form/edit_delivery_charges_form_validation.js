@@ -29,7 +29,7 @@ function validateDeliveryFee() {
  
     if (checkIfEmpty(deliveryFee)) return;
 
-    if (!checkIfOnlyNumbers(deliveryFee)) return;
+    if (!checkIfOnlyPrice(deliveryFee)) return;
     return true;
 
 }

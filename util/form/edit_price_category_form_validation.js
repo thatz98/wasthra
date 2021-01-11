@@ -26,6 +26,8 @@ editform.addEventListener('submit', function(event) {
 function validateCategoryId() {
 
     if (checkIfEmpty(categoryId)) return;
+
+    if (!containsCharacters(categoryId,7)) return;
     return true;
 
 }
@@ -43,7 +45,7 @@ function validateProductionCost() {
 
     if (checkIfEmpty(productionCost)) return;
     
-    if (!checkIfOnlyNumbers(productionCost)) return;
+    if (!checkIfOnlyPrice(productionCost)) return;
     return true;
 
 }
@@ -52,7 +54,7 @@ function validateMarketPrice() {
  
     if (checkIfEmpty(marketPrice)) return;
 
-    if (!checkIfOnlyNumbers(marketPrice)) return;
+    if (!checkIfOnlyPrice(marketPrice)) return;
     return true;
 
 }

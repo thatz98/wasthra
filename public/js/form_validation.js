@@ -127,6 +127,16 @@ function checkIfOnlyNumbers(field) {
   }
 }
 
+function checkIfOnlyPrice(field) {
+  if (/^[0-9]+\.?[0-9]{1,2}$/.test(field.value)) {  
+    setValid(field);
+    return true;
+  } else {
+    setInvalid(field, `${field.dataset.helper} must contain only numbers`);
+    return false;
+  }
+}
+
 /**
  * Check whether the field contains given number of characters
  *
@@ -147,6 +157,21 @@ function meetLength(field, minLength, maxLength) {
     setInvalid(field, `${field.dataset.helper} must be shorter than ${maxLength} characters`);
     return false;
   }
+}
+
+function meetValue(field, minLength, maxLength) {
+
+  if (field.value >= minLength && field.value < maxLength) {
+    setValid(field);
+    return true;
+  } else if (field.value < minLength) {
+    setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength-1}`);
+    return false;
+  } else {
+    setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength-1}`);
+    return false;
+  }
+
 }
 
 /**
@@ -180,6 +205,20 @@ function containsCharacters(field, type) {
       // check for email pattern
       regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return matchWithRegEx(regEx, field, 'Must be a valid email address');
+      //check address line 1
+    case 6:
+      regEx = /^[0-9]{1,4}(([\-\/][0-9]{1,4})|(\/[A-Z]{1,2})|(\/[0-9][A-Z]))*$/; 
+      return matchWithRegEx(regEx, field, 'Must be a valid address line 1');
+      //check price categoryID
+    case 7:
+      regEx = /^[P][R][C][0-9]{3,}$/;
+      return matchWithRegEx(regEx,field,'Must be contain a format of PRCXXX');  
+    case 8:
+      regEx = /^[P][R][D][0-9]{3,}$/;
+      return matchWithRegEx(regEx,field,'Must be contain a format of PRDXXX');
+    case 9:
+      regEx = /^#[0-9a-f]{3}([0-9a-f]{3})?$/;
+      return matchWithRegEx(regEx,field,'Must be contain a format of #abcdef or #123456');  
     default:
       return false;
   }
