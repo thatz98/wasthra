@@ -12,10 +12,10 @@
             <form action="<?php echo URL; ?>ProductCategories/create" id="addFrom" class="hidden-form" method="post">
                         <div class="row-top">
                             <div class="col-3 pad-30-0-0-85">
-                            <label>Product Category Id</label><br><input type="text" name="product_category_id"><br>
+                            <label>Product Category Id</label><br><input type="text" id="product_category_id" name="product_category_id"><br>
                         </div>
                         <div class="col-3 pad-30-0-0-85">
-                            <label>Product Category Name</label><br><input type="text" name="category_name"><br>
+                            <label>Product Category Name</label><br><input type="text" id="category_name" name="category_name"><br>
             
                         </div>
                         </div>

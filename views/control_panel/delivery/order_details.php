@@ -10,6 +10,7 @@
         <div class="col-2">
             <div class="box-container" >
                 <h3>Items</h3>
+                <?php $this->subtotal=0.00;
                 <table class="order-list order-items">
                 <?php foreach ($this->allInfo as $order_Details):?>
                     <tr>
@@ -21,7 +22,6 @@
                      
                         <td class="order-details">
                             <h4><?php echo $order_Details['product_name'];?></h4>
-                            <h5>LKR 800.00</h5>
                             <div class="item-input">
                                 <label>Color:</label><span class="color-dot" style="background-color:<?php echo $order_Details['item_color']; ?>"></span>
                                 <label class="input-data">Size:<?php echo $order_Details['item_size']; ?></label>
