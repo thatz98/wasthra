@@ -5,7 +5,7 @@ const colors = document.getElementById('color');
 const description = document.getElementById('description');
 const image = document.getElementById('image');
 
-const editform = document.getElementById('addFrom');
+const editform = document.getElementById('editFrom');
 
 
 editform.addEventListener('submit', function(event) {
@@ -17,13 +17,13 @@ editform.addEventListener('submit', function(event) {
         validateColors() &&
         validateQuantity() &&
         validateDescription() &&
-        (validateSingleSize() || validateCoupleSize()) &&
+        (validateSingleSize() || validateCoupleSize() ) &&
         validateIsPublished() &&
         validateIsNew() &&
         validateIsFeatured() &&
         validatePriceCategory() &&
-        validateProductCategory() &&
-        validateImage() 
+        validateProductCategory() 
+        // validateImage()  
         
 
     ) {
