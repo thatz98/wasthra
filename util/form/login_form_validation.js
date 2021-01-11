@@ -6,7 +6,7 @@
     
     // Form
     const loginForm = document.getElementById('loginForm');
-    // Validation colors
+
     
     // Handle form
     loginForm.addEventListener('submit', function(event) {

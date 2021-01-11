@@ -4,7 +4,6 @@
    
     // Form
     const forgotForm = document.getElementById('forgot-password');
-    // Validation colors
     
     // Handle form
     forgotForm.addEventListener('submit', function(event) {
