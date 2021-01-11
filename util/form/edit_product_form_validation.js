@@ -14,7 +14,7 @@ editform.addEventListener('submit', function(event) {
     if (
         validateProductId() &&
         validateproductName() &&
-        validateColors() &&
+        // validateColors() &&
         validateQuantity() &&
         validateDescription() &&
         (validateSingleSize() || validateCoupleSize() ) &&

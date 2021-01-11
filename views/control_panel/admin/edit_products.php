@@ -67,13 +67,14 @@
                         
                             <div class="helper-text">
                                 <label>Quantity</label><br>
-                                <input id="quantity" type="text" name="quantity" 
-                                value="<?php foreach ($this->quantity as $qty): ?><?php if($qty['product_id']==$this->product['product_id']){echo $qty['qty'];}?><?php endforeach;?>">
+                                <input id="quantity" type="text" name="quantity" value="<?php foreach ($this->quantity as $qty): ?><?php if($qty['product_id']==$this->product['product_id']){echo $qty['qty'];}?><?php endforeach;?>" data-helper="Quantity" onfocusout="validateQuantity()">
                                 <span class="popuptext"></span>
                                 <br>
                             </div>
                                     
-                        <div id="size-field" <?php if($this->selectedCat=='Couple') echo 'hidden';?>>
+                        <div id="size-field" 
+                        <?php if($this->selectedCat=='Couple') echo 'hidden';?>>
+                        <div class="helper-text">
                             <label>Available Sizes</label><br>
                             <?php $this->allSizes=array('XS','S','M','L','XL');
                             //$this->mySizes=array('S','M','L');
@@ -91,9 +92,12 @@
                                     <?php
                                 }
                             } ?>
+                            <span class="popuptext"></span>
                             <br>
                             </div>
+                            </div>
                             <div id="size-field-couple" <?php if($this->selectedCat!='Couple') echo 'hidden';?>>
+                            <div class="helper-text">
                             <label>Available Sizes Couple Gents</label><br>
                             <?php $this->allSizes=array('XS-G','S-G','M-G','L-G','XL-G');
                             //$this->mySizes=array('S','M','L');
@@ -126,8 +130,11 @@
                                     <?php
                                 }
                             } ?>
+                            <span class="popuptext"></span>
                             <br>
                             </div>
+                            </div>
+                        
                         <label>Published</label><br><select id="is_published" name="is_published">
                             <option value="yes" <?php if($this->product['is_published']=='yes') echo "selected=\"selected\"";?>>YES</option>
                             <option value="no"  <?php if($this->product['is_published']=='no') echo "selected=\"selected\"";?>>NO</option>
