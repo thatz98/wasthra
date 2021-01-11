@@ -45,11 +45,15 @@
 
                     <div class="row" style="margin-top:30px;">
                         <div class="center-btn">
-                        <label>Product images : </label>
-                        <!-- <button type="file" class="btn">Add New image</button> -->
-                        <input type="file" accept="image/*" name="img[]"  multiple><br>
+                            <div class="helper-text">
+                                <label>Product images : </label>
+                                <input id="image" type="file" accept="image/*" name="img[]"  data-helper="Image" onfocusout="validateImage()" multiple>
+                                <span class="popuptext"></span>
+                                <br>
+                                
+                            </div>
                         </div>
-                        </div>  
+                    </div>  
                         <div class="row-top">
                             <div class="col-3">
                             <div class="helper-text">
@@ -66,14 +70,19 @@
                                 <br>
 
                             </div>
-                            <label>Product Category</label>
-                            <br>
-                            <select name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
-                            <option value="">Select</option>
-                            <?php foreach ($this->categoryList as $category): ?><option value="<?php echo $category['name']; ?>">
-                            <?php echo $category['name']; ?></option> <?php endforeach;?>
+                            
+                            <div class="helper-text">
+                                <label>Product Category</label>
+                                <br>
+                                <select id="category" name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
+                                <option value="0">Select</option>
+                                <?php foreach ($this->categoryList as $category): ?><option value="<?php echo $category['name']; ?>">
+                                <?php echo $category['name']; ?></option> <?php endforeach;?>
+                                </select>
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
 
-                        </select><br>
                         <div class="helper-text">
                             <label>Quantity</label><br><input id="quantity" type="text" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
                             <span class="popuptext"></span>
@@ -141,26 +150,39 @@
                             
                             <br>
                             </div>
+                            
+                            <div class="helper-text">
+                                <label>Published</label><br><select id="is_published" name="is_published">
+                                    <option value="0">Select</option>
+                                    <option value="yes">YES</option>
+                                    <option value="no">NO</option>
+                                </select>
+                                <span class="popuptext"></span>
+                                <br>
+                                
+                            </div>
+                        
+                            <div class="helper-text">
+                                <label>Featured</label><br><select id="is_featured" name="is_featured">
+                                    <option value="0">Select</option>
+                                    <option value="yes">YES</option>
+                                    <option value="no">NO</option>
+                                </select>
+                                <span class="popuptext"></span>
+                                <br>
+                                
+                            </div>
 
-                        <label>Published</label><br><select name="is_published">
-                            <option value="">Select</option>
-                            <option value="yes">YES</option>
-                            <option value="no">NO</option>
-                        </select><br>
-                        
-                        
-                        
-                        <label>Featured</label><br><select name="is_featured">
-                            <option value="">Select</option>
-                            <option value="yes">YES</option>
-                            <option value="no">NO</option>
-                        </select><br>
-                        
-                        <label>New</label><br><select name="is_new">
-                            <option value="">Select</option>
-                            <option value="yes">YES</option>
-                            <option value="no">NO</option>
-                        </select><br>
+                            <div class="helper-text">
+                                <label>New</label><br><select id="is_new" name="is_new">
+                                    <option value="0">Select</option>
+                                    <option value="yes">YES</option>
+                                    <option value="no">NO</option>
+                                </select>
+                                <span class="popuptext"></span>
+                                <br>
+
+                            </div>
                         
                         </div>
                         <div class="col-3">
@@ -172,12 +194,19 @@
                                     
                             </div>
 
-                            <label>Price Category</label><br>
-                            <select name="price_category">
-                            <option value=" ">Select</option>
-                            <?php foreach ($this->pricecategoryList as $priceCategory): ?><option value="<?php echo $priceCategory['price_category_name']; ?>"><?php echo $priceCategory['price_category_name']; ?></option> <?php endforeach;?>
-                            </select><br>
-                            
+                            <div class="helper-text">
+                                <label>Price Category</label><br>
+                                <select id="price_category" name="price_category">
+                                <option value="0">Select</option>
+                                <?php foreach ($this->pricecategoryList as $priceCategory): ?>
+                                <option value="<?php echo $priceCategory['price_category_name']; ?>">
+                                <?php echo $priceCategory['price_category_name']; ?>
+                                </option> <?php endforeach;?>
+                                </select>
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
+
                             <div class="helper-text">
                                 <label>Description</label><br>
                                 <textarea id="description" rows="6" cols="30" name="product_description" data-helper="Description" onfocusout="validateDescription()"></textarea>
