@@ -9,9 +9,17 @@ editform.addEventListener('submit', function(event) {
     if (
         validateCategorytId() &&
         validateCategoryName() &&
+
     ) {
       editform.submit();
     }
   });
+
+  function validateCategorytId(){
+    if (checkIfEmpty('categoryId')) return;
+
+    if (!containsCharacters(productId,10)) return;
+    return true;
+}
 
  
