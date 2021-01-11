@@ -112,6 +112,7 @@
                             </div>
                             <span class="popuptext"></span>
                             </div>
+                            <div class="helper-text">
                             <div id="size-field-couple" hidden>
                             <label>Available Sizes for Couple Gents</label><br>
                             <div class="checkboxes">
@@ -149,6 +150,7 @@
                             </div>
                             
                             <br>
+                            </div>
                             </div>
                             
                             <div class="helper-text">
