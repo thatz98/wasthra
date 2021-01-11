@@ -56,7 +56,7 @@ class Shop_Model extends Model {
             INNER JOIN price_category on price_category.price_category_id=product.price_category_id
             INNER JOIN product_colors on product_colors.product_id=product.product_id
             LEFT JOIN review on review.product_id=product.product_id
-            WHERE product_colors.colors='$value'
+            WHERE product_colors.colors='$value' AND product.is_published='yes'
             GROUP BY product_id;");
         } else if ($field == 'size') {
             return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,AVG(review.rate) AS review_rate 
@@ -65,7 +65,7 @@ class Shop_Model extends Model {
             INNER JOIN price_category on price_category.price_category_id=product.price_category_id
             INNER JOIN product_size on product_size.product_id=product.product_id
             LEFT JOIN review on review.product_id=product.product_id
-            WHERE product_size.sizes='$value';
+            WHERE product_size.sizes='$value' AND product.is_published='yes'
             GROUP BY product_id");
         } else if ($field == 'category') {
             return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,AVG(review.rate) AS review_rate 
@@ -73,7 +73,7 @@ class Shop_Model extends Model {
             INNER JOIN category on category.category_id=product.category_id
             INNER JOIN price_category on price_category.price_category_id=product.price_category_id
             LEFT JOIN review on review.product_id=product.product_id
-            WHERE category.name='$value'
+            WHERE category.name='$value' AND product.is_published='yes'
             GROUP BY product_id;");
         }
     }
@@ -251,6 +251,7 @@ class Shop_Model extends Model {
          INNER JOIN product_size ON product.product_id=product_size.product_id
          INNER JOIN product_colors ON product.product_id=product_colors.product_id
          LEFT JOIN review on review.product_id=product.product_id
+         WHERE product.is_published='yes'
          GROUP BY product.product_id");
 
         foreach ($data as $key => $value) {
@@ -272,7 +273,7 @@ class Shop_Model extends Model {
         INNER JOIN product_size ON product.product_id=product_size.product_id
         INNER JOIN product_colors ON product.product_id=product_colors.product_id
         LEFT JOIN review on review.product_id=product.product_id
-            WHERE product_colors.colors='$value'
+            WHERE product_colors.colors='$value' AND product.is_published='yes'
             GROUP BY product_id;");
         } else if ($field == 'size') {
             $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
@@ -283,7 +284,7 @@ class Shop_Model extends Model {
         INNER JOIN product_size ON product.product_id=product_size.product_id
         INNER JOIN product_colors ON product.product_id=product_colors.product_id
         LEFT JOIN review on review.product_id=product.product_id
-            WHERE product_size.sizes='$value' OR product_size.sizes LIKE '$value-%'
+            WHERE (product_size.sizes='$value' OR product_size.sizes LIKE '$value-%') AND product.is_published='yes'
             GROUP BY product_id");
         } else if ($field == 'category') {
             $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
@@ -294,7 +295,7 @@ class Shop_Model extends Model {
             INNER JOIN product_size ON product.product_id=product_size.product_id
             INNER JOIN product_colors ON product.product_id=product_colors.product_id
             LEFT JOIN review on review.product_id=product.product_id
-            WHERE category.name='$value'
+            WHERE category.name='$value' AND product.is_published='yes'
             GROUP BY product_id;");
         }
 
