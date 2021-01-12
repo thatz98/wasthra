@@ -169,9 +169,13 @@
                             </select>
 
                             <br>
+                            <div class="helper-text">
                             <label>Description</label><br>
-                            <textarea rows="6" cols="20" id="description" name="product_description" style="width: 80%;"><?php echo $this->product['product_description'] ?></textarea><br>
-
+                            <textarea rows="6" cols="20" id="description" name="product_description" style="width: 80%;"
+                            data-helper="Description" onfocusout="validateDescription()"><?php echo $this->product['product_description'] ?></textarea>
+                            <span class="popuptext"></span>
+                            <br>
+                            </div>
                         </div>
                     </div>
                         

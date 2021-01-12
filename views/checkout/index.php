@@ -14,28 +14,45 @@
                     </div>
                     <div class="row">
                         <div class="col-3">
-                            <label>First Name</label><br><input type="text" name="first_name" value="<?php echo Session::get('userData')['first_name'] ?>"><br>
+                            <div class="helper-text">
+                                <label>First Name</label><br>
+                                <input type="text" id="first_name" name="first_name" value="<?php echo Session::get('userData')['first_name'] ?>" data-helper="First Name" onfocusout="validateFirstName()">
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
                         </div>
                         <div class="col-3">
-                            <label>Last Name</label><br><input type="text" name="last_name" value="<?php echo Session::get('userData')['last_name'] ?>"><br>
+                            <div class="helper-text">
+                                <label>Last Name</label><br>
+                                <input type="text" id="last_name" name="last_name" value="<?php echo Session::get('userData')['last_name'] ?>" data-helper="Last Name" onfocusout="validateLastName()">
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-3">
-                            <label>Address Line 1</label><br><input type="text" name="address_line_1" value="<?php if (isset(Session::get('addressData')['address_line_1'])) echo Session::get('addressData')['address_line_1'] ?>"><br>
+                            <div class="helper-text">
+                                <label>Address Line 1</label><br>
+                                <input type="text" id="address_line_1" name="address_line_1" value="<?php if (isset(Session::get('addressData')['address_line_1'])) echo Session::get('addressData')['address_line_1'] ?>" data-helper="Address Line 1" onfocusout="validateAddressLine1()">
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
                         </div>
                         <div class="col-3">
-                            <label>Address Line 2</label><br><input type="text" name="address_line_2" value="<?php if (isset(Session::get('addressData')['address_line_2'])) echo Session::get('addressData')['address_line_2'] ?>"><br>
+                            <label>Address Line 2</label><br>
+                            <input type="text" id="address_line_2" name="address_line_2" value="<?php if (isset(Session::get('addressData')['address_line_2'])) echo Session::get('addressData')['address_line_2'] ?>"><br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-3">
-                            <label>Address Line 3</label><br><input type="text" name="address_line_3" value="<?php if (isset(Session::get('addressData')['address_line_3'])) echo Session::get('addressData')['address_line_3'] ?>"><br>
+                            <label>Address Line 3</label><br>
+                            <input type="text" id="address_line_3" name="address_line_3" value="<?php if (isset(Session::get('addressData')['address_line_3'])) echo Session::get('addressData')['address_line_3'] ?>"><br>
                         </div>
                         <div class="col-3">
                             <label>City</label><br>
-                            <select name='city' style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value.split(' ')[1];calculateDelivery();">
-                                <option value=" 0">Select</option>
+                            <select name='city' id="city" style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value.split(' ')[1];calculateDelivery();">
+                                <option value="0">Select</option>
                                 <?php foreach ($this->deliveryCharges as $deliveryCharges) { ?>
                                     <option value="<?php echo $deliveryCharges['city'] . " " . $deliveryCharges['delivery_fee']; ?>" data-fee="<?php echo $deliveryCharges['delivery_fee']; ?>" <?php if (Session::get('addressData')['city'] == $deliveryCharges['city']) echo "selected=\"selected\""; ?>>
                                         <?php echo $deliveryCharges['city']; ?>
@@ -46,10 +63,12 @@
                     </div>
                     <div class="row">
                         <div class="col-3">
-                            <label>Postal Code</label><br><input type="text" name="postal_code" value="<?php if (isset(Session::get('addressData')['postal_code'])) echo Session::get('addressData')['postal_code'] ?>"><br>
+                            <label>Postal Code</label><br>
+                            <input type="text" id="postal_code" name="postal_code" value="<?php if (isset(Session::get('addressData')['postal_code'])) echo Session::get('addressData')['postal_code'] ?>"><br>
                         </div>
                         <div class="col-3">
-                            <label>Contact Number</label><br><input type="text" name="contact_no" value="<?php echo Session::get('userData')['contact_no'] ?>"><br>
+                            <label>Contact Number</label><br>
+                            <input type="text" id="contact_no" name="contact_no" value="<?php echo Session::get('userData')['contact_no'] ?>"><br>
                         </div>
                     </div>
                     <div class="row">
@@ -61,8 +80,9 @@
                         </div>
 
                         <div class="col-3" style="min-width: unset;">
-                            <label>Delivery Comments</label><br><textarea rows="5" cols="22" name="delivery_comments">
-         </textarea><br>
+                            <label>Delivery Comments</label><br>
+                            <textarea rows="5" cols="22" id="delivery_comment" name="delivery_comments">
+                            </textarea><br>
                         </div>
                     </div>
                     <div class="row">
@@ -134,7 +154,8 @@
     </div>
 
 </div>
-
+<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/checkout_form_validation.js"></script>
 <script>
     function calculateDelivery() {
 
