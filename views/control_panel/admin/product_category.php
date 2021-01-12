@@ -12,11 +12,16 @@
             <form action="<?php echo URL; ?>ProductCategories/create" id="addFrom" class="hidden-form" method="post">
                         <div class="row-top">
                             <div class="col-3 pad-30-0-0-85">
-                            <label>Product Category Id</label><br><input type="text" id="product_category_id" name="product_category_id"><br>
+                            <div class="helper-text">
+                                <label>Product Category Id</label><br><input type="text" id="product_category_id" name="product_category_id" data-helper="Category ID" onfocusout="validateCategorytId()" placeholder="CATXXXX"><br>
+                                <span class="popuptext"></span>
+                            </div>    
                         </div>
                         <div class="col-3 pad-30-0-0-85">
-                            <label>Product Category Name</label><br><input type="text" id="category_name" name="category_name"><br>
-            
+                        <div class="helper-text">
+                            <label>Product Category Name</label><br><input type="text" id="category_name" name="category_name" data-helper="Category Name" onfocusout="validateCategoryName()"><br>
+                            <span class="popuptext"></span>
+                        </div>    
                         </div>
                         </div>
                         <div row>
