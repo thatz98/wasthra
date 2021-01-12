@@ -1,14 +1,14 @@
-const productId = document.getElementById('product_category_id');
-const productId = document.getElementById('category_name');
+const categoryId = document.getElementById('product_category_id');
+const categoryName = document.getElementById('category_name');
 
-// const editform = document.getElementById('addFrom');
+ const editform = document.getElementById('addFrom');
 
 editform.addEventListener('submit', function(event) {
 
     event.preventDefault();
     if (
         validateCategorytId() &&
-        validateCategoryName() &&
+        validateCategoryName() 
 
     ) {
       editform.submit();
@@ -24,7 +24,7 @@ editform.addEventListener('submit', function(event) {
 
 
   function validateCategoryName(){
-    if (checkIfEmpty(productName)) return;
+    if (checkIfEmpty(categoryName)) return;
     return true;
   }
 
