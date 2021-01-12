@@ -170,10 +170,7 @@ class Shop extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'cart">Cart</a> <i class="fas fa-angle-right"></i> Checkout';
         
         // get product details
-        $this->view->qtyList =  $this->model->getAllDetails();
-        $this->view->imageList =  $this->model->getImages();
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
-        $this->view->cartItems = $this->model->getCartItems();
         //$x=$this->model->getCartItems();
         //echo($x);
         $this->view->render('checkout/index');

@@ -35,9 +35,9 @@
                         <div class="col-3">
                             <label>City</label><br>
                             <select name='city' style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value.split(' ')[1];calculateDelivery();">
-                        <option value=" 0">Select</option>
+                                <option value=" 0">Select</option>
                                 <?php foreach ($this->deliveryCharges as $deliveryCharges) { ?>
-                                    <option value="<?php echo $deliveryCharges['city']." ".$deliveryCharges['delivery_fee']; ?>" data-fee="<?php echo $deliveryCharges['delivery_fee']; ?>" <?php if (Session::get('addressData')['city'] == $deliveryCharges['city']) echo "selected=\"selected\""; ?>>
+                                    <option value="<?php echo $deliveryCharges['city'] . " " . $deliveryCharges['delivery_fee']; ?>" data-fee="<?php echo $deliveryCharges['delivery_fee']; ?>" <?php if (Session::get('addressData')['city'] == $deliveryCharges['city']) echo "selected=\"selected\""; ?>>
                                         <?php echo $deliveryCharges['city']; ?>
                                     </option>
                                 <?php  } ?>
@@ -102,13 +102,9 @@
                             <tr>
                                 <td>Subtotal</td>
                                 <td>LKR <span id="subtotal"><?php $this->subtotal = 0;
-                                                            foreach ($this->qtyList as $qty) {
-                                                                foreach ($this->cartItems as $item) {
-                                                                    if ($qty['product_id'] == $item['product_id']) {
-                                                                        $this->subtotal += $qty['product_price'] * $item['item_qty'];
+                                                            foreach (Session::get('cartData') as $cartItem) {
+                                                                        $this->subtotal += $cartItem['product_price'] * $cartItem['item_qty'];
                                                                     }
-                                                                }
-                                                            }
                                                             echo number_format($this->subtotal, 2, '.', ''); ?></span></td>
                                 <div id="sub-display">
                                 </div>
@@ -138,8 +134,7 @@
     </div>
 
 </div>
-</div>
-</div>
+
 <script>
     function calculateDelivery() {
 
