@@ -102,13 +102,9 @@
                             <tr>
                                 <td>Subtotal</td>
                                 <td>LKR <span id="subtotal"><?php $this->subtotal = 0;
-                                                            foreach ($this->qtyList as $qty) {
-                                                                foreach ($this->cartItems as $item) {
-                                                                    if ($qty['product_id'] == $item['product_id']) {
-                                                                        $this->subtotal += $qty['product_price'] * $item['item_qty'];
+                                                            foreach (Session::get('cartData') as $cartItem) {
+                                                                        $this->subtotal += $cartItem['product_price'] * $cartItem['item_qty'];
                                                                     }
-                                                                }
-                                                            }
                                                             echo number_format($this->subtotal, 2, '.', ''); ?></span></td>
                                 <div id="sub-display">
                                 </div>
