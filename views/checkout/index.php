@@ -16,7 +16,7 @@
                         <div class="col-3">
                             <div class="helper-text">
                                 <label>First Name</label><br>
-                                <input type="text" id="first_name" name="first_name" value="<?php echo Session::get('userData')['first_name'] ?>" data-helper="First Name" onfocusout="validateFirstName()">
+                                <input type="text" id="first_name_checkout" name="first_name" value="<?php echo Session::get('userData')['first_name'] ?>" data-helper="First Name" onfocusout="validateFirstName()">
                                 <span class="popuptext"></span>
                                 <br>
                             </div>
@@ -24,7 +24,7 @@
                         <div class="col-3">
                             <div class="helper-text">
                                 <label>Last Name</label><br>
-                                <input type="text" id="last_name" name="last_name" value="<?php echo Session::get('userData')['last_name'] ?>" data-helper="Last Name" onfocusout="validateLastName()">
+                                <input type="text" id="last_name_checkout" name="last_name" value="<?php echo Session::get('userData')['last_name'] ?>" data-helper="Last Name" onfocusout="validateLastName()">
                                 <span class="popuptext"></span>
                                 <br>
                             </div>
@@ -34,41 +34,60 @@
                         <div class="col-3">
                             <div class="helper-text">
                                 <label>Address Line 1</label><br>
-                                <input type="text" id="address_line_1" name="address_line_1" value="<?php if (isset(Session::get('addressData')['address_line_1'])) echo Session::get('addressData')['address_line_1'] ?>" data-helper="Address Line 1" onfocusout="validateAddressLine1()">
+                                <input type="text" id="address_line_1_checkout" name="address_line_1" value="<?php if (isset(Session::get('addressData')['address_line_1'])) echo Session::get('addressData')['address_line_1'] ?>" data-helper="Address Line 1" onfocusout="validateAddressLine1()">
                                 <span class="popuptext"></span>
                                 <br>
                             </div>
                         </div>
                         <div class="col-3">
-                            <label>Address Line 2</label><br>
-                            <input type="text" id="address_line_2" name="address_line_2" value="<?php if (isset(Session::get('addressData')['address_line_2'])) echo Session::get('addressData')['address_line_2'] ?>"><br>
+                            <div class="helper-text">
+                                <label>Address Line 2</label><br>
+                                <input type="text" id="address_line_2_checkout" name="address_line_2" value="<?php if (isset(Session::get('addressData')['address_line_2'])) echo Session::get('addressData')['address_line_2'] ?>" data-helper="Address Line 2" onfocusout="validateAddressLine2()">
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-3">
+                            <div class="helper-text">
                             <label>Address Line 3</label><br>
-                            <input type="text" id="address_line_3" name="address_line_3" value="<?php if (isset(Session::get('addressData')['address_line_3'])) echo Session::get('addressData')['address_line_3'] ?>"><br>
+                            <input type="text" id="address_line_3_checkout" name="address_line_3" value="<?php if (isset(Session::get('addressData')['address_line_3'])) echo Session::get('addressData')['address_line_3'] ?>" data-helper="Address Line 3" onfocusout="validateAddressLine3()">
+                            <span class="popuptext"></span>
+                            <br>
+                            </div>
                         </div>
                         <div class="col-3">
-                            <label>City</label><br>
-                            <select name='city' id="city" style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value.split(' ')[1];calculateDelivery();">
-                                <option value="0">Select</option>
-                                <?php foreach ($this->deliveryCharges as $deliveryCharges) { ?>
-                                    <option value="<?php echo $deliveryCharges['city'] . " " . $deliveryCharges['delivery_fee']; ?>" data-fee="<?php echo $deliveryCharges['delivery_fee']; ?>" <?php if (Session::get('addressData')['city'] == $deliveryCharges['city']) echo "selected=\"selected\""; ?>>
-                                        <?php echo $deliveryCharges['city']; ?>
-                                    </option>
-                                <?php  } ?>
-                            </select>
+                            <div class="helper-text">
+                                <label>City</label><br>
+                                <select name='city' id="city_checkout" style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value.split(' ')[1];calculateDelivery();">
+                                    <option value="0">Select</option>
+                                    <?php foreach ($this->deliveryCharges as $deliveryCharges) { ?>
+                                        <option value="<?php echo $deliveryCharges['city'] . " " . $deliveryCharges['delivery_fee']; ?>" data-fee="<?php echo $deliveryCharges['delivery_fee']; ?>" <?php if (Session::get('addressData')['city'] == $deliveryCharges['city']) echo "selected=\"selected\""; ?>>
+                                            <?php echo $deliveryCharges['city']; ?>
+                                        </option>
+                                    <?php  } ?>
+                                </select>
+                                <span class="popuptext"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-3">
-                            <label>Postal Code</label><br>
-                            <input type="text" id="postal_code" name="postal_code" value="<?php if (isset(Session::get('addressData')['postal_code'])) echo Session::get('addressData')['postal_code'] ?>"><br>
+                            <div class="helper-text">
+                                <label>Postal Code</label><br>
+                                <input type="text" id="postal_code_checkout" name="postal_code" value="<?php if (isset(Session::get('addressData')['postal_code'])) echo Session::get('addressData')['postal_code'] ?>" data-helper="Posal Code" onfocusout="validatePostalCode()">
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
                         </div>
                         <div class="col-3">
-                            <label>Contact Number</label><br>
-                            <input type="text" id="contact_no" name="contact_no" value="<?php echo Session::get('userData')['contact_no'] ?>"><br>
+                            <div class="helper-text">
+                                <label>Contact Number</label><br>
+                                <input type="text" id="contact_no_checkout" name="contact_no" value="<?php echo Session::get('userData')['contact_no'] ?>" data-helper="contact Number" onfocusout="validateContactNoM()">
+                                <span class="popuptext"></span>
+                                <br>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -80,9 +99,13 @@
                         </div>
 
                         <div class="col-3" style="min-width: unset;">
-                            <label>Delivery Comments</label><br>
-                            <textarea rows="5" cols="22" id="delivery_comment" name="delivery_comments">
-                            </textarea><br>
+                            <div class="helper-text">
+                                <label>Delivery Comments</label><br>
+                                <textarea rows="5" cols="22" id="delivery_comment_checkout" name="delivery_comments" data-helper="Delivery Comments" onfocusout="validateDeliveryComment()">
+                                </textarea>
+                                <span class="popuptext"></span>
+                            <br>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
