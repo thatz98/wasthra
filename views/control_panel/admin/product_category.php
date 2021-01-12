@@ -13,14 +13,18 @@
                         <div class="row-top">
                             <div class="col-3 pad-30-0-0-85">
                             <div class="helper-text">
-                                <label>Product Category Id</label><br><input type="text" id="product_category_id" name="product_category_id" data-helper="Category ID" onfocusout="validateCategorytId()" placeholder="CATXXXX"><br>
+                                <label>Product Category Id</label><br><input type="text" id="product_category_id" name="product_category_id"
+                                 data-helper="Category ID" onfocusout="validateCategorytId()" placeholder="CATXXXX">
                                 <span class="popuptext"></span>
+                                <br>
                             </div>    
                         </div>
                         <div class="col-3 pad-30-0-0-85">
                         <div class="helper-text">
-                            <label>Product Category Name</label><br><input type="text" id="category_name" name="category_name" data-helper="Category Name" onfocusout="validateCategoryName()"><br>
+                            <label>Product Category Name</label><br><input type="text" id="category_name" name="category_name"
+                             data-helper="Category Name" onfocusout="validateCategoryName()">
                             <span class="popuptext"></span>
+                            <br>
                         </div>    
                         </div>
                         </div>
