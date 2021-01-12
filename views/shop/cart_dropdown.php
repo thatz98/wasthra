@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="public/css/bag_dropdown.css">
+
 <div id="transparent-overlay" style="display: none;" onclick="closeOverlay()">
 </div>
 <div class="cart-drop-container" id="cart-drop-container" style="display: none;">

@@ -35,9 +35,9 @@
                         <div class="col-3">
                             <label>City</label><br>
                             <select name='city' style="padding: 5px;font-size:12px;background:transparent;" onchange="document.getElementById('dCharges').innerHTML=this.value.split(' ')[1];calculateDelivery();">
-                        <option value=" 0">Select</option>
+                                <option value=" 0">Select</option>
                                 <?php foreach ($this->deliveryCharges as $deliveryCharges) { ?>
-                                    <option value="<?php echo $deliveryCharges['city']." ".$deliveryCharges['delivery_fee']; ?>" data-fee="<?php echo $deliveryCharges['delivery_fee']; ?>" <?php if (Session::get('addressData')['city'] == $deliveryCharges['city']) echo "selected=\"selected\""; ?>>
+                                    <option value="<?php echo $deliveryCharges['city'] . " " . $deliveryCharges['delivery_fee']; ?>" data-fee="<?php echo $deliveryCharges['delivery_fee']; ?>" <?php if (Session::get('addressData')['city'] == $deliveryCharges['city']) echo "selected=\"selected\""; ?>>
                                         <?php echo $deliveryCharges['city']; ?>
                                     </option>
                                 <?php  } ?>
@@ -138,8 +138,7 @@
     </div>
 
 </div>
-</div>
-</div>
+
 <script>
     function calculateDelivery() {
 
