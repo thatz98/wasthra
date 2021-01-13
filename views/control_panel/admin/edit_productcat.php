@@ -14,7 +14,7 @@
                             <label>Product Category Id</label><br><input type="text" name="product_category_id" id="category_id" data-helper="Category ID" onfocusout="validateCategorytId()" placeholder="CATXXXX"
                              value="<?php echo $this->getproductcategory['category_id'] ?>">
                              <span class="popuptext"></span>
-                             <br><br>
+                             <br>
                             </div>
                         </div>
                         <div class="col-2" >
@@ -22,7 +22,7 @@
                             <label>Product Category Name</label><br><input type="text" name="category_name" id="category_name" data-helper="Category Name" onfocusout="validateCategoryName()" 
                             value="<?php echo $this->getproductcategory['name'] ?>">
                             <span class="popuptext"></span>
-                            <br><br>
+                            <br>
                         </div>
                         </div>
                     </div>
