@@ -75,8 +75,7 @@ class Cart_Model extends Model{
 
                         $id = $cartId[0]['cart_id'];
                         //  print_r($id);
-                        $cartData = $this->db->query("SELECT cart_item.product_id,cart_item.item_id,cart_item.item_qty,cart_item.item_color,cart_item.item_size
-                    FROM cart_item WHERE cart_item.cart_id='$id';");
+                        $cartData = $this->getCartItems($userId);
                         Session::set('cartCount', count($cartData));
                         Session::set('cartData', $cartData);
          
@@ -117,7 +116,21 @@ class Cart_Model extends Model{
    }
 
 
+   function getCartItems($userId) {
+    $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, price_category.product_price, cart_item.item_qty, cart_item.item_color, cart_item.item_size  FROM product
+     INNER JOIN cart_item ON cart_item.product_id=product.product_id
+     INNER JOIN shopping_cart ON shopping_cart.cart_id=cart_item.cart_id
+     INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+     INNER JOIN product_images ON product.product_id=product_images.product_id
+     WHERE shopping_cart.user_id='$userId'
+     GROUP BY product.product_id");
 
+    foreach ($data as $key => $value) {
+        $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
+    }
+
+    return $data;
+}
 }
 
 ?>

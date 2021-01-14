@@ -51,7 +51,7 @@
                         <div class="helper-text">
                         <label>First Name</label><br>
                     <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()"
-                        id="first_name_u">
+                        id="first_name_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
@@ -59,14 +59,14 @@
                         <div class="helper-text">
                         <label>Last Name</label><br>
                     <input type="text" name="last_name" data-helper="Last Name" onfocusout="validateLastName()"
-                        id="last_name_u">
+                        id="last_name_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="helper-text">
                         <label>Email</label><br>
-                    <input type="email" name="email" data-helper="Email" onfocusout="validateEmail()" id="email_u">
+                    <input type="email" name="email" data-helper="Email" onfocusout="validateEmail()" id="email_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <div class="helper-text">
                         <label>Mobile Number</label><br>
                     <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX"
-                        onfocusout="validateContactNo()" id="contact_no_u">
+                        onfocusout="validateContactNo()" id="contact_no_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                         <div class="helper-text">
                         <label>Password</label><br>
                     <input type="password" name="password" data-helper="Password" onfocusout="validatePassword()"
-                        id="password_u">
+                        id="password_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                         <div class="helper-text">
                         <label>Confirm Password</label><br>
                     <input type="password" name="conf_password" onfocusout="validateConfirmPassword()"
-                        id="conf_password_u">
+                        id="conf_password_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
