@@ -51,7 +51,7 @@
                         <div class="helper-text">
                         <label>First Name</label><br>
                     <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()"
-                        id="first_name_u">
+                        id="first_name_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
