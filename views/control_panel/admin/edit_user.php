@@ -17,10 +17,12 @@
                       </div>
                       <div class="helper-text">
                           <label>Mobile Number</label><br>
-                          <input type="text" name="contact_no" value="<?php echo $this->user[0]['contact_no'] ?>" placeholder="07XXXXXXXX"
-                           data-helper="Mobile No." onfocusout="validateContactNo()" id="contact_no_u"><br>
+                          <input type="text" name="contact_no" placeholder="07XXXXXXXX" data-helper="Mobile No," 
+                          onfocusout="validateContactNo()" id="contact_no_u" value="<?php echo $this->user[0]['contact_no'] ?>" >
                           <span class="popuptext"></span>
+                          <br>
                       </div>
+                      <div class="helper-text">
                         <label>User Type</label><br><select name="user_type" <?php if($this->user[0]['user_type']=='owner') echo 'disabled';?>>
                             <option value="customer"
                                 <?php if($this->user[0]['user_type']=='customer') echo "selected=\"selected\"";?>>
@@ -31,8 +33,11 @@
                             <?php if($this->user[0]['user_type']=='owner') echo '<option value="owner" selected>Owner</option>';?>
                             <option value="delivery_staff"
                                 <?php if($this->user[0]['user_type']=='delivery_staff') echo "selected=\"selected\"";?>>
-                                Delivery</option>
-                        </select><br>
+                                Delivery</option>    
+                        </select>
+                        <span class="popuptext"></span>
+                        <br>
+                        </div>
                         <?php if($this->user[0]['user_type']=='owner') echo '<input type="text" name="user_type" value="owner" hidden>';?>
                         <label>User Status</label><br><select name="user_status"
                             value="<?php echo $this->user[0]['user_status'] ?>">

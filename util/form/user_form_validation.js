@@ -1,11 +1,11 @@
 
     // Input fields
-const firstName = document.getElementById('first_name_u');
-const lastName = document.getElementById('last_name_u');
-const password = document.getElementById('password_u');
-const confirmPassword = document.getElementById('conf_password_u');
-const email = document.getElementById('email_u');
-const contactNo = document.getElementById('contact_no_u');
+const first_Name = document.getElementById('first_name_user');
+const last_Name = document.getElementById('last_name_user');
+const password = document.getElementById('password_user');
+const confirm_Password = document.getElementById('conf_password_user');
+const email = document.getElementById('email_user');
+const contact_No = document.getElementById('contact_no_user');
 // Form
 const form = document.getElementById('addFrom');
 // Validation colors
@@ -29,26 +29,26 @@ form.addEventListener('submit', function(event) {
 // Validators
 function validateFirstName() {
   // check if is empty
-  if (checkIfEmpty(firstName)) return;
+  if (checkIfEmpty(first_Name)) return;
   // is if it has only letters
-  if (!checkIfOnlyLetters(firstName)) return;
+  if (!checkIfOnlyLetters(first_Name)) return;
   return true;
 }
 function validateLastName() {
   // check if is empty
-  if (checkIfEmpty(lastName)) return;
+  if (checkIfEmpty(last_Name)) return;
   // is if it has only letters
-  if (!checkIfOnlyLetters(lastName)) return;
+  if (!checkIfOnlyLetters(last_Name)) return;
   return true;
 }
 
 function validateContactNo() {
   // check if is empty
-  if (checkIfEmpty(contactNo)) return;
+  if (checkIfEmpty(contact_No)) return;
   // is if it has only letters
-  if (!meetLength(contactNo, 9, 11)) return;
+  if (!meetLength(contact_No, 9, 11)) return;
 
-  if (!checkIfOnlyNumbers(contactNo)) return;
+  if (!checkIfOnlyNumbers(contact_No)) return;
   
   return true;
 }
