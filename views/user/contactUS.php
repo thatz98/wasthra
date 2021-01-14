@@ -9,13 +9,13 @@
                 <div class="row">
                     <h2 class="title title-min">Get in Touch</h2>
                 </div>
-                <form action="" method="post">
+                <form action="post" id="editFrom" method="post">
                     <div class="row">
                         <div class="col-3">
                             <div class="helper-text">
                                 <label>First Name</label><br>
                                 <input type="text" name="first_name" data-helper="First Name"
-                                    onfocusout="validateFirstName()" id="first_name">
+                                    onfocusout="validateFirstName()" id="first_name_contact">
                                 <span class="popuptext"></span>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                             <div class="helper-text">
                                 <label>Last Name</label><br>
                                 <input type="text" name="last_name" data-helper="Last Name"
-                                    onfocusout="validateLastName()" id="last_name">
+                                    onfocusout="validateLastName()" id="last_name_contact">
                                 <span class="popuptext"></span>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="helper-text">
                                 <label>Mobile Number</label><br>
                                 <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX"
-                                    onfocusout="validateContactNo()" id="contact_no">
+                                    onfocusout="validateContactNoM()" id="contact_no_contact">
                                 <span class="popuptext"></span>
                             </div>
                         </div>
@@ -41,8 +41,8 @@
                         <div class="col-3">
                             <div class="helper-text">
                                 <label>Email</label><br>
-                                <input type="email" name="email" data-helper="Email" onfocusout="validateEmail()"
-                                    id="email">
+                                <input type="email" name="email" data-helper="Email" onfocusout="validateEmailM()"
+                                    id="email _contact">
                                 <span class="popuptext"></span>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                         <div class="col-3">
                             <div class="helper-text">
                                 <label>Message</label><br>
-                                <textarea rows="3" cols="30" name="message"></textarea>
+                                <textarea rows="3" cols="30" id="message_contact" name="message"   data-helper="Message" onfocusout="validateMessage()"></textarea>
                                 <span class="popuptext"></span>
                             </div>
                         </div>
@@ -101,5 +101,6 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>util/form/contact_us_form_validation.js"></script>
 <?php require 'views/footer.php'; ?>
