@@ -13,7 +13,7 @@ $(document).ready(function () {
           if(data.length>0){
             data.forEach(product => {
               var list_item = document.createElement("li");
-              list_item.innerHTML = product.product_name;
+              list_item.innerHTML = '<a href=\"http://127.0.0.1/wasthra/shop/productDetails/'.concat(product.product_id,'\">',product.product_name,"</a>");
               document.getElementById('results').appendChild(list_item);
             });
           }
