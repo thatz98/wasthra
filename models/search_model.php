@@ -7,8 +7,9 @@ class Search_Model extends Model{
     }
 
     function liveSearch($term){
+            $term = metaphone($term);
             $term .= '*';
-            return $this->db->query("SELECT * FROM product WHERE MATCH (product_name,product_description) AGAINST ('$term' IN BOOLEAN MODE);");
+            return $this->db->query("SELECT * FROM product WHERE MATCH (meta_product_name,meta_product_desc) AGAINST ('$term' IN BOOLEAN MODE);");
     }
 
     function getProductName($id){
