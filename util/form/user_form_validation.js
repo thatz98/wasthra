@@ -2,10 +2,11 @@
     // Input fields
 const first_Name = document.getElementById('first_name_user');
 const last_Name = document.getElementById('last_name_user');
-const password = document.getElementById('password_user');
-const confirm_Password = document.getElementById('conf_password_user');
-const email = document.getElementById('email_user');
+const User_password = document.getElementById('password_user');
+const confirm_User_Password = document.getElementById('conf_password_user');
+const User_email = document.getElementById('email_user');
 const contact_No = document.getElementById('contact_no_user');
+const User_NIC = document.getElementById('User_NIC');
 // Form
 const form = document.getElementById('addFrom');
 // Validation colors
@@ -16,25 +17,26 @@ form.addEventListener('submit', function(event) {
   // Prevent default behaviour
   event.preventDefault();
   if (
-    validateFirstName() &&
-    validateLastName() &&
-    validatePassword() &&
-    validateConfirmPassword() &&
-    validateEmail()
+    validateUserFirstName() &&
+    validateUserLastName() &&
+    validateUserPassword() &&
+    validateUserConfirmPassword() &&
+    validateUserNIC() &&
+    validateUserEmail()
   ) {
     form.submit();
   }
 });
 
 // Validators
-function validateFirstName() {
+function validateUserFirstName() {
   // check if is empty
   if (checkIfEmpty(first_Name)) return;
   // is if it has only letters
   if (!checkIfOnlyLetters(first_Name)) return;
   return true;
 }
-function validateLastName() {
+function validateUserLastName() {
   // check if is empty
   if (checkIfEmpty(last_Name)) return;
   // is if it has only letters
@@ -42,7 +44,7 @@ function validateLastName() {
   return true;
 }
 
-function validateContactNo() {
+function validateUserContactNo() {
   // check if is empty
   if (checkIfEmpty(contact_No)) return;
   // is if it has only letters
@@ -53,21 +55,21 @@ function validateContactNo() {
   return true;
 }
 
-function validateNIC() {
+function validateUserNIC() {
   // check if is empty
-  if (checkIfEmpty(nic)) return;
+  if (checkIfEmpty(User_NIC)) return;
   // is if it has only letters
-  if (!meetLength(nic, 10, 13)) return;
+  if (!meetLength(User_NIC, 10, 13)) return;
 
-  setValid(nic);
+  setValid(User_NIC);
   return true;
 }
 
-function validatePassword() {
+function validateUserPassword() {
   // Empty check
-  if (checkIfEmpty(password)) return;
+  if (checkIfEmpty(User_password)) return;
   // Must of in certain length
-  if (!meetLength(password, 4, 100)) return;
+  if (!meetLength(User_password, 4, 100)) return;
   // check password against our character set
   // 1- a
   // 2- a 1
@@ -75,25 +77,25 @@ function validatePassword() {
   // 4- A a 1 @
   //if (!containsCharacters(password, 4)) return;
   
-  setValid(password);
+  setValid(User_password);
   return true;
 }
-function validateConfirmPassword() {
-  if (!validatePassword()) {
-    setInvalid(confirmPassword, 'Password must be valid');
+function validateUserConfirmPassword() {
+  if (!validateUserPassword()) {
+    setInvalid(confirm_User_Password, 'Password must be valid');
     return;
   }
   // If they match
-  if (password.value !== confirmPassword.value) {
-    setInvalid(confirmPassword, 'Passwords must match');
+  if (User_password.value !== confirm_User_Password.value) {
+    setInvalid( confirm_User_Password, 'Passwords must match');
     return;
   } else {
-    setValid(confirmPassword);
+    setValid( confirm_User_Password);
   }
   return true;
 }
-function validateEmail() {
-  if (checkIfEmpty(email)) return;
-  if (!containsCharacters(email, 5)) return;
+function validateUserEmail() {
+  if (checkIfEmpty( User_email)) return;
+  if (!containsCharacters( User_email, 5)) return;
   return true;
 }

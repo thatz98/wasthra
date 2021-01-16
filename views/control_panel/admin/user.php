@@ -50,7 +50,7 @@
                     <div class="col-3">
                         <div class="helper-text">
                         <label>First Name</label><br>
-                    <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()"
+                    <input type="text" name="first_name" data-helper="First Name" onfocusout="validateUserFirstName()"
                         id="first_name_user">
                             <span class="popuptext"></span>
                         </div>
@@ -58,7 +58,7 @@
                     <div class="col-3">
                         <div class="helper-text">
                         <label>Last Name</label><br>
-                    <input type="text" name="last_name" data-helper="Last Name" onfocusout="validateLastName()"
+                    <input type="text" name="last_name" data-helper="Last Name" onfocusout="validateUserLastName()"
                         id="last_name_user">
                             <span class="popuptext"></span>
                         </div>
@@ -66,7 +66,7 @@
                     <div class="col-3">
                         <div class="helper-text">
                         <label>Email</label><br>
-                    <input type="email" name="email" data-helper="Email" onfocusout="validateEmail()" id="email_user">
+                    <input type="email" name="email" data-helper="Email" onfocusout="validateUserEmail()" id="email_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <div class="helper-text">
                         <label>Mobile Number</label><br>
                     <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX"
-                        onfocusout="validateContactNo()" id="contact_no_user">
+                        onfocusout="validateUserContactNo()" id="contact_no_user">
                             <span class="popuptext"></span>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                     <div class="col-3">
                         <div class="helper-text">
                         <label>Password</label><br>
-                    <input type="password" name="password" data-helper="Password" onfocusout="validatePassword()"
+                    <input type="password" name="password" data-helper="Password" onfocusout="validateUserPassword()"
                         id="password_user">
                             <span class="popuptext"></span>
                         </div>
@@ -115,7 +115,7 @@
                     <div class="col-3">
                         <div class="helper-text">
                         <label>Confirm Password</label><br>
-                    <input type="password" name="conf_password" onfocusout="validateConfirmPassword()"
+                    <input type="password" name="conf_password" onfocusout="validateUserConfirmPassword()"
                         id="conf_password_user">
                             <span class="popuptext"></span>
                         </div>
