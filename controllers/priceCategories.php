@@ -21,6 +21,7 @@ class PriceCategories extends Controller {
 
         // get the price category list
         $this->view->pricecatList = $this->model->listPricecat();
+        $this->view->pricecatCount = $this->model->getPriceCategoryCount('no');
 
         $this->view->render('control_panel/owner/price_categories');
     }

@@ -50,7 +50,11 @@ class PriceCategories_Model extends Model{
 
     }
 
+    function getPriceCategoryCount($status){
 
+        return $this->db->listWhere('price_category',array('COUNT(price_category_id)'),"is_deleted='$status'")['COUNT(price_category_id)'];
+        
+    }
 
 
 }
