@@ -41,4 +41,11 @@ class DeliveryCharges_Model extends Model{
 
     }
 
+    function getCityCount(){
+
+        return $this->db->listAll('delivery_charges',array('COUNT(city)'))['COUNT(city)'];
+        
+    }
+
+
 }
