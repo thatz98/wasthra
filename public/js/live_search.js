@@ -16,6 +16,9 @@ $(document).ready(function () {
               list_item.innerHTML = `<a href=\"http://127.0.0.1/wasthra/shop/productDetails/${product.product_id}\"><img src=${product.image}><span class=\"search-link\">${product.product_name}<br>${product.name}</span></a>`;
               document.getElementById('results').appendChild(list_item);
             });
+            var list_item = document.createElement("li");
+              list_item.innerHTML = `<a href=\"http://127.0.0.1/wasthra/search/advancedSearch/${inputVal}\"><span class=\"search-link\">Advaced search results <i class=\"fa fa-arrow-right"></i></span></a>`;
+              document.getElementById('results').appendChild(list_item);
           }
         },
         error: function() { 

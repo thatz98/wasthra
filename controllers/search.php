@@ -11,16 +11,14 @@ class Search extends Controller {
         }
     }
 
-    function advancedSearch() {
+    function advancedSearch($keyword=false) {
         $this->view->title = 'Advanced Search';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Advanced Search';
 
-        $this->view->qtyList =  array();
+        $this->view->products = $this->model->searchByKeyword($keyword);
         $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
 
         $this->view->render('shop/advanced_search');
     }
@@ -48,14 +46,11 @@ class Search extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'search">Advanced Search</a> <i class="fas fa-angle-right"></i> Search Results';
 
 
-        $this->view->qtyList =  $this->model->getAllDetailsByMultipleFilters($filters);
+        $this->view->products =  $this->model->getAllDetailsByMultipleFilters($filters);
+
         $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
-
-
 
         $this->view->render('shop/advanced_search');
     }
