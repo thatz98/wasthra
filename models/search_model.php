@@ -10,7 +10,7 @@ class Search_Model extends Model{
             $term = metaphone($term);
             $vowels = array("A", "E", "I", "O", "U");
             $term = str_replace($vowels, "", $term);
-            return $this->db->query("SELECT * FROM product WHERE MATCH (meta_product_name,meta_product_desc) AGAINST ('$term*' IN BOOLEAN MODE);");
+            return $this->db->query("SELECT * FROM product INNER JOIN category ON category.category_id=product.category_id INNER JOIN product_images ON product.product_id=product_images.product_id WHERE MATCH (meta_product_name,meta_product_desc) AGAINST ('$term*' IN BOOLEAN MODE) GROUP BY product.product_id;");
     }
 
     function getProductName($id){

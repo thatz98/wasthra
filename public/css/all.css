@@ -1864,12 +1864,23 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 .search-bar ul.results li {
     list-style: none;
     padding: 15px 10px;
-    background: #eaeaea;
+    border-bottom: 2px solid #FADBD8;
+    background: #F8F9F9;
     cursor: pointer;
 }
-.search-bar ul.results li:nth-child(2n) {
-    background: #fff;
+
+.search-bar ul.results li:hover{
+    background: #FFDBC4;
 }
+
+.search-bar ul.results li img{
+    width: 30px;
+    float: left;
+}
+span.search-link{
+    vertical-align: middle;
+}
+
 
 /* filters - shop */
 
