@@ -242,7 +242,7 @@
         <thead>
         <tr>
             <th>Product ID
-            <i onclick="showFilters('user-table',0,'dropdown-filter-1','checkbox-1','checkbox-all-1')"
+            <i onclick="showFilters('product-table',0,'dropdown-filter-1','checkbox-1','checkbox-all-1')"
                         class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
                     <div class="dropdown-filter-dropdown" id="dropdown-filter-1" style="display:none;">
                         <div class="dropdown-filter-content">
@@ -250,24 +250,24 @@
                                 <span style="float: left;">Filters:</span>
                                 <i class="fa fa-close" onclick="closeFilter('dropdown-filter-1')"></i>
                             </div>
-                            <div class="dropdown-filter-sort" onclick="sortTable('user-table',0,'asc')">
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',0,'asc')">
                                 <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
                             </div>
-                            <div class="dropdown-filter-sort" onclick="sortTable('user-table',0,'desc')">
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',0,'desc')">
                                 <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
                             </div>
                             <div class="dropdown-filter-search table-search">
                                 <input type="text" id="dropdown-keyword-input-1"
-                                    onkeyup="filterByDropdownKeyword('user-table',0,'dropdown-keyword-input-1')"
+                                    onkeyup="filterByDropdownKeyword('product-table',0,'dropdown-keyword-input-1')"
                                     placeholder="Filter by keyword..">
                             </div>
                             <div class="checkbox-container">
                                 <input class="select-all" type="checkbox" id="checkbox-all-1"
-                                    onchange="checkAll('user-table','checkbox-all-1')" checked="true"><span>Select
+                                    onchange="checkAll('product-table','checkbox-all-1')" checked="true"><span>Select
                                     All</span>
                                 <div id="checkbox-1">
                                 </div>
-                                <i class="fas fa-eraser"></i><a onclick="clearFilters('user-table','checkbox-all-1')">
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-1')">
                                     Clear Filters</a>
                             </div>
                         </div>

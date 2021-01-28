@@ -1,5 +1,5 @@
 <?php require 'views/header_dashboard.php'; ?>
-
+<link rel="stylesheet" type="text/css" href="<?php echo URL?>public/css/filter_dropdown.css">
 <div class="container">
     <div class="row">
         <h2 class="title title-min">Price Categories</h2>
