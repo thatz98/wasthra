@@ -1,5 +1,5 @@
 <?php require 'views/header_dashboard.php'; ?>
-
+<link rel="stylesheet" type="text/css" href="<?php echo URL?>public/css/filter_dropdown.css">
 <div class="container">
     <div class="row">
         <h2 class="title title-min">Products</h2>
@@ -223,6 +223,12 @@
                         </div>
                     </form>
                     </div>
+
+                    <div class="table-search">
+            <input type="text" id="keyword-input" onkeyup="filterByKeyword('product-table',10)"
+                   placeholder="Search & filter entire table by keyword..">
+        </div>
+
     <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo count($this->qtyList);?> results...</span>
     <div class="per-page" style="float: right;">
         <span>Rows per page: </span><select name="per-page" id="per-page">
@@ -235,8 +241,70 @@
     <table id="product-table">
         <thead>
         <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
+            <th>Product ID
+            <i onclick="showFilters('user-table',0,'dropdown-filter-1','checkbox-1','checkbox-all-1')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-1" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-1')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('user-table',0,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('user-table',0,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-1"
+                                    onkeyup="filterByDropdownKeyword('user-table',0,'dropdown-keyword-input-1')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-1"
+                                    onchange="checkAll('user-table','checkbox-all-1')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-1">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('user-table','checkbox-all-1')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
+            <th>Product Name
+            <i onclick="showFilters('pricecategory-table',1,'dropdown-filter-2','checkbox-2','checkbox-all-2')"
+                                      class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-2" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-2')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('pricecategory-table',1,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('pricecategory-table',1,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-2"
+                                    onkeyup="filterByDropdownKeyword('pricecategory-table',1,'dropdown-keyword-input-2')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-2"
+                                    onchange="checkAll('pricecategory-table','checkbox-all-2')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-2">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('pricecategory-table','checkbox-all-2')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
             <th>Product Category</th>
             <th>Qty</th>
             <th>Colors</th>
@@ -304,7 +372,8 @@
 <script type="text/javascript" src="<?php echo URL ?>public/js/table_pagination.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>util/form/products_form_validation.js"></script>
-
+<script type="text/javascript" src="<?php echo URL ?>public/js/table_filter.js"></script>
+<script type="text/javascript" src="<?php echo URL ?>public/js/sort_table.js"></script>
 <script>
 
 $(pagination(10,'product-table'));
