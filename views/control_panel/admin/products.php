@@ -274,46 +274,294 @@
                     </div>
             </th>
             <th>Product Name
-            <i onclick="showFilters('pricecategory-table',1,'dropdown-filter-2','checkbox-2','checkbox-all-2')"
-                                      class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+            <i onclick="showFilters('product-table',1,'dropdown-filter-2','checkbox-2','checkbox-all-2')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
                     <div class="dropdown-filter-dropdown" id="dropdown-filter-2" style="display:none;">
                         <div class="dropdown-filter-content">
                             <div class="close-icon">
                                 <span style="float: left;">Filters:</span>
                                 <i class="fa fa-close" onclick="closeFilter('dropdown-filter-2')"></i>
                             </div>
-                            <div class="dropdown-filter-sort" onclick="sortTable('pricecategory-table',1,'asc')">
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',1,'asc')">
                                 <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
                             </div>
-                            <div class="dropdown-filter-sort" onclick="sortTable('pricecategory-table',1,'desc')">
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',1,'desc')">
                                 <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
                             </div>
                             <div class="dropdown-filter-search table-search">
                                 <input type="text" id="dropdown-keyword-input-2"
-                                    onkeyup="filterByDropdownKeyword('pricecategory-table',1,'dropdown-keyword-input-2')"
+                                    onkeyup="filterByDropdownKeyword('product-table',0,'dropdown-keyword-input-2')"
                                     placeholder="Filter by keyword..">
                             </div>
                             <div class="checkbox-container">
-                                <input class="select-all" type="checkbox" id="checkbox-all-2"
-                                    onchange="checkAll('pricecategory-table','checkbox-all-2')" checked="true"><span>Select
+                                <input class="select-all" type="checkbox" id="checkbox-all-1"
+                                    onchange="checkAll('product-table','checkbox-all-2')" checked="true"><span>Select
                                     All</span>
                                 <div id="checkbox-2">
                                 </div>
-                                <i class="fas fa-eraser"></i><a onclick="clearFilters('pricecategory-table','checkbox-all-2')">
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-2')">
                                     Clear Filters</a>
                             </div>
                         </div>
                     </div>
             </th>
-            <th>Product Category</th>
-            <th>Qty</th>
-            <th>Colors</th>
-            <th>Sizes</th>
+            <th>Product Category
+            <i onclick="showFilters('product-table',2,'dropdown-filter-3','checkbox-3','checkbox-all-3')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-3" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-3')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',2,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',2,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-3"
+                                    onkeyup="filterByDropdownKeyword('product-table',2,'dropdown-keyword-input-3')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-3"
+                                    onchange="checkAll('product-table','checkbox-all-3')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-3">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-3')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
+            <th>Qty
+            <i onclick="showFilters('product-table',3,'dropdown-filter-4','checkbox-4','checkbox-all-4')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-4" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-4')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',3,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',3,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-4"
+                                    onkeyup="filterByDropdownKeyword('product-table',3,'dropdown-keyword-input-4')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-4"
+                                    onchange="checkAll('product-table','checkbox-all-4')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-4">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-4')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
+            <th>Colors
+            <i onclick="showFilters('product-table',4,'dropdown-filter-5','checkbox-5','checkbox-all-5')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-5" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-5')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',4,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',4,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-5"
+                                    onkeyup="filterByDropdownKeyword('product-table',4,'dropdown-keyword-input-5')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-5"
+                                    onchange="checkAll('product-table','checkbox-all-5')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-5">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-5')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
+            <th>Sizes
+            <i onclick="showFilters('product-table',5,'dropdown-filter-6','checkbox-6','checkbox-all-6')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-6" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-6')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',5,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',5,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-6"
+                                    onkeyup="filterByDropdownKeyword('product-table',5,'dropdown-keyword-input-6')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-6"
+                                    onchange="checkAll('product-table','checkbox-all-6')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-6">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-6')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
             <th>Images</th>
-            <th>Price</th>
-            <th>Published</th>
-            <th>New</th>
-            <th>Featured</th>
+            <th>Price
+            <i onclick="showFilters('product-table',7,'dropdown-filter-7','checkbox-7','checkbox-all-7')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-7" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-7')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',7,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',7,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-7"
+                                    onkeyup="filterByDropdownKeyword('product-table',7,'dropdown-keyword-input-7')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-7"
+                                    onchange="checkAll('product-table','checkbox-all-7')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-7">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-7')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
+            <th>Published
+            <i onclick="showFilters('product-table',8,'dropdown-filter-8','checkbox-8','checkbox-all-8')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-8" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-8')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',8,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',8,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-8"
+                                    onkeyup="filterByDropdownKeyword('product-table',8,'dropdown-keyword-input-8')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-8"
+                                    onchange="checkAll('product-table','checkbox-all-8')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-8">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-8')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
+            <th>New
+            <i onclick="showFilters('product-table',9,'dropdown-filter-9','checkbox-9','checkbox-all-9')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-9" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-9')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',9,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',9,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-9"
+                                    onkeyup="filterByDropdownKeyword('product-table',9,'dropdown-keyword-input-9')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-9"
+                                    onchange="checkAll('product-table','checkbox-all-9')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-9">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-9')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
+            <th>Featured
+            <i onclick="showFilters('product-table',10,'dropdown-filter-10','checkbox-10','checkbox-all-10')"
+                        class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
+                    <div class="dropdown-filter-dropdown" id="dropdown-filter-10" style="display:none;">
+                        <div class="dropdown-filter-content">
+                            <div class="close-icon">
+                                <span style="float: left;">Filters:</span>
+                                <i class="fa fa-close" onclick="closeFilter('dropdown-filter-10')"></i>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',10,'asc')">
+                                <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
+                            </div>
+                            <div class="dropdown-filter-sort" onclick="sortTable('product-table',10,'desc')">
+                                <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
+                            </div>
+                            <div class="dropdown-filter-search table-search">
+                                <input type="text" id="dropdown-keyword-input-10"
+                                    onkeyup="filterByDropdownKeyword('product-table',10,'dropdown-keyword-input-10')"
+                                    placeholder="Filter by keyword..">
+                            </div>
+                            <div class="checkbox-container">
+                                <input class="select-all" type="checkbox" id="checkbox-all-10"
+                                    onchange="checkAll('product-table','checkbox-all-10')" checked="true"><span>Select
+                                    All</span>
+                                <div id="checkbox-10">
+                                </div>
+                                <i class="fas fa-eraser"></i><a onclick="clearFilters('product-table','checkbox-all-10')">
+                                    Clear Filters</a>
+                            </div>
+                        </div>
+                    </div>
+            </th>
             <th>Options</th>
             
         </tr>
