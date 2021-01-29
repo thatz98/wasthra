@@ -116,7 +116,7 @@
                             <div class="radio-container" id="gender-radio-m">
 
 
-                                <input type="radio" id="online" name="payment_method" value="online" required>
+                                <input type="radio" id="online" name="payment_method" value="online payment" required>
                                 <label for="online">Online</label>
                                 <input type="radio" id="cash-on-delivery" name="payment_method" value="cashOnDelivery">
                                 <label for="cash-on-delivery">Cash on Delivery</label>
