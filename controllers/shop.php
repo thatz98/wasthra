@@ -185,13 +185,6 @@ class Shop extends Controller {
 
         $this->view->title = 'Payment';
         
-        if ($_POST['payment_method'] == 'online') {
-            $this->view->render('checkout/payment');
-        } else {
-
-            header('location: ' . URL . 'orders/myOrders');
-        }
-
         $data = array();
         $data['address_line_1'] = $_POST['address_line_1'];
         $data['address_line_2'] = $_POST['address_line_2'];
@@ -225,6 +218,13 @@ class Shop extends Controller {
         $this->model->deleteCartItems();
         Session::set('cartData', '');
         Session::set('cartCount', 0);
+
+        if ($_POST['payment_method'] == 'online') {
+            $this->view->render('checkout/payment');
+        } else {
+
+            header('location: ' . URL . 'orders/myOrderDetails/'.$orderID);
+        }
     }
 
     function cancelOrder(){
