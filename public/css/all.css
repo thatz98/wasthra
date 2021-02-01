@@ -451,6 +451,10 @@ form textarea:hover {
     margin-left: 135px;
 }
 
+.mar-t-50{
+    margin-top: 50px;
+}
+
 /* alignments */
 
 .center-content {
@@ -1001,6 +1005,7 @@ p.price {
 .total-price table {
     text-align: left;
     border-top: 3px solid #ff523b;
+    border-bottom: 3px solid #ff523b;
     width: 100%;
 }
 

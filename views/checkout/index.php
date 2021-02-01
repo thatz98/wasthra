@@ -91,46 +91,18 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3" style="min-width: unset;">
+                        <div class="col" style="min-width: unset;">
                             <label>Location</label><br>
-                            <div id="map" name="location">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4321638056863!2d80.06114251398914!3d6.716999922749031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24b2a184e0ac7%3A0x10a5ca84af51cc59!2sHORANA%20BUS%20STAND!5e0!3m2!1sen!2slk!4v1605302096473!5m2!1sen!2slk" width="80%" height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            <div id="map" style="width: 90%; height: 300px; margin: 0px auto;">
                             </div><br>
+                            <input type="text" id="longtitude" name="longtitude" value="" hidden>
+                            <input type="text" id="latitude" name="latitude" value="" hidden>
                         </div>
-
-                        <div class="col-3" style="min-width: unset;">
-                            <div class="helper-text">
-                                <label>Delivery Comments</label><br>
-                                <textarea rows="5" cols="22" id="delivery_comment_checkout" name="delivery_comments" data-helper="Delivery Comments" onfocusout="validateDeliveryComment()">
-                                </textarea>
-                                <span class="popuptext"></span>
-                            <br>
-                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <h3 class="mar-b-20">Payment Method</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <div class="radio-container" id="gender-radio-m">
+                    
+                    
 
-
-                                <input type="radio" id="online" name="payment_method" value="online payment" required>
-                                <label for="online">Online</label>
-                                <input type="radio" id="cash-on-delivery" name="payment_method" value="cashOnDelivery">
-                                <label for="cash-on-delivery">Cash on Delivery</label>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="center-content">
-                        <button type="submit" class="btn">Continue</button>
-                        <a href="<?php echo URL ?>cart" class="btn btn-grey">Return</a>
-                    </div>
-
-                </form>
+                
             </div>
         </div>
         <div class="col-40p">
@@ -171,14 +143,52 @@
                             </tr>
                         </table>
                     </div>
+                    
+                    <div class="row">
+                        <h3 class="mar-b-20 mar-t-50">Payment Method</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="radio-container" id="gender-radio-m">
+
+
+                                <input type="radio" id="online" name="payment_method" value="online payment" required>
+                                <label for="online">Online</label>
+                                <input type="radio" id="cash-on-delivery" name="payment_method" value="cashOnDelivery">
+                                <label for="cash-on-delivery">Cash on Delivery</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mar-t-50">
+                        <div class="col-2" style="min-width: unset;">
+                            <div class="helper-text">
+                                <label>Delivery Comments</label><br>
+                                <textarea rows="5" cols="22" id="delivery_comment_checkout" name="delivery_comments" data-helper="Delivery Comments" onfocusout="validateDeliveryComment()">
+                                </textarea>
+                                <span class="popuptext"></span>
+                            <br>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="center-content">
+                        <button type="submit" class="btn">Continue</button>
+                        <a href="<?php echo URL ?>cart" class="btn btn-grey">Return</a>
+                    </div>
                 </div>
             </div>
+            
         </div>
+        </form>
     </div>
 
 </div>
 <script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>util/form/checkout_form_validation.js"></script>
+<script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzSnah4pBNvwR3PN53ZaezSBUmNGNuf3U"></script>
+<script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
 <script>
     function calculateDelivery() {
 
@@ -186,5 +196,24 @@
         var subtotal = parseFloat(document.getElementById('subtotal').innerHTML);
         document.getElementById('totalPrice').innerHTML = (dCharges + subtotal).toFixed(2);
     }
+</script>
+<script>
+  var longt = document.getElementById('longtitude');
+  var latt = document.getElementById('latitude');
+
+  // Initialize locationPicker plugin
+  var lp = new locationPicker('map', {
+    setCurrentPosition: true, // You can omit this, defaults to true
+  }, {
+    zoom: 15 // You can set any google map options here, zoom defaults to 15
+  });
+
+  // Listen to map idle event, listening to idle event more accurate than listening to ondrag event
+  google.maps.event.addListener(lp.map, 'idle', function (event) {
+
+    var location = lp.getMarkerPosition();
+    longt.value = location.lng;
+    latt.value = location.lat;
+  });
 </script>
 <?php require 'views/footer.php'; ?>
