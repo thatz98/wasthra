@@ -191,8 +191,9 @@ class Shop extends Controller {
         $data['address_line_3'] = $_POST['address_line_3'];
         $data['city'] = $_POST['city'];
         $data['postal_code'] = $_POST['postal_code'];
+        $data['latitude']=$_POST['latitude'];
+        $data['longtitude']=$_POST['longtitude'];
         $comment = $_POST['delivery_comments'];
-        print_r($data);
         if (
             $data['address_line_1'] != Session::get('addressData')['address_line_1']
             || $data['address_line_2'] != Session::get('addressData')['address_line_2']
@@ -214,6 +215,7 @@ class Shop extends Controller {
         $orderID = str_replace("-", "", $orderID);
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
+
         $this->model->placeOrder($date, $time, $orderID, $payMethod,$aId[0][0],$comment);
         $this->model->deleteCartItems();
         Session::set('cartData', '');

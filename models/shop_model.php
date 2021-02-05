@@ -127,6 +127,8 @@ class Shop_Model extends Model {
             'address_line_3' => $data['address_line_3'],
             'city' => $data['city'],
             'postal_code' => $data['postal_code'],
+            'longitude' => $data['longtitude'],
+            'latitude' => $data['latitude'],
             'user_id' => Session::get('userId')
         ));
     }
@@ -174,10 +176,7 @@ class Shop_Model extends Model {
                 'is_deleted' => 'no',
             ));
         }
-        echo $orderID;
-        echo $aId;
-        echo $cartIdActual;
-        echo $userId;
+
         $this->db->insert('checkout', array(
             'order_id' => $orderID,
             'address_id' => $aId,
