@@ -602,7 +602,7 @@
                     <td><?php echo $qty['is_published']; ?></td>
                     <td><?php echo $qty['is_featured']; ?></td>
                     <td><?php echo $qty['is_new']; ?></td>
-                    <td style="min-width:142px;"><a href="<?php echo URL ?>products/edit/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                    <td style="min-width:142px;"><a href="<?php echo URL ?>products/productDetails/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-blue">View</button></a>
                     <a href="<?php echo URL ?>products/delete/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
             
             </tr>

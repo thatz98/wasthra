@@ -12,9 +12,26 @@ class Products_Model extends Model{
         
     }
 
-    function getProduct($id){
+    function getProduct($id) {
 
-        return $this->db->listWhere('product',array('product_id','product_name','product_description','is_featured','is_new','category_id','price_category_id','is_published'),"product_id='$id'");
+        $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
+         INNER JOIN inventory ON product.product_id=inventory.product_id
+         INNER JOIN category ON product.category_id=category.category_id
+         INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+         INNER JOIN product_images ON product.product_id=product_images.product_id
+         INNER JOIN product_size ON product.product_id=product_size.product_id
+         INNER JOIN product_colors ON product.product_id=product_colors.product_id
+         LEFT JOIN review on review.product_id=product.product_id 
+         WHERE product.product_id='$id'
+         GROUP BY product.product_id");
+
+        foreach ($data as $key => $value) {
+            $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
+            $data[$key]['product_sizes'] = explode(',', $data[$key]['product_sizes']);
+            $data[$key]['product_colors'] = explode(',', $data[$key]['product_colors']);
+        }
+
+        return $data;
     }
 
     function getAllDetails(){
@@ -76,12 +93,12 @@ class Products_Model extends Model{
         $category=$data['category'];
         $product_id=$data['product_id'];
         $price_category=$data['price_category'];
-        $colors=$data['colors'];
-        $qty=$data['quantity'];
+       // $colors=$data['colors'];
+       // $qty=$data['quantity'];
         $this->db->queryExecuteOnly("UPDATE product SET product.category_id=(SELECT category_id FROM category WHERE category.name='$category' ) WHERE product.product_id='$product_id' ");
         $this->db->queryExecuteOnly("UPDATE product SET product.price_category_id=(SELECT price_category_id FROM price_category WHERE price_category.price_category_name='$price_category' ) WHERE product.product_id='$product_id' ");
-        $this->db->queryExecuteOnly("INSERT INTO inventory (product_id,qty) VALUES ('$product_id',$qty)");
-        foreach ($size as $sizes) {
+        $this->db->queryExecuteOnly("INSERT INTO inventory (product_id,qty) VALUES ('$product_id',0)");
+        /*foreach ($size as $sizes) {
             $s=$sizes;
             $this->db->queryExecuteOnly("INSERT INTO product_size (product_id,sizes) VALUES ('$product_id','$s')");
         }
@@ -89,7 +106,7 @@ class Products_Model extends Model{
         for ($x=0;$x<count($col);$x++) {
             $p=$col[$x];
             $this->db->queryExecuteOnly("INSERT INTO product_colors (product_id,colors) VALUES ('$product_id','$p')");
-        }
+        }*/
         
         foreach($imageList as $img){
 
@@ -100,6 +117,14 @@ class Products_Model extends Model{
             }
             $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
         }
+    }
+
+    function getReviewDetails($id) {
+        return $this->db->query("SELECT review.product_id,review.user_id,customer.first_name,customer.last_name,review.rate,review.review_text,review.date,review.time,review.review_id, GROUP_CONCAT(DISTINCT review_image.image) as review_images FROM review
+        INNER JOIN customer ON review.user_id=customer.user_id
+        LEFT JOIN review_image ON review_image.review_id=review.review_id
+        WHERE review.product_id='$id' AND review.is_deleted='no'
+        GROUP BY review.review_id");
     }
 
 

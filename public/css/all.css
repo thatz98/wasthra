@@ -1577,6 +1577,30 @@ label.text-label {
     margin-top: 10px;
     font-size: 14px;
 }
+.product-tags {
+    display: flex;
+    margin: 10px 0 15px 0;
+  }
+  
+  .product-tag {
+    margin-right: 10px;
+    cursor: default;
+  }
+  
+  .product-tag > p {
+    background-color: #d8cdc0;
+    border-radius: 15px;
+    padding: 10px;
+  }
+
+
+.bold{
+    font-weight: bold;
+}
+
+p.text-value{
+    margin-top: 10px;
+}
 
 .size-container:hover input~.checkbox {
     transform: scale(1.2);

@@ -9,7 +9,7 @@ class Products extends Controller {
         Authenticate::adminAuth();
     }
 
-    
+
     /**
      * Display product page
      *
@@ -32,10 +32,28 @@ class Products extends Controller {
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
-        
+
         $this->view->render('control_panel/admin/products');
     }
-    
+
+    /**
+     * Display product detail page
+     *
+     * @param  mixed $id Id of the product that need to be displayed in the page
+     * @return void
+     */
+    function productDetails($id) {
+
+        $this->view->title = 'Product Details';
+        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
+
+        // get all product details
+        $this->view->product = $this->model->getProduct($id);
+        $this->view->reviews = $this->model->getReviewDetails($id);
+
+        $this->view->render('control_panel/admin/view_product');
+    }
+
     /**
      * Add new product
      *
@@ -70,7 +88,7 @@ class Products extends Controller {
         header('location: ' . URL . 'products');
     }
 
-    
+
     /**
      * Display edit product page
      *
@@ -90,7 +108,7 @@ class Products extends Controller {
         $this->view->price_category = $this->model->getPriceCategories();
         //$this->view->imageList = $this->model->getImagesByID($id);
         $this->view->imageList =  $this->model->getImages();
-        
+
         $sizeArray = array();
         foreach ($this->model->getSizesByID($id) as $sizes) {
             array_push($sizeArray, $sizes['sizes']);
@@ -99,7 +117,7 @@ class Products extends Controller {
 
         $this->view->render('control_panel/admin/edit_products');
     }
-        
+
     /**
      * Update existing product details
      *
@@ -132,7 +150,7 @@ class Products extends Controller {
 
         header('location: ' . URL . 'products');
     }
-    
+
     /**
      * Delete exisiting product
      *
@@ -145,7 +163,7 @@ class Products extends Controller {
 
         header('location: ' . URL . 'products');
     }
-    
+
     /**
      * Delete product images
      *
@@ -156,7 +174,7 @@ class Products extends Controller {
     function deleteImage($id, $name) {
 
         $this->model->deleteImage($id, $name);
-        
+
         header('location: ' . URL . 'edit/' . $id);
     }
 }
