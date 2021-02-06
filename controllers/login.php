@@ -134,9 +134,14 @@ class Login extends Controller {
         // update the token in the database
         $this->model->updateToken($username, $token);
         // resend the verfication mail
-        $this->sendVerficationEmail($username, $token);
+        if($this->sendVerficationEmail($username, $token)){
+            Logs::writeSessionLog('Verification','Pending',$username,'Mail re-sent');
+            header('Location: ' . URL . 'login?success=resentVerification#message');
+        } else{
+            Logs::writeSessionLog('Verification','Pending',$username,'Mail has not been sent');
+        }
 
-        header('Location: ' . URL . 'login?success=resentVerification#message');
+        
     }
 
     /**
@@ -151,9 +156,10 @@ class Login extends Controller {
         // verify with the token in the url against the database
         if ($this->model->checkVerifyToken($username, $token)) {
             $this->model->verifyAccount($username);
-
+            Logs::writeSessionLog('Verification','Success',$username);
             header('Location: ' . URL . 'login?success=accountVerfied#message');
         } else {
+            Logs::writeSessionLog('Verification','Failed',$username,'Tokens mismatch');
             header('Location: ' . URL . 'login?error=incorrectToken#message');
         }
     }
@@ -175,6 +181,7 @@ class Login extends Controller {
             $this->model->createRecord($username, $token);
             // resend the verification email
             $this->sendResetPasswordEmail($username, $token);
+            
         } else {
             // sleep for 2 seconds to mimic email sending duration
             sleep(2);
@@ -199,8 +206,10 @@ class Login extends Controller {
         $header = "From: group15s2202@gmail.com\r\nContent-Type: text/html;";
         
         if (mail($to, $subject, $emailBody, $header)) {
+            Logs::writeSessionLog('Reset password','Pending',$to,'Link sent');
             header('Location: ' . URL . 'login?success=resetLinkSent#message');
         } else {
+            Logs::writeSessionLog('Reset password','Failed',$to,'Failed sending reset link');
             header('Location: ' . URL . 'login?error=mailNotSent#message');
         }
     }
@@ -217,9 +226,10 @@ class Login extends Controller {
         // verify the token in thhe url against the database
         if ($this->model->checkToken($username, $token)) {
             $this->view->username = $username;
-
+            
             $this->view->render('user/reset_password');
         } else {
+            Logs::writeSessionLog('Reset password','Failed',$username,'Tokens mismatch');
             header('Location: ' . URL . 'login?error=incorrectToken#message');
         }
     }
@@ -236,7 +246,7 @@ class Login extends Controller {
         $data['password'] = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
         $this->model->updatePassword($data);
-
+        Logs::writeSessionLog('Reset password','Success',$data['username']);
         header('Location: ' . URL . 'login?success=pwdChanged#message');
     }
 
