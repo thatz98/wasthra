@@ -35,9 +35,9 @@ class Products_Model extends Model{
     }
 
     function getAllDetails(){
-        return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
-		FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
-        
+        return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,
+        product.product_name,product.is_featured,product.is_new
+		FROM product         
         INNER JOIN category on category.category_id=product.category_id
         INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
     }
@@ -66,6 +66,10 @@ class Products_Model extends Model{
         return $this->db->query("SELECT inventory.product_id,inventory.qty
         FROM inventory ;");
     }
+    function getQtyByID($id){
+        return $this->db->query("SELECT inventory.qty
+        FROM inventory WHERE inventory.product_id='$id';");
+    }
     function getSizesByID($id){
         return $this->db->query("SELECT product_size.sizes 
         FROM product_size WHERE product_size.product_id='$id';");
@@ -78,7 +82,7 @@ class Products_Model extends Model{
 
 
 
-    function create($data,$size,$imageList){
+    function create($data,$imageList){
 
         $this->db->insert('product',array(
             'product_id' => $data['product_id'],
@@ -97,7 +101,7 @@ class Products_Model extends Model{
        // $qty=$data['quantity'];
         $this->db->queryExecuteOnly("UPDATE product SET product.category_id=(SELECT category_id FROM category WHERE category.name='$category' ) WHERE product.product_id='$product_id' ");
         $this->db->queryExecuteOnly("UPDATE product SET product.price_category_id=(SELECT price_category_id FROM price_category WHERE price_category.price_category_name='$price_category' ) WHERE product.product_id='$product_id' ");
-        $this->db->queryExecuteOnly("INSERT INTO inventory (product_id,qty) VALUES ('$product_id',0)");
+        // $this->db->queryExecuteOnly("INSERT INTO inventory (product_id,qty) VALUES ('$product_id',0)");
         /*foreach ($size as $sizes) {
             $s=$sizes;
             $this->db->queryExecuteOnly("INSERT INTO product_size (product_id,sizes) VALUES ('$product_id','$s')");
@@ -117,6 +121,26 @@ class Products_Model extends Model{
             }
             $this->db->queryExecuteOnly("INSERT INTO product_images (product_images.product_id,product_images.image) VALUES ('$product_id','$m')");
         }
+    }
+
+    function addVarient($data,$size){
+
+        $this->db->insert('inventory',array(
+            'product_id' => $data['product_id'],
+            'color' => $data['color'],
+            'size' => $data['size'],
+            'qty' => $data['qty'],
+            ));
+
+            $this->db->insert('product_colors',array(
+                'product_id' => $data['product_id'],
+                'colors' => $data['color'],
+                ));
+
+            $this->db->insert('product_size',array(
+                'product_id' => $data['product_id'],
+                'sizes' => $data['size'],
+                ));
     }
 
     function getReviewDetails($id) {
@@ -184,6 +208,12 @@ class Products_Model extends Model{
 
 
       
+
+    }
+
+    function getVarientDetails($id){
+
+        return $this->db->query("SELECT color,size,qty FROM inventory WHERE product_id='$id'");
 
     }
 

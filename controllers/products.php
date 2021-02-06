@@ -32,7 +32,12 @@ class Products extends Controller {
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
-
+        $this->view->totQuantity = $this->model->getQty();
+        // $totalQuantity = 0;
+        // foreach ($quantity as $qty){
+        //     $totalQuantity += $qty['qty'];
+        // }
+        //$this->view->totQuantity = $totalQuantity;
         $this->view->render('control_panel/admin/products');
     }
 
@@ -50,7 +55,7 @@ class Products extends Controller {
         // get all product details
         $this->view->product = $this->model->getProduct($id);
         $this->view->reviews = $this->model->getReviewDetails($id);
-
+        $this->view->varients = $this->model->getVarientDetails($id);
         $this->view->render('control_panel/admin/view_product');
     }
 
@@ -70,12 +75,12 @@ class Products extends Controller {
         $data['is_featured'] = $_POST['is_featured'];
         $data['category'] = $_POST['category'];
         $data['price_category'] = $_POST['price_category'];
-        $data['quantity'] = $_POST['quantity'];
-        $data['colors'] = $_POST['colors'];
+        // $data['quantity'] = $_POST['quantity'];
+        // $data['colors'] = $_POST['colors'];
         $data['meta_product_name'] = metaphone($_POST['product_name']);
         $data['meta_product_desc'] = metaphone($_POST['product_description']);
 
-        $size = $_POST['size'];
+        // $size = $_POST['size'];
         $imageName['img'] = $_FILES['img']['name'];
         $imageName['temp'] = $_FILES['img']['tmp_name'];
         // upload all the photos
@@ -83,9 +88,32 @@ class Products extends Controller {
             move_uploaded_file($imageName['temp'][$x], 'C:\xampp\htdocs\wasthra\public\images\products\\' . $imageName['img'][$x]);
         }
 
-        $this->model->create($data, $size, $imageName['img']);
+        $this->model->create($data, $imageName['img']);
 
         header('location: ' . URL . 'products');
+    }
+
+    function addVarient(){
+
+        $data = array();
+        $data['color'] = $_POST['color'];
+        $data['qty'] = $_POST['quantity'];
+        $data['product_id'] = $_POST['product_id'];
+        $product_id = $data['product_id'];
+
+        if($_POST['size']==''){
+            $data['size_couple'] = $_POST['size-couple'];
+            $size_couple = $data['size_couple'];
+            $this->model->addVarient($data, $size_couple);
+        }
+        else{
+            $data['size'] = $_POST['size'];
+            $size = $data['size'];
+            $this->model->addVarient($data, $size);
+        }
+        
+        header('location: ' . URL . 'products/productDetails/'.$product_id);        
+
     }
 
 

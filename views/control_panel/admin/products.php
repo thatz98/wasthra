@@ -83,14 +83,14 @@
                                 <br>
                             </div>
 
-                        <div class="helper-text">
+                        <!-- <div class="helper-text">
                             <label>Quantity</label><br><input id="quantity" type="text" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
                             <span class="popuptext"></span>
                             <br>
-                        </div>
+                        </div> -->
                         </div>
                         <div class="col-3">
-                            <div class="helper-text">
+                            <!-- <div class="helper-text">
                             <div id="size-field">
                             <label>Available Sizes</label><br>
                             <div class="checkboxes">
@@ -151,7 +151,7 @@
                             
                             <br>
                             </div>
-                            </div>
+                            </div> -->
                             
                             <div class="helper-text">
                                 <label>Published</label><br><select id="is_published" name="is_published">
@@ -188,13 +188,13 @@
                         
                         </div>
                         <div class="col-3">
-                            <div class="helper-text">
+                            <!-- <div class="helper-text">
                                 <label>Colors</label><br>
                                 <input id="color" type="text" name="colors" placeholder="#12ab87,#abc123" data-helper="Colors" onfocusout="validateColors()">
                                 <span class="popuptext"></span>
                                 <br>
                                     
-                            </div>
+                            </div> -->
 
                             <div class="helper-text">
                                 <label>Price Category</label><br>
@@ -572,16 +572,30 @@
                 <td><?php echo $qty['product_id']; ?></td>
                 <td><?php echo $qty['product_name']; ?></td>
                     <td><?php echo $qty['name']; ?></td>
-                    <td><?php echo $qty['qty']; ?></td>
+                    <td><?php $totalQuantity=0;
+                        foreach ($this->totQuantity as $quantity){
+                            if($qty['product_id']==$quantity['product_id']){
+                                $totalQuantity += $quantity['qty'];
+                            }
+                        } echo $totalQuantity; ?>
+                    </td>
                     <td><?php $colorString=''; 
                         foreach ($this->colorList as $color){ 
+  
                         if($qty['product_id']==$color['product_id']){
                             $colorString .= $color['colors']; 
                             $colorString .= " | "; 
-                            }
+                            ?>
+                            <span class="color-dot" style="background-color: <?php echo $color['colors'] ?>"></span>    
+                        <?php }
+                            
                         }
-                        echo rtrim($colorString," | ");
+                        //echo rtrim($colorString," | ");
+                        if($colorString==''){
+                            echo "Colors not set";
+                        }
                     ?>
+
                     </td>
                     <td style="max-width: 150px;"><?php $sizeString='';
                         foreach ($this->sizeList as $size){
@@ -591,6 +605,9 @@
                             }
                     }
                         echo rtrim($sizeString," | ");
+                        if($sizeString==''){
+                            echo "Sizes not set";
+                        }
                     ?></td>
                     <td><?php foreach ($this->imageList as $image){
                         if($qty['product_id']==$image['product_id']){?>

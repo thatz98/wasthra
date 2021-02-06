@@ -128,7 +128,7 @@
                 <div class="col-3">
                     <div class="helper-text">
                         <label>Color</label><br>
-                        <input id="color" type="text" name="colors" placeholder="#12ab87" data-helper="Colors" onfocusout="validateColors()">
+                        <input id="color" type="text" name="color" placeholder="#12ab87" data-helper="Colors" onfocusout="validateColors()">
                         <span class="popuptext"></span>
                         <br>
 
@@ -140,43 +140,44 @@
 <?php if($this->product[0]['name']=='Couple'){
     ?>
                     <div class="helper-text">
-                        <label>Size for Gents</label><br><select id="size-g" name="size-g">
+                        <label>Size for Couple</label><br><select id="size-couple" name="size-couple">
                             <option value="0">Select</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">XS</option>
-                            <option value="L">S</option>
-                            <option value="XL">XS</option>
-                            <option value="XXL">S</option>
+                            <option value="XS-G">Gents-XS</option>
+                            <option value="S-G">Gents-S</option>
+                            <option value="M-G">Gents-M</option>
+                            <option value="L-G">Gents-L</option>
+                            <option value="XL-G">Gents-XL</option>
+                            <option value="XXL-G">Gents-XXL</option>
+                            <option value="XS-W">Ladies-XS</option>
+                            <option value="S-W">Ladies-S</option>
+                            <option value="M-W">Ladies-M</option>
+                            <option value="L-W">Ladies-L</option>
+                            <option value="XL-W">Ladies-XL</option>
+                            <option value="XXL-W">Ladies-XXL</option>
                         </select>
                         <span class="popuptext"></span>
                         <br>
 
                     </div>
-                    <div class="helper-text">
+                    <!-- <div class="helper-text">
                         <label>Size for Ladies</label><br><select id="size-l" name="size-l">
                             <option value="0">Select</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">XS</option>
-                            <option value="L">S</option>
-                            <option value="XL">XS</option>
-                            <option value="XXL">S</option>
+
                         </select>
                         <span class="popuptext"></span>
                         <br>
 
-                    </div> <?php } else{
+                    </div>--> <?php } else{ 
                         ?>
                         <div class="helper-text">
                         <label>Size</label><br><select id="size" name="size">
                             <option value="0">Select</option>
                             <option value="XS">XS</option>
                             <option value="S">S</option>
-                            <option value="M">XS</option>
-                            <option value="L">S</option>
-                            <option value="XL">XS</option>
-                            <option value="XXL">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
                         </select>
                         <span class="popuptext"></span>
                         <br>
@@ -190,6 +191,7 @@
                 <div class="col-3">
                     <div class="helper-text">
                         <label>Quantity</label><br><input id="quantity" type="text" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
+                        <input name="product_id" value="<?php echo $this->product[0]['product_id'];?>" hidden>
                         <span class="popuptext"></span>
                         <br>
                     </div>
@@ -210,11 +212,11 @@
                 <th>Options</th>
 
             </tr>
-            <?php foreach ($this->productcatList as $product_category) : ?>
+            <?php foreach ($this->varients as $product_varient) : ?>
                 <tr>
-                    <td><?php echo $product_category['category_id']; ?></td>
-                    <td><?php echo $product_category['name']; ?></td>
-
+                    <td><?php echo $product_varient['color']; ?></td>
+                    <td><?php echo $product_varient['size']; ?></td>
+                    <td><?php echo $product_varient['qty']; ?></td>
                     <td><a href="<?php echo URL ?>ProductCategories/edit/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
                         <a href="<?php echo URL ?>ProductCategories/delete/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-red">Delete</button></a>
                     </td>

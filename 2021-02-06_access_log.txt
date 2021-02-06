@@ -82,3 +82,645 @@ IP: 127.0.0.1
 Time: 06/02/2021 14:16:14 pm
 Filename: index.php
 URL: http://127.0.0.1/wasthra/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 20:40:05 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 20:46:19 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 20:47:08 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 20:48:07 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 20:48:44 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 20:49:55 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 20:53:59 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 20:59:14 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:01:00 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/PRD030
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:01:01 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E6%3C/b%3E%3Cbr%20/%3Ehttp://127.0.0.1/wasthra/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:01:01 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:01:01 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:01:01 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:01:01 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:08 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/addVarient
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/%3E
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_1.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_13.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_4.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_43.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_53.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_5.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_48.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_6.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_18.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_7.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_1.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_13.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_8.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_2.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_3.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_50.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_43.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_5.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_9.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_10.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_17.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_19.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_24.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_25.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_26.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_20.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:02:09 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/image_2021-01-15_204251.png
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/%3E
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_13.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_2.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_1.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_8.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_50.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_3.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_4.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_43.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_48.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_8.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_2.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_50.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:16 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_5.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_53.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_6.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_18.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_7.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_9.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_10.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_17.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_19.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_24.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_25.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_26.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/product_img_20.jpg
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:17 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E194%3C/b%3E%3Cbr%20/public/images/products/image_2021-01-15_204251.png
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:28 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/PRD030
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:28 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E6%3C/b%3E%3Cbr%20/%3Ehttp://127.0.0.1/wasthra/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:28 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:28 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:28 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E6%3C/b%3E%3Cbr%20/%3Ehttp://127.0.0.1/wasthra/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:28 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:28 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:28 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:32 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/PRD001
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:33 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:33 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:33 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:03:33 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:11:40 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/PRD001
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:11:40 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:11:40 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:11:40 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:11:40 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:19:49 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:28:03 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:36:12 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:41:32 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:43:48 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:46:08 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:47:31 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:47:37 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:49:19 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:49:24 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:50:35 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:51:21 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:52:06 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/PRD030
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:52:07 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E6%3C/b%3E%3Cbr%20/%3Ehttp://127.0.0.1/wasthra/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:52:07 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:52:07 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:52:07 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:52:07 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/%3Cbr%20/%3E%3Cb%3ENotice%3C/b%3E:%20%20Undefined%20offset:%200%20in%20%3Cb%3EC:/xampp/htdocs/wasthra/views/control_panel/admin/view_product.php%3C/b%3E%20on%20line%20%3Cb%3E6%3C/b%3E%3Cbr%20/%3Ehttp://127.0.0.1/wasthra/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:52:07 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
