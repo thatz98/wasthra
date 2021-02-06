@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=(isset($this->title)) ? $this->title.' | Control Panel | Wasthra' : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
-    <link rel="stylesheet" href="<?php echo URL; ?>public/css/canvas.css">
     <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
     <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
 </head>

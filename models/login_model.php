@@ -22,6 +22,7 @@ class Login_Model extends Model
         if ($user) {
             if (password_verify($_POST['password'], $user['password'])) {
                 if ($user['user_type'] == 'customer' && $user['user_status'] == 'new') {
+                    Logs::writeSessionLog('Login','Failed',$username,'Account is not verified');
                     header('Location: ../login?username='.$user['username'].'&error=notVerified#message');
                     exit;
                 } else {
@@ -30,6 +31,7 @@ class Login_Model extends Model
                     Session::set('username', $user['username']);
                     Session::set('loginId', $user['login_id']);
                     Session::set('userType', $user['user_type']);
+                    Logs::writeSessionLog('Login','Success',$username,'Session initialized; UserType: '.Session::get('userType'));
                     if (Session::get('userType') == 'admin') {
                         $loginId = Session::get('loginId');
                         $userData = $this->db->listWhere('admin', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
@@ -75,9 +77,11 @@ class Login_Model extends Model
                     exit;
                 }
             } else {
+                Logs::writeSessionLog('Login','Failed',$username,'Incorrect password');
                 header('location: ../login?error=wrongPwd#message');
             }
         } else {
+            Logs::writeSessionLog('Login','Failed',$username,'User does not exist');
             header('location: ../login?error=noAccount#message');
         }
     }
@@ -93,7 +97,7 @@ class Login_Model extends Model
             'token' => $data['token']
         ));
         $username = $data['username'];
-
+        Logs::writeSessionLog('Signup','In porcess',$username,'Login credentials initiated');
         $login_id = $this->db->listWhere('login', array('login_id'), "username='$username'");
 
         $this->db->insert('customer', array(
@@ -106,7 +110,11 @@ class Login_Model extends Model
         ));
         $email = $data['email'];
         $user_id = $this->db->listWhere('customer', array('user_id'), "email='$email'");
-
+        if($user_id){
+            Logs::writeSessionLog('Signup','Success',$username,'User created; pending verification');
+        } else{
+            Logs::writeSessionLog('Signup','Failed',$username,'User has not been created');
+        }
         $this->db->insert('shopping_cart', array('user_id' => $user_id['user_id']));
     }
 

@@ -43,9 +43,14 @@ class Login extends Controller {
      * @return void
      */
     function logout() {
-
-        Session::destroy();
-
+        $username = Session::get('username');
+        Logs::writeSessionLog('Logout','Attempting',$username);
+        if(Session::destroy()){
+            Logs::writeSessionLog('Logout','Success',$username);
+        } else{
+            Logs::writeSessionLog('Logout','Fail',$username);
+        }
+        
         header('location: ../');
 
         exit;
@@ -79,11 +84,14 @@ class Login extends Controller {
 
             // send the verification email
             if ($this->sendVerficationEmail($data['email'], $token)) {
+                Logs::writeSessionLog('Verification','Pending',$data['username'],'Mail sent');
                 header('location: ../login?success=signUp#message');
             } else {
+                Logs::writeSessionLog('Verification','Failed',$data['username'],'Could not send mail');
                 header('location: ../login?error=somethingWrong#message');
             }
         } else {
+            Logs::writeSessionLog('Signup','Failed',$_POST['email'],'Account already exists');
             header('Location: ./?error=accountExists#message');
         }
     }

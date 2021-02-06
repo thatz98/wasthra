@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="public/css/libs/font-awesome.min.css">
     <script src="public/js/libs/fontawesome.js"></script>
     <link rel="stylesheet" href="public/css/all.css">
-    <link rel="stylesheet" href="public/css/canvas.css">
     <link rel="stylesheet" href="public/css/wave.css">
     <link rel="stylesheet" type="text/css" href="<?php echo URL?>public/css/bag_dropdown.css">
     <script src="public/js/libs/jquery.min.js"></script>

@@ -1,0 +1,54 @@
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:19:27 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:19:27 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/canvas.css
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:19:27 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:19:27 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:19:27 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:20:12 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:20:12 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/canvas.css
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:20:31 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/index
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 10:20:31 am
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/canvas.css

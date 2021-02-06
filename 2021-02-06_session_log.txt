@@ -1,0 +1,43 @@
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 14:06:11 pm
+Username: damish97ts@gmail.com
+Action: Logout
+Result: Attempting
+URL: http://127.0.0.1/wasthra/login/logout
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 14:06:11 pm
+Username: damish97ts@gmail.com
+Action: Logout
+Result: Success
+URL: http://127.0.0.1/wasthra/login/logout
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 14:14:57 pm
+Username: damish97ts@gmail.com
+Action: Login
+Result: Failed
+URL: http://127.0.0.1/wasthra/login/run
+Note: Incorrect password
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 14:16:06 pm
+Username: damish9dfdd7ts@gmail.com
+Action: Login
+Result: Failed
+URL: http://127.0.0.1/wasthra/login/run
+Note: User does not exist
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 14:16:14 pm
+Username: damish97ts@gmail.com
+Action: Login
+Result: Success
+URL: http://127.0.0.1/wasthra/login/run
+Note: Session initialized; UserType: customer

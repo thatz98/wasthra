@@ -3,10 +3,6 @@
 
 class Authenticate
 {
-	
-	function __construct()
-	{
-	}
 
 	public static function handleLogin(){
 		Session::init();
@@ -20,14 +16,39 @@ class Authenticate
 
 	public static function adminAuth(){
 		Session::init();
-        $logged = $_SESSION['loggedIn'];
+        $logged = Session::get('loggedIn');;
         $userType = Session::get('userType');
-        if($logged==false || !($userType=='admin' || $userType=='owner')){
+        $username = Session::get('username');
+        if(!$logged){
+            Logs::writeLog('access_log',basename($_SERVER['PHP_SELF']),"Unautherized guest access!");
+            Session::destroy();
+            header('location: '.URL.'login?loginRequired=true');
+            exit;
+        } else if(!($userType=='admin' || $userType=='owner')){
+            Logs::writeLog('access_log',basename($_SERVER['PHP_SELF']),"Unautherized $userType access by $username!");
             Session::destroy();
             header('location: '.URL.'login?loginRequired=true');
             exit;
         }
-	}
+    }
+    
+    public static function ownerAuth(){
+		Session::init();
+        $logged = Session::get('loggedIn');;
+        $userType = Session::get('userType');
+        $username = Session::get('username');
+        if(!$logged){
+            Logs::writeLog('access_log',basename($_SERVER['PHP_SELF']),"Unautherized guest access!");
+            Session::destroy();
+            header('location: '.URL.'login?loginRequired=true');
+            exit;
+        } else if(!$userType=='owner'){
+            Logs::writeLog('access_log',basename($_SERVER['PHP_SELF']),"Unautherized $userType access by $username!");
+            Session::destroy();
+            header('location: '.URL.'login?loginRequired=true');
+            exit;
+        }
+    }
 
 	public static function staffAuth(){
 		Session::init();

@@ -24,6 +24,8 @@ require 'libs/Session.php';
 */
 
 
+Logs::writeLog('access_log',basename($_SERVER['PHP_SELF']));
+
 $app = new Wastrap();
 
 
