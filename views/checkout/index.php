@@ -190,6 +190,9 @@
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzSnah4pBNvwR3PN53ZaezSBUmNGNuf3U"></script>
 <script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
 <script>
+$( document ).ready(function() {
+document.getElementById('dCharges').innerHTML=document.getElementById("city_checkout").value.split(' ')[1];calculateDelivery();
+});
     function calculateDelivery() {
 
         var dCharges = parseFloat(document.getElementById('dCharges').innerHTML);
