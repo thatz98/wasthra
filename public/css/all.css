@@ -1571,6 +1571,18 @@ span.size-box {
     transition: 0.5s;
 }
 
+.empty-result{
+    margin: 10px auto -10px 0;
+}
+
+label.empty-checkbox {
+    color: tomato;
+    height: 20px; 
+    padding: 10px 5px;
+    text-align: center;
+    transition: 0.5s;
+}
+
 .size-container span {
     padding: auto;
     font-size: 14px;
