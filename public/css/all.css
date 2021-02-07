@@ -455,6 +455,10 @@ form textarea:hover {
     margin-top: 50px;
 }
 
+.no-mar-right{
+    margin-right: 0 !important;
+}
+
 /* alignments */
 
 .center-content {
@@ -1563,6 +1567,18 @@ span.size-box {
     left: 0;
     height: 20px;
     padding: 0 5px 0 5px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.empty-result{
+    margin: 10px auto -10px 0;
+}
+
+label.empty-checkbox {
+    color: tomato;
+    height: 20px; 
+    padding: 10px 5px;
     text-align: center;
     transition: 0.5s;
 }

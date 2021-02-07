@@ -24,6 +24,10 @@ class Inventory_Model extends Model{
                 'reorder_qty' => $data['reorder_qty'],),"product_id = '{$data['product_id']}'");
         }
 
+        function getSizes($productId,$color){
+
+            return $this->db->query("SELECT * FROM inventory WHERE product_id='$productId' AND color='$color'");
+        }
 }
 
 ?>

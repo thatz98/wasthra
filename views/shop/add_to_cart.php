@@ -67,17 +67,8 @@
                     if ($catName != "Couple") { ?>
                     <label class="text-label">Select Size</label>
                     <br>
-                    <div class="sizes">
-                        <?php
-                            foreach ($this->product[0]['product_sizes'] as $size) {?>
-                        <label class="size-container">
-                            <input type="radio" name="size" value="<?php echo $size ?>" required>
-                            <span class="checkbox"><?php echo $size ?></span>
+                    <div class="sizes" id="sizeCommon">
 
-                        </label>
-                        <?php
-                                }
-                             ?>
                     </div>
                     <?php
                     } else { ?>
@@ -145,3 +136,5 @@
 
     </div>
 </div>
+
+<script type="text/javascript" src="<?php echo URL ?>public/js/varient_handler.js"></script>

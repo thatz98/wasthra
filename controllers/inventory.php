@@ -55,4 +55,10 @@ class Inventory extends Controller {
         
         header('location: ' . URL . 'inventory');
     }
+
+    function getSizes() {
+        if (isset($_POST["color"]) && isset($_POST["product_id"])) {
+            echo json_encode($this->model->getSizes($_POST["product_id"],$_POST["color"]));
+        }
+    }
 }
