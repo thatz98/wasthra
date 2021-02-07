@@ -106,12 +106,9 @@
 
             <label class="text-label bold">Total Product Quantity</label>
             <br>
-            <?php
-            if(empty($this->product[0]['qty'])){ ?><br>
-                    <label class="text-label">No varients added</label><br>
-               <?php } else{?>
-            <p class="text-value"><?php echo $this->product[0]['qty'] ?></p>
-            <?php }?>
+            
+            <p class="text-value"><?php echo $this->sumQty[0][0] ?></p>
+            
             <br>
             <label class="text-label bold">Product Description</label>
             <br>
@@ -228,8 +225,8 @@
                     <td><?php echo $product_varient['color']; ?></td>
                     <td><?php echo $product_varient['size']; ?></td>
                     <td><?php echo $product_varient['qty']; ?></td>
-                    <td><a href="<?php echo URL ?>ProductCategories/edit/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
-                        <a href="<?php echo URL ?>ProductCategories/delete/<?php echo $product_category['category_id'] ?>"><button class="table-btn btn-red">Delete</button></a>
+                    <td><a href="<?php echo URL ?>products/editVariant/<?php echo $product_varient['inventory_id'] ?>/<?php echo $this->product[0]['product_id']?>"><button class="table-btn btn-blue">Edit</button></a>
+                        <a href="<?php echo URL ?>ProductCategories/delete/<?php echo $product_category['category_id']?>"><button class="table-btn btn-red">Delete</button></a>
                     </td>
 
                 </tr>

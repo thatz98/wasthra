@@ -56,6 +56,7 @@ class Products extends Controller {
         $this->view->product = $this->model->getProduct($id);
         $this->view->reviews = $this->model->getReviewDetails($id);
         $this->view->varients = $this->model->getVarientDetails($id);
+        $this->view->sumQty = $this->model->getQtyCount($id);
         $this->view->render('control_panel/admin/view_product');
     }
 
@@ -113,6 +114,20 @@ class Products extends Controller {
         }
         
         header('location: ' . URL . 'products/productDetails/'.$product_id);        
+
+    }
+
+    function editVariant($inventoryId,$id){
+
+        $this->view->title = 'Edit Variant Details';
+        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
+
+        // get all product details
+        $this->view->product = $this->model->getProduct($id);
+        $this->view->reviews = $this->model->getReviewDetails($id);
+        //$this->view->varients = $this->model->getVarientDetails($id);
+        $this->view->varients = $this->model->getVariantByID($inventoryId);
+        $this->view->render('control_panel/admin/edit_variant');
 
     }
 
@@ -177,6 +192,23 @@ class Products extends Controller {
         $this->model->update($data, $imageName['img'], $imageArray);
 
         header('location: ' . URL . 'products');
+    }
+
+    function updateVariant(){
+
+        $data = array();
+        $data['color'] = $_POST['color'];
+        $data['size'] = $_POST['size'];
+        $data['qty'] = $_POST['quantity'];
+        $data['product_id'] = $_POST['product_id'];
+        $data['inventory_id'] = $_POST['inventory_id'];
+        $product_id = $data['product_id'];
+        $inventory_id = $data['inventory_id'];
+        $data['prev_color'] = $_POST['prev_color'];
+        $data['prev_size'] = $_POST['prev_size'];
+        //print_r($data);
+        $this->model->updateVariant($data, $product_id, $inventory_id);
+
     }
 
     /**

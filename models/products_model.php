@@ -215,9 +215,27 @@ class Products_Model extends Model{
 
     }
 
+    function updateVariant($data, $product_id, $inventory_id){
+
+        $prevColor = $data['prev_color'];
+        $newColor = $data['color'];
+        $prevSize = $data['prev_size'];
+        $newSize = $data['size'];
+        $qty = $data['qty'];
+        $this->db->queryExecuteOnly("UPDATE inventory SET inventory.color='$newColor',inventory.qty=$qty,inventory.size='$newSize'
+        WHERE inventory.inventory_id='$inventory_id'");
+
+        $this->db->queryExecuteOnly("UPDATE product_colors SET product_colors.colors='$newColor' WHERE product_colors.product_id='$product_id'
+         AND product_colors.colors='$prevColor'");
+        
+        $this->db->queryExecuteOnly("UPDATE product_size SET product_size.sizes='$newSize' WHERE product_size.product_id='$product_id'
+         AND product_size.sizes='$prevSize'");
+
+    }
+
     function getVarientDetails($id){
 
-        return $this->db->query("SELECT color,size,qty FROM inventory WHERE product_id='$id'");
+        return $this->db->query("SELECT inventory_id,color,size,qty FROM inventory WHERE product_id='$id'");
 
     }
 
@@ -244,6 +262,18 @@ class Products_Model extends Model{
     }
     function getOutStockCount(){
         return $this->db->listWhere('inventory',array('COUNT(product_id)'),"qty=0")['COUNT(product_id)'];
+    }
+
+    function getQtyCount($id){
+
+        return $this->db->query("SELECT SUM(inventory.qty) FROM inventory WHERE inventory.product_id='$id' ");
+
+    }
+
+    function getVariantByID($id){
+
+        return $this->db->query("SELECT inventory_id,color,size,qty FROM inventory WHERE inventory_id='$id'");
+
     }
 
 
