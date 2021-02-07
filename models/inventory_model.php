@@ -8,7 +8,7 @@ class Inventory_Model extends Model{
 
         function listInventoryDetials(){
 
-            return $this->db->listAll('inventory',array('product_id','qty','reorder_qty','reorder_level'));
+            return $this->db->listAll('inventory',array('product_id','qty','reorder_qty','reorder_level','color','size'));
             
         }
 
@@ -23,6 +23,7 @@ class Inventory_Model extends Model{
                 'reorder_level' => $data['reorder_level'],
                 'reorder_qty' => $data['reorder_qty'],),"product_id = '{$data['product_id']}'");
         }
+
 }
 
 ?>

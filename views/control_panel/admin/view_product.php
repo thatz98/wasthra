@@ -106,7 +106,7 @@
             <br>
             <p class="text-value"><?php echo $this->product[0]['product_description'] ?></p>
             <br>
-            <a href="#addToCartPopup" class="btn btn-blue">Edit</a>
+            <a href="<?php echo URL ?>products/edit/<?php echo $this->product[0]['product_id'] ?>" class="btn btn-blue">Edit</a>
             <a href="#buyNowPopup" class="btn btn-red">Delete</a>
             <br>
         </div>

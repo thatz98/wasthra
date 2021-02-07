@@ -12,6 +12,8 @@
     <table>
         <tr>
             <th>Product ID</th>
+            <th>Color</th>
+            <th>Size</th>
             <th>Quantity</th>
             <th>Reorder Level</th>
             <th>Reorder Quantity</th>
@@ -21,6 +23,8 @@
         <?php foreach ($this->inventoryDetails as $inventory): ?>
             <tr>
                 <td><?php echo $inventory['product_id']; ?></td>
+                <td><span class="color-dot" style="background-color: <?php echo $inventory['color'] ?>"></span></td>
+                <td><?php echo $inventory['size']; ?></td>
                 <td><?php echo $inventory['qty']; ?></td>
                 <td><?php if(empty($inventory['reorder_level'])){
                     echo 'not set';

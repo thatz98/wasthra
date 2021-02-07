@@ -724,3 +724,189 @@ IP: 127.0.0.1
 Time: 06/02/2021 21:52:07 pm
 Filename: index.php
 URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:57:25 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/controlPanel
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:57:32 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:57:34 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/inventory
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:58:43 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/orders/orderDashboard
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:58:51 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/orders/orderDetails/ORD2021020607220226
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:58:52 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/orders/orderDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:59:02 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/orders/createDelivery
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:59:02 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/orders/orderDetails/ORD2021020607220226
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 21:59:02 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/orders/orderDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:08:41 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/stats
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:11:18 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/priceCategories
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:12:06 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:19:38 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/inventory
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:22:25 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/inventory
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:34:13 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/inventory
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:38:48 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/inventory/edit/PRD001
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:00 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/inventory/editSave/
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:00 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/inventory
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:29 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/stats
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:33 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:49 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/PRD001
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:49 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:49 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:49 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:39:49 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:47:02 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/PRD001
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:47:02 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/productDetails/public/js/live_search.js
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:47:02 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:47:03 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.woff?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:47:03 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0
+
+===========================
+IP: 127.0.0.1
+Time: 06/02/2021 22:47:04 pm
+Filename: index.php
+URL: http://127.0.0.1/wasthra/products/edit/PRD001
