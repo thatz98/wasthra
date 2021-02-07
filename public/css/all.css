@@ -455,6 +455,10 @@ form textarea:hover {
     margin-top: 50px;
 }
 
+.no-mar-right{
+    margin-right: 0 !important;
+}
+
 /* alignments */
 
 .center-content {

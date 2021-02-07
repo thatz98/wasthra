@@ -241,7 +241,7 @@
     <table id="product-table">
         <thead>
         <tr>
-            <th>Product ID
+            <th>ID
             <i onclick="showFilters('product-table',0,'dropdown-filter-1','checkbox-1','checkbox-all-1')"
                         class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
                     <div class="dropdown-filter-dropdown" id="dropdown-filter-1" style="display:none;">
@@ -273,7 +273,7 @@
                         </div>
                     </div>
             </th>
-            <th>Product Name
+            <th>Name
             <i onclick="showFilters('product-table',1,'dropdown-filter-2','checkbox-2','checkbox-all-2')"
                         class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
                     <div class="dropdown-filter-dropdown" id="dropdown-filter-2" style="display:none;">
@@ -305,7 +305,7 @@
                         </div>
                     </div>
             </th>
-            <th>Product Category
+            <th>Category
             <i onclick="showFilters('product-table',2,'dropdown-filter-3','checkbox-3','checkbox-all-3')"
                         class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
                     <div class="dropdown-filter-dropdown" id="dropdown-filter-3" style="display:none;">
@@ -562,7 +562,7 @@
                         </div>
                     </div>
             </th>
-            <th>Options</th>
+            <th style="min-width:50px;">Options</th>
             
         </tr>
         </thead>
@@ -586,7 +586,7 @@
                             $colorString .= $color['colors']; 
                             $colorString .= " | "; 
                             ?>
-                            <span class="color-dot" style="background-color: <?php echo $color['colors'] ?>"></span>    
+                            <span class="color-dot no-mar-right" style="background-color: <?php echo $color['colors'] ?>"></span>    
                         <?php }
                             
                         }
@@ -619,8 +619,7 @@
                     <td><?php echo $qty['is_published']; ?></td>
                     <td><?php echo $qty['is_featured']; ?></td>
                     <td><?php echo $qty['is_new']; ?></td>
-                    <td style="min-width:142px;"><a href="<?php echo URL ?>products/productDetails/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-blue">View</button></a>
-                    <a href="<?php echo URL ?>products/delete/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
+                    <td style="min-width:50px;"><a href="<?php echo URL ?>products/productDetails/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-blue">View</button></a></td>
             
             </tr>
             
