@@ -167,14 +167,14 @@ class Products extends Controller {
         $data['is_featured'] = $_POST['is_featured'];
         $data['category'] = $_POST['category'];
         $data['price_category'] = $_POST['price_category'];
-        $data['quantity'] = $_POST['quantity'];
-        $data['colors'] = $_POST['colors'];
-        $size = $_POST['size'];
+        // $data['quantity'] = $_POST['quantity'];
+        // $data['colors'] = $_POST['colors'];
+        // $size = $_POST['size'];
         $imageName['img'] = $_FILES['img']['name'];
         $data['meta_product_name'] = metaphone($_POST['product_name']);
         $data['meta_product_desc'] = metaphone($_POST['product_description']);
 
-        $this->model->update($data, $size, $imageName['img'], $imageArray);
+        $this->model->update($data, $imageName['img'], $imageArray);
 
         header('location: ' . URL . 'products');
     }

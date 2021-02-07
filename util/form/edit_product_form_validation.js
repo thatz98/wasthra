@@ -15,9 +15,9 @@ editform.addEventListener('submit', function(event) {
         validateProductId() &&
         validateproductName() &&
         // validateColors() &&
-        validateQuantity() &&
+        // validateQuantity() &&
         validateDescription() &&
-        (validateSingleSize() || validateCoupleSize() ) &&
+        // (validateSingleSize() || validateCoupleSize() ) &&
         validateIsPublished() &&
         validateIsNew() &&
         validateIsFeatured() &&
@@ -47,23 +47,23 @@ function validateproductName() {
 
 }
 
-function validateColors() {
+// function validateColors() {
     
-  if (checkIfEmpty(colors)) return;
+//   if (checkIfEmpty(colors)) return;
   
-  if (!containsCharacters(colors,9)) return;
-  return true;
+//   if (!containsCharacters(colors,9)) return;
+//   return true;
 
-}
+// }
 
-function validateQuantity() {
+// function validateQuantity() {
 
-  if (checkIfEmpty(quantity)) return;
+//   if (checkIfEmpty(quantity)) return;
 
-  if (!checkIfOnlyNumbers(quantity)) return;
-  return true;
+//   if (!checkIfOnlyNumbers(quantity)) return;
+//   return true;
 
-}
+// }
 
 function validateDescription() {
     
@@ -72,34 +72,34 @@ function validateDescription() {
 
 }
 
-function validateSingleSize() {
+// function validateSingleSize() {
         
-  if (document.getElementById('XS').checked==true || 
-  document.getElementById('S').checked==true || 
-  document.getElementById('M').checked==true ||
-  document.getElementById('L').checked==true ||
-  document.getElementById('XL').checked==true) return true;
-      setinvalidWithoutColor(document.getElementById('size-field'),'Must be selected');
-      return false;
-}
+//   if (document.getElementById('XS').checked==true || 
+//   document.getElementById('S').checked==true || 
+//   document.getElementById('M').checked==true ||
+//   document.getElementById('L').checked==true ||
+//   document.getElementById('XL').checked==true) return true;
+//       setinvalidWithoutColor(document.getElementById('size-field'),'Must be selected');
+//       return false;
+// }
 
-function validateCoupleSize() {
+// function validateCoupleSize() {
         
-  if (document.getElementById('XS-G').checked==true || 
-  document.getElementById('S-G').checked==true || 
-  document.getElementById('M-G').checked==true ||
-  document.getElementById('L-G').checked==true ||
-  document.getElementById('XL-G').checked==true){
+//   if (document.getElementById('XS-G').checked==true || 
+//   document.getElementById('S-G').checked==true || 
+//   document.getElementById('M-G').checked==true ||
+//   document.getElementById('L-G').checked==true ||
+//   document.getElementById('XL-G').checked==true){
 
-    if (document.getElementById('XS-W').checked==true || 
-  document.getElementById('S-W').checked==true || 
-  document.getElementById('M-W').checked==true ||
-  document.getElementById('L-W').checked==true ||
-  document.getElementById('XL-W').checked==true) return true;
-  }
-      setinvalidWithoutColor(document.getElementById('size-field-couple'),'Must be selected');
-      return false;
-}
+//     if (document.getElementById('XS-W').checked==true || 
+//   document.getElementById('S-W').checked==true || 
+//   document.getElementById('M-W').checked==true ||
+//   document.getElementById('L-W').checked==true ||
+//   document.getElementById('XL-W').checked==true) return true;
+//   }
+//       setinvalidWithoutColor(document.getElementById('size-field-couple'),'Must be selected');
+//       return false;
+// }
 
 function validateIsPublished(){
   if(document.getElementById('is_published').value!="0") return true;
