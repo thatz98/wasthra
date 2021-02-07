@@ -1,3 +1,4 @@
+
 <?php require 'views/header.php'; ?>
 
 <div class="small-container single-product">
@@ -51,10 +52,13 @@
 
             <label class="text-label bold">Available Colors</label>
             <div class="product-colors">
-                <?php
+                <?php 
+                if(empty($this->product[0]['product_colors'][0])){ ?>
+                    <label class="text-label">No varients to display</label><br>
+               <?php } else{
                 foreach ($this->product[0]['product_colors'] as $color) { ?>
                     <span class="color-dot" style="background-color: <?php echo $color ?>"></span><?php
-                                                                                                } ?>
+                                                                                                } }?>
             </div>
             <label class="text-label bold">Available Sizes</label>
             <div class="product-sizes">
@@ -63,7 +67,9 @@
                 $single_sizes = array();
                 $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
                 $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
-                if ($catName != "Couple") {
+                if(empty($this->product[0]['product_sizes'][0])){ ?>
+                    <label class="text-label">No varients to display</label><br>
+               <?php } else if ($catName != "Couple") {
 
                     foreach ($this->product[0]['product_sizes'] as $size) { ?>
                         <span class="size-box"><?php echo $size ?></span><?php
@@ -100,7 +106,12 @@
 
             <label class="text-label bold">Total Product Quantity</label>
             <br>
+            <?php
+            if(empty($this->product[0]['qty'])){ ?><br>
+                    <label class="text-label">No varients added</label><br>
+               <?php } else{?>
             <p class="text-value"><?php echo $this->product[0]['qty'] ?></p>
+            <?php }?>
             <br>
             <label class="text-label bold">Product Description</label>
             <br>
