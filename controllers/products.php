@@ -224,6 +224,13 @@ class Products extends Controller {
         header('location: ' . URL . 'products');
     }
 
+    function deleteVariant($id,$pID) {
+
+        $this->model->deleteVariant($id);
+
+        header('location: ' . URL . 'products/productDetails/'.$pID);
+    }
+    
     /**
      * Delete product images
      *

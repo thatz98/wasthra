@@ -235,14 +235,22 @@ class Products_Model extends Model{
 
     function getVarientDetails($id){
 
-        return $this->db->query("SELECT inventory_id,color,size,qty FROM inventory WHERE product_id='$id'");
+        return $this->db->query("SELECT is_deleted,inventory_id,color,size,qty FROM inventory WHERE product_id='$id'");
 
     }
 
     function delete($id){
         
             
-        $this->db->delete('product',"product_id='$id'");
+        $this->db->queryExecuteOnly("UPDATE product SET product.is_deleted='yes' WHERE product.product_id='$id'");
+        
+
+    }
+
+    function deleteVariant($id){
+        
+            
+        $this->db->queryExecuteOnly("UPDATE inventory SET inventory.is_deleted='yes' WHERE inventory.inventory_id='$id'");
         
 
     }
