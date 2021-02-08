@@ -38,6 +38,31 @@ class Products_Model extends Model{
         return $data;
     }
 
+    function getAllProducts() {
+
+        $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+        GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, 
+        inventory.qty, price_category.product_price, 
+        price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+         LEFT JOIN inventory ON product.product_id=inventory.product_id
+         INNER JOIN category ON product.category_id=category.category_id
+         INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+         INNER JOIN product_images ON product.product_id=product_images.product_id
+         LEFT JOIN product_size ON product.product_id=product_size.product_id
+         LEFT JOIN product_colors ON product.product_id=product_colors.product_id
+         LEFT JOIN review on review.product_id=product.product_id 
+         GROUP BY product.product_id");
+
+        foreach ($data as $key => $value) {
+            $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
+            $data[$key]['product_sizes'] = explode(',', $data[$key]['product_sizes']);
+            $data[$key]['product_colors'] = explode(',', $data[$key]['product_colors']);
+        }
+
+        return $data;
+    }
+
     function getAllDetails(){
         return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,
         product.product_name,product.is_featured,product.is_new
@@ -83,7 +108,11 @@ class Products_Model extends Model{
         FROM product_images WHERE product_images.product_id='$id';");
     }
 
+    function getProductCount(){
 
+        return $this->db->query("SELECT COUNT(product_id) FROM product WHERE is_deleted='no'; ");
+
+    }
 
 
     function create($data,$imageList){

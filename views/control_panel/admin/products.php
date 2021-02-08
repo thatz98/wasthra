@@ -229,7 +229,7 @@
                    placeholder="Search & filter entire table by keyword..">
         </div>
 
-    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo count($this->qtyList);?> results...</span>
+    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo count($this->totProducts[0]);?> results...</span>
     <div class="per-page" style="float: right;">
         <span>Rows per page: </span><select name="per-page" id="per-page">
             <?php foreach(range(10,100,10) as $i){?>
@@ -567,59 +567,59 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($this->qtyList as $qty): ?>
+        <?php foreach ($this->allProducts as $all): ?>
             <tr>
-                <td><?php echo $qty['product_id']; ?></td>
-                <td><?php echo $qty['product_name']; ?></td>
-                    <td><?php echo $qty['name']; ?></td>
+                <td><?php echo $all['product_id']; ?></td>
+                <td><?php echo $all['product_name']; ?></td>
+                    <td><?php echo $all['name']; ?></td>
                     <td><?php $totalQuantity=0;
                         foreach ($this->totQuantity as $quantity){
-                            if($qty['product_id']==$quantity['product_id']){
+                            if($all['product_id']==$quantity['product_id']){
                                 $totalQuantity += $quantity['qty'];
                             }
                         } echo $totalQuantity; ?>
                     </td>
                     <td><?php $colorString=''; 
-                        foreach ($this->colorList as $color){ 
+                        foreach ($all['product_colors'] as $color){ 
   
-                        if($qty['product_id']==$color['product_id']){
-                            $colorString .= $color['colors']; 
-                            $colorString .= " | "; 
+                        // if($qty['product_id']==$color['product_id']){
+                        //     $colorString .= $color['colors']; 
+                        //     $colorString .= " | "; 
                             ?>
-                            <span class="color-dot no-mar-right" style="background-color: <?php echo $color['colors'] ?>"></span>    
-                        <?php }
+                            <span class="color-dot no-mar-right" style="background-color: <?php echo $color ?>"></span>    
+                        <?php //}
                             
                         }
                         //echo rtrim($colorString," | ");
-                        if($colorString==''){
-                            echo "Colors not set";
-                        }
+                        // if($colorString==''){
+                        //     echo "Colors not set";
+                        // }
                     ?>
 
                     </td>
                     <td style="max-width: 150px;"><?php $sizeString='';
-                        foreach ($this->sizeList as $size){
-                         if($qty['product_id']==$size['product_id']){
-                                $sizeString.=$size['sizes']; 
+                        foreach ($all['product_sizes'] as $size){
+                         //if($qty['product_id']==$size['product_id']){
+                                $sizeString.=$size; 
                                 $sizeString.=" | ";
-                            }
+                            //}
                     }
                         echo rtrim($sizeString," | ");
                         if($sizeString==''){
                             echo "Sizes not set";
                         }
                     ?></td>
-                    <td><?php foreach ($this->imageList as $image){
-                        if($qty['product_id']==$image['product_id']){?>
-                            <img src="<?php echo $image['image']?>" width="50px" height="50px">
+                    <td><?php foreach ($all['product_images'] as $image){
+                        //if($qty['product_id']==$image['product_id']){?>
+                            <img src="<?php echo $image?>" width="50px" height="50px">
                             <?php 
-                        }
+                        //}
                     }?></td>
-                    <td><?php echo $qty['product_price']; ?></td>
-                    <td><?php echo $qty['is_published']; ?></td>
-                    <td><?php echo $qty['is_featured']; ?></td>
-                    <td><?php echo $qty['is_new']; ?></td>
-                    <td style="min-width:50px;"><a href="<?php echo URL ?>products/productDetails/<?php echo $qty['product_id'] ?>"><button class="table-btn btn-blue">View</button></a></td>
+                    <td><?php echo $all['product_price']; ?></td>
+                    <td><?php echo $all['is_published']; ?></td>
+                    <td><?php echo $all['is_featured']; ?></td>
+                    <td><?php echo $all['is_new']; ?></td>
+                    <td style="min-width:50px;"><a href="<?php echo URL ?>products/productDetails/<?php echo $all['product_id'] ?>"><button class="table-btn btn-blue">View</button></a></td>
             
             </tr>
             
