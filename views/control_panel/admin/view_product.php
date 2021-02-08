@@ -77,31 +77,33 @@
                                                                     } else { ?>
                     <label class="text-label">Gents</label><br>
                     <?php
-                                                                        foreach ($this->product[0]['product_sizes'] as $size) {
-                                                                            if (in_array($size, $single_sizes_gents)) {
-                                                                                continue;
-                                                                            } else {
-                                                                                $single_sizes_gents[] .= $size;
+                            foreach ($this->product[0]['product_sizes'] as $size) {
+                                if (in_array($size, $single_sizes_gents)) {
+                                    continue;
+                                } else {
+                                    $single_sizes_gents[] .= $size;
                     ?>
-                            <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($size, "-W") ?></span><?php
-                                                                                                                                    }
-                                                                                                                                }
-                                                                                                                                        ?>
+                            <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($size, "-W") ?></span>
+                                        <?php
+                                    }
+                                }
+                                        ?>
                     <br>
                     <label class="text-label">Ladies</label>
                     <br>
                     <?php
-                                                                        foreach ($this->product[0]['product_sizes'] as $size) {
-                                                                            if (in_array($size, $single_sizes_ladies)) {
-                                                                                continue;
-                                                                            } else {
-                                                                                $single_sizes_ladies[] .= $size;
+                            foreach ($this->product[0]['product_sizes'] as $size) {
+                                if (in_array($size, $single_sizes_ladies)) {
+                                    continue;
+                                } else {
+                                    $single_sizes_ladies[] .= $size;
                     ?>
-                            <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($size, "-G") ?></span><?php
-                                                                                                                }
-                                                                                                            }
-                                                                                                        }
-                                                                                                                    ?>
+                            <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($size, "-G") ?></span>
+                                        <?php
+                                    }
+                                }
+                            }
+                                        ?>
             </div>
 
             <label class="text-label bold">Total Product Quantity</label>
@@ -115,7 +117,7 @@
             <p class="text-value"><?php echo $this->product[0]['product_description'] ?></p>
             <br>
             <a href="<?php echo URL ?>products/edit/<?php echo $this->product[0]['product_id'] ?>" class="btn btn-blue">Edit</a>
-            <a href="#buyNowPopup" class="btn btn-red">Delete</a>
+            <a href="<?php echo URL ?>products/delete/<?php echo $this->product[0]['product_id'] ?>" class="btn btn-red">Delete</a>
             <br>
         </div>
 
@@ -220,18 +222,18 @@
                 <th>Options</th>
 
             </tr>
-            <?php foreach ($this->varients as $product_varient) : ?>
+            <?php foreach ($this->varients as $product_varient){ if($product_varient['is_deleted']=='yes'){continue;}?>
                 <tr>
                     <td><?php echo $product_varient['color']; ?></td>
                     <td><?php echo $product_varient['size']; ?></td>
                     <td><?php echo $product_varient['qty']; ?></td>
                     <td><a href="<?php echo URL ?>products/editVariant/<?php echo $product_varient['inventory_id'] ?>/<?php echo $this->product[0]['product_id']?>"><button class="table-btn btn-blue">Edit</button></a>
-                        <a href="<?php echo URL ?>ProductCategories/delete/<?php echo $product_category['category_id']?>"><button class="table-btn btn-red">Delete</button></a>
+                        <a href="<?php echo URL ?>products/deleteVariant/<?php echo $product_varient['inventory_id'] ?>/<?php echo $this->product[0]['product_id']?>"><button class="table-btn btn-red">Delete</button></a>
                     </td>
 
                 </tr>
 
-            <?php endforeach; ?>
+            <?php } ?>
 
 
 

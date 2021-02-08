@@ -221,7 +221,7 @@ class Shop extends Controller {
         Session::set('cartData', '');
         Session::set('cartCount', 0);
 
-        if ($_POST['payment_method'] == 'online') {
+        if ($_POST['payment_method'] == 'online payment') {
             $this->view->render('checkout/payment');
         } else {
 
