@@ -1,7 +1,7 @@
-const firstName = document.getElementById('first_name_u');
-const lastName = document.getElementById('last_name_u');
-const email = document.getElementById('email_u');
-const contactNo = document.getElementById('contact_no_u');
+const firstName = document.getElementById('first_name_edituser');
+const lastName = document.getElementById('last_name_edituser');
+const email = document.getElementById('email_edituser');
+const contactNo = document.getElementById('contact_no_edituser');
     
 const editform = document.getElementById('editFrom');
 
@@ -10,50 +10,50 @@ editform.addEventListener('submit', function(event) {
 
       event.preventDefault();
       if (
-        validateFirstName() &&
-        validateLastName() &&
-        validateContactNo() &&
-        validateEmail()
+        validateEditFirstName() &&
+        validateEditLastName() &&
+        validateEditContactNo() &&
+        validateEditEmail()
       ) {
         editform.submit();
       }
     });
     
-function validateFirstName() {
+function validateEditFirstName() {
 
-      if (checkIfEmpty(firstName)) return;
+      if (checkIfEmpty(first_name_edituser)) return;
     
-      if (!checkIfOnlyLetters(firstName)) return;
+      if (!checkIfOnlyLetters(first_name_edituser)) return;
       return true;
 
     }
 
-function validateLastName() {
+function validateEditLastName() {
 
-      if (checkIfEmpty(lastName)) return;
+      if (checkIfEmpty(last_name_edituser)) return;
 
-      if (!checkIfOnlyLetters(lastName)) return;
+      if (!checkIfOnlyLetters(last_name_edituser)) return;
       return true;
 
     }
 
-function validateContactNo() {
+function validateEditContactNo() {
     
-      if (checkIfEmpty(contactNo)) return;
+      if (checkIfEmpty(contact_no_edituser)) return;
     
-      if (!meetLength(contactNo, 9, 11)) return;
+      if (!meetLength(contact_no_edituser, 9, 11)) return;
     
-      if (!checkIfOnlyNumbers(contactNo)) return;
+      if (!checkIfOnlyNumbers(contact_no_edituser)) return;
       return true;
 
     }
   
     
-function validateEmail() {
+function validateEditEmail() {
 
-      if (checkIfEmpty(email)) return;
+      if (checkIfEmpty(email_edituser)) return;
 
-      if (!containsCharacters(email, 5)) return;
+      if (!containsCharacters(email_edituser, 5)) return;
       return true;
 
     }
