@@ -68,7 +68,7 @@
                     <label class="text-label">Select Size</label>
                     <br>
                     <div class="sizes" id="sizeCommon">
-
+                    <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
                     <?php
                     } else { ?>
@@ -113,15 +113,8 @@
 
                     <br>
                     <label class="text-label">Select Quantity</label>
-                    <div class="quantity">
-                        <span class="qty-minus"
-                            onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
-                                class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity"
-                            value="1">
-                        <span class="qty-plus"
-                            onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
-                                class="fa fa-plus" aria-hidden="true"></i></span>
+                    <div class="quantity" id="quantitydiv">
+                    <div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>
                     </div>
                     <input type="text" name="prod_id" value="<?php echo $this->product[0]['product_id'] ?>" hidden>
                     <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {

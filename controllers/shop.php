@@ -21,7 +21,7 @@ class Shop extends Controller {
         $this->view->products = $this->model->getProductList();
         
         // get filter data
-        $this->view->sizeList =  $this->model->getSizes();
+        $this->view->sizeList =  $this->model->getAllSizes();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
 
@@ -241,6 +241,18 @@ class Shop extends Controller {
         $id = $_POST['order_id'];
         $this->model->returnOrder($comment,$id);
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
+    }
+
+    function getSizes() {
+        if (isset($_POST["color"]) && isset($_POST["product_id"])) {
+            echo json_encode($this->model->getSizes($_POST["product_id"],$_POST["color"]));
+        }
+    }
+
+    function getQtys() {
+        if (isset($_POST["color"]) && isset($_POST["size"]) && isset($_POST["product_id"])) {
+            echo json_encode($this->model->getQtys($_POST["product_id"],$_POST["color"],$_POST["size"]));
+        }
     }
 
 }
