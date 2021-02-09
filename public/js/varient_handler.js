@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('input[type=radio][name=color]').on("change", function () {
       var color = $(this).val();
-      console.log("hi");
+      
         var productId = $('input[type=text][name=prod_id]').val();
       if (!color == "") {
         $.ajax({
@@ -10,6 +10,7 @@ $(document).ready(function () {
           dataType: 'JSON',
           data: { 'color': color, 'product_id': productId },
           success: function (data) {
+            console.log("hi");
               var sizeContainer = document.getElementById('sizeCommon')
               sizeContainer.innerHTML = "";
             if(data.length>0){

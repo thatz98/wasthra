@@ -451,11 +451,11 @@ form textarea:hover {
     margin-left: 135px;
 }
 
-.mar-t-50{
+.mar-t-50 {
     margin-top: 50px;
 }
 
-.no-mar-right{
+.no-mar-right {
     margin-right: 0 !important;
 }
 
@@ -1571,13 +1571,13 @@ span.size-box {
     transition: 0.5s;
 }
 
-.empty-result{
+.empty-result {
     margin: 10px auto -10px 0;
 }
 
 label.empty-checkbox {
     color: tomato;
-    height: 20px; 
+    height: 20px;
     padding: 10px 5px;
     text-align: center;
     transition: 0.5s;
@@ -1593,28 +1593,28 @@ label.text-label {
     margin-top: 10px;
     font-size: 14px;
 }
+
 .product-tags {
     display: flex;
     margin: 10px 0 15px 0;
-  }
-  
-  .product-tag {
+}
+
+.product-tag {
     margin-right: 10px;
     cursor: default;
-  }
-  
-  .product-tag > p {
+}
+
+.product-tag>p {
     background-color: #d8cdc0;
     border-radius: 15px;
     padding: 10px;
-  }
+}
 
-
-.bold{
+.bold {
     font-weight: bold;
 }
 
-p.text-value{
+p.text-value {
     margin-top: 10px;
 }
 
@@ -1906,6 +1906,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     position: absolute;
     width: 230px;
 }
+
 .search-bar ul.results li {
     list-style: none;
     padding: 15px 10px;
@@ -1914,18 +1915,18 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     cursor: pointer;
 }
 
-.search-bar ul.results li:hover{
+.search-bar ul.results li:hover {
     background: #FFDBC4;
 }
 
-.search-bar ul.results li img{
+.search-bar ul.results li img {
     width: 30px;
     float: left;
 }
-span.search-link{
+
+span.search-link {
     vertical-align: middle;
 }
-
 
 /* filters - shop */
 
@@ -2326,10 +2327,11 @@ p.success {
 
 /* order tracking */
 
-.tracking-box{
+.tracking-box {
     min-width: 90%;
     padding: 50px;
 }
+
 .hh-grayBox {
     background-color: #F8F8F8;
     margin-bottom: 20px;
@@ -2424,8 +2426,48 @@ p.success {
     background-color: #27aa80;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
 
+/* Tooltip text */
 
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    width: 120px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+    /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
 
 @media screen and (max-width: 620px) {
     .user-box:hover>.user-info {
@@ -2596,7 +2638,6 @@ p.success {
     .filter-card {
         margin: 10px auto 30px auto;
     }
-
     .order-tracking {
         width: 100%;
     }
