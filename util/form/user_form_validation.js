@@ -21,7 +21,7 @@ form.addEventListener('submit', function(event) {
     validateUserLastName() &&
     validateUserPassword() &&
     validateUserConfirmPassword() &&
-    validateUserNIC() &&
+    // validateUserNIC() &&
     validateUserEmail()
   ) {
     form.submit();
@@ -55,15 +55,15 @@ function validateUserContactNo() {
   return true;
 }
 
-function validateUserNIC() {
-  // check if is empty
-  if (checkIfEmpty(User_NIC)) return;
-  // is if it has only letters
-  if (!meetLength(User_NIC, 10, 13)) return;
+// function validateUserNIC() {
+//   // check if is empty
+//   if (checkIfEmpty(User_NIC)) return;
+//   // is if it has only letters
+//   if (!meetLength(User_NIC, 10, 13)) return;
 
-  setValid(User_NIC);
-  return true;
-}
+//   setValid(User_NIC);
+//   return true;
+// }
 
 function validateUserPassword() {
   // Empty check
