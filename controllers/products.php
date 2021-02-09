@@ -26,13 +26,15 @@ class Products extends Controller {
         // get number of items which is out of stock
         $this->view->outStockCount = $this->model->getOutStockCount();
         // get all product details
-        $this->view->qtyList =  $this->model->getAllDetails();
+        //$this->view->qtyList =  $this->model->getAllDetails();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->imageList =  $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
         $this->view->pricecategoryList =  $this->model->getPriceCategories();
         $this->view->totQuantity = $this->model->getQty();
+        $this->view->totProducts = $this->model->getProductCount();
+        $this->view->allProducts = $this->model->getAllProducts();
         // $totalQuantity = 0;
         // foreach ($quantity as $qty){
         //     $totalQuantity += $qty['qty'];
@@ -224,6 +226,13 @@ class Products extends Controller {
         header('location: ' . URL . 'products');
     }
 
+    function deleteVariant($id,$pID) {
+
+        $this->model->deleteVariant($id);
+
+        header('location: ' . URL . 'products/productDetails/'.$pID);
+    }
+    
     /**
      * Delete product images
      *
