@@ -72,92 +72,84 @@
 
             </div>
             <div class="col-2" style="text-align: center;">
-                <h2 style="margin-top: 5px;"><?php echo $this->productPopup['product_name']?></h2>
-                <h4>LKR <?php echo $this->productPopup['product_price']?></h4><br>
-                <form action="<?php echo URL; ?>cart/addToCart" method="post" id="addToCartForm">
+                <h2 style="margin-top: 5px;"><?php echo $this->productPopup['product_name'] ?> </h2>
+                <h4>LKR <?php echo $this->productPopup['product_price'] ?></h4><br>
+                <form action="<?php echo URL; ?>cart/addToCart" method="post">
                     <label class="text-label">Select Color</label>
                     <div class="colors">
-                        <?php foreach ($this->productPopup['product_colors'] as $color){?>
+                        <?php
+                        foreach ($this->productPopup['product_colors'] as $color) {?>
                         <label class="color-container">
-                            <input type="radio" name="color" value="<?php echo $color?>" required>
-                            <span class="checkmark" style="background-color: <?php echo $color?>"></span>
+                            <input type="radio" name="color" value="<?php echo $color ?>" required>
+                            <span class="checkmark" style="background-color: <?php echo $color ?>"></span>
                         </label>
-                        <?php }?>
+                        <?php
+                            } ?>
+
+
                     </div><br>
 
-
-                    <?php 
-                        $catName=$this->productPopup['name'];
-                        $single_sizes_gents = array('XS-G','S-G','M-G','L-G','XL-G');
-                        $single_sizes_ladies = array('XS-W','S-W','M-W','L-W','XL-W');
-                        if($catName!="Couple"){?>
+                    <?php
+                    $catName = $this->productPopup['name'];
+                    $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
+                    $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
+                    if ($catName != "Couple") { ?>
                     <label class="text-label">Select Size</label>
-                    <div class="sizes">
-                        <?php
-                            foreach ($this->productPopup['product_sizes'] as $size){?>
-                        <label class="size-container">
-                            <input type="radio" name="size" value="<?php echo $size?>" required>
-                            <span class="checkbox"><?php echo $size?></span>
-                        </label>
-                        <?php
-                            }?>
+                    <br>
+                    <div class="sizes" id="sizeCommon">
+                    <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
                     <?php
-                    }else{?>
+                    } else { ?>
                     <label class="text-label">Select Size for Gent</label>
                     <br>
                     <div class="sizes">
-                        <?php  
-
-                        foreach ($this->productPopup['product_sizes'] as $size){
-                                if(in_array($size,$single_sizes_gents)){?>
+                        <?php
+                            foreach ($this->productPopup['product_sizes'] as $size) {
+                                if (in_array($size, $single_sizes_ladies)) {
+                                    continue;
+                                } else {
+                                    $single_sizes_ladies[] .= $size; ?>
                         <label class="size-container">
-                            <input type="radio" name="size1" value="<?php echo $size?>" required>
-                            <span class="checkbox"><?php echo rtrim($size,"-G")?></span>
+                            <input type="radio" name="size2" value="<?php echo $size ?>" required>
+                            <span class="checkbox"><?php echo rtrim($size, "-G") ?></span>
+
                         </label>
                         <?php
-                            }
-                        } 
-
-                        ?>
+                                }
+                            } ?>
                     </div>
                     <br>
                     <label class="text-label">Select Size for Lady</label>
                     <br>
                     <div class="sizes">
-                        <?php  
-
-                        foreach ($this->productPopup['product_sizes'] as $size){
-                                if(in_array($size,$single_sizes_ladies)){?>
+                        <?php
+                            foreach ($this->productPopup['product_sizes'] as $size) {
+                                if (in_array($size, $single_sizes_gents)) {
+                                    continue;
+                                } else {
+                                    $single_sizes_gents[] .= $size; ?>
                         <label class="size-container">
-                            <input type="radio" name="size2" value="<?php echo $size?>" required>
-                            <span class="checkbox"><?php echo rtrim($size,"-W")?></span>
+                            <input type="radio" name="size1" value="<?php echo $size ?>" required>
+                            <span class="checkbox"><?php echo rtrim($size, "-W") ?></span>
+
                         </label>
                         <?php
-                            }
-                        }?>
+                                }
+                            } ?>
                     </div>
-
-                    <?php   }?>
+                    <?php  } ?>
 
                     <br>
                     <label class="text-label">Select Quantity</label>
-                    <div class="quantity">
-                        <span class="qty-minus"
-                            onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
-                                class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity"
-                            value="1">
-                        <span class="qty-plus"
-                            onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
-                                class="fa fa-plus" aria-hidden="true"></i></span>
+                    <div class="quantity" id="quantitydiv">
+                    <div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>
                     </div>
-                    <input type="text" name="screen-size" id="screensize" hidden>
-                    <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id']?>" hidden>
-                    <input type="text" name="prev_url"
-                        value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>" hidden>
+                    <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id'] ?>" hidden>
+                    <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
+                                                                    echo $_SERVER['HTTP_REFERER'];
+                                                                } ?>" hidden>
                     <button type="submit" class="btn">Add to Cart</button>
-
                 </form>
             </div>
         </div>
@@ -166,3 +158,5 @@
 
     </div>
 </div>
+
+<script type="text/javascript" src="<?php echo URL ?>public/js/varient_handler.js"></script>
