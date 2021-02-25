@@ -12,13 +12,13 @@
                       <div class="helper-text">
                           <label>First Name</label><br>
                           <input type="text" name="first_name" value="<?php echo $this->user[0]['first_name'] ?>"
-                           data-helper="First Name" onfocusout="validateFirstName()" id="first_name_u"><br>
+                           data-helper="First Name" onfocusout="validateEditFirstName()" id="first_name_edituser"><br>
                           <span class="popuptext"></span><br>
                       </div>
                       <div class="helper-text">
                           <label>Mobile Number</label><br>
                           <input type="text" name="contact_no" placeholder="07XXXXXXXX" data-helper="Mobile No," 
-                          onfocusout="validateContactNo()" id="contact_no_u" value="<?php echo $this->user[0]['contact_no'] ?>" >
+                          onfocusout="validateEditContactNo()" id="contact_no_edituser" value="<?php echo $this->user[0]['contact_no'] ?>" >
                           <span class="popuptext"></span>
                           <br>
                       </div>
@@ -59,13 +59,13 @@
                         <div class="helper-text">
                            <label>Last Name</label><br>
                            <input type="text" name="last_name" value="<?php echo $this->user[0]['last_name'] ?>" 
-                            data-helper="Last Name" onfocusout="validateLastName()" id="last_name_u"><br>
+                            data-helper="Last Name" onfocusout="validateEditLastName()" id="last_name_edituser"><br>
                            <span class="popuptext"></span>
                         </div>
                         <div class="helper-text">
                            <label>Email</label><br>
                            <input type="email" name="email" value="<?php echo $this->user[0]['email'] ?>" 
-                            data-helper="Email" onfocusout="validateEmail()" id="email_u"><br>
+                            data-helper="Email" onfocusout="validateEditEmail()" id="email_edituser"><br>
                            <span class="popuptext"></span>
                         </div>
                         <label>Gender</label><br><select name="gender"
