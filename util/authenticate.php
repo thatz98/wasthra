@@ -6,17 +6,21 @@ class Authenticate
 
 	public static function handleLogin(){
 		Session::init();
-        $logged = $_SESSION['loggedIn'];
+        $logged = Session::get('loggedIn');
         if($logged==false){
             Session::destroy();
+           if($_SERVER['REDIRECT_URL']=='/wasthra/cart/addToCart'){
+           } else{
             header('location: '.URL.'login?loginRequired=true');
             exit;
+           }
+            
         }
 	}
 
 	public static function adminAuth(){
 		Session::init();
-        $logged = Session::get('loggedIn');;
+        $logged = Session::get('loggedIn');
         $userType = Session::get('userType');
         $username = Session::get('username');
         if(!$logged){
@@ -67,8 +71,12 @@ class Authenticate
         $userType = Session::get('userType');
         if($logged==false){
             Session::destroy();
-            header('location: '.URL.'login?loginRequired=true');
-            exit;
+            if($_SERVER['REDIRECT_URL']=='/wasthra/cart/addToCart'){
+            } else{
+             header('location: '.URL.'login?loginRequired=true');
+             exit;
+            }
+            
         } else if($userType!='customer'){
             header('location: ../?error=customerOnly#message');
             exit;
