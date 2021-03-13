@@ -1,7 +1,7 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/shop/add_to_cart_index.php'; ?>
 
-<link rel="stylesheet" href="<?php echo URL; ?>public/css/shop-filters.css">
+<link rel="stylesheet" href="/wasthra/public/css/shop-filters.css">
 <?php $this->itemCount = count($this->products);
 if (isset($_GET['page'])) {
     $this->page = $_GET['page'];
@@ -201,5 +201,5 @@ if (isset($_GET['page'])) {
         location.replace("http://127.0.0.1/wasthra/shop/byCategory/" + category);
     }
 </script>
-<script type="text/javascript" src="<?php echo URL ?>public/js/product_gallery.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>

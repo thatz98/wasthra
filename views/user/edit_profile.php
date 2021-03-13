@@ -153,8 +153,8 @@
     </div>
 
     
-<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
-<script type="text/javascript" src="<?php echo URL ?>util/form/edit_profile_form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/util/form/edit_profile_form_validation.js"></script>
 
 </div>
 

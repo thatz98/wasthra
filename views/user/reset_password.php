@@ -9,11 +9,11 @@
    
 
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
-    <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
-    <link rel="stylesheet" href="<?php echo URL; ?>public/css/wave.css">
-    <link rel="stylesheet" href="<?php echo URL; ?>public/css/libs/font-awesome.min.css">
-    <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
-    <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
+    <link rel="stylesheet" href="/wasthra/public/css/all.css">
+    <link rel="stylesheet" href="/wasthra/public/css/wave.css">
+    <link rel="stylesheet" href="/wasthra/public/css/libs/font-awesome.min.css">
+    <script src="/wasthra/public/js/libs/fontawesome.js"></script>
+    <script src="/wasthra/public/js/libs/jquery.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">
-                    <img src="<?php echo URL; ?>public/images/logo.png" width="125px">
+                    <img src="/wasthra/public/images/logo.png" width="125px">
                 </div>
                 <nav>
                     <ul id="menuItems">
@@ -33,7 +33,7 @@
                     </ul>
                 </nav>
                 
-                <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
+                <img src="/wasthra/public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
 
         <div class="row">
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-<script type="text/javascript" src="<?php echo URL?>public/js/form_validation.js"></script>
-<script type="text/javascript" src="<?php echo URL?>util/form/reset_form_validation.js"></script>
+<script type="text/javascript" src="public/js/form_validation.js"></script>
+<script type="text/javascript" src="util/form/reset_form_validation.js"></script>
 
 <?php require 'views/footer.php'; ?>

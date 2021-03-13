@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo URL; ?>public/css/profile_card.css">
+<link rel="stylesheet" href="/wasthra/public/css/profile_card.css">
 <?php require 'change_password.php';?>
 <?php require 'edit_profile.php';?>
 <?php require 'add_new_address.php';?>

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= (isset($this->title)) ? $this->title . ' | Wasthra' : 'Wasthra'; ?></title>
-    <link rel="stylesheet" href="<?php echo URL; ?>public/css/all.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo URL?>public/css/bag_dropdown.css">
-    <link rel="stylesheet" href="<?php echo URL; ?>public/css/libs/font-awesome.min.css">
-    <script src="<?php echo URL ?>public/js/libs/jquery.min.js"></script>
-    <script src="<?php echo URL ?>public/js/libs/fontawesome.js"></script>
+    <link rel="stylesheet" href="/wasthra/public/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/wasthra/public/css/bag_dropdown.css">
+    <link rel="stylesheet" href="/wasthra/public/css/libs/font-awesome.min.css">
+    <script src="/wasthra/public/js/libs/jquery.min.js"></script>
+    <script src="/wasthra/public/js/libs/fontawesome.js"></script>
 
 </head>
 
@@ -29,7 +29,7 @@
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">
-                    <img src="<?php echo URL; ?>public/images/logo.png" width="125px">
+                    <img src="/wasthra/public/images/logo.png" width="125px">
                 </div>
 
                 <nav>
@@ -78,7 +78,7 @@
                                                                                                                                                                                                                                                                                             echo '<span class="badge">' . Session::get('cartCount') . '</span>';
                                                                                                                                                                                                                                                                                         } ?></a>
 
-                <img src="<?php echo URL; ?>public/images/menu.png" class="menu-icon" onclick="menuToggle()">
+                <img src="/wasthra/public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
             <?php require 'views/shop/cart_dropdown.php'; ?>
 
@@ -91,4 +91,4 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="<?php echo URL ?>public/js/preloader.js"></script>
+    <script type="text/javascript" src="/wasthra/public/js/preloader.js"></script>

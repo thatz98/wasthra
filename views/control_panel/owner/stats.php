@@ -1,7 +1,7 @@
 <?php require 'views/header_dashboard.php'; ?>
 
-<link rel="stylesheet" href="<?php echo URL; ?>public/css/dashboard.css">
-<script src="<?php echo URL ?>public/js/libs/chart.min.js"></script>
+<link rel="stylesheet" href="/wasthra/public/css/dashboard.css">
+<script src="/wasthra/public/js/libs/chart.min.js"></script>
 
 <div class="container grey-back">
     <h2 class="title title-min">Statistics</h2>

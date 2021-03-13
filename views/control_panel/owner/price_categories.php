@@ -1,5 +1,5 @@
 <?php require 'views/header_dashboard.php'; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo URL?>public/css/filter_dropdown.css">
+<link rel="stylesheet" type="text/css" href="public/css/filter_dropdown.css">
 <div class="container">
     <div class="row">
         <h2 class="title title-min">Price Categories</h2>
@@ -342,7 +342,7 @@
 </div>
 </div>
 
-<script type="text/javascript" src="<?php echo URL ?>public/js/table_pagination.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
 <script>
 $(pagination(10,'pricecategory-table'));
 
@@ -368,10 +368,10 @@ function formToggle() {
 </script>
 
 
-<script type="text/javascript" src="<?php echo URL ?>public/js/table_filter.js"></script>
-<script type="text/javascript" src="<?php echo URL ?>public/js/sort_table.js"></script>
-<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
-<script type="text/javascript" src="<?php echo URL ?>util/form/price_category_form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/sort_table.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/>util/form/price_category_form_validation.js"></script>
 
 
 <?php require 'views/footer.php'; ?>

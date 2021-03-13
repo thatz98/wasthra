@@ -10,7 +10,7 @@
                     <a href="<?php echo URL; ?>shop/byCategory/Gents">
                         <div class="content-overlay"></div>
 
-                        <img class="content-image" src="<?php echo URL; ?>public/images/category-1.jpg">
+                        <img class="content-image" src="/wasthra/public/images/category-1.jpg">
                         <div class="content-details fadeIn-bottom">
                             <p>Gents</p>
                         </div>
@@ -22,7 +22,7 @@
                     <a href="<?php echo URL; ?>shop/byCategory/Ladies">
                         <div class="content-overlay"></div>
 
-                        <img class="content-image" src="<?php echo URL; ?>public/images/category-3.jpg">
+                        <img class="content-image" src="/wasthra/public/images/category-3.jpg">
                         <div class="content-details fadeIn-bottom">
                             <p>Ladies</p>
                         </div>
@@ -34,7 +34,7 @@
                     <a href="<?php echo URL; ?>shop/byCategory/Couple">
                         <div class="content-overlay"></div>
 
-                        <img class="content-image" src="<?php echo URL; ?>public/images/category-2.jpg">
+                        <img class="content-image" src="/wasthra/public/images/category-2.jpg">
                         <div class="content-details fadeIn-bottom">
                             <p>Couples</p>
                         </div>
@@ -160,5 +160,5 @@
     </div>
 </div>
 
-<script type="text/javascript" src="<?php echo URL ?>public/js/product_gallery.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>

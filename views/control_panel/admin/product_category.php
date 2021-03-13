@@ -65,9 +65,9 @@
 </div>
 </div>
 
-<script type="text/javascript" src="<?php echo URL ?>public/js/table_pagination.js"></script>
-<script type="text/javascript" src="<?php echo URL ?>public/js/form_validation.js"></script>
-<script type="text/javascript" src="<?php echo URL ?>util/form/ProductCategory_form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/util/form/ProductCategory_form_validation.js"></script>
 
 <?php require 'views/footer_dashboard.php'; ?>
 <script>

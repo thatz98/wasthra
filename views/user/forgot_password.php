@@ -12,5 +12,5 @@
         </div>
         </div>
     </div>
-<script type="text/javascript" src="<?php echo URL?>public/js/form_validation.js"></script>
-<script type="text/javascript" src="<?php echo URL?>util/form/forgot_password_form_validation.js"></script>
+<script type="text/javascript" src="public/js/form_validation.js"></script>
+<script type="text/javascript" src="util/form/forgot_password_form_validation.js"></script>
