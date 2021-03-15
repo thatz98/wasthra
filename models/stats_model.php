@@ -38,16 +38,15 @@ class Stats_Model extends Model {
 
     function getTotalSalesPerCity() {
 
-        $data =  $this->db->query("SELECT category.name as label,COUNT(category.category_id) as sales FROM checkout
+        $data =  $this->db->query("SELECT delivery_address.city as city,COUNT(checkout.order_id) as sales FROM checkout
         INNER JOIN delivery_address on checkout.address_id = delivery_address.address_id
-        INNER JOIN category on product.category_id = category.category_id
-        GROUP by category.name");
+        GROUP by delivery_address.city");
 
 $cities = array();
 $sales = array();
         foreach($data as $item){
-            $cities += $item['city'];
-            $sales += $item['sales'];
+            array_push($cities,'\''.$item['city'].'\'');
+            array_push($sales,$item['sales']);
         }
         $result = array();
         $result['cities'] = implode(",",$cities);
@@ -55,4 +54,27 @@ $sales = array();
         return array($result['cities'],$result['sales']);
 
     }
-}
+
+    function getSalesDistribution() {
+
+        $data =  $this->db->query("SELECT date,COUNT(order_id) as sales FROM orders
+        GROUP by date");
+       // print_r($data);
+$dates = range(1,31);
+$sales = array_fill(1,31,0);
+        foreach($data as $item){
+            $date = substr($item['date'],8,2);
+            foreach($dates as $d){
+                if($d == $date){
+                    $sales[$d] =$item['sales'];
+                }
+            }
+        }
+        $result = array();
+        $result['dates'] = implode(",",$dates);
+        $result['sales'] = implode(",",$sales);
+        return array($result['dates'],$result['sales']);
+
+    }
+    }
+

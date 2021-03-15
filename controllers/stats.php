@@ -18,6 +18,7 @@ class Stats extends Controller{
         $this->view->revenueAndCost = $this->model->getRevenueAndCost();
         $this->view->totalSalesPerCategory = $this->model->getTotalSalesPerCategory();
         $this->view->totalSalesPerCity = $this->model->getTotalSalesPerCity();
+        $this->view->salesDistribution = $this->model->getSalesDistribution();
    	    $this->view->render('control_panel/owner/stats');
     }
 }

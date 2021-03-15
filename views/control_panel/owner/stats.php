@@ -324,13 +324,11 @@
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
-                26, 27, 28, 29, 30
+            labels: [<?php echo $this->salesDistribution[0];?>
             ],
             datasets: [{
                 label: 'Number of Sales',
-                data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3,
-                    12, 19, 3, 5, 2
+                data: [<?php echo $this->salesDistribution[1];?>
                 ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 1)',
@@ -435,10 +433,10 @@
     new Chart(document.getElementById('sales-per-city'), {
         type: 'doughnut',
         data: {
-            labels: [<?php echo $this->totalSalesPerCity['cities'];?>],
+            labels: [<?php echo $this->totalSalesPerCity[0];?>],
             datasets: [{
                 label: 'Number of Sales',
-                data: [<?php echo $this->totalSalesPerCity['sales'];?>],
+                data: [<?php echo $this->totalSalesPerCity[1];?>],
                 backgroundColor: [
                     'rgba(236, 128, 0, 1)',
                     'rgba(222, 236, 0 , 1)',
