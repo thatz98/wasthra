@@ -6,16 +6,28 @@ class Stats_Model extends Model {
         parent::__construct();
     }
 
-    function getVisitorCount() {
-        return $this->db->query("SELECT COUNT(*) FROM visitors;");
+    function getVisitorCount($filter=false) {
+        if($filter){
+            return $this->db->query("SELECT COUNT(*) FROM visitors WHERE $filter;");
+        }else{
+            return $this->db->query("SELECT COUNT(*) FROM visitors;");
+        }
     }
 
-    function getSalesCount() {
+    function getSalesCount($filter=false) {
+        if($filter){
+        return $this->db->query("SELECT COUNT(*) FROM orders WHERE $filter;");
+    }else{
         return $this->db->query("SELECT COUNT(*) FROM orders;");
+        }
     }
 
-    function getTotalOrderCount() {
-        return $this->db->query("SELECT COUNT(*) FROM orders;");
+    function getTotalOrderCount($filter=false) {
+        if($filter){
+            return $this->db->query("SELECT COUNT(*) FROM orders WHERE $filter;");
+        }else{
+            return $this->db->query("SELECT COUNT(*) FROM orders;");
+            }
     }
 
     function getRevenueAndCost() {

@@ -8,11 +8,11 @@
     <div class="row">
         <nav class="filter-time">
             <ul>
-                <li><a href="">Daily</a></li>
-                <li><a href="">Weekly</a></li>
-                <li><a href="">Monthly</a></li>
-                <li><a href="">Yearly</a></li>
-                <li><a href="">Custom</a></li>
+                <li><a href="?filter=daily">Daily</a></li>
+                <li><a href="?filter=weekly">Weekly</a></li>
+                <li><a href="?filter=monthly">Monthly</a></li>
+                <li><a href="?filter=yearly">Yearly</a></li>
+                <li><a href="?filter=custom">Custom</a></li>
             </ul>
         </nav>
     </div>

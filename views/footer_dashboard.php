@@ -59,7 +59,7 @@
         
         </div>
     
- <?php require '/wasthra/public/js/nav_menu.js'; ?>   
+ <?php require 'public/js/nav_menu.js'; ?>   
 
 </body>
 
