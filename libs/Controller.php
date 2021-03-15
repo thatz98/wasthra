@@ -16,7 +16,10 @@ class Controller{
         	require 'models/'.$name.'_model.php';
         	$modelName = $name.'_Model';
         	$this->model = new $modelName();
+            $ip = $_SERVER['REMOTE_ADDR'];
+        $this->model->db->query("INSERT INTO visitors (ip,date,time) VALUES('$ip',CURDATE(),CURRENT_TIME())");
         }
+        
     }
     
 }

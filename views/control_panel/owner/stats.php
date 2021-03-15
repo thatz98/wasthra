@@ -24,7 +24,7 @@
                 </div>
                 <div class="row">
                     <div class="col-40p">
-                        <h1>3420</h1>
+                        <h1><?php echo $this->visitorCount[0][0];?></h1>
                     </div>
                     <div class="col-60p">
                         <canvas id="total-visitors" height="200px"></canvas>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="row">
                     <div class="col-40p">
-                        <h1>1250</h1>
+                        <h1><?php echo $this->salesCount[0][0];?></h1>
                     </div>
                     <div class="col-60p">
                         <canvas id="total-customers" height="200px"></canvas>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="row">
                     <div class="col-40p">
-                        <h1>48.12%</h1>
+                        <h1><?php echo number_format(($this->salesCount[0][0]*100)/$this->visitorCount[0][0], 2, '.', '').'%';?></h1>
                     </div>
                     <div class="col-60p">
                         <canvas id="conversion-rate" height="200px"></canvas>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1>250</h1>
+                        <h1><?php echo $this->totalOrderCount[0][0];?></h1>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1>LKR 250000.00</h1>
+                        <h1><?php echo 'LKR '.number_format($this->revenueAndCost[0]['revenue'], 2, '.', '');?></h1>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1>LKR 120000.00</h1>
+                        <h1><?php echo 'LKR '.number_format($this->revenueAndCost[0]['cost'], 2, '.', '');?></h1>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1>LKR 130000.00</h1>
+                        <h1><?php echo 'LKR '.number_format($this->revenueAndCost[0]['revenue']-$this->revenueAndCost[0]['cost'], 2, '.', '');?></h1>
                     </div>
                 </div>
             </div>
@@ -370,7 +370,7 @@
             labels: ['Gents', 'Ladies', 'Couple'],
             datasets: [{
                 label: 'Number of Sales',
-                data: [12, 19, 3],
+                data: [<?php if(isset($this->totalSalesPerCategory[0])) echo $this->totalSalesPerCategory[0]['sales'];?>, <?php if(isset($this->totalSalesPerCategory[1])) echo $this->totalSalesPerCategory[1]['sales'];?>, <?php if(isset($this->totalSalesPerCategory[2])) echo $this->totalSalesPerCategory[2]['sales'];?>],
                 backgroundColor: [
 
                     'rgba(54, 162, 235, 1)',
@@ -435,10 +435,10 @@
     new Chart(document.getElementById('sales-per-city'), {
         type: 'doughnut',
         data: {
-            labels: ['Colombo', 'Kalutara', 'Gampaha', 'Ratnapura', 'Galle'],
+            labels: [<?php echo $this->totalSalesPerCity['cities'];?>],
             datasets: [{
                 label: 'Number of Sales',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [<?php echo $this->totalSalesPerCity['sales'];?>],
                 backgroundColor: [
                     'rgba(236, 128, 0, 1)',
                     'rgba(222, 236, 0 , 1)',
