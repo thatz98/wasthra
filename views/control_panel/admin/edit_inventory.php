@@ -10,7 +10,9 @@
             <form action="<?php echo URL; ?>inventory/editSave/" id="editFrom" method="post">
                         <div class="row">
                             <div class="col-2">
-                            <input type="text" name="product_id" value="<?php echo $this->getInventory['product_id']?>" hidden>   
+                            <input type="text" name="product_id" value="<?php echo $this->getInventory['product_id']?>" hidden>
+                            <input type="text" name="size" value="<?php echo $this->getInventory['size']?>" hidden>
+                            <input type="text" name="color" value="<?php echo $this->getInventory['color']?>" hidden>   
                             <div class="helper-text">
                                 <label>Reorder Level</label><br>
                                 <input type="text" id="reorder_level" name="reorder_level"  value="<?php echo $this->getInventory['reorder_level'] ?>"

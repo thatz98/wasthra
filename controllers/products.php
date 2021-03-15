@@ -211,6 +211,8 @@ class Products extends Controller {
         //print_r($data);
         $this->model->updateVariant($data, $product_id, $inventory_id);
 
+        header('location: ' . URL . 'products/productDetails/'.$product_id); 
+
     }
 
     /**
