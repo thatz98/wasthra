@@ -348,7 +348,7 @@ $(pagination(10,'pricecategory-table'));
 
 $('#per-page').on('change',function() {
 	var rowsPerPage = parseInt($('#per-page').val());
-	pagination(rowsPerPage,'user-table');
+	pagination(rowsPerPage,'pricecategory-table');
 });
 
 </script>

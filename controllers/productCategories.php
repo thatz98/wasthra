@@ -20,8 +20,9 @@ class ProductCategories extends Controller {
 
         // get product category list
         $this->view->productcatList = $this->model->listProductcat();
-
+        $this->view->productcatCount = $this->model->getProductCategoryCount('no');
         $this->view->render('control_panel/admin/product_category');
+
     }
 
     
