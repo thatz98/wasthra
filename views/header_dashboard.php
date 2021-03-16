@@ -36,7 +36,7 @@
                         <li><a href="<?php echo URL; ?>controlPanel" class="<?php if(isset($this->title) && $this->title == 'Control Panel') echo 'active';?>">Control Panel</a></li>
                         <li><a href="<?php echo URL; ?>priceCategories" class="<?php if(isset($this->title) && $this->title == 'Price Categories') echo 'active';?>">Price Categories</a></li>
                         <li><a href="<?php echo URL; ?>deliveryCharges" class="<?php if(isset($this->title) && $this->title == 'Delivery Charges') echo 'active';?>">Delivery Charges</a></li>
-                        <li><a href="<?php echo URL; ?>stats" class="<?php if(isset($this->title) && $this->title == 'Stats') echo 'active';?>">Stats</a></li>
+                        <li><a href="<?php echo URL; ?>stats?filter=daily" class="<?php if(isset($this->title) && $this->title == 'Stats') echo 'active';?>">Stats</a></li>
                         <li><a href="<?php echo URL; ?>user" class="<?php if(isset($this->title) && $this->title == 'Users') echo 'active';?>">Users</a></li>
                         <li><a href="<?php echo URL; ?>orders/orderDashboard" class="<?php if(isset($this->title) && $this->title == 'Orders') echo 'active';?>">Orders</a></li>
                         <li><a href="<?php echo URL; ?>products" class="<?php if(isset($this->title) && $this->title == 'Products') echo 'active';?>">Products</a></li>
