@@ -50,7 +50,9 @@ class Inventory extends Controller {
         $data['product_id'] = $_POST['product_id'];
         $data['reorder_level'] = $_POST['reorder_level'];
         $data['reorder_qty'] = $_POST['reorder_quantity'];
-
+        $data['size'] = $_POST['size'];
+        $data['color'] = $_POST['color'];
+        
         $this->model->update($data);
         
         header('location: ' . URL . 'inventory');
