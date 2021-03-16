@@ -27,7 +27,7 @@
             </div>
             <div class="col-4">
                 <div class="content">
-                    <a href="<?php echo URL;?>stats">
+                    <a href="<?php echo URL;?>stats?filter=daily">
                         <div class="content-overlay"></div>
                         <div class="content-onlay">
                             <div class="content-details fadeOut-top">
