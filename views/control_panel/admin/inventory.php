@@ -23,7 +23,14 @@
         <?php foreach ($this->inventoryDetails as $inventory): ?>
             <tr>
                 <td><?php echo $inventory['product_id']; ?></td>
-                <td><span class="color-dot" style="background-color: <?php echo $inventory['color'] ?>"></span></td>
+                <td>                        
+                        <div class="tooltip">
+
+                            <span class="color-dot no-mar-right" style="background-color: <?php echo $inventory['color'] ?>" tool-tip=></span>
+                            <span class="tooltiptext"><?php echo $inventory['color'] ?></span>
+                        
+                        </div>
+                </td>
                 <td><?php echo $inventory['size']; ?></td>
                 <td><?php echo $inventory['qty']; ?></td>
                 <td><?php if(empty($inventory['reorder_level'])){

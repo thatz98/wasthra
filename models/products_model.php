@@ -24,7 +24,7 @@ class Products_Model extends Model{
          INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
          INNER JOIN product_images ON product.product_id=product_images.product_id
          LEFT JOIN review on review.product_id=product.product_id 
-         WHERE product.product_id='$id'
+         WHERE product.product_id='$id' AND inventory.is_deleted='no'
          GROUP BY product.product_id");
 
         foreach ($data as $key => $value) {
@@ -48,7 +48,7 @@ class Products_Model extends Model{
          INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
          INNER JOIN product_images ON product.product_id=product_images.product_id
          LEFT JOIN review on review.product_id=product.product_id 
-         WHERE product.is_deleted='no'
+         WHERE product.is_deleted='no' AND inventory.is_deleted='no'
          GROUP BY product.product_id");
 
         foreach ($data as $key => $value) {
@@ -90,7 +90,7 @@ class Products_Model extends Model{
     }
     function getQty(){
         return $this->db->query("SELECT inventory.product_id,inventory.qty
-        FROM inventory ;");
+        FROM inventory WHERE is_deleted='no' ;");
     }
     function getQtyByID($id){
         return $this->db->query("SELECT inventory.qty
