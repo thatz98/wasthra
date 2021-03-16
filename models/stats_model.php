@@ -6,52 +6,70 @@ class Stats_Model extends Model {
         parent::__construct();
     }
 
-    function getVisitorCount($filter=false) {
-        if($filter){
+    function getVisitorCount($filter = false) {
+        if ($filter) {
             return $this->db->query("SELECT COUNT(*) FROM visitors WHERE $filter;");
-        }else{
+        } else {
             return $this->db->query("SELECT COUNT(*) FROM visitors;");
         }
     }
 
-    function getSalesCount($filter=false) {
-        if($filter){
-        return $this->db->query("SELECT COUNT(*) FROM orders WHERE $filter;");
-    }else{
-        return $this->db->query("SELECT COUNT(*) FROM orders;");
+    function getSalesCount($filter = false) {
+        if ($filter) {
+            return $this->db->query("SELECT COUNT(*) FROM orders WHERE $filter;");
+        } else {
+            return $this->db->query("SELECT COUNT(*) FROM orders;");
         }
     }
 
-    function getTotalOrderCount($filter=false) {
-        if($filter){
+    function getTotalOrderCount($filter = false) {
+        if ($filter) {
             return $this->db->query("SELECT COUNT(*) FROM orders WHERE $filter;");
-        }else{
+        } else {
             return $this->db->query("SELECT COUNT(*) FROM orders;");
-            }
+        }
     }
 
-    function getRevenueAndCost() {
+    function getRevenueAndCost($filter = false) {
 
-        return $this->db->query("SELECT SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
+        $query = "SELECT SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
         INNER JOIN order_item ON orders.order_id=order_item.order_id
         INNER JOIN product on product.product_id = order_item.product_id
-        INNER JOIN price_category on product.price_category_id = price_category.price_category_id");
+        INNER JOIN price_category on product.price_category_id = price_category.price_category_id ";
+
+        if ($filter) {
+            $query .= "WHERE $filter;";
+        }
+        return $this->db->query($query);
     }
 
-    function getTotalSalesPerCategory() {
+    function getTotalSalesPerCategory($filter = false) {
 
-        return $this->db->query("SELECT category.name as label,COUNT(category.category_id) as sales FROM orders
+        $query = "SELECT category.name as label,COUNT(DISTINCT orders.order_id) as sales FROM orders
         INNER JOIN order_item ON orders.order_id=order_item.order_id
         INNER JOIN product on product.product_id = order_item.product_id
-        INNER JOIN category on product.category_id = category.category_id
-        GROUP by category.name");
+        INNER JOIN category on product.category_id = category.category_id ";
+
+        if ($filter) {
+            $query .= "WHERE $filter GROUP by category.name;";
+        } else {
+            $query .= "GROUP by category.name;";
+        }
+        return $this->db->query($query);
     }
 
-    function getTotalSalesPerCity() {
+    function getTotalSalesPerCity($filter = false) {
 
-        $data =  $this->db->query("SELECT delivery_address.city as city,COUNT(checkout.order_id) as sales FROM checkout
-        INNER JOIN delivery_address on checkout.address_id = delivery_address.address_id
-        GROUP by delivery_address.city");
+        $query =  "SELECT delivery_address.city as city,COUNT(checkout.order_id) as sales FROM checkout
+        INNER JOIN orders ON orders.order_id=checkout.order_id
+        INNER JOIN delivery_address on checkout.address_id = delivery_address.address_id ";
+
+        if ($filter) {
+            $query .= "WHERE $filter GROUP by delivery_address.city;";
+        } else {
+            $query .= "GROUP by delivery_address.city;";
+        }
+        $data = $this->db->query($query);
 
         $cities = array();
         $sales = array();
@@ -64,22 +82,26 @@ class Stats_Model extends Model {
         $result['sales'] = implode(",", $sales);
         return array($result['cities'], $result['sales']);
     }
-    
-    function getDailySalesDistribution() {
 
-        $data =  $this->db->query("SELECT HOUR(time) as time,COUNT(order_id) as sales FROM orders
+    function getDailySalesDistribution($filter = false) {
+
+        if ($filter) {
+            $data =  $this->db->query("SELECT HOUR(time) as time,COUNT(order_id) as sales FROM orders WHERE $filter
         GROUP BY HOUR(time)");
+        } else {
+            $data =  $this->db->query("SELECT HOUR(time) as time,COUNT(order_id) as sales FROM orders
+        GROUP BY HOUR(time)");
+        }
         // print_r($data);
         $hours = $this->hoursRange();
-       
-        foreach ($data as $item) {
-            if($item['time'] <10){
-                $hour = '0'.$item['time'].':00';
-            } else{
-                $hour = $item['time'].':00';
 
+        foreach ($data as $item) {
+            if ($item['time'] < 10) {
+                $hour = '0' . $item['time'] . ':00';
+            } else {
+                $hour = $item['time'] . ':00';
             }
-            
+
             foreach ($hours as $key => $value) {
                 if ($key == $hour) {
                     $hours[$key] = $item['sales'];
@@ -91,19 +113,24 @@ class Stats_Model extends Model {
         $result['hours'] .= implode("','", array_keys($hours));
         $result['hours'] .= "'";
         $result['sales'] = implode(",", array_values($hours));
-       
+
         return array($result['hours'], $result['sales']);
     }
 
-    function getWeeklySalesDistribution() {
+    function getWeeklySalesDistribution($filter = false) {
 
-        $data =  $this->db->query("SELECT WEEKDAY(date) as day,COUNT(order_id) as sales FROM orders 
+        if ($filter) {
+            $data =  $this->db->query("SELECT WEEKDAY(date) as day,COUNT(order_id) as sales FROM orders 
+        WHERE YEARWEEK(date,5) = YEARWEEK($filter,5) GROUP BY DATE(date)");
+        } else {
+            $data =  $this->db->query("SELECT WEEKDAY(date) as day,COUNT(order_id) as sales FROM orders 
         WHERE YEARWEEK(date,5) = YEARWEEK(CURDATE(),5) GROUP BY DATE(date)");
+        }
         // print_r($data);
-        $days = array('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
-        $sales = array_fill(0,7,0);
-       
-        foreach ($data as $item)  {     
+        $days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+        $sales = array_fill(0, 7, 0);
+
+        foreach ($data as $item) {
             foreach ($days as $key => $value) {
                 if ($key == $item['day']) {
                     $sales[$key] = $item['sales'];
@@ -118,11 +145,19 @@ class Stats_Model extends Model {
         $result['sales'] = implode(",", $sales);
         return array($result['days'], $result['sales']);
     }
-    
-    function getMonthlySalesDistribution() {
 
-        $data =  $this->db->query("SELECT date,COUNT(order_id) as sales FROM orders
-        GROUP by date");
+    function getMonthlySalesDistribution($filter = false) {
+
+        if ($filter) {
+            $data =  $this->db->query("SELECT date,COUNT(order_id) as sales FROM orders
+            WHERE MONTH(date) = MONTH($filter) AND YEAR(date) = YEAR(CURRENT_DATE())
+            GROUP by date ");
+        } else {
+            $data =  $this->db->query("SELECT date,COUNT(order_id) as sales FROM orders
+            WHERE MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())
+            GROUP by date ");
+        }
+
         // print_r($data);
         $dates = range(1, 31);
         $sales = array_fill(1, 31, 0);
@@ -140,14 +175,14 @@ class Stats_Model extends Model {
         return array($result['dates'], $result['sales']);
     }
 
-    function getYearlySalesDistribution() {
+    function getYearlySalesDistribution($filter = false) {
 
         $data =  $this->db->query("SELECT MONTH(date) as month,COUNT(order_id) as sales FROM orders 
         WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date)");
         // print_r($data);
-        $months = array('January','Februray','March','April','June','July','August','September','October','November','December');
+        $months = array('January', 'Februray', 'March', 'April', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
         $sales = array_fill(1, 12, 0);
-        foreach ($data as $item)  {     
+        foreach ($data as $item) {
             foreach ($months as $key => $value) {
                 if ($key == $item['month']) {
                     $sales[$key] = $item['sales'];
@@ -163,9 +198,9 @@ class Stats_Model extends Model {
         return array($result['months'], $result['sales']);
     }
 
-    
 
-    
+
+
 
     function hoursRange($lower = 0, $upper = 86400, $step = 3600, $format = '') {
         $times = array();
@@ -178,7 +213,7 @@ class Stats_Model extends Model {
             $increment = gmdate('H:i', $increment);
 
 
-            $times[(string) $increment] = 0 ;
+            $times[(string) $increment] = 0;
         }
 
         return $times;
