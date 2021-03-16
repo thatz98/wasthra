@@ -7,6 +7,23 @@
     <div class="row-right">
         <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
     </div>
+
+    <div class="table-search">
+            <input type="text" id="keyword-input" onkeyup="filterByKeyword('order_list',3)"
+                   placeholder="Search by Order Category..">
+    </div>
+
+    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo $this->newOrderCount; ?> results...</span>
+    <div class="per-page" style="float: right;">
+        <span>Rows per page: </span><select name="per-page" id="per-page">
+            <?php foreach(range(10,100,10) as $i){?>
+                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php }?>
+        </select>
+    </div> 
+
+    
+
     <div class="row">
         <div class="col-3 fit-size">
             <div class="min-card">
@@ -39,9 +56,12 @@
             </div>
         </div>
     </div>
+
+
+
     <div class="row-top">
         <div class="order-container" style="min-width: 70%">
-            <table class="order-list">
+            <table class="order-list" id="order_list">
                
             <?php if($this->orderList==FALSE){echo "No Placed Orders";}else{ foreach ($this->orderList as $order_list ): ?>
                 <tr>
@@ -81,6 +101,7 @@
                     <td class="order-messages">
                         <div class="oder-status">
 
+                           
                             <?php $status=$order_list['order_status']; $color='';
                                 switch($status){
                                     case 'New':
@@ -152,8 +173,25 @@
 
 </div>
 
-<?php require 'views/footer_dashboard.php'; ?>
 
+
+
+
+<script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
+
+
+<script>
+$(pagination(10,'order_list'));
+
+$('#per-page').on('change',function() {
+	var rowsPerPage = parseInt($('#per-page').val());
+	pagination(rowsPerPage,'order_list');
+});
+
+</script>
+
+<?php require 'views/footer_dashboard.php'; ?>
 
 
 

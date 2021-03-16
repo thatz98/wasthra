@@ -1,6 +1,7 @@
 <?php require 'views/header_dashboard.php'; ?>
 <div class="small-container">
 
+<link rel="stylesheet" type="text/css" href="<?php echo URL?>public/css/filter_dropdown.css">
     <div class="row">
         <h2 class="title title-min">Delivery Charges</h2>
     </div>

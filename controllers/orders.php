@@ -52,6 +52,7 @@ class Orders extends Controller{
         $this->view->processCount = $this->model->orderCount('Processing');
         $this->view->outForDeliveryCount = $this->model->orderCount('Out for Delivery');
         $this->view->pendingReturnCount = $this->model->orderCount('Requested to Return');
+    
 
         $this->view->render('control_panel/admin/orders');
         
