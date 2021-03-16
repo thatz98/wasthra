@@ -1,5 +1,5 @@
 
-<?php require 'views/header.php'; ?>
+<?php require 'views/header_dashboard.php'; ?>
 
 <div class="small-container single-product">
     <div class="row">

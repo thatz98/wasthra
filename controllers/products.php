@@ -52,7 +52,7 @@ class Products extends Controller {
     function productDetails($id) {
 
         $this->view->title = 'Product Details';
-        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
+        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'products">Products</a><i class="fas fa-angle-right"></i> Product Details';
 
         // get all product details
         $this->view->product = $this->model->getProduct($id);

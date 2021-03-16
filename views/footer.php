@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col-1">
-                        <img src=/wasthra/public/images/logo-white.png">
+                        <img src="/wasthra/public/images/logo-white.png">
                         <div class="social-icons">
                             <a href="#"><i class="fa fa-facebook-square footer-icon"></i></a>
                             <a href="#"><i class="fa fa-twitter-square footer-icon"></i></a>
@@ -61,7 +61,7 @@
             </div>
         
         </div>
- <?php require '/wasthra/public/js/nav_menu.js'; ?>
+ <?php require 'public/js/nav_menu.js'; ?>
  <script src="/wasthra/public/js/live_search.js"></script>
 </body>
 
