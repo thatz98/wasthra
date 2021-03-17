@@ -8,7 +8,8 @@ class Inventory_Model extends Model{
 
         function listInventoryDetials(){
 
-            return $this->db->listAll('inventory',array('product_id','qty','reorder_qty','reorder_level','color','size'));
+            //return $this->db->listAll('inventory',array('product_id','qty','reorder_qty','reorder_level','color','size'));
+            return $this->db->query("SELECT product_id,qty,reorder_qty,reorder_level,color,size FROM inventory WHERE is_deleted='no' ORDER BY product_id");
             
         }
 

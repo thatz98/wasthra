@@ -107,6 +107,7 @@ class Products extends Controller {
         if($_POST['size']==''){
             $data['size_couple'] = $_POST['size-couple'];
             $size_couple = $data['size_couple'];
+            print_r($data);
             $this->model->addVarient($data, $size_couple);
         }
         else{

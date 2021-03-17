@@ -224,7 +224,14 @@
             </tr>
             <?php foreach ($this->varients as $product_varient){ if($product_varient['is_deleted']=='yes'){continue;}?>
                 <tr>
-                    <td><?php echo $product_varient['color']; ?></td>
+                    <td>
+                        <div class="tooltip">
+
+                            <span class="color-dot no-mar-right" style="background-color: <?php echo $product_varient['color']; ?>" tool-tip=></span>
+                            <span class="tooltiptext"><?php echo $product_varient['color']; ?></span>
+                        
+                        </div>
+                    </td>
                     <td><?php echo $product_varient['size']; ?></td>
                     <td><?php echo $product_varient['qty']; ?></td>
                     <td><a href="<?php echo URL ?>products/editVariant/<?php echo $product_varient['inventory_id'] ?>/<?php echo $this->product[0]['product_id']?>"><button class="table-btn btn-blue">Edit</button></a>
