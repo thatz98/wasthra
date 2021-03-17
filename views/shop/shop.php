@@ -81,15 +81,15 @@ if (isset($_GET['page'])) {
                     <div class="filter-color-list">
                         <?php $filter_colors = array();
                         foreach ($this->colorList as $color) {
-                            if (in_array($color['colors'], $filter_colors)) {
+                            if (in_array($color['color'], $filter_colors)) {
                                 continue;
                             } else {
-                                $filter_colors[] .= $color['colors']; ?>
+                                $filter_colors[] .= $color['color']; ?>
                                 <label class="color-container">
-                                    <input type="radio" name="filter-color" <?php if (isset($this->selected) && $this->selected == $color['colors']) {
+                                    <input type="radio" name="filter-color" <?php if (isset($this->selected) && $this->selected == $color['color']) {
                                                                                 echo 'checked';
                                                                             } ?>>
-                                    <span class="checkmark" onclick="colorFilter('<?php echo $color['colors']; ?>')" style="background-color:<?php echo $color['colors'] ?>"></span>
+                                    <span class="checkmark" onclick="colorFilter('<?php echo $color['color']; ?>')" style="background-color:<?php echo $color['color'] ?>"></span>
                                 </label>
                         <?php }
                         } ?>

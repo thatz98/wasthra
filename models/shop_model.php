@@ -55,35 +55,13 @@ class Shop_Model extends Model {
         FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
     }
 
-    function getSizes($productId,$color){
-
-        return $this->db->query("SELECT * FROM inventory WHERE product_id='$productId' AND color='$color'");
+    function getAllColors() {
+        return $this->db->query("SELECT DISTINCT inventory.color
+        FROM inventory;");
     }
-
-    function getQtys($productId,$color,$size){
-
-        return $this->db->query("SELECT qty FROM inventory WHERE product_id='$productId' AND color='$color' AND size='$size'");
-    }
-
-    function getImages() {
-        return $this->db->query("SELECT product_images.image,product_images.product_id
-        FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
-    }
-    function getColors() {
-        return $this->db->query("SELECT product_colors.colors,product_colors.product_id
-        FROM product_colors INNER JOIN product on product_colors.product_id=product.product_id;");
-    }
-    function getCategories() {
+    function getAllCategories() {
         return $this->db->query("SELECT category.name,category.category_id
         FROM category ;");
-    }
-    function getPriceCategories() {
-        return $this->db->query("SELECT price_category.price_category_name,price_category.price_category_id
-        FROM price_category ;");
-    }
-    function getQty() {
-        return $this->db->query("SELECT inventory.product_id,inventory.qty
-        FROM inventory ;");
     }
 
     function addReview($data, $date, $time, $imageList) {
@@ -247,38 +225,44 @@ class Shop_Model extends Model {
 
     function getProductListBy($field, $value) {
         if ($field == 'color') {
-            $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
-        INNER JOIN inventory ON product.product_id=inventory.product_id
-        INNER JOIN category ON product.category_id=category.category_id
-        INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
-        INNER JOIN product_images ON product.product_id=product_images.product_id
-        INNER JOIN product_size ON product.product_id=product_size.product_id
-        INNER JOIN product_colors ON product.product_id=product_colors.product_id
-        LEFT JOIN review on review.product_id=product.product_id
-            WHERE product_colors.colors='$value' AND product.is_published='yes'
-            GROUP BY product_id;");
+            $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+            product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+            GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
+            inventory.qty, price_category.product_price, 
+            price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+             LEFT JOIN inventory ON product.product_id=inventory.product_id
+             INNER JOIN category ON product.category_id=category.category_id
+             INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+             INNER JOIN product_images ON product.product_id=product_images.product_id
+             LEFT JOIN review on review.product_id=product.product_id 
+             WHERE inventory.color='$value' AND product.is_published='yes'
+             GROUP BY product.product_id;");
         } else if ($field == 'size') {
-            $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
-        INNER JOIN inventory ON product.product_id=inventory.product_id
-        INNER JOIN category ON product.category_id=category.category_id
-        INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
-        INNER JOIN product_images ON product.product_id=product_images.product_id
-        INNER JOIN product_size ON product.product_id=product_size.product_id
-        INNER JOIN product_colors ON product.product_id=product_colors.product_id
-        LEFT JOIN review on review.product_id=product.product_id
-            WHERE (product_size.sizes='$value' OR product_size.sizes LIKE '$value-%') AND product.is_published='yes'
-            GROUP BY product_id");
+            $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+            product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+            GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
+            inventory.qty, price_category.product_price, 
+            price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+             LEFT JOIN inventory ON product.product_id=inventory.product_id
+             INNER JOIN category ON product.category_id=category.category_id
+             INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+             INNER JOIN product_images ON product.product_id=product_images.product_id
+             LEFT JOIN review on review.product_id=product.product_id 
+             WHERE inventory.size='$value' AND product.is_published='yes'
+             GROUP BY product.product_id;");
         } else if ($field == 'category') {
-            $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
-            INNER JOIN inventory ON product.product_id=inventory.product_id
-            INNER JOIN category ON product.category_id=category.category_id
-            INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
-            INNER JOIN product_images ON product.product_id=product_images.product_id
-            INNER JOIN product_size ON product.product_id=product_size.product_id
-            INNER JOIN product_colors ON product.product_id=product_colors.product_id
-            LEFT JOIN review on review.product_id=product.product_id
-            WHERE category.name='$value' AND product.is_published='yes'
-            GROUP BY product_id;");
+            $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+            product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+            GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
+            inventory.qty, price_category.product_price, 
+            price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+             LEFT JOIN inventory ON product.product_id=inventory.product_id
+             INNER JOIN category ON product.category_id=category.category_id
+             INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+             INNER JOIN product_images ON product.product_id=product_images.product_id
+             LEFT JOIN review on review.product_id=product.product_id 
+             WHERE category.name='$value' AND product.is_published='yes'
+             GROUP BY product.product_id;;");
         }
 
         foreach ($data as $key => $value) {

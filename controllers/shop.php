@@ -22,8 +22,8 @@ class Shop extends Controller {
         
         // get filter data
         $this->view->sizeList =  $this->model->getAllSizes();
-        $this->view->colorList =  $this->model->getColors();
-        $this->view->categoryList =  $this->model->getCategories();
+        $this->view->colorList =  $this->model->getAllColors();
+        $this->view->categoryList =  $this->model->getAllCategories();
 
         $this->view->render('shop/shop');
     }
@@ -62,9 +62,9 @@ class Shop extends Controller {
         // get all product details in the given color
         $this->view->products = $this->model->getProductListBy('color', '#' . $color);
 
-        $this->view->sizeList =  $this->model->getSizes();
-        $this->view->colorList =  $this->model->getColors();
-        $this->view->categoryList =  $this->model->getCategories();
+        $this->view->sizeList =  $this->model->getAllSizes();
+        $this->view->colorList =  $this->model->getAllColors();
+        $this->view->categoryList =  $this->model->getAllCategories();
         
         $this->view->selected = '#' . $color;
         
@@ -85,9 +85,9 @@ class Shop extends Controller {
         // get all product details in the given size
         $this->view->products = $this->model->getProductListBy('size', $size);
 
-        $this->view->sizeList =  $this->model->getSizes();
-        $this->view->colorList =  $this->model->getColors();
-        $this->view->categoryList =  $this->model->getCategories();
+        $this->view->sizeList =  $this->model->getAllSizes();
+        $this->view->colorList =  $this->model->getAllColors();
+        $this->view->categoryList =  $this->model->getAllCategories();
 
         $this->view->selected = $size;
         
@@ -108,9 +108,9 @@ class Shop extends Controller {
         // get all product details in the given category
         $this->view->products = $this->model->getProductListBy('category', $category);
 
-        $this->view->sizeList =  $this->model->getSizes();
-        $this->view->colorList =  $this->model->getColors();
-        $this->view->categoryList =  $this->model->getCategories();
+        $this->view->sizeList =  $this->model->getAllSizes();
+        $this->view->colorList =  $this->model->getAllColors();
+        $this->view->categoryList =  $this->model->getAllCategories();
 
         $this->view->selected = $category;
         

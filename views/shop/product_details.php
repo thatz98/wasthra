@@ -165,7 +165,7 @@
 
 <div class="small-container">
     <div class="row row-2">
-        <h2>Related Products</h2>
+        <h2>Items You May Like</h2>
     </div>
 </div>
 
