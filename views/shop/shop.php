@@ -56,21 +56,21 @@ if (isset($_GET['page'])) {
                     <div class="filter-size-list">
                         <?php $filter_sizes = array();
                         foreach ($this->sizeList as $size) {
-                            if (strpos($size['sizes'], '-G') != false) {
-                                $size['sizes'] = rtrim($size['sizes'], '-G');
-                            } else if (strpos($size['sizes'], '-W') != false) {
-                                $size['sizes'] = rtrim($size['sizes'], '-W');
+                            if (strpos($size['size'], '-G') != false) {
+                                $size['size'] = rtrim($size['size'], '-G');
+                            } else if (strpos($size['size'], '-W') != false) {
+                                $size['size'] = rtrim($size['size'], '-W');
                             }
 
-                            if (in_array($size['sizes'], $filter_sizes)) {
+                            if (in_array($size['size'], $filter_sizes)) {
                                 continue;
                             } else {
-                                $filter_sizes[] .= $size['sizes']; ?>
+                                $filter_sizes[] .= $size['size']; ?>
                                 <label class="size-container">
-                                    <input type="radio" name="filter-size" <?php if (isset($this->selected) && $this->selected == $size['sizes']) {
+                                    <input type="radio" name="filter-size" <?php if (isset($this->selected) && $this->selected == $size['size']) {
                                                                                 echo 'checked';
                                                                             } ?>>
-                                    <span class="checkbox" onclick="sizeFilter('<?php echo $size['sizes']; ?>')"><?php echo $size['sizes'] ?></span>
+                                    <span class="checkbox" onclick="sizeFilter('<?php echo $size['size']; ?>')"><?php echo $size['size'] ?></span>
                                 </label>
                         <?php }
                         } ?>

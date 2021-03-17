@@ -165,61 +165,48 @@
 
 <div class="small-container">
     <div class="row row-2">
-        <h2>Items You May Like</h2>
+        <h2>Featured Products You May Like</h2>
     </div>
 </div>
-
 
 <div class="small-container">
-
-
     <div class="row">
-        <?php $featured_count = 0;
-        foreach ($this->qtyList as $qty) {
-            if ($qty['is_featured'] == 'yes') {
-                $featured_count++; ?>
-                <div class="col-4">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <?php foreach ($this->imageList as $image) {
-                            if ($qty['product_id'] == $image['product_id']) { ?>
-                                <img src="<?php echo URL . $image['image'] ?>">
-                        <?php break;
+        <?php foreach ($this->featuredProducts as $product) { ?>
+            <div class="col-4">
+                <div class="content">
+                    <div class="content-overlay"></div>
+                    <img src="<?php echo URL . $product['product_images'][0]; ?>">
+                    <div class="content-details fadeIn-bottom">
+                        <div class="options">
+                            <div class="text">
+                                <a href="<?php echo URL; ?>shop/productDetails/<?php echo $product['product_id'] ?>">View</a><br><br>
+                            </div>
+                            <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $product['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>&tag=featured#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4><?php echo $product['product_name']; ?></h4>
+                        <div class="ratings">
+                            <?php
+                            for ($j = 0; $j < ceil($product['review_rate']); $j++) {
+                                echo '<i class="fa fa-star"></i>';
                             }
-                        } ?>
-                        <div class="content-details fadeIn-bottom">
-                            <div class="options">
-                                <div class="text">
-                                    <a href="<?php echo URL; ?>shop/productDetails/<?php echo $qty['product_id'] ?>">View</a><br><br>
-                                </div>
-                                <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $qty['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $qty['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
-                            </div>
+                            for ($j = 0; $j < (5 - ceil($product['review_rate'])); $j++) {
+                                echo '<i class="fa fa-star-o"></i>';
+                            } ?>
                         </div>
-                        <div>
-                            <h4><?php echo $qty['product_name']; ?></h4>
-                            <div class="ratings">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <p>LKR <?php echo $qty['product_price']; ?></p>
-                        </div>
-
+                        <p class="price">LKR <?php echo $product['product_price']; ?></p>
                     </div>
 
-
                 </div>
-        <?php }
-            if ($featured_count >= 4) {
-                break;
-            }
-        } ?>
+
+
+            </div>
+        <?php } ?>
+
 
     </div>
 </div>
-
 <script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 
 <?php require 'views/footer.php'; ?>

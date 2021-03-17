@@ -10,7 +10,7 @@
         <div class="col-2">
             <div class="box-container" >
                 <h3>Items</h3>
-                <?php $this->subtotal=0.00;
+                <?php $this->subtotal=0.00;?>
                 <table class="order-list order-items">
                 <?php foreach ($this->allInfo as $order_Details):?>
                     <tr>

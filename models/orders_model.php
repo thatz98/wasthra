@@ -153,13 +153,17 @@
 
     function trackingUpdate($id){
         $status = $this->db->query("SELECT order_status FROM orders WHERE order_id='$id'");
-        if($status[0]['order_status'] == 'outForDelivery'){
-            $this->db->query("UPDATE order_tracking SET processed = NOW() WHERE order_id='$id'");
-        } else if($status[0]['order_status'] == 'inTransit'){
-            $this->db->query("UPDATE order_tracking SET outForDelivery = NOW(), inTransit = NOW() WHERE order_id='$id'");
-        } else if($status[0]['order_status'] == 'delivered'){
-            $this->db->query("UPDATE order_tracking SET delivered = NOW() WHERE order_id='$id'");
+        if($status[0]['order_status'] == 'Out for Delivery'){
+            $this->db->query("UPDATE order_tracking SET processed = CURRENT_TIMESTAMP() WHERE order_id='$id'");
+        } else if($status[0]['order_status'] == 'In Transit'){
+            $this->db->query("UPDATE order_tracking SET outForDelivery = CURRENT_TIMESTAMP(), inTransit = CURRENT_TIMESTAMP() WHERE order_id='$id'");
+        } else if($status[0]['order_status'] == 'Delivered'){
+            $this->db->query("UPDATE order_tracking SET delivered = CURRENT_TIMESTAMP() WHERE order_id='$id'");
         } 
+    }
+
+    function getTrackingInfo($id){
+        return $this->db->query("SELECT * FROM order_tracking WHERE order_id='$id'");
     }
 
     function assignedOrders(){
@@ -222,8 +226,9 @@
             'order_id' => $data['order_id'],     
             'user_id' => $data['user_id']
            ));
-
+           $this->trackingUpdate($data['order_id']);
         }
+        
     function getDeliveryInfo($id){
 
        return $this->db->query("SELECT order_item.item_size,order_item.item_color,order_item.item_qty,product.product_name,

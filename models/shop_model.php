@@ -50,9 +50,23 @@ class Shop_Model extends Model {
         LEFT JOIN review on review.product_id=product.product_id GROUP BY product_id;");
     }
 
+    function getSizes($productId,$color){
+
+        return $this->db->query("SELECT * FROM inventory WHERE product_id='$productId' AND color='$color'");
+    }
+
+    function getQtys($productId,$color,$size){
+
+        return $this->db->query("SELECT qty FROM inventory WHERE product_id='$productId' AND color='$color' AND size='$size'");
+    }
+
+    function getImages() {
+        return $this->db->query("SELECT product_images.image,product_images.product_id
+        FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
+    }
     function getAllSizes() {
-        return $this->db->query("SELECT product_size.sizes,product_size.product_id 
-        FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
+        return $this->db->query("SELECT DISTINCT inventory.size
+        FROM inventory;");
     }
 
     function getAllColors() {
@@ -62,6 +76,15 @@ class Shop_Model extends Model {
     function getAllCategories() {
         return $this->db->query("SELECT category.name,category.category_id
         FROM category ;");
+    }
+    
+    function getPriceCategories() {
+        return $this->db->query("SELECT price_category.price_category_name,price_category.price_category_id
+        FROM price_category ;");
+    }
+    function getQty() {
+        return $this->db->query("SELECT inventory.product_id,inventory.qty
+        FROM inventory ;");
     }
 
     function addReview($data, $date, $time, $imageList) {
@@ -174,6 +197,13 @@ class Shop_Model extends Model {
             'cart_id' => $cartIdActual,
             'user_id' => $userId,
         ));
+
+        $this->db->insert('order_tracking', array(
+            'order_id' => $orderID,
+            'ordered' => 'CURRENT_TIMESTAMP()'
+        ));
+
+
     }
 
     function deleteCartItems() {

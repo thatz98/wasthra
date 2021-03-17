@@ -42,8 +42,7 @@ class Shop extends Controller {
         // get all product details
         $this->view->product = $this->model->getProduct($id);
         $this->view->reviews = $this->model->getReviewDetails($id);
-
-        $this->view->products = $this->model->getProductList();
+        $this->view->featuredProducts =  $this->model->getFeaturedProducts();
 
         $this->view->render('shop/product_details');
     }

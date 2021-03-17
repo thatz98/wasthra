@@ -1,6 +1,4 @@
 <?php require 'views/header.php'; ?>
-<?php require 'views/order/cancel_order_popup.php'; ?>
-<?php require 'views/order/request_return_popup.php'; ?>
 
 <div class="small-container">
     <div class="row">
@@ -10,30 +8,35 @@
         <div class="box-container tracking-box">
             <div class="row mar-b-30">
                 <div class="col">
-                <h2>Order ID: ORD2020121613013226</h2>
+                    <h2>Order ID: <?php echo $this->track[0]['order_id']; ?></h2>
                 </div>
             </div>
             <div class="row-top">
-                        <div class="order-tracking completed">
-                            <span class="is-complete"></span>
-                            <p>Ordered<br><span>Mon, June 24</span></p>
-                        </div>
-                        <div class="order-tracking completed">
-                            <span class="is-complete"></span>
-                            <p>Processed<br><span>Mon, June 24</span></p>
-                        </div>
-                        <div class="order-tracking completed">
-                            <span class="is-complete"></span>
-                            <p>Out for Delivery<br><span>Mon, June 24</span></p>
-                        </div>
-                        <div class="order-tracking completed">
-                            <span class="is-complete"></span>
-                            <p>In Transit<br><span>Tue, June 25</span></p>
-                        </div>
-                        <div class="order-tracking">
-                            <span class="is-complete"></span>
-                            <p>Delivered<br><span>Fri, June 28</span></p>
-                        </div>
+                <div class="order-tracking <?php if ($this->track[0]['ordered']) echo 'completed'; ?>">
+                    <span class="is-complete"></span>
+                    <p>Ordered<br><span><?php if ($this->track[0]['ordered']) echo $this->track[0]['ordered'];
+                                        else echo 'pending'; ?></span></p>
+                </div>
+                <div class="order-tracking <?php if ($this->track[0]['processed']) echo 'completed'; ?>">
+                    <span class="is-complete"></span>
+                    <p>Processed<br><span><?php if ($this->track[0]['processed']) echo $this->track[0]['processed'];
+                                            else echo 'pending'; ?></span></p>
+                </div>
+                <div class="order-tracking <?php if ($this->track[0]['outForDelivery']) echo 'completed'; ?>">
+                    <span class="is-complete"></span>
+                    <p>Out for Delivery<br><span><?php if ($this->track[0]['outForDelivery']) echo $this->track[0]['outForDelivery'];
+                                                    else echo 'pending'; ?></span></p>
+                </div>
+                <div class="order-tracking <?php if ($this->track[0]['inTransit']) echo 'completed'; ?>">
+                    <span class="is-complete"></span>
+                    <p>In Transit<br><span><?php if ($this->track[0]['inTransit']) echo $this->track[0]['inTransit'];
+                                            else echo 'pending'; ?></span></p>
+                </div>
+                <div class="order-tracking <?php if ($this->track[0]['delivered']) echo 'completed'; ?>">
+                    <span class="is-complete"></span>
+                    <p>Delivered<br><span><?php if ($this->track[0]['delivered']) echo $this->track[0]['delivered'];
+                                            else echo 'pending'; ?></span></p>
+                </div>
 
             </div>
         </div>

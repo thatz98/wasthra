@@ -118,7 +118,7 @@
                         <div class="col-2" style="min-width: 0;">
                         <?php if($this->orderList[0][3]=='New'){?>
                             <a href="#cancelOrder" class="btn">Request to Cancel</a>
-                            <a href="#" class="btn">Track Order</a>
+                            <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderList[0][0]?>" class="btn">Track Order</a>
                             <?php } 
                             
                                 elseif($this->orderList[0][3]=='Delivered'){?>
@@ -126,11 +126,11 @@
                                 <?php } 
                                 
                                 elseif($this->orderList[0][3]=='Completed'){?>
-                                    <a href="#" class="btn">Track Order</a>
+                                    <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderList[0][0]?>" class="btn">Track Order</a>
                                     <?php } 
 
                                 else{?>
-                                    <a href="#" class="btn">Track Order</a>
+                                    <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderList[0][0]?>" class="btn">Track Order</a>
                                     <?php }?>
 
                         </div>

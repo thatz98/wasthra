@@ -80,7 +80,9 @@ class Orders extends Controller{
 
     function trackMyOrder($id){
         $this->view->title = 'Track Order';
-        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/orderDashboard">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/myOrders">My Orders</a> <i class="fas fa-angle-right"></i> Track My Order';
+        
+        $this->view->track = $this->model->getTrackingInfo($id);
         $this->view->render('order/track_order');
     }
 
@@ -129,6 +131,18 @@ class Orders extends Controller{
     }
 
     function updateOrderStatus(){
+
+        $this->view->orderList = $this->model->getAllOrders();
+        $data = array();
+        $data['order_id'] = $_POST['order_id'];
+        $data['order_status'] = $_POST['order_status'];
+
+        $this->model->update($data);
+
+      //  header('location: ' . URL . "orders/orderDetails/{$data['order_id']}");
+    }
+
+    function updateOrderDeliveryStatus(){
 
         $this->view->orderList = $this->model->getAllOrders();
         $data = array();

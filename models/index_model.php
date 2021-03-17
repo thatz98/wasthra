@@ -9,15 +9,17 @@ class Index_Model extends Model{
 
     function getFeaturedProducts(){
         
-        $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
-         INNER JOIN inventory ON product.product_id=inventory.product_id
+        $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+        GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
+        inventory.qty, price_category.product_price, 
+        price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+         LEFT JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id
          INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
          INNER JOIN product_images ON product.product_id=product_images.product_id
-         INNER JOIN product_size ON product.product_id=product_size.product_id
-         INNER JOIN product_colors ON product.product_id=product_colors.product_id
-         LEFT JOIN review on review.product_id=product.product_id
-         WHERE product.is_published='yes' AND product.is_featured='yes'
+         LEFT JOIN review on review.product_id=product.product_id 
+         WHERE product.is_featured = 'yes' AND product.is_published = 'yes'
          GROUP BY product.product_id
          LIMIT 4");
 
@@ -32,15 +34,17 @@ class Index_Model extends Model{
 
     function getNewProducts(){
         
-        $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
-         INNER JOIN inventory ON product.product_id=inventory.product_id
+        $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+        GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
+        inventory.qty, price_category.product_price, 
+        price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+         LEFT JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id
          INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
          INNER JOIN product_images ON product.product_id=product_images.product_id
-         INNER JOIN product_size ON product.product_id=product_size.product_id
-         INNER JOIN product_colors ON product.product_id=product_colors.product_id
-         LEFT JOIN review on review.product_id=product.product_id
-         WHERE product.is_published='yes' AND product.is_new='yes'
+         LEFT JOIN review on review.product_id=product.product_id 
+         WHERE product.is_new = 'yes' AND product.is_published = 'yes'
          GROUP BY product.product_id
          LIMIT 8");
 
