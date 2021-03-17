@@ -59,7 +59,7 @@
                             else{
                                 echo 'Online';
                             }?></h5>
-                            <h5>Paymen Status:<?php echo $this->allDetails[0][5]?></h5>
+                            <h5>Payment Status: <?php echo $this->allDetails[0][5]?></h5>
                             
                             <?php $status=$this->allDetails[0][3]; $color='';
                                 switch($status){
@@ -184,12 +184,12 @@
                                     if(!empty($data)){?>
                                     <?php if($this->allDetails[0][3]=='Delivered' || $this->allDetails[0][3]=='Delivered'){?>
                                     Delivered Date: <?php echo $this->allDetails[0][12]?><br><br>
-                                    Delivered By: <?php echo $this->memberDetails[0][1]?> <?php echo $this->memberDetails[0][2]?><br>
+                                    Delivered By: <?php echo $this->allDetails[0][15]?> <?php echo $this->allDetails[0][16]?><br>
                                     <?php } 
                                     
                                         else{?>
                                     Expected Delivery Date: <?php echo $this->allDetails[0][13]?><br><br>
-                                    Delivery Will Be Completed By: <?php echo $this->memberDetails[0][1]?> <?php echo $this->memberDetails[0][2]?><br>
+                                    Delivery Will Be Completed By: <?php echo $this->allDetails[0][15]?> <?php echo $this->allDetails[0][16]?><br>
                                     <?php }?>
                                     <?php }
                                     else{?>

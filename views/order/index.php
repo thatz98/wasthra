@@ -20,22 +20,17 @@
                             <h5>Date: <?php echo $orders['date']?></h5>
                             <?php $product=array();
                                     $price=0;
-                                    foreach($this->reqDetailList as $req){
-                                        if($req['order_id']==$orders['order_id']){
-                                            $price+=$req['product_price']*$req['item_qty'];
+                                    foreach($this->qtyList as $qty){
+                                        if($qty['order_id']==$orders['order_id']){
+                                            $price+=$qty['product_price']*$qty['item_qty'];
                                         }
                                     }
 
                             ?>
-                            <?php $fee=0;$city='';
-                                foreach ($this->cities as $delivery_city){
-                                    if($delivery_city['order_id']==$order_id){
-                                        $city=$delivery_city['city'];
-                                    }
-                                }?>
+
                             <?php 
                                 foreach ($this->deliveryCharges as $deliveryFee){
-                                    if($deliveryFee['city']==$city){
+                                    if($deliveryFee['city']==$orders['city']){
                                         $fee=$deliveryFee['delivery_fee'];
                                         $price+=$fee;
                                     }
