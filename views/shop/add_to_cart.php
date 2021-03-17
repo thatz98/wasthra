@@ -62,8 +62,6 @@
 
                     <?php
                     $catName = $this->product[0]['name'];
-                    $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
-                    $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
                     if ($catName != "Couple") { ?>
                     <label class="text-label">Select Size</label>
                     <br>
@@ -77,44 +75,14 @@
                     <div class="sizes" id="sizeGents">
                     <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
-                    <!-- <div class="sizes">
-                        <?php
-                            // foreach ($this->product[0]['product_sizes'] as $size) {
-                            //     if (in_array($size, $single_sizes_ladies)) {
-                            //         continue;
-                            //     } else {
-                            //         $single_sizes_ladies[] .= $size; ?>
-                        <label class="size-container">
-                            <input type="radio" name="size2" value="<?php echo $size ?>" required>
-                            <span class="checkbox"><?php echo rtrim($size, "-G") ?></span>
 
-                        </label>
-                        <?php
-                                // }
-                           // } ?>
-                    </div> -->
                     <br>
                     <label class="text-label">Select Size for Lady</label>
                     <br>
                     <div class="sizes" id="sizeLadies">
                     <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
-                    <!-- <div class="sizes">
-                        <?php
-                            // foreach ($this->product[0]['product_sizes'] as $size) {
-                            //     if (in_array($size, $single_sizes_gents)) {
-                            //         continue;
-                            //     } else {
-                            //         $single_sizes_gents[] .= $size; ?>
-                        <label class="size-container">
-                            <input type="radio" name="size1" value="<?php echo $size ?>" required>
-                            <span class="checkbox"><?php echo rtrim($size, "-W") ?></span>
 
-                        </label>
-                        <?php
-                                // }
-                           // } ?>
-                    </div> -->
                     <?php  } ?>
 
                     <br>

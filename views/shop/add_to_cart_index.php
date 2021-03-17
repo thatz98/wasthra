@@ -91,60 +91,35 @@
 
                     <?php
                     $catName = $this->productPopup['name'];
-                    $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
-                    $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
                     if ($catName != "Couple") { ?>
-                    <label class="text-label">Select Size</label>
-                    <br>
-                    <div class="sizes" id="sizeCommon">
-                    <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
-                    </div>
-                    <?php
-                    } else { ?>
-                    <label class="text-label">Select Size for Gent</label>
-                    <br>
-                    <div class="sizes">
+                        <label class="text-label">Select Size</label>
+                        <br>
+                        <div class="sizes" id="sizeCommon">
+                        <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
+                        </div>
                         <?php
-                            foreach ($this->productPopup['product_sizes'] as $size) {
-                                if (in_array($size, $single_sizes_ladies)) {
-                                    continue;
-                                } else {
-                                    $single_sizes_ladies[] .= $size; ?>
-                        <label class="size-container">
-                            <input type="radio" name="size2" value="<?php echo $size ?>" required>
-                            <span class="checkbox"><?php echo rtrim($size, "-G") ?></span>
-
-                        </label>
-                        <?php
-                                }
-                            } ?>
-                    </div>
-                    <br>
-                    <label class="text-label">Select Size for Lady</label>
-                    <br>
-                    <div class="sizes">
-                        <?php
-                            foreach ($this->productPopup['product_sizes'] as $size) {
-                                if (in_array($size, $single_sizes_gents)) {
-                                    continue;
-                                } else {
-                                    $single_sizes_gents[] .= $size; ?>
-                        <label class="size-container">
-                            <input type="radio" name="size1" value="<?php echo $size ?>" required>
-                            <span class="checkbox"><?php echo rtrim($size, "-W") ?></span>
-
-                        </label>
-                        <?php
-                                }
-                            } ?>
-                    </div>
-                    <?php  } ?>
-
+                        } else { ?>
+                        <label class="text-label">Select Size for Gent</label>
+                        <br>
+                        <div class="sizes" id="sizeGents">
+                        <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
+                        </div>
+    
+                        <br>
+                        <label class="text-label">Select Size for Lady</label>
+                        <br>
+                        <div class="sizes" id="sizeLadies">
+                        <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
+                        </div>
+    
+                        <?php  } ?>
                     <br>
                     <label class="text-label">Select Quantity</label>
                     <div class="quantity" id="quantitydiv">
                     <div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>
                     </div>
+                    <input type="text" id="cat" value="<?php echo $this->productPopup['name'] ?>" hidden>
+
                     <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id'] ?>" hidden>
                     <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
                                                                     echo $_SERVER['HTTP_REFERER'];

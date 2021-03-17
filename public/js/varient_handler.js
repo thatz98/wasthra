@@ -5,7 +5,7 @@ $(document).ready(function () {
     var cat = $('#cat').val();
 
     var productId = $('input[type=text][name=prod_id]').val();
-    if (!color == "" && !cat == "Couple") {
+    if (color != "" && cat != "Couple") {
       $.ajax({
         url: 'http://127.0.0.1/wasthra/shop/getSizes',
         type: 'POST',
@@ -29,7 +29,7 @@ $(document).ready(function () {
         }
       });
 
-    } else if (!color == "" && cat == "Couple") {
+    } else if (color != "" && cat == "Couple") {
       $.ajax({
         url: 'http://127.0.0.1/wasthra/shop/getSizes',
         type: 'POST',
@@ -135,6 +135,7 @@ $(document).on('change', 'input[type=radio][name=size1]', function () {
   var productId = $('input[type=text][name=prod_id]').val();
   var qty = document.getElementById('quantitydiv');
   qty.innerHTML = "";
+  console.log("hi");
   if (!size1 == "" && !size2 == "") {
     $.ajax({
       url: 'http://127.0.0.1/wasthra/shop/getCoupleQtys',
