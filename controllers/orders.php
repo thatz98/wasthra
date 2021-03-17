@@ -156,4 +156,18 @@ class Orders extends Controller{
         
     }
 
+    function cancelOrder() {
+        $comment = $_POST['cancel_comment'];
+        $id = $_POST['order_id'];
+        $this->model->cancelOrder($comment, $id);
+        header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
+    }
+
+    function returnOrder() {
+        $comment = $_POST['return_comment'];
+        $id = $_POST['order_id'];
+        $this->model->returnOrder($comment, $id);
+        header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
+    }
+
 }

@@ -274,7 +274,20 @@
        INNER JOIN product_images on product_images.product_id=order_item.product_id 
        INNER JOIN product on product.product_id = order_item.product_id
        WHERE orders.order_id='$id' GROUP BY order_item.product_id");
-    }    
+    }
+    
+    function cancelOrder($comment, $id) {
+        $this->db->queryExecuteOnly("UPDATE orders SET cancel_comment='$comment' WHERE order_id='$id'");
+        $this->db->queryExecuteOnly("UPDATE orders SET order_status='Requested to Cancel' WHERE order_id='$id'");
+    }
+
+    function returnOrder($comment, $id) {
+        $date = $this->db->query("SELECT actual_delivery_date FROM delivery WHERE order_id='$id'");
+        $day = $date[0][0];
+        $day = date('Y-m-d', strtotime($day . ' + 5 days'));
+        $this->db->queryExecuteOnly("INSERT INTO returns (order_id,expected_return_date,return_comment) VALUES ('$id','$day','$comment')");
+        $this->db->queryExecuteOnly("UPDATE orders SET order_status='Requested to Return' WHERE order_id='$id'");
+    }
 
 } 
 

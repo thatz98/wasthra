@@ -251,19 +251,6 @@ class Shop_Model extends Model {
         return $this->db->listAll('delivery_charges', '*');
     }
 
-    function cancelOrder($comment, $id) {
-        $this->db->queryExecuteOnly("UPDATE orders SET cancel_comment='$comment' WHERE order_id='$id'");
-        $this->db->queryExecuteOnly("UPDATE orders SET order_status='Requested to Cancel' WHERE order_id='$id'");
-    }
-
-    function returnOrder($comment, $id) {
-        $date = $this->db->query("SELECT actual_delivery_date FROM delivery WHERE order_id='$id'");
-        $day = $date[0][0];
-        $day = date('Y-m-d', strtotime($day . ' + 5 days'));
-        $this->db->queryExecuteOnly("INSERT INTO returns (order_id,expected_return_date,return_comment) VALUES ('$id','$day','$comment')");
-        $this->db->queryExecuteOnly("UPDATE orders SET order_status='Requested to Return' WHERE order_id='$id'");
-    }
-
     function getProductList() {
         $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
