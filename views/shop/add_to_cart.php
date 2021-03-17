@@ -74,41 +74,47 @@
                     } else { ?>
                     <label class="text-label">Select Size for Gent</label>
                     <br>
-                    <div class="sizes">
+                    <div class="sizes" id="sizeGents">
+                    <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
+                    </div>
+                    <!-- <div class="sizes">
                         <?php
-                            foreach ($this->product[0]['product_sizes'] as $size) {
-                                if (in_array($size, $single_sizes_ladies)) {
-                                    continue;
-                                } else {
-                                    $single_sizes_ladies[] .= $size; ?>
+                            // foreach ($this->product[0]['product_sizes'] as $size) {
+                            //     if (in_array($size, $single_sizes_ladies)) {
+                            //         continue;
+                            //     } else {
+                            //         $single_sizes_ladies[] .= $size; ?>
                         <label class="size-container">
                             <input type="radio" name="size2" value="<?php echo $size ?>" required>
                             <span class="checkbox"><?php echo rtrim($size, "-G") ?></span>
 
                         </label>
                         <?php
-                                }
-                            } ?>
-                    </div>
+                                // }
+                           // } ?>
+                    </div> -->
                     <br>
                     <label class="text-label">Select Size for Lady</label>
                     <br>
-                    <div class="sizes">
+                    <div class="sizes" id="sizeLadies">
+                    <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
+                    </div>
+                    <!-- <div class="sizes">
                         <?php
-                            foreach ($this->product[0]['product_sizes'] as $size) {
-                                if (in_array($size, $single_sizes_gents)) {
-                                    continue;
-                                } else {
-                                    $single_sizes_gents[] .= $size; ?>
+                            // foreach ($this->product[0]['product_sizes'] as $size) {
+                            //     if (in_array($size, $single_sizes_gents)) {
+                            //         continue;
+                            //     } else {
+                            //         $single_sizes_gents[] .= $size; ?>
                         <label class="size-container">
                             <input type="radio" name="size1" value="<?php echo $size ?>" required>
                             <span class="checkbox"><?php echo rtrim($size, "-W") ?></span>
 
                         </label>
                         <?php
-                                }
-                            } ?>
-                    </div>
+                                // }
+                           // } ?>
+                    </div> -->
                     <?php  } ?>
 
                     <br>
@@ -117,6 +123,7 @@
                     <div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>
                     </div>
                     <input type="text" name="prod_id" value="<?php echo $this->product[0]['product_id'] ?>" hidden>
+                    <input type="text" id="cat" value="<?php echo $this->product[0]['name'] ?>" hidden>
                     <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
                                                                     echo $_SERVER['HTTP_REFERER'];
                                                                 } ?>" hidden>

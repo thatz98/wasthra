@@ -6,7 +6,7 @@ class Shop extends Controller {
 
         parent::__construct();
     }
-    
+
     /**
      * Display the shop page
      *
@@ -19,7 +19,7 @@ class Shop extends Controller {
 
         // get all product details
         $this->view->products = $this->model->getProductList();
-        
+
         // get filter data
         $this->view->sizeList =  $this->model->getAllSizes();
         $this->view->colorList =  $this->model->getAllColors();
@@ -27,7 +27,7 @@ class Shop extends Controller {
 
         $this->view->render('shop/shop');
     }
-    
+
     /**
      * Display product detail page
      *
@@ -46,7 +46,7 @@ class Shop extends Controller {
 
         $this->view->render('shop/product_details');
     }
-    
+
     /**
      * Filter products by color
      *
@@ -64,12 +64,12 @@ class Shop extends Controller {
         $this->view->sizeList =  $this->model->getAllSizes();
         $this->view->colorList =  $this->model->getAllColors();
         $this->view->categoryList =  $this->model->getAllCategories();
-        
+
         $this->view->selected = '#' . $color;
-        
+
         $this->view->render('shop/shop');
     }
-    
+
     /**
      * Filter products by Size
      *
@@ -89,10 +89,10 @@ class Shop extends Controller {
         $this->view->categoryList =  $this->model->getAllCategories();
 
         $this->view->selected = $size;
-        
+
         $this->view->render('shop/shop');
     }
-    
+
     /**
      * Filter products by Category
      *
@@ -112,10 +112,10 @@ class Shop extends Controller {
         $this->view->categoryList =  $this->model->getAllCategories();
 
         $this->view->selected = $category;
-        
+
         $this->view->render('shop/shop');
     }
-    
+
     /**
      * Add product review by customer
      *
@@ -140,10 +140,10 @@ class Shop extends Controller {
         date_default_timezone_set("Asia/Kolkata");
         $time = date("H:i:s");
         $this->model->addReview($data, $date, $time, $imageName['img']);
-        
+
         header('location: ' . URL . 'shop/productDetails/' . $data['product_id']);
     }
-    
+
     /**
      * Delete existing reviews
      *
@@ -157,7 +157,7 @@ class Shop extends Controller {
 
         header('Location: ' . URL . 'shop/productDetails/' . $productId);
     }
-    
+
     /**
      * Display checkout page
      *
@@ -167,14 +167,14 @@ class Shop extends Controller {
 
         $this->view->title = 'Checkout';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'cart">Cart</a> <i class="fas fa-angle-right"></i> Checkout';
-        
+
         // get product details
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         //$x=$this->model->getCartItems();
         //echo($x);
         $this->view->render('checkout/index');
     }
-    
+
     /**
      * Proceed to payment
      *
@@ -183,15 +183,15 @@ class Shop extends Controller {
     function pay() {
 
         $this->view->title = 'Payment';
-        
+
         $data = array();
         $data['address_line_1'] = $_POST['address_line_1'];
         $data['address_line_2'] = $_POST['address_line_2'];
         $data['address_line_3'] = $_POST['address_line_3'];
-        $data['city'] = explode(' ',$_POST['city'],2)[0];
+        $data['city'] = explode(' ', $_POST['city'], 2)[0];
         $data['postal_code'] = $_POST['postal_code'];
-        $data['latitude']=$_POST['latitude'];
-        $data['longtitude']=$_POST['longtitude'];
+        $data['latitude'] = $_POST['latitude'];
+        $data['longtitude'] = $_POST['longtitude'];
         $comment = $_POST['delivery_comments'];
         if (
             $data['address_line_1'] != Session::get('addressData')['address_line_1']
@@ -215,7 +215,7 @@ class Shop extends Controller {
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
 
-        $this->model->placeOrder($date, $time, $orderID, $payMethod,$aId[0][0],$comment);
+        $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment);
         $this->model->deleteCartItems();
         Session::set('cartData', '');
         Session::set('cartCount', 0);
@@ -224,34 +224,71 @@ class Shop extends Controller {
             $this->view->render('checkout/payment');
         } else {
 
-            header('location: ' . URL . 'orders/myOrderDetails/'.$orderID);
+            header('location: ' . URL . 'orders/myOrderDetails/' . $orderID);
         }
     }
 
-    function cancelOrder(){
+    function cancelOrder() {
         $comment = $_POST['cancel_comment'];
         $id = $_POST['order_id'];
-        $this->model->cancelOrder($comment,$id);
+        $this->model->cancelOrder($comment, $id);
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
 
-    function returnOrder(){
+    function returnOrder() {
         $comment = $_POST['return_comment'];
         $id = $_POST['order_id'];
-        $this->model->returnOrder($comment,$id);
+        $this->model->returnOrder($comment, $id);
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
 
     function getSizes() {
         if (isset($_POST["color"]) && isset($_POST["product_id"])) {
-            echo json_encode($this->model->getSizes($_POST["product_id"],$_POST["color"]));
+            echo json_encode($this->model->getSizes($_POST["product_id"], $_POST["color"]));
+        }
+    }
+
+    function getGentsSizes() {
+        $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
+        if (isset($_POST["color"]) && isset($_POST["product_id"])) {
+            $data = $this->model->getSizes($_POST["product_id"], $_POST["color"]);
+          //  $sizes = array();
+            foreach ($data as $record) {
+                if (in_array($record['size'], $single_sizes_gents)) {
+                    $record['size'] = rtrim($record['size'], "-W");
+                }
+            }
+
+            echo json_encode($data);
+        }
+    }
+
+    function getLadiesSizes() {
+        $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
+        if (isset($_POST["color"]) && isset($_POST["product_id"])) {
+            $data = $this->model->getSizes($_POST["product_id"], $_POST["color"]);
+            $sizes = array();
+            $result = array();
+            foreach ($data as $record) {
+                if (in_array($record['size'], $single_sizes_ladies)) {
+                    $sizes['size'] = rtrim($record['size'], "-W");
+                    $result .= $sizes;
+                }
+            }
+
+            echo json_encode($result);
         }
     }
 
     function getQtys() {
         if (isset($_POST["color"]) && isset($_POST["size"]) && isset($_POST["product_id"])) {
-            echo json_encode($this->model->getQtys($_POST["product_id"],$_POST["color"],$_POST["size"]));
+            echo json_encode($this->model->getQtys($_POST["product_id"], $_POST["color"], $_POST["size"]));
         }
     }
 
+    function getCoupleQtys() {
+        if (isset($_POST["color"]) && isset($_POST["size1"]) && isset($_POST["size2"]) && isset($_POST["product_id"])) {
+            echo json_encode($this->model->getCoupleQtys($_POST["product_id"], $_POST["color"], $_POST["size1"],$_POST["size2"]));
+        }
+    }
 }

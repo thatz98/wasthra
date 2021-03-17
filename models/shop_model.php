@@ -60,6 +60,17 @@ class Shop_Model extends Model {
         return $this->db->query("SELECT qty FROM inventory WHERE product_id='$productId' AND color='$color' AND size='$size'");
     }
 
+    function getCoupleQtys($productId,$color,$size1,$size2){
+
+        $res1 = $this->db->query("SELECT qty FROM inventory WHERE product_id='$productId' AND color='$color' AND size='$size1'");
+        $res2 = $this->db->query("SELECT qty FROM inventory WHERE product_id='$productId' AND color='$color' AND size='$size2'");
+        if($res1[0]['qty']>=$res2[0]['qty']){
+            return $res2;
+        } else{
+            return $res1;
+        }
+    }
+
     function getImages() {
         return $this->db->query("SELECT product_images.image,product_images.product_id
         FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
@@ -85,6 +96,29 @@ class Shop_Model extends Model {
     function getQty() {
         return $this->db->query("SELECT inventory.product_id,inventory.qty
         FROM inventory ;");
+    }
+
+    function getFeaturedProducts(){
+        
+        $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
+         INNER JOIN inventory ON product.product_id=inventory.product_id
+         INNER JOIN category ON product.category_id=category.category_id
+         INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+         INNER JOIN product_images ON product.product_id=product_images.product_id
+         INNER JOIN product_size ON product.product_id=product_size.product_id
+         INNER JOIN product_colors ON product.product_id=product_colors.product_id
+         LEFT JOIN review on review.product_id=product.product_id
+         WHERE product.is_published='yes' AND product.is_featured='yes'
+         GROUP BY product.product_id
+         LIMIT 4");
+
+        foreach ($data as $key => $value) {
+            $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
+            $data[$key]['product_sizes'] = explode(',', $data[$key]['product_sizes']);
+            $data[$key]['product_colors'] = explode(',', $data[$key]['product_colors']);
+        }
+
+        return $data;
     }
 
     function addReview($data, $date, $time, $imageList) {
