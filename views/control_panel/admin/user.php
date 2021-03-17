@@ -11,34 +11,34 @@
     </div>
     <div class="row">
         <div class="col-3 fit-size">
-            <div class="min-card primary">
+            <a href="?filter=new"><div class="min-card primary">
                 <div class="row">
                     <h3>New Users</h3>
                 </div>
                 <div class="row">
                     <h1><?php echo $this->newUserCount;?></h1>
                 </div>
-            </div>
+            </div></a>
         </div>
         <div class="col-3 fit-size">
-            <div class="min-card primary">
+        <a href="?filter=verified"><div class="min-card primary">
                 <div class="row">
                     <h3>Verified Users</h3>
                 </div>
                 <div class="row">
                     <h1><?php echo $this->verifiedUserCount;?></h1>
                 </div>
-            </div>
+            </div></a>
         </div>
         <div class="col-3 fit-size">
-            <div class="min-card primary">
+        <a href="?filter=all"><div class="min-card primary">
                 <div class="row">
                     <h3>Total Users</h3>
                 </div>
                 <div class="row">
                     <h1><?php echo ($this->newUserCount+$this->verifiedUserCount);?></h1>
                 </div>
-            </div>
+            </div></a>
         </div>
     </div>
     <div class="">
@@ -83,10 +83,14 @@
                     <div class="col-3">
                         <div class="helper-text">
                         <label>Gender</label><br>
-                    <select name="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
+                        <div class="radio-container" id="gender-radio">
+                                                    <input type="radio" id="male" name="gender" value="male">
+                                                    <label for="male">Male</label>
+                                                    <input type="radio" id="female" name="gender" value="female">
+                                                    <label for="female">Female</label>
+                                                    <input type="radio" id="other" name="gender" value="other">
+                                                    <label for="other">Other</label>
+                                                </div>
                             <span class="popuptext"></span>
                         </div>
                     </div>

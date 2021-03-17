@@ -24,7 +24,17 @@ class User extends Controller {
         // get number of verified users
         $this->view->verifiedUserCount = $this->model->userCount('verified');
         // get the userlist with their details
-        $this->view->userList = $this->model->listUsers();
+        if (isset($_GET['filter'])) {
+            if ($_GET['filter'] == 'new') {
+                $this->view->userList = $this->model->listUsers('new');
+            } else if ($_GET['filter'] == 'verified') {
+                $this->view->userList = $this->model->listUsers('verified');
+            } else if ($_GET['filter'] == 'all') {
+                $this->view->userList = $this->model->listUsers('');
+            }
+        } else {
+            $this->view->userList = $this->model->listUsers();
+        }
 
         $this->view->render('control_panel/admin/user');
     }

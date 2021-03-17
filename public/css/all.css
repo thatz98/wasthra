@@ -1165,6 +1165,9 @@ form#regForm_m {
     padding: 0 10px;
 }
 
+.hidden-form input[type='radio']{
+    margin: 3px 7px;
+}
 /* single product content */
 
 .content {
@@ -2270,7 +2273,12 @@ p.success {
     display: block;
     justify-content: center;
     text-align: center;
+    cursor: pointer;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.min-card:hover{
+    background-color: rgba(240, 226, 164, 0.527);
 }
 
 .table-container table {
