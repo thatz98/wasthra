@@ -54,6 +54,18 @@
 
     }
 
+    function getAllOrderDetails($id){
+
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status 
+        FROM orders 
+        INNER JOIN payment ON payment.order_id=orders.order_id
+        INNER JOIN checkout ON orders.order_id=checkout.order_id
+        INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id
+        LEFT JOIN delivery ON delivery.order_id=orders.order_id
+        WHERE orders.order_id='$id' GROUP BY orders.order_id; ");
+
+    }
+
     function getCity(){
         return $this->db->query("SELECT checkout.order_id,delivery_address.city 
         FROM checkout INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id");
@@ -67,7 +79,10 @@
 
     function getOrderDetails($id){
 
-        return $this->db->query("SELECT * FROM order_item WHERE order_id='$id'");
+        return $this->db->query("SELECT order_item.order_id, order_item.product_id,product.product_name,order_item.item_size,order_item.item_color,
+        order_item.item_qty,price_category.product_price, product_images.image FROM `order_item` INNER JOIN product 
+        ON product.product_id=order_item.product_id INNER JOIN price_category ON price_category.price_category_id=product.price_category_id 
+        INNER JOIN product_images ON order_item.product_id=product_images.product_id WHERE order_item.order_id='$id' GROUP BY order_item.product_id ");
 
     }
 

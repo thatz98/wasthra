@@ -26,15 +26,16 @@ class Orders extends Controller{
 
         $this->view->title = 'My Order Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'orders/myOrders">My Orders</a> <i class="fas fa-angle-right"></i>My Order Details';
-        $this->view->qtyList =  $this->model->getAllDetails();
-        $this->view->imageList =  $this->model->getImages();
+        //$this->view->qtyList =  $this->model->getAllDetails();
+        //$this->view->imageList =  $this->model->getImages();
         $this->view->orderDetails = $this->model->getOrderDetails($id);
         $this->view->orderList = $this->model->getMyOrder($id);
-        $this->view->payMethod = $this->model->getPayDetails($id);
+        //$this->view->payMethod = $this->model->getPayDetails($id);
         $this->view->addressDetails = $this->model->getAddressDetails($id);
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->deliveryDetails = $this->model->getDeliveryDetails($id);
         $this->view->memberDetails = $this->model->getMemberDetails($id);
+        $this->view->allDetails = $this->model->getAllOrderDetails($id);
         $this->view->render('order/order_details');
 
     }
