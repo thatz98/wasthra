@@ -36,11 +36,11 @@
         <div class="col-3">
             <div class="card">
                 <div class="row">
-                    <h3>Total Sales</h3>
+                    <h3>Total Orders</h3>
                 </div>
                 <div class="row">
                     <div class="col-40p">
-                        <h1><?php echo $this->salesCount[0][0];?></h1>
+                        <h1><?php echo $this->totalOrderCount[0][0];?></h1>
                     </div>
                     <div class="col-60p">
                         <canvas id="total-customers" height="200px"></canvas>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="row">
                     <div class="col-40p">
-                        <h1><?php echo number_format(($this->salesCount[0][0]*100)/$this->visitorCount[0][0], 2, '.', '').'%';?></h1>
+                        <h1><?php echo number_format(($this->totalOrderCount[0][0]*100)/$this->visitorCount[0][0], 2, '.', '').'%';?></h1>
                     </div>
                     <div class="col-60p">
                         <canvas id="conversion-rate" height="200px"></canvas>
@@ -69,11 +69,11 @@
         <div class="col-4">
             <div class="card">
                 <div class="row">
-                    <h3>Total Orders</h3>
+                    <h3>Total Sales</h3>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1><?php echo $this->totalOrderCount[0][0];?></h1>
+                        <h1><?php if($this->salesCount[0][0]) echo $this->salesCount[0][0]; else echo '0';?></h1>
                     </div>
                 </div>
             </div>
@@ -116,6 +116,19 @@
         </div>
     </div>
     <div class="row">
+        <div class="wide-col">
+            <div class="card">
+                <div class="row">
+                    <h3>Revenue Distribution</h3>
+                </div>
+                <div class="row center">
+                    <canvas id="revenueChart" height="400"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-2">
             <div class="card">
                 <div class="row">
@@ -142,13 +155,24 @@
         </div>
     </div>
     <div class="row">
-        <div class="wide-col">
+        <div class="col-2">
             <div class="card">
                 <div class="row">
                     <h3>Sales Distribution</h3>
                 </div>
                 <div class="row center">
                     <canvas id="myChart" height="400"></canvas>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="card">
+                <div class="row">
+                    <h3>Order Distribution</h3>
+                </div>
+                <div class="row center">
+                    <canvas id="orderChart" height="400"></canvas>
                 </div>
 
             </div>
@@ -166,9 +190,9 @@
     new Chart(document.getElementById('total-visitors'), {
         type: 'line',
         data: {
-            labels: [1, 2, 3, 4, 5, 6],
+            labels: [<?php echo $this->visitorDistribution[0];?>],
             datasets: [{
-                data: [12, 19, 3, 5, 2, 3],
+                data: [<?php echo $this->visitorDistribution[1];?>],
                 borderWidth: 2,
                 fill: false,
                 borderColor: "#ff523b",
@@ -218,9 +242,9 @@
     new Chart(document.getElementById('conversion-rate'), {
         type: 'line',
         data: {
-            labels: [1, 2, 3, 4, 5, 6],
+            labels: [<?php echo $this->orderDistribution[0];?>],
             datasets: [{
-                data: [12, 19, 3, 5, 2, 3],
+                data: [<?php echo $this->convDistribution;?>],
                 borderWidth: 2,
                 fill: false,
                 borderColor: "#ff523b",
@@ -270,9 +294,9 @@
     new Chart(document.getElementById('total-customers'), {
         type: 'line',
         data: {
-            labels: [1, 2, 3, 4, 5, 6],
+            labels: [<?php echo $this->orderDistribution[0];?>],
             datasets: [{
-                data: [12, 19, 3, 5, 2, 3],
+                data: [<?php echo $this->orderDistribution[1];?>],
                 borderWidth: 2,
                 fill: false,
                 borderColor: "#ff523b",
@@ -344,6 +368,106 @@
                 backgroundColor: 'rgba(255, 82, 59, 0.3)',
                 pointBackgroundColor: "#ff523b",
                 pointBorderColor: "#ff523b",
+                pointHoverBackgroundColor: "#feff3b",
+                pointHoverBorderColor: "#feff3b"
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctx = document.getElementById('orderChart');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [<?php echo $this->orderDistribution[0];?>
+            ],
+            datasets: [{
+                label: 'Number of Sales',
+                data: [<?php echo $this->orderDistribution[1];?>
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2,
+                fill: 'start',
+                borderColor: "#ff523b",
+                backgroundColor: 'rgba(255, 82, 59, 0.3)',
+                pointBackgroundColor: "#ff523b",
+                pointBorderColor: "#ff523b",
+                pointHoverBackgroundColor: "#feff3b",
+                pointHoverBorderColor: "#feff3b"
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctx = document.getElementById('revenueChart');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [<?php echo $this->revenueDistribution[0];?>
+            ],
+            datasets: [{
+                label: 'Revenue',
+                data: [<?php echo $this->revenueDistribution[1];?>
+                ],
+                borderWidth: 2,
+                fill: false,
+                borderColor: "#03CFFF",
+                backgroundColor: 'rgba(3, 207, 255, 0.3)',
+                pointBackgroundColor: "#03CFFF",
+                pointBorderColor: "#03CFFF",
+                pointHoverBackgroundColor: "#feff3b",
+                pointHoverBorderColor: "#feff3b"
+            },
+            {
+                label: 'Cost',
+                data: [<?php echo $this->revenueDistribution[2];?>
+                ],
+                borderWidth: 2,
+                fill: false,
+                borderColor: "#FF03B2",
+                backgroundColor: 'rgba(255,3, 178, 0.3)',
+                pointBackgroundColor: "#FF03B2",
+                pointBorderColor: "#FF03B2",
+                pointHoverBackgroundColor: "#feff3b",
+                pointHoverBorderColor: "#feff3b"
+            },
+            {
+                label: 'Profit',
+                data: [<?php echo $this->revenueDistribution[3];?>
+                ],
+                borderWidth: 2,
+                fill: false,
+                borderColor: "#60FF03 ",
+                backgroundColor: 'rgba(96, 255, 3, 0.3)',
+                pointBackgroundColor: "#60FF03",
+                pointBorderColor: "#60FF03",
                 pointHoverBackgroundColor: "#feff3b",
                 pointHoverBorderColor: "#feff3b"
             }]
