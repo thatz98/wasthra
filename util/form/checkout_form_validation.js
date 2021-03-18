@@ -20,7 +20,6 @@ editform.addEventListener('submit', function(event) {
         validateAddressLine1() &&
         validateAddressLine2() &&
         validateAddressLine3() &&
-        validateDeliveryComment() &&
         validateCity() &&
         validateContactNoM() &&
         validatePayMethod()
@@ -81,13 +80,13 @@ function validateAddressLine3() {
 
 }
 
-function validateDeliveryComment() {
+// function validateDeliveryComment() {
     
-    if (checkIfEmpty(deliveryCommentCheckout)) return;
+//     if (checkIfEmpty(deliveryCommentCheckout)) return;
 
-    return true;
+//     return true;
 
-}
+// }
 
 function validateCity(){
     if(document.getElementById('city_checkout').value!="0") return true;
