@@ -539,10 +539,12 @@ class Stats_Model extends Model {
                 if ($d == $date) {
                     $revenue[$d] = $item['revenue'];
                     $cost[$d] = $item['cost'];
-                    $profit[$d] = $item['revenue'] - $item['revenue'];
+                    $profit[$d] = floatval($item['revenue']) - floatval($item['revenue']);
+                    echo $profit[$d];
                 }
             }
         }
+        print_r($profit);
         $result = array();
         $result['dates'] = implode(",", $dates);
         $result['revenue'] = implode(",", $revenue);
@@ -565,11 +567,14 @@ class Stats_Model extends Model {
         foreach ($data as $item) {
             foreach ($months as $key => $value) {
                 if ($key == $item['month']) {
-                    $sales[$key] = $item['sales'];
+                    $revenue[$key] = $item['revenue'];
+                    $cost[$key] = $item['cost'];
+                    $profit[$key] = (int)$item['revenue'] - (int)$item['revenue'];
+                    
                 }
             }
         }
-
+        
         $result = array();
         $result['months'] = "'";
         $result['months'] .= implode("','", $months);

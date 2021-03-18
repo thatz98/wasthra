@@ -35,7 +35,7 @@ class Stats extends Controller {
                     $this->view->totalSalesPerCity = $this->model->getTotalSalesPerCity("YEARWEEK(date,5) = YEARWEEK(CURDATE(),5)");
                     $this->view->orderDistribution = $this->model->getWeeklyOrderDistribution();
                     $this->view->salesDistribution = $this->model->getWeeklySalesDistribution();
-                    $this->view->revenueDistribution = $this->model->getDailyRevenueDistribution();
+                    $this->view->revenueDistribution = $this->model->getWeeklyRevenueDistribution();
                     $this->view->visitorDistribution = $this->model->getWeeklyVisitorDistribution();
                     break;
                 case 'monthly':
@@ -46,7 +46,7 @@ class Stats extends Controller {
                     $this->view->totalSalesPerCategory = $this->model->getTotalSalesPerCategory("MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = YEAR(CURRENT_DATE())");
                     $this->view->totalSalesPerCity = $this->model->getTotalSalesPerCity("MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = YEAR(CURRENT_DATE())");
                     $this->view->orderDistribution = $this->model->getMonthlyOrderDistribution();
-                    $this->view->revenueDistribution = $this->model->getDailyRevenueDistribution();
+                    $this->view->revenueDistribution = $this->model->getMonthlyRevenueDistribution();
                     $this->view->salesDistribution = $this->model->getMonthlySalesDistribution();
                     $this->view->visitorDistribution = $this->model->getMonthlyVisitorDistribution();
                     break;
@@ -59,7 +59,7 @@ class Stats extends Controller {
                     $this->view->totalSalesPerCity = $this->model->getTotalSalesPerCity("YEAR(date) = YEAR(CURRENT_DATE())");
                     $this->view->orderDistribution = $this->model->getYearlyOrderDistribution();
                     $this->view->salesDistribution = $this->model->getYearlySalesDistribution();
-                    $this->view->revenueDistribution = $this->model->getDailyRevenueDistribution();
+                    $this->view->revenueDistribution = $this->model->getYearlyRevenueDistribution();
                     $this->view->visitorDistribution = $this->model->getYearlyVisitorDistribution();
                     break;
                 default:
@@ -100,6 +100,6 @@ class Stats extends Controller {
         }
         $this->view->convDistribution = implode(",",$conversions);
 
-       $this->view->render('control_panel/owner/stats');
+       //$this->view->render('control_panel/owner/stats');
     }
 }
