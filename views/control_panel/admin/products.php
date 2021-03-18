@@ -81,75 +81,8 @@
                         <br>
                     </div>
 
-                    <!-- <div class="helper-text">
-                            <label>Quantity</label><br><input id="quantity" type="text" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
-                            <span class="popuptext"></span>
-                            <br>
-                        </div> -->
                 </div>
                 <div class="col-3">
-                    <!-- <div class="helper-text">
-                            <div id="size-field">
-                            <label>Available Sizes</label><br>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="XS" value="XS"><span>XS</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="S" value="S"><span>S</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="M" value="M"><span>M</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="L" value="L"><span>L</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="XL" value="XL"><span>XL</span>
-                            </div>
-                            <br>
-                            </div>
-                            <span class="popuptext"></span>
-                            </div>
-                            <div class="helper-text">
-                            <div id="size-field-couple" hidden>
-                            <label>Available Sizes for Couple Gents</label><br>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="XS-G" value="XS-G"><span>XS</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="S-G" value="S-G"><span>S</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="M-G" value="M-G"><span>M</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="L-G" value="L-G"><span>L</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="XL-G" value="XL-G"><span>XL</span>
-                            </div>
-                            <br>
-                            
-                            <label>Available Sizes for Couple Ladies</label><br>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="XS-W" value="XS-W"><span>XS</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="S-W" value="S-W"><span>S</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="M-W" value="M-W"><span>M</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="L-W" value="L-W"><span>L</span>
-                            </div>
-                            <div class="checkboxes">
-                                <input type="checkbox" name="size[]" id="XL-W" value="XL-W"><span>XL</span>
-                            </div>
-                            
-                            <br>
-                            </div>
-                            </div> -->
 
                     <div class="helper-text">
                         <label>Published</label><br><select id="is_published" name="is_published">

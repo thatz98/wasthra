@@ -172,7 +172,12 @@ class Shop extends Controller {
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         //$x=$this->model->getCartItems();
         //echo($x);
-        $this->view->render('checkout/index');
+        if(Session::get('cartCount')==0){
+            header('location: ' . URL . 'shop');
+        }
+        else{
+            $this->view->render('checkout/index');
+        }
     }
 
     /**

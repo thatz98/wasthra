@@ -9,7 +9,7 @@
                 <div class="row">
                     <h2 class="title title-min">Get in Touch</h2>
                 </div>
-                <form action="post" id="editFrom" method="post">
+                <form action="<?php echo URL; ?>contactUS/contact" id="editFrom" method="post">
                     <div class="row">
                         <div class="col-3">
                             <div class="helper-text">

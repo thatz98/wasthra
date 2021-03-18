@@ -20,4 +20,14 @@ class ContactUs extends Controller {
 
         $this->view->render('user/contactUS');
     }
+
+    function contact(){
+
+        $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
+        $emailBody = $_POST['message'];
+        $subject = 'Message from the user';
+        $reciever = 'group15s2202@gmail.com';
+        mail($reciever, $subject, $emailBody, $header);
+        header('location: ' . URL . 'contactUS');
+    }
 }
