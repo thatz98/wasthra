@@ -4,6 +4,7 @@ class Wishlist extends Controller {
 
     function __construct() {
         parent::__construct();
+        // customer only
         Authenticate::customerOnly();
     }
 

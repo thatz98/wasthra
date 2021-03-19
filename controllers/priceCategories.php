@@ -6,7 +6,7 @@ class PriceCategories extends Controller {
 
         parent::__construct();
         // restrict access only to the owner
-
+        Authenticate::ownerAuth();
     }
 
     /**
@@ -15,7 +15,7 @@ class PriceCategories extends Controller {
      * @return void
      */
     function index() {
-        
+
         $this->view->title = 'Price Categories';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Price Categories';
 
@@ -46,7 +46,7 @@ class PriceCategories extends Controller {
         header('location: ' . URL . 'priceCategories');
     }
 
-    
+
     /**
      * Display edit price category page
      *
@@ -64,7 +64,7 @@ class PriceCategories extends Controller {
         $this->view->render('control_panel/owner/edit_price_categories');
     }
 
-    
+
     /**
      * Update the existing price category
      *
@@ -85,7 +85,7 @@ class PriceCategories extends Controller {
         header('location: ' . URL . 'priceCategories');
     }
 
-    
+
     /**
      * Delete existing price category
      *
