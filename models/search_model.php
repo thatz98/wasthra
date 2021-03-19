@@ -120,13 +120,13 @@ class Search_Model extends Model {
     }
 
     function getSizes() {
-        return $this->db->query("SELECT product_size.sizes,product_size.product_id 
-        FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
+        return $this->db->query("SELECT DISTINCT inventory.size as sizes
+        FROM inventory;");
     }
 
     function getColors() {
-        return $this->db->query("SELECT product_colors.colors,product_colors.product_id
-        FROM product_colors INNER JOIN product on product_colors.product_id=product.product_id;");
+        return $this->db->query("SELECT DISTINCT inventory.color as colors
+        FROM inventory;");
     }
     function getCategories() {
         return $this->db->query("SELECT category.name,category.category_id
