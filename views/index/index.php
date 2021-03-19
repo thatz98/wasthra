@@ -160,5 +160,45 @@
     </div>
 </div>
 
+<!-------- top rated products -------->
+<div class="small-container">
+    <h2 class="title">Top Rated Products</h2>
+    <div class="row">
+    <?php foreach ($this->topRatedProducts as $product) { ?>
+            <div class="col-4">
+                <div class="content">
+                    <div class="content-overlay"></div>
+                    <img src="<?php echo URL . $product['product_images'][0]; ?>">
+                    <div class="content-details fadeIn-bottom">
+                        <div class="options">
+                            <div class="text">
+                                <a href="<?php echo URL; ?>shop/productDetails/<?php echo $product['product_id'] ?>">View</a><br><br>
+                            </div>
+                            <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $product['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>&tag=new#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4><?php echo $product['product_name']; ?></h4>
+                        <div class="ratings">
+                            <?php
+                            for ($j = 0; $j < ceil($product['review_rate']); $j++) {
+                                echo '<i class="fa fa-star"></i>';
+                            }
+                            for ($j = 0; $j < (5 - ceil($product['review_rate'])); $j++) {
+                                echo '<i class="fa fa-star-o"></i>';
+                            } ?>
+                        </div>
+                        <p class="price">LKR <?php echo $product['product_price']; ?></p>
+                    </div>
+
+                </div>
+
+
+            </div>
+        <?php } ?>
+
+    </div>
+</div>
+
 <script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>

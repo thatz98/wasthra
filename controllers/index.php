@@ -19,6 +19,8 @@ class Index extends Controller {
         // get all product details
         $this->view->featuredProducts =  $this->model->getFeaturedProducts();
         $this->view->newProducts =  $this->model->getNewProducts();
+        $this->view->topRatedProducts =  $this->model->getRatedProducts();
+        
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('index/index');
     }
