@@ -151,7 +151,7 @@
 
                         <?php }?>
                     </td>
-                    <td><a href="<?php echo URL;?>orders/myOrderDetails/<?php echo $orders['order_id']?>" class="btn table-btn">View Order</a></td>
+                    <td><a href="<?php echo URL ?>orders/orderDetails/<?php echo $orders['order_id']; ?>" class="btn table-btn">View Order</a></td>
                 </tr>
             
             <?php endforeach; } ?>
