@@ -25,11 +25,13 @@ class Cart extends Controller {
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         // load items in the cart of the partcular customer
         $this->view->userCart = $this->model->listUserCart();
-        // get all product details
+        //get all product details
         $this->view->qtyList = $this->model->getAllDetails();
+        $this->view->allProducts = $this->model->getAllProducts();
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->imageList = $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
+     
 
         $this->view->render('cart/cart');
     }

@@ -11,47 +11,33 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
-
-                <?php $this->subtotal=0.00;
-                    foreach ($this->orderItems as $order_items ): ?>
+                <?php $subTotal=0; 
+                    foreach($this->orderDetails as $details){$this->productname=''; ?>
                     <tr>
-
-                        <td><?php foreach ($this->imageList as $image){
-                              if($order_items['product_id']==$image['product_id']){?>
-                                   <img src="<?php echo URL.$image['image']?>" width="50px" height="50px">
-                            <?php 
-                            break;
-                          }
-                         }?>
-                        </td>
-
-                       <td class="order-details">
-                            <h4><?php 
-                                $this->productPrice=0.00;
-                                foreach ($this->qtyList as $qty){
-                                    if($qty['product_id']==$order_items['product_id']){
-                                        $this->productPrice=$qty['product_price'];
-                                        echo $qty['product_name'];
-                                    }
-                                } 
-
-                          ?>
-
-                            </h4>  
-                            <h5><?php echo $this->productPrice;?></h5>
-
+                        
+                        <td><img src="<?php echo URL.$details['image']?>"></td>
+                        <td class="order-details">
+                         
+                            <h4>
+                                <?php  echo $details['product_name'];?>
+                            </h4>
+                            <h5><?php $subTotal+=$details['product_price']*$details['item_qty']; 
+                                    echo $details['product_price']?></h5>
+                                <?php ?>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: <?php echo $order_items['item_color']; ?>"></span>
-                                <label class="input-data">Size: <?php echo $order_items['item_size']; ?></label>
-                                <label class="input-data">Qty: <?php echo $order_items['item_qty']; ?></label>
+                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $details['item_color']?>"></span>
+                                <label class="input-data">Size: <?php echo $details['item_size']?></label>
+                                <label class="input-data">Qty: <?php echo $details['item_qty']?></label>
                             </div>
-
+                            
+                            <div style='float: left;'>
+                                <?php if($this->allDetails[0][3]=='Completed' || $this->allDetails[0][3]=='Returned'){?>
+                                <a href="<?php echo '?id='.$product_id?>#addReview" class="btn">Review Product</a>
+                                <?php }?>
+                            </div>
                         </td>
-
                     </tr>
-
-                   <?php $this->subtotal+=($order_items['item_qty']*$this->productPrice);
-                   endforeach; ?>
+                <?php }?>
 
                 </table>     
             </div>
@@ -61,15 +47,20 @@
                 <div class="box-container" >
                     <h3>Summary</h3>
                     <div class="summary-info">
-
                         <div class="row">
                             <div class="col-2" style="min-width: 0;">
-                            <h4>Order ID: <?php echo $order_items['order_id']; ?> </h4>
-                            <h5>Date: <?php echo $order_items['date']; ?>    Time: <?php echo $order_items['time']; ?> </h5>
-                            <h5>Payment Method: <?php echo $this->payMethod[0][1]?></h5>
-
+                            <h4>Order ID: <?php echo($this->allDetails[0][0])?></h4>
+                            <h5>Date: <?php echo($this->allDetails[0][1])?>    Time: <?php echo($this->allDetails[0][2])?></h5>
+                            <h5>Payment Method: <?php 
+                            if($this->allDetails[0][4]=='cashOnDelivery'){
+                                echo 'Cash On Delivery';
+                            }
+                            else{
+                                echo 'Online';
+                            }?></h5>
+                            <h5>Payment Status: <?php echo $this->allDetails[0][5]?></h5>
                             
-                            <?php $status=$this->orderItems[0][3]; $color='';
+                            <?php $status=$this->allDetails[0][3]; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
@@ -110,9 +101,13 @@
                                     case 'Processing':
                                         $color='b79ce7';
                                         $status='Processing';
+                                        break;
+                                    case 'Out for Delivery':
+                                        $color='45d2b4';
+                                        $status='Out for Delivery';
                                         break;}?>
 
-                                    <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
+                            <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                             </div>
 
                             <div class="col-2" style="min-width: 0;">
@@ -124,42 +119,28 @@
 
                     <div class="total-price">
 
-                      <table>
-
-                        <tr>
-                            <td>Subtotal</td>
-                            <td>LKR <span id="subtotal"><?php echo number_format($this->subtotal,2,'.','');?></span></td>  
-                            <div id="sub-display">
-                            </div>
-                        </tr>
-
-                        <tr>
-                         
-
-                        </tr>
-
-                        <tr>
-                            <td>Delivery chargers</td>
-                                    
+                    <table>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
+                            </tr>
+                            <tr>
+                                <td>Delivery chargers</td>
+                                
                                 <?php $fee=0;
                                     foreach ($this->deliveryCharges as $delivery){
-                                        if($delivery['city']==$this->addressDetails[0][6]){
-                                    
+                                        if($delivery['city']==$this->allDetails[0][11]){
                                             $fee=$delivery['delivery_fee'];
-                                            $this->subtotal+=$fee;
-                                            
+                                            $subTotal+=$fee;
                                         }
                                     }?>
-                                    
-                            <td>LKR <?php echo number_format($fee,2,'.','');?></td>
-                        </tr>
-
-                        <tr>
-                            <td>Total Price</td>
-                            <td>LKR <span id="totalPrice"><?php echo number_format($this->subtotal,2,'.','');?></span></td>
-                        </tr>
-
-                      </table>
+                                <td>LKR <?php echo number_format($fee,2,'.','');?></td>
+                            </tr>
+                            <tr>
+                                <td>Total Price</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
+                            </tr>
+                        </table>
 
                     </div>
                 </div>
@@ -246,3 +227,12 @@
                                 <td>Total Price</td>
                                 <td>LKR 2400.00</td>
                             </tr>
+
+
+
+
+
+
+
+
+                            

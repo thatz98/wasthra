@@ -22,9 +22,13 @@
                             <h4>
                                 <?php  echo $details['product_name'];?>
                             </h4>
+
                             <h5><?php $subTotal+=$details['product_price']*$details['item_qty']; 
-                                    echo $details['product_price']?></h5>
+                                    echo $details['product_price']?>
+                            </h5>
+
                                 <?php ?>
+                            
                             <div class="item-input">
                                 <label>Color:</label><span class="color-dot" style="background-color:<?php echo $details['item_color']?>"></span>
                                 <label class="input-data">Size: <?php echo $details['item_size']?></label>
@@ -35,6 +39,7 @@
                                 <?php if($this->allDetails[0][3]=='Completed' || $this->allDetails[0][3]=='Returned'){?>
                                 <a href="<?php echo '?id='.$product_id?>#addReview" class="btn">Review Product</a>
                                 <?php }?>
+                            
                             </div>
                         </td>
                     </tr>
@@ -43,6 +48,7 @@
                 </table>     
             </div>
         </div>
+
         <div class="col-2">
             <div class="row">
                 <div class="box-container" >
@@ -110,6 +116,7 @@
 
                             <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                             
+                        
                         </div>
                         <div class="col-2" style="min-width: 0;">
                         <?php if($this->allDetails[0][3]=='New'){?>
@@ -132,6 +139,7 @@
                         </div>
                         </div>
                         
+                    
                     </div>
                     <div class="total-price">
                         <table>
@@ -159,6 +167,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="box-container">
                     <div class="delivery-info">

@@ -33,7 +33,10 @@ class Orders extends Controller{
 
         $this->view->title = 'Orders';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Orders';
-        $this->view->orderList = $this->model->getAllOrders();
+      
+        $this->view->qtyList =  $this->model->listAllOrderItemDetails();
+        $this->view->orderList = $this->model->listAllOrders();
+       // $this->view->orderList = $this->model->getAllOrders();
         $this->view->deliveryList = $this->model->getAllDelivery();
         $this->view->reqDetailList = $this->model->getRequiredDetails();
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
@@ -54,6 +57,8 @@ class Orders extends Controller{
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/orderDashboard">Orders</a> <i class="fas fa-angle-right"></i> Order Details';
         $this->view->deliveryStaffList = $this->model->getDeliveryStaffList();
     
+        $this->view->allDetails = $this->model->getAllOrderDetails($id);
+        $this->view->orderDetails = $this->model->getOrderDetails($id);
         $this->view->qtyList = $this->model->getAllDetails();
         $this->view->imageList = $this->model->getImages();
         $this->view->orderItems = $this->model->getOrderItems($id);
