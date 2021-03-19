@@ -30,11 +30,6 @@
                                 <label class="input-data">Qty: <?php echo $details['item_qty']?></label>
                             </div>
                             
-                            <div style='float: left;'>
-                                <?php if($this->allDetails[0][3]=='Completed' || $this->allDetails[0][3]=='Returned'){?>
-                                <a href="<?php echo '?id='.$product_id?>#addReview" class="btn">Review Product</a>
-                                <?php }?>
-                            </div>
                         </td>
                     </tr>
                 <?php }?>
@@ -145,6 +140,8 @@
                     </div>
                 </div>
             </div>
+
+            
             <div class="row">
                 <div class="box-container">
                     <div class="delivery-info">
@@ -154,15 +151,13 @@
                         <div class="row">
                             <div class="col-2" style="min-width: 0;">
                                 <label class="address">
-
                                     To:<br>
-                                    <?php echo $this->customerDetails[0][2] ?> <?php echo $this->customerDetails[0][3] ?><br>
-                                    <?php echo $this->addressDetails[0][3]?><br>
-                                    <?php echo $this->addressDetails[0][4]?><br>
-                                    <?php echo $this->addressDetails[0][5]?><br>
-                                    City :<?php echo $this->addressDetails[0][6]?><br>
-                                    Postal Code :<?php echo $this->addressDetails[0][2]?>
-
+                                    <?php echo Session::get('userData')['first_name']?> <?php echo Session::get('userData')['last_name']?><br>
+                                    <?php echo $this->allDetails[0][7]?><br>
+                                    <?php echo $this->allDetails[0][8]?><br>
+                                    <?php echo $this->allDetails[0][9]?><br>
+                                    City :<?php echo $this->allDetails[0][11]?><br>
+                                    Postal Code :<?php echo $this->allDetails[0][10]?>
                                 </label>
                             </div>
                             <div class="col-2" style="min-width: 0;">
@@ -190,6 +185,8 @@
 </div>
 
 
+
+
 <?php require 'views/footer.php'; ?>
 
 
@@ -201,32 +198,11 @@
 
 
 
-<!-- 
-                    <tr>
-                        <td><img src="<?php  ?>public/images/products/product_img_4.jpg"></td>
-                        <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
-                            </div>
-                        </td>
 
 
-                            <tr>
-                                <td>Subtotal</td>
-                                <td>LKR 2400.00</td>
-                            </tr>
-                            <tr>
-                                <td>Delivery chargers</td>
-                                <td>LKR 2400.00</td>
-                            </tr>
-                            <tr>
-                                <td>Total Price</td>
-                                <td>LKR 2400.00</td>
-                            </tr>
+
+
+
 
 
 
