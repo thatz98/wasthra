@@ -489,7 +489,7 @@
     new Chart(document.getElementById('sales-per-category'), {
         type: 'doughnut',
         data: {
-            labels: ['Gents', 'Ladies', 'Couple'],
+            labels: [<?php if(isset($this->totalSalesPerCategory[0])) echo '\''.$this->totalSalesPerCategory[0]['label'].'\'';?>, <?php if(isset($this->totalSalesPerCategory[1])) echo '\''.$this->totalSalesPerCategory[1]['label'].'\'';?>, <?php if(isset($this->totalSalesPerCategory[2])) echo '\''.$this->totalSalesPerCategory[2]['label'].'\'';?>],
             datasets: [{
                 label: 'Number of Sales',
                 data: [<?php if(isset($this->totalSalesPerCategory[0])) echo $this->totalSalesPerCategory[0]['sales'];?>, <?php if(isset($this->totalSalesPerCategory[1])) echo $this->totalSalesPerCategory[1]['sales'];?>, <?php if(isset($this->totalSalesPerCategory[2])) echo $this->totalSalesPerCategory[2]['sales'];?>],
