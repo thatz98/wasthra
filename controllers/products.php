@@ -95,7 +95,12 @@ class Products extends Controller {
 
         header('location: ' . URL . 'products');
     }
-
+    
+    /**
+     * Add product varient
+     *
+     * @return void
+     */
     function addVarient(){
 
         $data = array();
@@ -119,7 +124,14 @@ class Products extends Controller {
         header('location: ' . URL . 'products/productDetails/'.$product_id);        
 
     }
-
+    
+    /**
+     * Edit exisiting product varient
+     *
+     * @param  mixed $inventoryId Id of the vairent in the inventory
+     * @param  mixed $id Id of the product
+     * @return void
+     */
     function editVariant($inventoryId,$id){
 
         $this->view->title = 'Edit Variant Details';
@@ -228,7 +240,14 @@ class Products extends Controller {
 
         header('location: ' . URL . 'products');
     }
-
+    
+    /**
+     * Delete a product varient
+     *
+     * @param  mixed $id Id of the vairent
+     * @param  mixed $pID Id of the product
+     * @return void
+     */
     function deleteVariant($id,$pID) {
 
         $this->model->deleteVariant($id);

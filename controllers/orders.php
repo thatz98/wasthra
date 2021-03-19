@@ -6,7 +6,12 @@ class Orders extends Controller{
         parent::__construct();
 
     }
-
+    
+    /**
+     * Display customer's orders
+     *
+     * @return void
+     */
     function myOrders(){
 
         $this->view->title = 'My Orders';
@@ -17,7 +22,13 @@ class Orders extends Controller{
         $this->view->render('order/index');
         
     }
-
+    
+    /**
+     * Display customer's selected order details
+     *
+     * @param  mixed $id Id of the order
+     * @return void
+     */
     function myOrderDetails($id){
 
         $this->view->title = 'My Order Details';
@@ -28,7 +39,12 @@ class Orders extends Controller{
         $this->view->render('order/order_details');
 
     }
-
+    
+    /**
+     * Display all the orders to admin
+     *
+     * @return void
+     */
     function orderDashboard(){
 
         $this->view->title = 'Orders';
@@ -55,7 +71,13 @@ class Orders extends Controller{
         $this->view->render('control_panel/admin/orders');
         
     }
-
+    
+    /**
+     * Display the details of a selected order
+     *
+     * @param  mixed $id Id of the selected order
+     * @return void
+     */
     function orderDetails($id){
 
         $this->view->title = 'Order Details';
@@ -75,7 +97,13 @@ class Orders extends Controller{
         $this->view->render('control_panel/admin/order_details');
         
     }
-
+    
+    /**
+     * Display the tracking information for the selected order
+     *
+     * @param  mixed $id Id of the order to be tracked
+     * @return void
+     */
     function trackMyOrder($id){
         $this->view->title = 'Track Order';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/myOrders">My Orders</a> <i class="fas fa-angle-right"></i> Track My Order';
@@ -83,7 +111,12 @@ class Orders extends Controller{
         $this->view->track = $this->model->getTrackingInfo($id);
         $this->view->render('order/track_order');
     }
-
+    
+    /**
+     * Display assigned orders to the delivery staff
+     *
+     * @return void
+     */
     function assignedOrders(){
 
         $this->view->title = 'Assigned Orders';
@@ -93,7 +126,13 @@ class Orders extends Controller{
         $this->view->render('control_panel/delivery/orders');
         
     }
-
+    
+    /**
+     * Display details of the selected assigned order
+     *
+     * @param  mixed $id Id of the order that is selected
+     * @return void
+     */
     function assignedOrderDetails($id){
 
         $this->view->title = 'Assigned Order Details';
@@ -109,7 +148,12 @@ class Orders extends Controller{
         $this->view->render('control_panel/delivery/order_details');
         
     }
-
+    
+    /**
+     * Display order history to the delivery staff
+     *
+     * @return void
+     */
     function history(){
 
         $this->view->title = 'History';
@@ -127,7 +171,12 @@ class Orders extends Controller{
         $this->view->render('control_panel/delivery/history_details');
 
     }
-
+    
+    /**
+     * Update the status of the order
+     *
+     * @return void
+     */
     function updateOrderStatus(){
 
         $this->view->orderList = $this->model->getAllOrders();
@@ -139,7 +188,12 @@ class Orders extends Controller{
 
       //  header('location: ' . URL . "orders/orderDetails/{$data['order_id']}");
     }
-
+    
+    /**
+     * Update delivery status of the order
+     *
+     * @return void
+     */
     function updateOrderDeliveryStatus(){
 
         $this->view->orderList = $this->model->getAllOrders();
@@ -151,7 +205,12 @@ class Orders extends Controller{
 
         header('location: ' . URL . "orders/assignedOrderDetails/{$data['order_id']}");
     }
-
+    
+    /**
+     * Create a delivery for an order
+     *
+     * @return void
+     */
     function createDelivery() {
 
         $data = array();
@@ -163,14 +222,24 @@ class Orders extends Controller{
         header("location: " . URL . "orders/orderDetails/{$data['order_id']}");
         
     }
-
+    
+    /**
+     * Cancel an order
+     *
+     * @return void
+     */
     function cancelOrder() {
         $comment = $_POST['cancel_comment'];
         $id = $_POST['order_id'];
         $this->model->cancelOrder($comment, $id);
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
-
+    
+    /**
+     * Return an order
+     *
+     * @return void
+     */
     function returnOrder() {
         $comment = $_POST['return_comment'];
         $id = $_POST['order_id'];

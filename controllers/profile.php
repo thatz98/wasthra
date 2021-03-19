@@ -5,6 +5,8 @@ class Profile extends Controller {
     function __construct() {
 
         parent::__construct();
+        // check whether the user is logged in
+        Authenticate::handleLogin();
     }
 
     /**

@@ -4,13 +4,24 @@ class Search extends Controller {
     function __construct() {
         parent::__construct();
     }
-
+    
+    /**
+     * Live search for the AJAX
+     *
+     * @return void
+     */
     function index() {
         if (isset($_POST["term"])) {
             echo json_encode($this->model->liveSearch($_POST["term"]));
         }
     }
-
+    
+    /**
+     * Display advanced search filters
+     *
+     * @param  mixed $keyword Keyword to be searched
+     * @return void
+     */
     function advancedSearch($keyword=false) {
         $this->view->title = 'Advanced Search';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Advanced Search';
@@ -22,7 +33,12 @@ class Search extends Controller {
 
         $this->view->render('shop/advanced_search');
     }
-
+    
+    /**
+     * Advanced search by multiple filters
+     *
+     * @return void
+     */
     function byMultiFilter() {
         $filters = array();
 

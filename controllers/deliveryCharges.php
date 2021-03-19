@@ -5,6 +5,8 @@ class DeliveryCharges extends Controller {
     function __construct() {
 
         parent::__construct();
+        // restrict access to the owner only
+        Authenticate::ownerAuth();
     }
 
     /**
