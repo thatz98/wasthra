@@ -458,7 +458,7 @@ class Stats_Model extends Model {
                 if ($key == $hour) {
                     $hours[$key] = $item['revenue'];
                     $costHours[$key] = $item['cost'];
-                    $profitHours[$key] = $item['revenue'] - $item['cost'];
+                    $profitHours[$key] = $hours[$key] -  $costHours[$key];
                 }
             }
         }
@@ -497,7 +497,7 @@ class Stats_Model extends Model {
                 if ($key == $item['day']) {
                     $revenue[$key] = $item['revenue'];
                     $cost[$key] = $item['cost'];
-                    $profit[$key] = $item['revenue'] - $item['revenue'];
+                    $profit[$key] = $revenue[$key] -  $cost[$key];
                 }
             }
         }
@@ -539,8 +539,7 @@ class Stats_Model extends Model {
                 if ($d == $date) {
                     $revenue[$d] = $item['revenue'];
                     $cost[$d] = $item['cost'];
-                    $profit[$d] = floatval($item['revenue']) - floatval($item['revenue']);
-                    echo $profit[$d];
+                    $profit[$key] = $revenue[$key] -  $cost[$key];
                 }
             }
         }
@@ -569,8 +568,7 @@ class Stats_Model extends Model {
                 if ($key == $item['month']) {
                     $revenue[$key] = $item['revenue'];
                     $cost[$key] = $item['cost'];
-                    $profit[$key] = (int)$item['revenue'] - (int)$item['revenue'];
-                    
+                    $profit[$key] = $revenue[$key] -  $cost[$key];
                 }
             }
         }

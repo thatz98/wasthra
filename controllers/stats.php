@@ -100,6 +100,6 @@ class Stats extends Controller {
         }
         $this->view->convDistribution = implode(",",$conversions);
 
-       //$this->view->render('control_panel/owner/stats');
+       $this->view->render('control_panel/owner/stats');
     }
 }
