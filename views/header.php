@@ -7,7 +7,6 @@
     <title><?= (isset($this->title)) ? $this->title . ' | Wasthra' : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="/wasthra/public/css/all.css">
     <link rel="stylesheet" type="text/css" href="/wasthra/public/css/bag_dropdown.css">
-    <link rel="stylesheet" href="/wasthra/public/css/libs/font-awesome.min.css">
     <script src="/wasthra/public/js/libs/jquery.min.js"></script>
     <script src="/wasthra/public/js/libs/fontawesome.js"></script>
 
@@ -37,7 +36,7 @@
                         <li>
                         <div class="search-bar">
                                 <form action="<?php echo URL; ?>search/byMultiFilter" method="post">
-                                    <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required />
+                                    <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required>
                                     
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                     

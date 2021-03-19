@@ -71,7 +71,7 @@
  <!-- <div class="col-4">
                 <div class="content">
                         <div class="content-overlay"></div>
-                        <img src="<?php ; ?>public/images/products/product_img_8.jpg" alt="item1" />
+                        <img src="<?php ; ?>public/images/products/product_img_8.jpg" alt="item1" >
                         
                     <div class="content-details fadeIn-bottom"> 
                         <div class="options">
@@ -102,7 +102,7 @@
                 <div class="col-4">
                 <div class="content">
                         <div class="content-overlay"></div>
-                        <img src="<?php ; ?>public/images/products/product_img_7.jpg" alt="item1" />
+                        <img src="<?php ; ?>public/images/products/product_img_7.jpg" alt="item1" >
                         
                     <div class="content-details fadeIn-bottom"> 
                         <div class="options">
@@ -133,7 +133,7 @@
                 <div class="col-4">
                 <div class="content">
                         <div class="content-overlay"></div>
-                        <img src="<?php ; ?>public/images/products/product_img_1.jpg" alt="item1" />
+                        <img src="<?php ; ?>public/images/products/product_img_1.jpg" alt="item1" >
                         
                     <div class="content-details fadeIn-bottom"> 
                         <div class="options">

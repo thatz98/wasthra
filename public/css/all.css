@@ -2541,7 +2541,6 @@ p.success {
         left: 0;
         background: #333;
         width: 100%;
-        overflow: hidden;
         transition: max-height 0.5s;
         z-index: 1;
     }
@@ -2551,6 +2550,14 @@ p.success {
     }
     nav ul li a {
         color: #fff;
+    }
+
+    .search-bar ul.results {
+        width: 375px;
+    }
+
+    .search-bar ul.results li{
+        background: unset;
     }
     .menu-icon {
         display: block;

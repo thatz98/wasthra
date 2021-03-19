@@ -6,7 +6,7 @@ const contactNo = document.getElementById('contact_no');
 const addressLine1 = document.getElementById('address_line_1_update');
 const addressLine2 = document.getElementById('address_line_2_update');
 const addressLine3 = document.getElementById('address_line_3_update');
-const postalCode = document.getElementById('postal_code');
+const postalCode = document.getElementById('postal_code_update');
 
 const editprofileform = document.getElementById('editProfileFrom');
 

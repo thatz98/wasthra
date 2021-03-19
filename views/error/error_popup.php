@@ -59,7 +59,7 @@
 
                     switch ($_GET['success']) {
                         case 'signUp':
-                            $msg = 'Your account has been made, <br />
+                            $msg = 'Your account has been made, <br>
                         Please verify it by clicking the activation link
                         that has been send to your email...';
                             break;
@@ -70,14 +70,14 @@
                             $msg = 'Your acount has been verfied successfully, you can now login with you email and password.';
                             break;
                         case 'resentVerification':
-                            $msg = 'Verfication link has been resent to your email address successfully, <br />
+                            $msg = 'Verfication link has been resent to your email address successfully, <br>
                                 Please verify it by clicking the link.';
                             break;
                         case 'pwdChanged':
                             $msg = 'Your password has been updated successfully!';
                             break;
                             case 'resetLinkSent':
-                                $msg = 'Reset link has been sent to your email address successfully, <br />
+                                $msg = 'Reset link has been sent to your email address successfully, <br>
                                 Please changes your password by it by clicking the link.';
                                 break;
                                 case 'itemUpdatedToCart':
