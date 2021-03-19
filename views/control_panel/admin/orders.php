@@ -13,7 +13,7 @@
                    placeholder="Search by Order Category..">
     </div>
 
-    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo $this->newOrderCount; ?> results...</span>
+    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo $this->fullOrderCount; ?> results...</span>
     <div class="per-page" style="float: right;">
         <span>Rows per page: </span><select name="per-page" id="per-page">
             <?php foreach(range(10,100,10) as $i){?>
@@ -63,53 +63,39 @@
         <div class="order-container" style="min-width: 70%">
             <table class="order-list" id="order_list">
                
-            <?php if($this->orderList==FALSE){echo "No Placed Orders";}else{ foreach ($this->orderList as $order_list ): ?>
+            <?php if($this->orderList==FALSE){echo "No Placed Orders";}else{ foreach ($this->orderList as $orders ): ?>
                 <tr>
-
-                    <td class="order-details">
-                        <h4>ORDER ID:<?php echo $order_list['order_id']; ?></h4>
-                        <h5>Date: <?php echo $order_list['date']; ?></h5>
-                       
-                        <?php $product=array();
+                <td class="order-details"><h4><?php echo $orders['order_id']?></h4>
+                            <h5>Date: <?php echo $orders['date']?></h5>
+                            <?php $product=array();
                                     $price=0;
-                                    foreach($this->reqDetailList as $req){
-                                        if($req['order_id']==$order_list['order_id']){
-                                            $price+=$req['product_price']*$req['item_qty'];
+                                    foreach($this->qtyList as $qty){
+                                        if($qty['order_id']==$orders['order_id']){
+                                            $price+=$qty['product_price']*$qty['item_qty'];
                                         }
                                     }
 
                             ?>
 
-                           <?php $fee=0;$city='';
-                                foreach ($this->cities as $delivery_city){
-                                    if($delivery_city['order_id']==$order_list['order_id']){
-                                        $city=$delivery_city['city'];
-                                    }
-                                }?>
-
                             <?php 
                                 foreach ($this->deliveryCharges as $deliveryFee){
-                                    if($deliveryFee['city']==$city){
+                                    if($deliveryFee['city']==$orders['city']){
                                         $fee=$deliveryFee['delivery_fee'];
                                         $price+=$fee;
                                     }
                                 }
-                            ?>    
-
-                        <h5>Total Price: <?php echo number_format($price,2,'.',''); $price=0;?></h5>
-                    </td>
-                    <td class="order-messages">
-                        <div class="oder-status">
-
+                            ?>
+                            <h5>Total Price: <?php echo number_format($price,2,'.',''); $price=0;?></h5></td>
+                           <td> <div class="oder-status">
                            
-                            <?php $status=$order_list['order_status']; $color='';
+                           <?php $status=$orders['order_status']; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
                                         $status='New';
                                         break;
                                     case 'In Transit':
-                                        $color='e22525';
+                                        $color='18ea32';
                                         $status='In Transit';
                                         break;
                                     case 'Delivered':
@@ -125,7 +111,7 @@
                                         $status='Completed';
                                         break;
                                     case 'Cancelled':
-                                        $color='18ea32';
+                                        $color='e22525';
                                         $status='Cancelled';
                                         break;
                                     case 'Returned':
@@ -143,6 +129,10 @@
                                     case 'Processing':
                                         $color='b79ce7';
                                         $status='Processing';
+                                        break;
+                                    case 'Out for Delivery':
+                                        $color='45d2b4';
+                                        $status='Out for Delivery';
                                         break;}?>
 
                             <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
@@ -161,7 +151,7 @@
 
                         <?php }?>
                     </td>
-                    <td><a href="<?php echo URL ?>orders/orderDetails/<?php echo $order_list['order_id']; ?>" class="btn table-btn">View Order</a></td>
+                    <td><a href="<?php echo URL ?>orders/orderDetails/<?php echo $orders['order_id']; ?>" class="btn table-btn">View Order</a></td>
                 </tr>
             
             <?php endforeach; } ?>

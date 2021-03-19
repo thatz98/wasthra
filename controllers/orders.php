@@ -61,7 +61,12 @@ class Orders extends Controller{
         $this->view->processCount = $this->model->orderCount('Processing');
         $this->view->outForDeliveryCount = $this->model->orderCount('Out for Delivery');
         $this->view->pendingReturnCount = $this->model->orderCount('Requested to Return');
-    
+        $this->view->fullOrderCount = $this->model->orderCount('New')+
+                                      $this->model->orderCount('In Transit')+$this->model->orderCount('Delivered')+
+                                      $this->model->orderCount('Delivery Failed')+$this->model->orderCount('Completed')+
+                                      $this->model->orderCount('Cancelled')+$this->model->orderCount('Returned')+
+                                      $this->model->orderCount('Requested to Return')+$this->model->orderCount('Requested to Cancel')+
+                                      $this->model->orderCount('Processing')+$this->model->orderCount('Out for Delivery');
 
         $this->view->render('control_panel/admin/orders');
         
@@ -81,9 +86,7 @@ class Orders extends Controller{
     
         $this->view->allDetails = $this->model->getAllOrderDetails($id);
         $this->view->orderDetails = $this->model->getOrderDetails($id);
-        $this->view->qtyList = $this->model->getAllDetails();
         $this->view->imageList = $this->model->getImages();
-        $this->view->orderItems = $this->model->getOrderItems($id);
         $this->view->addressDetails = $this->model->getAddressDetails($id);
         $this->view->customerDetails = $this->model->getCustomerDetails($id);
         $this->view->payMethod = $this->model->getPayDetails($id);
