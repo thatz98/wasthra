@@ -87,6 +87,10 @@ a.active {
     color: tomato;
 }
 
+a.link:hover{
+    color: tomato;
+}
+
 select:focus {
     outline: none;
 }

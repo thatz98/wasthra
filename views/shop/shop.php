@@ -33,7 +33,7 @@ if (isset($_GET['page'])) {
         <div class="filter-col">
             <div class="filter-card" style="box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);padding:30px 10px;margin-top: 10px;width:90%;">
                 <div class="clear-filter">
-                    <a href="<?php echo URL; ?>shop">
+                    <a href="<?php echo URL; ?>shop" class="link">
                         <h3>Show All Products</h3>
                     </a><br>
                 </div>
@@ -95,6 +95,8 @@ if (isset($_GET['page'])) {
                         } ?>
                     </div>
                 </div>
+                <div class="row">
+                <a href="<?php echo URL;?>search/advancedSearch" class="link" >Use multiple filters &#8594</a></div>
             </div>
         </div>
         <div class="product-col">
