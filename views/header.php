@@ -35,11 +35,15 @@
                 <nav>
                     <ul id="menuItems">
                         <li>
-                            <div class="search-bar" <?php if (isset($this->title) && ($this->title == 'Advanced Search' || $this->title == 'Search Results')) echo 'hidden'; ?>>
+                        <div class="search-bar">
                                 <form action="<?php echo URL; ?>search/byMultiFilter" method="post">
                                     <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required />
+                                    
                                     <button type="submit"><i class="fa fa-search"></i></button>
+                                    
                                 </form>
+                                <ul id="results" class="results">
+                                    </ul>
                             </div>
                         </li>
                         <li><a href="<?php echo URL; ?>" class="<?php if (isset($this->title) && $this->title == 'Home') echo 'active'; ?>">Home</a></li>

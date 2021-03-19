@@ -1,7 +1,7 @@
 <?php require 'views/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="/wasthra/public/css/contact_us.css">
 
-
+<div class="row-top mar-t-50"></div>
 <div class="contact-us">
     <div class="row-top" style="justify-content: center;">
         <div class="col-2">

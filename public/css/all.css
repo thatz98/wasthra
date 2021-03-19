@@ -1908,6 +1908,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     flex-direction: column;
     position: absolute;
     width: 230px;
+    z-index: 5;
 }
 
 .search-bar ul.results li {

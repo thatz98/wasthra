@@ -32,9 +32,6 @@ iframe {
     height: 100%;
 }
 
-body {
-    background: linear-gradient(90deg, rgba(255, 215, 215, 1) 0%, rgba(255, 239, 239, 1) 50%, rgba(255, 255, 255, 1) 100%);
-}
 
 .col-2 {
     padding: 10px;

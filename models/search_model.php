@@ -18,31 +18,71 @@ class Search_Model extends Model {
     }
 
     function searchByKeyword($keyword) {
+        $term = metaphone($keyword);
+        $vowels = array("A", "E", "I", "O", "U");
+        $term = str_replace($vowels, "", $term);
+        $query = "SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+        GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
+        inventory.qty, price_category.product_price, 
+        price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+         LEFT JOIN inventory ON product.product_id=inventory.product_id
+         INNER JOIN category ON product.category_id=category.category_id
+         INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+         INNER JOIN product_images ON product.product_id=product_images.product_id
+         LEFT JOIN review on review.product_id=product.product_id
+        WHERE product.is_published='yes'
+        AND MATCH (meta_product_name,meta_product_desc) AGAINST ('$term*' IN BOOLEAN MODE) GROUP BY product.product_id";
 
-        return $this->db->query("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
-		FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
-        
-        INNER JOIN category on category.category_id=product.category_id
-        INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
+
+        $data = $this->db->query($query);
+
+        foreach ($data as $key => $value) {
+            $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
+            $data[$key]['product_sizes'] = explode(',', $data[$key]['product_sizes']);
+            $data[$key]['product_colors'] = explode(',', $data[$key]['product_colors']);
+        }
+
+        return $data;
     }
 
     function getAllDetailsByMultipleFilters($filters) {
-        $query = "SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
-            INNER JOIN inventory ON product.product_id=inventory.product_id
-            INNER JOIN category ON product.category_id=category.category_id
-            INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
-            INNER JOIN product_images ON product.product_id=product_images.product_id
-            INNER JOIN product_size ON product.product_id=product_size.product_id
-            INNER JOIN product_colors ON product.product_id=product_colors.product_id
-            LEFT JOIN review on review.product_id=product.product_id
-            WHERE product.is_published='yes'
-            AND product.product_name LIKE '%{$filters['keyword']}%' AND";
 
+        if(isset($filters['keyword']) && !empty($filters['keyword'])){
+            $term = metaphone($filters['keyword']);
+        $vowels = array("A", "E", "I", "O", "U");
+        $term = str_replace($vowels, "", $term);
+
+        $query = "SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+        GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
+        inventory.qty, price_category.product_price, 
+        price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+         LEFT JOIN inventory ON product.product_id=inventory.product_id
+         INNER JOIN category ON product.category_id=category.category_id
+         INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+         INNER JOIN product_images ON product.product_id=product_images.product_id
+         LEFT JOIN review on review.product_id=product.product_id
+        WHERE product.is_published='yes'
+            AND MATCH (meta_product_name,meta_product_desc) AGAINST ('$term*' IN BOOLEAN MODE) AND";
+        } else{
+            $query = "SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+        GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
+        inventory.qty, price_category.product_price, 
+        price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
+         LEFT JOIN inventory ON product.product_id=inventory.product_id
+         INNER JOIN category ON product.category_id=category.category_id
+         INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+         INNER JOIN product_images ON product.product_id=product_images.product_id
+         LEFT JOIN review on review.product_id=product.product_id
+        WHERE product.is_published='yes' AND";
+        }
         if (isset($filters['color'])) {
-            $query .= " product_colors.colors='{$filters['color']}' AND";
+            $query .= " inventory.color='{$filters['color']}' AND";
         }
         if (isset($filters['size'])) {
-            $query .= " product_size.sizes='{$filters['size']}' AND";
+            $query .= " inventory.size='{$filters['size']}' AND";
         }
         if (isset($filters['category'])) {
             $query .= " category.name='{$filters['category']}' AND";

@@ -42,20 +42,20 @@ class Search extends Controller {
     function byMultiFilter() {
         $filters = array();
 
-        if (isset($_POST['search_color'])) {
-            $filters['color'] = $_POST['search_color'];
+        if (isset($_GET['search_color'])) {
+            $filters['color'] = $_GET['search_color'];
             $this->view->selectedColor = $filters['color'];
         }
-        if (isset($_POST['search_size'])) {
-            $filters['size'] = $_POST['search_size'];
+        if (isset($_GET['search_size'])) {
+            $filters['size'] = $_GET['search_size'];
             $this->view->selectedSize = $filters['size'];
         }
-        if (isset($_POST['search_category'])) {
-            $filters['category'] = $_POST['search_category'];
+        if (isset($_GET['search_category'])) {
+            $filters['category'] = $_GET['search_category'];
             $this->view->selectedCategory = $filters['category'];
         }
-        if (isset($_POST['keyword'])) {
-            $filters['keyword'] = $_POST['keyword'];
+        if (isset($_GET['keyword'])) {
+            $filters['keyword'] = $_GET['keyword'];
             $this->view->selectedKeyword = $filters['keyword'];
         }
         $this->view->title = 'Search Results';
