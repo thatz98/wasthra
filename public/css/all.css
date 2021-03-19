@@ -2482,6 +2482,13 @@ p.success {
     border-color: transparent transparent black transparent;
 }
 
+#mobile-search{
+    display: none;
+    margin-right: 15px;
+    margin-left: 25px;
+    font-size: 24px;
+}
+
 @media screen and (max-width: 620px) {
     .user-box:hover>.user-info {
         width: 150px;
@@ -2541,8 +2548,9 @@ p.success {
         left: 0;
         background: #333;
         width: 100%;
+        overflow: hidden;
         transition: max-height 0.5s;
-        z-index: 1;
+        z-index: 5;
     }
     nav ul li {
         display: block;
@@ -2552,13 +2560,14 @@ p.success {
         color: #fff;
     }
 
-    .search-bar ul.results {
-        width: 375px;
+    .search-bar #search{
+        display: none;
     }
 
-    .search-bar ul.results li{
-        background: unset;
+    #mobile-search{
+        display: inline;
     }
+
     .menu-icon {
         display: block;
         cursor: pointer;

@@ -68,7 +68,7 @@
                         </a>
                     </div>
                 <?php endif; ?>
-
+                <a class="bag" id="mobile-search" href="<?php echo URL;?>search/advancedSearch"><i class="fa fa-search"></i></a>
                 <a class="bag" id="bag" <?php if (Session::get('loggedIn') == 'true') { ?>onclick="bagDown()" <?php if (Session::get('userType') != 'customer') {
                                                                                                                 echo 'hidden';
                                                                                                             }
