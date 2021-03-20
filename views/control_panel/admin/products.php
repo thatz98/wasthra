@@ -159,7 +159,7 @@
         <input type="text" id="keyword-input" onkeyup="filterByKeyword('product-table',10)" placeholder="Search & filter entire table by keyword..">
     </div>
 
-    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo count($this->totProducts[0]); ?> results...</span>
+    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo $this->totProducts[0][0]; ?> results...</span>
     <div class="per-page" style="float: right;">
         <span>Rows per page: </span><select name="per-page" id="per-page">
             <?php foreach (range(10, 100, 10) as $i) { ?>
