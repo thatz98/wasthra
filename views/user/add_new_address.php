@@ -44,7 +44,7 @@
                 <div class="col-3">
                     <div class="helper-text">
                         <label>Postal Code</label><br>
-                        <input type="text" name="postal_code" data-helper="Address Line 2" onfocusout="validatePostalCode()"
+                        <input type="text" name="postal_code" data-helper="Postal Code" onfocusout="validatePostalCode()"
                             id="postal_code">
                         <span class="popuptext"></span>
                     </div>

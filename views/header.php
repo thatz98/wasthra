@@ -7,7 +7,6 @@
     <title><?= (isset($this->title)) ? $this->title . ' | Wasthra' : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="/wasthra/public/css/all.css">
     <link rel="stylesheet" type="text/css" href="/wasthra/public/css/bag_dropdown.css">
-    <link rel="stylesheet" href="/wasthra/public/css/libs/font-awesome.min.css">
     <script src="/wasthra/public/js/libs/jquery.min.js"></script>
     <script src="/wasthra/public/js/libs/fontawesome.js"></script>
 
@@ -35,11 +34,15 @@
                 <nav>
                     <ul id="menuItems">
                         <li>
-                            <div class="search-bar" <?php if (isset($this->title) && ($this->title == 'Advanced Search' || $this->title == 'Search Results')) echo 'hidden'; ?>>
+                        <div class="search-bar">
                                 <form action="<?php echo URL; ?>search/byMultiFilter" method="post">
-                                    <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required />
+                                    <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required>
+                                    
                                     <button type="submit"><i class="fa fa-search"></i></button>
+                                    
                                 </form>
+                                <ul id="results" class="results">
+                                    </ul>
                             </div>
                         </li>
                         <li><a href="<?php echo URL; ?>" class="<?php if (isset($this->title) && $this->title == 'Home') echo 'active'; ?>">Home</a></li>
@@ -70,7 +73,7 @@
                         </a>
                     </div>
                 <?php endif; ?>
-
+                <a class="bag" id="mobile-search" href="<?php echo URL;?>search/advancedSearch"><i class="fa fa-search"></i></a>
                 <a class="bag" id="bag" <?php if (Session::get('loggedIn') == 'true') { ?>onclick="bagDown()" <?php if (Session::get('userType') != 'customer') {
                                                                                                                 echo 'hidden';
                                                                                                             }

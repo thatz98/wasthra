@@ -87,6 +87,10 @@ a.active {
     color: tomato;
 }
 
+a.link:hover{
+    color: tomato;
+}
+
 select:focus {
     outline: none;
 }
@@ -1908,6 +1912,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     flex-direction: column;
     position: absolute;
     width: 230px;
+    z-index: 5;
 }
 
 .search-bar ul.results li {
@@ -2477,6 +2482,13 @@ p.success {
     border-color: transparent transparent black transparent;
 }
 
+#mobile-search{
+    display: none;
+    margin-right: 15px;
+    margin-left: 25px;
+    font-size: 24px;
+}
+
 @media screen and (max-width: 620px) {
     .user-box:hover>.user-info {
         width: 150px;
@@ -2538,7 +2550,7 @@ p.success {
         width: 100%;
         overflow: hidden;
         transition: max-height 0.5s;
-        z-index: 1;
+        z-index: 5;
     }
     nav ul li {
         display: block;
@@ -2547,6 +2559,15 @@ p.success {
     nav ul li a {
         color: #fff;
     }
+
+    .search-bar #search{
+        display: none;
+    }
+
+    #mobile-search{
+        display: inline;
+    }
+
     .menu-icon {
         display: block;
         cursor: pointer;

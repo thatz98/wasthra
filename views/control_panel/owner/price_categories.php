@@ -371,7 +371,7 @@ function formToggle() {
 <script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
 <script type="text/javascript" src="/wasthra/public/js/sort_table.js"></script>
 <script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
-<script type="text/javascript" src="/wasthra/>util/form/price_category_form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/util/form/price_category_form_validation.js"></script>
 
 
 <?php require 'views/footer.php'; ?>

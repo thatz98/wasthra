@@ -61,8 +61,8 @@
             </div>
         
         </div>
- <?php require 'public/js/nav_menu.js'; ?>
- <script src="/wasthra/public/js/live_search.js"></script>
+        <script type="text/javascript" src="/wasthra/public/js/nav_menu.js"></script>
+ <script  type="text/javascript" src="/wasthra/public/js/live_search.js"></script>
 </body>
 
 </html>

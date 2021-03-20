@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= (isset($this->title)) ? $this->title . ' | Wasthra' : 'Wasthra'; ?></title>
-    <link rel="stylesheet" href="/wasthra/public/css/libs/font-awesome.min.css">
     <script src="/wasthra/public/js/libs/fontawesome.js"></script>
     <link rel="stylesheet" href="/wasthra/public/css/all.css">
     <link rel="stylesheet" href="/wasthra/public/css/wave.css">
@@ -32,7 +31,7 @@
                         <li>
                             <div class="search-bar">
                                 <form action="<?php echo URL; ?>search/byMultiFilter" method="post">
-                                    <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required />
+                                    <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required>
                                     
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                     
@@ -69,7 +68,7 @@
                         </a>
                     </div>
                 <?php endif; ?>
-
+                <a class="bag" id="mobile-search" href="<?php echo URL;?>search/advancedSearch"><i class="fa fa-search"></i></a>
                 <a class="bag" id="bag" <?php if (Session::get('loggedIn') == 'true') { ?>onclick="bagDown()" <?php if (Session::get('userType') != 'customer') {
                                                                                                                 echo 'hidden';
                                                                                                             }

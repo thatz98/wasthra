@@ -539,11 +539,10 @@ class Stats_Model extends Model {
                 if ($d == $date) {
                     $revenue[$d] = $item['revenue'];
                     $cost[$d] = $item['cost'];
-                    $profit[$key] = $revenue[$key] -  $cost[$key];
+                    $profit[$d] = $revenue[$d] -  $cost[$d];
                 }
             }
         }
-        print_r($profit);
         $result = array();
         $result['dates'] = implode(",", $dates);
         $result['revenue'] = implode(",", $revenue);

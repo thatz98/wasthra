@@ -115,7 +115,7 @@
                     <div class="helper-text">
                         <label>Postal Code</label><br>
                         <input type="text" name="postal_code" data-helper="Postal Code"
-                            onfocusout="validatePostalCode()" id="postal_code" value="<?php if(isset(Session::get('addressData')['postal_code'])){echo Session::get('addressData')['postal_code'];} ?>">
+                            onfocusout="validatePostalCode()" id="postal_code_update" value="<?php if(isset(Session::get('addressData')['postal_code'])){echo Session::get('addressData')['postal_code'];} ?>">
                         <span class="popuptext"></span>
                     </div>
                 </div>
