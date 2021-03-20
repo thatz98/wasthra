@@ -1,3 +1,4 @@
+    // Input fields
 
 const firstName = document.getElementById('first_name');
 const lastName = document.getElementById('last_name');
@@ -8,10 +9,13 @@ const addressLine2 = document.getElementById('address_line_2_update');
 const addressLine3 = document.getElementById('address_line_3_update');
 const postalCode = document.getElementById('postal_code');
 
+   // Form
 const editprofileform = document.getElementById('editProfileFrom');
 
+  // Handle form
 editprofileform.addEventListener('submit', function(event) {
     
+  // Prevent default behaviour
       event.preventDefault();
       if ( 
         validateFirstName() &&
@@ -27,6 +31,8 @@ editprofileform.addEventListener('submit', function(event) {
       }
     });
     
+    
+  // Validators
 function validateFirstName() {
     
       if (checkIfEmpty(firstName)) return;
@@ -53,6 +59,8 @@ function validateContactNo() {
     
       if (!checkIfOnlyNumbers(contactNo)) return;
       return true;
+    //Mobile
+
     }
 
 function validateEmail() {
@@ -61,11 +69,12 @@ function validateEmail() {
 
       if (!containsCharacters(email, 5)) return;
       return true;
-
+      //e-mail validity
     }
     
 function validateUpdateAddressLine1() {
-    
+    //check address line fields are valid text fields
+
         if (checkIfEmpty(addressLine1)) return;
   
         if (!containsCharacters(addressLine1, 6)) return;

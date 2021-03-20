@@ -1,13 +1,18 @@
+    // Input fields
+
 const firstName = document.getElementById('first_name_edituser');
 const lastName = document.getElementById('last_name_edituser');
 const email = document.getElementById('email_edituser');
 const contactNo = document.getElementById('contact_no_edituser');
-    
+     
+   // Form
 const editform = document.getElementById('editFrom');
 
 
+   // Handle form
 editform.addEventListener('submit', function(event) {
 
+   // Prevent default behaviour
       event.preventDefault();
       if (
         validateEditFirstName() &&
@@ -18,7 +23,8 @@ editform.addEventListener('submit', function(event) {
         editform.submit();
       }
     });
-    
+
+   // Validators
 function validateEditFirstName() {
 
       if (checkIfEmpty(first_name_edituser)) return;
@@ -45,6 +51,7 @@ function validateEditContactNo() {
     
       if (!checkIfOnlyNumbers(contact_no_edituser)) return;
       return true;
+    //mobile---->
 
     }
   
@@ -55,6 +62,7 @@ function validateEditEmail() {
 
       if (!containsCharacters(email_edituser, 5)) return;
       return true;
-
+     //check whether a acceptable e-mail
+     
     }
     

@@ -1,13 +1,19 @@
+    // Input fields
 const categoryId = document.getElementById('category_id');
 const categoryName = document.getElementById('category_name');
 const productionCost = document.getElementById('production_cost');
 const marketPrice = document.getElementById('market_price');
 const discount = document.getElementById('discount');
 
+
+    // Form
 const form = document.getElementById('addFrom');
-
+ 
+  
+    // Handle form
 form.addEventListener('submit', function(event) {
-
+ 
+    // Prevent default behaviour
     event.preventDefault();
     if (
       validateCategoryId() &&
@@ -20,13 +26,15 @@ form.addEventListener('submit', function(event) {
     }
   });
 
+
+  // Validators
 function validateCategoryId() {
 
     if (checkIfEmpty(categoryId)) return;
 
     if (!containsCharacters(categoryId,7)) return;
     return true;
-
+  //check whether a valid category Id
 }
 
 function validateCategoryName() {
@@ -36,6 +44,7 @@ function validateCategoryName() {
     if (!checkIfOnlyLetters(categoryName)) return;
     return true;
 
+     //check whether a valid category Name
 }
 
 function validateProductionCost() {
@@ -45,6 +54,7 @@ function validateProductionCost() {
     if (!checkIfOnlyPrice(productionCost)) return;
     return true;
 
+     //check whether a production cost
 }
 
 function validateMarketPrice() {
@@ -54,6 +64,7 @@ function validateMarketPrice() {
     if (!checkIfOnlyPrice(marketPrice)) return;
     return true;
 
+     //check whether a valid  market price
 }
   
 function validateDiscount() {
@@ -67,4 +78,5 @@ function validateDiscount() {
     if (!meetValue(discount,0,101)) return;
     return true;
 
+     //check whether a valid discount
 }
