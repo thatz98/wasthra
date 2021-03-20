@@ -17,6 +17,11 @@ function swapImageP(id) {
     productImgP.src = document.getElementById(id).src;
 }
 
+var productImgB = document.getElementById("product-img-b");
+
+function swapImageB(id) {
+    productImgB.src = document.getElementById(id).src;
+}
 
 
 

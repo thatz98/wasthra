@@ -1713,6 +1713,15 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     padding: 2px;
 }
 
+.popup .col-2 img#product-img-b {
+    object-fit: cover;
+    object-position: -20% 0;
+    max-width: none;
+    height: 255px;
+    width: 255px;
+    padding: 2px;
+}
+
 .popup .gallery-col img:hover {
     transform: scale(1.15);
 }
