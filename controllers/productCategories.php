@@ -4,7 +4,7 @@ class ProductCategories extends Controller {
     function __construct() {
 
         parent::__construct();
-        // restrict access to admin and owner
+        // restrict access to admin and owner only
         Authenticate::adminAuth();
     }
     
