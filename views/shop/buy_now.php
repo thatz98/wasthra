@@ -45,7 +45,7 @@
             <div class="col-2" style="text-align: center;">
                 <h2 style="margin-top: 5px;"><?php echo $this->product[0]['product_name'] ?> </h2>
                 <h4>LKR <?php echo $this->product[0]['product_price'] ?></h4><br>
-                <form action="<?php echo URL; ?>cart/addToCart" method="post">
+                <form action="<?php echo URL; ?>cart/buyNow" method="post">
                     <label class="text-label">Select Color</label>
                     <div class="colors">
                         <?php

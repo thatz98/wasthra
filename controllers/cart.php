@@ -88,7 +88,7 @@ class Cart extends Controller {
         $data = array();
         $data['product_id'] = $_POST['prod_idB'];
         $data['item_qty'] = $_POST['quantity'];
-        $data['item_color'] = $_POST['color'];
+        $data['item_color'] = $_POST['colorB'];
         $data['item_size'] = $sizeArray;
 
         // check whether the customer is logged in

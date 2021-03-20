@@ -102,5 +102,17 @@
 </div>
 
  </div>
+<script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
 
+
+<script>
+$(pagination(10,'order_list'));
+
+$('#per-page').on('change',function() {
+	var rowsPerPage = parseInt($('#per-page').val());
+	pagination(rowsPerPage,'order_list');
+});
+
+</script>
 <?php require 'views/footer.php'; ?>
