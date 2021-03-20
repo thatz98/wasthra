@@ -13,7 +13,7 @@ class Index extends Controller {
      * @return void
      */
     function index() {
-
+        
         $this->view->title = 'Home';
      
         // get all product details

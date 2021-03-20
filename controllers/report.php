@@ -8,5 +8,7 @@ class Report extends Controller{
     
     }
 
-    
+    function generateReport(){
+        PDFGenerator::init();
+    }
 }
