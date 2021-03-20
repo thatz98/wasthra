@@ -20,6 +20,7 @@ class Inventory extends Controller {
 
         // get invertory details
         $this->view->inventoryDetails = $this->model->listInventoryDetials();
+        $this->view->totProducts = $this->model->getProductCount();
         $this->view->render('control_panel/admin/inventory');
     }
     

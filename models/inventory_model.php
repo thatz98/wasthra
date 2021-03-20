@@ -31,7 +31,15 @@ class Inventory_Model extends Model{
             //     'reorder_qty' => $data['reorder_qty'],),"product_id = '{$data['product_id']}'");
         }
 
+        function getProductCount(){
+
+            return $this->db->query("SELECT COUNT(inventory.product_id) FROM inventory WHERE is_deleted='no'; ");
+    
+        }
+
+    }
+
         
-}
+
 
 ?>
