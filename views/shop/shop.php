@@ -89,7 +89,7 @@ if (isset($_GET['page'])) {
                                     <input type="radio" name="filter-color" <?php if (isset($this->selected) && $this->selected == $color['color']) {
                                                                                 echo 'checked';
                                                                             } ?>>
-                                    <span class="checkmark" onclick="colorFilter('<?php echo $color['color']; ?>')" style="background-color:<?php echo $color['color'] ?>"></span>
+                                    <span class="checkmark" onclick="colorFilter('<?php echo $color['color']; ?>')" style="background-color:<?php echo $color['color'].';'; if($color['color']=='#fff' || $color['color']=='#fffff') echo 'border: 0.5px solid #000;'; ?>"></span>
                                 </label>
                         <?php }
                         } ?>
@@ -103,7 +103,13 @@ if (isset($_GET['page'])) {
             <div class="row">
 
 
-                <?php if ($this->itemCount <= 9) {
+                <?php if (empty($this->products)) { ?>
+                <div class="row">
+                <h4 class="mar-b-20">No items were found...</h4><br>
+                </div>
+            <?php }
+            
+             if ($this->itemCount <= 9) {
                     foreach ($this->products as $product) { ?>
                         <div class="col-3">
                             <div class="content">
@@ -114,7 +120,7 @@ if (isset($_GET['page'])) {
                                         <div class="text">
                                             <a href="<?php echo URL; ?>shop/productDetails/<?php echo $product['product_id'] ?>">View</a><br><br>
                                         </div>
-                                        <a href="<?php echo URL; ?>shop/addToWishlist/<?php echo $this->products[$i]['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                                        <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $this->products[$i]['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
                                     </div>
                                 </div>
                                 <div>
@@ -147,7 +153,7 @@ if (isset($_GET['page'])) {
                                         <div class="text">
                                             <a href="<?php echo URL; ?>shop/productDetails/<?php echo $this->products[$i]['product_id'] ?>">View</a><br><br>
                                         </div>
-                                        <a href="<?php echo URL; ?>shop/addToWishlist/<?php echo $this->products[$i]['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $this->products[$i]['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                                        <a href="<?php echo URL; ?>wishlist/addToWishlist/<?php echo $this->products[$i]['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $this->products[$i]['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
                                     </div>
                                 </div>
                                 <div>

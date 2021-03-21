@@ -45,9 +45,9 @@
                             $msg = 'Something wrong with the mail server! Try
                                             again.';
                             break;
-                            case 'customerOnly':
-                                $msg = 'Sorry! Only customers can perform this action.';
-                                break;
+                        case 'customerOnly':
+                            $msg = 'Sorry! Only customers can perform this action.';
+                            break;
                         default:
                             $msg = 'Something wrong! Try
                                             again.';
@@ -76,19 +76,25 @@
                         case 'pwdChanged':
                             $msg = 'Your password has been updated successfully!';
                             break;
-                            case 'resetLinkSent':
-                                $msg = 'Reset link has been sent to your email address successfully, <br>
+                        case 'resetLinkSent':
+                            $msg = 'Reset link has been sent to your email address successfully, <br>
                                 Please changes your password by it by clicking the link.';
-                                break;
-                                case 'itemUpdatedToCart':
-                                    $msg = 'Item updated to cart successfully...';
-                                    break;
-                                    case 'itemDeleted':
-                                        $msg = 'Item removed from the cart successfully';
-                                        break;
-                                default:
-                                    $msg = 'Successfull!';
-                                    break;
+                            break;
+                        case 'itemUpdatedToCart':
+                            $msg = 'Item updated to cart successfully...';
+                            break;
+                        case 'itemDeleted':
+                            $msg = 'Item removed from the cart successfully';
+                            break;
+                        case 'addedToWishlist':
+                            $msg = 'Item added to the wishlist successfully';
+                            break;
+                        case 'removedFromWishlist':
+                            $msg = 'Item removed from the wishlist successfully';
+                            break;
+                        default:
+                            $msg = 'Successfull!';
+                            break;
                     } ?>
                     <p class="success"><i class="fa fa-check" aria-hidden="true"></i> <?php echo $msg; ?></p>
                 <?php } ?>

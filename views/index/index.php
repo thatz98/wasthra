@@ -1,7 +1,7 @@
 <?php require 'views/header_index.php'; ?>
 <?php require 'views/shop/add_to_cart_index.php'; ?>
 
-<!-------- featered categories -------->
+<!-------- categories -------->
 <div class="categories">
     <div class="small-container">
         <div class="row">
@@ -44,6 +44,7 @@
         </div>
     </div>
 </div>
+
 <!-------- featered products -------->
 <div class="small-container">
     <h2 class="title">Featured Products</h2>
@@ -105,7 +106,7 @@
 <div class="small-container">
     <h2 class="title">Latest Products</h2>
     <div class="row">
-    <?php foreach ($this->newProducts as $product) { ?>
+        <?php foreach ($this->newProducts as $product) { ?>
             <div class="col-4">
                 <div class="content">
                     <div class="content-overlay"></div>
@@ -164,7 +165,7 @@
 <div class="small-container">
     <h2 class="title">Top Rated Products</h2>
     <div class="row">
-    <?php foreach ($this->topRatedProducts as $product) { ?>
+        <?php foreach ($this->topRatedProducts as $product) { ?>
             <div class="col-4">
                 <div class="content">
                     <div class="content-overlay"></div>

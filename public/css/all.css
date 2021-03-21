@@ -1183,7 +1183,6 @@ form#regForm_m {
 .content .content-overlay {
     background: rgba(255, 255, 255, 0.8);
     position: absolute;
-    height: 99%;
     width: 100%;
     left: 0;
     top: 0;
@@ -2494,8 +2493,8 @@ p.success {
 #mobile-search{
     display: none;
     margin-right: 15px;
-    margin-left: 25px;
-    font-size: 24px;
+    margin-top: 3px;
+    font-size: 22px;
 }
 
 @media screen and (max-width: 620px) {

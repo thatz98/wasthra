@@ -40,8 +40,11 @@ class Wishlist extends Controller {
     function addToWishlist($id) {
 
         $this->model->create($id);
-
-        header('location: ' . URL . '');
+        if(isset($_SERVER['HTTP_REFERER'])){ 
+        header('location: ' . $_SERVER['HTTP_REFERER'] . '?success=addedToWishlist#message');
+    } else{
+        header('location: ' . URL . '?success=addedToWishlist#message');
+    }
     }
     
     /**
@@ -53,7 +56,10 @@ class Wishlist extends Controller {
     function removeFromWishlist($id) {
 
         $this->model->delete($id);
-        
-        header('location: ' . URL . 'wishlist');
+        if(isset($_SERVER['HTTP_REFERER'])){  
+        header('location: ' . $_SERVER['HTTP_REFERER'] . 'wishlist?success=removedFromWishlist#message');
+        } else{
+            header('location: ' . URL . 'wishlist?success=removedFromWishlist#message');
+        }
     }
 }

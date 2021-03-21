@@ -289,13 +289,4 @@ class Shop extends Controller {
     }
 
 
-    function addToWishlist($id) {
-
-        $this->model->createWishlist($id);
-
-        header('location: ' . URL . 'shop/');
-        
-    }
-
-
 }

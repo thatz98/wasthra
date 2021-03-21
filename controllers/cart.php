@@ -1,16 +1,16 @@
 <?php
 
 class Cart extends Controller {
-    
+
     function __construct() {
-        
+
         parent::__construct();
         // check whether the user is logged in
         Authenticate::handleLogin();
         // restrict access to only customers
         Authenticate::customerOnly();
     }
-    
+
     /**
      * Display the cart
      *
@@ -20,7 +20,7 @@ class Cart extends Controller {
 
         $this->view->title = 'Cart';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Cart';
-        
+
         // load delivery charges
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         // load items in the cart of the partcular customer
@@ -30,19 +30,19 @@ class Cart extends Controller {
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->imageList = $this->model->getImages();
         $this->view->colorList =  $this->model->getColors();
-     
+
 
         $this->view->render('cart/cart');
     }
 
-        
+
     /**
      * Add items to cart
      *
      * @return void
      */
     function addToCart() {
-        
+
         $sizeGents = $_POST['size1'];
         $sizeLadies = $_POST['size2'];
         $sizeNormal = $_POST['size'];
@@ -62,8 +62,11 @@ class Cart extends Controller {
         // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
             $this->model->create($data);
-
-            header('location: ' . $_POST['prev_url'].'?success=itemAddedToCart#message');
+            if (strpos($_POST['prev_url'], '=') == false) {
+                header('location: ' . $_POST['prev_url'] . '?success=itemAddedToCart#message');
+            } else {
+                header('location: ' . $_POST['prev_url'] . '&success=itemAddedToCart#message');
+            }
         } else {
             $data['item_color'] = str_replace('#', '', $data['item_color']);
 
@@ -74,7 +77,7 @@ class Cart extends Controller {
     }
 
     function buyNow() {
-        
+
         $sizeGents = $_POST['size1B'];
         $sizeLadies = $_POST['size2B'];
         $sizeNormal = $_POST['sizeB'];
@@ -108,7 +111,7 @@ class Cart extends Controller {
         }
     }
 
-        
+
     /**
      * Add items to cart after login (if the customer has not already logged in by the time he/she clicks 'Add to cart')
      *
@@ -121,7 +124,7 @@ class Cart extends Controller {
         $data['item_qty'] = $_GET['qty'];
         $data['item_color'] = '#' . $_GET['color'];
         $data['item_size'] = $_GET['size'];
-        
+
         // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
             $this->model->create($data);
@@ -133,7 +136,7 @@ class Cart extends Controller {
             header('location: ' . URL . 'login/cartRequireLogin?productId=' . $data['product_id'] . '&qty=' . $data['item_qty'] . '&color=' . $data['item_color'] . '&size=' . $data['item_size'] . '&loginRequired=true');
         }
     }
-    
+
     /**
      * Update the exisiting items in the cart
      *
@@ -151,7 +154,7 @@ class Cart extends Controller {
         $sizeArray .= $sizeGents;
         // remove the last comma that has been added to the string
         $sizeArray = rtrim($sizeArray, ",");
-        
+
         $data['product_id'] = $_POST['prod_id'];
         $data['item_qty'] = $_POST['quantity'];
         $data['item_color'] = $_POST['color'];
@@ -163,7 +166,7 @@ class Cart extends Controller {
         header('location: ' . URL . 'cart?success=itemUpdatedToCart#message');
     }
 
-        
+
     /**
      * Delete an item from the cart
      *
@@ -173,7 +176,7 @@ class Cart extends Controller {
     function delete($id) {
 
         $this->model->delete($id);
-        
+
         header('location: ' . URL . 'cart?success=itemDeleted#message');
     }
 }
