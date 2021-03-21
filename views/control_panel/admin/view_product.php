@@ -57,7 +57,7 @@
                     <label class="text-label">No varients to display</label><br>
                <?php } else{
                 foreach ($this->product[0]['product_colors'] as $color) { ?>
-                    <span class="color-dot" style="background-color: <?php echo $color ?>"></span><?php
+                    <span class="color-dot" style="background-color: <?php echo $color.';'; if($color=='#fff' || $color=='#fffff') echo 'border: 0.5px solid #000;';  ?>"></span><?php
                                                                                                 } }?>
             </div>
             <label class="text-label bold">Available Sizes</label>

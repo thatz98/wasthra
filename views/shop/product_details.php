@@ -47,7 +47,7 @@
             <div class="product-colors">
                 <?php
                 foreach ($this->product[0]['product_colors'] as $color) { ?>
-                    <span class="color-dot" style="background-color: <?php echo $color ?>"></span><?php
+                    <span class="color-dot" style="background-color: <?php echo $color.';'; if($color=='#fff' || $color=='#fffff') echo 'border: 0.5px solid #000;'; ?>"></span><?php
                                                                                                 } ?>
             </div>
             <label class="text-label">Available Sizes</label>

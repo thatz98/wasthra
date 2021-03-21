@@ -166,7 +166,18 @@ class Stats_Model extends Model {
         } else {
             $query .= "GROUP by category.name;";
         }
-        return $this->db->query($query);
+        $data = $this->db->query($query);
+        $cats = array();
+        $sales = array();
+        foreach ($data as $item) {
+            array_push($cats, '\'' . $item['label'] . '\'');
+            array_push($sales, $item['sales']);
+        }
+        $result = array();
+        $result['cat'] = implode(",", $cats);
+        $result['sales'] = implode(",", $sales);
+        return array($result['cat'], $result['sales']);
+
     }
 
     function getTotalSalesPerCity($filter = false) {
