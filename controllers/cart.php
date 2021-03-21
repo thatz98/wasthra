@@ -90,12 +90,15 @@ class Cart extends Controller {
         $data['item_qty'] = $_POST['quantity'];
         $data['item_color'] = $_POST['colorB'];
         $data['item_size'] = $sizeArray;
-
+        $productPrice = $this->model->getProductPriceById($data['product_id']);
+        $data['product_price'] = $productPrice[0][0];
         // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
             Session::set('buyNowData', $data);
-            print_r(Session::get('buyNowData'));
+            //print_r(Session::get('buyNowData'));
+            //echo($data['product_price']);
             //header('location: ' . $_POST['prev_url'].'?success=itemAddedToCart#message');
+            header('location: ' . URL . 'shop/checkout');
         } else {
             $data['item_color'] = str_replace('#', '', $data['item_color']);
 

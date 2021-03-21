@@ -209,6 +209,11 @@ class Cart_Model extends Model{
     return $data;
 
     }
+
+    function getProductPriceById($id){
+        return $this->db->query("SELECT price_category.product_price FROM price_category INNER JOIN product 
+        ON product.price_category_id=price_category.price_category_id WHERE product.product_id='$id' ");
+    }
     
 }
 
