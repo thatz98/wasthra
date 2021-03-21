@@ -291,8 +291,3 @@
 
 } 
 
-
-
-// 'delivery_id' => $data[''],
-// 'actual_delivery_date' => $data[''],
-// 'expected_delivery_date' => $data['']
