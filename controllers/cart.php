@@ -73,6 +73,41 @@ class Cart extends Controller {
         }
     }
 
+    function buyNow() {
+        
+        $sizeGents = $_POST['size1B'];
+        $sizeLadies = $_POST['size2B'];
+        $sizeNormal = $_POST['sizeB'];
+        $sizeArray = '';
+        $sizeArray .= $sizeNormal;
+        $sizeArray .= $sizeLadies . ",";
+        $sizeArray .= $sizeGents;
+        // remove the last comma that has been added to the string
+        $sizeArray = rtrim($sizeArray, ",");
+
+        $data = array();
+        $data['product_id'] = $_POST['prod_idB'];
+        $data['item_qty'] = $_POST['quantity'];
+        $data['item_color'] = $_POST['colorB'];
+        $data['item_size'] = $sizeArray;
+        $productPrice = $this->model->getProductPriceById($data['product_id']);
+        $data['product_price'] = $productPrice[0][0];
+        // check whether the customer is logged in
+        if (Session::get('loggedIn') == 'true') {
+            Session::set('buyNowData', $data);
+            //print_r(Session::get('buyNowData'));
+            //echo($data['product_price']);
+            //header('location: ' . $_POST['prev_url'].'?success=itemAddedToCart#message');
+            header('location: ' . URL . 'shop/checkout');
+        } else {
+            $data['item_color'] = str_replace('#', '', $data['item_color']);
+
+            // redirect customer to the login page
+            // once the login is successfull, the item will be added to the cart
+            //header('location: ' . URL . 'login/cartRequireLogin?productId=' . $data['product_id'] . '&qty=' . $data['item_qty'] . '&color=' . $data['item_color'] . '&size=' . $data['item_size'] . '&loginRequired=true');
+        }
+    }
+
         
     /**
      * Add items to cart after login (if the customer has not already logged in by the time he/she clicks 'Add to cart')

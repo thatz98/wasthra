@@ -5,7 +5,7 @@
         <h2 class="title title-min">Inventory</h2>
         </div>
         <div class="row-right">
-        <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
+        <a href="<?php echo URL ?>report/generateInventoryReport" class="btn">Generate Report</a>
     </div>
     <div class="table-search">
         <input type="text" id="keyword-input" onkeyup="filterByKeyword('inventory-table',6)" placeholder="Search & filter entire table by keyword..">

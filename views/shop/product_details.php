@@ -1,7 +1,7 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/shop/add_to_cart.php'; ?>
 <?php require 'views/shop/add_review.php'; ?>
-<?php require 'views/shop/buyNowPopup.php'; ?>
+<?php require 'views/shop/buy_now.php'; ?>
 <?php if (isset($_GET['id'])) {
     require 'views/shop/add_to_cart_index.php';
 } ?>

@@ -79,6 +79,7 @@
 
     function getAllOrderDetails($id){
 
+
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
         checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
         delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
@@ -87,11 +88,14 @@
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
         LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id WHERE orders.order_id='$id' GROUP BY orders.order_id ");
 
+
     }
 
     function getCity(){
+
         return $this->db->query("SELECT checkout.order_id,delivery_address.city 
         FROM checkout INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id");
+        
     }
 
     function getMyOrder($id){
@@ -261,6 +265,7 @@ $id = Session::get('userId');
             'user_id' => $data['user_id']
            ));
            $this->trackingUpdate($data['order_id']);
+
         }
         
     function getDeliveryInfo($id){
@@ -288,8 +293,3 @@ $id = Session::get('userId');
 
 } 
 
-
-
-// 'delivery_id' => $data[''],
-// 'actual_delivery_date' => $data[''],
-// 'expected_delivery_date' => $data['']

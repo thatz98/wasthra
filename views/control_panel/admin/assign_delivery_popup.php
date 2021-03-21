@@ -14,16 +14,18 @@
                             foreach($this->deliveryStaffList as $deliveryPerson){?>
                                 <option value="<?php echo $deliveryPerson['user_id'];?>">
                                     <?php echo $deliveryPerson['first_name'].' '.$deliveryPerson['last_name'];?>
-                                    </opttion>
+                                    </option>
                                     <?php   }?>
                             </select>
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
-                <input type="text" value="<?php echo  $this->orderItems[0][0]; ?>" name="order_id" hidden>
+                <input type="text" value="<?php echo  $this->allDetails[0][0]; ?>" name="order_id" hidden>
                     <button type="submit" class="btn">Assign</button>
                 </div>
+                
                 <br>
             </form>
 

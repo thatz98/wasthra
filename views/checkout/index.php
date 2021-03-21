@@ -116,10 +116,12 @@
                         <table>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>LKR <span id="subtotal"><?php $this->subtotal = 0;
+                                <td>LKR <span id="subtotal"><?php if(Session::get('cartCount'!=0)){$this->subtotal = 0;
                                                             foreach (Session::get('cartData') as $cartItem) {
                                                                         $this->subtotal += $cartItem['product_price'] * $cartItem['item_qty'];
-                                                                    }
+                                                                    }}
+                                                                    else{$this->subtotal = 0;
+                                                            $this->subtotal += Session::get('buyNowData')['product_price'] * Session::get('buyNowData')['item_qty'];}
                                                             echo number_format($this->subtotal, 2, '.', ''); ?></span></td>
                                 <div id="sub-display">
                                 </div>

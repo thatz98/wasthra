@@ -208,11 +208,11 @@ class Shop_Model extends Model {
             'is_deleted' => 'no',
             'payment_status' => 'pending',
         ));
-
-
         $userId = Session::get('userId');
         $cartId = $this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
         $cartIdActual = $cartId[0][0];
+        if(empty(Session::get('buyNowData'))){
+
         $cartItems = $this->db->query("SELECT * FROM cart_item WHERE cart_item.cart_id='$cartIdActual'");
         foreach ($cartItems as $item) {
             $this->db->insert('order_item', array(
@@ -221,6 +221,17 @@ class Shop_Model extends Model {
                 'item_size' => $item['item_size'],
                 'item_qty' => $item['item_qty'],
                 'item_color' => $item['item_color'],
+                'is_deleted' => 'no',
+            ));
+            }
+        }
+        else{
+            $this->db->insert('order_item', array(
+                'order_id' => $orderID,
+                'product_id' => Session::get('buyNowData')['product_id'],
+                'item_size' => Session::get('buyNowData')['item_size'],
+                'item_qty' => Session::get('buyNowData')['item_qty'],
+                'item_color' => Session::get('buyNowData')['item_color'],
                 'is_deleted' => 'no',
             ));
         }
@@ -324,4 +335,17 @@ class Shop_Model extends Model {
 
         return $data;
     }
+
+
+    function createWishlist($id){
+
+        $userId=Session::get('userId');
+        $this->db->insert('wishlist',array(
+           'product_id' => $id,
+           'user_id' => $userId
+             
+          ));
+  
+    }
+
 }

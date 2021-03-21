@@ -187,7 +187,9 @@ class Orders extends Controller{
 
         $this->model->update($data);
 
-      //  header('location: ' . URL . "orders/orderDetails/{$data['order_id']}");
+
+       header('location: ' . URL . "orders/orderDetails/{$data['order_id']}");
+       
     }
     
     /**

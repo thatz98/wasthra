@@ -172,7 +172,7 @@ class Shop extends Controller {
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         //$x=$this->model->getCartItems();
         //echo($x);
-        if(Session::get('cartCount')==0){
+        if(Session::get('cartCount')==0 && empty(Session::get('buyNowData'))){
             header('location: ' . URL . 'shop');
         }
         else{
@@ -219,11 +219,16 @@ class Shop extends Controller {
         $orderID = str_replace("-", "", $orderID);
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
-
+        if(empty(Session::get('cartData'))){
         $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment);
         $this->model->deleteCartItems();
         Session::set('cartData', '');
         Session::set('cartCount', 0);
+        Session::set('buyNowData', '');
+        }
+        else{
+            $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment);
+        }
 
         if ($_POST['payment_method'] == 'online payment') {
             $this->view->render('checkout/payment');
@@ -282,4 +287,15 @@ class Shop extends Controller {
             echo json_encode($this->model->getCoupleQtys($_POST["product_id"], $_POST["color"], $_POST["size1"],$_POST["size2"]));
         }
     }
+
+
+    function addToWishlist($id) {
+
+        $this->model->createWishlist($id);
+
+        header('location: ' . URL . 'shop/');
+        
+    }
+
+
 }
