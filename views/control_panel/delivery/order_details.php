@@ -14,9 +14,10 @@
                 <table class="order-list order-items">
 
                 <?php $subTotal=0; 
-                    foreach($this->orderInfo as $details){$this->productname=''; 
+                    foreach($this->orderInfo as $details){
+                        $this->productname=''; 
                         $subTotal+=$details['product_price']*$details['item_qty'];
-                        ?>
+                    }?>
 
                 <?php foreach ($this->allInfo as $order_Details):?>
                     <tr>
@@ -75,7 +76,7 @@
 
                                     <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                                         
-                               <!-- <?php endforeach; ?> -->
+                              <?php endforeach; ?>
                         </div>
                         <div class="col-2" style="min-width: 0;">
                             <a href="#updateStatus" class="btn">Update Status</a>
