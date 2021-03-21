@@ -12,13 +12,17 @@
                 <h3>Items</h3>
                 <?php $this->subtotal=0.00;?>
                 <table class="order-list order-items">
+
+                <?php $subTotal=0; 
+                    foreach($this->orderInfo as $details){$this->productname=''; 
+                        $subTotal+=$details['product_price']*$details['item_qty'];
+                        ?>
+
                 <?php foreach ($this->allInfo as $order_Details):?>
                     <tr>
                      <td>
                        <img src="<?php echo URL.$order_Details['image'];?>" width="50px" height="50px">
                      </td>
-  
-         
                      
                         <td class="order-details">
                             <h4><?php echo $order_Details['product_name'];?></h4>
@@ -67,30 +71,6 @@
                                         $color='e22525';
                                         $status='Cancelled';
                                         break;    
-                                    // case 'Delivery Failed':
-                                    //     $color='31d115';
-                                    //     $status='Delivery Failed';
-                                    //     break;
-                                    // case 'Completed':
-                                    //     $color='d115cb';
-                                    //     $status='Completed';
-                                    //     break;
-                                    // case 'Returned':
-                                    //     $color='0710de';
-                                    //     $status='Returned';
-                                    //     break;
-                                    // case 'Requested to Return':
-                                    //     $color='de7207';
-                                    //     $status='Requested to Return';
-                                    //     break;
-                                    // case 'Requested to Cancel':
-                                    //     $color='999b4f';
-                                    //     $status='Requested to Cancel';
-                                    //     break;
-                                    // case 'Processing':
-                                    //     $color='b79ce7';
-                                    //     $status='Processing';
-                                    //     break;
                                     }?>
 
                                     <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
@@ -108,15 +88,22 @@
                         <table>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
                             </tr>
                             <tr>
                                 <td>Delivery chargers</td>
-                                <td>LKR 2400.00</td>
+                                <?php $fee=0;
+                                    foreach ($this->deliveryCharges as $delivery){
+                                        if($delivery['city']==$this->allDetails[0][11]){
+                                            $fee=$delivery['delivery_fee'];
+                                            $subTotal+=$fee;
+                                        }
+                                    }?>
+                                <td>LKR <?php echo number_format($fee,2,'.','');?></td>
                             </tr>
                             <tr>
                                 <td>Total Price</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
                             </tr>
                         </table>
                     </div>
@@ -146,7 +133,7 @@
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
                                     Expected Delivery Date: 05/05/2020<br><br>
-                                    Assiged deliver: Not set<br>
+                                    Assinged deliver: Not set<br>
                                 </label>
                                 <a href="#" class="btn">Use Maps</a>
                             </div>
@@ -157,6 +144,5 @@
         </div>
     </div>
 </div>
-
 
 <?php require 'views/footer.php'; ?>

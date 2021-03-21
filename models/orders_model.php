@@ -78,8 +78,7 @@
     }
 
     function getAllOrderDetails($id){
-
-
+        
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
         checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
         delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
@@ -88,14 +87,11 @@
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
         LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id WHERE orders.order_id='$id' GROUP BY orders.order_id ");
 
-
     }
 
     function getCity(){
-
         return $this->db->query("SELECT checkout.order_id,delivery_address.city 
         FROM checkout INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id");
-        
     }
 
     function getMyOrder($id){
@@ -218,7 +214,8 @@ $id = Session::get('userId');
 
     function assignedOrder_Details($id){
 
-        return $this->db->query("SELECT order_item.item_size,order_status,order_item.item_qty,order_item.item_color,order_item.product_id FROM order_item INNER JOIN orders ON orders.order_id=order_item.order_id WHERE order_item.order_id='$id' ");
+        return $this->db->query("SELECT order_item.item_size,order_status,order_item.item_qty,order_item.item_color,order_item.product_id FROM order_item
+        INNER JOIN orders ON orders.order_id=order_item.order_id WHERE order_item.order_id='$id' ");
     
     }
 
@@ -226,14 +223,16 @@ $id = Session::get('userId');
 
         $orderId=$this->db->query("SELECT order_id FROM payment WHERE payment.order_id='$id'");
         $newId=$orderId[0]['order_id'];
-        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders 
+        INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
     }
 
     function assignedDeliveryInfo($id){
 
         $userId=$this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
         $addressId=$userId[0]['address_id'];
-        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
+        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
         FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
     
 }
@@ -265,7 +264,6 @@ $id = Session::get('userId');
             'user_id' => $data['user_id']
            ));
            $this->trackingUpdate($data['order_id']);
-
         }
         
     function getDeliveryInfo($id){
@@ -293,3 +291,8 @@ $id = Session::get('userId');
 
 } 
 
+
+
+// 'delivery_id' => $data[''],
+// 'actual_delivery_date' => $data[''],
+// 'expected_delivery_date' => $data['']
