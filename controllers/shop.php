@@ -287,4 +287,15 @@ class Shop extends Controller {
             echo json_encode($this->model->getCoupleQtys($_POST["product_id"], $_POST["color"], $_POST["size1"],$_POST["size2"]));
         }
     }
+
+
+    function addToWishlist($id) {
+
+        $this->model->createWishlist($id);
+
+        header('location: ' . URL . 'shop/');
+        
+    }
+
+
 }

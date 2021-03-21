@@ -114,7 +114,7 @@ if (isset($_GET['page'])) {
                                         <div class="text">
                                             <a href="<?php echo URL; ?>shop/productDetails/<?php echo $product['product_id'] ?>">View</a><br><br>
                                         </div>
-                                        <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                                        <a href="<?php echo URL; ?>shop/addToWishlist/<?php echo $this->products[$i]['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $product['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
                                     </div>
                                 </div>
                                 <div>
@@ -147,7 +147,7 @@ if (isset($_GET['page'])) {
                                         <div class="text">
                                             <a href="<?php echo URL; ?>shop/productDetails/<?php echo $this->products[$i]['product_id'] ?>">View</a><br><br>
                                         </div>
-                                        <a href="#"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $this->products[$i]['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
+                                        <a href="<?php echo URL; ?>shop/addToWishlist/<?php echo $this->products[$i]['product_id'] ?>"><i class="fa fa-2x fa-heart-o"></i></a><a href="<?php echo '?id=' . $this->products[$i]['product_id'] ?>#addToCartPopupIndex"><i class="fa fa-2x fa-cart-plus"></i></a>
                                     </div>
                                 </div>
                                 <div>
@@ -202,6 +202,7 @@ if (isset($_GET['page'])) {
     function categoryFilter(category) {
         location.replace("http://127.0.0.1/wasthra/shop/byCategory/" + category);
     }
+    
 </script>
 <script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>

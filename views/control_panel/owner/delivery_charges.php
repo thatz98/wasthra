@@ -42,7 +42,9 @@
                    placeholder="Search & filter entire table by keyword..">
         </div>
 
-    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo ($this->cityCount);?> results...</span>
+
+
+    <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo $this->cityCount[0][0];?> results...</span>
     <div class="per-page" style="float: right;">
         <span>Rows per page: </span><select name="per-page" id="per-page">
             <?php foreach(range(10,100,10) as $i){?>
