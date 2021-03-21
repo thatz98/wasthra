@@ -19,7 +19,7 @@ class Wishlist extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Wishlist';
         
         // get items in the wishlist
-        $this->view->wishlistqtyList =  $this->model->getwishlistDetails();
+        $this->view->wishlistqtyList =  $this->model->getAllProducts();
         $this->view->wishlistimageList =  $this->model->getwishlistImages();
 
         // get all product details
