@@ -219,11 +219,16 @@ class Shop extends Controller {
         $orderID = str_replace("-", "", $orderID);
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
-
+        if(empty(Session::get('cartData'))){
         $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment);
         $this->model->deleteCartItems();
         Session::set('cartData', '');
         Session::set('cartCount', 0);
+        Session::set('buyNowData', '');
+        }
+        else{
+            $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment);
+        }
 
         if ($_POST['payment_method'] == 'online payment') {
             $this->view->render('checkout/payment');
