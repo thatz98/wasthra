@@ -16,7 +16,8 @@
 
     function getAllDetails(){
             
-        return $this->db->query("SELECT price_category.price_category_name,price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
+        return $this->db->query("SELECT price_category.price_category_name,price_category.product_price,category.name,
+        product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
         FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
         
         INNER JOIN category on category.category_id=product.category_id
@@ -205,14 +206,10 @@
 
     function assignedOrders(){
 
-        $userId=Session::get('userId');
-        $orderId=$this->db->query("SELECT order_id FROM delivery WHERE delivery.user_id='$userId'");
-        if(!empty($orderId)) {
-        $id=$orderId[0]['order_id'];
-        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,delivery.expected_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE orders.order_id='$id'");
-        }else{
-            return FALSE;
-        }
+$id = Session::get('userId');
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,delivery.expected_delivery_date,delivery.user_id FROM orders 
+        INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id'");
+
     }
 
     function assignedOrder_Details($id){
