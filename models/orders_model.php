@@ -78,7 +78,7 @@
     }
 
     function getAllOrderDetails($id){
-        
+
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
         checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
         delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
@@ -236,14 +236,6 @@ $id = Session::get('userId');
         FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
     
 }
-
-    // function getAssignedOrderImage($id){
-    //     $productId=$this->db->query("SELECT product_id FROM order_item WHERE order_item.order_id='$id'");
-    //     $productImage=$productId[0]['product_id'];
-    //     return $this->db->query("SELECT image FROM product_images  WHERE product_images.product_id='$productImage'");
-    //     return $this->db->query("SELECT image FROM product_images INNER JOIN order_item ON order_item.product_id=product_images.product_id WHERE order_item.order_id='$id'");
-   
-    // }
     
     function orderCount($status){
 
