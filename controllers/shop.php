@@ -172,7 +172,7 @@ class Shop extends Controller {
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         //$x=$this->model->getCartItems();
         //echo($x);
-        if(Session::get('cartCount')==0){
+        if(Session::get('cartCount')==0 && empty(Session::get('buyNowData'))){
             header('location: ' . URL . 'shop');
         }
         else{
