@@ -4,7 +4,7 @@
     <div class="popup">
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         <div class="row">
-            <form action="<?php echo URL; ?>orders/updateOrderDeliveryStatus" id="updateOrderStatusForm" method="post">
+            <form action="<?php echo URL; ?>orders/updateOrderStatus" id="updateOrderStatusForm" method="post">
                 <div class="row" style="margin-top:30px;">
                     <div class="col-2">
                         <div class="">
