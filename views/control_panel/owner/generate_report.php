@@ -18,7 +18,7 @@
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">
-                    <img src="/wasthra/public/images/logo.png" width="125px">
+                    <img src="/public/images/logo.png" width="125px">
                 </div>
 
                 <nav>
@@ -103,7 +103,7 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col-1">
-                        <img src="/wasthra/public/images/logo-white.png">
+                        <img src="/public/images/logo-white.png">
                         <div class="social-icons">
                             <a href="#"><i class="fa fa-facebook-square footer-icon"></i></a>
                             <a href="#"><i class="fa fa-twitter-square footer-icon"></i></a>
@@ -137,8 +137,8 @@
 
 
 
-<script type="text/javascript" src="/wasthra/public/js/preloader.js"></script>
-<script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
+<script type="text/javascript" src="/public/js/preloader.js"></script>
+<script type="text/javascript" src="/public/js/table_filter.js"></script>
 <link rel="stylesheet" type="text/css" href="public/css/filter_dropdown.css">
 
 

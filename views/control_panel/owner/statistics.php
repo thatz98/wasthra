@@ -1,4 +1,4 @@
-<script src="/wasthra/public/js/libs/jquery.min.js"></script>
+<script src="/public/js/libs/jquery.min.js"></script>
 
 <style>
 * {

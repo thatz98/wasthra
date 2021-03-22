@@ -62,7 +62,7 @@
         delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
         INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id GROUP BY orders.order_id");
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id GROUP BY orders.date DESC");
 
     }
 
@@ -282,6 +282,12 @@ $id = Session::get('userId');
     }
 
     function getOrderListBy($category) {
+    function history(){
+        $id = Session::get('userId');
+        return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
+    }
+
+} 
 
     if ($category == 'New') {
 
