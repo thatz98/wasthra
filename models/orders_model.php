@@ -284,8 +284,29 @@ $id = Session::get('userId');
     function getOrderListBy($category) {
     function history(){
         $id = Session::get('userId');
-        return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
+        return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders 
+        INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
     }
+
+    function historyDetails($id){
+        return $this->db->query("SELECT order_item.item_size,order_status,order_item.item_qty,order_item.item_color,order_item.product_id FROM order_item
+        INNER JOIN orders ON orders.order_id=order_item.order_id WHERE order_item.order_id='$id' ");
+    }
+
+     function historySummary(){
+        $orderId=$this->db->query("SELECT order_id FROM payment WHERE payment.order_id='$id'");
+        $newId=$orderId[0]['order_id'];
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders 
+        INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
+     }
+
+     function deliveryHistoryInfo(){
+        $userId=$this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
+        $addressId=$userId[0]['address_id'];
+        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
+        FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
+     }
 
 } 
     function getOrderFilterBy($category){
