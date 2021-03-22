@@ -342,7 +342,7 @@
 </div>
 </div>
 
-<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
+<script type="text/javascript" src="/public/js/table_pagination.js"></script>
 <script>
 $(pagination(10,'pricecategory-table'));
 
@@ -368,10 +368,10 @@ function formToggle() {
 </script>
 
 
-<script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
-<script type="text/javascript" src="/wasthra/public/js/sort_table.js"></script>
-<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
-<script type="text/javascript" src="/wasthra/util/form/price_category_form_validation.js"></script>
+<script type="text/javascript" src="/public/js/table_filter.js"></script>
+<script type="text/javascript" src="/public/js/sort_table.js"></script>
+<script type="text/javascript" src="/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/util/form/price_category_form_validation.js"></script>
 
 
 <?php require 'views/footer.php'; ?>
