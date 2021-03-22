@@ -162,6 +162,7 @@ class Orders extends Controller{
 
         $this->view->title = 'History';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> History';
+        $this->view->deliveryHistory = $this->model->history();
 
         $this->view->render('control_panel/delivery/history');
 

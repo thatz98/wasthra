@@ -281,6 +281,11 @@ $id = Session::get('userId');
         $this->db->queryExecuteOnly("UPDATE orders SET order_status='Requested to Return' WHERE order_id='$id'");
     }
 
+    function history(){
+        $id = Session::get('userId');
+        return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
+    }
+
 } 
 
 
