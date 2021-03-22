@@ -2072,7 +2072,7 @@ label.input-data {
 }
 
 form .row-top {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 form .col-3 {
@@ -2208,7 +2208,6 @@ p.success {
 }
 
 .helper-text {
-    width: 100%;
     position: relative;
     display: inline-block;
     cursor: pointer;
