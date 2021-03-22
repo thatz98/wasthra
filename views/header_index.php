@@ -32,12 +32,12 @@
                             <div class="search-bar">
                                 <form action="<?php echo URL; ?>search/byMultiFilter" method="post">
                                     <input id="search" name="keyword" type="search" placeholder="Search..." autofocus required>
-                                    
+
                                     <button type="submit"><i class="fa fa-search"></i></button>
-                                    
+
                                 </form>
                                 <ul id="results" class="results">
-                                    </ul>
+                                </ul>
                             </div>
                         </li>
                         <li><a href="<?php echo URL; ?>" class="<?php if (isset($this->title) && $this->title == 'Home') echo 'active'; ?>">Home</a></li>
@@ -68,13 +68,13 @@
                         </a>
                     </div>
                 <?php endif; ?>
-                <a class="bag" id="mobile-search" href="<?php echo URL;?>search/advancedSearch"><i class="fa fa-search"></i></a>
+                <a class="bag" id="mobile-search" href="<?php echo URL; ?>search/advancedSearch"><i class="fa fa-search"></i></a>
                 <a class="bag" id="bag" <?php if (Session::get('loggedIn') == 'true') { ?>onclick="bagDown()" <?php if (Session::get('userType') != 'customer') {
-                                                                                                                echo 'hidden';
-                                                                                                            }
-                                                                                                        } else { ?>href="<?php echo URL; ?>login?loginRequired=true" <?php } ?>><i class="fa fa-shopping-bag fa-2x"></i><?php if ((Session::get('cartCount'))) {
-                                                                                                                                                                                                                                                                                            echo '<span class="badge">' . Session::get('cartCount') . '</span>';
-                                                                                                                                                                                                                                                                                        } ?></a>
+                                                                                                                    echo 'hidden';
+                                                                                                                }
+                                                                                                            } else { ?>href="<?php echo URL; ?>login?loginRequired=true" <?php } ?>><i class="fa fa-shopping-bag fa-2x"></i><?php if ((Session::get('cartCount'))) {
+                                                                                                                                                                                                                            echo '<span class="badge">' . Session::get('cartCount') . '</span>';
+                                                                                                                                                                                                                        } ?></a>
 
                 <img src="/wasthra/public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
@@ -83,7 +83,7 @@
                 <div class="col-2">
                     <h1>It's all about <br>Tees!</h1>
                     <p>Are you the person who just wakes up, puts your T-shirt on and runs out of the house? <br>Or do you wake up an hour early - get your mental notes together, fix you a little coffee... prepare yourself for the day and try to do something really great? It begins with you.</p>
-                    <a href="" class="btn">Shop Now &#8594;</a>
+                    <a href="<?php echo URL; ?>shop" class="btn">Shop Now &#8594;</a>
                 </div>
                 <div class="col-2">
                     <img src="/wasthra/public/images/image1.png">

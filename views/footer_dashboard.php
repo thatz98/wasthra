@@ -10,14 +10,14 @@
                             <a href="#"><i class="fa fa-google-plus-square footer-icon"></i></a>
                             <a href="#"><i class="fa fa-instagram footer-icon"></i></a>
                         </div>
-                        
+
                     </div>
                     <div class="footer-col-2">
                         <h3>MAIN PAGES</h3>
                         <ul class="menu-list">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Shop</a></li>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="<?php echo URL; ?>">Home</a></li>
+                            <li><a href="<?php echo URL; ?>shop">Shop</a></li>
+                            <li><a href="<?php echo URL; ?>contactUs">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="footer-col-3">
@@ -31,15 +31,15 @@
                     <div class="footer-col-4">
                         <h3>CATEGORIES</h3>
                         <ul>
-                            <li><a href="#">Gents</a></li>
-                            <li><a href="#">Ladies</a></li>
-                            <li><a href="#">Couple</a></li>
+                            <li><a href="<?php echo URL; ?>shop/byCategory/Gents">Gents</a></li>
+                            <li><a href="<?php echo URL; ?>shop/byCategory/Ladies">Ladies</a></li>
+                            <li><a href="<?php echo URL; ?>shop/byCategory/Couple">Couple</a></li>
                         </ul>
                     </div>
                     <div class="footer-col-5">
-            
-                        
-            
+
+
+
                     </div>
                 </div>
                 <hr>
@@ -56,11 +56,11 @@
                     </div>
                 </div>
             </div>
-        
+
         </div>
-    
-        <script type="text/javascript" src="/wasthra/public/js/nav_menu.js"></script> 
 
-</body>
+        <script type="text/javascript" src="/wasthra/public/js/nav_menu.js"></script>
 
-</html>
+        </body>
+
+        </html>
