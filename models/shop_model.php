@@ -336,16 +336,4 @@ class Shop_Model extends Model {
         return $data;
     }
 
-
-    function createWishlist($id){
-
-        $userId=Session::get('userId');
-        $this->db->insert('wishlist',array(
-           'product_id' => $id,
-           'user_id' => $userId
-             
-          ));
-  
-    }
-
 }

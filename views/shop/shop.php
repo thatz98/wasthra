@@ -18,15 +18,8 @@ if (isset($_GET['page'])) {
 } ?>
 <div class="small-container">
 
-    <div class="row row-2">
-        <h2>Shop</h2>
-        <select>
-            <option>Default Sorting</option>
-            <option>Sort by price</option>
-            <option>Sort by popularity</option>
-            <option>Sort by rating</option>
-            <option>Sort by sale</option>
-        </select>
+    <div class="row">
+        <h2 class="title">Shop</h2>
     </div>
 
     <div class="row-top">
