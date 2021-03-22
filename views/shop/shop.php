@@ -1,7 +1,7 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/shop/add_to_cart_index.php'; ?>
 
-<link rel="stylesheet" href="/public/css/shop-filters.css">
+<link rel="stylesheet" href="/wasthra/public/css/shop-filters.css">
 <?php $this->itemCount = count($this->products);
 if (isset($_GET['page'])) {
     $this->page = $_GET['page'];
@@ -198,17 +198,17 @@ if (isset($_GET['page'])) {
 <script>
     function colorFilter(color) {
         color = color.substring(1);
-        location.replace("http://127.0.0.1/shop/byColor/" + color);
+        location.replace("http://127.0.0.1/wasthra/shop/byColor/" + color);
     }
 
     function sizeFilter(size) {
-        location.replace("http://127.0.0.1/shop/bySize/" + size);
+        location.replace("http://127.0.0.1/wasthra/shop/bySize/" + size);
     }
 
     function categoryFilter(category) {
-        location.replace("http://127.0.0.1/shop/byCategory/" + category);
+        location.replace("http://127.0.0.1/wasthra/shop/byCategory/" + category);
     }
     
 </script>
-<script type="text/javascript" src="/public/js/product_gallery.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>

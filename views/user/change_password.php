@@ -43,5 +43,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/public/js/form_validation.js"></script>
-<script type="text/javascript" src="/util/form/change_password_form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/util/form/change_password_form_validation.js"></script>

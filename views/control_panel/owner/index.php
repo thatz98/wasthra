@@ -18,7 +18,7 @@
 
                             </div>
                         </div>
-                        <img class="content-image" src="/public/images/dash-7.png">
+                        <img class="content-image" src="/wasthra/public/images/dash-7.png">
                         <div class="content-details fadeIn-bottom">
                             <p>Price Categories</p>
                         </div>
@@ -35,7 +35,7 @@
 
                             </div>
                         </div>
-                        <img class="content-image" src="/public/images/dash-17.png">
+                        <img class="content-image" src="/wasthra/public/images/dash-17.png">
                         <div class="content-details fadeIn-bottom">
                             <p>Statistics</p>
                         </div>
@@ -52,7 +52,7 @@
 
                             </div>
                         </div>
-                        <img class="content-image" src="/public/images/dash-8.png">
+                        <img class="content-image" src="/wasthra/public/images/dash-8.png">
                         <div class="content-details fadeIn-bottom">
                             <p>Delivery Charges</p>
                         </div>
@@ -69,7 +69,7 @@
 
                             </div>
                         </div>
-                        <img class="content-image" src="/public/images/dash-10.png">
+                        <img class="content-image" src="/wasthra/public/images/dash-10.png">
                         <div class="content-details fadeIn-bottom">
                             <p>Orders</p>
                         </div>
@@ -86,7 +86,7 @@
 
                             </div>
                         </div>
-                        <img class="content-image" src="/public/images/dash-11.png">
+                        <img class="content-image" src="/wasthra/public/images/dash-11.png">
                         <div class="content-details fadeIn-bottom">
                             <p>Users</p>
                         </div>
@@ -103,7 +103,7 @@
 
                             </div>
                         </div>
-                        <img class="content-image" src="/public/images/dash-16.png">
+                        <img class="content-image" src="/wasthra/public/images/dash-16.png">
                         <div class="content-details fadeIn-bottom">
                             <p>Products</p>
                         </div>
@@ -120,7 +120,7 @@
 
                             </div>
                         </div>
-                        <img class="content-image" src="/public/images/dash-1.png">
+                        <img class="content-image" src="/wasthra/public/images/dash-1.png">
                         <div class="content-details fadeIn-bottom">
                             <p>Product Categories</p>
                         </div>

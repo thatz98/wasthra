@@ -11,7 +11,7 @@
                 <h3>Items</h3>
                 <table class="order-list order-items">
                     <tr>
-                        <td><img src="/public/images/products/product_img_4.jpg"></td>
+                        <td><img src="/wasthra/public/images/products/product_img_4.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -23,7 +23,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><img src="/public/images/products/product_img_5.jpg"></td>
+                        <td><img src="/wasthra/public/images/products/product_img_5.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>
@@ -35,7 +35,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><img src="/public/images/products/product_img_6.jpg"></td>
+                        <td><img src="/wasthra/public/images/products/product_img_6.jpg"></td>
                         <td class="order-details">
                             <h4>Red Colored Curve Neck</h4>
                             <h5>LKR 800.00</h5>

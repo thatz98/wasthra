@@ -22,18 +22,18 @@
                 }
                 if ($this->product[0]['name'] == 'Gents') : ?>
                     <div class="gallery-col">
-                        <img src="/public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
+                        <img src="/wasthra/public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
                     </div>
                     <?php else : if ($this->product[0]['name'] == 'Ladies') : ?>
                         <div class="gallery-col">
-                            <img src="/public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
+                            <img src="/wasthra/public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
                         </div>
                     <?php else : ?>
                         <div class="gallery-col">
-                            <img src="/public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
+                            <img src="/wasthra/public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
                         </div>
                         <div class="gallery-col">
-                            <img src="/public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
+                            <img src="/wasthra/public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
                         </div>
                 <?php endif;
                 endif; ?>
@@ -208,6 +208,6 @@
 
     </div>
 </div>
-<script type="text/javascript" src="/public/js/product_gallery.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 
 <?php require 'views/footer.php'; ?>

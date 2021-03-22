@@ -150,9 +150,9 @@
 </div>
 
 
-<script type="text/javascript" src="/public/js/table_pagination.js"></script>
-<script type="text/javascript" src="/public/js/form_validation.js"></script>
-<script type="text/javascript" src="/util/form/ProductCategory_form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/util/form/ProductCategory_form_validation.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/table_filter.js"></script>
 <script type="text/javascript" src="<?php echo URL ?>public/js/sort_table.js"></script>
 

@@ -2,7 +2,7 @@
 <?php require 'views/header.php'; ?>
 <?php require 'views/shop/add_to_cart_index.php'; ?>
 
-<link rel="stylesheet" href="/public/css/shop-filters.css">
+<link rel="stylesheet" href="/wasthra/public/css/shop-filters.css">
 <?php $this->itemCount = count($this->products);
 $this->url = "?";
 if (isset($this->selectedCategory)){

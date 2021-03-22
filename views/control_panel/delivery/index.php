@@ -17,7 +17,7 @@
       									<p>Assinged Orders</p>
        							
       						</div></div>
-      						<img class="content-image" src="/public/images/dash-8.png">
+      						<img class="content-image" src="/wasthra/public/images/dash-8.png">
       						<div class="content-details fadeIn-bottom">
        							<p>Assigned Orders</p>
       						</div>
@@ -33,7 +33,7 @@
       									<p>History</p>
        							
       						</div></div>
-      						<img class="content-image" src="/public/images/dash-13.png">
+      						<img class="content-image" src="/wasthra/public/images/dash-13.png">
       						<div class="content-details fadeIn-bottom">
        							<p>History</p>
       						</div>

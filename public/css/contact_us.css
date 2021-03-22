@@ -6,7 +6,7 @@
 .img {
     overflow: hidden;
     position: relative;
-    background-image: url('http://localhost/public/images/contact_us.jpg');
+    background-image: url('http://localhost/wasthra/public/images/contact_us.jpg');
     background-size: cover;
     width: 260px;
     height: 100%;

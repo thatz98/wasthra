@@ -7,7 +7,7 @@ $(document).ready(function () {
       var productId = $('input[type=text][name=prod_idB]').val();
       if (color != "" && cat != "Couple") {
         $.ajax({
-          url: 'http://127.0.0.1/shop/getSizes',
+          url: 'http://127.0.0.1/wasthra/shop/getSizes',
           type: 'POST',
           dataType: 'JSON',
           data: { 'colorB': color, 'product_idB': productId },
@@ -31,7 +31,7 @@ $(document).ready(function () {
   
       } else if (color != "" && cat == "Couple") {
         $.ajax({
-          url: 'http://127.0.0.1/shop/getSizes',
+          url: 'http://127.0.0.1/wasthra/shop/getSizes',
           type: 'POST',
           dataType: 'JSON',
           data: { 'colorB': color, 'product_idB': productId },
@@ -58,7 +58,7 @@ $(document).ready(function () {
         });
   
         $.ajax({
-          url: 'http://127.0.0.1/shop/getSizes',
+          url: 'http://127.0.0.1/wasthra/shop/getSizes',
           type: 'POST',
           dataType: 'JSON',
           data: { 'colorB': color, 'product_idB': productId },
@@ -100,7 +100,7 @@ $(document).ready(function () {
     qty.innerHTML = "";
     if (!size == "") {
       $.ajax({
-        url: 'http://127.0.0.1/shop/getQtys',
+        url: 'http://127.0.0.1/wasthra/shop/getQtys',
         type: 'POST',
         dataType: 'JSON',
         data: { 'colorB': color, 'sizeB': size, 'product_idB': productId },
@@ -138,7 +138,7 @@ $(document).ready(function () {
     console.log("hi");
     if (!size1 == "" && !size2 == "") {
       $.ajax({
-        url: 'http://127.0.0.1/shop/getCoupleQtys',
+        url: 'http://127.0.0.1/wasthra/shop/getCoupleQtys',
         type: 'POST',
         dataType: 'JSON',
         data: { 'colorB': color, 'size1B': size1, 'size2B': size2, 'product_idB': productId },
@@ -175,7 +175,7 @@ $(document).ready(function () {
     qty.innerHTML = "";
     if (!size1 == "" && !size2 == "") {
       $.ajax({
-        url: 'http://127.0.0.1/shop/getCoupleQtys',
+        url: 'http://127.0.0.1/wasthra/shop/getCoupleQtys',
         type: 'POST',
         dataType: 'JSON',
         data: { 'colorB': color, 'size1B': size1, 'size2B': size2, 'product_idB': productId },

@@ -9,11 +9,11 @@
    
 
     <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
-    <link rel="stylesheet" href="/public/css/all.css">
-    <link rel="stylesheet" href="/public/css/wave.css">
-    <link rel="stylesheet" href="/public/css/libs/font-awesome.min.css">
-    <script src="/public/js/libs/fontawesome.js"></script>
-    <script src="/public/js/libs/jquery.min.js"></script>
+    <link rel="stylesheet" href="/wasthra/public/css/all.css">
+    <link rel="stylesheet" href="/wasthra/public/css/wave.css">
+    <link rel="stylesheet" href="/wasthra/public/css/libs/font-awesome.min.css">
+    <script src="/wasthra/public/js/libs/fontawesome.js"></script>
+    <script src="/wasthra/public/js/libs/jquery.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">
-                    <img src="/public/images/logo.png" width="125px">
+                    <img src="/wasthra/public/images/logo.png" width="125px">
                 </div>
                 <nav>
                     <ul id="menuItems">
@@ -33,7 +33,7 @@
                     </ul>
                 </nav>
                 
-                <img src="/public/images/menu.png" class="menu-icon" onclick="menuToggle()">
+                <img src="/wasthra/public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
 
         <div class="row">
