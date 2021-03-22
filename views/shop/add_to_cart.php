@@ -7,7 +7,7 @@
                 <img src="<?php echo URL . $this->product[0]['product_images'][0]; ?>" id="product-img-p">
                 <div class="gallery-row">
                     <?php
-                    $iid = 10;
+                    $iid = 30;
                     foreach ($this->product[0]['product_images'] as $image) {
                             $iid += 1;?>
                     <div class="gallery-col">
@@ -51,7 +51,7 @@
                         <?php
                         foreach ($this->product[0]['product_colors'] as $color) {?>
                         <label class="color-container">
-                            <input type="radio" name="color" value="<?php echo $color ?>" required>
+                            <input type="radio" name="colorC" value="<?php echo $color ?>" required>
                             <span class="checkmark" style="background-color: <?php echo $color ?>"></span>
                         </label>
                         <?php
@@ -65,21 +65,21 @@
                     if ($catName != "Couple") { ?>
                     <label class="text-label">Select Size</label>
                     <br>
-                    <div class="sizes" id="sizeCommon">
+                    <div class="sizes" id="sizeCommonC">
                     <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
                     <?php
                     } else { ?>
                     <label class="text-label">Select Size for Gent</label>
                     <br>
-                    <div class="sizes" id="sizeGents">
+                    <div class="sizes" id="sizeGentsC">
                     <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
 
                     <br>
                     <label class="text-label">Select Size for Lady</label>
                     <br>
-                    <div class="sizes" id="sizeLadies">
+                    <div class="sizes" id="sizeLadiesC">
                     <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
 
@@ -87,11 +87,11 @@
 
                     <br>
                     <label class="text-label">Select Quantity</label>
-                    <div class="quantity" id="quantitydiv">
+                    <div class="quantity" id="quantitydivC">
                     <div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>
                     </div>
-                    <input type="text" name="prod_id" value="<?php echo $this->product[0]['product_id'] ?>" hidden>
-                    <input type="text" id="cat" value="<?php echo $this->product[0]['name'] ?>" hidden>
+                    <input type="text" name="prod_idC" value="<?php echo $this->product[0]['product_id'] ?>" hidden>
+                    <input type="text" id="catC" value="<?php echo $this->product[0]['name'] ?>" hidden>
                     <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
                                                                     echo $_SERVER['HTTP_REFERER'];
                                                                 } ?>" hidden>
@@ -105,4 +105,4 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/wasthra/public/js/varient_handler.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/varient_handler_for_add_to_cart.js"></script>

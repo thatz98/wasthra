@@ -28,7 +28,7 @@
         <div class="col-3 fit-size">
             <div class="min-card">
                 <div class="row">
-                    <h3>New Orders</h3>
+                <a href="<?php echo URL ?>orders/byCategory/<?php echo 'New'; ?>"> <h3>New Orders</h3></a>         
                 </div>
                 <div class="row">
                     <h1><?php echo $this->newOrderCount;?></h1>
@@ -38,7 +38,7 @@
         <div class="col-3 fit-size">
             <div class="min-card">
                 <div class="row">
-                    <h3>Pending Deliveries</h3>
+                <a href="<?php echo URL ?>orders/byCategory/<?php echo 'Pending Deliveries'; ?>"><h3>Pending Deliveries</h3></a>
                 </div>
                 <div class="row">
                     <h1><?php echo ($this->processCount+$this->outForDeliveryCount);?></h1>
@@ -48,7 +48,7 @@
         <div class="col-3 fit-size">
             <div class="min-card">
                 <div class="row">
-                    <h3>Pending Returns</h3>
+                <a href="<?php echo URL ?>orders/byCategory/<?php echo 'Pending Returns'; ?>"> <h3>Pending Returns</h3></a>
                 </div>
                 <div class="row">
                     <h1><?php echo $this->pendingReturnCount;?></h1>
@@ -180,6 +180,7 @@ $('#per-page').on('change',function() {
 });
 
 </script>
+
 
 <?php require 'views/footer_dashboard.php'; ?>
 
