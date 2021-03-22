@@ -47,21 +47,21 @@
                     
                     if ($this->productPopup['name'] == 'Gents') : ?>
                     <div class="gallery-col">
-                        <img src="/wasthra/public/images/size_charts/gents.png" id="sizeC"
+                        <img src="/public/images/size_charts/gents.png" id="sizeC"
                             onclick="swapImage('sizeC')" width="100%" class="view-gallery-img">
                     </div>
                     <?php else : if ($this->productPopup['name'] == 'Ladies') : ?>
                     <div class="gallery-col">
-                        <img src="/wasthra/public/images/size_charts/ladies.png" id="sizeCL"
+                        <img src="/public/images/size_charts/ladies.png" id="sizeCL"
                             onclick="swapImage('sizeCL')" width="100%" class="view-gallery-img">
                     </div>
                     <?php else : ?>
                     <div class="gallery-col">
-                        <img src="/wasthra/public/images/size_charts/gents.png" id="sizeC"
+                        <img src="/public/images/size_charts/gents.png" id="sizeC"
                             onclick="swapImage('sizeC')" width="100%" class="view-gallery-img">
                     </div>
                     <div class="gallery-col">
-                        <img src="/wasthra/public/images/size_charts/ladies.png" id="sizeCL"
+                        <img src="/public/images/size_charts/ladies.png" id="sizeCL"
                             onclick="swapImage('sizeCL')" width="100%" class="view-gallery-img">
                     </div>
                     <?php endif;
@@ -134,4 +134,4 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/wasthra/public/js/varient_handler.js"></script>
+<script type="text/javascript" src="/public/js/varient_handler.js"></script>

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=(isset($this->title)) ? $this->title.' | Control Panel | Wasthra' : 'Wasthra'; ?></title>
-    <link rel="stylesheet" href="/wasthra/public/css/all.css">
-    <script src="/wasthra/public/js/libs/fontawesome.js"></script>
-    <script src="/wasthra/public/js/libs/jquery.min.js"></script>
+    <link rel="stylesheet" href="/public/css/all.css">
+    <script src="/public/js/libs/fontawesome.js"></script>
+    <script src="/public/js/libs/jquery.min.js"></script>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <div class="contaner">
             <div class="navbar">
                 <div class="logo">
-                    <img src="/wasthra/public/images/logo.png" width="125px">
+                    <img src="/public/images/logo.png" width="125px">
                 </div>
                 <nav>
                     <ul id="menuItems">
@@ -57,7 +57,7 @@
                                 </a>
                             </div>
                 <?php endif; ?>
-                <img src="/wasthra/public/images/menu.png" class="menu-icon" onclick="menuToggle()">
+                <img src="/public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
             
         </div>
@@ -69,4 +69,4 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="/wasthra/public/js/preloader.js"></script>
+    <script type="text/javascript" src="/public/js/preloader.js"></script>

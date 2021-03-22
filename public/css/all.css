@@ -748,7 +748,7 @@ form textarea:hover {
 /* offer section -index */
 
 .offer {
-    background-image: url(http://localhost/wasthra/public/images/login_image.jpg);
+    background-image: url(http://localhost/public/images/login_image.jpg);
     min-height: 500px;
     background-attachment: fixed;
     background-position: center;
@@ -757,7 +757,7 @@ form textarea:hover {
 }
 
 .offer-2 {
-    background-image: url(http://localhost/wasthra/public/images/offer_2.jpg);
+    background-image: url(http://localhost/public/images/offer_2.jpg);
 }
 
 .offer {

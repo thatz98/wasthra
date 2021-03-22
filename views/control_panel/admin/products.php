@@ -1,5 +1,5 @@
 <?php require 'views/header_dashboard.php'; ?>
-<link rel="stylesheet" type="text/css" href="/wasthra/public/css/filter_dropdown.css">
+<link rel="stylesheet" type="text/css" href="/public/css/filter_dropdown.css">
 <div class="container">
     <div class="row">
         <h2 class="title title-min">Products</h2>
@@ -530,11 +530,11 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
-<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
-<script type="text/javascript" src="/wasthra/util/form/products_form_validation.js"></script>
-<script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
-<script type="text/javascript" src="/wasthra/public/js/sort_table.js"></script>
+<script type="text/javascript" src="/public/js/table_pagination.js"></script>
+<script type="text/javascript" src="/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/util/form/products_form_validation.js"></script>
+<script type="text/javascript" src="/public/js/table_filter.js"></script>
+<script type="text/javascript" src="/public/js/sort_table.js"></script>
 <script>
     $(pagination(10, 'product-table'));
 

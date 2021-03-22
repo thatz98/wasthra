@@ -281,15 +281,44 @@ $id = Session::get('userId');
         $this->db->queryExecuteOnly("UPDATE orders SET order_status='Requested to Return' WHERE order_id='$id'");
     }
 
+    function getOrderListBy($category) {
     function history(){
         $id = Session::get('userId');
         return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
     }
 
 } 
+    function getOrderFilterBy($category)
+    if ($category == 'New') {
+
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+        checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
+        delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
+        INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
+        LEFT JOIN delivery ON delivery.order_id=orders.order_id 
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='$category'; ");
+     
+    }else if ($category == 'Pending Deliveries') {
+       return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+       checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+       delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
+       delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
+       INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
+       LEFT JOIN delivery ON delivery.order_id=orders.order_id 
+       LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Processing' AND orders.order_status='Out for Delivery' ; ");
+    
+    }else if ($category == 'Pending Returns') {
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+        checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
+        delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
+        INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
+        LEFT JOIN delivery ON delivery.order_id=orders.order_id 
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Requested to Return'; ");
+    }
+
+    } 
 
 
-
-// 'delivery_id' => $data[''],
-// 'actual_delivery_date' => $data[''],
-// 'expected_delivery_date' => $data['']
+}
