@@ -14,7 +14,7 @@ class DeliveryCharges_Model extends Model{
      * 
      */
 
-    	return $this->db->listAll('delivery_charges',array('city','delivery_fee'));
+    	return $this->db->select('delivery_charges',array('city','delivery_fee'));
         
     }
     
@@ -26,7 +26,7 @@ class DeliveryCharges_Model extends Model{
      * 
      */    
 
-        return $this->db->listWhere('delivery_charges',array('city','delivery_fee'),"city='$id'");
+        return $this->db->selectOneWhere('delivery_charges',array('city','delivery_fee'),"city=:id",array('id'=>$id));
 
     }
 
@@ -51,7 +51,7 @@ class DeliveryCharges_Model extends Model{
      */
         $this->db->update('delivery_charges',array(
             'city' => $data['city'],
-            'delivery_fee' => $data['delivery_fee']),"city = '{$data['prev_city']}'");
+            'delivery_fee' => $data['delivery_fee']),"city = :prev_city",array('prev_city'=>$data['prev_city']));
 
     }
 
@@ -62,7 +62,7 @@ class DeliveryCharges_Model extends Model{
      *
      * 
      */
-        $this->db->delete('delivery_charges',"city='$id'");
+        $this->db->delete('delivery_charges',"city=:city",array('city'=>$id));
 
     }
 

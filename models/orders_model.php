@@ -10,7 +10,7 @@
 
     function getDeliveryStaffList(){
 
-        return $this->db->listAll('delivery_staff',array('user_id','first_name','last_name'));
+        return $this->db->select('delivery_staff',array('user_id','first_name','last_name'));
 
     }
 
@@ -239,12 +239,12 @@ $id = Session::get('userId');
     
     function orderCount($status){
 
-        return $this->db->listWhere('orders',array('COUNT(order_status)'),"order_status='$status'")['COUNT(order_status)'];
+        return $this->db->selectOneWhere('orders',array('COUNT(order_status)'),"order_status=:status",array('status'=>$status))['COUNT(order_status)'];
     
     }
 
     function getDeliveryCharges(){
-        return $this->db->listAll('delivery_charges','*');
+        return $this->db->select('delivery_charges','*');
     }
 
 

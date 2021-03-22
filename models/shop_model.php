@@ -9,7 +9,7 @@ class Shop_Model extends Model {
 
     function listProducts() {
 
-        return $this->db->listAll('product', array('product_id', 'product_name', 'product_description', 'is_featured', 'is_new'));
+        return $this->db->select('product', array('product_id', 'product_name', 'product_description', 'is_featured', 'is_new'));
     }
 
     function getProduct($id) {
@@ -164,7 +164,7 @@ class Shop_Model extends Model {
     }
 
     function deleteReview($id) {
-        $this->db->update('review', array('is_deleted' => 'yes'), "review_id='$id'");
+        $this->db->update('review', array('is_deleted' => 'yes'), "review_id=:review_id",array('review_id'=>$id));
     }
 
     function create($data) {
@@ -259,7 +259,7 @@ class Shop_Model extends Model {
     }
 
     function getDeliveryCharges() {
-        return $this->db->listAll('delivery_charges', '*');
+        return $this->db->select('delivery_charges', '*');
     }
 
     function getProductList() {

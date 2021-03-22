@@ -84,6 +84,6 @@ class Index_Model extends Model{
     }
 
     function getDeliveryCharges(){
-        return $this->db->listAll('delivery_charges','*');
+        return $this->db->select('delivery_charges','*');
     }
 }

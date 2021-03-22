@@ -17,7 +17,7 @@ class Login_Model extends Model
             $prev_url = URL;
         }
 
-        $user = $this->db->listWhere('login', array('login_id', 'username', 'password', 'user_type', 'user_status'), "username='$username'");
+        $user = $this->db->selectOneWhere('login', array('login_id', 'username', 'password', 'user_type', 'user_status'), "username=:username",array('username'=>$username));
 
         if ($user) {
             if (password_verify($_POST['password'], $user['password'])) {
@@ -34,31 +34,31 @@ class Login_Model extends Model
                     Logs::writeSessionLog('Login','Success',$username,'Session initialized; UserType: '.Session::get('userType'));
                     if (Session::get('userType') == 'admin') {
                         $loginId = Session::get('loginId');
-                        $userData = $this->db->listWhere('admin', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
+                        $userData = $this->db->selectOneWhere('admin', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id=:loginId",array('loginId'=>$loginId));
                         Session::set('userData', $userData);
                         Session::set('userId', $userData['user_id']);
                         header('location: ../controlPanel');
                     } else if (Session::get('userType') == 'owner') {
                         $loginId = Session::get('loginId');
-                        $userData = $this->db->listWhere('owner', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
+                        $userData = $this->db->selectOneWhere('owner', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'),  "login_id=:loginId",array('loginId'=>$loginId));
                         Session::set('userData', $userData);
                         Session::set('userId', $userData['user_id']);
                         header('location: ../controlPanel');
                     } else if (Session::get('userType') == 'delivery_staff') {
                         $loginId = Session::get('loginId');
-                        $userData = $this->db->listWhere('delivery_staff', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
+                        $userData = $this->db->selectOneWhere('delivery_staff', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'),  "login_id=:loginId",array('loginId'=>$loginId));
                         Session::set('userData', $userData);
                         Session::set('userId', $userData['user_id']);
                         header('location: ../controlPanel');
                     } else if (Session::get('userType') == 'customer') {
                         $loginId = Session::get('loginId');
-                        $userData = $this->db->listWhere('customer', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'), "login_id='$loginId'");
+                        $userData = $this->db->selectOneWhere('customer', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'),  "login_id=:loginId",array('loginId'=>$loginId));
                         Session::set('userData', $userData);
                         $cities = $this->db->query("SELECT city FROM delivery_charges;");
                         Session::set('city', $cities);
                         Session::set('userId', $userData['user_id']);
                         $userId = $userData['user_id'];
-                        $addressData = $this->db->listWhere('delivery_address', array('address_id', 'postal_code', 'address_line_1', 'address_line_2', 'address_line_3', 'city'), "user_id='$userId' LIMIT 1");
+                        $addressData = $this->db->selectOneWhere('delivery_address', array('address_id', 'postal_code', 'address_line_1', 'address_line_2', 'address_line_3', 'city'), "user_id=:userId LIMIT 1",array('userId'=>$userId));
                         Session::set('addressData', $addressData);
                         $cartData = $this->getCartItems($userId);
                         Session::set('cartCount', count($cartData));
@@ -98,7 +98,7 @@ class Login_Model extends Model
         ));
         $username = $data['username'];
         Logs::writeSessionLog('Signup','In porcess',$username,'Login credentials initiated');
-        $login_id = $this->db->listWhere('login', array('login_id'), "username='$username'");
+        $login_id = $this->db->selectOneWhere('login', array('login_id'), "username=:username",array('username'=>$username));
 
         $this->db->insert('customer', array(
             'first_name' => $data['first_name'],
@@ -109,7 +109,7 @@ class Login_Model extends Model
             'login_id' => $login_id['login_id']
         ));
         $email = $data['email'];
-        $user_id = $this->db->listWhere('customer', array('user_id'), "email='$email'");
+        $user_id = $this->db->selectOneWhere('customer', array('user_id'), "email=:email",array('email'=>$email));
         if($user_id){
             Logs::writeSessionLog('Signup','Success',$username,'User created; pending verification');
         } else{
@@ -120,7 +120,7 @@ class Login_Model extends Model
 
     function checkAccountExist($username)
     {
-        if ($this->db->listWhere('login', array('username'), "username='$username'") == null) {
+        if ($this->db->selectOneWhere('login', array('username'), "username=:username",array('username'=>$username)) == null) {
             return false;
         } else {
             return true;
@@ -134,7 +134,7 @@ class Login_Model extends Model
 
     function checkToken($username, $token)
     {
-        if ($this->db->listWhere('password_reset', array('username'), "username='$username' AND token='$token'") == null) {
+        if ($this->db->selectOneWhere('password_reset', array('username'), "username=:username AND token=:token",array('username'=>$username,'token'=>$token)) == null) {
             return false;
         } else {
             return true;
@@ -144,7 +144,7 @@ class Login_Model extends Model
 
     function checkVerifyToken($username, $token)
     {
-        if ($this->db->listWhere('login', array('username'), "username='$username' AND token='$token'") == null) {
+        if ($this->db->selectOneWhere('login', array('username'), "username=:username AND token=:token",array('username'=>$username,'token'=>$token)) == null) {
             return false;
         } else {
             return true;
@@ -155,17 +155,17 @@ class Login_Model extends Model
     {
         $username = $data['username'];
 
-        $this->db->update('login', array('password' => $data['password']), "username='$username'");
+        $this->db->update('login', array('password' => $data['password']), 'username=:username',array('username'=>$username));
     }
 
 
     function verifyAccount($username)
     {
-        $this->db->update('login', array('user_status' => 'verified', 'token' => null), "username='$username'");
+        $this->db->update('login', array('user_status' => 'verified', 'token' => null), 'username=:username',array('username'=>$username));
     }
 
     function updateToken($username,$token){
-        $this->db->update('login', array('token' => $token), "username='$username'");
+        $this->db->update('login', array('token' => $token), 'username=:username',array('username'=>$username));
     }
 
     function getCartItems($userId) {

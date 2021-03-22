@@ -51,7 +51,7 @@ class User_Model extends Model {
 
         $username = $data['username'];
 
-        $login_id = $this->db->listWhere('login', array('login_id'), "username='$username'");
+        $login_id = $this->db->selectOneWhere('login', array('login_id'),  'username=:username',array('username'=>$username));
 
         $this->db->insert($data['user_type'], array(
             'first_name' => $data['first_name'],
@@ -73,9 +73,9 @@ class User_Model extends Model {
                 'gender' => $data['gender'],
                 'email' => $data['email'],
                 'contact_no' => $data['contact_no']
-            ), "user_id = '{$data['user_id']}'");
+            ), "user_id = :user_id",array('user_id'=>$data['user_id']));
 
-            $this->db->update('login', array('user_status' => $data['user_status'], 'username' => $data['username']), "login_id = '{$data['login_id']}'");
+            $this->db->update('login', array('user_status' => $data['user_status'], 'username' => $data['username']), "login_id = :login_id",array('login_id'=>$data['login_id']));
         } else {
             $this->db->insert($data['user_type'], array(
                 'first_name' => $data['first_name'],
@@ -86,14 +86,14 @@ class User_Model extends Model {
                 'login_id' => $data['login_id']
             ));
 
-            $this->db->update('login', array('user_type' => $data['user_type'], 'user_status' => $data['user_status'], 'username' => $data['username']), "login_id = '{$data['login_id']}'");
+            $this->db->update('login', array('user_type' => $data['user_type'], 'user_status' => $data['user_status'], 'username' => $data['username']), "login_id = :login_id",array('login_id'=>$data['login_id']));
 
-            $this->db->delete($data['prev_user_type'], "user_id = '{$data['user_id']}'");
+            $this->db->delete($data['prev_user_type'], "user_id = :user_id",array('user_id'=>$data['user_id']));
         }
     }
 
     function checkExists($username) {
-        $user = $this->db->listWhere('login', array('username'), "username='$username'");
+        $user = $this->db->selectOneWhere('login', array('username'),  'username=:username',array('username'=>$username));
 
         if ($user) {
             return true;
@@ -103,7 +103,7 @@ class User_Model extends Model {
     }
 
     function checkExistsWhere($username, $loginId) {
-        $user = $this->db->listWhere('login', array('username'), "username='$username' AND login_id<>$loginId");
+        $user = $this->db->selectOneWhere('login', array('username'), "username=:username AND login_id<>:loginId" ,array('username'=>$username,'loginId'=>$loginId));
 
         if ($user) {
             return true;
@@ -113,17 +113,17 @@ class User_Model extends Model {
     }
 
     function delete($userId, $userType) {
-        $data = $this->db->listWhere($userType, array('login_id'), "user_id='$userId'");
+        $data = $this->db->selectOneWhere($userType, array('login_id'),  "user_id = :userId",array('userId'=>$userId));
 
         if ($userType == 'owner') {
             return false;
         } else {
-            $this->db->update('login', array('user_status' => 'blocked'), "login_id = '{$data['login_id']}'");
-            $this->db->update($userType, array('is_deleted' => 'yes'), "user_id = '$userId'");
+            $this->db->update('login', array('user_status' => 'blocked'), "login_id = :login_id",array('login_id'=>$data['login_id']));
+            $this->db->update($userType, array('is_deleted' => 'yes'), "user_id = :userId",array('userId'=>$userId));
         }
     }
 
     function userCount($status) {
-        return $this->db->listWhere('login', array('COUNT(login_id)'), "user_status='$status'")['COUNT(login_id)'];
+        return $this->db->selectOneWhere('login', array('COUNT(login_id)'), "user_status=:status",array('status'=>$status))['COUNT(login_id)'];
     }
 }
