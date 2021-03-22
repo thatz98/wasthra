@@ -253,4 +253,36 @@ class Orders extends Controller{
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
 
+
+
+    function byCategory($category) {
+
+      
+
+
+        $this->view->title = 'Orders';
+        $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Orders';
+      
+        $this->view->qtyList =  $this->model->listAllOrderItemDetails();
+        $this->view->orderList = $this->model->getOrderListBy($category);
+        $this->view->deliveryList = $this->model->getAllDelivery();
+        $this->view->reqDetailList = $this->model->getRequiredDetails();
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+        $this->view->cities = $this->model->getCity();
+        $this->view->newOrderCount = $this->model->orderCount('New');
+        $this->view->processCount = $this->model->orderCount('Processing');
+        $this->view->outForDeliveryCount = $this->model->orderCount('Out for Delivery');
+        $this->view->pendingReturnCount = $this->model->orderCount('Requested to Return');
+        $this->view->fullOrderCount = $this->model->orderCount('New')+
+                                      $this->model->orderCount('In Transit')+$this->model->orderCount('Delivered')+
+                                      $this->model->orderCount('Delivery Failed')+$this->model->orderCount('Completed')+
+                                      $this->model->orderCount('Cancelled')+$this->model->orderCount('Returned')+
+                                      $this->model->orderCount('Requested to Return')+$this->model->orderCount('Requested to Cancel')+
+                                      $this->model->orderCount('Processing')+$this->model->orderCount('Out for Delivery');
+
+        $this->view->render('control_panel/admin/orders');
+
+    
+
+    }
 }
