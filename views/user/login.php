@@ -33,7 +33,7 @@
                     <ul id="menuItems">
                         <li><a href="<?php echo URL; ?>">Home</a></li>
                         <li><a href="<?php echo URL; ?>shop">Shop</a></li>
-                        <li><a href="<?php echo URL; ?>contact">Contact Us</a></li>
+                        <li><a href="<?php echo URL; ?>contactUs">Contact Us</a></li>
                     </ul>
                 </nav>
 
