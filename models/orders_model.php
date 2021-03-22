@@ -288,7 +288,7 @@ $id = Session::get('userId');
     }
 
 } 
-
+    function getOrderFilterBy($category)
     if ($category == 'New') {
 
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
