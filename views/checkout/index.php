@@ -116,7 +116,7 @@
                         <table>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>LKR <span id="subtotal"><?php if(Session::get('cartCount'!=0)){$this->subtotal = 0;
+                                <td>LKR <span id="subtotal"><?php if(Session::get('cartCount')!=0){$this->subtotal = 0;
                                                             foreach (Session::get('cartData') as $cartItem) {
                                                                         $this->subtotal += $cartItem['product_price'] * $cartItem['item_qty'];
                                                                     }}
