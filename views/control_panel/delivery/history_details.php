@@ -24,7 +24,7 @@
                             </div>
                         </td>
                     </tr>
-                    
+                 <? endforeach;?>   
                 </table>     
             </div>
         </div>
@@ -35,12 +35,13 @@
                     <div class="summary-info">
                         <div class="row" style="justify-content: left; margin-left: 5px;">
                             <div class="col-2" style="min-width: 0;">
-                            <h4>Order ID: OD123456</h4>
-                            <h5>Date: 20/05/2020    Time: 15:20</h5>
-                            <h5>Payment Method: Online</h5>
+                            <?php foreach($this->orderSummary as $summary) ?>
+                                <h4>Order ID: <?php echo $summary['order_id']?></h4>
+                                <h5>Date: <?php echo $summary['date']?>   Time: <?php echo $summary['time']?></h5>
+                                <h5>Payment Method:<?php echo $summary['payment_method']?></h5>
                             <div class="oder-status">
                                 <h5>Order Status: </h5>
-                                <h5 style="color: #04CBE0"> New</h5>
+                                <h5 style="color: #04CBE0"> <?php echo $summary['order_status']?></h5>
                               </div>
                         </div>
 
