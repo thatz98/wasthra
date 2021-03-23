@@ -38,7 +38,7 @@
         <div class="col-3 fit-size">
             <div class="min-card">
                 <div class="row">
-                <a href="<?php echo URL ?>orders/byCategory/<?php echo 'Pending Deliveries'; ?>"><h3>Pending Deliveries</h3></a>
+                <a href="<?php echo URL ?>orders/byCategory/<?php echo 'PendingDeliveries'; ?>"><h3>Pending Deliveries</h3></a>
                 </div>
                 <div class="row">
                     <h1><?php echo ($this->processCount+$this->outForDeliveryCount);?></h1>
@@ -48,7 +48,7 @@
         <div class="col-3 fit-size">
             <div class="min-card">
                 <div class="row">
-                <a href="<?php echo URL ?>orders/byCategory/<?php echo 'Pending Returns'; ?>"> <h3>Pending Returns</h3></a>
+                <a href="<?php echo URL ?>orders/byCategory/<?php echo 'PendingReturns'; ?>"> <h3>Pending Returns</h3></a>
                 </div>
                 <div class="row">
                     <h1><?php echo $this->pendingReturnCount;?></h1>
