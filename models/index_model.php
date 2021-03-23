@@ -9,7 +9,7 @@ class Index_Model extends Model{
 
     function getFeaturedProducts(){
         
-        $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
         inventory.qty, price_category.product_price, 
@@ -34,7 +34,7 @@ class Index_Model extends Model{
 
     function getNewProducts(){
         
-        $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
         inventory.qty, price_category.product_price, 
@@ -59,7 +59,7 @@ class Index_Model extends Model{
 
     function getRatedProducts(){
         
-        $data = $this->db->query("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
+        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
         inventory.qty, price_category.product_price, 

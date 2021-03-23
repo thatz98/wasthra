@@ -47,7 +47,7 @@ class Database extends PDO {
 	 *
 	 * @return array Result of the query as an associative array.
 	 */
-	public function selectAllWhere($table, $fields, $where) {
+	public function selectWhere($table, $fields, $where, $params=array()) {
 
 		$fieldNames = NULL;
 		if ($fields == '*') {
@@ -60,13 +60,15 @@ class Database extends PDO {
 		}
 
 		$stmt = $this->prepare("SELECT $fieldNames FROM $table WHERE $where");
-
+		foreach ($params as $key => $value) {
+			$stmt->bindValue(":$key", $value);
+		}
 		$stmt->execute();
 
 		return $stmt->fetchall();
 	}
 
-	public function selectOneWhere($table, $fields, $where, $params) {
+	public function selectOneWhere($table, $fields, $where, $params=array()) {
 
 		$fieldNames = NULL;
 		if ($fields == '*') {
@@ -180,7 +182,7 @@ class Database extends PDO {
 		return $stmt->fetchAll();
 	}
 
-	public function execute($query, $params) {
+	public function runQuery($query, $params=array()) {
 
 		$stmt = $this->prepare($query);
 		foreach ($params as $key => $value) {

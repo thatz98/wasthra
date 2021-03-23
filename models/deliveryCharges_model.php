@@ -73,7 +73,7 @@ class DeliveryCharges_Model extends Model{
      *
      * 
      */
-        return $this->db->query("SELECT COUNT(delivery_charges.city) FROM delivery_charges ; ");
+        return $this->db->select('delivery_charges',array('COUNT(delivery_charges.city)'));
 
     }
 
