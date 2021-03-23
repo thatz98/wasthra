@@ -163,13 +163,14 @@ class Shop extends Controller {
      *
      * @return void
      */
-    function checkout() {
+    function checkout($flag) {
 
         $this->view->title = 'Checkout';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'cart">Cart</a> <i class="fas fa-angle-right"></i> Checkout';
 
         // get product details
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+        $this->view->flag = $flag;
         //$x=$this->model->getCartItems();
         //echo($x);
         if(Session::get('cartCount')==0 && empty(Session::get('buyNowData'))){
@@ -197,6 +198,8 @@ class Shop extends Controller {
         $data['postal_code'] = $_POST['postal_code'];
         $data['latitude'] = $_POST['latitude'];
         $data['longtitude'] = $_POST['longtitude'];
+        $data['buyNow'] = $_POST['buyNow'];
+        $buyNow = $data['buyNow'];
         $comment = $_POST['delivery_comments'];
         if (
             $data['address_line_1'] != Session::get('addressData')['address_line_1']
@@ -219,18 +222,19 @@ class Shop extends Controller {
         $orderID = str_replace("-", "", $orderID);
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
-        if(empty(Session::get('cartData'))){
-        $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment);
+        if($buyNow=="false"){
+        $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment,$buyNow);
         $this->model->deleteCartItems();
         Session::set('cartData', '');
         Session::set('cartCount', 0);
         Session::set('buyNowData', '');
         }
         else{
-            $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment);
+            $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment,$buyNow);
         }
 
         if ($_POST['payment_method'] == 'online payment') {
+            $this->view->orderDetails = $this->model->getAllOrderDetails($orderID);
             $this->view->render('checkout/payment');
         } else {
 

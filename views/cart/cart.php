@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="row">
-            <a href="<?php echo URL;?>shop/checkout" class="btn">Proceed to Checkout >></a>
+            <a href="<?php echo URL;?>shop/checkout/false" class="btn">Proceed to Checkout >></a>
         </div>
         </div>
     </div>

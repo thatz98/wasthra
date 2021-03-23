@@ -62,7 +62,7 @@
         delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
         INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id GROUP BY orders.date DESC");
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id GROUP BY orders.order_id DESC");
 
     }
 
@@ -319,6 +319,13 @@ $id = Session::get('userId');
     }
 
     } 
+
+    function updatePayStatus($id){
+
+        $this->db->queryExecuteOnly("UPDATE payment SET payment_status='successfull' WHERE order_id='$id';");
+        $this->model->deleteCartItems();
+
+    }
 
 
 }

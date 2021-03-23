@@ -192,7 +192,7 @@ class Shop_Model extends Model {
         AND city='$city' AND address_line_1='$address_line_1' AND address_line_2='$address_line_2' AND address_line_3='$address_line_3' ");
     }
 
-    function placeOrder($date, $time, $orderID, $payMethod, $aId, $comment) {
+    function placeOrder($date, $time, $orderID, $payMethod, $aId, $comment,$buyNow) {
         $this->db->insert('orders', array(
             'order_id' => $orderID,
             'order_status' => 'new',
@@ -211,7 +211,7 @@ class Shop_Model extends Model {
         $userId = Session::get('userId');
         $cartId = $this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
         $cartIdActual = $cartId[0][0];
-        if(empty(Session::get('buyNowData'))){
+        if($buyNow=='false'){
 
         $cartItems = $this->db->query("SELECT * FROM cart_item WHERE cart_item.cart_id='$cartIdActual'");
         foreach ($cartItems as $item) {
@@ -346,6 +346,17 @@ class Shop_Model extends Model {
              
           ));
   
+    }
+    function getAllOrderDetails($id){
+
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+        checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
+        delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
+        INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
+        LEFT JOIN delivery ON delivery.order_id=orders.order_id 
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id WHERE orders.order_id='$id' GROUP BY orders.order_id ");
+
     }
 
 }

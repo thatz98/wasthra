@@ -286,4 +286,13 @@ class Orders extends Controller{
     
 
     }
+
+    function updatePayementStatus($id){
+
+        $this->model->updatePayStatus($id);
+        Session::set('cartData', '');
+        Session::set('cartCount', 0);
+        Session::set('buyNowData', '');
+
+    }
 }

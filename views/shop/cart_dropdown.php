@@ -44,7 +44,7 @@
     <input id="totalPriceValue" value="<?php echo 'LKR ' . number_format($this->subtotal, 2, '.', ''); ?>" hidden>
     <div class="row" style="margin: 0;">
       <a href="<?php echo URL; ?>cart" class="btn drop-btn">View Cart</a>
-      <a href="<?php echo URL; ?>shop/checkout" class="btn drop-btn">Checkout</a>
+      <a href="<?php echo URL; ?>shop/checkout/false" class="btn drop-btn">Checkout</a>
     </div>
   <?php } else {
   ?> <p> No items in the cart</p>
