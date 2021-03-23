@@ -10,7 +10,13 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
-               
+                <?php $subTotal=0; 
+                    foreach($this->orderInfo as $details){
+                        $this->productname=''; 
+                        $subTotal+=$details['product_price']*$details['item_qty'];
+                    }?>
+
+
                  <?php foreach($this->orderDetails as $history) ?>
                     <tr>
                         <td><img src="<?php echo URL.$history['image']?>"></td>
@@ -44,23 +50,31 @@
                                 <h5 style="color: #04CBE0"> <?php echo $summary['order_status']?></h5>
                               </div>
                         </div>
-
+                                
                         </div>
+                        
                         
                     </div>
                     <div class="total-price">
                         <table>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?> </td>
                             </tr>
                             <tr>
                                 <td>Delivery chargers</td>
-                                <td>LKR 2400.00</td>
+                                <?php $fee=0;
+                                    foreach ($this->deliveryCharges as $delivery){
+                                        if($delivery['city']==$this->allDetails[0][11]){
+                                            $fee=$delivery['delivery_fee'];
+                                            $subTotal+=$fee;
+                                        }
+                                    }?>
+                                <td>LKR<?php echo number_format($fee,2,'.','');?></td>
                             </tr>
                             <tr>
                                 <td>Total Price</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
                             </tr>
                         </table>
                     </div>

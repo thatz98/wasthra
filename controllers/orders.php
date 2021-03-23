@@ -175,6 +175,9 @@ class Orders extends Controller{
         $this->view->orderDetails = $this->model->history_Details($id);
         $this->view->orderSummary = $this->model->historySummary($id);
         $this->view->historyInfo = $this->model->deliveryHistoryInfo($id);
+        $this->view->orderInfo = $this->model->getOrderDetails($id);
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+        $this->view->allDetails = $this->model->getAllOrderDetails($id);
 
 
         $this->view->render('control_panel/delivery/history_details');
