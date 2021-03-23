@@ -246,8 +246,9 @@ class Shop_Model extends Model {
 
         $this->db->insert('order_tracking', array(
             'order_id' => $orderID,
-            'ordered' => 'CURRENT_TIMESTAMP()'
         ));
+
+        $this->db->runQuery('UPDATE order_tracking SET ordered=CURRENT_TIMESTAMP() WHERE order_id=:orderId',array('orderId'=>$orderID));
     }
 
     function deleteCartItems() {

@@ -24,8 +24,8 @@ class ContactUs extends Controller {
     function contact(){
 
         $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
-        $msg = "Name: ".$_POST['first_name']. ' ' .$_POST['last_name'] . " Mobile No: ". $_POST['contact_no'] . " Email: " . $_POST['email']  
-        . " Message: " .$_POST['message'];
+        $msg = "Name: ".$_POST['first_name']. ' ' .$_POST['last_name'] . "<br>Mobile No: ". $_POST['contact_no'] . "<br>Email: " . $_POST['email']  
+        . "<br>Message: " .$_POST['message'];
         $subject = 'Message from the user';
         $reciever = 'group15s2202@gmail.com';
         mail($reciever, $subject, $msg, $header);
