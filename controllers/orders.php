@@ -162,16 +162,23 @@ class Orders extends Controller{
 
         $this->view->title = 'History';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> History';
-        $this->view->deliveryHistory = $this->model->history();
+        $this->view->deliveryHistory = $this->model->orderHistory();
 
         $this->view->render('control_panel/delivery/history');
 
     }
 
-    function historyDetails(){
+    function historyDetails($id){
 
         $this->view->title = 'History Details';
         $this->view->breadcumb = '<a href="'.URL.'">Home</a> <i class="fas fa-angle-right"></i> <a href="'.URL.'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="'.URL.'orders/historyDetails">History</a> <i class="fas fa-angle-right"></i> History Details';
+        $this->view->orderDetails = $this->model->history_Details($id);
+        $this->view->orderSummary = $this->model->historySummary($id);
+        $this->view->historyInfo = $this->model->deliveryHistoryInfo($id);
+        $this->view->orderInfo = $this->model->getOrderDetails($id);
+        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+        $this->view->allDetails = $this->model->getAllOrderDetails($id);
+
 
         $this->view->render('control_panel/delivery/history_details');
 
@@ -254,6 +261,7 @@ class Orders extends Controller{
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
 
+<<<<<<< HEAD
 
 
     function byCategory($category) {
@@ -295,4 +303,6 @@ class Orders extends Controller{
         Session::set('buyNowData', '');
 
     }
+=======
+>>>>>>> ae91bc631cdee3a66192b03ca324384ba23bc30f
 }
