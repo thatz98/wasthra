@@ -45,7 +45,7 @@ class Cart_Model extends Model {
          INNER JOIN product_images ON product.product_id=product_images.product_id
          LEFT JOIN review on review.product_id=product.product_id 
          WHERE product.is_deleted='no' AND shopping_cart.cart_id=:cartId 
-         GROUP BY product.product_id",array('cartId'=>$cart['cart_id']));
+         GROUP BY cart_item.item_id",array('cartId'=>$cart['cart_id']));
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
@@ -171,7 +171,7 @@ class Cart_Model extends Model {
      INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
      INNER JOIN product_images ON product.product_id=product_images.product_id
      WHERE shopping_cart.user_id=:userId
-     GROUP BY product.product_id",array('userId'=>$userId));
+     GROUP BY cart_item.item_id",array('userId'=>$userId));
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);

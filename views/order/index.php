@@ -8,38 +8,15 @@
         <div class="order-container" >
                    <table class="order-list" style="min-width: 70%">
                       <?php if(!empty($this->orderList)){ 
-                        foreach($this->orderList as $orders){
-                        $uID = $orders['order_id'];
-                        $uID = substr($uID,17);
-                        $order_id = $orders['order_id'];
-                        if($uID==Session::get('userId')){
-
-                        ?> 
+                        foreach($this->orderList as $order){
+                        ?>
                        <tr>
-                           <td class="order-details"><h4><?php echo $orders['order_id']?></h4>
-                            <h5>Date: <?php echo $orders['date']?></h5>
-                            <?php $product=array();
-                                    $price=0;
-                                    foreach($this->qtyList as $qty){
-                                        if($qty['order_id']==$orders['order_id']){
-                                            $price+=$qty['product_price']*$qty['item_qty'];
-                                        }
-                                    }
-
-                            ?>
-
-                            <?php 
-                                foreach ($this->deliveryCharges as $deliveryFee){
-                                    if($deliveryFee['city']==$orders['city']){
-                                        $fee=$deliveryFee['delivery_fee'];
-                                        $price+=$fee;
-                                    }
-                                }
-                            ?>
-                            <h5>Total Price: <?php echo number_format($price,2,'.',''); $price=0;?></h5></td>
+                           <td class="order-details"><h4><?php echo $order['order_id']?></h4>
+                            <h5>Date: <?php echo $order['date']?></h5>
+                            <h5>Total Price: <?php echo number_format($order['total_amount'],2,'.','');?></h5></td>
                            <td> <div class="oder-status">
                            
-                           <?php $status=$orders['order_status']; $color='';
+                           <?php $status=$order['order_status']; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
@@ -90,9 +67,9 @@
                               </div>
                             </td>
                             
-                           <td><a href="<?php echo URL;?>orders/myOrderDetails/<?php echo $orders['order_id']?>" class="btn table-btn">View Order</a></td>
+                           <td><a href="<?php echo URL;?>orders/myOrderDetails/<?php echo $order['order_id']?>" class="btn table-btn">View Order</a></td>
                        </tr>
-                        <?php }}}
+                        <?php }}
                         else{echo "No orders placed yet";} ?>
 
                        </tr> 

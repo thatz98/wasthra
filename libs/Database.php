@@ -36,6 +36,25 @@ class Database extends PDO {
 		return $stmt->fetchall();
 	}
 
+	public function selectOne($table, $fields) {
+
+		$fieldNames = NULL;
+		if ($fields == '*') {
+			$fieldNames = $fields;
+		} else {
+			foreach ($fields as $name) {
+				$fieldNames .= "$name,";
+			}
+			$fieldNames = rtrim($fieldNames, ',');
+		}
+
+		$stmt = $this->prepare("SELECT $fieldNames FROM $table");
+
+		$stmt->execute();
+
+		return $stmt->fetch();
+	}
+
 	/**
 	 * List all the rows from the given table for a given condition.
 	 *

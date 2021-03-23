@@ -2289,6 +2289,10 @@ p.success {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 }
 
+.min-card .row{
+    justify-content: center;
+}
+
 .min-card:hover{
     background-color: rgba(240, 226, 164, 0.527);
 }
