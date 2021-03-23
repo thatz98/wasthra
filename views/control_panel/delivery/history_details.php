@@ -10,42 +10,27 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
+                <?php $subTotal=0; 
+                    foreach($this->orderInfo as $details){
+                        $this->productname=''; 
+                        $subTotal+=$details['product_price']*$details['item_qty'];
+                    }?>
+
+
+                 <?php foreach($this->orderDetails as $history) ?>
                     <tr>
-                        <td><img src="/wasthra/public/images/products/product_img_4.jpg"></td>
+                        <td><img src="<?php echo URL.$history['image']?>"></td>
                         <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
+                            <h4><?php echo $history['product_name'] ?></h4>
+                            <h5><?php echo $history['product_price'] ?></h5>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
+                                <label>Color:</label><span class="color-dot" style="background-color: <?php echo $history['item_color'] ?>"></span>
+                                <label class="input-data">Size:<?php echo $history['item_size'] ?></label>
+                                <label class="input-data">Qty: <?php echo $history['item_qty'] ?></label>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td><img src="/wasthra/public/images/products/product_img_5.jpg"></td>
-                        <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="/wasthra/public/images/products/product_img_6.jpg"></td>
-                        <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
-                            </div>
-                        </td>
-                    </tr>
+                 <? endforeach;?>   
                 </table>     
             </div>
         </div>
@@ -56,31 +41,40 @@
                     <div class="summary-info">
                         <div class="row" style="justify-content: left; margin-left: 5px;">
                             <div class="col-2" style="min-width: 0;">
-                            <h4>Order ID: OD123456</h4>
-                            <h5>Date: 20/05/2020    Time: 15:20</h5>
-                            <h5>Payment Method: Online</h5>
+                            <?php foreach($this->orderSummary as $summary) ?>
+                                <h4>Order ID: <?php echo $summary['order_id']?></h4>
+                                <h5>Date: <?php echo $summary['date']?>   Time: <?php echo $summary['time']?></h5>
+                                <h5>Payment Method:<?php echo $summary['payment_method']?></h5>
                             <div class="oder-status">
                                 <h5>Order Status: </h5>
-                                <h5 style="color: #04CBE0"> New</h5>
+                                <h5 style="color: #04CBE0"> <?php echo $summary['order_status']?></h5>
                               </div>
                         </div>
-
+                                
                         </div>
+                        
                         
                     </div>
                     <div class="total-price">
                         <table>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?> </td>
                             </tr>
                             <tr>
                                 <td>Delivery chargers</td>
-                                <td>LKR 2400.00</td>
+                                <?php $fee=0;
+                                    foreach ($this->deliveryCharges as $delivery){
+                                        if($delivery['city']==$this->allDetails[0][11]){
+                                            $fee=$delivery['delivery_fee'];
+                                            $subTotal+=$fee;
+                                        }
+                                    }?>
+                                <td>LKR<?php echo number_format($fee,2,'.','');?></td>
                             </tr>
                             <tr>
                                 <td>Total Price</td>
-                                <td>LKR 2400.00</td>
+                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
                             </tr>
                         </table>
                     </div>
@@ -94,15 +88,17 @@
                         </div>
                         <div class="row">
                             <div class="col-2" style="min-width: 0;">
+                            <?php foreach($this->historyInfo as $info)?>
                                 <label class="address">
                                     To:<br>
-                                    First Name Last Name<br>
-                                    Address Line 1<br>
-                                    Address Line 2<br>
-                                    Address Line 3<br>
-                                    City<br>
-                                    Postal Code
+                                    <?php echo $info['first_name']?> <?php echo $info['last_name']?><br>
+                                    <?php echo $info['address_line_1']?><br>
+                                    <?php echo $info['address_line_2']?><br>
+                                    <?php echo $info['address_line_3']?><br>
+                                    <?php echo $info['city']?><br>
+                                    <?php echo $info['postal_code']?>
                                 </label>
+                               
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">

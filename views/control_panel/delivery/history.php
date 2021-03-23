@@ -25,7 +25,7 @@
                                 <h5 style="color: #04CBE0"> <?php echo $history['actual_delivery_date']?></h5>
                               </div>
                             </td>
-                           <td><a href="<?php echo URL;?>orders/historyDetails" class="btn table-btn">View Details</a></td>
+                           <td><a href="<?php echo URL;?>orders/historyDetails/<?php echo $history['order_id']; ?> " class="btn table-btn">View Details</a></td>
                        </tr>
                        <?php endforeach;} ?>
                        

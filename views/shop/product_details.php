@@ -12,7 +12,7 @@
             <img src="<?php echo URL . $this->product[0]['product_images'][0]; ?>" id="view-product-img">
             <div class="gallery-row">
                 <?php
-                $id = 0;
+                $id = 80;
                 foreach ($this->product[0]['product_images'] as $image) {
                     $id += 1; ?>
                     <div class="gallery-col">
@@ -118,7 +118,8 @@
     <div class="row-left">
 
 
-        <?php foreach ($this->reviews as $review) : ?>
+        <?php if(empty($this->reviews)) echo '<p>No reviews yet.</p>';
+         foreach ($this->reviews as $review) : ?>
             <div class="col-2" style="min-height: 100px;">
                 <div class="product-review">
                     <div class="row-left">

@@ -10,7 +10,7 @@
 
     function getDeliveryStaffList(){
 
-        return $this->db->listAll('delivery_staff',array('user_id','first_name','last_name'));
+        return $this->db->select('delivery_staff',array('user_id','first_name','last_name'));
 
     }
 
@@ -239,12 +239,12 @@ $id = Session::get('userId');
     
     function orderCount($status){
 
-        return $this->db->listWhere('orders',array('COUNT(order_status)'),"order_status='$status'")['COUNT(order_status)'];
+        return $this->db->selectOneWhere('orders',array('COUNT(order_status)'),"order_status=:status",array('status'=>$status))['COUNT(order_status)'];
     
     }
 
     function getDeliveryCharges(){
-        return $this->db->listAll('delivery_charges','*');
+        return $this->db->select('delivery_charges','*');
     }
 
 
@@ -281,13 +281,38 @@ $id = Session::get('userId');
         $this->db->queryExecuteOnly("UPDATE orders SET order_status='Requested to Return' WHERE order_id='$id'");
     }
 
-    function getOrderListBy($category) {
-    function history(){
+
+    function orderHistory(){
         $id = Session::get('userId');
-        return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
+        return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders 
+        INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
     }
 
-} 
+    function history_Details($id){
+        return $this->db->query("SELECT order_item.item_size,orders.order_status,order_item.item_qty,order_item.item_color,
+        order_item.product_id, product.product_name,product_images.image,price_category.product_price FROM order_item 
+        INNER JOIN orders ON orders.order_id=order_item.order_id 
+        INNER JOIN product ON order_item.product_id=product.product_id 
+        INNER JOIN product_images ON product.product_id=product_images.product_id 
+        INNER JOIN price_category ON product.price_category_id=price_category.price_category_id WHERE order_item.order_id='$id' GROUP BY order_item.product_id");
+    }
+
+     function historySummary($id){
+        $orderId=$this->db->query("SELECT order_id FROM payment WHERE payment.order_id='$id'");
+        $newId=$orderId[0]['order_id'];
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders 
+        INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
+     }
+
+     function deliveryHistoryInfo($id){
+        $userId=$this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
+        $addressId=$userId[0]['address_id'];
+        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
+        FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
+     }
+
+ 
     function getOrderFilterBy($category){
     if ($category == 'New') {
 
