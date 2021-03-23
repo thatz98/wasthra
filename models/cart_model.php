@@ -125,7 +125,7 @@ class Cart_Model extends Model {
             'item_size' => $data['item_size']
         ));
 
-        $cartData = $this->getCartItems($cart['cart_id']);
+        $cartData = $this->getCartItems($userId);
         Session::set('cartCount', count($cartData));
         Session::set('cartData', $cartData);
     }
@@ -169,8 +169,8 @@ class Cart_Model extends Model {
      INNER JOIN shopping_cart ON shopping_cart.cart_id=cart_item.cart_id
      INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
      INNER JOIN product_images ON product.product_id=product_images.product_id
-     WHERE shopping_cart.user_id='$userId'
-     GROUP BY product.product_id");
+     WHERE shopping_cart.user_id=:userId
+     GROUP BY product.product_id",array('userId'=>$userId));
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
