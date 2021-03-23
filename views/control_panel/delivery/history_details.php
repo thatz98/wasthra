@@ -88,15 +88,17 @@
                         </div>
                         <div class="row">
                             <div class="col-2" style="min-width: 0;">
+                            <?php foreach($this->historyInfo as $info)?>
                                 <label class="address">
                                     To:<br>
-                                    First Name Last Name<br>
-                                    Address Line 1<br>
-                                    Address Line 2<br>
-                                    Address Line 3<br>
-                                    City<br>
-                                    Postal Code
+                                    <?php echo $info['first_name']?> <?php echo $info['last_name']?><br>
+                                    <?php echo $info['address_line_1']?><br>
+                                    <?php echo $info['address_line_2']?><br>
+                                    <?php echo $info['address_line_3']?><br>
+                                    <?php echo $info['city']?><br>
+                                    <?php echo $info['postal_code']?>
                                 </label>
+                               
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
