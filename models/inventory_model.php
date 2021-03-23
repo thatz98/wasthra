@@ -8,14 +8,14 @@ class Inventory_Model extends Model{
 
         function listInventoryDetials(){
 
-            //return $this->db->listAll('inventory',array('product_id','qty','reorder_qty','reorder_level','color','size'));
+            //return $this->db->select('inventory',array('product_id','qty','reorder_qty','reorder_level','color','size'));
             return $this->db->query("SELECT product_id,qty,reorder_qty,reorder_level,color,size FROM inventory WHERE is_deleted='no' ORDER BY product_id");
             
         }
 
         function getInventory($id){
 
-            return $this->db->listWhere('inventory',array('product_id','qty','reorder_qty','reorder_level','size','color'),"product_id='$id'");
+            return $this->db->selectOneWhere('inventory',array('product_id','qty','reorder_qty','reorder_level','size','color'),"product_id=:id",array('id'=>$id));
         }
 
         function update($data){

@@ -8,7 +8,7 @@ class Products_Model extends Model{
 
     function listProducts(){
 
-    	return $this->db->listAll('product',array('product_id','product_name','product_description','is_featured','is_new'));
+    	return $this->db->select('product',array('product_id','product_name','product_description','is_featured','is_new'));
         
     }
 
@@ -182,7 +182,7 @@ class Products_Model extends Model{
             'is_published' => $data['is_published'],
             'meta_product_name' => $data['meta_product_name'],
             'meta_product_desc' => $data['meta_product_desc']),
-            "product_id = '{$data['prev_id']}'");
+            "product_id = :prev_id",array('prev_id'=>$data['prev_id']));
 
             $category=$data['category'];
             $product_id=$data['product_id'];
@@ -191,7 +191,7 @@ class Products_Model extends Model{
             $this->db->queryExecuteOnly("UPDATE product SET product.price_category_id=(SELECT price_category_id FROM price_category WHERE price_category.price_category_name='$price_category' ) WHERE product.product_id='$product_id' ");
 
            
-            $this->db->delete('product_images',"product_id='$previous_id'");
+            $this->db->delete('product_images',"product_id=:previous_id",array('previous_id'=>$previous_id));
             
             foreach($imageList as $img){
                 $m="public/images/products/";
@@ -260,13 +260,13 @@ class Products_Model extends Model{
     }
 
     function getPublishedCount(){
-        return $this->db->listWhere('product',array('COUNT(product_id)'),"is_published='yes'")['COUNT(product_id)'];;
+        return $this->db->selectOneWhere('product',array('COUNT(product_id)'),"is_published=:status",array('status'=>'yes'))['COUNT(product_id)'];;
     }
     function getReorderCount(){
-        return $this->db->listWhere('inventory',array('COUNT(product_id)'),"qty<=reorder_level")['COUNT(product_id)'];
+        return $this->db->selectOneWhere('inventory',array('COUNT(product_id)'),"qty<=reorder_level",array())['COUNT(product_id)'];
     }
     function getOutStockCount(){
-        return $this->db->listWhere('inventory',array('COUNT(product_id)'),"qty=0")['COUNT(product_id)'];
+        return $this->db->selectOneWhere('inventory',array('COUNT(product_id)'),"qty=:qty",array('qty='=>0))['COUNT(product_id)'];
     }
 
     function getQtyCount($id){

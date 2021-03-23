@@ -7,13 +7,13 @@ class PriceCategories_Model extends Model{
     }
 
     function listPricecat(){
-        return $this->db->listAll('price_category',array('price_category_id','price_category_name','production_cost','add_market_price','discount'));
+        return $this->db->select('price_category',array('price_category_id','price_category_name','production_cost','add_market_price','discount'));
         
     }
     
     function getPriceCategory($id){
 
-        return $this->db->listWhere('price_category',array('price_category_id','price_category_name','production_cost','add_market_price','discount'),"price_category_id='$id'");
+        return $this->db->selectOneWhere('price_category',array('price_category_id','price_category_name','production_cost','add_market_price','discount'),"price_category_id=:id",array('id'=>$id));
      }
 
     function create($data){
@@ -39,20 +39,20 @@ class PriceCategories_Model extends Model{
             'add_market_price' => $data['add_market_price'],
             'production_cost' => $data['production_cost'],
             'discount' => $data['discount'],
-            'product_price' => $data['product_price']),"price_category_id = '{$data['prev_id']}'");
+            'product_price' => $data['product_price']),"price_category_id = :prev_id",array('prev_id'=>$data['prev_id']));
 
      }
 
  
     function delete($id){
 
-         $this->db->delete('price_category',"price_category_id='$id'");
+         $this->db->delete('price_category',"price_category_id=:id",array('id'=>$id));
 
     }
 
     function getPriceCategoryCount($status){
 
-        return $this->db->listWhere('price_category',array('COUNT(price_category_id)'),"is_deleted='$status'")['COUNT(price_category_id)'];
+        return $this->db->selectOneWhere('price_category',array('COUNT(price_category_id)'),"is_deleted=:status",array('status'=>$status))['COUNT(price_category_id)'];
         
     }
 

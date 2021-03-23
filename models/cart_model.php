@@ -71,7 +71,7 @@ class Cart_Model extends Model{
 
     function listCart(){
 
-        return $this->db->listAll('cart_item',array('product_id','item_qty','item_color','item_size'));
+        return $this->db->select('cart_item',array('product_id','item_qty','item_color','item_size'));
     
     }
 
@@ -124,7 +124,7 @@ class Cart_Model extends Model{
 
     function getDeliveryCharges(){
 
-        return $this->db->listAll('delivery_charges','*');
+        return $this->db->select('delivery_charges','*');
 
     }
 
@@ -159,7 +159,7 @@ class Cart_Model extends Model{
            'item_color' => $data['item_color'],      
            'item_size' => $data['item_size']
           
-          ),"item_id=$itemId");
+          ),"item_id=:itemId",array('itemId' => $itemId));
           $userId = Session::get('userId');
           $cartId = $this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
           $id = $cartId[0]['cart_id'];
@@ -174,7 +174,7 @@ class Cart_Model extends Model{
 
      function delete($id){
 
-        $this->db->delete('cart_item',"item_id='$id'");
+        $this->db->delete('cart_item',"item_id=:item_id",array('item_id'=>$id));
 
         $userId = Session::get('userId');
         $cartId = $this->db->query("SELECT cart_id FROM shopping_cart WHERE shopping_cart.user_id='$userId'");
@@ -216,5 +216,3 @@ class Cart_Model extends Model{
     }
     
 }
-
-?>

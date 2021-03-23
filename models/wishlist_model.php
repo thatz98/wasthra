@@ -169,7 +169,7 @@ class Wishlist_Model extends Model{
     function delete($id){
 
 
-        $this->db->delete('wishlist',"product_id='$id'");
+        $this->db->delete('wishlist',"product_id=:id",array('id'=>$id));
 
 
    }
@@ -179,7 +179,7 @@ class Wishlist_Model extends Model{
    function getDeliveryCharges(){
 
 
-    return $this->db->listAll('delivery_charges','*');
+    return $this->db->select('delivery_charges','*');
 
 
 }
