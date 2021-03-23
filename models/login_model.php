@@ -175,7 +175,7 @@ class Login_Model extends Model
          INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
          INNER JOIN product_images ON product.product_id=product_images.product_id
          WHERE shopping_cart.user_id=:userId
-         GROUP BY product.product_id",array('userId'=>$userId));
+         GROUP BY cart_item.item_id",array('userId'=>$userId));
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
