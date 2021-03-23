@@ -10,18 +10,21 @@
             <div class="box-container" >
                 <h3>Items</h3>
                 <table class="order-list order-items">
+               
+                 <?php foreach($this->orderDetails as $history) ?>
                     <tr>
-                        <td><img src="/wasthra/public/images/products/product_img_4.jpg"></td>
+                        <td><img src="<?php echo URL.$history['image']?>"></td>
                         <td class="order-details">
-                            <h4>Red Colored Curve Neck</h4>
-                            <h5>LKR 800.00</h5>
+                            <h4><?php echo $history['product_name'] ?></h4>
+                            <h5><?php echo $history['product_price'] ?></h5>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: #59FF37"></span>
-                                <label class="input-data">Size: M</label>
-                                <label class="input-data">Qty: 1</label>
+                                <label>Color:</label><span class="color-dot" style="background-color: <?php echo $history['item_color'] ?>"></span>
+                                <label class="input-data">Size:<?php echo $history['item_size'] ?></label>
+                                <label class="input-data">Qty: <?php echo $history['item_qty'] ?></label>
                             </div>
                         </td>
                     </tr>
+                    
                 </table>     
             </div>
         </div>
