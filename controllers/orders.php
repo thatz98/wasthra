@@ -261,9 +261,6 @@ class Orders extends Controller{
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
 
-<<<<<<< HEAD
-
-
     function byCategory($category) {
 
       
@@ -295,14 +292,4 @@ class Orders extends Controller{
 
     }
 
-    function updatePayementStatus($id){
-
-        $this->model->updatePayStatus($id);
-        Session::set('cartData', '');
-        Session::set('cartCount', 0);
-        Session::set('buyNowData', '');
-
-    }
-=======
->>>>>>> ae91bc631cdee3a66192b03ca324384ba23bc30f
 }

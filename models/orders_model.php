@@ -322,25 +322,25 @@ $id = Session::get('userId');
         delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
         INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='$category'; ");
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='$category'  GROUP BY order_id; ");
      
-    }else if ($category == 'Pending Deliveries') {
+    }else if ($category == 'PendingDeliveries') {
        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
        checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
        delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
        delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
        INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
        LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-       LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Processing' AND orders.order_status='Out for Delivery' ; ");
+       LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Processing' OR orders.order_status='Out for Delivery' GROUP BY order_id; ");
     
-    }else if ($category == 'Pending Returns') {
+    }else if ($category == 'PendingReturns') {
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
         checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
         delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
         delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
         INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Requested to Return'; ");
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Requested to Return'  GROUP BY order_id; ");
     }
 
     } 
