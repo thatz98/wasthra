@@ -32,19 +32,20 @@ class Cart_Model extends Model {
     }
 
     function getAllProducts() {
+        $cart = $this->db->selectOnewhere('shopping_cart', array('cart_id'), 'user_id=:userId', array('userId' => Session::get('userId')));
 
-        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
-        product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
+        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-        inventory.qty, price_category.product_price, 
-        price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
-         LEFT JOIN inventory ON product.product_id=inventory.product_id
+        inventory.qty, price_category.product_price, AVG(review.rate) AS review_rate,cart_item.item_id,cart_item.item_qty,cart_item.item_color,cart_item.item_size  FROM product
+         INNER JOIN cart_item ON cart_item.product_id=product.product_id
+         INNER JOIN shopping_cart ON cart_item.cart_id=shopping_cart.cart_id
+         INNER JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id
          INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
          INNER JOIN product_images ON product.product_id=product_images.product_id
          LEFT JOIN review on review.product_id=product.product_id 
-         WHERE product.is_deleted='no'
-         GROUP BY product.product_id");
+         WHERE product.is_deleted='no' AND shopping_cart.cart_id=:cartId 
+         GROUP BY product.product_id",array('cartId'=>$cart['cart_id']));
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
