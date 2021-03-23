@@ -101,7 +101,7 @@ class Cart extends Controller {
             //print_r(Session::get('buyNowData'));
             //echo($data['product_price']);
             //header('location: ' . $_POST['prev_url'].'?success=itemAddedToCart#message');
-            header('location: ' . URL . 'shop/checkout');
+            header('location: ' . URL . 'shop/checkout/buyNow');
         } else {
             $data['item_color'] = str_replace('#', '', $data['item_color']);
 

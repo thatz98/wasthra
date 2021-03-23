@@ -193,7 +193,7 @@ class Shop_Model extends Model {
         'city'=>$data['city'],'address_line_1'=>$data['address_line_1'],'address_line_2'=>$data['address_line_2'],'address_line_3'=>$data['address_line_3']));
     }
 
-    function placeOrder($date, $time, $orderID, $payMethod, $aId, $comment) {
+    function placeOrder($date, $time, $orderID, $payMethod, $aId, $comment,$buyNow) {
         $this->db->insert('orders', array(
             'order_id' => $orderID,
             'order_status' => 'new',
@@ -210,9 +210,10 @@ class Shop_Model extends Model {
             'payment_status' => 'pending',
         ));
         $userId = Session::get('userId');
+
         $cart = $this->db->selectOneWhere('shopping_cart',array('cart_id'),'user_id=:userId',array('userId'=>$userId));
         $cartId = $cart['cart_id'];
-        if (empty(Session::get('buyNowData'))) {
+        if ($buyNow=='false') {
 
             $cartItems = $this->db->selectWhere('cart_item','*','cart_id=:cartId',array('cartId'=>$cartId));
             foreach ($cartItems as $item) {
