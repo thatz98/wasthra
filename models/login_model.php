@@ -54,7 +54,7 @@ class Login_Model extends Model
                         $loginId = Session::get('loginId');
                         $userData = $this->db->selectOneWhere('customer', array('user_id', 'first_name', 'last_name', 'gender', 'contact_no', 'email'),  "login_id=:loginId",array('loginId'=>$loginId));
                         Session::set('userData', $userData);
-                        $cities = $this->db->query("SELECT city FROM delivery_charges;");
+                        $cities = $this->db->select('delivery_charges',array('city'));
                         Session::set('city', $cities);
                         Session::set('userId', $userData['user_id']);
                         $userId = $userData['user_id'];
@@ -169,13 +169,13 @@ class Login_Model extends Model
     }
 
     function getCartItems($userId) {
-        $data = $this->db->query("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, price_category.product_price, cart_item.item_qty, cart_item.item_color, cart_item.item_size  FROM product
+        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, price_category.product_price, cart_item.item_qty, cart_item.item_color, cart_item.item_size  FROM product
          INNER JOIN cart_item ON cart_item.product_id=product.product_id
          INNER JOIN shopping_cart ON shopping_cart.cart_id=cart_item.cart_id
          INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
          INNER JOIN product_images ON product.product_id=product_images.product_id
-         WHERE shopping_cart.user_id='$userId'
-         GROUP BY product.product_id");
+         WHERE shopping_cart.user_id=:userId
+         GROUP BY product.product_id",array('userId'=>$userId));
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);

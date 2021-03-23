@@ -10,11 +10,11 @@ class Search_Model extends Model {
         $term = metaphone($term);
         $vowels = array("A", "E", "I", "O", "U");
         $term = str_replace($vowels, "", $term);
-        return $this->db->query("SELECT * FROM product INNER JOIN category ON category.category_id=product.category_id INNER JOIN product_images ON product.product_id=product_images.product_id WHERE MATCH (meta_product_name,meta_product_desc) AGAINST ('$term*' IN BOOLEAN MODE) GROUP BY product.product_id;");
+        return $this->db->runQuery("SELECT * FROM product INNER JOIN category ON category.category_id=product.category_id INNER JOIN product_images ON product.product_id=product_images.product_id WHERE MATCH (meta_product_name,meta_product_desc) AGAINST (':term*' IN BOOLEAN MODE) GROUP BY product.product_id;",array('term'=>$term));
     }
 
     function getProductName($id) {
-        return $this->db->query("SELECT product_id,product_name FROM product WHERE product_id='$id';");
+        return $this->db->selectWhere('product',array('product_id','product_name'),"product_id=:id",array('id'=>$id));
     }
 
     function searchByKeyword($keyword) {
@@ -51,7 +51,7 @@ class Search_Model extends Model {
         
 
 
-        $data = $this->db->query($query);
+        $data = $this->db->runQuery($query);
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
@@ -108,7 +108,7 @@ class Search_Model extends Model {
 
         $query .= " GROUP BY product.product_id;";
 
-        $data = $this->db->query($query);
+        $data = $this->db->runQuery($query);
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
@@ -120,16 +120,13 @@ class Search_Model extends Model {
     }
 
     function getSizes() {
-        return $this->db->query("SELECT DISTINCT inventory.size as sizes
-        FROM inventory;");
+        return $this->db->select('inventory',array('DISTINCT size as sizes'));
     }
 
     function getColors() {
-        return $this->db->query("SELECT DISTINCT inventory.color as colors
-        FROM inventory;");
+        return $this->db->select('inventory',array('DISTINCT color as colors'));
     }
     function getCategories() {
-        return $this->db->query("SELECT category.name,category.category_id
-        FROM category ;");
+        return $this->db->select('category',array('name','category_id'));
     }
 }
