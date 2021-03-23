@@ -11,42 +11,29 @@
                 <table class="order-list">
 
                     <?php $this->subtotal=0.00;
-                    foreach ($this->userCart as $cartDetails ): ?>
+                    foreach ($this->cartItems as $item ): ?>
                     <tr>
-                      <td><?php foreach ($this->imageList as $image){
-                        if($cartDetails['product_id']==$image['product_id']){?>
-                            <img src="<?php echo $image['image']?>" width="50px" height="50px">
-                            <?php 
-                            break;
-                        }
-                        }?></td>
+                      <td>
+                            <img src="<?php echo $item['product_images'][0]?>" width="50px" height="50px">
+                            </td>
                        <td class="order-details">
-                            <h4><?php 
-                                $this->productPrice=0.00;
-                                foreach ($this->qtyList as $qty){
-                                    if($qty['product_id']==$cartDetails['product_id']){
-                                        $this->productPrice=$qty['product_price'];
-                                        echo $qty['product_name'];
-                                    }
-                                } 
-
-                            ?>
+                            <h4> <?php echo $item['product_name'];?>
                             </h4>  
-                            <h5><?php echo $this->productPrice;?></h5>     
+                            <h5><?php echo $item['product_price'];?></h5>     
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color: <?php echo $cartDetails['item_color']; ?>"></span>
-                                <label class="input-data">Size: <?php echo $cartDetails['item_size']; ?></label>
-                                <label class="input-data">Qty: <?php echo $cartDetails['item_qty']; ?></label>
+                                <label>Color:</label><span class="color-dot" style="background-color: <?php echo $item['item_color']; ?>"></span>
+                                <label class="input-data">Size: <?php echo $item['item_size']; ?></label>
+                                <label class="input-data">Qty: <?php echo $item['item_qty']; ?></label>
                             </div>
                         </td>
 
                         <td>
-                            <a href="<?php echo '?id='.$cartDetails['product_id'].'&item='.$cartDetails['item_id'].'&color='.str_replace('#','',$cartDetails['item_color']).'&qty='.$cartDetails['item_qty'].'&size='.$cartDetails['item_size']?>#updateCartPopup" class="btn table-btn">Update</a>
-                            <a href="<?php echo URL ?>cart/delete/<?php echo $cartDetails['item_id'] ?>" class="btn table-btn">Remove</a>
+                            <a href="<?php echo '?id='.$item['product_id'].'&item='.$item['item_id'].'&color='.str_replace('#','',$item['item_color']).'&qty='.$item['item_qty'].'&size='.$item['item_size']?>#updateCartPopup" class="btn table-btn">Update</a>
+                            <a href="<?php echo URL ?>cart/delete/<?php echo $item['item_id'] ?>" class="btn table-btn">Remove</a>
                         </td>
                     </tr>
                     
-                    <?php $this->subtotal+=($cartDetails['item_qty']*$this->productPrice);
+                    <?php $this->subtotal+=($item['item_qty']*$item['product_price']);
                 endforeach;?>
                 </table>     
             </div>

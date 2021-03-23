@@ -81,9 +81,11 @@ class Database extends PDO {
 		}
 
 		$stmt = $this->prepare("SELECT $fieldNames FROM $table WHERE $where");
+		
 		foreach ($params as $key => $value) {
 			$stmt->bindValue(":$key", $value);
 		}
+		
 		$stmt->execute();
 
 		return $stmt->fetch();

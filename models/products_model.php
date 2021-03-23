@@ -249,10 +249,10 @@ class Products_Model extends Model{
         return $this->db->selectOneWhere('product',array('COUNT(product_id)'),"is_published=:status",array('status'=>'yes'))['COUNT(product_id)'];
     }
     function getReorderCount(){
-        return $this->db->selectOneWhere('inventory',array('COUNT(product_id)'),"qty<=reorder_level",array())['COUNT(product_id)'];
+        return $this->db->selectOneWhere('inventory',array('COUNT(product_id)'),"qty<=reorder_level")['COUNT(product_id)'];
     }
     function getOutStockCount(){
-        return $this->db->selectOneWhere('inventory',array('COUNT(product_id)'),"qty=:qty",array('qty='=>0))['COUNT(product_id)'];
+        return $this->db->selectOneWhere('inventory',array('COUNT(product_id)'),"qty=:qty",array('qty'=>'0'))['COUNT(product_id)'];
     }
 
     function getQtyCount($id){
