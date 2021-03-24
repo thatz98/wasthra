@@ -27,7 +27,8 @@ class Orders_Model extends Model {
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
         LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id
         WHERE checkout.user_id=:userId
-        GROUP BY orders.order_id", array('userId' => Session::get('userId')));
+        GROUP BY orders.order_id
+        ORDER BY orders.order_id DESC", array('userId' => Session::get('userId')));
     }
 
     /**
@@ -390,9 +391,11 @@ class Orders_Model extends Model {
 
 
     function create($data) {
-
-        $this->db->runQuery('INSERT into delivery(order_id,user_id,expected_delivery_date) VALUES(:orderId,:userId,DATE_ADD(CURRENT_DATE(),5))',array('orderId'=>$data['order_id'],'userid'=>$data['user_id']));
-        $this->db->update('orders',array('order_status'=>'Out for Delivery'),'order_id=:order_id',array($data['order_id']));
+$orderId = $data['order_id'];
+$userId = $data['user_id'];
+       // $this->db->runQuery('INSERT into delivery(order_id,user_id,expected_delivery_date) VALUES(:orderId,:userId,DATE_ADD(CURDATE(),INTERVAL 5 DAY))',array('orderId'=>$data['order_id'],'userid'=>$data['user_id']));
+        $this->db->runQuery("INSERT into delivery(order_id,user_id,expected_delivery_date) VALUES('$orderId','$userId',DATE_ADD(CURDATE(),INTERVAL 5 DAY))");
+        $this->db->update('orders',array('order_status'=>'Out for Delivery'),'order_id=:order_id',array('order_id'=>$data['order_id']));
         $this->trackingUpdate($data['order_id']);
     }
 

@@ -156,9 +156,7 @@
                                     <label class="address">
                                     Expected Delivery Date: <?php 
                                                                    if($this->orderDetails['delivery_id']!=NULL){
-                                                                         $Date= date('Y-m-d');
-                                                                         $Date=date('Y-m-d', strtotime($Date. ' + 7 days'));
-                                                                         echo $Date;
+                                                                         echo $this->orderDetails['expected_delivery_date'];
                                                                     }else{?>
                                                                          Not Set 
                                                                     <?php }?>
@@ -167,7 +165,7 @@
                                 <?php  
                                          if($this->orderDetails['delivery_id']!=NULL){ ?>
                                    
-                                    Assiged deliver: <?php echo $this->orderDetails['first_name']?> <?php $this->orderDetails['last_name']?><br>
+                                    Assiged deliver: <?php echo $this->orderDetails['first_name'].' '.$this->orderDetails['last_name']?><br>
                                 <?php }
                                         else{?>
                                     Assiged deliver: Not Set<br>  
