@@ -277,6 +277,26 @@ nav ul li a:hover {
     transition: background 0.5s;
 }
 
+.filter-time {
+    flex: 1;
+    text-align: right;
+}
+
+.filter-time ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.filter-time ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.filter-time ul li a:hover {
+    color: #ff523b;
+    transition: background 0.5s;
+}
+
 /* scroll bar */
 
 .noscroll {

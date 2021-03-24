@@ -48,8 +48,6 @@ class Orders extends Controller {
         $this->view->title = 'Orders';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Orders';
 
-        $this->view->qtyList =  $this->model->listAllOrderItemDetails();
-
         if (isset($_GET['filter'])) {
             switch ($_GET['filter']) {
                 case 'new':

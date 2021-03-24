@@ -6,7 +6,7 @@
 <div class="container grey-back">
     <h2 class="title title-min">Statistics</h2>
     <div class="row">
-        <nav class="filter-time">
+        <div class="filter-time">
             <ul>
                 <li><a href="?filter=daily" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'daily') echo 'active';?>">Daily</a></li>
                 <li><a href="?filter=weekly" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'weekly') echo 'active';?>">Weekly</a></li>
@@ -14,7 +14,7 @@
                 <li><a href="?filter=yearly" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'yearly') echo 'active';?>">Yearly</a></li>
                 <li><a href="?filter=custom" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'custom') echo 'active';?>">Custom</a></li>
             </ul>
-        </nav>
+        </div>
     </div>
     <div class="row">
         <div class="col-3">
