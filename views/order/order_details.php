@@ -56,18 +56,18 @@
                     <div class="summary-info">
                         <div class="row">
                             <div class="col-2" style="min-width: 0;">
-                            <h4>Order ID: <?php echo($this->orderDetails[0])?></h4>
-                            <h5>Date: <?php echo($this->orderDetails[1])?>    Time: <?php echo($this->orderDetails[2])?></h5>
+                            <h4>Order ID: <?php echo($this->orderDetails['order_id'])?></h4>
+                            <h5>Date: <?php echo($this->orderDetails['date'])?>    Time: <?php echo($this->orderDetails['time'])?></h5>
                             <h5>Payment Method: <?php 
-                            if($this->orderDetails[4]=='cashOnDelivery'){
+                            if($this->orderDetails['payment_method']=='cashOnDelivery'){
                                 echo 'Cash On Delivery';
                             }
                             else{
                                 echo 'Online';
                             }?></h5>
-                            <h5>Payment Status: <?php echo $this->orderDetails[5]?></h5>
+                            <h5>Payment Status: <?php echo $this->orderDetails['payment_status']?></h5>
                             
-                            <?php $status=$this->orderDetails[3]; $color='';
+                            <?php $status=$this->orderDetails['order_status']; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
@@ -119,21 +119,21 @@
                         
                         </div>
                         <div class="col-2" style="min-width: 0;">
-                        <?php if($this->orderDetails[3]=='New'){?>
+                        <?php if($this->orderDetails['order_status']=='New'){?>
                             <a href="#cancelOrder" class="btn">Request to Cancel</a>
-                            <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderDetails[0]?>" class="btn">Track Order</a>
+                            <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderDetails['order_id']?>" class="btn">Track Order</a>
                             <?php } 
                             
-                                elseif($this->orderDetails[3]=='Delivered'){?>
+                                elseif($this->orderDetails['order_status']=='Delivered'){?>
                                 <a href="#requestReturn" class="btn">Request to Return</a>
                                 <?php } 
                                 
-                                elseif($this->orderDetails[3]=='Completed'){?>
-                                    <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderDetails[0]?>" class="btn">Track Order</a>
+                                elseif($this->orderDetails['order_status']=='Completed'){?>
+                                    <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderDetails['order_id']?>" class="btn">Track Order</a>
                                     <?php } 
 
                                 else{?>
-                                    <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderDetails[0]?>" class="btn">Track Order</a>
+                                    <a href="<?php echo URL.'orders/trackMyOrder/'.$this->orderDetails['order_id']?>" class="btn">Track Order</a>
                                     <?php }?>
 
                         </div>
@@ -154,7 +154,7 @@
                             </tr>
                             <tr>
                                 <td>Total Price</td>
-                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
+                                <td>LKR <?php echo number_format($subTotal+$this->orderDetails['delivery_fee'],2,'.','');?></td>
                             </tr>
                         </table>
                     </div>
@@ -171,27 +171,27 @@
                             <div class="col-2" style="min-width: 0;">
                                 <label class="address">
                                     To:<br>
-                                    <?php echo Session::get('userData')['first_name']?> <?php echo Session::get('userData')['last_name']?><br>
-                                    <?php echo $this->orderDetails[7]?><br>
-                                    <?php echo $this->orderDetails[8]?><br>
-                                    <?php echo $this->orderDetails[9]?><br>
-                                    City :<?php echo $this->orderDetails[11]?><br>
-                                    Postal Code :<?php echo $this->orderDetails[10]?>
+                                    <?php echo $this->orderDetails['customer_first_name']?> <?php echo $this->orderDetails['customer_last_name']?><br>
+                                    <?php echo $this->orderDetails['address_line_1']?><br>
+                                    <?php echo $this->orderDetails['address_line_2']?><br>
+                                    <?php echo $this->orderDetails['address_line_3']?><br>
+                                    City :<?php echo $this->orderDetails['city']?><br>
+                                    Postal Code :<?php echo $this->orderDetails['postal_code']?>
                                 </label>
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
                                     Delivery Staff Details<br>
-                                    <?php $data=$this->orderDetails[14]; 
+                                    <?php $data=$this->orderDetails['delivery_id']; 
                                     if(!empty($data)){?>
-                                    <?php if($this->orderDetails[3]=='Delivered' || $this->orderDetails[3]=='Delivered'){?>
-                                    Delivered Date: <?php echo $this->orderDetails[12]?><br><br>
-                                    Delivered By: <?php echo $this->orderDetails[15]?> <?php echo $this->orderDetails[16]?><br>
+                                    <?php if($this->orderDetails['order_status']=='Delivered' || $this->orderDetails['order_status']=='Delivered'){?>
+                                    Delivered Date: <?php echo $this->orderDetails['actual_delivery_date']?><br><br>
+                                    Delivered By: <?php echo $this->orderDetails['first_name']?> <?php echo $this->orderDetails['last_name']?><br>
                                     <?php } 
                                     
                                         else{?>
-                                    Expected Delivery Date: <?php echo $this->orderDetails[13]?><br><br>
-                                    Delivery Will Be Completed By: <?php echo $this->orderDetails[15]?> <?php echo $this->orderDetails[16]?><br>
+                                    Expected Delivery Date: <?php echo $this->orderDetails['expected_delivery_date']?><br><br>
+                                    Delivery Will Be Completed By: <?php echo $this->orderDetails['first_name']?> <?php echo $this->orderDetails['last_name']?><br>
                                     <?php }?>
                                     <?php }
                                     else{?>

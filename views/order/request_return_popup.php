@@ -15,7 +15,7 @@
                 <div class="row">
                 <textarea name="return_comment" id="" cols="20" rows="5"></textarea>
                 </div>
-                <input type="text" value="<?php echo $this->allDetails[0][0]?>" name="order_id" hidden>
+                <input type="text" value="<?php echo $this->orderDetails['order_id']?>" name="order_id" hidden>
                     <div class="row">
                     <button type="submit" class="btn">Submit</button>
                 </div>

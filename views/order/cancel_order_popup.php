@@ -11,7 +11,7 @@
                 <div class="col-2">
                 <label>Reason to cancel</label>
                 </div>
-                <input type="text" value="<?php echo $this->allDetails[0][0]?>" name="order_id" hidden>
+                <input type="text" value="<?php echo $this->orderDetails['order_id']?>" name="order_id" hidden>
                 </div>
                 <div class="row">
                 <textarea name="cancel_comment" id="" cols="20" rows="5"></textarea>
