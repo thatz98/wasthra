@@ -17,6 +17,7 @@ class Orders extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> My Orders';
 
         $this->view->orderList = $this->model->getMyOrderList();
+        
 
         $this->view->render('order/index');
     }
