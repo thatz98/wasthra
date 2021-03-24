@@ -106,7 +106,12 @@
                             </div>
 
                             <div class="col-2" style="min-width: 0;">
+                               <div class="row">
                                <a href="#updateOrderStatus" class="btn">Update Status</a>
+                               </div>
+                               <div class="row">
+                               <a href="<?php echo URL;?>report/generateInvoice/<?php echo $this->orderDetails['order_id'];?>" class="btn">Generate Invoice</a>
+                               </div>
                             </div>
                         </div>
                         
@@ -172,7 +177,11 @@
                                 <?php }?>
                                 
                                 </label>
+                              <?php  if($this->orderDetails['delivery_id']==NULL){ ?>
                                 <a href="#assignDeliverySraff" class="btn">Assign Delivery</a>
+                                <?php } else{?>
+                                <a href="?update=true#assignDeliverySraff" class="btn">Re-assign Delivery</a>
+                              <?php  }?>
                             </div>
                         </div>
                     </div>

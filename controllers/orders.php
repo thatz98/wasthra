@@ -207,13 +207,17 @@ class Orders extends Controller {
      *
      * @return void
      */
-    function createDelivery() {
+    function createDelivery($flag=false) {
 
         $data = array();
         $data['user_id'] = $_POST['assigned_deliver'];
         $data['order_id'] = $_POST['order_id'];
-
-        $this->model->create($data);
+if($flag=='update'){
+    $this->model->updateDeliver($data);
+} else{
+    $this->model->create($data);
+}
+        
         //  print_r($data);
         header("location: " . URL . "orders/orderDetails/{$data['order_id']}");
     }
