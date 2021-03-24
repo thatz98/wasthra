@@ -225,6 +225,14 @@ class Shop_Model extends Model {
                     'item_color' => $item['item_color'],
                     'is_deleted' => 'no',
                 ));
+                $id = $item['product_id'];
+                $color = $item['item_color'];
+                $size = $item['item_size'];
+                $qty = $item['item_qty'];
+                $this->db->queryExecuteOnly("UPDATE inventory SET inventory.qty=(SELECT inventory.qty FROM inventory 
+                WHERE inventory.product_id='$id' AND 
+                inventory.color='$color' AND inventory.size='$size')-$qty WHERE inventory.product_id='$id' AND inventory.color='$color' AND 
+                inventory.size='$size'");
             }
         } else {
             $this->db->insert('order_item', array(
@@ -235,6 +243,14 @@ class Shop_Model extends Model {
                 'item_color' => Session::get('buyNowData')['item_color'],
                 'is_deleted' => 'no',
             ));
+            $id = Session::get('buyNowData')['product_id'];
+            $color = Session::get('buyNowData')['item_color'];
+            $size = Session::get('buyNowData')['item_size'];
+            $qty = Session::get('buyNowData')['item_qty'];
+            $this->db->queryExecuteOnly("UPDATE inventory SET inventory.qty=(SELECT inventory.qty FROM inventory 
+                WHERE inventory.product_id='$id' AND 
+                inventory.color='$color' AND inventory.size='$size')-$qty WHERE inventory.product_id='$id' AND inventory.color='$color' AND 
+                inventory.size='$size'");
         }
 
         $this->db->insert('checkout', array(
