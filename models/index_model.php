@@ -12,7 +12,7 @@ class Index_Model extends Model{
         $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-        inventory.qty, price_category.product_price, 
+        SUM(inventory.qty) as qty, price_category.product_price, 
         price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
          LEFT JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id
@@ -37,7 +37,7 @@ class Index_Model extends Model{
         $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-        inventory.qty, price_category.product_price, 
+        SUM(inventory.qty) as qty, price_category.product_price, 
         price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
          LEFT JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id
@@ -62,7 +62,7 @@ class Index_Model extends Model{
         $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-        inventory.qty, price_category.product_price, 
+        SUM(inventory.qty) as qty, price_category.product_price, 
         price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
          LEFT JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id

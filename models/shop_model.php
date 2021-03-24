@@ -17,7 +17,7 @@ class Shop_Model extends Model {
         $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-        inventory.qty, price_category.product_price, 
+        SUM(inventory.qty) as qty, price_category.product_price, 
         price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
          LEFT JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id
@@ -42,7 +42,7 @@ class Shop_Model extends Model {
 
     function getAllDetails() {
 
-        return $this->db->runQuery("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,AVG(review.rate) AS review_rate 
+        return $this->db->runQuery("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,SUM(inventory.qty) as qty,AVG(review.rate) AS review_rate 
         FROM product 
         INNER JOIN inventory ON product.product_id=inventory.product_id 
         INNER JOIN category on category.category_id=product.category_id 
@@ -104,7 +104,7 @@ class Shop_Model extends Model {
 
     function getFeaturedProducts() {
 
-        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, inventory.qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
+        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, GROUP_CONCAT(DISTINCT product_size.sizes) as product_sizes, GROUP_CONCAT(DISTINCT product_colors.colors) as product_colors, SUM(inventory.qty) as qty, price_category.product_price, category.name, AVG(review.rate) AS review_rate  FROM product
          INNER JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id
          INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
@@ -266,7 +266,7 @@ class Shop_Model extends Model {
         $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
         GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-        inventory.qty, price_category.product_price, 
+        SUM(inventory.qty) as qty, price_category.product_price, 
         price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
          LEFT JOIN inventory ON product.product_id=inventory.product_id
          INNER JOIN category ON product.category_id=category.category_id
@@ -290,7 +290,7 @@ class Shop_Model extends Model {
             $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
             product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
             GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-            inventory.qty, price_category.product_price, 
+            SUM(inventory.qty) as qty, price_category.product_price, 
             price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
              LEFT JOIN inventory ON product.product_id=inventory.product_id
              INNER JOIN category ON product.category_id=category.category_id
@@ -303,7 +303,7 @@ class Shop_Model extends Model {
             $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
             product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
             GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-            inventory.qty, price_category.product_price, 
+            SUM(inventory.qty) as qty, price_category.product_price, 
             price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
              LEFT JOIN inventory ON product.product_id=inventory.product_id
              INNER JOIN category ON product.category_id=category.category_id
@@ -316,7 +316,7 @@ class Shop_Model extends Model {
             $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
             product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
             GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-            inventory.qty, price_category.product_price, 
+            SUM(inventory.qty) as qty, price_category.product_price, 
             price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
              LEFT JOIN inventory ON product.product_id=inventory.product_id
              INNER JOIN category ON product.category_id=category.category_id

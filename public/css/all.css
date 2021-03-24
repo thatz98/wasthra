@@ -1964,6 +1964,12 @@ span.search-link {
     vertical-align: middle;
 }
 
+.out-of-stock {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+
 /* filters - shop */
 
 .product-col {

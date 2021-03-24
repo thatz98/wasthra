@@ -150,6 +150,9 @@ if (isset($_GET['page'])) {
             <div class="content">
                 <div class="content-overlay"></div>
                 <img src="<?php echo URL . $product['product_images'][0]; ?>">
+                <?php if ($product['qty'] == 0) { ?>
+                                    <img class="out-of-stock" src="/wasthra/public/images/outstock.png">
+                                <?php } ?>
                 <div class="content-details fadeIn-bottom">
                     <div class="options">
                         <div class="text">
@@ -183,6 +186,9 @@ if (isset($_GET['page'])) {
             <div class="content">
                 <div class="content-overlay"></div>
                 <img src="<?php echo URL . $this->products[$i]['product_images'][0]; ?>">
+                <?php if ($product['qty'] == 0) { ?>
+                                    <img class="out-of-stock" src="/wasthra/public/images/outstock.png">
+                                <?php } ?>
                 <div class="content-details fadeIn-bottom">
                     <div class="options">
                         <div class="text">
