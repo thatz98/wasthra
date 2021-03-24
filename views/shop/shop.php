@@ -82,14 +82,16 @@ if (isset($_GET['page'])) {
                                     <input type="radio" name="filter-color" <?php if (isset($this->selected) && $this->selected == $color['color']) {
                                                                                 echo 'checked';
                                                                             } ?>>
-                                    <span class="checkmark" onclick="colorFilter('<?php echo $color['color']; ?>')" style="background-color:<?php echo $color['color'].';'; if($color['color']=='#fff' || $color['color']=='#fffff') echo 'border: 0.5px solid #000;'; ?>"></span>
+                                    <span class="checkmark" onclick="colorFilter('<?php echo $color['color']; ?>')" style="background-color:<?php echo $color['color'] . ';';
+                                                                                                                                            if ($color['color'] == '#fff' || $color['color'] == '#fffff') echo 'border: 0.5px solid #000;'; ?>"></span>
                                 </label>
                         <?php }
                         } ?>
                     </div>
                 </div>
                 <div class="row">
-                <a href="<?php echo URL;?>search/advancedSearch" class="link" >Use multiple filters &#8594</a></div>
+                    <a href="<?php echo URL; ?>search/advancedSearch" class="link">Use multiple filters &#8594</a>
+                </div>
             </div>
         </div>
         <div class="product-col">
@@ -97,17 +99,20 @@ if (isset($_GET['page'])) {
 
 
                 <?php if (empty($this->products)) { ?>
-                <div class="row">
-                <h4 class="mar-b-20">No items were found...</h4><br>
-                </div>
-            <?php }
-            
-             if ($this->itemCount <= 9) {
+                    <div class="row">
+                        <h4 class="mar-b-20">No items were found...</h4><br>
+                    </div>
+                    <?php }
+
+                if ($this->itemCount <= 9) {
                     foreach ($this->products as $product) { ?>
                         <div class="col-3">
                             <div class="content">
                                 <div class="content-overlay"></div>
                                 <img src="<?php echo URL . $product['product_images'][0]; ?>">
+                                <?php if ($product['qty'] == 0) { ?>
+                                    <img class="out-of-stock" src="/wasthra/public/images/outstock.png">
+                                <?php } ?>
                                 <div class="content-details fadeIn-bottom">
                                     <div class="options">
                                         <div class="text">
@@ -141,6 +146,9 @@ if (isset($_GET['page'])) {
                             <div class="content">
                                 <div class="content-overlay"></div>
                                 <img src="<?php echo URL . $this->products[$i]['product_images'][0]; ?>">
+                                <?php if ($this->products[$i]['qty'] == 0) { ?>
+                                    <img class="out-of-stock" src="/wasthra/public/images/outstock.png">
+                                <?php } ?>
                                 <div class="content-details fadeIn-bottom">
                                     <div class="options">
                                         <div class="text">
@@ -201,7 +209,6 @@ if (isset($_GET['page'])) {
     function categoryFilter(category) {
         location.replace("http://127.0.0.1/wasthra/shop/byCategory/" + category);
     }
-    
 </script>
 <script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>
