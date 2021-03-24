@@ -4,9 +4,30 @@
     <div class="row">
         <h2 class="title">My Orders</h2><br>
     </div>
+    <div class="row">
+      <div class="table-search">
+         <input type="text" id="keyword-input" onkeyup="filterByKeyword('order_list',3)" placeholder="Search for myorders..">
+     </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo count($this->orderList); ?> results...</span>
+        </div>
+        <div class="col-2">
+
+
+            <div class="per-page" style="float: right;">
+                <span>Orders per page: </span><select name="per-page" id="per-page">
+                    <?php foreach (range(10, 100, 10) as $i) { ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="row-top">
         <div class="order-container" >
-                   <table class="order-list" style="min-width: 70%">
+                   <table class="order-list" id="order_list" style="min-width: 70%">
                       <?php if(!empty($this->orderList)){ 
                         foreach($this->orderList as $order){
                         ?>
@@ -79,17 +100,18 @@
 </div>
 
  </div>
+
 <script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
 <script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
 
 
+
 <script>
-$(pagination(10,'order_list'));
+    $(pagination(10, 'order_list'));
 
-$('#per-page').on('change',function() {
-	var rowsPerPage = parseInt($('#per-page').val());
-	pagination(rowsPerPage,'order_list');
-});
-
+    $('#per-page').on('change', function() {
+        var rowsPerPage = parseInt($('#per-page').val());
+        pagination(rowsPerPage, 'order_list');
+    });
 </script>
 <?php require 'views/footer.php'; ?>

@@ -195,6 +195,7 @@
 <script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
 
 
+
 <script>
     $(pagination(10, 'order_list'));
 

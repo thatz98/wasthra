@@ -44,18 +44,18 @@
                     <div class="summary-info">
                         <div class="row">
                             <div class="col-2" style="min-width: 0;">
-                            <h4>Order ID: <?php echo($this->orderDetails[0])?></h4>
-                            <h5>Date: <?php echo($this->orderDetails[1])?>    Time: <?php echo($this->orderDetails[2])?></h5>
+                            <h4>Order ID: <?php echo($this->orderDetails['order_id'])?></h4>
+                            <h5>Date: <?php echo($this->orderDetails['date'])?>    Time: <?php echo($this->orderDetails['time'])?></h5>
                             <h5>Payment Method: <?php 
-                            if($this->orderDetails[4]=='cashOnDelivery'){
+                            if($this->orderDetails['payment_method']=='cashOnDelivery'){
                                 echo 'Cash On Delivery';
                             }
                             else{
                                 echo 'Online';
                             }?></h5>
-                            <h5>Payment Status: <?php echo $this->orderDetails[5]?></h5>
+                            <h5>Payment Status: <?php echo $this->orderDetails['payment_status']?></h5>
                             
-                            <?php $status=$this->orderDetails[3]; $color='';
+                            <?php $status=$this->orderDetails['order_status']; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
@@ -145,16 +145,24 @@
                                 <label class="address">
                                     To:<br>
                                     <?php echo Session::get('userData')['first_name']?> <?php echo Session::get('userData')['last_name']?><br>
-                                    <?php echo $this->orderDetails[7]?><br>
-                                    <?php echo $this->orderDetails[8]?><br>
-                                    <?php echo $this->orderDetails[9]?><br>
-                                    City :<?php echo $this->orderDetails[11]?><br>
-                                    Postal Code :<?php echo $this->orderDetails[10]?>
+                                    <?php echo $this->orderDetails['address_line_1']?><br>
+                                    <?php echo $this->orderDetails['address_line_2']?><br>
+                                    <?php echo $this->orderDetails['address_line_3']?><br>
+                                    City :<?php echo $this->orderDetails['city']?><br>
+                                    Postal Code :<?php echo $this->orderDetails['postal_code']?>
                                 </label>
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
-                                    Expected Delivery Date: 05/05/2020<br><br>
+                                    Expected Delivery Date: <?php 
+                                                                   if($this->orderDetails['delivery_id']!=NULL){
+                                                                         $Date= date('Y-m-d');
+                                                                         $Date=date('Y-m-d', strtotime($Date. ' + 7 days'));
+                                                                         echo $Date;
+                                                                    }else{?>
+                                                                         Not Set 
+                                                                    <?php }?>
+                                                                               <br><br>
                                    
                                 <?php  
                                          if($this->orderDetails['delivery_id']!=NULL){ ?>
