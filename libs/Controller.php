@@ -1,25 +1,21 @@
 <?php
 
-class Controller{
+class Controller {
 
-    function __construct(){
+    function __construct() {
         $this->view = new View();
-
-        
     }
 
-    public function loadModel($name){
-    	
-    	$path = 'models/'.$name.'_model.php';
+    public function loadModel($name) {
 
-    	if(file_exists($path)){
-        	require 'models/'.$name.'_model.php';
-        	$modelName = $name.'_Model';
-        	$this->model = new $modelName();
+        $path = 'models/' . $name . '_model.php';
+
+        if (file_exists($path)) {
+            require 'models/' . $name . '_model.php';
+            $modelName = $name . '_Model';
+            $this->model = new $modelName();
             $ip = $_SERVER['REMOTE_ADDR'];
-        $this->model->db->insert('visitors',array('ip'=>"$ip",'date'=>'CURDATE()','time'=>'CURRENT_TIME()'));
+            $this->model->db->runQuery("INSERT into visitors (ip,date,time) VALUES(:ip,CURDATE(),CURRENT_TIME())",array('ip'=>$ip));
         }
-        
     }
-    
 }

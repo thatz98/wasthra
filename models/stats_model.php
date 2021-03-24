@@ -8,17 +8,17 @@ class Stats_Model extends Model {
 
     function getVisitorCount($filter = false) {
         if ($filter) {
-            return $this->db->query("SELECT COUNT(*) FROM visitors WHERE $filter;");
+            return $this->db->query("SELECT COUNT(DISTINCT ip) FROM visitors WHERE $filter;");
         } else {
-            return $this->db->query("SELECT COUNT(*) FROM visitors;");
+            return $this->db->query("SELECT COUNT(DISTINCT ip) FROM visitors;");
         }
     }
 
     function getDailyVisitorDistribution($filter = false) {
         if ($filter) {
-            $data = $this->db->query("SELECT COUNT(*) as visitors,HOUR(time) as time FROM visitors WHERE $filter GROUP BY HOUR(time);");
+            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,HOUR(time) as time FROM visitors WHERE $filter GROUP BY HOUR(time);");
         } else {
-            $data = $this->db->query("SELECT COUNT(*) as visitors,HOUR(time) as time visitors GROUP BY HOUR(time);");
+            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,HOUR(time) as time visitors GROUP BY HOUR(time);");
         }
 
         $hours = $this->hoursRange();
@@ -47,9 +47,9 @@ class Stats_Model extends Model {
 
     function getWeeklyVisitorDistribution($filter = false) {
         if ($filter) {
-            $data = $this->db->query("SELECT COUNT(*) as visitors, WEEKDAY(date) as day FROM visitors WHERE YEARWEEK(date,5) = YEARWEEK($filter,5) GROUP BY DATE(date);");
+            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors, WEEKDAY(date) as day FROM visitors WHERE YEARWEEK(date,5) = YEARWEEK($filter,5) GROUP BY DATE(date);");
         } else {
-            $data = $this->db->query("SELECT COUNT(*) as visitors, WEEKDAY(date) as day FROM visitors WHERE YEARWEEK(date,5) = YEARWEEK(CURDATE(),5) GROUP BY DATE(date);");
+            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors, WEEKDAY(date) as day FROM visitors WHERE YEARWEEK(date,5) = YEARWEEK(CURDATE(),5) GROUP BY DATE(date);");
         }
 
         $days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
@@ -73,10 +73,10 @@ class Stats_Model extends Model {
 
     function getMonthlyVisitorDistribution($filter = false) {
         if ($filter) {
-            $data = $this->db->query("SELECT COUNT(*) as visitors,date FROM visitors WHERE MONTH(date) = MONTH($filter) AND YEAR(date) = YEAR(CURRENT_DATE())
+            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,date FROM visitors WHERE MONTH(date) = MONTH($filter) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date;");
         } else {
-            $data = $this->db->query("SELECT COUNT(*) as visitors,date FROM visitors WHERE MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())
+            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,date FROM visitors WHERE MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date;");
         }
 
@@ -98,10 +98,10 @@ class Stats_Model extends Model {
 
     function getYearlyVisitorDistribution($filter = false) {
         if ($filter) {
-            $data = $this->db->query("SELECT COUNT(*) as visitors,MONTH(date) as month FROM visitors
+            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,MONTH(date) as month FROM visitors
             WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date);");
         } else {
-            $data = $this->db->query("SELECT COUNT(*) as visitors,MONTH(date) as month FROM visitors 
+            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,MONTH(date) as month FROM visitors 
             WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date);");
         }
 
