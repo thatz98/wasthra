@@ -392,6 +392,7 @@ class Orders_Model extends Model {
     function create($data) {
 
         $this->db->runQuery('INSERT into delivery(order_id,user_id,expected_delivery_date) VALUES(:orderId,:userId,DATE_ADD(CURRENT_DATE(),5))',array('orderId'=>$data['order_id'],'userid'=>$data['user_id']));
+        $this->db->update('orders',array('order_status'=>'Out for Delivery'),'order_id=:order_id',array($data['order_id']));
         $this->trackingUpdate($data['order_id']);
     }
 
