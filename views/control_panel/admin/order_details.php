@@ -154,7 +154,15 @@
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
-                                    Expected Delivery Date: 05/05/2020<br><br>
+                                    Expected Delivery Date: <?php 
+                                                                   if($this->orderDetails['delivery_id']!=NULL){
+                                                                         $Date= date('Y-m-d');
+                                                                         $Date=date('Y-m-d', strtotime($Date. ' + 7 days'));
+                                                                         echo $Date;
+                                                                    }else{?>
+                                                                         Not Set 
+                                                                    <?php }?>
+                                                                               <br><br>
                                    
                                 <?php  
                                          if($this->orderDetails['delivery_id']!=NULL){ ?>
