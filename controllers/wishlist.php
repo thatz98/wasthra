@@ -56,7 +56,7 @@ class Wishlist extends Controller {
     function removeFromWishlist($id) {
 
         $this->model->delete($id);
-        if(isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'],'wishlist')){  
+        if(isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'],'wishlist')==FALSE){  
         header('location: ' . $_SERVER['HTTP_REFERER'] . 'wishlist?success=removedFromWishlist#message');
         } else{
             header('location: ' . URL . 'wishlist?success=removedFromWishlist#message');
