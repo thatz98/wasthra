@@ -144,7 +144,8 @@
                                 <td>Total Price</td>
                                 <td>LKR <span id="totalPrice"><?php echo number_format($this->subtotal, 2, '.', ''); ?></span></td>
                             </tr>
-                            <?php if($this->flag=='false'){ ?><input type="text" name="buyNow" value="false" hidden><?php }  ?>
+                            <?php if($this->flag=='false'){ ?><input type="text" name="buyNow" value="false" hidden><?php }
+                                else{ ?><input type="text" name="buyNow" value="buyNow" hidden> <?php  }  ?>
                         </table>
                     </div>
                     
