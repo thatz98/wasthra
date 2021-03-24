@@ -15,6 +15,7 @@
                                <option value="In Transit" <?php if($this->orderDetails['order_status']=='In Transit') echo "selected=\"selected\"";?>>In Transit</option>
                                <option value="Delivered" <?php if($this->orderDetails['order_status']=='Delivered') echo "selected=\"selected\"";?>>Delivered</option>
                                <option value="Cancelled" <?php if($this->orderDetails['order_status']=='Cancelled') echo "selected=\"selected\"";?>>Cancelled</option>
+                               <option value="Cancelled" <?php if($this->orderDetails['order_status']=='Delivery Failed') echo "selected=\"selected\"";?>>Delivery Failed</option>
                             </select>
                         </div>
                     </div>
