@@ -3,6 +3,7 @@ $(document).ready(function () {
   $('input[type=radio][name=color]').on("change", function () {
     var color = $(this).val();
     var cat = $('#cat').val();
+    document.getElementById('quantitydiv').innerHTML = `<div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>`;
 
     var productId = $('input[type=text][name=prod_id]').val();
     if (color != "" && cat != "Couple") {
@@ -144,7 +145,7 @@ $(document).on('change', 'input[type=radio][name=size1]', function () {
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
       success: function (data) {
         if (data.length > 0) {
-          
+
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
@@ -181,7 +182,7 @@ $(document).on('change', 'input[type=radio][name=size2]', function () {
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
       success: function (data) {
         if (data.length > 0) {
-          
+
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>

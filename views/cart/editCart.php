@@ -1,161 +1,110 @@
 <div id="updateCartPopup" class="overlay">
     <?php if (isset($_GET['id'])){
-                foreach($this->qtyList as $qty){
-                    if($qty['product_id']==$_GET['id']){
-                        $this->productPopup = array_slice($qty, 0,count($qty));
+                foreach($this->cartItems as $item){
+                    if($item['product_id']==$_GET['id']){
+                        $this->productPopup = array_slice($item, 0,count($item));
                         break;
                     }
     }
 } ?>
-    <div class="popup" style="max-width: 50%; padding:30px;">
+    <div class="popup">
         <a href="#" class="close-btn"><i class="fa fa-times-circle"></i></a>
         <div class="row">
             <div class="col-2">
-
-                <?php foreach ($this->imageList as $image){
-                        if($this->productPopup['product_id']==$image['product_id']){?>
-                <img src="<?php echo URL.$image['image']?>" id="product-img">
-                <?php
-                            break; 
-                        }
-                    }?>
+                <img src="<?php echo URL . $this->productPopup['product_images'][0]; ?>" id="product-img-p">
                 <div class="gallery-row">
-                    <?php $single_images = array();
-                        $iid=0;
-                        foreach ($this->imageList as $image){
-                            if(in_array($image['image'],$single_images)){
-                                continue;
-                            }else if($this->productPopup['product_id']==$image['product_id']){
-                                    $single_images[] .= $image['image'];
+                    <?php
+                    $iid = 30;
+                    foreach ($this->productPopup['product_images'] as $image) {
                             $iid += 1;?>
                     <div class="gallery-col">
-                        <img src="<?php echo URL.$image['image']?>" id="<?php echo $iid?>"
-                            onclick="swapImage('<?php echo $iid?>')" width="100%" class="gallery-img">
+                        <img src="<?php echo URL . $image; ?>" id="<?php echo $iid ?>"
+                            onclick="swapImageP('<?php echo $iid ?>')" width="100%" class="gallery-img">
                     </div>
-                    <?php 
+                    <?php
                         }
-                        
-                    }?>
-
+                    
+                    if ($this->productPopup['name'] == 'Gents') : ?>
+                    <div class="gallery-col">
+                        <img src="/wasthra/public/images/size_charts/gents.png" id="sizeC"
+                            onclick="swapImageP('sizeC')" width="100%" class="view-gallery-img">
+                    </div>
+                    <?php else : if ($this->productPopup['name'] == 'Ladies') : ?>
+                    <div class="gallery-col">
+                        <img src="/wasthra/public/images/size_charts/ladies.png" id="sizeCL"
+                            onclick="swapImageP('sizeCL')" width="100%" class="view-gallery-img">
+                    </div>
+                    <?php else : ?>
+                    <div class="gallery-col">
+                        <img src="/wasthra/public/images/size_charts/gents.png" id="sizeC"
+                            onclick="swapImageP('sizeC')" width="100%" class="view-gallery-img">
+                    </div>
+                    <div class="gallery-col">
+                        <img src="/wasthra/public/images/size_charts/ladies.png" id="sizeCL"
+                            onclick="swapImageP('sizeCL')" width="100%" class="view-gallery-img">
+                    </div>
+                    <?php endif;
+                    endif; ?>
 
                 </div>
-                <h2 style="margin-top: 5px;"><?php echo $this->productPopup['product_name']?></h2>
-                <h4>LKR <?php echo $this->productPopup['product_price']?></h4>
+
             </div>
             <div class="col-2" style="text-align: center;">
-                <form action="<?php echo URL; ?>cart/updateCartItem/<?php echo $_GET['item'];?>" method="post">
+                <h2 style="margin-top: 5px;"><?php echo $this->productPopup['product_name'] ?> </h2>
+                <h4>LKR <?php echo $this->productPopup['product_price'] ?></h4><br>
+                <form action="<?php echo URL; ?>cart/updateCartItem/<?php echo $this->productPopup['item_id'];?>" method="post">
                     <label class="text-label">Select Color</label>
                     <div class="colors">
-                        <?php foreach ($this->colorList as $color){
-                        if($this->productPopup['product_id']==$color['product_id']){?>
+                        <?php
+                        foreach ($this->productPopup['product_colors'] as $color) {?>
                         <label class="color-container">
-                            <?php if($color['colors']=='#'.$_GET['color']){
-                                echo '<input type="radio" name="color" value="'.$color['colors'].'" checked>
-                            <span class="checkmark" style="background-color:'.$color['colors'].'"></span>';
-                            } else{
-                                echo '<input type="radio" name="color" value="'.$color['colors'].'">
-                            <span class="checkmark" style="background-color:'.$color['colors'].'"></span>';
-                          }?>
+                            <input type="radio" name="colorC" value="<?php echo $color ?>" <?php if($this->productPopup['item_color']==$color) echo 'checked';?> required>
+                            <span class="checkmark" style="background-color: <?php echo $color ?>"></span>
                         </label>
-                        <?php }
-                    } ?>
+                        <?php
+                            } ?>
+
+
                     </div><br>
 
-
-
                     <?php
-                        $single_sizes_gents = array('XS-G','S-G','M-G','L-G','XL-G');
-                        $single_sizes_ladies = array('XS-W','S-W','M-W','L-W','XL-W');
-                        $catName=$this->productPopup['name']; 
-                        if($catName!="Couple"){?>
-                    <label class="text-label">Select Size</label><br>
-                    <div class="sizes">
-                        <?php foreach ($this->sizeList as $size){
-                        if($this->productPopup['product_id']==$size['product_id']){
-
-                        if($_GET['size']==$size['sizes']){
-                                    echo '<label class="size-container"><input type="radio" name="size" value="'.$size['sizes'].'" checked>';
-                                } else{
-                                    echo '<label class="size-container"><input type="radio" name="size" value="'.$size['sizes'].'">';
-                                }?>
-
-                        <span class="checkbox"><?php echo $size['sizes']?></span>
-                        </label>
-                        <?php
-                        }
-                    }?>
+                    $catName = $this->productPopup['name'];
+                    if ($catName != "Couple") { ?>
+                    <label class="text-label">Select Size</label>
+                    <br>
+                    <div class="sizes" id="sizeCommonC">
+                    <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
-                    <?php 
-                }else{?>
+                    <?php
+                    } else { ?>
                     <label class="text-label">Select Size for Gent</label>
                     <br>
-                    <div class="sizes">
-                        <?php
-                    
-                    foreach ($this->sizeList as $size){
-                        $trimSize=rtrim($size['sizes'],"-G");
-                        if($this->productPopup['product_id']==$size['product_id']){
-                            if(in_array($size['sizes'],$single_sizes_gents)){
-                        
-                             if(strpos($_GET['size'],$size['sizes'])!==false){
-                                    
-                                    echo '<label class="size-container"><input type="radio" name="size2" value="'.$size['sizes'].'" checked>';
-                                } else{
-                                    echo '<label class="size-container"><input type="radio" name="size2" value="'.$size['sizes'].'">';
-                                }?>
-
-                            <span class="checkbox"><?php echo $trimSize?></span>
-                        </label>
-                        <?php
-                            }
-                        }
-                    }?>
-<br><br><br>
-                        <label class="text-label">Select Size for Lady</label>
-                        <br>
-                        <div class="sizes">
-                            <?php
-                    
-                    foreach ($this->sizeList as $size){
-                        $trimSize=rtrim($size['sizes'],"-W");
-                        if($this->productPopup['product_id']==$size['product_id']){
-                            if(in_array($size['sizes'],$single_sizes_ladies)){
-                                if(strpos($_GET['size'],$size['sizes'])!==false){
-                                    
-                                    echo '<label class="size-container"><input type="radio" name="size1" value="'.$size['sizes'].'" checked>';
-                                } else{
-                                    echo '<label class="size-container"><input type="radio" name="size1" value="'.$size['sizes'].'">';
-                                }?>
-
-                                <span class="checkbox"><?php echo $trimSize?></span>
-                            </label>
-                            <?php
-                            }
-                        }
-                    }?>
-                        </div>
+                    <div class="sizes" id="sizeGentsC">
+                    <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
                     </div>
-                        <?php
 
+                    <br>
+                    <label class="text-label">Select Size for Lady</label>
+                    <br>
+                    <div class="sizes" id="sizeLadiesC">
+                    <div class="empty-result"><label class="empty-checkbox" >Select color!</label></div>
+                    </div>
 
-
-                    }?>
+                    <?php  } ?>
 
                     <br>
                     <label class="text-label">Select Quantity</label>
-                    <div class="quantity">
-                        <span class="qty-minus"
-                            onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
-                                class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity"
-                            value="<?php echo $_GET['qty'];?>">
-                        <span class="qty-plus"
-                            onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
-                                class="fa fa-plus" aria-hidden="true"></i></span>
+                    <div class="quantity" id="quantitydivC">
+                    <div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>
                     </div>
-                    <input type="text" name="prod_id" value="<?php echo $this->productPopup['product_id']?>" hidden>
-                    <button type="submit" class="btn">Update</button>
-
+                    <input type="text" name="prod_idC" value="<?php echo $this->productPopup['product_id'] ?>" hidden>
+                    <input type="text" id="prevSize" value="<?php echo $this->productPopup['item_size'] ?>" hidden>
+                    <input type="text" id="prevQty" value="<?php echo $this->productPopup['item_qty'] ?>" hidden>
+                    <input type="text" id="catC" value="<?php echo $this->productPopup['name'] ?>" hidden>
+                    <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
+                                                                    echo $_SERVER['HTTP_REFERER'];
+                                                                } ?>" hidden>
+                    <button type="submit" class="btn">Add to Cart</button>
                 </form>
             </div>
         </div>
@@ -164,3 +113,5 @@
 
     </div>
 </div>
+
+<script type="text/javascript" src="/wasthra/public/js/varient_handler_for_edit_cart.js"></script>

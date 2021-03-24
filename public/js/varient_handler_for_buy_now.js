@@ -2,7 +2,8 @@ $(document).ready(function () {
 
   $('input[type=radio][name=colorB]').on("change", function () {
     var color = $(this).val();
-    var cat = $('#cat').val();
+    var cat = $('#catB').val();
+    document.getElementById('quantitydivB').innerHTML = `<div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>`;
 
     var productId = $('input[type=text][name=prod_idB]').val();
     if (color != "" && cat != "Couple") {
