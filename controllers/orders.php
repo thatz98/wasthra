@@ -120,7 +120,8 @@ class Orders extends Controller {
 
         $this->view->title = 'Assigned Orders';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> Assigned Orders';
-        $this->view->orderList = $this->model->assignedOrders();
+        
+        $this->view->orderList = $this->model->getAssignedOrderList();
 
 
         $this->view->render('control_panel/delivery/orders');
@@ -136,16 +137,9 @@ class Orders extends Controller {
 
         $this->view->title = 'Assigned Order Details';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'orders/assignedOrderDetails">Assigned Orders</a> <i class="fas fa-angle-right"></i> Assigned Order Details';
-        $this->view->orderDetails = $this->model->assignedOrder_Details($id);
-        $this->view->order_Summary = $this->model->assignedOrderSummary($id);
-        $this->view->deliveryInfo = $this->model->assignedDeliveryInfo($id);
-        $this->view->imageList =  $this->model->getImages();
-        $this->view->order_Details = $this->model->getOrderItems($id);
-        $this->view->itemName = $this->model->getAllDetails();
-        $this->view->allInfo = $this->model->getDeliveryInfo($id);
-        $this->view->orderInfo = $this->model->getOrderDetails($id);
-        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
-        $this->view->allDetails = $this->model->getAllOrderDetails($id);
+        
+        $this->view->orderDetails = $this->model->getOrderDetails($id)[0];
+        $this->view->orderItems = $this->model->getOrderItems($id);
 
         $this->view->render('control_panel/delivery/order_details');
     }
@@ -159,7 +153,8 @@ class Orders extends Controller {
 
         $this->view->title = 'History';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> History';
-        $this->view->deliveryHistory = $this->model->orderHistory();
+        
+        $this->view->orderList = $this->model->getPerformedOrderList();
 
         $this->view->render('control_panel/delivery/history');
     }
@@ -168,13 +163,9 @@ class Orders extends Controller {
 
         $this->view->title = 'History Details';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'orders/historyDetails">History</a> <i class="fas fa-angle-right"></i> History Details';
-        $this->view->orderDetails = $this->model->history_Details($id);
-        $this->view->orderSummary = $this->model->historySummary($id);
-        $this->view->historyInfo = $this->model->deliveryHistoryInfo($id);
-        $this->view->orderInfo = $this->model->getOrderDetails($id);
-        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
-        $this->view->allDetails = $this->model->getAllOrderDetails($id);
-
+        
+        $this->view->orderDetails = $this->model->getOrderDetails($id)[0];
+        $this->view->orderItems = $this->model->getOrderItems($id);
 
         $this->view->render('control_panel/delivery/history_details');
     }

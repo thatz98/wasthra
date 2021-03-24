@@ -14,28 +14,27 @@
                 <table class="order-list order-items">
 
                 <?php $subTotal=0; 
-                    foreach($this->orderInfo as $details){
-                        $this->productname=''; 
-                        $subTotal+=$details['product_price']*$details['item_qty'];
-                    }?>
-
-                <?php foreach ($this->allInfo as $order_Details):?>
+                    foreach($this->orderItems as $item){
+?>
                     <tr>
                      <td>
-                       <img src="<?php echo URL.$order_Details['image'];?>" width="50px" height="50px">
+                       <img src="<?php echo URL.$item['image'];?>" width="50px" height="50px">
                      </td>
                      
                         <td class="order-details">
-                            <h4><?php echo $order_Details['product_name'];?></h4>
+                            <h4><?php echo $item['product_name'];?></h4>
+                            <h5><?php $subTotal+=$item['product_price']*$item['item_qty']; 
+                                    echo $item['product_price']?></h5>
+                                <?php ?>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $order_Details['item_color']; ?>"></span>
-                                <label class="input-data">Size:<?php echo $order_Details['item_size']; ?></label>
-                                <label class="input-data">Qty: <?php echo $order_Details['item_qty']; ?></label>
+                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $item['item_color']; ?>"></span>
+                                <label class="input-data">Size:<?php echo $item['item_size']; ?></label>
+                                <label class="input-data">Qty: <?php echo $item['item_qty']; ?></label>
                             </div>
                         </td>
                         
                     </tr>
-                    <?php endforeach; ?>
+                    <?php }?>
                 </table>     
             </div>
         </div>
@@ -48,13 +47,12 @@
                         <div class="row">
                             
                             <div class="col-2" style="min-width: 0;">
-                            <?php foreach ($this->order_Summary as $summary_details): ?>
-                             <h4>Order ID:<?php echo $summary_details['order_id']; ?></h4>
-                             <h5>Date: <?php echo $summary_details['date']; ?>   Time: <?php echo $summary_details['time']; ?></h5>
-                             <h5>Payment Method:<?php echo $summary_details['payment_method']; ?></h5>
+                             <h4>Order ID:<?php echo $this->orderDetails['order_id']; ?></h4>
+                             <h5>Date: <?php echo $this->orderDetails['date']; ?>   Time: <?php echo $this->orderDetails['time']; ?></h5>
+                             <h5>Payment Method:<?php echo $this->orderDetails['payment_method']; ?></h5>
                             
                             
-                             <?php $status=$this->orderDetails[0]['order_status']; $color='';
+                             <?php $status=$this->orderDetails['order_status']; $color='';
                                 switch($status){
                                     case 'New':
                                         $color='04CBE0';
@@ -76,7 +74,6 @@
 
                                     <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
                                         
-                              <?php endforeach; ?>
                         </div>
                         <div class="col-2" style="min-width: 0;">
                             <a href="#updateStatus" class="btn">Update Status</a>
@@ -93,18 +90,12 @@
                             </tr>
                             <tr>
                                 <td>Delivery chargers</td>
-                                <?php $fee=0;
-                                    foreach ($this->deliveryCharges as $delivery){
-                                        if($delivery['city']==$this->allDetails[0][11]){
-                                            $fee=$delivery['delivery_fee'];
-                                            $subTotal+=$fee;
-                                        }
-                                    }?>
-                                <td>LKR <?php echo number_format($fee,2,'.','');?></td>
+
+                                <td>LKR <?php echo number_format($this->orderDetails['delivery_fee'],2,'.','');?></td>
                             </tr>
                             <tr>
                                 <td>Total Price</td>
-                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
+                                <td>LKR <?php echo number_format($subTotal+$this->orderDetails['delivery_fee'],2,'.','');?></td>
                             </tr>
                         </table>
                     </div>
@@ -119,24 +110,23 @@
                         <div class="row">
                             
                             <div class="col-2" style="min-width: 0;">
-                                <?php foreach ($this->deliveryInfo as $delivery_Info):?>
                                 <label class="address">
                                     To:<br>
-                                    <?php echo $delivery_Info['first_name']; ?> <?php echo $delivery_Info['last_name']; ?><br>
-                                    <?php echo $delivery_Info['address_line_1']; ?><br>
-                                    <?php echo $delivery_Info['address_line_2']; ?><br>
-                                    <?php echo $delivery_Info['address_line_3']; ?><br>
-                                    <?php echo $delivery_Info['city']; ?><br>
-                                    <?php echo $delivery_Info['postal_code']; ?>
+                                    <?php echo $this->orderDetails['customer_first_name']; ?> <?php echo $this->orderDetails['customer_last_name']; ?><br>
+                                    <?php echo $this->orderDetails['address_line_1']; ?><br>
+                                    <?php echo $this->orderDetails['address_line_2']; ?><br>
+                                    <?php echo $this->orderDetails['address_line_3']; ?><br>
+                                    <?php echo $this->orderDetails['city']; ?><br>
+                                    <?php echo $this->orderDetails['postal_code']; ?><br>
+                                    <?php echo $this->orderDetails['customer_phone']; ?>
                                 </label>
-                            <?php endforeach; ?>
                             </div>
                             <div class="col-2" style="min-width: 0;">
                                     <label class="address">
-                                    Expected Delivery Date: 05/05/2020<br><br>
-                                    Assinged deliver: Not set<br>
+                                    Expected Delivery Date: <?php echo $this->orderDetails['expected_delivery_date']; ?><br><br>
+                                    Assinged deliver: <?php echo Session::get('userData')['first_name'].' '.Session::get('userData')['last_name'];?><br>
                                 </label>
-                                <a href="#" class="btn">Use Maps</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $this->orderDetails['latitude'].','.$this->orderDetails['longitude'];?>" class="btn">Use Maps</a>
                             </div>
                         </div>
                     </div>

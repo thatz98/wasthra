@@ -10,11 +10,11 @@
                         
                         <div class="">
                             <label>Update Status</label><br><br>
-                            <input type="text" name="order_id" value="<?php echo $this->order_Details[0]['order_id']?>" style="display:none">   
+                            <input type="text" name="order_id" value="<?php echo $this->orderDetails['order_id']?>" style="display:none">   
                             <select name="order_status">
-                               <option value="In Transit" <?php if($this->order_Details[0]['order_status']=='In Transit') echo "selected=\"selected\"";?>>In Transit</option>
-                               <option value="Delivered" <?php if($this->order_Details[0]['order_status']=='Delivered') echo "selected=\"selected\"";?>>Delivered</option>
-                               <option value="Cancelled" <?php if($this->order_Details[0]['order_status']=='Cancelled') echo "selected=\"selected\"";?>>Cancelled</option>
+                               <option value="In Transit" <?php if($this->orderDetails['order_status']=='In Transit') echo "selected=\"selected\"";?>>In Transit</option>
+                               <option value="Delivered" <?php if($this->orderDetails['order_status']=='Delivered') echo "selected=\"selected\"";?>>Delivered</option>
+                               <option value="Cancelled" <?php if($this->orderDetails['order_status']=='Cancelled') echo "selected=\"selected\"";?>>Cancelled</option>
                             </select>
                         </div>
                     </div>

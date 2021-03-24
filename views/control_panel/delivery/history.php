@@ -7,25 +7,25 @@
     <div class="row-top">
         <div class="order-container" >
                    <table class="order-list">
-                   <?php if(empty($this->deliveryHistory)){echo "No Assigned Orders";}
+                   <?php if(empty($this->orderList)){echo "No Assigned Orders";}
                           else
                           { 
-                            foreach ($this->deliveryHistory as $history): ?>
+                            foreach ($this->orderList as $order): ?>
                        <tr>
                            
-                           <td class="order-details"><h4>ORDER ID: <?php echo $history['order_id']?></h4>
-                            <h5>Date: <?php echo $history['date']?></h5>
+                           <td class="order-details"><h4>ORDER ID: <?php echo $order['order_id']?></h4>
+                            <h5>Date: <?php echo $order['date']?></h5>
                             <td class="order-messages">
                               <div class="oder-status">
                                 <h5>Order Type: </h5>
-                                <h5 style="color: #04CBE0"> Delivery</h5><br>
+                                <h5 style="color: #04CBE0"> <?php if($order['return_id']!=NULL) echo 'Return'; else echo 'Delivery';?></h5><br>
                               </div>
                               <div class="oder-date">
                                 <h5>Delivered Date: </h5>
-                                <h5 style="color: #04CBE0"> <?php echo $history['actual_delivery_date']?></h5>
+                                <h5 style="color: #04CBE0"> <?php echo $order['actual_delivery_date']?></h5>
                               </div>
                             </td>
-                           <td><a href="<?php echo URL;?>orders/historyDetails/<?php echo $history['order_id']; ?> " class="btn table-btn">View Details</a></td>
+                           <td><a href="<?php echo URL;?>orders/historyDetails/<?php echo $order['order_id']; ?> " class="btn table-btn">View Details</a></td>
                        </tr>
                        <?php endforeach;} ?>
                        
