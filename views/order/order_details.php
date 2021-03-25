@@ -37,7 +37,7 @@
                                 </div>
 
 
-                                <?php if ($this->orderDetails[3] == 'Completed' || $this->orderDetails[3] == 'Returned') { ?>
+                                <?php if ($this->orderDetails['order_status'] == 'Completed' || $this->orderDetails['order_status'] == 'Returned') { ?>
                                     <div class="review-button"> <a href="<?php echo '?id=' . $item['product_id'] ?>#addReview" class="btn">Review Product</a>
                                     </div> <?php } ?>
 
@@ -126,8 +126,9 @@
                                     <a href="<?php echo URL . 'orders/trackMyOrder/' . $this->orderDetails['order_id'] ?>" class="btn">Track Order</a>
                                 <?php } elseif ($this->orderDetails['order_status'] == 'Delivered') { ?>
                                     <a href="#requestReturn" class="btn">Request to Return</a>
-                                <?php } elseif ($this->orderDetails['order_status'] == 'Completed') { ?>
                                     <a href="<?php echo URL . 'orders/trackMyOrder/' . $this->orderDetails['order_id'] ?>" class="btn">Track Order</a>
+                                <?php } elseif ($this->orderDetails['order_status'] == 'Cancelled' || $this->orderDetails['order_status'] == 'Requested to Cancel') { ?>
+                                    <!-- <a href="<?php echo URL . 'orders/trackMyOrder/' . $this->orderDetails['order_id'] ?>" class="btn">Track Order</a> -->
                                 <?php } else { ?>
                                     <a href="<?php echo URL . 'orders/trackMyOrder/' . $this->orderDetails['order_id'] ?>" class="btn">Track Order</a>
                                 <?php } ?>
@@ -180,7 +181,8 @@
                                     Delivery Staff Details<br>
                                     <?php $data = $this->orderDetails['delivery_id'];
                                     if (!empty($data)) { ?>
-                                        <?php if ($this->orderDetails['order_status'] == 'Delivered' || $this->orderDetails['order_status'] == 'Delivered') { ?>
+                                        <?php if ($this->orderDetails['order_status'] == 'Delivered' || $this->orderDetails['order_status'] == 'Returned' ||
+                                         $this->orderDetails['order_status'] == 'Requested to Return' || $this->orderDetails['order_status'] == 'Completed') { ?>
                                             Delivered Date: <?php echo $this->orderDetails['actual_delivery_date'] ?><br><br>
                                             Delivered By: <?php echo $this->orderDetails['first_name'] ?> <?php echo $this->orderDetails['last_name'] ?><br>
                                         <?php } else { ?>
