@@ -19,15 +19,8 @@ class Wishlist extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Wishlist';
         
         // get items in the wishlist
-        $this->view->wishlistqtyList =  $this->model->getAllProducts();
-        $this->view->wishlistimageList =  $this->model->getwishlistImages();
-
-        // get all product details
-        $this->view->qtyList = $this->model->getAllDetails();
-        $this->view->imageList =  $this->model->getImages();
-        $this->view->sizeList =  $this->model->getSizes();
-        $this->view->colorList =  $this->model->getColors();
-        $this->view->deliveryCharges = $this->model->getDeliveryCharges();
+        $this->view->wishlist =  $this->model->getAllProductsInWishlist();
+       
         $this->view->render('user/wish_list');
     }
     

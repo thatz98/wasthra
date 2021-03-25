@@ -106,8 +106,7 @@ $(document).on('change', 'input[type=radio][name=size]', function () {
       dataType: 'JSON',
       data: { 'color': color, 'size': size, 'product_id': productId },
       success: function (data) {
-        if (data.length > 0) {
-          console.log(data[0].qty);
+        if (data.length > 0 && parseInt(data[0].qty)!=0) {
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
@@ -144,7 +143,7 @@ $(document).on('change', 'input[type=radio][name=size1]', function () {
       dataType: 'JSON',
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
       success: function (data) {
-        if (data.length > 0) {
+        if (data.length > 0 && parseInt(data[0].qty)!=0) {
 
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
@@ -181,7 +180,7 @@ $(document).on('change', 'input[type=radio][name=size2]', function () {
       dataType: 'JSON',
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
       success: function (data) {
-        if (data.length > 0) {
+        if (data.length > 0 && parseInt(data[0].qty)!=0) {
 
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
@@ -203,3 +202,4 @@ $(document).on('change', 'input[type=radio][name=size2]', function () {
     qty.innerHTML = `<div class="empty-result"><label class="empty-checkbox" >Select size for both!</label></div>`;
   }
 });
+
