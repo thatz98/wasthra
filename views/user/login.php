@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-<?php if(Session::get('loggedIn')=='true'){
-            header('location: '.URL.'?error=loggedAlready#message');
-        }?>
+<?php if (Session::get('loggedIn') == 'true') {
+    header('location: ' . URL . '?error=loggedAlready#message');
+} ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title><?=(isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
+    <title><?= (isset($this->title)) ? $this->title : 'Wasthra'; ?></title>
     <link rel="stylesheet" href="/wasthra/public/css/all.css">
     <link rel="stylesheet" href="/wasthra/public/css/wave.css">
     <link rel="stylesheet" type="text/css" href="/wasthra/public/css/login.css">
@@ -21,8 +21,8 @@
 <body>
     <div id="preloader-overlay"></div>
     <div id="spinner"></div>
-    <?php require 'views/error/error_popup.php';?>
-    <?php require 'views/user/forgot_password.php';?>
+    <?php require 'views/error/error_popup.php'; ?>
+    <?php require 'views/user/forgot_password.php'; ?>
     <div class="header-plain" id="header">
         <div class="contaner">
             <div class="navbar">
@@ -43,12 +43,11 @@
             <div class="login" id="desktop-login" hidden>
                 <div class="login-form-cont">
                     <div class="form sign-in">
-                        <?php if(isset($_GET['loginRequired']) && $_GET['loginRequired']=='true'){?>
-                        <h3 style="color: #FF0000;text-align:center;font-weight:normal;"><i
-                                class="fa fa-exclamation-triangle" aria-hidden="true"></i> You must login first!</h3>
+                        <?php if (isset($_GET['loginRequired']) && $_GET['loginRequired'] == 'true') { ?>
+                            <h3 style="color: #FF0000;text-align:center;font-weight:normal;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> You must login first!</h3>
                         <?php
-                    } else{ ?>
-                        <h2>Welcome back,</h2>
+                        } else { ?>
+                            <h2>Welcome back,</h2>
                         <?php  } ?>
 
                         <div class="form-inner-container">
@@ -60,8 +59,7 @@
                                             <div class="col-3">
                                                 <div class="helper-text">
                                                     <label>Username/Email</label><br>
-                                                    <input type="text" name="username" data-helper="Username"
-                                                        onfocusout="validateUsername()" id="username">
+                                                    <input type="text" name="username" data-helper="Username" onfocusout="validateUsername()" id="username">
                                                     <span class="popuptext"></span>
                                                 </div>
                                             </div>
@@ -70,39 +68,38 @@
                                             <div class="col-3">
                                                 <div class="helper-text">
                                                     <label>Password</label><br>
-                                                    <input type="password" name="password" data-helper="Password"
-                                                        onfocusout="validateLoginPassword()" id="login_password">
+                                                    <input type="password" name="password" data-helper="Password" onfocusout="validateLoginPassword()" id="login_password">
                                                     <span class="popuptext"></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <?php if(isset($_GET['productId']) && isset($_GET['size']) && isset($_GET['qty']) && isset($_GET['color'])){?>
-                                <input type="text" name="product_id" value="<?php echo $_GET['productId'];?>" hidden>
-                                <input type="text" name="item_size" value="<?php echo $_GET['size'];?>" hidden>
-                                <input type="text" name="item_color" value="<?php echo $_GET['color'];?>" hidden>
-                                <input type="text" name="item_qty" value="<?php echo $_GET['qty'];?>" hidden>
+                                <?php if (isset($_GET['productId']) && isset($_GET['size']) && isset($_GET['qty']) && isset($_GET['color'])) { ?>
+                                    <input type="text" name="product_id" value="<?php echo $_GET['productId']; ?>" hidden>
+                                    <input type="text" name="item_size" value="<?php echo $_GET['size']; ?>" hidden>
+                                    <input type="text" name="item_color" value="<?php echo $_GET['color']; ?>" hidden>
+                                    <input type="text" name="item_qty" value="<?php echo $_GET['qty']; ?>" hidden>
                                 <?php } ?>
-                                <input type="text" name="prev_url"
-                                    value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>"
-                                    hidden>
+                                <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
+                                                                                echo $_SERVER['HTTP_REFERER'];
+                                                                            } ?>" hidden>
                                 <button type="submit" class="btn">Login</button>
                                 <div class="forget-password">
                                     <a href="#forgotPassword">Forgot Password?</a>
                                 </div>
                                 <div class="social-login">
-                        <div class="row">
-                           <small>Or, Login with</small>
-                        </div>
-                        <div class="row" style="justify-content: center;">
-                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
-                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
-                        </div>
-                        </div>
+                                    <div class="row">
+                                        <small>Or, Login with</small>
+                                    </div>
+                                    <div class="row" style="justify-content: center;">
+                                        <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
+                                        <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
+                                    </div>
+                                </div>
                             </form>
                         </div>
-                        
+
                     </div>
                     <div class="sub-cont">
                         <div class="img">
@@ -127,8 +124,7 @@
                                         <div class="col-3">
                                             <div class="helper-text">
                                                 <label>First Name</label><br>
-                                                <input type="text" name="first_name" data-helper="First Name"
-                                                    onfocusout="validateFirstName()" id="first_name">
+                                                <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()" id="first_name">
                                                 <span class="popuptext"></span>
                                             </div>
                                             <!---    <label>First Name</label><br>
@@ -138,8 +134,7 @@
                                         <div class="col-3">
                                             <div class="helper-text">
                                                 <label>Last Name</label><br>
-                                                <input type="text" name="last_name" data-helper="Last Name"
-                                                    onfocusout="validateLastName()" id="last_name">
+                                                <input type="text" name="last_name" data-helper="Last Name" onfocusout="validateLastName()" id="last_name">
                                                 <span class="popuptext"></span>
                                             </div>
                                         </div>
@@ -148,36 +143,31 @@
                                         <div class="col-3">
                                             <div class="helper-text">
                                                 <label>Mobile Number</label><br>
-                                                <input type="text" name="contact_no" data-helper="Mobile No."
-                                                    placeholder="07XXXXXXXX" onfocusout="validateContactNo()"
-                                                    id="contact_no">
+                                                <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX" onfocusout="validateContactNo()" id="contact_no">
                                                 <span class="popuptext"></span>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="helper-text">
                                                 <label>Email</label><br>
-                                                <input type="email" name="email" data-helper="Email"
-                                                    onfocusout="validateEmail()" id="email">
+                                                <input type="email" name="email" data-helper="Email" onfocusout="validateEmail()" id="email">
                                                 <span class="popuptext"></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-3">
-                                            
+
                                             <div class="helper-text">
-                                            <label>Password</label><br>
-                                                <input type="password" name="password" data-helper="Password"
-                                                    onfocusout="validatePassword()" id="password">
+                                                <label>Password</label><br>
+                                                <input type="password" name="password" data-helper="Password" onfocusout="validatePassword()" id="password">
                                                 <span class="popuptext"></span>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="helper-text">
                                                 <label>Confirm Password</label><br>
-                                                <input type="password" name="conf_password"
-                                                    onfocusout="validateConfirmPassword()" id="conf_password">
+                                                <input type="password" name="conf_password" onfocusout="validateConfirmPassword()" id="conf_password">
                                                 <span class="popuptext"></span>
                                             </div>
                                         </div>
@@ -212,14 +202,14 @@
 
                                     <button type="submit" class="btn">Sign Up</button>
                                     <div class="social-login">
-                        <div class="row">
-                           <small>Or, Signup with</small>
-                        </div>
-                        <div class="row" style="justify-content: center;">
-                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
-                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
-                        </div>
-                        </div>
+                                        <div class="row">
+                                            <small>Or, Signup with</small>
+                                        </div>
+                                        <div class="row" style="justify-content: center;">
+                                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
+                                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -242,55 +232,52 @@
                         <form action="<?php echo URL; ?>login/run" id="loginForm_m" method="post" novalidate>
                             <div class="row">
                                 <div class="row" style="text-align: center;">
-                                    <?php if(isset($_GET['loginRequired']) && $_GET['loginRequired']=='true'){?>
-                                    <h3 style="color: #FF0000;text-align:center;font-weight:normal;margin: 20px 0;"><i
-                                            class="fa fa-exclamation-triangle" aria-hidden="true"></i> You must login
-                                        first!</h3>
+                                    <?php if (isset($_GET['loginRequired']) && $_GET['loginRequired'] == 'true') { ?>
+                                        <h3 style="color: #FF0000;text-align:center;font-weight:normal;margin: 20px 0;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> You must login
+                                            first!</h3>
                                     <?php
-                    } else{ ?>
-                                    <h3 style="margin: 20px 0;">Welcome back,</h3>
+                                    } else { ?>
+                                        <h3 style="margin: 20px 0;">Welcome back,</h3>
                                     <?php  } ?>
                                 </div>
-                                    <div class="row">
-                                            <div class="col-3">
-                                                <div class="helper-text">
-                                                    <label>Username/Email</label><br>
-                                                    <input type="text" name="username" data-helper="Username"
-                                                        onfocusout="validateUsernameM()" id="username_m">
-                                                    <span class="popuptext"></span>
-                                                </div>
-                                            </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="helper-text">
+                                            <label>Username/Email</label><br>
+                                            <input type="text" name="username" data-helper="Username" onfocusout="validateUsernameM()" id="username_m">
+                                            <span class="popuptext"></span>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <div class="helper-text">
-                                                    <label>Password</label><br>
-                                                    <input type="password" name="password" data-helper="Password"
-                                                        onfocusout="validateLoginPasswordM()" id="login_password_m">
-                                                    <span class="popuptext"></span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div>
                                 </div>
-                            
-                            <input type="text" name="prev_url"
-                                value="<?php if(isset($_SERVER['HTTP_REFERER'])){echo $_SERVER['HTTP_REFERER'];}?>"
-                                hidden>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="helper-text">
+                                            <label>Password</label><br>
+                                            <input type="password" name="password" data-helper="Password" onfocusout="validateLoginPasswordM()" id="login_password_m">
+                                            <span class="popuptext"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
+                                                                            echo $_SERVER['HTTP_REFERER'];
+                                                                        } ?>" hidden>
 
                             <button type="submit" class="btn" style="margin-bottom: 10px;">Login</button>
                             <div class="forget-password">
                                 <a href="#forgotPassword">Forgot Password?</a>
                             </div>
                             <div class="row">
-                            <div class="social-login">
-                        <div class="row">
-                           <small>Or, Login with</small>
-                        </div>
-                        <div class="row" style="justify-content: center;">
-                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
-                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
-                        </div>
-                        </div>
+                                <div class="social-login">
+                                    <div class="row">
+                                        <small>Or, Login with</small>
+                                    </div>
+                                    <div class="row" style="justify-content: center;">
+                                        <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
+                                        <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </form>
 
@@ -300,85 +287,77 @@
                                     <h3>Time to feel like home,</h3>
                                 </div>
                                 <div class="row">
-                                        <div class="col-3">
-                                            <div class="helper-text">
-                                                <label>First Name</label><br>
-                                                <input type="text" name="first_name" data-helper="First Name"
-                                                    onfocusout="validateFirstNameM()" id="first_name_m">
-                                                <span class="popuptext"></span>
-                                            </div>
+                                    <div class="col-3">
+                                        <div class="helper-text">
+                                            <label>First Name</label><br>
+                                            <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstNameM()" id="first_name_m">
+                                            <span class="popuptext"></span>
                                         </div>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                <div class="col-3">
-                                            <div class="helper-text">
-                                                <label>Last Name</label><br>
-                                                <input type="text" name="last_name" data-helper="Last Name"
-                                                    onfocusout="validateLastNameM()" id="last_name_m">
-                                                <span class="popuptext"></span>
-                                            </div>
+                                    <div class="col-3">
+                                        <div class="helper-text">
+                                            <label>Last Name</label><br>
+                                            <input type="text" name="last_name" data-helper="Last Name" onfocusout="validateLastNameM()" id="last_name_m">
+                                            <span class="popuptext"></span>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="helper-text">
-                                                <label>Mobile Number</label><br>
-                                                <input type="text" name="contact_no" data-helper="Mobile No."
-                                                    placeholder="07XXXXXXXX" onfocusout="validateContactNoM()"
-                                                    id="contact_no_m">
-                                                <span class="popuptext"></span>
-                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="helper-text">
+                                            <label>Mobile Number</label><br>
+                                            <input type="text" name="contact_no" data-helper="Mobile No." placeholder="07XXXXXXXX" onfocusout="validateContactNoM()" id="contact_no_m">
+                                            <span class="popuptext"></span>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="helper-text">
-                                                <label>Email</label><br>
-                                                <input type="email" name="email" data-helper="Email"
-                                                    onfocusout="validateEmailM()" id="email_m">
-                                                <span class="popuptext"></span>
-                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="helper-text">
+                                            <label>Email</label><br>
+                                            <input type="email" name="email" data-helper="Email" onfocusout="validateEmailM()" id="email_m">
+                                            <span class="popuptext"></span>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="helper-text">
-                                                <label>Gender</label><br>
-                                                <div class="radio-container" id="gender-radio-m"><input type="radio"
-                                                        id="male-m" name="gender" value="male">
-                                                    <label for="male-m">Male</label>
-                                                    <input type="radio" id="female-m" name="gender" value="female">
-                                                    <label for="female-m">Female</label>
-                                                    <input type="radio" id="other-m" name="gender" value="other">
-                                                    <label for="other">Other</label>
-                                                </div>
-                                                <span class="popuptext"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="helper-text">
+                                            <label>Gender</label><br>
+                                            <div class="radio-container" id="gender-radio-m"><input type="radio" id="male-m" name="gender" value="male">
+                                                <label for="male-m">Male</label>
+                                                <input type="radio" id="female-m" name="gender" value="female">
+                                                <label for="female-m">Female</label>
+                                                <input type="radio" id="other-m" name="gender" value="other">
+                                                <label for="other">Other</label>
                                             </div>
+                                            <span class="popuptext"></span>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <label>Password : </label><br>
-                                            <div class="helper-text">
-                                                <input type="password" name="password" data-helper="Password"
-                                                    onfocusout="validatePasswordM()" id="password_m">
-                                                <span class="popuptext"></span>
-                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>Password : </label><br>
+                                        <div class="helper-text">
+                                            <input type="password" name="password" data-helper="Password" onfocusout="validatePasswordM()" id="password_m">
+                                            <span class="popuptext"></span>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                </div>
+                                <div class="row">
 
-                                        <div class="col-3">
-                                            <div class="helper-text">
-                                                <label>Confirm Password</label><br>
-                                                <input type="password" name="conf_password"
-                                                    onfocusout="validateConfirmPasswordM()" id="conf_password_m">
-                                                <span class="popuptext"></span>
-                                            </div>
+                                    <div class="col-3">
+                                        <div class="helper-text">
+                                            <label>Confirm Password</label><br>
+                                            <input type="password" name="conf_password" onfocusout="validateConfirmPasswordM()" id="conf_password_m">
+                                            <span class="popuptext"></span>
                                         </div>
                                     </div>
+                                </div>
 
-                                    
+
                                 <!----<div class="col-2" style="text-align: center;">
                                     <label>First Name</label><br>
                                     <input type="text" name="first_name" data-helper="First Name"
@@ -421,17 +400,17 @@
                                 </div>---->
                             </div>
                             <div class="row"><button type="submit" class="btn">Sign Up</button></div>
-                            
+
                             <div class="row">
-                            <div class="social-login">
-                        <div class="row">
-                           <small>Or, Signup with</small>
-                        </div>
-                        <div class="row" style="justify-content: center;">
-                            <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
-                            <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
-                        </div>
-                        </div>
+                                <div class="social-login">
+                                    <div class="row">
+                                        <small>Or, Signup with</small>
+                                    </div>
+                                    <div class="row" style="justify-content: center;">
+                                        <a href=""><i class="fa fa-2x fa-facebook-square"></i></a>
+                                        <a href=""><i class="fa fa-2x fa-google-plus-square"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -441,36 +420,36 @@
     </div>
     <script type="text/javascript" src="/wasthra/public/js/preloader.js"></script>
     <script>
-    var loginFormPane = document.getElementById("loginForm_m");
-    var regFormPane = document.getElementById("regForm_m");
-    var indicator = document.getElementById("indicator");
-    var formContianer = document.getElementById("mobile-form-container");
+        var loginFormPane = document.getElementById("loginForm_m");
+        var regFormPane = document.getElementById("regForm_m");
+        var indicator = document.getElementById("indicator");
+        var formContianer = document.getElementById("mobile-form-container");
 
-    function register() {
-        formContianer.style.height = "900px";
-        regFormPane.style.transform = "translateX(-300px)";
-        loginFormPane.style.transform = "translateX(-300px)";
-        indicator.style.transform = "translateX(100px)";
-    }
+        function register() {
+            formContianer.style.height = "900px";
+            regFormPane.style.transform = "translateX(-300px)";
+            loginFormPane.style.transform = "translateX(-300px)";
+            indicator.style.transform = "translateX(100px)";
+        }
 
-    function login() {
-        formContianer.style.height = "470px";
-        regFormPane.style.transform = "translateX(0px)";
-        loginFormPane.style.transform = "translateX(0px)";
-        indicator.style.transform = "translateX(0px)";
-    }
+        function login() {
+            formContianer.style.height = "470px";
+            regFormPane.style.transform = "translateX(0px)";
+            loginFormPane.style.transform = "translateX(0px)";
+            indicator.style.transform = "translateX(0px)";
+        }
     </script>
 
     <script type="text/javascript">
-    $(window).on('load resize', function() {
-        if ($(window).width() < 750) {
-            $('#desktop-login').hide();
-            $('#mobile-login').show();
-        } else {
-            $('#desktop-login').show();
-            $('#mobile-login').hide();
-        }
-    });
+        $(window).on('load resize', function() {
+            if ($(window).width() < 750) {
+                $('#desktop-login').hide();
+                $('#mobile-login').show();
+            } else {
+                $('#desktop-login').show();
+                $('#mobile-login').hide();
+            }
+        });
     </script>
 
     <script type="text/javascript" src="/wasthra/public/js/toggle_login.js"></script>

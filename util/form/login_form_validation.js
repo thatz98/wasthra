@@ -68,7 +68,7 @@
         validateLoginPasswordM() &&
         validateUsernameM()
       ) {
-        loginForm.submit();
+        loginFormM.submit();
       }
     });
     

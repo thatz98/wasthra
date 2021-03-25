@@ -35,14 +35,15 @@
                                 <label class="input-data">Qty: <?php echo $item['item_qty']?></label>
                             </div>
                             
-                            <div style='float: left;'>
-                                <?php if($this->orderDetails[3]=='Completed' || $this->orderDetails[3]=='Returned'){?>
-                                <a href="<?php echo '?id='.$item['product_id']?>#addReview" class="btn">Review Product</a>
-                                <?php }?>
+                           
+                                
                             
-                            </div>
+                           
                         </td>
                     </tr>
+                    <tr><?php if($this->orderDetails['order_status']=='Completed' || $this->orderDetails['order_status']=='Returned'){?>
+                                <a href="<?php echo '?id='.$item['product_id']?>#addReview" class="btn">Review Product</a>
+                                <?php }?></tr>
                 <?php }?>
 
                 </table>     
