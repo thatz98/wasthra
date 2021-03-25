@@ -95,7 +95,7 @@
                     <input type="text" name="prev_url" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
                                                                     echo $_SERVER['HTTP_REFERER'];
                                                                 } ?>" hidden>
-                    <button type="submit" class="btn">Add to Cart</button>
+                    <button id="buttonC" type="submit" class="btn">Add to Cart</button>
                 </form>
             </div>
         </div>
