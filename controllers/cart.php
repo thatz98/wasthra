@@ -81,6 +81,7 @@ class Cart extends Controller {
                     //echo "yes";
                     Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['username'],$data);
                     $this->model->updateCartQuantity($data,$cartData['item_qty']);
+                    Logs::writeApplicationLog('Items added to cart','Successfull',Session::get('userData')['username'],$data);
                     $flag++;
                     break;
                 }
@@ -88,6 +89,7 @@ class Cart extends Controller {
             if($flag==0){
                 Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['username'],$data);
                 $this->model->create($data);
+                Logs::writeApplicationLog('Items added to cart','Successfull',Session::get('userData')['username'],$data);
             }
             
             if (strpos($_POST['prev_url'], '=') == false) {

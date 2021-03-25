@@ -26,20 +26,10 @@ class Products extends Controller {
         // get number of items which is out of stock
         $this->view->outStockCount = $this->model->getOutStockCount();
         // get all product details
-        //$this->view->qtyList =  $this->model->getAllDetails();
-        $this->view->sizeList =  $this->model->getSizes();
-        $this->view->imageList =  $this->model->getImages();
-        $this->view->colorList =  $this->model->getColors();
-        $this->view->categoryList =  $this->model->getCategories();
-        $this->view->pricecategoryList =  $this->model->getPriceCategories();
         $this->view->totQuantity = $this->model->getQty();
         $this->view->totProducts = $this->model->getProductCount();
         $this->view->allProducts = $this->model->getAllProducts();
-        // $totalQuantity = 0;
-        // foreach ($quantity as $qty){
-        //     $totalQuantity += $qty['qty'];
-        // }
-        //$this->view->totQuantity = $totalQuantity;
+
         $this->view->render('control_panel/admin/products');
     }
 
@@ -78,20 +68,18 @@ class Products extends Controller {
         $data['is_featured'] = $_POST['is_featured'];
         $data['category'] = $_POST['category'];
         $data['price_category'] = $_POST['price_category'];
-        // $data['quantity'] = $_POST['quantity'];
-        // $data['colors'] = $_POST['colors'];
         $data['meta_product_name'] = metaphone($_POST['product_name']);
         $data['meta_product_desc'] = metaphone($_POST['product_description']);
 
-        // $size = $_POST['size'];
         $imageName['img'] = $_FILES['img']['name'];
         $imageName['temp'] = $_FILES['img']['tmp_name'];
         // upload all the photos
         for ($x = 0; $x < sizeof($imageName['temp']); $x++) {
             move_uploaded_file($imageName['temp'][$x], 'C:\xampp\htdocs\wasthra\public\images\products\\' . $imageName['img'][$x]);
         }
-
+        Logs::writeApplicationLog('Add new Product','Attempting',Session::get('userData')['username'],$data);
         $this->model->create($data, $imageName['img']);
+        Logs::writeApplicationLog('Product added','Successfull',Session::get('userData')['username'],$data);
 
         header('location: ' . URL . 'products');
     }
@@ -112,13 +100,16 @@ class Products extends Controller {
         if($_POST['size']==''){
             $data['size_couple'] = $_POST['size-couple'];
             $size_couple = $data['size_couple'];
-            print_r($data);
+            Logs::writeApplicationLog('Add new Variant','Attempting',Session::get('userData')['username'],$data);
             $this->model->addVarient($data, $size_couple);
+            Logs::writeApplicationLog('Variant added','Successfull',Session::get('userData')['username'],$data);
         }
         else{
             $data['size'] = $_POST['size'];
             $size = $data['size'];
+            Logs::writeApplicationLog('Add new Variant','Attempting',Session::get('userData')['username'],$data);
             $this->model->addVarient($data, $size);
+            Logs::writeApplicationLog('Variant added','Successfull',Session::get('userData')['username'],$data);
         }
         
         header('location: ' . URL . 'products/productDetails/'.$product_id);        
@@ -160,18 +151,18 @@ class Products extends Controller {
 
         // get product details of the given item id
         $this->view->product = $this->model->getProduct($id);
-        $this->view->product_colors = $this->model->getColors();
+        //$this->view->product_colors = $this->model->getColors();
         $this->view->product_category = $this->model->getCategories();
-        $this->view->quantity = $this->model->getQty();
+        //$this->view->quantity = $this->model->getQty();
         $this->view->price_category = $this->model->getPriceCategories();
         //$this->view->imageList = $this->model->getImagesByID($id);
         $this->view->imageList =  $this->model->getImages();
 
-        $sizeArray = array();
-        foreach ($this->model->getSizesByID($id) as $sizes) {
-            array_push($sizeArray, $sizes['sizes']);
-        }
-        $this->view->sizes = $sizeArray;
+        // $sizeArray = array();
+        // foreach ($this->model->getSizesByID($id) as $sizes) {
+        //     array_push($sizeArray, $sizes['sizes']);
+        // }
+        // $this->view->sizes = $sizeArray;
 
         $this->view->render('control_panel/admin/edit_products');
     }
@@ -203,8 +194,9 @@ class Products extends Controller {
         $imageName['img'] = $_FILES['img']['name'];
         $data['meta_product_name'] = metaphone($_POST['product_name']);
         $data['meta_product_desc'] = metaphone($_POST['product_description']);
-
+        Logs::writeApplicationLog('Edit product','Attempting',Session::get('userData')['username'],$data);
         $this->model->update($data, $imageName['img'], $imageArray);
+        Logs::writeApplicationLog('Product edited','Successfull',Session::get('userData')['username'],$data);
 
         header('location: ' . URL . 'products');
     }
@@ -222,7 +214,9 @@ class Products extends Controller {
         $data['prev_color'] = $_POST['prev_color'];
         $data['prev_size'] = $_POST['prev_size'];
         //print_r($data);
+        Logs::writeApplicationLog('Edit variant','Attempting',Session::get('userData')['username'],$data);
         $this->model->updateVariant($data, $product_id, $inventory_id);
+        Logs::writeApplicationLog('Variant edited','Successfull',Session::get('userData')['username'],$data);
 
         header('location: ' . URL . 'products/productDetails/'.$product_id); 
 
@@ -235,8 +229,9 @@ class Products extends Controller {
      * @return void
      */
     function delete($id) {
-
+        Logs::writeApplicationLog('Delete product','Attempting',Session::get('userData')['username'],$id);
         $this->model->delete($id);
+        Logs::writeApplicationLog('Product deleted','Successfull',Session::get('userData')['username'],$id);
 
         header('location: ' . URL . 'products');
     }
@@ -249,8 +244,9 @@ class Products extends Controller {
      * @return void
      */
     function deleteVariant($id,$pID) {
-
+        Logs::writeApplicationLog('Delete variant','Attempting',Session::get('userData')['username'],$id);
         $this->model->deleteVariant($id);
+        Logs::writeApplicationLog('Variant deleted','Successfull',Session::get('userData')['username'],$id);
 
         header('location: ' . URL . 'products/productDetails/'.$pID);
     }
@@ -263,8 +259,9 @@ class Products extends Controller {
      * @return void
      */
     function deleteImage($id, $name) {
-
+        Logs::writeApplicationLog('Delete image','Attempting',Session::get('userData')['username'],$id);
         $this->model->deleteImage($id, $name);
+        Logs::writeApplicationLog('Image deleted','Successfull',Session::get('userData')['username'],$id);
 
         header('location: ' . URL . 'edit/' . $id);
     }
