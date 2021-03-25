@@ -1,15 +1,12 @@
 <?php
 
-class Report extends Controller
-{
+class Report extends Controller {
 
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
     }
 
-    function index()
-    {
+    function index() {
         $this->pdf = new PDF('p', 'mm', 'A4', true, 'UTF-8', false);
 
         $this->pdf->SetCreator(PDF_CREATOR);
@@ -66,8 +63,7 @@ class Report extends Controller
         $this->pdf->Output('example_001.pdf', 'I');
     }
 
-    function generateInvoice($id)
-    {
+    function generateInvoice($id) {
         $this->pdf = new PDF('p', 'mm', 'A4', true, 'UTF-8', false);
 
         $this->pdf->SetCreator(PDF_CREATOR);
@@ -188,8 +184,7 @@ class Report extends Controller
         $this->pdf->Output('example_001.pdf', 'I');
     }
 
-    function generateInventoryReport()
-    {
+    function generateInventoryReport() {
         $this->pdf = new PDF('p', 'mm', 'A4', true, 'UTF-8', false);
 
         $this->pdf->SetCreator(PDF_CREATOR);
@@ -307,4 +302,3 @@ class Report extends Controller
         $this->pdf->Output('example_001.pdf', 'I');
     }
 }
-
