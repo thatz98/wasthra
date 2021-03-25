@@ -354,12 +354,21 @@ class Shop_Model extends Model {
 
     function getAllOrderDetails($id){
 
-        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,GROUP_CONCAT(product.product_name) as product_name,
         checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
         delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
+        SUM(order_item.item_qty*price_category.product_price)+delivery_charges.delivery_fee as total_amount,customer.first_name as customer_first_name,
+        customer.last_name as customer_last_name,customer.email as customer_email,
+        customer.contact_no as customer_phone,
         delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
-        INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
+        INNER JOIN checkout ON orders.order_id=checkout.order_id 
+        INNER JOIN customer ON checkout.user_id=customer.user_id
+        INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id
+        INNER JOIN delivery_charges ON delivery_address.city=delivery_charges.city
+        INNER JOIN order_item ON order_item.order_id=orders.order_id 
+        INNER JOIN product ON product.product_id=order_item.product_id
+        INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id WHERE orders.order_id='$id' GROUP BY orders.order_id ");
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id WHERE orders.order_id='$id' GROUP BY orders.order_id");
 }
 }
