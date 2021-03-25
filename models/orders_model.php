@@ -194,142 +194,6 @@ class Orders_Model extends Model {
     }
 
 
-
-
-
-    // function getAllDetails() {
-
-    //     return $this->db->query("SELECT price_category.price_category_name,price_category.product_price,category.name,
-    //     product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
-    //     FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
-
-    //     INNER JOIN category on category.category_id=product.category_id
-    //     INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
-    // }
-
-    // function getImages() {
-
-    //     return $this->db->query("SELECT product_images.image,product_images.product_id
-    //     FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
-    // }
-
-    // function getOrders() {
-
-    //     return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,product.product_price 
-    //     FROM orders");
-    // }
-
-    // function getAllOrderItems() {
-
-    //     return $this->db->query("SELECT * FROM order_item");
-    // }
-
-    // function listAllOrderItemDetails() {
-
-    //     return $this->db->query("SELECT order_item.order_id, order_item.product_id,product.product_name,order_item.item_size,order_item.item_color,
-    //     order_item.item_qty,price_category.product_price FROM `order_item` INNER JOIN product 
-    //     ON product.product_id=order_item.product_id INNER JOIN price_category ON price_category.price_category_id=product.price_category_id 
-    //      ");
-    // }
-
-    // function listAllOrders() {
-
-    //     return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
-    //     checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
-    //     delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
-    //     delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
-    //     INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
-    //     LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-    //     LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id GROUP BY orders.order_id DESC");
-    // }
-
-    // function getRequiredDetails() {
-
-    //     return $this->db->query("SELECT price_category.price_category_name,price_category.product_price,category.name,
-    //     product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty,order_item.item_qty,
-    //     order_item.order_id FROM product INNER JOIN inventory ON product.product_id=inventory.product_id 
-    //     INNER JOIN category on category.category_id=product.category_id 
-    //     INNER JOIN price_category on price_category.price_category_id=product.price_category_id 
-    //     INNER JOIN order_item ON order_item.product_id=product.product_id ");
-    // }
-
-
-
-    // function getCity() {
-    //     return $this->db->query("SELECT checkout.order_id,delivery_address.city 
-    //     FROM checkout INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id");
-    // }
-
-    // function getMyOrder($id) {
-
-    //     return $this->db->query("SELECT * FROM orders WHERE order_id='$id'");
-    // }
-
-
-
-    // function getDeliveryDetails($id) {
-
-    //     $delivery = $this->db->query("SELECT * FROM delivery WHERE order_id='$id'");
-    //     if (!empty($delivery)) {
-    //         return $delivery;
-    //     } else {
-    //         return NULL;
-    //     }
-    // }
-
-    // function getMemberDetails($id) {
-
-    //     $delivery = $this->db->query("SELECT * FROM delivery WHERE order_id='$id'");
-    //     if (!empty($delivery)) {
-    //         $user_ID = $delivery[0][2];
-    //         return $this->db->query("SELECT * FROM delivery_staff WHERE user_id='$user_ID'");
-    //     } else {
-    //         return NULL;
-    //     }
-    // }
-
-    // function getPayDetails($id) {
-
-    //     return $this->db->query("SELECT * FROM payment WHERE order_id='$id'");
-    // }
-
-    // function getAllorders() {
-
-    //     $orderId = $this->db->query("SELECT order_id FROM orders");
-    //     if (!empty($orderId)) {
-    //         return $this->db->query("SELECT orders.order_id,orders.date,orders.order_status FROM orders");
-    //     } else {
-    //         return FALSE;
-    //     }
-    // }
-
-    // function getAlldelivery() {
-
-    //     return $this->db->query("SELECT delivery.order_id,orders.order_status FROM orders 
-    //     INNER JOIN delivery ON orders.order_id=delivery.order_id");
-    // }
-
-    // // function getOrderItems($id){
-
-    // //     return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,order_item.product_id,order_item.item_size,order_item.item_color,order_item.item_qty,order_item.is_deleted
-    // //     FROM orders INNER JOIN order_item ON orders.order_id=order_item.order_id WHERE orders.order_id='$id';");
-
-    // // }
-
-    // function getAddressDetails($id) {
-    //     $address_id = $this->db->query("SELECT address_id FROM checkout WHERE order_id='$id'");
-    //     $address_id_actual = $address_id[0][0];
-    //     return $this->db->query("SELECT * FROM delivery_address WHERE address_id='$address_id_actual'");
-    // }
-
-    // function getCustomerDetails($id) {
-
-    //     return $this->db->query("SELECT orders.order_id,checkout.user_id,customer.first_name,customer.last_name
-    //     FROM orders INNER JOIN checkout ON orders.order_id=checkout.order_id
-    //     INNER JOIN customer on customer.user_id=checkout.user_id WHERE orders.order_id='$id';");
-    // }
-
-
     function update($data) {
         $orderId = $data['order_id'];
         $orderStatus = $data['order_status'];
@@ -353,42 +217,6 @@ class Orders_Model extends Model {
         return $this->db->query("SELECT * FROM order_tracking WHERE order_id='$id'");
     }
 
-    // function assignedOrders() {
-
-    //     $id = Session::get('userId');
-    //     return $this->db->query("SELECT orders.order_id,orders.date,orders.time,delivery.expected_delivery_date,delivery.user_id FROM orders 
-    //     INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id'");
-    // }
-
-    // function assignedOrder_Details($id) {
-
-    //     return $this->db->query("SELECT order_item.item_size,order_status,order_item.item_qty,order_item.item_color,order_item.product_id FROM order_item
-    //     INNER JOIN orders ON orders.order_id=order_item.order_id WHERE order_item.order_id='$id' ");
-    // }
-
-    // function assignedOrderSummary($id) {
-
-    //     $orderId = $this->db->query("SELECT order_id FROM payment WHERE payment.order_id='$id'");
-    //     $newId = $orderId[0]['order_id'];
-    //     return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders 
-    //     INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
-    // }
-
-    // function assignedDeliveryInfo($id) {
-
-    //     $userId = $this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
-    //     $addressId = $userId[0]['address_id'];
-    //     return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
-    //     delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
-    //     FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
-    // }
-
-
-
-    // function getDeliveryCharges() {
-    //     return $this->db->select('delivery_charges', '*');
-    // }
-
 
     function create($data) {
         $orderId = $data['order_id'];
@@ -404,15 +232,6 @@ class Orders_Model extends Model {
         $this->db->update('delivery', array('user_id' => $data['user_id']), 'order_id=:order_id', array('order_id' => $data['order_id']));
     }
 
-    // function getDeliveryInfo($id) {
-
-    //     return $this->db->query("SELECT order_item.item_size,order_item.item_color,order_item.item_qty,product.product_name,
-    //    product_images.image FROM order_item 
-    //    INNER JOIN orders ON orders.order_id=order_item.order_id
-    //    INNER JOIN product_images on product_images.product_id=order_item.product_id 
-    //    INNER JOIN product on product.product_id = order_item.product_id
-    //    WHERE orders.order_id='$id' GROUP BY order_item.product_id");
-    // }
 
     function cancelOrder($comment, $id) {
         $this->db->queryExecuteOnly("UPDATE orders SET cancel_comment='$comment' WHERE order_id='$id'");
@@ -428,67 +247,70 @@ class Orders_Model extends Model {
     }
 
 
-    // function orderHistory() {
-    //     $id = Session::get('userId');
-    //     return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders 
-    //     INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
-    // }
+    function orderHistory(){
+        $id = Session::get('userId');
+        return $this->db->query("SELECT orders.order_id,orders.date,delivery.actual_delivery_date FROM orders 
+        INNER JOIN delivery ON delivery.order_id=orders.order_id WHERE delivery.user_id='$id' AND orders.order_status='Delivered'");
+    }
 
-    // function history_Details($id) {
-    //     return $this->db->query("SELECT order_item.item_size,orders.order_status,order_item.item_qty,order_item.item_color,
-    //     order_item.product_id, product.product_name,product_images.image,price_category.product_price FROM order_item 
-    //     INNER JOIN orders ON orders.order_id=order_item.order_id 
-    //     INNER JOIN product ON order_item.product_id=product.product_id 
-    //     INNER JOIN product_images ON product.product_id=product_images.product_id 
-    //     INNER JOIN price_category ON product.price_category_id=price_category.price_category_id WHERE order_item.order_id='$id' GROUP BY order_item.product_id");
-    // }
+    function history_Details($id){
+        return $this->db->query("SELECT order_item.item_size,orders.order_status,order_item.item_qty,order_item.item_color,
+        order_item.product_id, product.product_name,product_images.image,price_category.product_price FROM order_item 
+        INNER JOIN orders ON orders.order_id=order_item.order_id 
+        INNER JOIN product ON order_item.product_id=product.product_id 
+        INNER JOIN product_images ON product.product_id=product_images.product_id 
+        INNER JOIN price_category ON product.price_category_id=price_category.price_category_id WHERE order_item.order_id='$id' GROUP BY order_item.item_id");
+    }
 
-    // function historySummary($id) {
-    //     $orderId = $this->db->query("SELECT order_id FROM payment WHERE payment.order_id='$id'");
-    //     $newId = $orderId[0]['order_id'];
-    //     return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders 
-    //     INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
-    // }
+     function historySummary($id){
+        $orderId=$this->db->query("SELECT order_id FROM payment WHERE payment.order_id='$id'");
+        $newId=$orderId[0]['order_id'];
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method FROM orders 
+        INNER JOIN payment ON payment.order_id=orders.order_id WHERE orders.order_id='$newId'");
+     }
 
-    // function deliveryHistoryInfo($id) {
-    //     $userId = $this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
-    //     $addressId = $userId[0]['address_id'];
-    //     return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
-    //     delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
-    //     FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
-    // }
+     function deliveryHistoryInfo($id){
+        $userId=$this->db->query("SELECT address_id FROM checkout WHERE checkout.order_id='$id'");
+        $addressId=$userId[0]['address_id'];
+        return $this->db->query("SELECT delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,customer.first_name,customer.last_name
+        FROM delivery_address INNER JOIN customer ON customer.user_id=delivery_address.user_id WHERE delivery_address.address_id='$addressId'");
+     }
 
+ 
+    function getOrderFilterBy($category){
+    if ($category == 'New') {
 
-    // function getOrderFilterBy($category) {
-    //     if ($category == 'New') {
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+        checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
+        delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
+        INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
+        LEFT JOIN delivery ON delivery.order_id=orders.order_id 
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='$category'  GROUP BY order_id; ");
+     
+    }else if ($category == 'PendingDeliveries') {
+       return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+       checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+       delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
+       delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
+       INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
+       LEFT JOIN delivery ON delivery.order_id=orders.order_id 
+       LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Processing' OR orders.order_status='Out for Delivery' GROUP BY order_id; ");
+    
+    }else if ($category == 'PendingReturns') {
+        return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+        checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
+        delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
+        delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
+        INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
+        LEFT JOIN delivery ON delivery.order_id=orders.order_id 
+        LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Requested to Return'  GROUP BY order_id; ");
+    }
 
-    //         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
-    //     checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
-    //     delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
-    //     delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
-    //     INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
-    //     LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-    //     LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='$category'  GROUP BY order_id; ");
-    //     } else if ($category == 'PendingDeliveries') {
-    //         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
-    //    checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
-    //    delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
-    //    delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
-    //    INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
-    //    LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-    //    LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Processing' OR orders.order_status='Out for Delivery' GROUP BY order_id; ");
-    //     } else if ($category == 'PendingReturns') {
-    //         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
-    //     checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
-    //     delivery_address.postal_code,delivery_address.city,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
-    //     delivery_staff.first_name,delivery_staff.last_name FROM orders INNER JOIN payment ON payment.order_id=orders.order_id 
-    //     INNER JOIN checkout ON orders.order_id=checkout.order_id INNER JOIN delivery_address ON checkout.address_id=delivery_address.address_id 
-    //     LEFT JOIN delivery ON delivery.order_id=orders.order_id 
-    //     LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id  WHERE orders.order_status='Requested to Return'  GROUP BY order_id; ");
-    //     }
-    // }
+    } 
 
-    function updatePayStatus($id) {
+    function updatePayStatus($id){
 
         $this->db->queryExecuteOnly("UPDATE payment SET payment_status='successfull' WHERE order_id='$id';");
         $this->model->deleteCartItems();

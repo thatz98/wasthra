@@ -95,7 +95,7 @@
                     <input type="text" name="prev_urlB" value="<?php if (isset($_SERVER['HTTP_REFERER'])) {
                                                                     echo $_SERVER['HTTP_REFERER'];
                                                                 } ?>" hidden>
-                    <button type="submit" class="btn">Buy Now</button>
+                    <button id="buttonB" type="submit" class="btn">Buy Now</button>
                 </form>
             </div>
         </div>
