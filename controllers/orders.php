@@ -181,8 +181,20 @@ class Orders extends Controller {
         $data['order_status'] = $_POST['order_status'];
 
         $this->model->update($data);
-
-
+        if($data['order_status']=='Cancelled'){
+            $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
+            $msg = "ORDER ID:". $data['order_id'] . ' successfully cancelled';
+            $subject = 'Your request about canceling an order';
+            $reciever = Session::get('userData')['email'];
+            mail($reciever, $subject, $msg, $header);
+        }
+        elseif($data['order_status']=='Returned'){
+            $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
+            $msg = 'Your order successfully returned';
+            $subject = 'Your request about returning an order';
+            $reciever = Session::get('userData')['email'];
+            mail($reciever, $subject, $msg, $header);
+        }
         header('location: ' . URL . "orders/orderDetails/{$data['order_id']}");
     }
 
@@ -231,6 +243,11 @@ if($flag=='update'){
         $comment = $_POST['cancel_comment'];
         $id = $_POST['order_id'];
         $this->model->cancelOrder($comment, $id);
+        $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
+        $msg = "ORDER ID:". $id . '<br>Cancel comment:'.$comment;
+        $subject = 'Cancel Request from: '. Session::get('userData')['first_name'].' '.Session::get('userData')['last_name'];
+        $reciever = 'group15s2202@gmail.com';
+        mail($reciever, $subject, $msg, $header);
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
 
@@ -243,6 +260,11 @@ if($flag=='update'){
         $comment = $_POST['return_comment'];
         $id = $_POST['order_id'];
         $this->model->returnOrder($comment, $id);
+        $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
+        $msg = "ORDER ID:". $id . '<br>Return comment:'.$comment;
+        $subject = 'Return Request from: '. Session::get('userData')['first_name'].' '.Session::get('userData')['last_name'];
+        $reciever = 'group15s2202@gmail.com';
+        mail($reciever, $subject, $msg, $header);
         header('Location: ' . URL . 'orders/myOrderDetails/' . $id);
     }
 }
