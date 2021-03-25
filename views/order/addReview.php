@@ -2,10 +2,10 @@
 
     <div class="popup">
     <?php if (isset($_GET['id'])){
-                foreach($this->orderDetails as $order){
-                    if($order['product_id']==$_GET['id']){
-                        $pId=$order['product_id'];
-                        $name=$order['product_name'];
+                foreach($this->orderItems as $item){
+                    if($item['product_id']==$_GET['id']){
+                        $pId=$item['product_id'];
+                        $name=$item['product_name'];
                         break;
                     }
     }

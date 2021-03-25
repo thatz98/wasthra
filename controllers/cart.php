@@ -84,7 +84,10 @@ class Cart extends Controller {
                     break;
                 }
             }
-            if($flag==0){$this->model->create($data);}
+            if($flag==0){
+                Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['username'],$data);
+                $this->model->create($data);
+            }
             
             if (strpos($_POST['prev_url'], '=') == false) {
                 header('location: ' . $_POST['prev_url'] . '?success=itemAddedToCart#message');
