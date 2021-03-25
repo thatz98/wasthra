@@ -184,4 +184,16 @@ class Cart_Model extends Model {
         return $this->db->runQuery('SELECT price_category.product_price FROM price_category INNER JOIN product 
         ON product.price_category_id=price_category.price_category_id WHERE product.product_id=:id',array('id'=>$id));
     }
+
+    function updateCartQuantity($data,$oldQty){
+        $id=$data['product_id'];
+        $color=$data['item_color'];
+        $size=$data['item_size'];
+        $qty=$data['item_qty'];
+        $this->db->queryExecuteOnly("UPDATE cart_item SET cart_item.item_qty=$qty+$oldQty WHERE cart_item.product_id='$id' AND 
+        cart_item.item_size='$size' AND cart_item.item_color='$color'");
+        $cartData = $this->getCartItems(Session::get('userId'));
+        Session::set('cartCount', count($cartData));
+        Session::set('cartData', $cartData);
+    }
 }

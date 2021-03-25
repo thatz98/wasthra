@@ -54,10 +54,20 @@ class Cart extends Controller {
         $data['item_qty'] = $_POST['quantity'];
         $data['item_color'] = $_POST['color'];
         $data['item_size'] = $sizeArray;
-
+        $flag=0;
         // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
-            $this->model->create($data);
+            foreach(Session::get('cartData') as $cartData){
+                if($data['product_id']==$cartData['product_id'] && $data['item_color']==$cartData['item_color'] 
+                && $data['item_size']==$cartData['item_size']){
+                    //echo "yes";
+                    $this->model->updateCartQuantity($data,$cartData['item_qty']);
+                    $flag++;
+                    break;
+                }
+            }
+            if($flag==0){$this->model->create($data);}
+            
             if (strpos($_POST['prev_url'], '=') == false) {
                 header('location: ' . $_POST['prev_url'] . '?success=itemAddedToCart#message');
             } else {
