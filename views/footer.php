@@ -40,7 +40,7 @@
 
                         <p>Subscribe to our newsletter, so that you can be the first to know about new offers and promotions.
                         </p><br>
-                        <form action="" method="POST">
+                        <form action="<?php echo URL; ?>index/subscribe" method="POST">
                         <div class="footer-txt-field"><input type="email" name="foot-email" class="input" placeholder="Enter Email Address">
                             <button type="submit" class="footer-btn">Subscribe</button>
                         </div>

@@ -86,4 +86,10 @@ class Index_Model extends Model{
     function getDeliveryCharges(){
         return $this->db->select('delivery_charges','*');
     }
+
+    function addSubscriber($email){
+
+        $this->db->insert('subscribers', array('email' => $email));
+
+    }
 }

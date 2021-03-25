@@ -24,5 +24,14 @@ class Index extends Controller {
         $this->view->deliveryCharges = $this->model->getDeliveryCharges();
         $this->view->render('index/index');
     }
+
+    function subscribe(){
+
+        $email = $_POST['foot-email'];
+        $this->model->addSubscriber($email);
+
+        header('location: ' . URL . 'index');
+
+    }
     
 }
