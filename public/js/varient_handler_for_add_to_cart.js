@@ -1,10 +1,19 @@
 $(document).ready(function () {
 
+  $("#addToCartC").submit(function (e) {
+    e.preventDefault();
+    if (
+      $('input[type=number][name=quantityC]').val()
+    ) {
+      document.getElementById("addToCartC").submit();
+    }
+  });
+
   $('input[type=radio][name=colorC]').on("change", function () {
     var color = $(this).val();
     var cat = $('#catC').val();
     document.getElementById('quantitydivC').innerHTML = `<div class="empty-result"><label class="empty-checkbox" >Select size!</label></div>`;
-
+    $('#buttonC').show();
     var productId = $('input[type=text][name=prod_idC]').val();
     if (color != "" && cat != "Couple") {
       $.ajax({
@@ -24,6 +33,7 @@ $(document).ready(function () {
             sizeContainer.innerHTML = sizeList;
           } else {
             sizeContainer.innerHTML = `<div class="empty-result"><label class="empty-checkbox" >No available sizes!</label></div>`;
+            $('#buttonC').hide();
           }
         },
         error: function () {
@@ -52,6 +62,7 @@ $(document).ready(function () {
             sizeContainerGents.innerHTML = sizeList;
           } else {
             sizeContainerGents.innerHTML = `<div class="empty-result"><label class="empty-checkbox" >No available sizes!</label></div>`;
+            $('#buttonC').hide();
           }
         },
         error: function () {
@@ -77,6 +88,7 @@ $(document).ready(function () {
             sizeContainerLadies.innerHTML = sizeList;
           } else {
             sizeContainerLadies.innerHTML = `<div class="empty-result"><label class="empty-checkbox" >No available sizes!</label></div>`;
+            $('#buttonC').hide();
           }
         },
         error: function () {
@@ -106,17 +118,18 @@ $(document).on('change', 'input[type=radio][name=sizeC]', function () {
       dataType: 'JSON',
       data: { 'color': color, 'size': size, 'product_id': productId },
       success: function (data) {
-        if (data.length > 0 && parseInt(data[0].qty)!=0) {
+        if (data.length > 0 && parseInt(data[0].qty) != 0) {
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qtyB" step="1" min="1" max="99" name="quantity"
+                        <input type="number" class="qty-text" id="qtyC" step="1" min="1" max="99" name="quantityC"
                             value="1">
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
         } else {
           qty.innerHTML = `<div class="empty-result"><label class="empty-checkbox" >Currently out of stock!</label></div>`;
+          $('#buttonC').hide();
         }
       },
       error: function () {
@@ -143,18 +156,19 @@ $(document).on('change', 'input[type=radio][name=size1C]', function () {
       dataType: 'JSON',
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
       success: function (data) {
-        if (data.length > 0 && parseInt(data[0].qty)!=0) {
-          
+        if (data.length > 0 && parseInt(data[0].qty) != 0) {
+
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qtyB" step="1" min="1" max="99" name="quantity"
+                        <input type="number" class="qty-text" id="qtyC" step="1" min="1" max="99" name="quantityC"
                             value="1">
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
         } else {
           qty.innerHTML = `<div class="empty-result"><label class="empty-checkbox" >Currently out of stock!</label></div>`;
+          $('#buttonC').hide();
         }
       },
       error: function () {
@@ -180,18 +194,19 @@ $(document).on('change', 'input[type=radio][name=size2C]', function () {
       dataType: 'JSON',
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
       success: function (data) {
-        if (data.length > 0 && parseInt(data[0].qty)!=0) {
-          
+        if (data.length > 0 && parseInt(data[0].qty) != 0) {
+
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity"
+                        <input type="number" class="qty-text" id="qtyC" step="1" min="1" max="99" name="quantityC"
                             value="1">
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
         } else {
           qty.innerHTML = `<div class="empty-result"><label class="empty-checkbox" >Currently out of stock!</label></div>`;
+          $('#buttonC').hide();
         }
       },
       error: function () {

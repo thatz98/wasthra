@@ -39,21 +39,40 @@ class Cart extends Controller {
      */
     function addToCart() {
 
-        $sizeGents = $_POST['size1'];
-        $sizeLadies = $_POST['size2'];
-        $sizeNormal = $_POST['size'];
-        $sizeArray = '';
-        $sizeArray .= $sizeNormal;
-        $sizeArray .= $sizeLadies . ",";
-        $sizeArray .= $sizeGents;
-        // remove the last comma that has been added to the string
-        $sizeArray = rtrim($sizeArray, ",");
+        if (isset($_POST['prod_idC'])) {
+            $sizeGents = $_POST['size1C'];
+            $sizeLadies = $_POST['size2C'];
+            $sizeNormal = $_POST['sizeC'];
+            $sizeArray = '';
+            $sizeArray .= $sizeNormal;
+            $sizeArray .= $sizeLadies . ",";
+            $sizeArray .= $sizeGents;
+            // remove the last comma that has been added to the string
+            $sizeArray = rtrim($sizeArray, ",");
 
-        $data = array();
-        $data['product_id'] = $_POST['prod_id'];
-        $data['item_qty'] = $_POST['quantity'];
-        $data['item_color'] = $_POST['color'];
-        $data['item_size'] = $sizeArray;
+            $data = array();
+            $data['product_id'] = $_POST['prod_idC'];
+            $data['item_qty'] = $_POST['quantityC'];
+            $data['item_color'] = $_POST['colorC'];
+            $data['item_size'] = $sizeArray;
+        } else {
+            $sizeGents = $_POST['size1'];
+            $sizeLadies = $_POST['size2'];
+            $sizeNormal = $_POST['size'];
+            $sizeArray = '';
+            $sizeArray .= $sizeNormal;
+            $sizeArray .= $sizeLadies . ",";
+            $sizeArray .= $sizeGents;
+            // remove the last comma that has been added to the string
+            $sizeArray = rtrim($sizeArray, ",");
+
+            $data = array();
+            $data['product_id'] = $_POST['prod_id'];
+            $data['item_qty'] = $_POST['quantity'];
+            $data['item_color'] = $_POST['color'];
+            $data['item_size'] = $sizeArray;
+        }
+
 
         // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
@@ -86,7 +105,7 @@ class Cart extends Controller {
 
         $data = array();
         $data['product_id'] = $_POST['prod_idB'];
-        $data['item_qty'] = $_POST['quantity'];
+        $data['item_qty'] = $_POST['quantityB'];
         $data['item_color'] = $_POST['colorB'];
         $data['item_size'] = $sizeArray;
         $productPrice = $this->model->getProductPriceById($data['product_id']);
