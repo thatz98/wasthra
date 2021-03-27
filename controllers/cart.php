@@ -192,7 +192,9 @@ class Cart extends Controller {
         $data['item_size'] = $sizeArray;
         $data['item_id'] = $itemId;
 
+        Logs::writeApplicationLog('Update Cart Item','Attemting',Session::get('userData')['email'],$data);
         $this->model->update($data);
+        Logs::writeApplicationLog('Cart Item Updated','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . 'cart?success=itemUpdatedToCart#message');
     }
@@ -206,7 +208,10 @@ class Cart extends Controller {
      */
     function delete($id) {
 
+        
+        Logs::writeApplicationLog('Delete Cart Item','Attemting',Session::get('userData')['email'],$data);
         $this->model->delete($id);
+        Logs::writeApplicationLog('Cart Item Deleted','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . 'cart?success=itemDeleted#message');
     }
