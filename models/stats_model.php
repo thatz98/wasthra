@@ -8,17 +8,17 @@ class Stats_Model extends Model {
 
     function getVisitorCount($filter = false) {
         if ($filter) {
-            return $this->db->query("SELECT COUNT(DISTINCT ip) FROM visitors WHERE $filter;");
+            return $this->db->runQuery("SELECT COUNT(DISTINCT ip) FROM visitors WHERE $filter;");
         } else {
-            return $this->db->query("SELECT COUNT(DISTINCT ip) FROM visitors;");
+            return $this->db->runQuery("SELECT COUNT(DISTINCT ip) FROM visitors;");
         }
     }
 
     function getDailyVisitorDistribution($filter = false) {
         if ($filter) {
-            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,HOUR(time) as time FROM visitors WHERE $filter GROUP BY HOUR(time);");
+            $data = $this->db->runQuery("SELECT COUNT(DISTINCT ip) as visitors,HOUR(time) as time FROM visitors WHERE $filter GROUP BY HOUR(time);");
         } else {
-            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,HOUR(time) as time visitors GROUP BY HOUR(time);");
+            $data = $this->db->runQuery("SELECT COUNT(DISTINCT ip) as visitors,HOUR(time) as time visitors GROUP BY HOUR(time);");
         }
 
         $hours = $this->hoursRange();
@@ -47,9 +47,9 @@ class Stats_Model extends Model {
 
     function getWeeklyVisitorDistribution($filter = false) {
         if ($filter) {
-            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors, WEEKDAY(date) as day FROM visitors WHERE YEARWEEK(date,5) = YEARWEEK($filter,5) GROUP BY DATE(date);");
+            $data = $this->db->runQuery("SELECT COUNT(DISTINCT ip) as visitors, WEEKDAY(date) as day FROM visitors WHERE YEARWEEK(date,5) = YEARWEEK($filter,5) GROUP BY DATE(date);");
         } else {
-            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors, WEEKDAY(date) as day FROM visitors WHERE YEARWEEK(date,5) = YEARWEEK(CURDATE(),5) GROUP BY DATE(date);");
+            $data = $this->db->runQuery("SELECT COUNT(DISTINCT ip) as visitors, WEEKDAY(date) as day FROM visitors WHERE YEARWEEK(date,5) = YEARWEEK(CURDATE(),5) GROUP BY DATE(date);");
         }
 
         $days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
@@ -73,10 +73,10 @@ class Stats_Model extends Model {
 
     function getMonthlyVisitorDistribution($filter = false) {
         if ($filter) {
-            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,date FROM visitors WHERE MONTH(date) = MONTH($filter) AND YEAR(date) = YEAR(CURRENT_DATE())
+            $data = $this->db->runQuery("SELECT COUNT(DISTINCT ip) as visitors,date FROM visitors WHERE MONTH(date) = MONTH($filter) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date;");
         } else {
-            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,date FROM visitors WHERE MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())
+            $data = $this->db->runQuery("SELECT COUNT(DISTINCT ip) as visitors,date FROM visitors WHERE MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date;");
         }
 
@@ -98,10 +98,10 @@ class Stats_Model extends Model {
 
     function getYearlyVisitorDistribution($filter = false) {
         if ($filter) {
-            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,MONTH(date) as month FROM visitors
+            $data = $this->db->runQuery("SELECT COUNT(DISTINCT ip) as visitors,MONTH(date) as month FROM visitors
             WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date);");
         } else {
-            $data = $this->db->query("SELECT COUNT(DISTINCT ip) as visitors,MONTH(date) as month FROM visitors 
+            $data = $this->db->runQuery("SELECT COUNT(DISTINCT ip) as visitors,MONTH(date) as month FROM visitors 
             WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date);");
         }
 
@@ -125,19 +125,19 @@ class Stats_Model extends Model {
 
     function getSalesCount($filter = false) {
         if ($filter) {
-            return $this->db->query("SELECT SUM(order_item.item_qty) FROM orders
+            return $this->db->runQuery("SELECT SUM(order_item.item_qty) FROM orders
             INNER JOIN order_item ON orders.order_id=order_item.order_id WHERE $filter;");
         } else {
-            return $this->db->query("SELECT SUM(order_item.item_qty) FROM orders
+            return $this->db->runQuery("SELECT SUM(order_item.item_qty) FROM orders
             INNER JOIN order_item ON orders.order_id=order_item.order_id;");
         }
     }
 
     function getTotalOrderCount($filter = false) {
         if ($filter) {
-            return $this->db->query("SELECT COUNT(*) FROM orders WHERE $filter;");
+            return $this->db->runQuery("SELECT COUNT(*) FROM orders WHERE $filter;");
         } else {
-            return $this->db->query("SELECT COUNT(*) FROM orders;");
+            return $this->db->runQuery("SELECT COUNT(*) FROM orders;");
         }
     }
 
@@ -151,7 +151,7 @@ class Stats_Model extends Model {
         if ($filter) {
             $query .= "WHERE $filter;";
         }
-        return $this->db->query($query);
+        return $this->db->runQuery($query);
     }
 
     function getTotalSalesPerCategory($filter = false) {
@@ -166,7 +166,7 @@ class Stats_Model extends Model {
         } else {
             $query .= "GROUP by category.name;";
         }
-        $data = $this->db->query($query);
+        $data = $this->db->runQuery($query);
         $cats = array();
         $sales = array();
         foreach ($data as $item) {
@@ -192,7 +192,7 @@ class Stats_Model extends Model {
         } else {
             $query .= "GROUP by delivery_address.city;";
         }
-        $data = $this->db->query($query);
+        $data = $this->db->runQuery($query);
 
         $cities = array();
         $sales = array();
@@ -209,10 +209,10 @@ class Stats_Model extends Model {
     function getDailyOrderDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT HOUR(time) as time,COUNT(order_id) as orders FROM orders WHERE $filter
+            $data =  $this->db->runQuery("SELECT HOUR(time) as time,COUNT(order_id) as orders FROM orders WHERE $filter
         GROUP BY HOUR(time)");
         } else {
-            $data =  $this->db->query("SELECT HOUR(time) as time,COUNT(order_id) as orders FROM orders
+            $data =  $this->db->runQuery("SELECT HOUR(time) as time,COUNT(order_id) as orders FROM orders
         GROUP BY HOUR(time)");
         }
         // print_r($data);
@@ -243,10 +243,10 @@ class Stats_Model extends Model {
     function getWeeklyOrderDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT WEEKDAY(date) as day,COUNT(order_id) as orders FROM orders 
+            $data =  $this->db->runQuery("SELECT WEEKDAY(date) as day,COUNT(order_id) as orders FROM orders 
         WHERE YEARWEEK(date,5) = YEARWEEK($filter,5) GROUP BY DATE(date)");
         } else {
-            $data =  $this->db->query("SELECT WEEKDAY(date) as day,COUNT(order_id) as orders FROM orders 
+            $data =  $this->db->runQuery("SELECT WEEKDAY(date) as day,COUNT(order_id) as orders FROM orders 
         WHERE YEARWEEK(date,5) = YEARWEEK(CURDATE(),5) GROUP BY DATE(date)");
         }
         // print_r($data);
@@ -272,11 +272,11 @@ class Stats_Model extends Model {
     function getMonthlyOrderDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT date,COUNT(order_id) as orders FROM orders
+            $data =  $this->db->runQuery("SELECT date,COUNT(order_id) as orders FROM orders
             WHERE MONTH(date) = MONTH($filter) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date ");
         } else {
-            $data =  $this->db->query("SELECT date,COUNT(order_id) as orders FROM orders
+            $data =  $this->db->runQuery("SELECT date,COUNT(order_id) as orders FROM orders
             WHERE MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date ");
         }
@@ -300,7 +300,7 @@ class Stats_Model extends Model {
 
     function getYearlyOrderDistribution($filter = false) {
 
-        $data =  $this->db->query("SELECT MONTH(date) as month,COUNT(order_id) as orders FROM orders 
+        $data =  $this->db->runQuery("SELECT MONTH(date) as month,COUNT(order_id) as orders FROM orders 
         WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date)");
         // print_r($data);
         $months = array('January', 'Februray', 'March', 'April', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
@@ -324,11 +324,11 @@ class Stats_Model extends Model {
     function getDailySalesDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT HOUR(time) as time,SUM(order_item.item_qty) as sales FROM orders
+            $data =  $this->db->runQuery("SELECT HOUR(time) as time,SUM(order_item.item_qty) as sales FROM orders
             INNER JOIN order_item ON order_item.order_id=orders.order_id WHERE $filter
         GROUP BY HOUR(time)");
         } else {
-            $data =  $this->db->query("SELECT HOUR(time) as time,SUM(order_item.item_qty) as sales FROM orders
+            $data =  $this->db->runQuery("SELECT HOUR(time) as time,SUM(order_item.item_qty) as sales FROM orders
             INNER JOIN order_item ON order_item.order_id=orders.order_id
         GROUP BY HOUR(time)");
         }
@@ -360,10 +360,10 @@ class Stats_Model extends Model {
     function getWeeklySalesDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT WEEKDAY(date) as day,SUM(order_item.item_qty) as sales FROM orders 
+            $data =  $this->db->runQuery("SELECT WEEKDAY(date) as day,SUM(order_item.item_qty) as sales FROM orders 
         INNER JOIN order_item ON order_item.order_id=orders.order_id WHERE YEARWEEK(date,5) = YEARWEEK($filter,5) GROUP BY DATE(date)");
         } else {
-            $data =  $this->db->query("SELECT WEEKDAY(date) as day,SUM(order_item.item_qty) as sales FROM orders 
+            $data =  $this->db->runQuery("SELECT WEEKDAY(date) as day,SUM(order_item.item_qty) as sales FROM orders 
         INNER JOIN order_item ON order_item.order_id=orders.order_id WHERE YEARWEEK(date,5) = YEARWEEK(CURDATE(),5) GROUP BY DATE(date)");
         }
         // print_r($data);
@@ -389,11 +389,11 @@ class Stats_Model extends Model {
     function getMonthlySalesDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT date,SUM(order_item.item_qty) as sales FROM orders
+            $data =  $this->db->runQuery("SELECT date,SUM(order_item.item_qty) as sales FROM orders
             INNER JOIN order_item ON order_item.order_id=orders.order_id WHERE MONTH(date) = MONTH($filter) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date ");
         } else {
-            $data =  $this->db->query("SELECT date,SUM(order_item.item_qty) as sales FROM orders
+            $data =  $this->db->runQuery("SELECT date,SUM(order_item.item_qty) as sales FROM orders
             INNER JOIN order_item ON order_item.order_id=orders.order_id WHERE MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date ");
         }
@@ -417,7 +417,7 @@ class Stats_Model extends Model {
 
     function getYearlySalesDistribution($filter = false) {
 
-        $data =  $this->db->query("SELECT MONTH(date) as month,SUM(order_item.item_qty) as sales FROM orders 
+        $data =  $this->db->runQuery("SELECT MONTH(date) as month,SUM(order_item.item_qty) as sales FROM orders 
         INNER JOIN order_item ON order_item.order_id=orders.order_id WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date)");
         // print_r($data);
         $months = array('January', 'Februray', 'March', 'April', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
@@ -441,14 +441,14 @@ class Stats_Model extends Model {
     function getDailyRevenueDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT HOUR(time) as time, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
+            $data =  $this->db->runQuery("SELECT HOUR(time) as time, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
             INNER JOIN order_item ON orders.order_id=order_item.order_id
             INNER JOIN product on product.product_id = order_item.product_id
             INNER JOIN price_category on product.price_category_id = price_category.price_category_id
             WHERE $filter
         GROUP BY HOUR(time)");
         } else {
-            $data =  $this->db->query("SELECT HOUR(time) as time, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
+            $data =  $this->db->runQuery("SELECT HOUR(time) as time, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
             INNER JOIN order_item ON orders.order_id=order_item.order_id
             INNER JOIN product on product.product_id = order_item.product_id
             INNER JOIN price_category on product.price_category_id = price_category.price_category_id
@@ -487,13 +487,13 @@ class Stats_Model extends Model {
     function getWeeklyRevenueDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT WEEKDAY(date) as day, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
+            $data =  $this->db->runQuery("SELECT WEEKDAY(date) as day, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
             INNER JOIN order_item ON orders.order_id=order_item.order_id
             INNER JOIN product on product.product_id = order_item.product_id
             INNER JOIN price_category on product.price_category_id = price_category.price_category_id
         WHERE YEARWEEK(date,5) = YEARWEEK($filter,5) GROUP BY DATE(date)");
         } else {
-            $data =  $this->db->query("SELECT WEEKDAY(date) as day, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
+            $data =  $this->db->runQuery("SELECT WEEKDAY(date) as day, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
             INNER JOIN order_item ON orders.order_id=order_item.order_id
             INNER JOIN product on product.product_id = order_item.product_id
             INNER JOIN price_category on product.price_category_id = price_category.price_category_id WHERE YEARWEEK(date,5) = YEARWEEK(CURDATE(),5) GROUP BY DATE(date)");
@@ -526,13 +526,13 @@ class Stats_Model extends Model {
     function getMonthlyRevenueDistribution($filter = false) {
 
         if ($filter) {
-            $data =  $this->db->query("SELECT date, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
+            $data =  $this->db->runQuery("SELECT date, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
             INNER JOIN order_item ON orders.order_id=order_item.order_id
             INNER JOIN product on product.product_id = order_item.product_id
             INNER JOIN price_category on product.price_category_id = price_category.price_category_id WHERE MONTH(date) = MONTH($filter) AND YEAR(date) = YEAR(CURRENT_DATE())
             GROUP by date ");
         } else {
-            $data =  $this->db->query("SELECT date, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
+            $data =  $this->db->runQuery("SELECT date, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
             INNER JOIN order_item ON orders.order_id=order_item.order_id
             INNER JOIN product on product.product_id = order_item.product_id
             INNER JOIN price_category on product.price_category_id = price_category.price_category_id  WHERE MONTH(date) = MONTH(CURRENT_DATE()) AND YEAR(date) = YEAR(CURRENT_DATE())
@@ -564,7 +564,7 @@ class Stats_Model extends Model {
 
     function getYearlyRevenueDistribution($filter = false) {
 
-        $data =  $this->db->query("SELECT MONTH(date) as month, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
+        $data =  $this->db->runQuery("SELECT MONTH(date) as month, SUM(price_category.product_price*order_item.item_qty) as revenue,SUM(price_category.production_cost*order_item.item_qty) as cost FROM orders
         INNER JOIN order_item ON orders.order_id=order_item.order_id
         INNER JOIN product on product.product_id = order_item.product_id
         INNER JOIN price_category on product.price_category_id = price_category.price_category_id  WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date)");
