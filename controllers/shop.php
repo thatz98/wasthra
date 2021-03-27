@@ -224,18 +224,18 @@ class Shop extends Controller {
         $payMethod = $_POST['payment_method'];
         $data['order_id']=$orderID;
         if($buyNow=="false"){
-        Logs::writeApplicationLog('Placing an order with cart items','Attemting',Session::get('userData')['username'],$data);
+        Logs::writeApplicationLog('Placing an order with cart items','Attemting',Session::get('userData')['email'],$data);
         $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment,$buyNow);
-        Logs::writeApplicationLog('Order placed','Successfull',Session::get('userData')['username'],$data);
+        Logs::writeApplicationLog('Order placed','Successfull',Session::get('userData')['email'],$data);
         $this->model->deleteCartItems();
         Session::set('cartData', '');
         Session::set('cartCount', 0);
         Session::set('buyNowData', '');
         }
         else{
-            Logs::writeApplicationLog('Placing an order with buy now','Attemting',Session::get('userData')['username'],$data);
+            Logs::writeApplicationLog('Placing an order with buy now','Attemting',Session::get('userData')['email'],$data);
             $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment,$buyNow);
-            Logs::writeApplicationLog('Order placed','Successfull',Session::get('userData')['username'],$data);
+            Logs::writeApplicationLog('Order placed','Successfull',Session::get('userData')['email'],$data);
         }
 
         if ($_POST['payment_method'] == 'online payment') {

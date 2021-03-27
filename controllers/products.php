@@ -77,9 +77,9 @@ class Products extends Controller {
         for ($x = 0; $x < sizeof($imageName['temp']); $x++) {
             move_uploaded_file($imageName['temp'][$x], 'C:\xampp\htdocs\wasthra\public\images\products\\' . $imageName['img'][$x]);
         }
-        Logs::writeApplicationLog('Add new Product','Attempting',Session::get('userData')['username'],$data);
+        Logs::writeApplicationLog('Add new Product','Attempting',Session::get('userData')['email'],$data);
         $this->model->create($data, $imageName['img']);
-        Logs::writeApplicationLog('Product added','Successfull',Session::get('userData')['username'],$data);
+        Logs::writeApplicationLog('Product added','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . 'products');
     }
@@ -100,16 +100,16 @@ class Products extends Controller {
         if($_POST['size']==''){
             $data['size_couple'] = $_POST['size-couple'];
             $size_couple = $data['size_couple'];
-            Logs::writeApplicationLog('Add new Variant','Attempting',Session::get('userData')['username'],$data);
+            Logs::writeApplicationLog('Add new Variant','Attempting',Session::get('userData')['email'],$data);
             $this->model->addVarient($data, $size_couple);
-            Logs::writeApplicationLog('Variant added','Successfull',Session::get('userData')['username'],$data);
+            Logs::writeApplicationLog('Variant added','Successfull',Session::get('userData')['email'],$data);
         }
         else{
             $data['size'] = $_POST['size'];
             $size = $data['size'];
-            Logs::writeApplicationLog('Add new Variant','Attempting',Session::get('userData')['username'],$data);
+            Logs::writeApplicationLog('Add new Variant','Attempting',Session::get('userData')['email'],$data);
             $this->model->addVarient($data, $size);
-            Logs::writeApplicationLog('Variant added','Successfull',Session::get('userData')['username'],$data);
+            Logs::writeApplicationLog('Variant added','Successfull',Session::get('userData')['email'],$data);
         }
         
         header('location: ' . URL . 'products/productDetails/'.$product_id);        
@@ -194,9 +194,9 @@ class Products extends Controller {
         $imageName['img'] = $_FILES['img']['name'];
         $data['meta_product_name'] = metaphone($_POST['product_name']);
         $data['meta_product_desc'] = metaphone($_POST['product_description']);
-        Logs::writeApplicationLog('Edit product','Attempting',Session::get('userData')['username'],$data);
+        Logs::writeApplicationLog('Edit product','Attempting',Session::get('userData')['email'],$data);
         $this->model->update($data, $imageName['img'], $imageArray);
-        Logs::writeApplicationLog('Product edited','Successfull',Session::get('userData')['username'],$data);
+        Logs::writeApplicationLog('Product edited','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . 'products');
     }
@@ -214,9 +214,9 @@ class Products extends Controller {
         $data['prev_color'] = $_POST['prev_color'];
         $data['prev_size'] = $_POST['prev_size'];
         //print_r($data);
-        Logs::writeApplicationLog('Edit variant','Attempting',Session::get('userData')['username'],$data);
+        Logs::writeApplicationLog('Edit variant','Attempting',Session::get('userData')['email'],$data);
         $this->model->updateVariant($data, $product_id, $inventory_id);
-        Logs::writeApplicationLog('Variant edited','Successfull',Session::get('userData')['username'],$data);
+        Logs::writeApplicationLog('Variant edited','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . 'products/productDetails/'.$product_id); 
 
@@ -229,9 +229,9 @@ class Products extends Controller {
      * @return void
      */
     function delete($id) {
-        Logs::writeApplicationLog('Delete product','Attempting',Session::get('userData')['username'],$id);
+        Logs::writeApplicationLog('Delete product','Attempting',Session::get('userData')['email'],$id);
         $this->model->delete($id);
-        Logs::writeApplicationLog('Product deleted','Successfull',Session::get('userData')['username'],$id);
+        Logs::writeApplicationLog('Product deleted','Successfull',Session::get('userData')['email'],$id);
 
         header('location: ' . URL . 'products');
     }
@@ -244,9 +244,9 @@ class Products extends Controller {
      * @return void
      */
     function deleteVariant($id,$pID) {
-        Logs::writeApplicationLog('Delete variant','Attempting',Session::get('userData')['username'],$id);
+        Logs::writeApplicationLog('Delete variant','Attempting',Session::get('userData')['email'],$id);
         $this->model->deleteVariant($id);
-        Logs::writeApplicationLog('Variant deleted','Successfull',Session::get('userData')['username'],$id);
+        Logs::writeApplicationLog('Variant deleted','Successfull',Session::get('userData')['email'],$id);
 
         header('location: ' . URL . 'products/productDetails/'.$pID);
     }
@@ -259,9 +259,9 @@ class Products extends Controller {
      * @return void
      */
     function deleteImage($id, $name) {
-        Logs::writeApplicationLog('Delete image','Attempting',Session::get('userData')['username'],$id);
+        Logs::writeApplicationLog('Delete image','Attempting',Session::get('userData')['email'],$id);
         $this->model->deleteImage($id, $name);
-        Logs::writeApplicationLog('Image deleted','Successfull',Session::get('userData')['username'],$id);
+        Logs::writeApplicationLog('Image deleted','Successfull',Session::get('userData')['email'],$id);
 
         header('location: ' . URL . 'edit/' . $id);
     }
