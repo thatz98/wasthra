@@ -30,7 +30,7 @@ class Search extends Controller {
         $this->view->sizeList =  $this->model->getSizes();
         $this->view->colorList =  $this->model->getColors();
         $this->view->categoryList =  $this->model->getCategories();
-
+        $this->view->selectedKeyword = $keyword;
         $this->view->render('shop/advanced_search');
     }
     
@@ -56,6 +56,11 @@ class Search extends Controller {
         }
         if (isset($_GET['keyword'])) {
             $filters['keyword'] = $_GET['keyword'];
+            $this->view->selectedKeyword = $filters['keyword'];
+        }
+
+        if (isset($_POST['keyword'])) {
+            $filters['keyword'] = $_POST['keyword'];
             $this->view->selectedKeyword = $filters['keyword'];
         }
         $this->view->title = 'Search Results';
