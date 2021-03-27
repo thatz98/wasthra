@@ -41,7 +41,10 @@ class PriceCategories extends Controller {
         $data['add_market_price'] = $_POST['market_price'];
         $data['discount'] = $_POST['discount'];
 
+                    
+        Logs::writeApplicationLog('Add Price Category','Attemting',Session::get('userData')['email'],$data);
         $this->model->create($data);
+        Logs::writeApplicationLog('Price Category Added','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . 'priceCategories');
     }
@@ -59,6 +62,7 @@ class PriceCategories extends Controller {
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'priceCategories">Price Categories</a> <i class="fas fa-angle-right"></i>Edit Price Category';
 
         // get category details of the given id
+        
         $this->view->getpricecat = $this->model->getPriceCategory($id);
 
         $this->view->render('control_panel/owner/edit_price_categories');
@@ -80,7 +84,11 @@ class PriceCategories extends Controller {
         $data['add_market_price'] = $_POST['market_price'];
         $data['discount'] = $_POST['discount'];
 
+
+        Logs::writeApplicationLog('Update Price Category','Attemting',Session::get('userData')['email'],$data);
         $this->model->update($data);
+        Logs::writeApplicationLog('Price Category Updated','Successfull',Session::get('userData')['email'],$data);
+
 
         header('location: ' . URL . 'priceCategories');
     }
@@ -94,7 +102,10 @@ class PriceCategories extends Controller {
      */
     function delete($id) {
 
+        Logs::writeApplicationLog('Delete Price Category','Attemting',Session::get('userData')['email'],$data);
         $this->model->delete($id);
+        Logs::writeApplicationLog('Price Category Deleted','Successfull',Session::get('userData')['email'],$data);
+
 
         header('location: ' . URL . 'priceCategories');
     }
