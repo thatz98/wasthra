@@ -54,32 +54,6 @@
                         </div>
             </th>
             <th>Color
-                <i onclick="showFilters('inventory-table',1,'dropdown-filter-2','checkbox-2','checkbox-all-2')" class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
-                        <div class="dropdown-filter-dropdown" id="dropdown-filter-2" style="display:none;">
-                            <div class="dropdown-filter-content">
-                                <div class="close-icon">
-                                    <span style="float: left;">Filters:</span>
-                                    <i class="fa fa-close" onclick="closeFilter('dropdown-filter-2')"></i>
-                                </div>
-                                <div class="dropdown-filter-sort" onclick="sortTable('inventory-table',1,'asc')">
-                                    <i class="fas fa-sort-alpha-up"></i><span>Sort A to Z</span>
-                                </div>
-                                <div class="dropdown-filter-sort" onclick="sortTable('inventory-table',1,'desc')">
-                                    <i class="fas fa-sort-alpha-down-alt"></i><span>Sort Z to A</span>
-                                </div>
-                                <div class="dropdown-filter-search table-search">
-                                    <input type="text" id="dropdown-keyword-input-2" onkeyup="filterByDropdownKeyword('inventory-table',1,'dropdown-keyword-input-2')" placeholder="Filter by keyword..">
-                                </div>
-                                <div class="checkbox-container">
-                                    <input class="select-all" type="checkbox" id="checkbox-all-2" onchange="checkAll('inventory-table','checkbox-all-2')" checked="true"><span>Select
-                                        All</span>
-                                    <div id="checkbox-2">
-                                    </div>
-                                    <i class="fas fa-eraser"></i><a onclick="clearFilters('inventory-table','checkbox-all-2')">
-                                        Clear Filters</a>
-                                </div>
-                            </div>
-                        </div>
             </th>
             <th>Size
                 <i onclick="showFilters('inventory-table',2,'dropdown-filter-3','checkbox-3','checkbox-all-3')" class="fa fa-filter" aria-hidden="true" style="font-size: 13px; margin: 5px 0 0 5px;"></i>
