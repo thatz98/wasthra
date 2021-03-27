@@ -37,7 +37,10 @@ class DeliveryCharges extends Controller {
         $data['city'] = $_POST['delivery_city'];
         $data['delivery_fee'] = $_POST['delivery_fee'];
 
+        Logs::writeApplicationLog('Add Delivery Charge','Attemting',Session::get('userData')['email'],$data);
         $this->model->create($data);
+        Logs::writeApplicationLog('Delivery Charge Added','Successfull',Session::get('userData')['email'],$data);
+
 
         header('location: ' . URL . 'deliveryCharges');
     }
@@ -71,7 +74,10 @@ class DeliveryCharges extends Controller {
         $data['city'] = $_POST['delivery_city'];
         $data['delivery_fee'] = $_POST['delivery_fee'];
 
+        Logs::writeApplicationLog('Update Delivery Charge','Attemting',Session::get('userData')['email'],$data);
         $this->model->update($data);
+        Logs::writeApplicationLog('Delivery Charge Updated','Successfull',Session::get('userData')['email'],$data);
+
 
         header('location: ' . URL . 'deliveryCharges');
     }
@@ -84,8 +90,11 @@ class DeliveryCharges extends Controller {
      * @return void
      */
     function delete($id) {
+        
 
+        Logs::writeApplicationLog('Delete Delivery Charge','Attemting',Session::get('userData')['email'],$data);
         $this->model->delete($id);
+        Logs::writeApplicationLog('Delivery Charge Deleted','Successfull',Session::get('userData')['email'],$data);
 
         header('location:' . URL . 'deliveryCharges');
     }
