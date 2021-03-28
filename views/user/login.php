@@ -127,9 +127,6 @@
                                                 <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()" id="first_name">
                                                 <span class="popuptext"></span>
                                             </div>
-                                            <!---    <label>First Name</label><br>
-                                        <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()" id="first_name">
-                                        <div class="helper-text"><span></span></div> ----->
                                         </div>
                                         <div class="col-3">
                                             <div class="helper-text">
@@ -185,10 +182,6 @@
                                                     <input type="radio" id="other" name="gender" value="other">
                                                     <label for="other">Other</label>
                                                 </div>
-                                                <!----<select name="gender">
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                </select> ---->
                                                 <span class="popuptext"></span>
                                             </div>
                                         </div>
