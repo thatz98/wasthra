@@ -135,7 +135,7 @@ class Orders extends Controller {
     function assignedOrderDetails($id) {
 
         $this->view->title = 'Assigned Order Details';
-        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'orders/assignedOrderDetails">Assigned Orders</a> <i class="fas fa-angle-right"></i> Assigned Order Details';
+        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'orders/assignedOrders">Assigned Orders</a> <i class="fas fa-angle-right"></i> Assigned Order Details';
         
         $this->view->orderDetails = $this->model->getOrderDetails($id)[0];
         $this->view->orderItems = $this->model->getOrderItems($id);
@@ -161,7 +161,7 @@ class Orders extends Controller {
     function historyDetails($id) {
 
         $this->view->title = 'History Details';
-        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'orders/historyDetails">History</a> <i class="fas fa-angle-right"></i> History Details';
+        $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'orders/history">History</a> <i class="fas fa-angle-right"></i> History Details';
         
         $this->view->orderDetails = $this->model->getOrderDetails($id)[0];
         $this->view->orderItems = $this->model->getOrderItems($id);
@@ -220,6 +220,21 @@ class Orders extends Controller {
 
         header('location: ' . URL . "orders/assignedOrderDetails/{$data['order_id']}");
     }
+
+    function updatePaymentStatus() {
+
+        $data = array();
+        $data['order_id'] = $_POST['order_id'];
+        $data['payment_status'] = $_POST['payment_status'];
+
+
+        Logs::writeApplicationLog('Update Payment Status','Attemting',Session::get('userData')['email'],$data);
+        $this->model->updatePaymentStatus($data);
+        Logs::writeApplicationLog('Payment Status Updated','Successfull',Session::get('userData')['email'],$data);
+
+        header('location: ' . URL . "orders/assignedOrderDetails/{$data['order_id']}");
+    }
+
 
     /**
      * Create a delivery for an order

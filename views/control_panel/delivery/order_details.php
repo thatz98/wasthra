@@ -1,6 +1,7 @@
 <?php require 'views/header_dashboard.php'; ?>
 
-<?php require 'views/control_panel/delivery/update_status.php'; ?>
+<?php require 'views/control_panel/delivery/update_order_status.php'; ?>
+<?php require 'views/control_panel/delivery/update_payment_status.php'; ?>
 
 <div class="small-container">
     <div class="row">
@@ -8,94 +9,117 @@
     </div>
     <div class="row-top">
         <div class="col-2">
-            <div class="box-container" >
+            <div class="box-container">
                 <h3>Items</h3>
-                <?php $this->subtotal=0.00;?>
+                <?php $this->subtotal = 0.00; ?>
                 <table class="order-list order-items">
 
-                <?php $subTotal=0; 
-                    foreach($this->orderItems as $item){
-?>
-                    <tr>
-                     <td>
-                       <img src="<?php echo URL.$item['image'];?>" width="50px" height="50px">
-                     </td>
-                     
-                        <td class="order-details">
-                            <h4><?php echo $item['product_name'];?></h4>
-                            <h5><?php $subTotal+=$item['product_price']*$item['item_qty']; 
-                                    echo $item['product_price']?></h5>
+                    <?php $subTotal = 0;
+                    foreach ($this->orderItems as $item) {
+                    ?>
+                        <tr>
+                            <td>
+                                <img src="<?php echo URL . $item['image']; ?>" width="50px" height="50px">
+                            </td>
+
+                            <td class="order-details">
+                                <h4><?php echo $item['product_name']; ?></h4>
+                                <h5><?php $subTotal += $item['product_price'] * $item['item_qty'];
+                                    echo $item['product_price'] ?></h5>
                                 <?php ?>
-                            <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $item['item_color']; ?>"></span>
-                                <label class="input-data">Size:<?php echo $item['item_size']; ?></label>
-                                <label class="input-data">Qty: <?php echo $item['item_qty']; ?></label>
-                            </div>
-                        </td>
-                        
-                    </tr>
-                    <?php }?>
-                </table>     
+                                <div class="item-input">
+                                    <label>Color:</label><span class="color-dot" style="background-color:<?php echo $item['item_color']; ?>"></span>
+                                    <label class="input-data">Size:<?php echo $item['item_size']; ?></label>
+                                    <label class="input-data">Qty: <?php echo $item['item_qty']; ?></label>
+                                </div>
+                            </td>
+
+                        </tr>
+                    <?php } ?>
+                </table>
             </div>
         </div>
         <div class="col-2">
             <div class="row">
-                <div class="box-container" >
+                <div class="box-container">
                     <h3>Summary</h3>
                     <div class="summary-info">
-                        
+
                         <div class="row">
-                            
+
                             <div class="col-2" style="min-width: 0;">
-                             <h4>Order ID:<?php echo $this->orderDetails['order_id']; ?></h4>
-                             <h5>Date: <?php echo $this->orderDetails['date']; ?>   Time: <?php echo $this->orderDetails['time']; ?></h5>
-                             <h5>Payment Method:<?php echo $this->orderDetails['payment_method']; ?></h5>
-                            
-                            
-                             <?php $status=$this->orderDetails['order_status']; $color='';
-                                switch($status){
+                                <h4>Order ID:<?php echo $this->orderDetails['order_id']; ?></h4>
+                                <h5>Date: <?php echo $this->orderDetails['date']; ?> Time: <?php echo $this->orderDetails['time']; ?></h5>
+                                <h5>Payment Method:<?php echo $this->orderDetails['payment_method']; ?></h5>
+
+
+                                <?php $status = $this->orderDetails['order_status'];
+                                $color = '';
+                                switch ($status) {
                                     case 'New':
-                                        $color='04CBE0';
-                                        $status='New';
+                                        $color = '04CBE0';
+                                        $status = 'New';
                                         break;
                                     case 'In Transit':
-                                        $color='18ea32';
-                                        $status='In Transit';
+                                        $color = '18ea32';
+                                        $status = 'In Transit';
                                         break;
                                     case 'Delivered':
-                                        $color='d1af15';
-                                        $status='Delivered';
+                                        $color = 'd1af15';
+                                        $status = 'Delivered';
                                         break;
                                     case 'Cancelled':
-                                        $color='e22525';
-                                        $status='Cancelled';
-                                        break;    
-                                    }?>
+                                        $color = 'e22525';
+                                        $status = 'Cancelled';
+                                        break;
+                                } ?>
 
-                                    <h5>Order Status: <span style="color: #<?php echo $color?>"><?php echo $status?></span></h5>
-                                        
+                                <h5>Order Status: <span style="color: #<?php echo $color ?>"><?php echo $status ?></span></h5>
+
+                                <?php $status = $this->orderDetails['payment_status'];
+                                $color = '';
+                                switch ($status) {
+                                    case 'successfull':
+                                        $color = 'd1af15';
+                                        $status = 'successful';
+                                        break;
+                                    case 'pending':
+                                        $color = '18ea32';
+                                        $status = 'Pending';
+                                        break;
+                                } ?>
+                                <h5>Payment Status: <span style="color: #<?php echo $color ?>"><?php echo $status ?></span></h5>
+                                <h5>Comments:<?php echo $this->orderDetails['delivery_comment'];?></h5>
+
+                            </div>
+                            <div class="col-2" style="min-width: 0;">
+                                <div class="row">
+                                    <a href="#updateOrderStatus" class="btn">Update Order Status</a>
+                                </div>
+                                <div class="row">
+                                    <a href="#updatePaymentStatus" class="btn">Update Payment Status</a>
+                                </div>
+
+                            </div>
+                            <div></div>
+
                         </div>
-                        <div class="col-2" style="min-width: 0;">
-                            <a href="#updateStatus" class="btn">Update Status</a>
-                        </div>
-                   
-                        </div>
-                        
+
                     </div>
                     <div class="total-price">
                         <table>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>LKR <?php echo number_format($subTotal,2,'.','');?></td>
+                                <td>LKR <?php echo number_format($subTotal, 2, '.', ''); ?></td>
                             </tr>
                             <tr>
                                 <td>Delivery chargers</td>
 
-                                <td>LKR <?php echo number_format($this->orderDetails['delivery_fee'],2,'.','');?></td>
+                                <td>LKR <?php echo number_format($this->orderDetails['delivery_fee'], 2, '.', ''); ?></td>
                             </tr>
                             <tr>
                                 <td>Total Price</td>
-                                <td>LKR <?php echo number_format($subTotal+$this->orderDetails['delivery_fee'],2,'.','');?></td>
+                                <td>LKR <?php echo number_format($subTotal + $this->orderDetails['delivery_fee'], 2, '.', ''); ?></td>
                             </tr>
                         </table>
                     </div>
@@ -108,7 +132,7 @@
                             <h3>Delivery Info</h3>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col-2" style="min-width: 0;">
                                 <label class="address">
                                     To:<br>
@@ -122,11 +146,11 @@
                                 </label>
                             </div>
                             <div class="col-2" style="min-width: 0;">
-                                    <label class="address">
+                                <label class="address">
                                     Expected Delivery Date: <?php echo $this->orderDetails['expected_delivery_date']; ?><br><br>
-                                    Assinged deliver: <?php echo Session::get('userData')['first_name'].' '.Session::get('userData')['last_name'];?><br>
+                                    Assinged deliver: <?php echo Session::get('userData')['first_name'] . ' ' . Session::get('userData')['last_name']; ?><br>
                                 </label>
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $this->orderDetails['latitude'].','.$this->orderDetails['longitude'];?>" class="btn">Use Maps</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $this->orderDetails['latitude'] . ',' . $this->orderDetails['longitude']; ?>" class="btn">Use Maps</a>
                             </div>
                         </div>
                     </div>

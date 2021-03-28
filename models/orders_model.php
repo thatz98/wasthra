@@ -53,7 +53,7 @@ class Orders_Model extends Model {
      */
     function getOrderDetails($id) {
 
-        return $this->db->runQuery("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
+        return $this->db->runQuery("SELECT orders.order_id,orders.date,orders.time,orders.order_status,orders.delivery_comment,payment.payment_method,payment.payment_status,
         checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
         delivery_address.postal_code,delivery_address.city,delivery_address.longitude,delivery_address.latitude,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
         delivery_staff.first_name,delivery_staff.last_name,delivery_charges.delivery_fee,delivery.delivery_id,customer.first_name as customer_first_name,
@@ -201,6 +201,12 @@ class Orders_Model extends Model {
 
         $this->trackingUpdate($orderId);
     }
+    function updatePaymentStatus($data) {
+        $orderId = $data['order_id'];
+        $orderStatus = $data['payment_status'];
+        $this->db->queryExecuteOnly("UPDATE payment SET payment_status='$orderStatus' WHERE order_id ='$orderId'");
+
+    }
 
     function trackingUpdate($id) {
         $status = $this->db->query("SELECT order_status FROM orders WHERE order_id='$id'");
@@ -221,7 +227,6 @@ class Orders_Model extends Model {
     function create($data) {
         $orderId = $data['order_id'];
         $userId = $data['user_id'];
-        // $this->db->runQuery('INSERT into delivery(order_id,user_id,expected_delivery_date) VALUES(:orderId,:userId,DATE_ADD(CURDATE(),INTERVAL 5 DAY))',array('orderId'=>$data['order_id'],'userid'=>$data['user_id']));
         $this->db->runQuery("INSERT into delivery(order_id,user_id,expected_delivery_date) VALUES('$orderId','$userId',DATE_ADD(CURDATE(),INTERVAL 5 DAY))");
         $this->db->update('orders', array('order_status' => 'Out for Delivery'), 'order_id=:order_id', array('order_id' => $data['order_id']));
         $this->trackingUpdate($data['order_id']);

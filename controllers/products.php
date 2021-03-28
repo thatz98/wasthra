@@ -161,11 +161,7 @@ class Products extends Controller {
         //$this->view->imageList = $this->model->getImagesByID($id);
         $this->view->imageList =  $this->model->getImages();
 
-        // $sizeArray = array();
-        // foreach ($this->model->getSizesByID($id) as $sizes) {
-        //     array_push($sizeArray, $sizes['sizes']);
-        // }
-        // $this->view->sizes = $sizeArray;
+        
 
         $this->view->render('control_panel/admin/edit_products');
     }
