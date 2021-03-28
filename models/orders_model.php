@@ -227,7 +227,6 @@ class Orders_Model extends Model {
     function create($data) {
         $orderId = $data['order_id'];
         $userId = $data['user_id'];
-        // $this->db->runQuery('INSERT into delivery(order_id,user_id,expected_delivery_date) VALUES(:orderId,:userId,DATE_ADD(CURDATE(),INTERVAL 5 DAY))',array('orderId'=>$data['order_id'],'userid'=>$data['user_id']));
         $this->db->runQuery("INSERT into delivery(order_id,user_id,expected_delivery_date) VALUES('$orderId','$userId',DATE_ADD(CURDATE(),INTERVAL 5 DAY))");
         $this->db->update('orders', array('order_status' => 'Out for Delivery'), 'order_id=:order_id', array('order_id' => $data['order_id']));
         $this->trackingUpdate($data['order_id']);
