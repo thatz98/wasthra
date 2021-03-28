@@ -180,7 +180,11 @@ class Orders extends Controller {
         $data['order_id'] = $_POST['order_id'];
         $data['order_status'] = $_POST['order_status'];
 
+
+        Logs::writeApplicationLog('Update Order Status','Attemting',Session::get('userData')['email'],$data);
         $this->model->update($data);
+        Logs::writeApplicationLog('Order Status Updated','Successfull',Session::get('userData')['email'],$data);
+
         if($data['order_status']=='Cancelled'){
             $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
             $msg = "ORDER ID:". $data['order_id'] . ' successfully cancelled';
@@ -209,7 +213,10 @@ class Orders extends Controller {
         $data['order_id'] = $_POST['order_id'];
         $data['order_status'] = $_POST['order_status'];
 
+
+        Logs::writeApplicationLog('Update Delivery Status','Attemting',Session::get('userData')['email'],$data);
         $this->model->update($data);
+        Logs::writeApplicationLog('Delivery Status Updated','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . "orders/assignedOrderDetails/{$data['order_id']}");
     }
@@ -224,11 +231,20 @@ class Orders extends Controller {
         $data = array();
         $data['user_id'] = $_POST['assigned_deliver'];
         $data['order_id'] = $_POST['order_id'];
+
+
 if($flag=='update'){
+    Logs::writeApplicationLog('Re-assign Deliver','Attemting',Session::get('userData')['email'],$data);
     $this->model->updateDeliver($data);
+    Logs::writeApplicationLog('Deliver Re-assigned','Successfull',Session::get('userData')['email'],$data);
 } else{
+    Logs::writeApplicationLog('Assign Deliver','Attemting',Session::get('userData')['email'],$data);
     $this->model->create($data);
+    Logs::writeApplicationLog('Deliver assigned','Successfull',Session::get('userData')['email'],$data);
 }
+ 
+    
+
         
         //  print_r($data);
         header("location: " . URL . "orders/orderDetails/{$data['order_id']}");
