@@ -194,8 +194,8 @@
                             } else {
                                 echo $inventory['reorder_qty'];
                             } ?></td>
-                        <td><a href="<?php echo URL ?>inventory/edit/<?php echo $inventory['product_id'] ?>/<?php echo $inventory['size'] ?>/<?php echo trim($inventory['color'],"#") ?>">
-                        <button class="table-btn btn-blue">Edit</button></a>
+                        <td><a href="<?php echo URL ?>inventory/edit/<?php echo $inventory['product_id'] ?>/<?php echo $inventory['size'] ?>/<?php echo trim($inventory['color'], "#") ?>">
+                                <button class="table-btn btn-blue">Edit</button></a>
 
 
                     </tr>

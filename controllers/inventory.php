@@ -1,20 +1,23 @@
 <?php
 
-class Inventory extends Controller {
+class Inventory extends Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
 
         parent::__construct();
         // restrict access to only admin and owner
         Authenticate::adminAuth();
     }
-    
+
     /**
      * Display invertory management page
      *
      * @return void
      */
-    function index() {
+    function index()
+    {
         $this->view->title = 'Inventory';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'products">Products</a> <i class="fas fa-angle-right"></i> Inventory';
 
@@ -23,30 +26,32 @@ class Inventory extends Controller {
         $this->view->totProducts = $this->model->getProductCount();
         $this->view->render('control_panel/admin/inventory');
     }
-    
+
     /**
      * Display edit inventory page
      *
      * @param  mixed $id Id of the product inventory that need to be updated
      * @return void
      */
-    function edit($id,$size,$color) {
+    function edit($id, $size, $color)
+    {
 
         $this->view->title = 'Inventory';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'products">Products</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'controlPanel/inventory">Inventory</a> <i class="fas fa-angle-right"></i>Edit Inventory';
 
         // get the details of a given id
-        $this->view->getInventory = $this->model->getInventory($id,$size,$color);
-        
+        $this->view->getInventory = $this->model->getInventory($id, $size, $color);
+
         $this->view->render('control_panel/admin/edit_inventory');
     }
-    
+
     /**
      * Update existing inventory details
      *
      * @return void
      */
-    function editSave() {
+    function editSave()
+    {
 
         $data = array();
         $data['product_id'] = $_POST['product_id'];
@@ -54,11 +59,9 @@ class Inventory extends Controller {
         $data['reorder_qty'] = $_POST['reorder_quantity'];
         $data['size'] = $_POST['size'];
         $data['color'] = $_POST['color'];
-        
+
         $this->model->update($data);
-        
+
         header('location: ' . URL . 'inventory');
     }
-
-    
 }

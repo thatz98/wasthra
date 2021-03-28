@@ -36,8 +36,3 @@ class Inventory_Model extends Model{
         }
 
     }
-
-        
-
-
-?>
