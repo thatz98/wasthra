@@ -28,22 +28,15 @@
                             <label>Mobile Number</label><br>
                             <input type="text" name="contact_no" placeholder="07XXXXXXXX" data-helper="Mobile No," onfocusout="validateEditContactNo()" id="contact_no_edituser" value="<?php echo $this->user[0]['contact_no'] ?>">
                             <span class="popuptext"></span>
-                            
+
                         </div>
                     </div>
                     <div class="col-2">
-                        <div class="helper-text">
-                            <label>User Type</label><br><select name="user_type" <?php if ($this->user[0]['user_type'] == 'owner') echo 'disabled'; ?>>
-                                <option value="customer" <?php if ($this->user[0]['user_type'] == 'customer') echo "selected=\"selected\""; ?>>
-                                    Customer</option>
-                                <option value="admin" <?php if ($this->user[0]['user_type'] == 'admin') echo "selected=\"selected\""; ?>>Admin
-                                </option>
-                                <?php if ($this->user[0]['user_type'] == 'owner') echo '<option value="owner" selected>Owner</option>'; ?>
-                                <option value="delivery_staff" <?php if ($this->user[0]['user_type'] == 'delivery_staff') echo "selected=\"selected\""; ?>>
-                                    Delivery</option>
-                            </select>
-                            <span class="popuptext"></span>
-                        </div>
+                            <div class="helper-text">
+                                <label>Email</label><br>
+                                <input type="email" name="email" value="<?php echo $this->user[0]['email'] ?>" data-helper="Email" onfocusout="validateEditEmail()" id="email_edituser"><br>
+                                <span class="popuptext"></span>
+                            </div>           
                     </div>
                 </div>
                 <div class="row">
@@ -63,9 +56,16 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <div class="helper-text">
-                            <label>Email</label><br>
-                            <input type="email" name="email" value="<?php echo $this->user[0]['email'] ?>" data-helper="Email" onfocusout="validateEditEmail()" id="email_edituser"><br>
+                    <div class="helper-text">
+                            <label>User Type</label><br><select name="user_type" <?php if ($this->user[0]['user_type'] == 'owner') echo 'disabled'; ?>>
+                                <option value="customer" <?php if ($this->user[0]['user_type'] == 'customer') echo "selected=\"selected\""; ?>>
+                                    Customer</option>
+                                <option value="admin" <?php if ($this->user[0]['user_type'] == 'admin') echo "selected=\"selected\""; ?>>Admin
+                                </option>
+                                <?php if ($this->user[0]['user_type'] == 'owner') echo '<option value="owner" selected>Owner</option>'; ?>
+                                <option value="delivery_staff" <?php if ($this->user[0]['user_type'] == 'delivery_staff') echo "selected=\"selected\""; ?>>
+                                    Delivery</option>
+                            </select>
                             <span class="popuptext"></span>
                         </div>
                     </div>
