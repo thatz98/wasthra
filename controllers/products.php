@@ -29,6 +29,9 @@ class Products extends Controller {
         $this->view->totQuantity = $this->model->getQty();
         $this->view->totProducts = $this->model->getProductCount();
         $this->view->allProducts = $this->model->getAllProducts();
+        $this->view->pricecategoryList = $this->model->getPriceCategories();
+        //print_r($this->model->getPriceCategories());
+        $this->view->categoryList = $this->model->getCategories();
 
         $this->view->render('control_panel/admin/products');
     }

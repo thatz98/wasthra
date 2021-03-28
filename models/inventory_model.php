@@ -13,9 +13,11 @@ class Inventory_Model extends Model{
             
         }
 
-        function getInventory($id){
-
-            return $this->db->selectOneWhere('inventory',array('product_id','qty','reorder_qty','reorder_level','size','color'),"product_id=:id",array('id'=>$id));
+        function getInventory($id,$size,$colorPass){
+            $color='#'.$colorPass;
+            
+            return $this->db->selectOneWhere('inventory',array('product_id','qty','reorder_qty','reorder_level','size','color'),
+            "product_id=:id AND size=:size AND color=:color",array('id'=>$id,'size'=>$size,'color'=>$color));
         }
 
         function update($data){
@@ -34,8 +36,3 @@ class Inventory_Model extends Model{
         }
 
     }
-
-        
-
-
-?>
