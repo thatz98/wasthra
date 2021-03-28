@@ -34,7 +34,7 @@
                     <div class="col-2">
                             <div class="helper-text">
                                 <label>Email</label><br>
-                                <input type="email" name="email" value="<?php echo $this->user[0]['email'] ?>" data-helper="Email" onfocusout="validateEditEmail()" id="email_edituser"><br>
+                                <input type="email" name="email" value="<?php echo $this->user[0]['email'] ?>" data-helper="Email" onfocusout="validateEditEmail()" id="email_edituser">
                                 <span class="popuptext"></span>
                             </div>           
                     </div>
