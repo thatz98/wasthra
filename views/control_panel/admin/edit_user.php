@@ -83,13 +83,15 @@
                 <input type="text" name="user_id" value="<?php echo $this->user[0]['user_id'] ?>" hidden>
                 <input type="text" name="prev_user_type" value="<?php echo $this->user[0]['user_type'] ?>" hidden>
                 <input type="text" name="login_id" value="<?php echo $this->user[0]['login_id'] ?>" hidden>
+
+                <div class="center-content">
+                    <button type="submit" class="btn">Update</button>
+                    <a href="<?php echo URL ?>user" class="btn btn-grey">Cancel</a>
+                </div>
         </div>
     </div>
 
-    <div class="center-content">
-        <button type="submit" class="btn">Update</button>
-        <a href="<?php echo URL ?>user" class="btn btn-grey">Cancel</a>
-    </div>
+
     </form>
 </div>
 
