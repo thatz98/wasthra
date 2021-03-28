@@ -136,9 +136,6 @@ class Cart extends Controller {
         } else {
             $data['item_color'] = str_replace('#', '', $data['item_color']);
 
-            // redirect customer to the login page
-            // once the login is successfull, the item will be added to the cart
-            //header('location: ' . URL . 'login/cartRequireLogin?productId=' . $data['product_id'] . '&qty=' . $data['item_qty'] . '&color=' . $data['item_color'] . '&size=' . $data['item_size'] . '&loginRequired=true');
         }
     }
 
