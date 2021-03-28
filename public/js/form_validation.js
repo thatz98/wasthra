@@ -118,7 +118,7 @@ function checkIfOnlyLetters(field) {
  * @return bool
  */
 function checkIfOnlyNumbers(field) {
-  if (/^[0-9]+$/.test(field.value)) {  
+  if (/^[0-9]+$/.test(field.value)) {
     setValid(field);
     return true;
   } else {
@@ -128,7 +128,7 @@ function checkIfOnlyNumbers(field) {
 }
 
 function checkIfOnlyPrice(field) {
-  if (/^[0-9]+\.?[0-9]{1,2}$/.test(field.value)) {  
+  if (/^[0-9]+\.?[0-9]{1,2}$/.test(field.value)) {
     setValid(field);
     return true;
   } else {
@@ -167,7 +167,7 @@ function meetLength(field, minLength, maxLength) {
  * @param  int maxLength -- Number of maximum characters
  * @return bool
  */
- function meetExactDigits(field, length) {
+function meetExactDigits(field, length) {
 
   if (field.value.length == length) {
     setValid(field);
@@ -175,6 +175,7 @@ function meetLength(field, minLength, maxLength) {
   } else {
     setInvalid(field, `${field.dataset.helper} must be at least ${length} digits long`);
     return false;
+  }
 }
 
 function meetValue(field, minLength, maxLength) {
@@ -183,10 +184,10 @@ function meetValue(field, minLength, maxLength) {
     setValid(field);
     return true;
   } else if (field.value < minLength) {
-    setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength-1}`);
+    setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength - 1}`);
     return false;
   } else {
-    setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength-1}`);
+    setInvalid(field, `${field.dataset.helper} must be in range ${minLength}-${maxLength - 1}`);
     return false;
   }
 
@@ -223,23 +224,23 @@ function containsCharacters(field, type) {
       // check for email pattern
       regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return matchWithRegEx(regEx, field, 'Must be a valid email address');
-      //check address line 1
+    //check address line 1
     case 6:
-      regEx = /^[0-9]{1,4}(([\-\/][0-9]{1,4})|(\/[A-Z]{1,2})|(\/[0-9][A-Z]))*$/; 
+      regEx = /^[0-9]{1,4}(([\-\/][0-9]{1,4})|(\/[A-Z]{1,2})|(\/[0-9][A-Z]))*$/;
       return matchWithRegEx(regEx, field, 'Must be a valid address line 1');
-      //check price categoryID
+    //check price categoryID
     case 7:
       regEx = /^[P][R][C][0-9]{3,}$/;
-      return matchWithRegEx(regEx,field,'Must be contain a format of PRCXXX');  
+      return matchWithRegEx(regEx, field, 'Must be contain a format of PRCXXX');
     case 8:
       regEx = /^[P][R][D][0-9]{3,}$/;
-      return matchWithRegEx(regEx,field,'Must be contain a format of PRDXXX');
+      return matchWithRegEx(regEx, field, 'Must be contain a format of PRDXXX');
     case 9:
       regEx = /^#[0-9a-f]{6}((,#[0-9a-f]{6})*)?$/;
-      return matchWithRegEx(regEx,field,'Must be contain a format of #abcdef or #123456'); 
+      return matchWithRegEx(regEx, field, 'Must be contain a format of #abcdef or #123456');
     case 10:
       regEx = /^[C][A][T][0-9]{3,}$/;
-      return matchWithRegEx(regEx,field,'Must be contain a format of CATXXX');     
+      return matchWithRegEx(regEx, field, 'Must be contain a format of CATXXX');
     default:
       return false;
   }
