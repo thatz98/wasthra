@@ -149,7 +149,7 @@ function validateGender() {
       // check if is empty
       if (checkIfEmpty(contactNoM)) return;
       // is if it has only letters
-      if (!meetLength(contactNoM, 9, 11)) return;
+      if (!meetExactDigits(contactNoM, 10)) return;
     
       if (!checkIfOnlyNumbers(contactNoM)) return;
       
