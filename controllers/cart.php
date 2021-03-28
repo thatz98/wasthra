@@ -79,9 +79,9 @@ class Cart extends Controller {
                 if($data['product_id']==$cartData['product_id'] && $data['item_color']==$cartData['item_color'] 
                 && $data['item_size']==$cartData['item_size']){
                     //echo "yes";
-                    Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['username'],$data);
+                    Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['email'],$data);
                     $this->model->updateCartQuantity($data,$cartData['item_qty']);
-                    Logs::writeApplicationLog('Items added to cart','Successfull',Session::get('userData')['username'],$data);
+                    Logs::writeApplicationLog('Items added to cart','Successfull',Session::get('userData')['email'],$data);
                     $flag++;
                     break;
                 }
@@ -131,7 +131,7 @@ class Cart extends Controller {
             //print_r(Session::get('buyNowData'));
             //echo($data['product_price']);
             //header('location: ' . $_POST['prev_url'].'?success=itemAddedToCart#message');
-            Logs::writeApplicationLog('Add item to buy now','Attemting',Session::get('userData')['username'],$data);
+            Logs::writeApplicationLog('Add item to buy now','Attemting',Session::get('userData')['email'],$data);
             header('location: ' . URL . 'shop/checkout/buyNow');
         } else {
             $data['item_color'] = str_replace('#', '', $data['item_color']);
@@ -192,7 +192,9 @@ class Cart extends Controller {
         $data['item_size'] = $sizeArray;
         $data['item_id'] = $itemId;
 
+        Logs::writeApplicationLog('Update Cart Item','Attemting',Session::get('userData')['email'],$data);
         $this->model->update($data);
+        Logs::writeApplicationLog('Cart Item Updated','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . 'cart?success=itemUpdatedToCart#message');
     }
@@ -206,7 +208,10 @@ class Cart extends Controller {
      */
     function delete($id) {
 
+        
+        Logs::writeApplicationLog('Delete Cart Item','Attemting',Session::get('userData')['email'],$data);
         $this->model->delete($id);
+        Logs::writeApplicationLog('Cart Item Deleted','Successfull',Session::get('userData')['email'],$data);
 
         header('location: ' . URL . 'cart?success=itemDeleted#message');
     }

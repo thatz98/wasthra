@@ -58,7 +58,7 @@
                         <label>Product Category</label><br><select id="category" name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
                             <?php foreach ($this->product_category as $category) : ?><option value="<?php echo $category['name']; ?>" <?php if ($this->product[0]['name'] == $category['name']) {
                                                                                                                                             echo "selected=\"selected\"";
-                                                                                                                                            $this->selectedCat = $category['name'];
+                                                                                                                                            //$this->selectedCat = $category['name'];
                                                                                                                                         } ?>>
                                     <?php echo $category['name']; ?></option> <?php endforeach; ?>
 

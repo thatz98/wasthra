@@ -181,8 +181,10 @@
                                     Delivery Staff Details<br>
                                     <?php $data = $this->orderDetails['delivery_id'];
                                     if (!empty($data)) { ?>
-                                        <?php if ($this->orderDetails['order_status'] == 'Delivered' || $this->orderDetails['order_status'] == 'Returned' ||
-                                         $this->orderDetails['order_status'] == 'Requested to Return' || $this->orderDetails['order_status'] == 'Completed') { ?>
+                                        <?php if (
+                                            $this->orderDetails['order_status'] == 'Delivered' || $this->orderDetails['order_status'] == 'Returned' ||
+                                            $this->orderDetails['order_status'] == 'Requested to Return' || $this->orderDetails['order_status'] == 'Completed'
+                                        ) { ?>
                                             Delivered Date: <?php echo $this->orderDetails['actual_delivery_date'] ?><br><br>
                                             Delivered By: <?php echo $this->orderDetails['first_name'] ?> <?php echo $this->orderDetails['last_name'] ?><br>
                                         <?php } else { ?>
