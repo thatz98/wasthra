@@ -10,14 +10,14 @@
                     <div class="col-2">
                         <div class="helper-text">
                             <label>First Name</label><br>
-                            <input type="text" name="first_name" value="<?php echo $this->user[0]['first_name'] ?>" data-helper="First Name" onfocusout="validateEditFirstName()" id="first_name_edituser"><br>
-                            <span class="popuptext"></span><br>
+                            <input type="text" name="first_name" value="<?php echo $this->user[0]['first_name'] ?>" data-helper="First Name" onfocusout="validateEditFirstName()" id="first_name_edituser">
+                            <span class="popuptext"></span>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="helper-text">
                             <label>Last Name</label><br>
-                            <input type="text" name="last_name" value="<?php echo $this->user[0]['last_name'] ?>" data-helper="Last Name" onfocusout="validateEditLastName()" id="last_name_edituser"><br>
+                            <input type="text" name="last_name" value="<?php echo $this->user[0]['last_name'] ?>" data-helper="Last Name" onfocusout="validateEditLastName()" id="last_name_edituser">
                             <span class="popuptext"></span>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                             <label>Mobile Number</label><br>
                             <input type="text" name="contact_no" placeholder="07XXXXXXXX" data-helper="Mobile No," onfocusout="validateEditContactNo()" id="contact_no_edituser" value="<?php echo $this->user[0]['contact_no'] ?>">
                             <span class="popuptext"></span>
-                            <br>
+                            
                         </div>
                     </div>
                     <div class="col-2">
@@ -43,7 +43,6 @@
                                     Delivery</option>
                             </select>
                             <span class="popuptext"></span>
-                            <br>
                         </div>
                     </div>
                 </div>
@@ -96,4 +95,3 @@
 
 <script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
 <script type="text/javascript" src="/wasthra/util/form/edit_user_form_validation.js"></script>
-
