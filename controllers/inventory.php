@@ -30,13 +30,14 @@ class Inventory extends Controller {
      * @param  mixed $id Id of the product inventory that need to be updated
      * @return void
      */
-    function edit($id) {
+    function edit($id,$size,$color) {
 
         $this->view->title = 'Inventory';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'controlPanel">Control Panel</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'products">Products</a> <i class="fas fa-angle-right"></i><a href="' . URL . 'controlPanel/inventory">Inventory</a> <i class="fas fa-angle-right"></i>Edit Inventory';
 
         // get the details of a given id
-        $this->view->getInventory = $this->model->getInventory($id);
+        $this->view->getInventory = $this->model->getInventory($id,$size,$color);
+        
         $this->view->render('control_panel/admin/edit_inventory');
     }
     
