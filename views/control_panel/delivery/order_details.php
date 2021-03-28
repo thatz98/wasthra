@@ -89,6 +89,7 @@
                                         break;
                                 } ?>
                                 <h5>Payment Status: <span style="color: #<?php echo $color ?>"><?php echo $status ?></span></h5>
+                                <h5>Comments:<?php echo $this->orderDetails['delivery_comment'];?></h5>
 
                             </div>
                             <div class="col-2" style="min-width: 0;">
