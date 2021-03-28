@@ -87,9 +87,9 @@ class Cart extends Controller {
                 }
             }
             if($flag==0){
-                Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['username'],$data);
+                Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['email'],$data);
                 $this->model->create($data);
-                Logs::writeApplicationLog('Items added to cart','Successfull',Session::get('userData')['username'],$data);
+                Logs::writeApplicationLog('Items added to cart','Successfull',Session::get('userData')['email'],$data);
             }
             
             if (strpos($_POST['prev_url'], '=') == false) {

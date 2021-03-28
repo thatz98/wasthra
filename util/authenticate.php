@@ -54,6 +54,24 @@ class Authenticate
         }
     }
 
+    public static function deliveryAuth(){
+		Session::init();
+        $logged = Session::get('loggedIn');;
+        $userType = Session::get('userType');
+        $username = Session::get('username');
+        if(!$logged){
+            Logs::writeLog('access_log',basename($_SERVER['PHP_SELF']),"Unautherized guest access!");
+            Session::destroy();
+            header('location: '.URL.'login?loginRequired=true');
+            exit;
+        } else if($userType!='delivery_staff' || $userType!='owner'){
+            Logs::writeLog('access_log',basename($_SERVER['PHP_SELF']),"Unautherized $userType access by $username!");
+            Session::destroy();
+            header('location: '.URL.'login?loginRequired=true');
+            exit;
+        }
+    }
+
 	public static function staffAuth(){
 		Session::init();
         $logged = $_SESSION['loggedIn'];

@@ -17,7 +17,7 @@
             </ul>
         </div>
     </div>
-    <a href="#" id="downld">down</a>
+
     <div  id="reportPage"  class="row">
         <div class="col-3">
             <div class="card">
