@@ -169,15 +169,7 @@
                         <br>
 
                     </div>
-                    <!-- <div class="helper-text">
-                        <label>Size for Ladies</label><br><select id="size-l" name="size-l">
-                            <option value="0">Select</option>
-
-                        </select>
-                        <span class="popuptext"></span>
-                        <br>
-
-                    </div>--> <?php } else{ 
+                    <?php } else{ 
                         ?>
                         <div class="helper-text">
                         <label>Size</label><br><select id="size" name="size">
