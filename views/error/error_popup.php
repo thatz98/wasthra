@@ -20,12 +20,10 @@
                             in! Log out first if you want to login to a different account.';
                             break;
                         case 'wrongPwd':
-                            $msg = 'Incorrect password! Try
-                            again or click forgot password to reset.';
+                            $msg = 'Incorrect username or password.';
                             break;
                         case 'noAccount':
-                            $msg = 'Account does not exist!
-                            Check your username or Sign up to get one.';
+                            $msg = 'Incorrecr username or password.';
                             break;
                         case 'notVerified':
                             if (isset($_GET['username'])) {

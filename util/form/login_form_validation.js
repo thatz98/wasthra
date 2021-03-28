@@ -13,8 +13,7 @@
       // Prevent default behaviour
       event.preventDefault();
       if (
-        validateLoginPassword() &&
-        validateUsername()
+        validateUsername() && validateLoginPassword()
       ) {
         loginForm.submit();
       }
