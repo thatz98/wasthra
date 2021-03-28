@@ -201,6 +201,12 @@ class Orders_Model extends Model {
 
         $this->trackingUpdate($orderId);
     }
+    function updatePaymentStatus($data) {
+        $orderId = $data['order_id'];
+        $orderStatus = $data['payment_status'];
+        $this->db->queryExecuteOnly("UPDATE payment SET payment_status='$orderStatus' WHERE order_id ='$orderId'");
+
+    }
 
     function trackingUpdate($id) {
         $status = $this->db->query("SELECT order_status FROM orders WHERE order_id='$id'");
