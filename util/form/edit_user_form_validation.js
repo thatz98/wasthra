@@ -58,9 +58,9 @@ function validateEditContactNo() {
 
 function validateEditEmail() {
 
-  if (checkIfEmpty(email_edituser)) return;
+  if (checkIfEmpty(edit_Email )) return;
 
-  if (!containsCharacters(email_edituser, 5)) return;
+  if (!containsCharacters(edit_Email, 5)) return;
   return true;
   //check whether a acceptable e-mail
 
