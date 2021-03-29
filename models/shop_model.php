@@ -87,19 +87,16 @@ class Shop_Model extends Model {
     }
     function getAllCategories() {
 
-        return $this->db->select('category',array('name','category_id'));
-
+        return $this->db->select('category', array('name', 'category_id'));
     }
 
     function getPriceCategories() {
-        
-        return $this->db->select('price_category',array('price_category_name','price_category_id'));
 
+        return $this->db->select('price_category', array('price_category_name', 'price_category_id'));
     }
     function getQty() {
-        
-        return $this->db->select('inventory',array('product_id','qty'));
-        
+
+        return $this->db->select('inventory', array('product_id', 'qty'));
     }
 
     function getFeaturedProducts() {
@@ -149,7 +146,7 @@ class Shop_Model extends Model {
             $m .= $img;
             echo $m;
 
-            $this->db->insert('review_image',array('review_id'=>$review_id[0],'image'=>$m));
+            $this->db->insert('review_image', array('review_id' => $review_id[0], 'image' => $m));
         }
     }
 
@@ -163,8 +160,7 @@ class Shop_Model extends Model {
 
     function reviewImages() {
 
-        return $this->db->select('review_image',array('image','review_id'));
-
+        return $this->db->select('review_image', array('image', 'review_id'));
     }
 
     function deleteReview($id) {
@@ -188,12 +184,14 @@ class Shop_Model extends Model {
     function getAddressId($data) {
         $userId = Session::get('userId');
 
-        return $this->db->selectWhere('delivery_address',array('address_id'),"user_id=:userId AND postal_code=:postal_code
-        AND city=:city AND address_line_1=:address_line_1 AND address_line_2=:address_line_2 AND address_line_3=:address_line_3",array('userId'=>$userId,'postal_code'=>$data['postal_code'],
-        'city'=>$data['city'],'address_line_1'=>$data['address_line_1'],'address_line_2'=>$data['address_line_2'],'address_line_3'=>$data['address_line_3']));
+        return $this->db->selectWhere('delivery_address', array('address_id'), "user_id=:userId AND postal_code=:postal_code
+        AND city=:city AND address_line_1=:address_line_1 AND address_line_2=:address_line_2 AND address_line_3=:address_line_3", array(
+            'userId' => $userId, 'postal_code' => $data['postal_code'],
+            'city' => $data['city'], 'address_line_1' => $data['address_line_1'], 'address_line_2' => $data['address_line_2'], 'address_line_3' => $data['address_line_3']
+        ));
     }
 
-    function placeOrder($date, $time, $orderID, $payMethod, $aId, $comment,$buyNow) {
+    function placeOrder($date, $time, $orderID, $payMethod, $aId, $comment, $buyNow) {
         $this->db->insert('orders', array(
             'order_id' => $orderID,
             'order_status' => 'new',
@@ -211,11 +209,11 @@ class Shop_Model extends Model {
         ));
         $userId = Session::get('userId');
 
-        $cart = $this->db->selectOneWhere('shopping_cart',array('cart_id'),'user_id=:userId',array('userId'=>$userId));
+        $cart = $this->db->selectOneWhere('shopping_cart', array('cart_id'), 'user_id=:userId', array('userId' => $userId));
         $cartId = $cart['cart_id'];
-        if ($buyNow=='false') {
+        if ($buyNow == 'false') {
 
-            $cartItems = $this->db->selectWhere('cart_item','*','cart_id=:cartId',array('cartId'=>$cartId));
+            $cartItems = $this->db->selectWhere('cart_item', '*', 'cart_id=:cartId', array('cartId' => $cartId));
             foreach ($cartItems as $item) {
                 $this->db->insert('order_item', array(
                     'order_id' => $orderID,
@@ -264,14 +262,14 @@ class Shop_Model extends Model {
             'order_id' => $orderID,
         ));
 
-        $this->db->runQuery('UPDATE order_tracking SET ordered=CURRENT_TIMESTAMP() WHERE order_id=:orderId',array('orderId'=>$orderID));
+        $this->db->runQuery('UPDATE order_tracking SET ordered=CURRENT_TIMESTAMP() WHERE order_id=:orderId', array('orderId' => $orderID));
     }
 
     function deleteCartItems() {
         $userId = Session::get('userId');
-        $cart = $this->db->selectOneWhere('shopping_cart',array('cart_id'),'user_id=:userId',array('userId'=>$userId));
+        $cart = $this->db->selectOneWhere('shopping_cart', array('cart_id'), 'user_id=:userId', array('userId' => $userId));
         $cartId = $cart['cart_id'];
-        $this->db->delete('cart_item','cart_id=:cartId',array('cartId'=>$cartId));
+        $this->db->delete('cart_item', 'cart_id=:cartId', array('cartId' => $cartId));
     }
 
     function getDeliveryCharges() {
@@ -352,7 +350,7 @@ class Shop_Model extends Model {
         return $data;
     }
 
-    function getAllOrderDetails($id){
+    function getAllOrderDetails($id) {
 
         return $this->db->query("SELECT orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,GROUP_CONCAT(product.product_name) as product_name,
         checkout.address_id,delivery_address.address_line_1,delivery_address.address_line_2,delivery_address.address_line_3,
@@ -370,5 +368,5 @@ class Shop_Model extends Model {
         INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
         LEFT JOIN delivery ON delivery.order_id=orders.order_id 
         LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id WHERE orders.order_id='$id' GROUP BY orders.order_id");
-}
+    }
 }
