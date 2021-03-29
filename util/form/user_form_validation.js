@@ -55,15 +55,7 @@ function validateUserContactNo() {
   return true;
 }
 
-// function validateUserNIC() {
-//   // check if is empty
-//   if (checkIfEmpty(User_NIC)) return;
-//   // is if it has only letters
-//   if (!meetLength(User_NIC, 10, 13)) return;
 
-//   setValid(User_NIC);
-//   return true;
-// }
 
 function validateUserPassword() {
   // Empty check

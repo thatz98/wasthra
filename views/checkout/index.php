@@ -51,10 +51,10 @@
                     <div class="row">
                         <div class="col-3">
                             <div class="helper-text">
-                            <label>Address Line 3</label><br>
-                            <input type="text" id="address_line_3_checkout" name="address_line_3" value="<?php if (isset(Session::get('addressData')['address_line_3'])) echo Session::get('addressData')['address_line_3'] ?>" data-helper="Address Line 3" onfocusout="validateAddressLine3()">
-                            <span class="popuptext"></span>
-                            <br>
+                                <label>Address Line 3</label><br>
+                                <input type="text" id="address_line_3_checkout" name="address_line_3" value="<?php if (isset(Session::get('addressData')['address_line_3'])) echo Session::get('addressData')['address_line_3'] ?>" data-helper="Address Line 3" onfocusout="validateAddressLine3()">
+                                <span class="popuptext"></span>
+                                <br>
                             </div>
                         </div>
                         <div class="col-3">
@@ -98,11 +98,11 @@
                             <input type="text" id="longtitude" name="longtitude" value="" hidden>
                             <input type="text" id="latitude" name="latitude" value="" hidden>
                         </div>
-                        </div>
-                    
-                    
+                    </div>
 
-                
+
+
+
             </div>
         </div>
         <div class="col-40p">
@@ -116,13 +116,15 @@
                         <table>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>LKR <span id="subtotal"><?php if($this->flag=='false'){$this->subtotal = 0;
-                                                            foreach (Session::get('cartData') as $cartItem) {
-                                                                        $this->subtotal += $cartItem['product_price'] * $cartItem['item_qty'];
-                                                                    }
-                                                                 } 
-                                                                    else{$this->subtotal = 0;
-                                                            $this->subtotal += Session::get('buyNowData')['product_price'] * Session::get('buyNowData')['item_qty'];}
+                                <td>LKR <span id="subtotal"><?php if ($this->flag == 'false') {
+                                                                $this->subtotal = 0;
+                                                                foreach (Session::get('cartData') as $cartItem) {
+                                                                    $this->subtotal += $cartItem['product_price'] * $cartItem['item_qty'];
+                                                                }
+                                                            } else {
+                                                                $this->subtotal = 0;
+                                                                $this->subtotal += Session::get('buyNowData')['product_price'] * Session::get('buyNowData')['item_qty'];
+                                                            }
                                                             echo number_format($this->subtotal, 2, '.', ''); ?></span></td>
                                 <div id="sub-display">
                                 </div>
@@ -144,11 +146,10 @@
                                 <td>Total Price</td>
                                 <td>LKR <span id="totalPrice"><?php echo number_format($this->subtotal, 2, '.', ''); ?></span></td>
                             </tr>
-                            <?php if($this->flag=='false'){ ?><input type="text" name="buyNow" value="false" hidden><?php }
-                                else{ ?><input type="text" name="buyNow" value="buyNow" hidden> <?php  }  ?>
+                            <?php if ($this->flag == 'false') { ?><input type="text" name="buyNow" value="false" hidden><?php } else { ?><input type="text" name="buyNow" value="buyNow" hidden> <?php  }  ?>
                         </table>
                     </div>
-                    
+
                     <div class="row">
                         <h3 class="mar-b-20 mar-t-50">Payment Method</h3>
                     </div>
@@ -171,7 +172,7 @@
                                 <textarea rows="5" cols="22" id="delivery_comment_checkout" name="delivery_comments" data-helper="Delivery Comments" onfocusout="validateDeliveryComment()">
                                 </textarea>
                                 <span class="popuptext"></span>
-                            <br>
+                                <br>
                             </div>
                         </div>
                     </div>
@@ -183,7 +184,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         </form>
     </div>
@@ -191,13 +192,14 @@
 </div>
 <script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
 <script type="text/javascript" src="/wasthra/util/form/checkout_form_validation.js"></script>
-<script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzSnah4pBNvwR3PN53ZaezSBUmNGNuf3U"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzSnah4pBNvwR3PN53ZaezSBUmNGNuf3U"></script>
 <script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
 <script>
-$( document ).ready(function() {
-document.getElementById('dCharges').innerHTML=document.getElementById("city_checkout").value.split(' ')[1];calculateDelivery();
-});
+    $(document).ready(function() {
+        document.getElementById('dCharges').innerHTML = document.getElementById("city_checkout").value.split(' ')[1];
+        calculateDelivery();
+    });
+
     function calculateDelivery() {
 
         var dCharges = parseFloat(document.getElementById('dCharges').innerHTML);
@@ -206,22 +208,22 @@ document.getElementById('dCharges').innerHTML=document.getElementById("city_chec
     }
 </script>
 <script>
-  var longt = document.getElementById('longtitude');
-  var latt = document.getElementById('latitude');
+    var longt = document.getElementById('longtitude');
+    var latt = document.getElementById('latitude');
 
-  // Initialize locationPicker plugin
-  var lp = new locationPicker('map', {
-    setCurrentPosition: true, // You can omit this, defaults to true
-  }, {
-    zoom: 15 // You can set any google map options here, zoom defaults to 15
-  });
+    // Initialize locationPicker plugin
+    var lp = new locationPicker('map', {
+        setCurrentPosition: true, // You can omit this, defaults to true
+    }, {
+        zoom: 15 // You can set any google map options here, zoom defaults to 15
+    });
 
-  // Listen to map idle event, listening to idle event more accurate than listening to ondrag event
-  google.maps.event.addListener(lp.map, 'idle', function (event) {
+    // Listen to map idle event, listening to idle event more accurate than listening to ondrag event
+    google.maps.event.addListener(lp.map, 'idle', function(event) {
 
-    var location = lp.getMarkerPosition();
-    longt.value = location.lng;
-    latt.value = location.lat;
-  });
+        var location = lp.getMarkerPosition();
+        longt.value = location.lng;
+        latt.value = location.lat;
+    });
 </script>
 <?php require 'views/footer.php'; ?>

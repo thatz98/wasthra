@@ -92,14 +92,6 @@ class Products_Model extends Model{
     function getQtyByID($id){
         return $this->db->selectWhere('inventory',array('qty'),"product_id=:id",array('id'=>$id));
     }
-    // function getSizesByID($id){
-    //     return $this->db->query("SELECT product_size.sizes 
-    //     FROM product_size WHERE product_size.product_id='$id';");
-    // }
-    // function getImagesByID($id){
-    //     return $this->db->query("SELECT product_images.image 
-    //     FROM product_images WHERE product_images.product_id='$id';");
-    // }
 
     function getProductCount(){
 
@@ -214,12 +206,6 @@ class Products_Model extends Model{
 
         $this->db->update('inventory',array('color'=>$data['color'],'qty'=>$data['qty'],'size'=>$data['size']),
         "inventory_id=:inventory_id",array('inventory_id'=>$inventory_id));
-
-        // $this->db->queryExecuteOnly("UPDATE product_colors SET product_colors.colors='$newColor' WHERE product_colors.product_id='$product_id'
-        //  AND product_colors.colors='$prevColor'");
-        
-        // $this->db->queryExecuteOnly("UPDATE product_size SET product_size.sizes='$newSize' WHERE product_size.product_id='$product_id'
-        //  AND product_size.sizes='$prevSize'");
 
     }
 

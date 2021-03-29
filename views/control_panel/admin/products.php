@@ -128,14 +128,6 @@
             </div>
             <div class="row">
                 <div class="col-2">
-                    <!-- <div class="helper-text">
-                                <label>Colors</label><br>
-                                <input id="color" type="text" name="colors" placeholder="#12ab87,#abc123" data-helper="Colors" onfocusout="validateColors()">
-                                <span class="popuptext"></span>
-                                <br>
-                                    
-                            </div> -->
-
                     <div class="helper-text">
                         <label>Price Category</label><br>
                         <select id="price_category" name="price_category">

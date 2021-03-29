@@ -1,7 +1,7 @@
 <?php require 'views/header.php'; ?>
+<div class="row">
+    <img style="margin: 30px auto 30px auto;" src="/wasthra/public/images/404.gif">
+</div>
 
-<hr>
-
-<?php echo $this->msg; ?>
 
 <?php require 'views/footer.php'; ?>

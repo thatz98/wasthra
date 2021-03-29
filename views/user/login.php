@@ -127,9 +127,6 @@
                                                 <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()" id="first_name">
                                                 <span class="popuptext"></span>
                                             </div>
-                                            <!---    <label>First Name</label><br>
-                                        <input type="text" name="first_name" data-helper="First Name" onfocusout="validateFirstName()" id="first_name">
-                                        <div class="helper-text"><span></span></div> ----->
                                         </div>
                                         <div class="col-3">
                                             <div class="helper-text">
@@ -185,10 +182,6 @@
                                                     <input type="radio" id="other" name="gender" value="other">
                                                     <label for="other">Other</label>
                                                 </div>
-                                                <!----<select name="gender">
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                </select> ---->
                                                 <span class="popuptext"></span>
                                             </div>
                                         </div>
@@ -357,47 +350,6 @@
                                     </div>
                                 </div>
 
-
-                                <!----<div class="col-2" style="text-align: center;">
-                                    <label>First Name</label><br>
-                                    <input type="text" name="first_name" data-helper="First Name"
-                                        onfocusout="validateFirstNameM()" id="first_name_m">
-                                    <div class="helper-text"><span></span></div>
-                                    <label>Last Name</label><br>
-                                    <input type="text" name="last_name" data-helper="Last Name"
-                                        onfocusout="validateLastNameM()" id="last_name_m">
-                                    <div class="helper-text"><span></span></div>
-                                    <label>Mobile Number</label><br>
-                                    <input type="text" name="contact_no" data-helper="Mobile No."
-                                        placeholder="07XXXXXXXX" onfocusout="validateContactNoM()" id="contact_no_m">
-                                    <div class="helper-text"><span></span></div>
-                                    <label>Email</label><br>
-                                    <input type="email" name="email" data-helper="Email" onfocusout="validateEmailM()"
-                                        id="email_m">
-                                    <div class="helper-text"><span></span></div>
-                                    <label>Gender</label><br>
-                                    <div class="radio-container" id="gender-radio-m"><input type="radio"
-                                                        id="male-m" name="gender" value="male">
-                                                    <label for="male">Male</label>
-                                                    <input type="radio" id="female-m" name="gender" value="female">
-                                                    <label for="female">Female</label>
-                                                    <input type="radio" id="other-m" name="gender" value="other">
-                                                    <label for="other">Other</label>
-                                                </div>
-                                    <div class="helper-text"><span></span></div>
-                                    <label>Password : </label><br>
-                                    <input type="password" name="password" data-helper="Password"
-                                        onfocusout="validatePasswordM()" id="password_m">
-                                    <div class="helper-text"><span></span></div>
-                                    <label>Confirm Password</label><br>
-                                    <input type="password" name="conf_password" onfocusout="validateConfirmPasswordM()"
-                                        id="conf_password_m">
-                                    <div class="helper-text"><span></span></div>
-
-
-
-
-                                </div>---->
                             </div>
                             <div class="row"><button type="submit" class="btn">Sign Up</button></div>
 

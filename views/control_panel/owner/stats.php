@@ -1,5 +1,6 @@
 <?php require 'views/header_dashboard.php'; ?>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js'></script>
 <link rel="stylesheet" href="/wasthra/public/css/dashboard.css">
 <script src="/wasthra/public/js/libs/chart.min.js"></script>
 
@@ -8,15 +9,16 @@
     <div class="row">
         <div class="filter-time">
             <ul>
-                <li><a href="?filter=daily" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'daily') echo 'active';?>">Daily</a></li>
-                <li><a href="?filter=weekly" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'weekly') echo 'active';?>">Weekly</a></li>
-                <li><a href="?filter=monthly" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'monthly') echo 'active';?>">Monthly</a></li>
-                <li><a href="?filter=yearly" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'yearly') echo 'active';?>">Yearly</a></li>
-                <li><a href="?filter=custom" class="<?php if(isset($_GET['filter']) && $_GET['filter'] == 'custom') echo 'active';?>">Custom</a></li>
+                <li><a href="?filter=daily" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'daily') echo 'active'; ?>">Daily</a></li>
+                <li><a href="?filter=weekly" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'weekly') echo 'active'; ?>">Weekly</a></li>
+                <li><a href="?filter=monthly" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'monthly') echo 'active'; ?>">Monthly</a></li>
+                <li><a href="?filter=yearly" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'yearly') echo 'active'; ?>">Yearly</a></li>
+                <li><a href="?filter=custom" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'custom') echo 'active'; ?>">Custom</a></li>
             </ul>
         </div>
     </div>
-    <div class="row">
+
+    <div  id="reportPage"  class="row">
         <div class="col-3">
             <div class="card">
                 <div class="row">
@@ -24,7 +26,7 @@
                 </div>
                 <div class="row">
                     <div class="col-40p">
-                        <h1><?php echo $this->visitorCount[0][0];?></h1>
+                        <h1><?php echo $this->visitorCount[0][0]; ?></h1>
                     </div>
                     <div class="col-60p">
                         <canvas id="total-visitors" height="200px"></canvas>
@@ -40,7 +42,7 @@
                 </div>
                 <div class="row">
                     <div class="col-40p">
-                        <h1><?php echo $this->totalOrderCount[0][0];?></h1>
+                        <h1><?php echo $this->totalOrderCount[0][0]; ?></h1>
                     </div>
                     <div class="col-60p">
                         <canvas id="total-customers" height="200px"></canvas>
@@ -55,7 +57,7 @@
                 </div>
                 <div class="row">
                     <div class="col-40p">
-                        <h1><?php echo number_format(($this->totalOrderCount[0][0]*100)/$this->visitorCount[0][0], 2, '.', '').'%';?></h1>
+                        <h1><?php echo number_format(($this->totalOrderCount[0][0] * 100) / $this->visitorCount[0][0], 2, '.', '') . '%'; ?></h1>
                     </div>
                     <div class="col-60p">
                         <canvas id="conversion-rate" height="200px"></canvas>
@@ -73,7 +75,8 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1><?php if($this->salesCount[0][0]) echo $this->salesCount[0][0]; else echo '0';?></h1>
+                        <h1><?php if ($this->salesCount[0][0]) echo $this->salesCount[0][0];
+                            else echo '0'; ?></h1>
                     </div>
                 </div>
             </div>
@@ -85,7 +88,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1><?php echo 'LKR '.number_format($this->revenueAndCost[0]['revenue'], 2, '.', '');?></h1>
+                        <h1><?php echo 'LKR ' . number_format($this->revenueAndCost[0]['revenue'], 2, '.', ''); ?></h1>
                     </div>
                 </div>
             </div>
@@ -97,7 +100,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1><?php echo 'LKR '.number_format($this->revenueAndCost[0]['cost'], 2, '.', '');?></h1>
+                        <h1><?php echo 'LKR ' . number_format($this->revenueAndCost[0]['cost'], 2, '.', ''); ?></h1>
                     </div>
                 </div>
             </div>
@@ -109,7 +112,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h1><?php echo 'LKR '.number_format($this->revenueAndCost[0]['revenue']-$this->revenueAndCost[0]['cost'], 2, '.', '');?></h1>
+                        <h1><?php echo 'LKR ' . number_format($this->revenueAndCost[0]['revenue'] - $this->revenueAndCost[0]['cost'], 2, '.', ''); ?></h1>
                     </div>
                 </div>
             </div>
@@ -141,10 +144,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-2">
+        <div id="mydiv" class="col-2">
             <div class="card">
                 <div class="row">
-                    <h3>Total Sales per City</h3>
+                    <h3 onclick="printDiv('mydiv','this is sales')">Total Sales per City</h3>
                 </div>
                 <div class="row">
                     <div class="col pad-l-r-50">
@@ -180,19 +183,31 @@
 
     </div>
 
-    
+
 
 </div>
 
 
 
 <script>
+$('#downld').click(function(event) {
+    html2canvas(document.getElementById("reportPage"), {
+        scale: 2,
+      onrendered: function(canvas) {
+         var img = canvas.toDataURL(); //image data of canvas
+         var doc = new jsPDF();
+         doc.addImage(img, 10, 10);
+         doc.save('test.pdf');
+      }
+   });
+});
+
     new Chart(document.getElementById('total-visitors'), {
         type: 'line',
         data: {
-            labels: [<?php echo $this->visitorDistribution[0];?>],
+            labels: [<?php echo $this->visitorDistribution[0]; ?>],
             datasets: [{
-                data: [<?php echo $this->visitorDistribution[1];?>],
+                data: [<?php echo $this->visitorDistribution[1]; ?>],
                 borderWidth: 2,
                 fill: false,
                 borderColor: "#ff523b",
@@ -242,9 +257,9 @@
     new Chart(document.getElementById('conversion-rate'), {
         type: 'line',
         data: {
-            labels: [<?php echo $this->orderDistribution[0];?>],
+            labels: [<?php echo $this->orderDistribution[0]; ?>],
             datasets: [{
-                data: [<?php echo $this->convDistribution;?>],
+                data: [<?php echo $this->convDistribution; ?>],
                 borderWidth: 2,
                 fill: false,
                 borderColor: "#ff523b",
@@ -294,9 +309,9 @@
     new Chart(document.getElementById('total-customers'), {
         type: 'line',
         data: {
-            labels: [<?php echo $this->orderDistribution[0];?>],
+            labels: [<?php echo $this->orderDistribution[0]; ?>],
             datasets: [{
-                data: [<?php echo $this->orderDistribution[1];?>],
+                data: [<?php echo $this->orderDistribution[1]; ?>],
                 borderWidth: 2,
                 fill: false,
                 borderColor: "#ff523b",
@@ -348,12 +363,10 @@
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [<?php echo $this->salesDistribution[0];?>
-            ],
+            labels: [<?php echo $this->salesDistribution[0]; ?>],
             datasets: [{
                 label: 'Number of Sales',
-                data: [<?php echo $this->salesDistribution[1];?>
-                ],
+                data: [<?php echo $this->salesDistribution[1]; ?>],
                 backgroundColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
@@ -389,12 +402,10 @@
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [<?php echo $this->orderDistribution[0];?>
-            ],
+            labels: [<?php echo $this->orderDistribution[0]; ?>],
             datasets: [{
                 label: 'Number of Sales',
-                data: [<?php echo $this->orderDistribution[1];?>
-                ],
+                data: [<?php echo $this->orderDistribution[1]; ?>],
                 backgroundColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
@@ -430,47 +441,44 @@
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [<?php echo $this->revenueDistribution[0];?>
-            ],
+            labels: [<?php echo $this->revenueDistribution[0]; ?>],
             datasets: [{
-                label: 'Revenue',
-                data: [<?php echo $this->revenueDistribution[1];?>
-                ],
-                borderWidth: 2,
-                fill: false,
-                borderColor: "#03CFFF",
-                backgroundColor: 'rgba(3, 207, 255, 0.3)',
-                pointBackgroundColor: "#03CFFF",
-                pointBorderColor: "#03CFFF",
-                pointHoverBackgroundColor: "#feff3b",
-                pointHoverBorderColor: "#feff3b"
-            },
-            {
-                label: 'Cost',
-                data: [<?php echo $this->revenueDistribution[2];?>
-                ],
-                borderWidth: 2,
-                fill: false,
-                borderColor: "#FF03B2",
-                backgroundColor: 'rgba(255,3, 178, 0.3)',
-                pointBackgroundColor: "#FF03B2",
-                pointBorderColor: "#FF03B2",
-                pointHoverBackgroundColor: "#feff3b",
-                pointHoverBorderColor: "#feff3b"
-            },
-            {
-                label: 'Profit',
-                data: [<?php echo $this->revenueDistribution[3];?>
-                ],
-                borderWidth: 2,
-                fill: false,
-                borderColor: "#60FF03 ",
-                backgroundColor: 'rgba(96, 255, 3, 0.3)',
-                pointBackgroundColor: "#60FF03",
-                pointBorderColor: "#60FF03",
-                pointHoverBackgroundColor: "#feff3b",
-                pointHoverBorderColor: "#feff3b"
-            }]
+                    label: 'Revenue',
+                    data: [<?php echo $this->revenueDistribution[1]; ?>],
+                    borderWidth: 2,
+                    fill: false,
+                    borderColor: "#03CFFF",
+                    backgroundColor: 'rgba(3, 207, 255, 0.3)',
+                    pointBackgroundColor: "#03CFFF",
+                    pointBorderColor: "#03CFFF",
+                    pointHoverBackgroundColor: "#feff3b",
+                    pointHoverBorderColor: "#feff3b"
+                },
+                {
+                    label: 'Cost',
+                    data: [<?php echo $this->revenueDistribution[2]; ?>],
+                    borderWidth: 2,
+                    fill: false,
+                    borderColor: "#FF03B2",
+                    backgroundColor: 'rgba(255,3, 178, 0.3)',
+                    pointBackgroundColor: "#FF03B2",
+                    pointBorderColor: "#FF03B2",
+                    pointHoverBackgroundColor: "#feff3b",
+                    pointHoverBorderColor: "#feff3b"
+                },
+                {
+                    label: 'Profit',
+                    data: [<?php echo $this->revenueDistribution[3]; ?>],
+                    borderWidth: 2,
+                    fill: false,
+                    borderColor: "#60FF03 ",
+                    backgroundColor: 'rgba(96, 255, 3, 0.3)',
+                    pointBackgroundColor: "#60FF03",
+                    pointBorderColor: "#60FF03",
+                    pointHoverBackgroundColor: "#feff3b",
+                    pointHoverBorderColor: "#feff3b"
+                }
+            ]
         },
         options: {
             maintainAspectRatio: false,
@@ -489,10 +497,10 @@
     new Chart(document.getElementById('sales-per-category'), {
         type: 'doughnut',
         data: {
-            labels: [<?php echo $this->totalSalesPerCategory[0];?>],
+            labels: [<?php echo $this->totalSalesPerCategory[0]; ?>],
             datasets: [{
                 label: 'Number of Sales',
-                data: [<?php echo $this->totalSalesPerCategory[1];?>],
+                data: [<?php echo $this->totalSalesPerCategory[1]; ?>],
                 backgroundColor: [
 
                     'rgba(54, 162, 235, 1)',
@@ -512,23 +520,23 @@
             maintainAspectRatio: false,
             responsive: true,
             tooltips: {
-  callbacks: {
-    label: function(tooltipItem, data) {
-      //get the concerned dataset
-      var dataset = data.datasets[tooltipItem.datasetIndex];
-      //calculate the total of this data set
-      var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-        return previousValue + currentValue;
-      });
-      //get the current items value
-      var currentValue = dataset.data[tooltipItem.index];
-      //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
-      var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        //get the concerned dataset
+                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                        //calculate the total of this data set
+                        var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                            return previousValue + currentValue;
+                        });
+                        //get the current items value
+                        var currentValue = dataset.data[tooltipItem.index];
+                        //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                        var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
 
-      return percentage + "%";
-    }
-  }
-},
+                        return percentage + "%";
+                    }
+                }
+            },
             legend: {
                 display: true,
                 position: 'right'
@@ -557,10 +565,10 @@
     new Chart(document.getElementById('sales-per-city'), {
         type: 'doughnut',
         data: {
-            labels: [<?php echo $this->totalSalesPerCity[0];?>],
+            labels: [<?php echo $this->totalSalesPerCity[0]; ?>],
             datasets: [{
                 label: 'Number of Sales',
-                data: [<?php echo $this->totalSalesPerCity[1];?>],
+                data: [<?php echo $this->totalSalesPerCity[1]; ?>],
                 backgroundColor: [
                     'rgba(236, 128, 0, 1)',
                     'rgba(222, 236, 0 , 1)',
@@ -584,23 +592,23 @@
             maintainAspectRatio: false,
             responsive: true,
             tooltips: {
-  callbacks: {
-    label: function(tooltipItem, data) {
-      //get the concerned dataset
-      var dataset = data.datasets[tooltipItem.datasetIndex];
-      //calculate the total of this data set
-      var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-        return previousValue + currentValue;
-      });
-      //get the current items value
-      var currentValue = dataset.data[tooltipItem.index];
-      //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
-      var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        //get the concerned dataset
+                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                        //calculate the total of this data set
+                        var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                            return previousValue + currentValue;
+                        });
+                        //get the current items value
+                        var currentValue = dataset.data[tooltipItem.index];
+                        //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                        var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
 
-      return percentage + "%";
-    }
-  }
-},
+                        return percentage + "%";
+                    }
+                }
+            },
             legend: {
                 display: true,
                 position: 'right'
@@ -625,6 +633,25 @@
             }
         }
     });
+</script>
+
+<script type="text/javascript">
+    function printDiv(divId, title) {
+        let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+
+        mywindow.document.write(`<html><head><title>${title}</title>`);
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById(divId).innerHTML);
+        mywindow.document.write('</body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
 </script>
 
 

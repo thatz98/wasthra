@@ -87,9 +87,9 @@ class Cart extends Controller {
                 }
             }
             if($flag==0){
-                Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['username'],$data);
+                Logs::writeApplicationLog('Add items to cart','Attemting',Session::get('userData')['email'],$data);
                 $this->model->create($data);
-                Logs::writeApplicationLog('Items added to cart','Successfull',Session::get('userData')['username'],$data);
+                Logs::writeApplicationLog('Items added to cart','Successfull',Session::get('userData')['email'],$data);
             }
             
             if (strpos($_POST['prev_url'], '=') == false) {
@@ -136,9 +136,6 @@ class Cart extends Controller {
         } else {
             $data['item_color'] = str_replace('#', '', $data['item_color']);
 
-            // redirect customer to the login page
-            // once the login is successfull, the item will be added to the cart
-            //header('location: ' . URL . 'login/cartRequireLogin?productId=' . $data['product_id'] . '&qty=' . $data['item_qty'] . '&color=' . $data['item_color'] . '&size=' . $data['item_size'] . '&loginRequired=true');
         }
     }
 

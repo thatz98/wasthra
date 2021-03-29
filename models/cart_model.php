@@ -1,13 +1,16 @@
 <?php
 
-class Cart_Model extends Model {
+class Cart_Model extends Model
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
     }
 
 
-    function getProduct($id) {
+    function getProduct($id)
+    {
 
         $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
         product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
@@ -31,7 +34,8 @@ class Cart_Model extends Model {
         return $data;
     }
 
-    function getAllProducts() {
+    function getAllProducts()
+    {
         $cart = $this->db->selectOnewhere('shopping_cart', array('cart_id'), 'user_id=:userId', array('userId' => Session::get('userId')));
 
         $data = $this->db->runQuery("SELECT product.product_id, product.product_name, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
@@ -45,7 +49,7 @@ class Cart_Model extends Model {
          INNER JOIN product_images ON product.product_id=product_images.product_id
          LEFT JOIN review on review.product_id=product.product_id 
          WHERE product.is_deleted='no' AND shopping_cart.cart_id=:cartId 
-         GROUP BY cart_item.item_id",array('cartId'=>$cart['cart_id']));
+         GROUP BY cart_item.item_id", array('cartId' => $cart['cart_id']));
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
@@ -57,7 +61,8 @@ class Cart_Model extends Model {
     }
 
 
-    function getAllDetails() {
+    function getAllDetails()
+    {
 
         return $this->db->runQuery("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
 		FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
@@ -66,41 +71,48 @@ class Cart_Model extends Model {
         INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
     }
 
-    function listCart() {
+    function listCart()
+    {
 
         return $this->db->select('cart_item', array('product_id', 'item_qty', 'item_color', 'item_size'));
     }
 
 
-    function getImages() {
+    function getImages()
+    {
 
         return $this->db->runQuery("SELECT product_images.image,product_images.product_id
         FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
     }
 
-    function getCatName() {
+    function getCatName()
+    {
 
         return $this->db->select('price_category', array('price_category_name', 'price_category_id', 'product_price'));
     }
 
-    function getPriceCatIdProducts() {
+    function getPriceCatIdProducts()
+    {
 
         return $this->db->select('product', array('price_category_id', 'product_id', 'product_name'));
     }
 
-    function getColors() {
+    function getColors()
+    {
 
         return $this->db->runQuery("SELECT product_colors.colors,product_colors.product_id
         FROM product_colors INNER JOIN product on product_colors.product_id=product.product_id;");
     }
 
-    function getSizes() {
+    function getSizes()
+    {
 
         return $this->db->runQuery("SELECT product_size.sizes,product_size.product_id 
         FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
     }
 
-    function listUserCart() {
+    function listUserCart()
+    {
 
         $userId = Session::get('userId');
         $cart = $this->db->selectOneWhere('shopping_cart', array('cart_id'), 'user_id=:userId', array('userId' => $userId));
@@ -108,13 +120,15 @@ class Cart_Model extends Model {
         return $cartData = $this->db->selectWhere('cart_item', array('product_id', 'item_id', 'item_qty', 'item_color', 'item_size'), 'cart_id=:id', array('id' => $cart['cart_id']));
     }
 
-    function getDeliveryCharges() {
+    function getDeliveryCharges()
+    {
 
         return $this->db->select('delivery_charges', '*');
     }
 
 
-    function create($data) {
+    function create($data)
+    {
 
         $userId = Session::get('userId');
         $cart = $this->db->selectOnewhere('shopping_cart', array('cart_id'), 'user_id=:userId', array('userId' => $userId));
@@ -131,7 +145,8 @@ class Cart_Model extends Model {
         Session::set('cartData', $cartData);
     }
 
-    function update($data) {
+    function update($data)
+    {
 
         $itemId = $data['item_id'];
         $this->db->update('cart_item', array(
@@ -148,7 +163,8 @@ class Cart_Model extends Model {
     }
 
 
-    function delete($id) {
+    function delete($id)
+    {
 
         $this->db->delete('cart_item', "item_id=:item_id", array('item_id' => $id));
 
@@ -160,7 +176,8 @@ class Cart_Model extends Model {
     }
 
 
-    function getCartItems($userId) {
+    function getCartItems($userId)
+    {
 
         $data = $this->db->runQuery("SELECT product.product_id, product.product_name, 
      GROUP_CONCAT(DISTINCT product_images.image) 
@@ -171,7 +188,7 @@ class Cart_Model extends Model {
      INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
      INNER JOIN product_images ON product.product_id=product_images.product_id
      WHERE shopping_cart.user_id=:userId
-     GROUP BY cart_item.item_id",array('userId'=>$userId));
+     GROUP BY cart_item.item_id", array('userId' => $userId));
 
         foreach ($data as $key => $value) {
             $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
@@ -180,16 +197,18 @@ class Cart_Model extends Model {
         return $data;
     }
 
-    function getProductPriceById($id) {
+    function getProductPriceById($id)
+    {
         return $this->db->runQuery('SELECT price_category.product_price FROM price_category INNER JOIN product 
-        ON product.price_category_id=price_category.price_category_id WHERE product.product_id=:id',array('id'=>$id));
+        ON product.price_category_id=price_category.price_category_id WHERE product.product_id=:id', array('id' => $id));
     }
 
-    function updateCartQuantity($data,$oldQty){
-        $id=$data['product_id'];
-        $color=$data['item_color'];
-        $size=$data['item_size'];
-        $qty=$data['item_qty'];
+    function updateCartQuantity($data, $oldQty)
+    {
+        $id = $data['product_id'];
+        $color = $data['item_color'];
+        $size = $data['item_size'];
+        $qty = $data['item_qty'];
         $this->db->queryExecuteOnly("UPDATE cart_item SET cart_item.item_qty=$qty+$oldQty WHERE cart_item.product_id='$id' AND 
         cart_item.item_size='$size' AND cart_item.item_color='$color'");
         $cartData = $this->getCartItems(Session::get('userId'));

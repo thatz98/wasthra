@@ -87,7 +87,7 @@ a.active {
     color: tomato;
 }
 
-a.link:hover{
+a.link:hover {
     color: tomato;
 }
 
@@ -446,6 +446,10 @@ form textarea:hover {
     margin: 0 5px 0 10px;
 }
 
+textarea:focus {
+    outline: none;
+}
+
 /* padding */
 
 .pad-auto {
@@ -481,6 +485,11 @@ form textarea:hover {
 
 .no-mar-right {
     margin-right: 0 !important;
+}
+
+.margin-l-r-20 {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* alignments */
@@ -1045,6 +1054,10 @@ p.price {
     overflow-x: auto;
 }
 
+.table-container table {
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -1189,9 +1202,10 @@ form#regForm_m {
     padding: 0 10px;
 }
 
-.hidden-form input[type='radio']{
+.hidden-form input[type='radio'] {
     margin: 3px 7px;
 }
+
 /* single product content */
 
 .content {
@@ -1290,22 +1304,6 @@ form#regForm_m {
     top: 85%;
 }
 
-.dashboard {
-    margin: 70px 0;
-}
-
-.dashboard .row {
-    justify-content: center;
-}
-
-.dashboard .col-4 {
-    padding: 15px;
-}
-
-.dashboard .col-4 .content {
-    background: #FFE8DA;
-}
-
 i .fa-cart-plus {
     width: 100px;
 }
@@ -1328,9 +1326,29 @@ i .fa-cart-plus {
     color: #ffa8f0;
 }
 
+/* ddashboard */
+
+.dashboard {
+    margin: 70px 0;
+}
+
+.dashboard .row {
+    justify-content: center;
+}
+
+.dashboard .col-4 {
+    padding: 15px;
+}
+
+.dashboard .col-4 .content {
+    background: #FFE8DA;
+}
+
 #map {
     width: 250px;
 }
+
+/* order amount summary */
 
 .price-sum {
     display: flex;
@@ -1342,54 +1360,6 @@ i .fa-cart-plus {
     border: 3px solid #ff523b;
     width: 100%;
     max-width: 380px;
-}
-
-textarea:focus {
-    outline: none;
-}
-
-.product-quicview {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 9;
-    top: 0;
-    left: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    background-color: rgba(23, 24, 24, 0.6);
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
-}
-
-.col-4:hover .product-quicview {
-    opacity: 1;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-}
-
-.col-4 .product-quicview>a {
-    width: 72px;
-    height: 72px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 36px;
-    line-height: 72px;
-}
-
-.col-4 .product-quicview>a:hover {
-    border: 2px solid rgba(255, 255, 255, 1);
-    color: rgba(255, 255, 255, 1);
 }
 
 /* popup */
@@ -1479,6 +1449,10 @@ textarea:focus {
     max-width: 40%;
 }
 
+.popup .row {
+    margin: 0;
+}
+
 /* product details */
 
 .product-colors, .product-sizes {
@@ -1514,10 +1488,6 @@ span.size-box {
 
 .colors, .sizes {
     margin: 0 0 20px 0;
-}
-
-.popup .row {
-    margin: 0;
 }
 
 .prd-btn {
@@ -1988,6 +1958,8 @@ span.search-link {
     width: 80%;
 }
 
+/* orders */
+
 .order-container {
     background: #fff;
     width: auto;
@@ -2130,6 +2102,8 @@ label.address {
     font-size: 14px;
 }
 
+/* table filters */
+
 .table-search input {
     width: 300px;
     height: 30px;
@@ -2166,6 +2140,8 @@ table th i:hover {
     margin: 0 10px 0 10px;
 }
 
+/* errors */
+
 p.error {
     color: red;
 }
@@ -2178,6 +2154,8 @@ p.success {
     display: inline;
 }
 
+/* menu */
+
 #menuItems {
     max-height: 0;
 }
@@ -2186,6 +2164,8 @@ p.success {
     color: #fff;
     background: #ff523b;
 }
+
+/* product reviews */
 
 .product-review {
     margin-bottom: 15px;
@@ -2228,10 +2208,7 @@ p.success {
     padding: 0;
 }
 
-.margin-l-r-20 {
-    margin-left: 20px;
-    margin-right: 20px;
-}
+/* form validations */
 
 .helper-text {
     position: relative;
@@ -2242,8 +2219,6 @@ p.success {
     -ms-user-select: none;
     user-select: none;
 }
-
-/* The actual popup */
 
 .helper-text .popuptext {
     visibility: hidden;
@@ -2261,8 +2236,6 @@ p.success {
     font-size: 14px;
 }
 
-/* Popup arrow */
-
 .helper-text .popuptext::after {
     content: "";
     position: absolute;
@@ -2274,15 +2247,11 @@ p.success {
     border-color: #FFECE9 transparent transparent transparent;
 }
 
-/* Toggle this class - hide and show the popup */
-
 .helper-text .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
 }
-
-/* Add animation (fade in the popup) */
 
 @-webkit-keyframes fadeIn {
     from {
@@ -2302,6 +2271,8 @@ p.success {
     }
 }
 
+/* notification cards */
+
 .min-card {
     color: rgb(66, 66, 66);
     min-width: 200px;
@@ -2315,21 +2286,19 @@ p.success {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 }
 
-.min-card .row{
+.min-card .row {
     justify-content: center;
 }
 
-.min-card:hover{
+.min-card:hover {
     background-color: rgba(240, 226, 164, 0.527);
-}
-
-.table-container table {
-    overflow-x: auto;
 }
 
 .fit-size {
     min-width: unset;
 }
+
+/* breadcumbs */
 
 .breadcumbs i {
     margin: 5px;
@@ -2338,6 +2307,8 @@ p.success {
 .breadcumbs a:hover {
     color: #ff523b;
 }
+
+/* notification colors */
 
 .notify {
     color: #e6bc00;
@@ -2357,6 +2328,8 @@ p.success {
 .filter-card h3 {
     margin-left: 10px;
 }
+
+/* social media login */
 
 .social-login {
     margin-top: 20px;
@@ -2491,12 +2464,9 @@ p.success {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
 }
-
-/* Show the tooltip text when you mouse over the tooltip container */
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
@@ -2504,14 +2474,12 @@ p.success {
     top: 100%;
     left: 50%;
     margin-left: -60px;
-    /* Use half of the width (120/2 = 60), to center the tooltip */
 }
 
 .tooltip .tooltiptext::after {
     content: " ";
     position: absolute;
     bottom: 100%;
-    /* At the top of the tooltip */
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
@@ -2519,12 +2487,16 @@ p.success {
     border-color: transparent transparent black transparent;
 }
 
-#mobile-search{
+/* search button on mobile view */
+
+#mobile-search {
     display: none;
     margin-right: 15px;
     margin-top: 3px;
     font-size: 22px;
 }
+
+/* media queries */
 
 @media screen and (max-width: 620px) {
     .user-box:hover>.user-info {
@@ -2596,15 +2568,12 @@ p.success {
     nav ul li a {
         color: #fff;
     }
-
-    .search-bar #search{
+    .search-bar #search {
         display: none;
     }
-
-    #mobile-search{
+    #mobile-search {
         display: inline;
     }
-
     .menu-icon {
         display: block;
         cursor: pointer;
