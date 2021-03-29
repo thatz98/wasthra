@@ -147,7 +147,7 @@
                             </div>
                         </div>
 
-                        <?php if (empty($review['review_images'])){?>
+                        <?php if (!empty($review['review_images'][0])){?>
                         <div class="col-2" >
                             <div class="row-left">
                                 <div class="col-images">
