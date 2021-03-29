@@ -204,26 +204,26 @@ class Cart_Model extends Model
     }
 
 
-    // function getCartItems($userId)
-    // {
+    function getCartItems($userId)
+    {
 
-    //     $data = $this->db->runQuery("SELECT product.product_id, product.product_name, 
-    //  GROUP_CONCAT(DISTINCT product_images.image) 
-    //  as product_images, price_category.product_price, cart_item.item_qty, cart_item.item_color, cart_item.item_size  
-    //  FROM product
-    //  INNER JOIN cart_item ON cart_item.product_id=product.product_id
-    //  INNER JOIN shopping_cart ON shopping_cart.cart_id=cart_item.cart_id
-    //  INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
-    //  INNER JOIN product_images ON product.product_id=product_images.product_id
-    //  WHERE shopping_cart.user_id=:userId
-    //  GROUP BY cart_item.item_id", array('userId' => $userId));
+        $data = $this->db->runQuery("SELECT product.product_id, product.product_name, 
+     GROUP_CONCAT(DISTINCT product_images.image) 
+     as product_images, price_category.product_price, cart_item.item_qty, cart_item.item_color, cart_item.item_size  
+     FROM product
+     INNER JOIN cart_item ON cart_item.product_id=product.product_id
+     INNER JOIN shopping_cart ON shopping_cart.cart_id=cart_item.cart_id
+     INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
+     INNER JOIN product_images ON product.product_id=product_images.product_id
+     WHERE shopping_cart.user_id=:userId
+     GROUP BY cart_item.item_id", array('userId' => $userId));
 
-    //     foreach ($data as $key => $value) {
-    //         $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
-    //     }
+        foreach ($data as $key => $value) {
+            $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
+        }
 
-    //     return $data;
-    // }
+        return $data;
+    }
     
     /**
      * getProductPriceById
