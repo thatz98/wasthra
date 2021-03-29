@@ -127,6 +127,12 @@ function checkIfOnlyNumbers(field) {
   }
 }
 
+/**
+ * Check whether the field contains a price
+ *
+ * @param  mixed field -- Field that need to be checked
+ * @return bool
+ */
 function checkIfOnlyPrice(field) {
   if (/^[0-9]+\.?[0-9]{1,2}$/.test(field.value)) {
     setValid(field);
