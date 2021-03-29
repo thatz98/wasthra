@@ -32,9 +32,9 @@ class Wishlist extends Controller {
      */
     function addToWishlist($id) {
 
-        Logs::writeApplicationLog('Add Item to Wishlist','Attemting',Session::get('userData')['email'],$id);
+        Logs::writeApplicationLog('Add Item to Wishlist','Attemting',Session::get('userData')['email'],array($id));
         $this->model->create($id);
-        Logs::writeApplicationLog('Item Added to Wishlist','Successfull',Session::get('userData')['email'],$id);
+        Logs::writeApplicationLog('Item Added to Wishlist','Successfull',Session::get('userData')['email'],array($id));
 
         if(isset($_SERVER['HTTP_REFERER'])){ 
         header('location: ' . $_SERVER['HTTP_REFERER'] . '?success=addedToWishlist#message');
@@ -52,9 +52,9 @@ class Wishlist extends Controller {
      */
     function removeFromWishlist($id) {
 
-        Logs::writeApplicationLog('Delete Item from Wishlist','Attemting',Session::get('userData')['email'],$id);
+        Logs::writeApplicationLog('Delete Item from Wishlist','Attemting',Session::get('userData')['email'],array($id));
         $this->model->delete($id);
-        Logs::writeApplicationLog('Item Deleted from Wishlist','Successfull',Session::get('userData')['email'],$id);
+        Logs::writeApplicationLog('Item Deleted from Wishlist','Successfull',Session::get('userData')['email'],array($id));
 
         if(isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'],'wishlist')==FALSE){  
         header('location: ' . $_SERVER['HTTP_REFERER'] . 'wishlist?success=removedFromWishlist#message');
