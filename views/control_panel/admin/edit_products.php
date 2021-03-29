@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-3">
                     <div class="helper-text">
-                        <label>Product Category</label><br><select id="category" name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
+                        <label>Product Category</label><br><select id="category" name="category" >
                             <?php foreach ($this->product_category as $category) : ?><option value="<?php echo $category['name']; ?>" <?php if ($this->product[0]['name'] == $category['name']) {
                                                                                                                                             echo "selected=\"selected\"";
                                                                                                                                             //$this->selectedCat = $category['name'];
@@ -66,38 +66,38 @@
                         <span class="popuptext"></span>
                         <br>
                     </div>
-                </div>                                                                                                                       
-            </div>                                                                                                                                          
-            <div class="row-top">                                                                                                                               
-                <div class="col-3">    
+                </div>
+            </div>
+            <div class="row-top">
+                <div class="col-3">
                     <label>Published</label><br><select id="is_published" name="is_published">
                         <option value="yes" <?php if ($this->product[0]['is_published'] == 'yes') echo "selected=\"selected\""; ?>>YES</option>
                         <option value="no" <?php if ($this->product[0]['is_published'] == 'no') echo "selected=\"selected\""; ?>>NO</option>
                     </select><br>
-                </div>                                                                                                                            
-                
+                </div>
+
                 <div class="col-3">
 
                     <label>Featured</label><br><select id="is_featured" name="is_featured">
                         <option value="yes" <?php if ($this->product[0]['is_featured'] == 'yes') echo "selected=\"selected\""; ?>>YES</option>
                         <option value="no" <?php if ($this->product[0]['is_featured'] == 'no') echo "selected=\"selected\""; ?>>NO</option>
                     </select><br>
-                </div>   
-                <div class="col-3">                                                                                                                      
+                </div>
+                <div class="col-3">
                     <label>New</label><br><select id="is_new" name="is_new">
                         <option value="yes" <?php if ($this->product[0]['is_new'] == 'yes') echo "selected=\"selected\""; ?>>YES</option>
                         <option value="no" <?php if ($this->product[0]['is_new'] == 'no') echo "selected=\"selected\""; ?>>NO</option>
                     </select><br>
-                </div>                                                                                                                    
+                </div>
             </div>
-            <div class="row">  
-                <div class="col-3">                                                                                                                        
+            <div class="row">
+                <div class="col-3">
                     <label>Price Category</label><br><select id="price_category" name="price_category">
                         <?php foreach ($this->price_category as $price) : ?><option value="<?php echo $this->product[0]['price_category_name']; ?>" <?php if ($this->product[0]['price_category_name'] == $price['price_category_name']) echo "selected=\"selected\""; ?>><?php echo $price['price_category_name']; ?></option> <?php endforeach; ?>
                     </select>
                 </div>
-                
-                    <br>
+
+                <br>
                 <div class="col-3">
                     <div class="helper-text">
                         <label>Description</label><br>
@@ -105,7 +105,7 @@
                         <span class="popuptext"></span>
                         <br>
                     </div>
-                
+
                 </div>
             </div>
 
