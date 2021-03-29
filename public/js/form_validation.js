@@ -163,8 +163,7 @@ function meetLength(field, minLength, maxLength) {
  * Check whether the field contains given number of digit
  *
  * @param  mixed field -- Field that need to be checked
- * @param  int minLength -- Number of minimum characters
- * @param  int maxLength -- Number of maximum characters
+ * @param  int length -- Number of digits
  * @return bool
  */
 function meetExactDigits(field, length) {
@@ -173,7 +172,7 @@ function meetExactDigits(field, length) {
     setValid(field);
     return true;
   } else {
-    setInvalid(field, `${field.dataset.helper} must be at least ${length} digits long`);
+    setInvalid(field, `${field.dataset.helper} must be ${length} digits long`);
     return false;
   }
 }

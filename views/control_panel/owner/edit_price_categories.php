@@ -9,7 +9,9 @@
             <form action="<?php echo URL; ?>priceCategories/editSave/" id="editFrom" method="post">        
                         <div class="row-top">   
                             <div class="col-3">
-                                    <input type="text" name="prev_id" value="<?php echo $this->getpricecat['price_category_id']?>" style="display:none">
+                            
+                         <input type="text" name="prev_id" value="<?php echo $this->getpricecat['price_category_id']?>" style="display:none">
+
                                 <div class="helper-text">
                                     <label>Price Category ID</label><br>
                                     <input type="text" name="category_id" id="category_id" data-helper="Category ID" onfocusout="validateCategoryId()" 
@@ -90,6 +92,7 @@
 <?php require 'views/footer.php'; ?>
 
 <script type="text/javascript">
+//Calculating Reatail price  & Net price
 
 function calculateRetail(){
     document.getElementById('retail-display').innerHTML = parseFloat(document.getElementById('production_cost').value) + parseFloat(document.getElementById('market_price').value);

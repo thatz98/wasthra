@@ -123,11 +123,11 @@ function checkAll(tableId, checkboxAllId) {
  * @return void
  */
 function showFilters(tableId, columnId, dropdownId, checkboxId, selectAllId) {
-    
+
     var table, tr, td, tdArray, i;
-    
+
     var dropdown = document.getElementById(dropdownId);
-    
+
     if (dropdown.style.display == "none") {
         dropdown.style.display = "";
     } else {
@@ -135,7 +135,7 @@ function showFilters(tableId, columnId, dropdownId, checkboxId, selectAllId) {
     }
 
     document.getElementById(checkboxId).innerHTML = "";
-    
+
     table = document.getElementById(tableId);
     tr = table.getElementsByTagName("TR");
     var distinct = [];
@@ -175,7 +175,7 @@ function getSelectedCheckboxes() {
 
     var checkboxes = document.getElementsByName('checkbox-data');
     var checkboxValues = [];
-    
+
     for (var checkbox of checkboxes) {
         if (checkbox.checked) {
             checkboxValues.push(checkbox.value.toUpperCase());
@@ -239,7 +239,7 @@ function checkMatches(txtValue, filter) {
 function checkAllSelected() {
 
     var checkboxes = document.getElementsByName('checkbox-data');
-    
+
     for (var checkbox of checkboxes) {
         if (!checkbox.checked) {
             return false;
@@ -270,7 +270,7 @@ function filterByCheck(tableId, data, columnId, checkboxId) {
         var selectAll = document.getElementById(checkboxId);
         selectAll.checked = true;
     }
-    
+
     var filter = getSelectedCheckboxes();
 
     table = document.getElementById(tableId);

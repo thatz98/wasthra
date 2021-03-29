@@ -35,7 +35,7 @@
                             </div>
 
                            <script type="text/javascript">
-
+                            //Calculating Reatail price  & Net price
                             function calculateRetail(){
                                 document.getElementById('retail-display').innerHTML = parseFloat(document.getElementById('production_cost').value) + parseFloat(document.getElementById('market_price').value);
                             }
@@ -339,10 +339,12 @@
 
     <div class="pagination">
 	<ol id="numbers"></ol>
-</div>
-</div>
 
+</div>
+</div>
 <script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
+
+
 <script>
 $(pagination(10,'pricecategory-table'));
 
