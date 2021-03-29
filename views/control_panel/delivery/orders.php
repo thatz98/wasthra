@@ -20,7 +20,7 @@
                             <td class="order-messages">
                               <div class="oder-status">
                                 <h5>Order Type: </h5>
-                                <h5 style="color: #04CBE0"> Delivery</h5><br>
+                                <h5 style="color: #04CBE0"> <?php if($order['return_id']!=NULL) echo 'Return'; else echo 'Delivery';?></h5><br>
                               </div>
                               <div class="oder-date">
                                 <h5>Expected Delivery Date: </h5>
