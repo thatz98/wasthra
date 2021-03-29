@@ -25,6 +25,7 @@
                 </div>
             </a>
         </div>
+
         <div class="col-4 fit-size">
             <a href="?filter=pendingDeliveries">
                 <div class="min-card">
@@ -39,6 +40,7 @@
                 </div>
             </a>
         </div>
+
         <div class="col-4 fit-size">
             <a href="?filter=pendingReturns">
                 <div class="min-card">
@@ -52,6 +54,7 @@
                 </div>
             </a>
         </div>
+
         <div class="col-4 fit-size">
             <a href="?filter=total">
                 <div class="min-card">
@@ -69,18 +72,17 @@
     </div>
 
     <div class="row">
-
         <div class="table-search">
             <input type="text" id="keyword-input" onkeyup="filterByKeyword('order_list',3)" placeholder="Search for orders..">
         </div>
     </div>
+    
     <div class="row">
         <div class="col-2">
             <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo count($this->orderList); ?> results...</span>
         </div>
+        
         <div class="col-2">
-
-
             <div class="per-page" style="float: right;">
                 <span>Orders per page: </span><select name="per-page" id="per-page">
                     <?php foreach (range(10, 100, 10) as $i) { ?>
@@ -180,11 +182,12 @@
 
             </table>
         </div>
-
     </div>
+
     <div class="pagination">
         <ol id="numbers"></ol>
     </div>
+
 </div>
 
 
