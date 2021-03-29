@@ -25,7 +25,7 @@
                                     echo $item['product_price']?></h5>
                                 <?php ?>
                             <div class="item-input">
-                                <label>Color:</label><span class="color-dot" style="background-color:<?php echo $item['item_color']?>"></span>
+                                <label>Color:</label><span class="color-dot" style="background-color: <?php echo $item['item_color'].';'; if($item['item_color']=='#fff' || $item['item_color']=='#fffff') echo 'border: 0.5px solid #000;'; ?>"></span>
                                 <label class="input-data">Size: <?php echo $item['item_size']?></label>
                                 <label class="input-data">Qty: <?php echo $item['item_qty']?></label>
                             </div>
