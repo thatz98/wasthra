@@ -3,18 +3,40 @@
 class PriceCategories_Model extends Model{
 
     function __construct(){
+
      	parent::__construct();
+    
     }
 
+     /* get the 
+        price category list*/
     function listPricecat(){
+
         return $this->db->select('price_category',array('price_category_id','price_category_name','production_cost','add_market_price','discount'));
         
     }
     
+       /*return required row 
+        based on price_category_id*/ 
     function getPriceCategory($id){
-
+     
         return $this->db->selectOneWhere('price_category',array('price_category_id','price_category_name','production_cost','add_market_price','discount'),"price_category_id=:id",array('id'=>$id));
-     }
+   
+    }
+
+      /* get the
+         price category  count*/ 
+    function getPriceCategoryCount($status){
+
+        return $this->db->selectOneWhere('price_category',array('COUNT(price_category_id)'),"is_deleted=:status",array('status'=>$status))['COUNT(price_category_id)'];
+        
+    }
+
+    /**
+     * Add new price category
+     *
+     * 
+     */
 
     function create($data){
 
@@ -30,6 +52,14 @@ class PriceCategories_Model extends Model{
 
     }
 
+    
+
+    /**
+     * Update the existing price category
+     *
+     * 
+     */
+
     function update($data){
         
         $this->db->update('price_category',array(
@@ -43,6 +73,11 @@ class PriceCategories_Model extends Model{
 
      }
 
+    /**
+     * Delete existing price category
+     *
+     * 
+     */
  
     function delete($id){
 
@@ -50,11 +85,7 @@ class PriceCategories_Model extends Model{
 
     }
 
-    function getPriceCategoryCount($status){
-
-        return $this->db->selectOneWhere('price_category',array('COUNT(price_category_id)'),"is_deleted=:status",array('status'=>$status))['COUNT(price_category_id)'];
-        
-    }
+ 
 
 
 }

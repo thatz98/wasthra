@@ -41,6 +41,7 @@ class Wishlist extends Controller {
     } else{
         header('location: ' . URL . '?success=addedToWishlist#message');
     }
+
     }
     
     /**
@@ -61,4 +62,5 @@ class Wishlist extends Controller {
             header('location: ' . URL . 'wishlist?success=removedFromWishlist#message');
         }
     }
+    
 }
