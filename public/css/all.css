@@ -236,7 +236,6 @@ select:focus {
 
 .col-4 p {
     font-size: 14px;
-    ;
 }
 
 .col-3 p {
@@ -276,6 +275,8 @@ nav ul li a:hover {
     color: #ff523b;
     transition: background 0.5s;
 }
+
+/* dashboard */
 
 .filter-time {
     flex: 1;
