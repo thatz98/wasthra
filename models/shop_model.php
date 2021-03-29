@@ -280,7 +280,7 @@ class Shop_Model extends Model {
      * @return void
      */
     function deleteReview($id) {
-        $this->db->update('review', array('is_deleted' => 'yes'), "review_id=:review_id", array('review_id' => $id));
+        $this->db->delete('review', "review_id=:review_id", array('review_id' => $id));
     }
 
     /**

@@ -127,7 +127,7 @@
                             <div class="row-left">
                                 <?php echo $review['first_name']; ?> <?php echo $review['last_name']; ?>
                                 &nbsp&nbsp
-                                <?php if ($review['user_id'] == Session::get('userId') || Session::get('userType') == 'admin' || Session::get('userType') == 'owner') { ?><small><a href="<?php echo URL . 'shop/deleteReview/' . $showreviews['review_id'] . '/' . $showreviews['product_id'] ?>">Remove</a></small><?php } ?>
+                                <?php if ($review['user_id'] == Session::get('userId') || Session::get('userType') == 'admin' || Session::get('userType') == 'owner') { ?><small><a href="<?php echo URL . 'shop/deleteReview/' . $review['review_id'] . '/' . $review['product_id'] ?>">Remove</a></small><?php } ?>
                             </div>
                             <div class="row-left">
                                 <small><?php echo $review['date']; ?> &nbsp&nbsp
@@ -146,7 +146,9 @@
                                 <p><?php echo $review['review_text']; ?></p>
                             </div>
                         </div>
-                        <div class="col-2" <?php if (empty($review['review_images'])) echo 'hidden'; ?>>
+
+                        <?php if (empty($review['review_images'])){?>
+                        <div class="col-2" >
                             <div class="row-left">
                                 <div class="col-images">
                                     <?php foreach ($review['review_images']  as $image) { ?>
@@ -156,6 +158,7 @@
                                 </div>
                             </div>
                         </div>
+                        <?php }?>
                     </div>
                 </div>
             </div>
