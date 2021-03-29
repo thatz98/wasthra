@@ -1,8 +1,10 @@
 <?php
 
-class Shop extends Controller {
+class Shop extends Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
 
         parent::__construct();
     }
@@ -12,7 +14,8 @@ class Shop extends Controller {
      *
      * @return void
      */
-    function index() {
+    function index()
+    {
 
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> Shop';
@@ -34,7 +37,8 @@ class Shop extends Controller {
      * @param  mixed $id Id of the product that need to be displayed in the page
      * @return void
      */
-    function productDetails($id) {
+    function productDetails($id)
+    {
 
         $this->view->title = 'Product Details';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Product Details';
@@ -53,7 +57,8 @@ class Shop extends Controller {
      * @param  mixed $color Color which the products need to be filtered by
      * @return void
      */
-    function byColor($color) {
+    function byColor($color)
+    {
 
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Color';
@@ -76,7 +81,8 @@ class Shop extends Controller {
      * @param  mixed $size Size which the products need to be filtered by
      * @return void
      */
-    function bySize($size) {
+    function bySize($size)
+    {
 
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Size';
@@ -99,7 +105,8 @@ class Shop extends Controller {
      * @param  mixed $category Category which the products need to be filtered by
      * @return void
      */
-    function byCategory($category) {
+    function byCategory($category)
+    {
 
         $this->view->title = 'Shop';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'shop">Shop</a> <i class="fas fa-angle-right"></i> Filter by Category';
@@ -121,7 +128,8 @@ class Shop extends Controller {
      *
      * @return void
      */
-    function submitReview() {
+    function submitReview()
+    {
 
         $imageName['img'] = $_FILES['img']['name'];
         $imageName['temp'] = $_FILES['img']['tmp_name'];
@@ -151,7 +159,8 @@ class Shop extends Controller {
      * @param  mixed $productId Product id
      * @return void
      */
-    function deleteReview($id, $productId) {
+    function deleteReview($id, $productId)
+    {
 
         $this->model->deleteReview($id);
 
@@ -163,7 +172,8 @@ class Shop extends Controller {
      *
      * @return void
      */
-    function checkout($flag) {
+    function checkout($flag)
+    {
 
         $this->view->title = 'Checkout';
         $this->view->breadcumb = '<a href="' . URL . '">Home</a> <i class="fas fa-angle-right"></i> <a href="' . URL . 'cart">Cart</a> <i class="fas fa-angle-right"></i> Checkout';
@@ -173,10 +183,9 @@ class Shop extends Controller {
         $this->view->flag = $flag;
         //$x=$this->model->getCartItems();
         //echo($x);
-        if(Session::get('cartCount')==0 && empty(Session::get('buyNowData'))){
+        if (Session::get('cartCount') == 0 && empty(Session::get('buyNowData'))) {
             header('location: ' . URL . 'shop');
-        }
-        else{
+        } else {
             $this->view->render('checkout/index');
         }
     }
@@ -186,7 +195,8 @@ class Shop extends Controller {
      *
      * @return void
      */
-    function pay() {
+    function pay()
+    {
 
         $this->view->title = 'Payment';
 
@@ -222,20 +232,19 @@ class Shop extends Controller {
         $orderID = str_replace("-", "", $orderID);
         $orderID = str_replace(":", "", $orderID);
         $payMethod = $_POST['payment_method'];
-        $data['order_id']=$orderID;
-        if($buyNow=="false"){
-        Logs::writeApplicationLog('Placing an order with cart items','Attemting',Session::get('userData')['email'],$data);
-        $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment,$buyNow);
-        Logs::writeApplicationLog('Order placed','Successfull',Session::get('userData')['email'],$data);
-        $this->model->deleteCartItems();
-        Session::set('cartData', '');
-        Session::set('cartCount', 0);
-        Session::set('buyNowData', '');
-        }
-        else{
-            Logs::writeApplicationLog('Placing an order with buy now','Attemting',Session::get('userData')['email'],$data);
-            $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment,$buyNow);
-            Logs::writeApplicationLog('Order placed','Successfull',Session::get('userData')['email'],$data);
+        $data['order_id'] = $orderID;
+        if ($buyNow == "false") {
+            Logs::writeApplicationLog('Placing an order with cart items', 'Attemting', Session::get('userData')['email'], $data);
+            $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment, $buyNow);
+            Logs::writeApplicationLog('Order placed', 'Successfull', Session::get('userData')['email'], $data);
+            $this->model->deleteCartItems();
+            Session::set('cartData', '');
+            Session::set('cartCount', 0);
+            Session::set('buyNowData', '');
+        } else {
+            Logs::writeApplicationLog('Placing an order with buy now', 'Attemting', Session::get('userData')['email'], $data);
+            $this->model->placeOrder($date, $time, $orderID, $payMethod, $aId[0][0], $comment, $buyNow);
+            Logs::writeApplicationLog('Order placed', 'Successfull', Session::get('userData')['email'], $data);
         }
 
         if ($_POST['payment_method'] == 'online payment') {
@@ -247,17 +256,19 @@ class Shop extends Controller {
         }
     }
 
-    function getSizes() {
+    function getSizes()
+    {
         if (isset($_POST["color"]) && isset($_POST["product_id"])) {
             echo json_encode($this->model->getSizes($_POST["product_id"], $_POST["color"]));
         }
     }
 
-    function getGentsSizes() {
+    function getGentsSizes()
+    {
         $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
         if (isset($_POST["color"]) && isset($_POST["product_id"])) {
             $data = $this->model->getSizes($_POST["product_id"], $_POST["color"]);
-          //  $sizes = array();
+            //  $sizes = array();
             foreach ($data as $record) {
                 if (in_array($record['size'], $single_sizes_gents)) {
                     $record['size'] = rtrim($record['size'], "-W");
@@ -268,7 +279,8 @@ class Shop extends Controller {
         }
     }
 
-    function getLadiesSizes() {
+    function getLadiesSizes()
+    {
         $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
         if (isset($_POST["color"]) && isset($_POST["product_id"])) {
             $data = $this->model->getSizes($_POST["product_id"], $_POST["color"]);
@@ -285,17 +297,17 @@ class Shop extends Controller {
         }
     }
 
-    function getQtys() {
+    function getQtys()
+    {
         if (isset($_POST["color"]) && isset($_POST["size"]) && isset($_POST["product_id"])) {
             echo json_encode($this->model->getQtys($_POST["product_id"], $_POST["color"], $_POST["size"]));
         }
     }
 
-    function getCoupleQtys() {
+    function getCoupleQtys()
+    {
         if (isset($_POST["color"]) && isset($_POST["size1"]) && isset($_POST["size2"]) && isset($_POST["product_id"])) {
-            echo json_encode($this->model->getCoupleQtys($_POST["product_id"], $_POST["color"], $_POST["size1"],$_POST["size2"]));
+            echo json_encode($this->model->getCoupleQtys($_POST["product_id"], $_POST["color"], $_POST["size1"], $_POST["size2"]));
         }
     }
-
-
 }
