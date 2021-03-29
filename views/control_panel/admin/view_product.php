@@ -192,12 +192,14 @@
                 
                 <div class="col-3">
                     <div class="helper-text">
-                        <label>Quantity</label><br><input id="quantity" type="text" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
+                        <label>Quantity</label><br><input id="quantity" min='0' max='1000' type="number" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
                         <input name="product_id" value="<?php echo $this->product[0]['product_id'];?>" hidden>
+
                         <span class="popuptext"></span>
                         <br>
                     </div>
                 </div>
+                
             </div>
 
             <div class="center-btn">

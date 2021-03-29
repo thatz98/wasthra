@@ -6,9 +6,7 @@
     <div class="row">
         <h2 class="title title-min">Users</h2>
     </div>
-    <div class="row-right">
-        <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
-    </div>
+
     <div class="row">
         <div class="col-3 fit-size">
             <a href="?filter=new"><div class="min-card primary">

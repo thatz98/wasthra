@@ -6,9 +6,7 @@
     <div class="row">
         <h2 class="title title-min">Product Category</h2>
     </div>
-    <div class="row-right">
-        <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
-    </div>
+
         <div class="" >
             <button class="btn btn-square" onclick="formToggle()">+ Add New Product Category</button>
             <form action="<?php echo URL; ?>ProductCategories/create" id="addFrom" class="hidden-form" method="post">

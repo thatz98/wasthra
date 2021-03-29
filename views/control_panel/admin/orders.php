@@ -4,9 +4,7 @@
     <div class="row">
         <h2 class="title title-min">Orders</h2><br>
     </div>
-    <div class="row-right">
-        <a href="<?php echo URL ?>report" class="btn">Generate Report</a>
-    </div>
+
 
 
 
