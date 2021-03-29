@@ -135,9 +135,9 @@ class Stats_Model extends Model {
 
     function getTotalOrderCount($filter = false) {
         if ($filter) {
-            return $this->db->runQuery("SELECT COUNT(*) FROM orders WHERE $filter;");
+            return $this->db->runQuery("SELECT COUNT(DISTINCT checkout.user_id) FROM orders INNER JOIN checkout ON checkout.order_id=orders.order_id WHERE $filter;");
         } else {
-            return $this->db->runQuery("SELECT COUNT(*) FROM orders;");
+            return $this->db->runQuery("SELECT COUNT(DISTINCT checkout.user_id) FROM orders INNER JOIN checkout ON checkout.order_id=orders.order_id;");
         }
     }
 

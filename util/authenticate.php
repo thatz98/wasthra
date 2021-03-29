@@ -64,7 +64,7 @@ class Authenticate
             Session::destroy();
             header('location: '.URL.'login?loginRequired=true');
             exit;
-        } else if($userType!='delivery_staff' || $userType!='owner'){
+        } else if($userType!='delivery_staff'){
             Logs::writeLog('access_log',basename($_SERVER['PHP_SELF']),"Unautherized $userType access by $username!");
             Session::destroy();
             header('location: '.URL.'login?loginRequired=true');
