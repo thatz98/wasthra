@@ -141,14 +141,17 @@
         </tbody>           
     </table>
 </div>
+
     <div class="pagination">
 	<ol id="numbers"></ol>
+    
 </div>
 </div>
 
 
-<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
+
 <script>
+
 $(pagination(10,'dcharges-table'));
 
 $('#per-page').on('change',function() {
@@ -172,7 +175,7 @@ function formToggle() {
 }
 </script>
 
-
+<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
 <script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
 <script type="text/javascript" src="/wasthra/public/js/sort_table.js"></script>
 <script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>

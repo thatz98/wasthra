@@ -21,6 +21,7 @@ class DeliveryCharges extends Controller {
 
         // get the list of delivery charges
         $this->view->deliverycharges = $this->model->listDeliveryCharges();
+        //get total city count 
         $this->view->cityCount = $this->model->getCityCount();
 
         $this->view->render('control_panel/owner/delivery_charges');

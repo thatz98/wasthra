@@ -34,22 +34,31 @@ class Wishlist_Model extends Model {
         return $data;
     }
 
-
+     /**
+     * Add products to wishlist
+     *
+     */
     function create($id) {
-
 
         $userId = Session::get('userId');
         $this->db->insert('wishlist', array(
             'product_id' => $id,
             'user_id' => $userId
         ));
+
     }
 
 
-
+    
+     /**
+     * Remove exisitig item from wishlist
+     *
+     */
     function delete($id) {
 
-
-        $this->db->delete('wishlist', "product_id=:id", array('id' => $id));
+       $this->db->delete('wishlist', "product_id=:id", array('id' => $id));
+    
     }
 }
+
+?>

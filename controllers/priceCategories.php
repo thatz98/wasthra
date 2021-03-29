@@ -21,6 +21,8 @@ class PriceCategories extends Controller {
 
         // get the price category list
         $this->view->pricecatList = $this->model->listPricecat();
+        
+        // get the price category  count to diplay in result 
         $this->view->pricecatCount = $this->model->getPriceCategoryCount('no');
 
         $this->view->render('control_panel/owner/price_categories');
@@ -51,8 +53,9 @@ class PriceCategories extends Controller {
 
 
     /**
+     * 
      * Display edit price category page
-     *
+     *when edit button click 
      * @param  mixed $id Id of the price category that need to be edited
      * @return void
      */
@@ -110,3 +113,5 @@ class PriceCategories extends Controller {
         header('location: ' . URL . 'priceCategories');
     }
 }
+
+?>

@@ -9,7 +9,8 @@
                         <div class="row">
                             <div class="col-2">
                                 <div class="helper-text">
-                                    <input type="text" name="prev_city" value="<?php echo $this->getcharges['city']?>" style="display:none">   
+
+                    <input type="text" name="prev_city" value="<?php echo $this->getcharges['city']?>" style="display:none">   
                                     <label>City</label><br>
                                     <input type="text" name="delivery_city" id="delivery_city" value="<?php echo $this->getcharges['city'] ?>"
                                     data-helper="City" onfocusout="validateDeliveryCity()">
