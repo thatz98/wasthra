@@ -6,7 +6,7 @@ class Shop_Model extends Model {
 
         parent::__construct();
     }
-    
+
     /**
      * listProducts
      *
@@ -16,7 +16,7 @@ class Shop_Model extends Model {
 
         return $this->db->select('product', array('product_id', 'product_name', 'product_description', 'is_featured', 'is_new'));
     }
-    
+
     /**
      * getProduct
      *
@@ -46,7 +46,7 @@ class Shop_Model extends Model {
 
         return $data;
     }
-    
+
     /**
      * getProductName
      *
@@ -56,7 +56,7 @@ class Shop_Model extends Model {
     function getProductName($id) {
         return $this->db->selectWhere('product', array('product_id', 'product_name'), 'product_id=:id', array('id' => $id));
     }
-    
+
     /**
      * getAllDetails
      *
@@ -71,7 +71,7 @@ class Shop_Model extends Model {
         INNER JOIN price_category on price_category.price_category_id=product.price_category_id 
         LEFT JOIN review on review.product_id=product.product_id GROUP BY product_id;");
     }
-    
+
     /**
      * getSizes
      *
@@ -83,7 +83,7 @@ class Shop_Model extends Model {
 
         return $this->db->selectWhere('inventory', '*', "product_id=:productId AND color=:color", array('productId' => $productId, 'color' => $color));
     }
-    
+
     /**
      * getQtys
      *
@@ -96,7 +96,7 @@ class Shop_Model extends Model {
 
         return $this->db->selectWhere('inventory', array('qty'), "product_id=:productId AND color=:color AND size=:size", array('productId' => $productId, 'color' => $color, 'size' => $size));
     }
-    
+
     /**
      * getCoupleQtys
      *
@@ -118,7 +118,7 @@ class Shop_Model extends Model {
             return $res1;
         }
     }
-    
+
     /**
      * getImages
      *
@@ -128,7 +128,7 @@ class Shop_Model extends Model {
         return $this->db->runQuery("SELECT product_images.image,product_images.product_id
         FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
     }
-       
+
     /**
      * getAllSizes
      *
@@ -138,7 +138,7 @@ class Shop_Model extends Model {
 
         return $this->db->select('inventory', array('DISTINCT size'));
     }
-    
+
     /**
      * getAllColors
      *
@@ -147,7 +147,7 @@ class Shop_Model extends Model {
     function getAllColors() {
         return $this->db->select('inventory', array('DISTINCT color'));
     }
-        
+
     /**
      * getAllCategories
      *
@@ -157,7 +157,7 @@ class Shop_Model extends Model {
 
         return $this->db->select('category', array('name', 'category_id'));
     }
-    
+
     /**
      * getPriceCategories
      *
@@ -167,7 +167,7 @@ class Shop_Model extends Model {
 
         return $this->db->select('price_category', array('price_category_name', 'price_category_id'));
     }
-        
+
     /**
      * getQty
      *
@@ -177,7 +177,7 @@ class Shop_Model extends Model {
 
         return $this->db->select('inventory', array('product_id', 'qty'));
     }
-    
+
     /**
      * getFeaturedProducts
      *
@@ -205,7 +205,7 @@ class Shop_Model extends Model {
 
         return $data;
     }
-    
+
     /**
      * addReview
      *
@@ -242,7 +242,7 @@ class Shop_Model extends Model {
             $this->db->insert('review_image', array('review_id' => $review_id[0], 'image' => $m));
         }
     }
-    
+
     /**
      * getReviewDetails
      *
@@ -250,13 +250,19 @@ class Shop_Model extends Model {
      * @return void
      */
     function getReviewDetails($id) {
-        return $this->db->runQuery("SELECT review.product_id,review.user_id,customer.first_name,customer.last_name,review.rate,review.review_text,review.date,review.time,review.review_id, GROUP_CONCAT(DISTINCT review_image.image) as review_images FROM review
+        $data = $this->db->runQuery("SELECT review.product_id,review.user_id,customer.first_name,customer.last_name,review.rate,review.review_text,review.date,review.time,review.review_id, GROUP_CONCAT(DISTINCT review_image.image) as review_images FROM review
         INNER JOIN customer ON review.user_id=customer.user_id
         LEFT JOIN review_image ON review_image.review_id=review.review_id
         WHERE review.product_id=:id AND review.is_deleted='no'
         GROUP BY review.review_id", array('id' => $id));
+
+        foreach ($data as $key => $value) {
+            $data[$key]['review_images'] = explode(',', $data[$key]['review_images']);
+        }
+
+        return $data;
     }
-    
+
     /**
      * reviewImages
      *
@@ -266,7 +272,7 @@ class Shop_Model extends Model {
 
         return $this->db->select('review_image', array('image', 'review_id'));
     }
-    
+
     /**
      * deleteReview
      *
@@ -276,7 +282,7 @@ class Shop_Model extends Model {
     function deleteReview($id) {
         $this->db->update('review', array('is_deleted' => 'yes'), "review_id=:review_id", array('review_id' => $id));
     }
-    
+
     /**
      * create
      *
@@ -296,7 +302,7 @@ class Shop_Model extends Model {
             'user_id' => Session::get('userId')
         ));
     }
-    
+
     /**
      * getAddressId
      *
@@ -312,7 +318,7 @@ class Shop_Model extends Model {
             'city' => $data['city'], 'address_line_1' => $data['address_line_1'], 'address_line_2' => $data['address_line_2'], 'address_line_3' => $data['address_line_3']
         ));
     }
-    
+
     /**
      * placeOrder
      *
@@ -398,7 +404,7 @@ class Shop_Model extends Model {
 
         $this->db->runQuery('UPDATE order_tracking SET ordered=CURRENT_TIMESTAMP() WHERE order_id=:orderId', array('orderId' => $orderID));
     }
-    
+
     /**
      * deleteCartItems
      *
@@ -410,7 +416,7 @@ class Shop_Model extends Model {
         $cartId = $cart['cart_id'];
         $this->db->delete('cart_item', 'cart_id=:cartId', array('cartId' => $cartId));
     }
-    
+
     /**
      * getDeliveryCharges
      *
@@ -419,7 +425,7 @@ class Shop_Model extends Model {
     function getDeliveryCharges() {
         return $this->db->select('delivery_charges', '*');
     }
-    
+
     /**
      * getProductList
      *
@@ -447,7 +453,7 @@ class Shop_Model extends Model {
 
         return $data;
     }
-    
+
     /**
      * getProductListBy
      *
@@ -505,7 +511,7 @@ class Shop_Model extends Model {
 
         return $data;
     }
-    
+
     /**
      * getAllOrderDetails
      *

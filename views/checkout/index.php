@@ -213,9 +213,9 @@
 
     // Initialize locationPicker plugin
     var lp = new locationPicker('map', {
-        setCurrentPosition: true, // You can omit this, defaults to true
+        setCurrentPosition: true,
     }, {
-        zoom: 15 // You can set any google map options here, zoom defaults to 15
+        zoom: 15
     });
 
     // Listen to map idle event, listening to idle event more accurate than listening to ondrag event
