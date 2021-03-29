@@ -4,7 +4,9 @@
     <div class="row">
         <h2 class="title title-min">Products</h2>
     </div>
-
+    <div class="row-right">
+        <a href="<?php echo URL ?>inventory" class="btn">Manage Inventory</a>
+    </div>
     <div class="row">
         <div class="col-3 fit-size">
             <div class="min-card primary">
