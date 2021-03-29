@@ -206,9 +206,9 @@ class Cart extends Controller {
     function delete($id) {
 
         
-        Logs::writeApplicationLog('Delete Cart Item','Attemting',Session::get('userData')['email'],$data);
+        Logs::writeApplicationLog('Delete Cart Item','Attemting',Session::get('userData')['email'],array($id));
         $this->model->delete($id);
-        Logs::writeApplicationLog('Cart Item Deleted','Successfull',Session::get('userData')['email'],$data);
+        Logs::writeApplicationLog('Cart Item Deleted','Successfull',Session::get('userData')['email'],array($id));
 
         header('location: ' . URL . 'cart?success=itemDeleted#message');
     }

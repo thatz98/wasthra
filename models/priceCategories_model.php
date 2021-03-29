@@ -58,7 +58,7 @@ class PriceCategories_Model extends Model{
            'add_market_price' => $data['add_market_price'],
            'production_cost' => $data['production_cost'],
            'discount' => $data['discount'],
-           'product_price' => floatval($data['production_cost'])+floatval($data['add_market_price'])-floatval($data['discount'])
+           'product_price' =>((floatval($data['production_cost'])+floatval($data['add_market_price']))*(100-floatval($data['discount']))/100)
            ));
 
     }
@@ -78,7 +78,7 @@ class PriceCategories_Model extends Model{
             'add_market_price' => $data['add_market_price'],
             'production_cost' => $data['production_cost'],
             'discount' => $data['discount'],
-            'product_price' => $data['product_price']),"price_category_id = :prev_id",array('prev_id'=>$data['prev_id']));
+            'product_price' => ((floatval($data['production_cost'])+floatval($data['add_market_price']))*(100-floatval($data['discount']))/100)),"price_category_id = :prev_id",array('prev_id'=>$data['prev_id']));
 
      }
      
