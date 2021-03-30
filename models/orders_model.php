@@ -91,7 +91,8 @@ class Orders_Model extends Model {
         LEFT JOIN delivery ON delivery.order_id=orders.order_id
         LEFT JOIN returns ON returns.order_id=orders.order_id
         LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id
-        GROUP BY orders.order_id");
+        GROUP BY orders.order_id
+        ORDER BY orders.order_id DESC");
         } else {
             return $this->db->runQuery("SELECT SUM(order_item.item_qty*price_category.product_price)+delivery_charges.delivery_fee as total_amount,orders.order_id,orders.date,orders.time,orders.order_status,payment.payment_method,payment.payment_status,
         checkout.address_id,delivery_charges.delivery_fee,delivery.delivery_id,delivery.actual_delivery_date,delivery.expected_delivery_date,delivery.delivery_status,
@@ -107,7 +108,8 @@ class Orders_Model extends Model {
         LEFT JOIN returns ON returns.order_id=orders.order_id
         LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id
         WHERE orders.order_status=:status
-        GROUP BY orders.order_id", array('status' => $filter));
+        GROUP BY orders.order_id
+        ORDER BY orders.order_id DESC", array('status' => $filter));
         }
     }
 
@@ -166,7 +168,8 @@ class Orders_Model extends Model {
         LEFT JOIN returns ON returns.order_id=orders.order_id
         LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id
         WHERE delivery.user_id=:userId AND order_status=:status1 OR order_status=:status2 OR order_status=:status3
-        GROUP BY orders.order_id", array('userId' => Session::get('userId'), 'status1' => 'Out for Delivery', 'status2' => 'In Transit', 'status3' => 'Delivery Failed'));
+        GROUP BY orders.order_id
+        ORDER BY orders.order_id DESC", array('userId' => Session::get('userId'), 'status1' => 'Out for Delivery', 'status2' => 'In Transit', 'status3' => 'Delivery Failed'));
     }
 
     /**
@@ -190,7 +193,8 @@ class Orders_Model extends Model {
         LEFT JOIN returns ON returns.order_id=orders.order_id
         LEFT JOIN delivery_staff ON delivery.user_id=delivery_staff.user_id
         WHERE delivery.user_id=:userId AND order_status=:status1 OR order_status=:status2 OR order_status=:status3
-        GROUP BY orders.order_id", array('userId' => Session::get('userId'), 'status1' => 'Delivered', 'status2' => 'Returned', 'status3' => 'Completed'));
+        GROUP BY orders.order_id
+        ORDER BY orders.order_id DESC", array('userId' => Session::get('userId'), 'status1' => 'Delivered', 'status2' => 'Returned', 'status3' => 'Completed'));
     }
 
 

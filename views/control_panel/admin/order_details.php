@@ -179,7 +179,7 @@
                                 </label>
                               <?php  if($this->orderDetails['delivery_id']==NULL){ ?>
                                 <a href="#assignDeliverySraff" class="btn">Assign Delivery</a>
-                                <?php } else{?>
+                                <?php } else if($this->orderDetails['order_status']=='Out for Delivery'){?>
                                 <a href="?update=true#assignDeliverySraff" class="btn">Re-assign Delivery</a>
                               <?php  }?>
                             </div>
