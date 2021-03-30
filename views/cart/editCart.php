@@ -54,7 +54,7 @@
                         foreach ($this->productPopup['product_colors'] as $color) { ?>
                             <label class="color-container">
                                 <input type="radio" name="colorC" value="<?php echo $color ?>" <?php if ($this->productPopup['item_color'] == $color) echo 'checked'; ?> required>
-                                <span class="checkmark" style="background-color: <?php echo $color ?>"></span>
+                                <span class="checkmark" style="background-color: <?php echo $color.';'; if(strcasecmp($color, '#fff') == 0 || strcasecmp($color, '#ffffff') == 0) echo 'border: 0.5px solid #000;'; ?>"></span>
                             </label>
                         <?php
                         } ?>
@@ -108,5 +108,5 @@
 
     </div>
 </div>
-
+<script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
 <script type="text/javascript" src="/wasthra/public/js/varient_handler_for_edit_cart.js"></script>

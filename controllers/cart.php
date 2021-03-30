@@ -175,9 +175,9 @@ class Cart extends Controller {
      */
     function updateCartItem($itemId) {
 
-        $sizeGents = $_POST['size1'];
-        $sizeLadies = $_POST['size2'];
-        $sizeNormal = $_POST['size'];
+        $sizeGents = $_POST['size1C'];
+        $sizeLadies = $_POST['size2C'];
+        $sizeNormal = $_POST['sizeC'];
         $sizeArray = '';
         $sizeArray .= $sizeNormal;
         $sizeArray .= $sizeLadies . ",";
@@ -185,9 +185,9 @@ class Cart extends Controller {
     // remove the last comma that has been added to the string
         $sizeArray = rtrim($sizeArray, ",");
 
-        $data['product_id'] = $_POST['prod_id'];
-        $data['item_qty'] = $_POST['quantity'];
-        $data['item_color'] = $_POST['color'];
+        $data['product_id'] = $_POST['prod_idC'];
+        $data['item_qty'] = $_POST['quantityC'];
+        $data['item_color'] = $_POST['colorC'];
         $data['item_size'] = $sizeArray;
         $data['item_id'] = $itemId;
 

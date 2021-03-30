@@ -51,7 +51,7 @@ $(document).ready(function () {
             qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qtyB" step="1" min="1" max="99" name="quantity"
+                        <input type="number" class="qty-text" id="qtyC" step="1" min="1" max="99" name="quantityC"
                             value="${prevQty}">
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
@@ -145,7 +145,7 @@ $(document).ready(function () {
             qty.innerHTML = `<span class="qty-minus"
                               onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                   class="fa fa-minus" aria-hidden="true"></i></span>
-                          <input type="number" class="qty-text" id="qtyB" step="1" min="1" max="99" name="quantity"
+                          <input type="number" class="qty-text" id="qtyC" step="1" min="1" max="99" name="quantityC"
                               value="${prevQty}">
                           <span class="qty-plus"
                               onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
@@ -281,7 +281,7 @@ $(document).on('change', 'input[type=radio][name=sizeC]', function () {
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qtyB" step="1" min="1" max="99" name="quantity"
+                        <input type="number" class="qty-text" id="qtyC" step="1" min="1" max="99" name="quantityC"
                             value="1">
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
@@ -319,7 +319,7 @@ $(document).on('change', 'input[type=radio][name=size1C]', function () {
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qtyB" step="1" min="1" max="99" name="quantity"
+                        <input type="number" class="qty-text" id="qtyC" step="1" min="1" max="99" name="quantityC"
                             value="1">
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
@@ -356,7 +356,7 @@ $(document).on('change', 'input[type=radio][name=size2C]', function () {
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity"
+                        <input type="number" class="qty-text" id="qtyC" step="1" min="1" max="99" name="quantityC"
                             value="1">
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
