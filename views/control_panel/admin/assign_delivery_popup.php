@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="row">
-                <input type="text" value="<?php echo  $this->orderDetails['order_id']; ?>" name="order_id" hidden>
+         <input type="text" value="<?php echo  $this->orderDetails['order_id']; ?>" name="order_id" hidden>
                     <button type="submit" class="btn">Assign</button>
                 </div>
                 

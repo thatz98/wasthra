@@ -182,9 +182,9 @@
         </div>
     </div>
 
-    <div class="pagination">
-        <ol id="numbers"></ol>
-    </div>
+  <div class="pagination">
+      <ol id="numbers"></ol>
+  </div>
 
 </div>
 
@@ -198,11 +198,11 @@
 
 
 <script>
-    $(pagination(10, 'order_list'));
+   $(pagination(10, 'order_list'));
 
-    $('#per-page').on('change', function() {
-        var rowsPerPage = parseInt($('#per-page').val());
-        pagination(rowsPerPage, 'order_list');
+   $('#per-page').on('change', function() {
+       var rowsPerPage = parseInt($('#per-page').val());
+       pagination(rowsPerPage, 'order_list');
     });
 </script>
 

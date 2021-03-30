@@ -31,7 +31,7 @@
                             </td>
 
                             <td>
-                                <a href="<?php echo '?id=' . $item['product_id'] . '&item=' . $item['item_id'] . '&color=' . str_replace('#', '', $item['item_color']) . '&qty=' . $item['item_qty'] . '&size=' . $item['item_size'] ?>#updateCartPopup" class="btn table-btn">Update</a>
+                                <a href="<?php echo '?id=' . $item['product_id'] . '&item=' . $item['item_id'] . '&color=' . str_replace('#', '', $item['item_color']) . '&qty=' . $item['item_qty'] . '&size=' . $item['item_size'] ?>#updateCartPopup" class="btn table-btn btn-grey">Update</a>
                                 <a href="<?php echo URL ?>cart/delete/<?php echo $item['item_id'] ?>" class="btn table-btn">Remove</a>
                             </td>
                         </tr>
@@ -89,9 +89,10 @@
 <script>
     function calculateDelivery() {
 
-        var dCharges = parseFloat(document.getElementById('dCharges').innerHTML);
-        var subtotal = parseFloat(document.getElementById('subtotal').innerHTML);
-        document.getElementById('totalPrice').innerHTML = (dCharges + subtotal).toFixed(2);
+         var dCharges = parseFloat(document.getElementById('dCharges').innerHTML);
+         var subtotal = parseFloat(document.getElementById('subtotal').innerHTML);
+         document.getElementById('totalPrice').innerHTML = (dCharges + subtotal).toFixed(2);
+    
     }
 </script>
 
