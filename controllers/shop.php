@@ -252,7 +252,7 @@ class Shop extends Controller
             $this->view->render('checkout/payment');
         } else {
 
-            header('location: ' . URL . 'orders/myOrderDetails/' . $orderID);
+            header('location: ' . URL . 'orders/myOrderDetails/' . $orderID .'?success=orderPlaced#message');
         }
     }
 
