@@ -34,15 +34,13 @@
                 <input id="prev_images" type="text" name="prev_images" value="<?php echo $this->oldImageList ?>" style="display:none">
             </div>
 
-            <div class="row">
+            <div class="row-top">
                 <div class="col-3">
                     <input type="text" name="prev_id" value="<?php echo $this->product[0]['product_id'] ?>" style="display:none">
                     <div class="helper-text">
                         <label>Product ID</label><br>
                         <input type="text" id="product_id" name="product_id" value="<?php echo $this->product[0]['product_id'] ?>" placeholder="PRDXXXX" data-helper="Product ID" onfocusout="validateProductId()">
                         <span class="popuptext"></span>
-                        <br>
-
                     </div>
                 </div>
                 <div class="col-3">
@@ -50,12 +48,11 @@
                         <label>Product Name</label><br>
                         <input type="text" id="product_name" name="product_name" value="<?php echo $this->product[0]['product_name'] ?>" data-helper="Product Name" onfocusout="validateproductName()">
                         <span class="popuptext"></span>
-                        <br>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="helper-text">
-                        <label>Product Category</label><br><select id="category" name="category" >
+                        <label>Product Category</label><br><select id="category" name="category">
                             <?php foreach ($this->product_category as $category) : ?><option value="<?php echo $category['name']; ?>" <?php if ($this->product[0]['name'] == $category['name']) {
                                                                                                                                             echo "selected=\"selected\"";
                                                                                                                                             //$this->selectedCat = $category['name'];
@@ -64,16 +61,15 @@
 
                         </select>
                         <span class="popuptext"></span>
-                        <br>
                     </div>
                 </div>
             </div>
-            <div class="row-top">
+            <div class="row">
                 <div class="col-3">
                     <label>Published</label><br><select id="is_published" name="is_published">
                         <option value="yes" <?php if ($this->product[0]['is_published'] == 'yes') echo "selected=\"selected\""; ?>>YES</option>
                         <option value="no" <?php if ($this->product[0]['is_published'] == 'no') echo "selected=\"selected\""; ?>>NO</option>
-                    </select><br>
+                    </select>
                 </div>
 
                 <div class="col-3">
@@ -81,13 +77,13 @@
                     <label>Featured</label><br><select id="is_featured" name="is_featured">
                         <option value="yes" <?php if ($this->product[0]['is_featured'] == 'yes') echo "selected=\"selected\""; ?>>YES</option>
                         <option value="no" <?php if ($this->product[0]['is_featured'] == 'no') echo "selected=\"selected\""; ?>>NO</option>
-                    </select><br>
+                    </select>
                 </div>
                 <div class="col-3">
                     <label>New</label><br><select id="is_new" name="is_new">
                         <option value="yes" <?php if ($this->product[0]['is_new'] == 'yes') echo "selected=\"selected\""; ?>>YES</option>
                         <option value="no" <?php if ($this->product[0]['is_new'] == 'no') echo "selected=\"selected\""; ?>>NO</option>
-                    </select><br>
+                    </select>
                 </div>
             </div>
             <div class="row">
@@ -103,7 +99,7 @@
                         <label>Description</label><br>
                         <textarea rows="6" cols="20" id="description" name="product_description" style="width: 80%;" data-helper="Description" onfocusout="validateDescription()"><?php echo $this->product[0]['product_description'] ?></textarea>
                         <span class="popuptext"></span>
-                        <br>
+                        
                     </div>
 
                 </div>

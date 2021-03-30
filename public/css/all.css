@@ -366,6 +366,9 @@ nav ul li a:hover {
     border-bottom: 2px solid #DCADA3;
 }
 
+.form-container select {
+    border: 2px solid #DCADA3;
+}
 .form-container input[type="checkbox" i] {
     margin: 0;
 }
@@ -2450,12 +2453,14 @@ p.success {
     background-color: #27aa80;
 }
 
+
+
+/* Tooltip text */
+
 .tooltip {
     position: relative;
     display: inline-block;
 }
-
-/* Tooltip text */
 
 .tooltip .tooltiptext {
     visibility: hidden;
@@ -2475,6 +2480,7 @@ p.success {
     top: 100%;
     left: 50%;
     margin-left: -60px;
+    z-index: 100;
 }
 
 .tooltip .tooltiptext::after {

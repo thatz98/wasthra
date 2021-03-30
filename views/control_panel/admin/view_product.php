@@ -57,7 +57,7 @@
                     <?php } else {
                     foreach ($this->product[0]['product_colors'] as $color) { ?>
                         <span class="color-dot" style="background-color: <?php echo $color . ';';
-                                                                            if ($color == '#fff' || $color == '#fffff') echo 'border: 0.5px solid #000;';  ?>"></span><?php
+                                                                            if (strcasecmp($color, '#fff') == 0 || strcasecmp($color, '#ffffff') == 0) echo 'border: 0.5px solid #000;';  ?>"></span><?php
                                                                                                                                                                     }
                                                                                                                                                                 } ?>
             </div>
@@ -151,7 +151,7 @@
                     <?php if ($this->product[0]['name'] == 'Couple') {
                     ?>
                         <div class="helper-text">
-                            <label>Size for Couple</label><br><select id="size-couple" name="size-couple">
+                            <label>Size for Couple</label><br><select id="size" name="size-couple">
                                 <option value="0">Select</option>
                                 <option value="XS-G">Gents-XS</option>
                                 <option value="S-G">Gents-S</option>
@@ -208,12 +208,12 @@
             </div>
         </form>
     </div>
-    <div class="table-container">
-        <table>
+    <div class="table-container" style="min-height: 250px;">
+        <table style="text-align: center;">
             <tr>
-                <th>Color</th>
-                <th>Size</th>
-                <th>Quantity</th>
+                <th style="text-align: center;">Color</th>
+                <th style="text-align: center;">Size</th>
+                <th style="text-align: center;">Quantity</th>
                 <th>Options</th>
 
             </tr>
@@ -225,7 +225,7 @@
                     <td>
                         <div class="tooltip">
 
-                            <span class="color-dot no-mar-right" style="background-color: <?php echo $product_varient['color'].';'; if($product_varient['color']=='#fff' || $product_varient['color']=='#fffff') echo 'border: 0.5px solid #000;'; ?>"></span>
+                            <span class="color-dot no-mar-right" style="background-color: <?php echo $product_varient['color'].';'; if(strcasecmp($product_varient['color'], '#fff') == 0 || strcasecmp($product_varient['color'], '#ffffff') == 0) echo 'border: 0.5px solid #000;'; ?>"></span>
                             <span class="tooltiptext"><?php echo $product_varient['color']; ?></span>
 
                         </div>

@@ -83,7 +83,7 @@ if (isset($_GET['page'])) {
                                                                                 echo 'checked';
                                                                             } ?>>
                                     <span class="checkmark" onclick="colorFilter('<?php echo $color['color']; ?>')" style="background-color:<?php echo $color['color'] . ';';
-                                                                                                                                            if ($color['color'] == '#fff' || $color['color'] == '#fffff') echo 'border: 0.5px solid #000;'; ?>"></span>
+                                                                                                                                            if (strcasecmp($color['color'], '#fff') == 0 || strcasecmp($color['color'], '#ffffff') == 0) echo 'border: 0.5px solid #000;'; ?>"></span>
                                 </label>
                         <?php }
                         } ?>

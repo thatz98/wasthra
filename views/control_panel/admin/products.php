@@ -428,7 +428,8 @@
                             ?>
                                 <div class="tooltip">
 
-                                    <span class="color-dot no-mar-right" style="background-color: <?php echo $color ?>" tool-tip=></span>
+                                    <span class="color-dot no-mar-right" style="background-color:<?php echo $color . ';';
+                                                                                                                                            if (strcasecmp($color, '#fff') == 0 || strcasecmp($color, '#ffffff') == 0) echo 'border: 0.5px solid #000;'; ?>"></span>
                                     <span class="tooltiptext"><?php echo $color ?></span>
                                 </div>
                             <?php //}

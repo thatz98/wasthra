@@ -241,8 +241,8 @@ function containsCharacters(field, type) {
       regEx = /^[P][R][D][0-9]{3,}$/;
       return matchWithRegEx(regEx, field, 'Must be contain a format of PRDXXX');
     case 9:
-      regEx = /^#[0-9a-f]{6}((,#[0-9a-f]{6})*)?$/;
-      return matchWithRegEx(regEx, field, 'Must be contain a format of #abcdef or #123456');
+      regEx = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
+      return matchWithRegEx(regEx, field, 'Must be contain a format of #abcdef or #abc');
     case 10:
       regEx = /^[C][A][T][0-9]{3,}$/;
       return matchWithRegEx(regEx, field, 'Must be contain a format of CATXXX');
