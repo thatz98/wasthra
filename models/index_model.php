@@ -71,7 +71,7 @@ class Index_Model extends Model{
          LEFT JOIN review on review.product_id=product.product_id 
          WHERE product.is_new = 'yes' AND product.is_published = 'yes'
          GROUP BY product.product_id
-         ORDER BY review_rate
+         ORDER BY review_rate DESC
          LIMIT 8");
 
         foreach ($data as $key => $value) {

@@ -13,7 +13,6 @@
                 <li><a href="?filter=weekly" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'weekly') echo 'active'; ?>">Weekly</a></li>
                 <li><a href="?filter=monthly" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'monthly') echo 'active'; ?>">Monthly</a></li>
                 <li><a href="?filter=yearly" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'yearly') echo 'active'; ?>">Yearly</a></li>
-                <li><a href="?filter=custom" class="<?php if (isset($_GET['filter']) && $_GET['filter'] == 'custom') echo 'active'; ?>">Custom</a></li>
             </ul>
         </div>
     </div>
@@ -38,7 +37,7 @@
         <div class="col-3">
             <div class="card">
                 <div class="row">
-                    <h3>Total Orders</h3>
+                    <h3>Total Customers</h3>
                 </div>
                 <div class="row">
                     <div class="col-40p">

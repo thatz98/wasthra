@@ -7,32 +7,6 @@ class Cart_Model extends Model
     {
         parent::__construct();
     }
-
-
-    // function getProduct($id)
-    // {
-
-    //     $data = $this->db->runQuery("SELECT product.product_id, product.product_name, product.product_description, product.is_published, product.is_new, 
-    //     product.is_featured, category.name, GROUP_CONCAT(DISTINCT product_images.image) as product_images, 
-    //     GROUP_CONCAT(DISTINCT inventory.size) as product_sizes, GROUP_CONCAT(DISTINCT inventory.color) as product_colors, 
-    //     inventory.qty, price_category.product_price, 
-    //     price_category.price_category_name, category.name, AVG(review.rate) AS review_rate  FROM product
-    //      LEFT JOIN inventory ON product.product_id=inventory.product_id
-    //      INNER JOIN category ON product.category_id=category.category_id
-    //      INNER JOIN price_category ON product.price_category_id=price_category.price_category_id
-    //      INNER JOIN product_images ON product.product_id=product_images.product_id
-    //      LEFT JOIN review on review.product_id=product.product_id 
-    //      WHERE product.product_id=:id
-    //      GROUP BY product.product_id", array('id' => $id));
-
-    //     foreach ($data as $key => $value) {
-    //         $data[$key]['product_images'] = explode(',', $data[$key]['product_images']);
-    //         $data[$key]['product_sizes'] = explode(',', $data[$key]['product_sizes']);
-    //         $data[$key]['product_colors'] = explode(',', $data[$key]['product_colors']);
-    //     }
-
-    //     return $data;
-    // }
     
     /**
      * getAllProducts
@@ -64,52 +38,6 @@ class Cart_Model extends Model
 
         return $data;
     }
-
-
-    // function getAllDetails()
-    // {
-
-    //     return $this->db->runQuery("SELECT price_category.product_price,category.name,product.is_published,product.product_id,product.product_name,product.is_featured,product.is_new,inventory.qty
-	// 	FROM product INNER JOIN inventory ON product.product_id=inventory.product_id
-        
-    //     INNER JOIN category on category.category_id=product.category_id
-    //     INNER JOIN price_category on price_category.price_category_id=product.price_category_id;");
-    // }
-
-    // function listCart()
-    // {
-
-    //     return $this->db->select('cart_item', array('product_id', 'item_qty', 'item_color', 'item_size'));
-    // }
-
-
-    // function getImages()
-    // {
-
-    //     return $this->db->runQuery("SELECT product_images.image,product_images.product_id
-    //     FROM product_images INNER JOIN product on product_images.product_id=product.product_id;");
-    // }
-
-    // function getCatName()
-    // {
-
-    //     return $this->db->select('price_category', array('price_category_name', 'price_category_id', 'product_price'));
-    // }
-
-    // function getPriceCatIdProducts()
-    // {
-
-    //     return $this->db->select('product', array('price_category_id', 'product_id', 'product_name'));
-    // }
-
-
-
-    // function getSizes()
-    // {
-
-    //     return $this->db->runQuery("SELECT product_size.sizes,product_size.product_id 
-    //     FROM product_size INNER JOIN product on product_size.product_id=product.product_id;");
-    // }
     
     /**
      * listUserCart
@@ -178,8 +106,8 @@ class Cart_Model extends Model
 
         ), "item_id=:itemId", array('itemId' => $itemId));
         $userId = Session::get('userId');
-        $cart = $this->db->selectOneWhere('shopping_cart', array('cart_id'), 'user_id=:userId', array('userId' => $userId));
-        $cartData = $this->db->selectWhere('cart_item', array('product_id', 'item_id', 'item_qty', 'item_color', 'item_size'), 'cart_id=:id', array('id' => $cart['cart_id']));
+        $userId = Session::get('userId');
+        $cartData = $this->db->getCartItems($userId);
         Session::set('cartCount', count($cartData));
         Session::set('cartData', $cartData);
     }
@@ -197,8 +125,7 @@ class Cart_Model extends Model
         $this->db->delete('cart_item', "item_id=:item_id", array('item_id' => $id));
 
         $userId = Session::get('userId');
-        $cart = $this->db->selectOneWhere('shopping_cart', array('cart_id'), 'user_id=:userId', array('userId' => $userId));
-        $cartData = $this->db->selectWhere('cart_item', array('product_id', 'item_id', 'item_qty', 'item_color', 'item_size'), 'cart_id=:id', array('id' => $cart['cart_id']));
+        $cartData = $this->db->getCartItems($userId);
         Session::set('cartCount', count($cartData));
         Session::set('cartData', $cartData);
     }
