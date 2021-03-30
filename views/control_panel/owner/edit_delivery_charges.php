@@ -5,34 +5,34 @@
     </div>
         <div class="center-content">
         <div class="form-container" >
-            <form action="<?php echo URL; ?>deliveryCharges/editSave/" id="editFrom" method="post">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="helper-text">
+        <form action="<?php echo URL; ?>deliveryCharges/editSave/" id="editFrom" method="post">
+            <div class="row">
+                <div class="col-2">
+                    <div class="helper-text">
 
-                    <input type="text" name="prev_city" value="<?php echo $this->getcharges['city']?>" style="display:none">   
-                                    <label>City</label><br>
-                                    <input type="text" name="delivery_city" id="delivery_city" value="<?php echo $this->getcharges['city'] ?>"
-                                    data-helper="City" onfocusout="validateDeliveryCity()">
-                                    <span class="popuptext"></span>
-                                </div><br><br>                          
-                           </div>
+                        <input type="text" name="prev_city" value="<?php echo $this->getcharges['city']?>" style="display:none">   
+                    <label>City</label><br>
+                        <input type="text" name="delivery_city" id="delivery_city" value="<?php echo $this->getcharges['city'] ?>"
+                               data-helper="City" onfocusout="validateDeliveryCity()">
+                    <span class="popuptext"></span>
+                    </div><br><br>                          
+                </div>
 
-                            <div class="col-2" >
-                                <div class="helper-text">
-                                    <label>Delivery Fee</label><br>
-                                    <input type="text" name="delivery_fee" id="delivery_fee" value="<?php echo $this->getcharges['delivery_fee'] ?>"
-                                    data-helper="Delivery Fee" onfocusout="validateDeliveryFee()">
-                                    <span class="popuptext"></span>
-                                </div><br><br>
-                        </div>
-                       </div>
+                <div class="col-2" >
+                    <div class="helper-text">
+                    <label>Delivery Fee</label><br>
+                        <input type="text" name="delivery_fee" id="delivery_fee" value="<?php echo $this->getcharges['delivery_fee'] ?>"
+                               data-helper="Delivery Fee" onfocusout="validateDeliveryFee()">
+                    <span class="popuptext"></span>
+                    </div><br><br>
+                </div>
+            </div>
                         
-                        <div class="center-content">
-                            <button type="submit" class="btn">Update</button>
-                            <a href="<?php echo URL ?>deliveryCharges" class="btn btn-grey">Cancel</a>
-                        </div>
-            </form>
+            <div class="center-content">
+                <button type="submit" class="btn">Update</button>
+                    <a href="<?php echo URL ?>deliveryCharges" class="btn btn-grey">Cancel</a>
+            </div>
+        </form>
         </div>  
         </div>
 </div>

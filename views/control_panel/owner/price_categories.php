@@ -318,22 +318,24 @@
         </tr>
      </thead>
         
-        <?php foreach ($this->pricecatList as $price_category ): ?>
-            <tr>
-                <td><?php echo $price_category['price_category_id']; ?></td>
-                <td><?php echo $price_category['price_category_name']; ?></td>
-                    <td>LKR <?php echo $price_category['production_cost']; ?></td>
-                    <td>LKR <?php echo $price_category['add_market_price']; ?></td>
-                    <td>LKR <?php echo $price_category['production_cost']+$price_category['add_market_price']; ?></td>
-                    <td><?php echo $price_category['discount']; ?>%</td>
-                    <td>LKR <?php echo (($price_category['production_cost']+$price_category['add_market_price'])*(100-$price_category['discount']))/100; ?></td>
+    <?php foreach ($this->pricecatList as $price_category ): ?>
+        <tr>
+            <td><?php echo $price_category['price_category_id']; ?></td>
+            <td><?php echo $price_category['price_category_name']; ?></td>
+            <td>LKR <?php echo $price_category['production_cost']; ?></td>
+            <td>LKR <?php echo $price_category['add_market_price']; ?></td>
+            <td>LKR <?php echo number_format($price_category['production_cost']+$price_category['add_market_price'],2,'.',''); ?></td>
+            <td><?php echo $price_category['discount']; ?>%</td>
+            <td>LKR <?php echo number_format((($price_category['production_cost']+$price_category['add_market_price'])*(100-$price_category['discount']))/100,2,'.',''); ?></td>
                       
-                    <td><a href="<?php echo URL ?>priceCategories/edit/<?php echo $price_category['price_category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
-                    <a href="<?php echo URL ?>priceCategories/delete/<?php echo $price_category['price_category_id'] ?>"><button class="table-btn btn-red">Delete</button></a></td>
-            
-            </tr>
+            <td>
+                <a href="<?php echo URL ?>priceCategories/edit/<?php echo $price_category['price_category_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                <a href="<?php echo URL ?>priceCategories/delete/<?php echo $price_category['price_category_id'] ?>"><button class="table-btn btn-red">Delete</button></a>
+            </td>
+        
+        </tr>
 
-        <?php endforeach;?>
+    <?php endforeach;?>
     </table>
 </div>
 

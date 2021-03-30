@@ -280,7 +280,7 @@ class Orders extends Controller {
      * @return void
      */
     function createDelivery($flag = false) {
-        // restrict access to only delivery staff
+        // restrict access to only admin
         Authenticate::adminAuth();
 
         $data = array();
