@@ -74,12 +74,12 @@
             <input type="text" id="keyword-input" onkeyup="filterByKeyword('order_list',3)" placeholder="Search for orders..">
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-2">
             <span id="start"></span><span> - </span><span id="end"></span> <span> of <?php echo count($this->orderList); ?> results...</span>
         </div>
-        
+
         <div class="col-2">
             <div class="per-page" style="float: right;">
                 <span>Orders per page: </span><select name="per-page" id="per-page">
@@ -182,9 +182,9 @@
         </div>
     </div>
 
-  <div class="pagination">
-      <ol id="numbers"></ol>
-  </div>
+    <div class="pagination">
+        <ol id="numbers"></ol>
+    </div>
 
 </div>
 
@@ -198,11 +198,11 @@
 
 
 <script>
-   $(pagination(10, 'order_list'));
+    $(pagination(10, 'order_list'));
 
-   $('#per-page').on('change', function() {
-       var rowsPerPage = parseInt($('#per-page').val());
-       pagination(rowsPerPage, 'order_list');
+    $('#per-page').on('change', function() {
+        var rowsPerPage = parseInt($('#per-page').val());
+        pagination(rowsPerPage, 'order_list');
     });
 </script>
 

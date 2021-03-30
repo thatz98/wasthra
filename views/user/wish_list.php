@@ -5,7 +5,7 @@
     <h2 class="title">My Wishlist</h2>
     <div class="row">
 
-        <?php if(empty($this->wishlist)) echo 'No items in the wishlist...<br><br><br><br><br><br>';
+        <?php if (empty($this->wishlist)) echo 'No items in the wishlist...<br><br><br><br><br><br>';
         foreach ($this->wishlist as $item) {
         ?>
             <div class="col-4">
