@@ -90,6 +90,9 @@
                         case 'removedFromWishlist':
                             $msg = 'Item removed from the wishlist successfully';
                             break;
+                            case 'orderPlaced':
+                                $msg = 'Your order has been placed successfully';
+                                break;
                         default:
                             $msg = 'Successfull!';
                             break;

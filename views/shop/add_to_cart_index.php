@@ -73,11 +73,11 @@
                     <label class="text-label">Select Color</label>
                     <div class="colors">
                         <?php
-                        foreach ($this->productPopup['product_colors'] as $color) { ?>
-                            <label class="color-container">
-                                <input type="radio" name="color" value="<?php echo $color ?>" required>
-                                <span class="checkmark" style="background-color: <?php echo $color ?>"></span>
-                            </label>
+                        foreach ($this->productPopup['product_colors'] as $color) {?>
+                        <label class="color-container">
+                            <input type="radio" name="color" value="<?php echo $color ?>" required>
+                            <span class="checkmark" style="background-color: <?php echo $color.';'; if(strcasecmp($color, '#fff') == 0 || strcasecmp($color, '#ffffff') == 0) echo 'border: 0.5px solid #000;'; ?>"></span>
+                        </label>
                         <?php
                         } ?>
 

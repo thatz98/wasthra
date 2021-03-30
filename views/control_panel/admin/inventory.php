@@ -177,7 +177,7 @@
                         <td>
                             <div class="tooltip">
 
-                                <span class="color-dot no-mar-right" style="background-color: <?php echo $inventory['color'] ?>" tool-tip=></span>
+                                <span class="color-dot no-mar-right" style="background-color: <?php echo $inventory['color'].';'; if(strcasecmp($inventory['color'], '#fff') == 0 || strcasecmp($inventory['color'], '#ffffff') == 0) echo 'border: 0.5px solid #000;'; ?>"></span>
                                 <span class="tooltiptext"><?php echo $inventory['color'] ?></span>
 
                             </div>

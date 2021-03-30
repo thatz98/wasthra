@@ -197,7 +197,7 @@ class Products extends Controller {
         $this->model->update($data, $imageName['img'], $imageArray);
         Logs::writeApplicationLog('Product edited','Successfull',Session::get('userData')['email'],$data);
 
-        header('location: ' . URL . 'products');
+        header('location: ' . URL . 'products/productDetails/'.$data['product_id']);
     }
 
     function updateVariant(){
