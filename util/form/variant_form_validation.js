@@ -42,14 +42,14 @@ function validateQuantity() {
 
 function validateSingleSize() {
         
-    if(document.getElementById('size').value!="0") return true;
-    setinvalidWithoutColor(document.getElementById('is_published'),'Must be selected');
+    if(size.value!="0") return true;
+    setinvalidWithoutColor(size,'Must be selected');
         return false;
 }
 
 function validateCoupleSize() {
         
-    if(document.getElementById('size-couple').value!="0") return true;
-    setinvalidWithoutColor(document.getElementById('is_published'),'Must be selected');
+    if(sizeCouple.value!="0") return true;
+    setinvalidWithoutColor(sizeCouple,'Must be selected');
         return false;
 }

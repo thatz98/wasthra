@@ -141,7 +141,7 @@
                         <label>Color</label><br>
                         <input id="Color" type="text" name="color" placeholder="#12ab87" data-helper="Colors" onfocusout="validateColors()">
                         <span class="popuptext"></span>
-                        <br>
+                        
 
                     </div>
 
@@ -167,13 +167,14 @@
                                 <option value="XXL-W">Ladies-XXL</option>
                             </select>
                             <span class="popuptext"></span>
-                            <br>
+                            
 
                         </div>
                     <?php } else {
                     ?>
                         <div class="helper-text">
-                            <label>Size</label><br><select id="size" name="size">
+                            <label>Size</label><br>
+                            <select id="size" name="size">
                                 <option value="0">Select</option>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
@@ -183,7 +184,7 @@
                                 <option value="XXL">XXL</option>
                             </select>
                             <span class="popuptext"></span>
-                            <br>
+                            
 
                         </div>
                     <?php
@@ -194,14 +195,14 @@
                 <div class="col-3">
                     <div class="helper-text">
                         <label>Quantity</label><br><input id="Quantity" min='0' max='1000' type="text" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
-                        <input name="product_id" value="<?php echo $this->product[0]['product_id']; ?>" hidden>
+                        
                         <span class="popuptext"></span>
-                        <br>
+                        
                     </div>
                 </div>
 
             </div>
-
+            <input name="product_id" value="<?php echo $this->product[0]['product_id']; ?>" hidden>
             <div class="center-btn">
                 <button type="submit" class="btn">Add New Varient</button>
             </div>
@@ -224,7 +225,7 @@
                     <td>
                         <div class="tooltip">
 
-                            <span class="color-dot no-mar-right" style="background-color: <?php echo $product_varient['color']; ?>" tool-tip=></span>
+                            <span class="color-dot no-mar-right" style="background-color: <?php echo $product_varient['color'].';'; if($product_varient['color']=='#fff' || $product_varient['color']=='#fffff') echo 'border: 0.5px solid #000;'; ?>"></span>
                             <span class="tooltiptext"><?php echo $product_varient['color']; ?></span>
 
                         </div>
