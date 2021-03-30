@@ -57,7 +57,8 @@
             <div class="row-top">
                 <div class="col-3">
                     <div class="helper-text">
-                        <label>Product ID</label><br><input type="text" id="product_id" name="product_id" placeholder="PRDXXXX" data-helper="Product ID" onfocusout="validateProductId()">
+                        <label>Product ID</label><br>
+                        <input type="text" id="product_id" name="product_id" placeholder="PRDXXXX" data-helper="Product ID" onfocusout="validateProductId()">
                         <span class="popuptext"></span>
                         <br>
 
@@ -75,7 +76,7 @@
                     <div class="helper-text">
                         <label>Product Category</label>
                         <br>
-                        <select id="category" name="category" onchange="if(this.value=='Couple'){$('#size-field').hide();$('#size-field-couple').show();} else{$('#size-field').show();$('#size-field-couple').hide();}">
+                        <select id="category" name="category" >
                             <option value="0">Select</option>
                             <?php foreach ($this->categoryList as $category) : ?><option value="<?php echo $category['name']; ?>">
                                     <?php echo $category['name']; ?></option> <?php endforeach; ?>

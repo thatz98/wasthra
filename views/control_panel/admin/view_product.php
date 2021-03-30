@@ -1,4 +1,3 @@
-
 <?php require 'views/header_dashboard.php'; ?>
 
 <div class="small-container single-product">
@@ -52,13 +51,15 @@
 
             <label class="text-label bold">Available Colors</label>
             <div class="product-colors">
-                <?php 
-                if(empty($this->product[0]['product_colors'][0])){ ?>
+                <?php
+                if (empty($this->product[0]['product_colors'][0])) { ?>
                     <label class="text-label">No varients to display</label><br>
-               <?php } else{
-                foreach ($this->product[0]['product_colors'] as $color) { ?>
-                    <span class="color-dot" style="background-color: <?php echo $color.';'; if($color=='#fff' || $color=='#fffff') echo 'border: 0.5px solid #000;';  ?>"></span><?php
-                                                                                                } }?>
+                    <?php } else {
+                    foreach ($this->product[0]['product_colors'] as $color) { ?>
+                        <span class="color-dot" style="background-color: <?php echo $color . ';';
+                                                                            if ($color == '#fff' || $color == '#fffff') echo 'border: 0.5px solid #000;';  ?>"></span><?php
+                                                                                                                                                                    }
+                                                                                                                                                                } ?>
             </div>
             <label class="text-label bold">Available Sizes</label>
             <div class="product-sizes">
@@ -67,9 +68,9 @@
                 $single_sizes = array();
                 $single_sizes_gents = array('XS-G', 'S-G', 'M-G', 'L-G', 'XL-G');
                 $single_sizes_ladies = array('XS-W', 'S-W', 'M-W', 'L-W', 'XL-W');
-                if(empty($this->product[0]['product_sizes'][0])){ ?>
+                if (empty($this->product[0]['product_sizes'][0])) { ?>
                     <label class="text-label">No varients to display</label><br>
-               <?php } else if ($catName != "Couple") {
+                    <?php } else if ($catName != "Couple") {
 
                     foreach ($this->product[0]['product_sizes'] as $size) { ?>
                         <span class="size-box"><?php echo $size ?></span><?php
@@ -77,40 +78,40 @@
                                                                     } else { ?>
                     <label class="text-label">Gents</label><br>
                     <?php
-                            foreach ($this->product[0]['product_sizes'] as $size) {
-                                if (in_array($size, $single_sizes_gents)) {
-                                    continue;
-                                } else {
-                                    $single_sizes_gents[] .= $size;
+                                                                        foreach ($this->product[0]['product_sizes'] as $size) {
+                                                                            if (in_array($size, $single_sizes_gents)) {
+                                                                                continue;
+                                                                            } else {
+                                                                                $single_sizes_gents[] .= $size;
                     ?>
                             <span class="size-box" style="margin-top: 7px; margin-bottom: 8px;"><?php echo rtrim($size, "-W") ?></span>
-                                        <?php
-                                    }
-                                }
-                                        ?>
+                    <?php
+                                                                            }
+                                                                        }
+                    ?>
                     <br>
                     <label class="text-label">Ladies</label>
                     <br>
                     <?php
-                            foreach ($this->product[0]['product_sizes'] as $size) {
-                                if (in_array($size, $single_sizes_ladies)) {
-                                    continue;
-                                } else {
-                                    $single_sizes_ladies[] .= $size;
+                                                                        foreach ($this->product[0]['product_sizes'] as $size) {
+                                                                            if (in_array($size, $single_sizes_ladies)) {
+                                                                                continue;
+                                                                            } else {
+                                                                                $single_sizes_ladies[] .= $size;
                     ?>
                             <span class="size-box" style="margin-top: 7px;"><?php echo rtrim($size, "-G") ?></span>
-                                        <?php
-                                    }
-                                }
-                            }
-                                        ?>
+                <?php
+                                                                            }
+                                                                        }
+                                                                    }
+                ?>
             </div>
 
             <label class="text-label bold">Total Product Quantity</label>
             <br>
-            
+
             <p class="text-value"><?php echo $this->sumQty[0][0] ?></p>
-            
+
             <br>
             <label class="text-label bold">Product Description</label>
             <br>
@@ -131,77 +132,77 @@
     </div>
     <div class="">
         <button class="btn btn-square" onclick="formToggle()">+ Add New Varient</button>
-        <form action="<?php echo URL; ?>products/addVarient" id="addFrom" class="hidden-form" enctype="multipart/form-data" method="post">
+        <form action="<?php echo URL; ?>products/addVarient" id="addFromviewProduct" class="hidden-form" enctype="multipart/form-data" method="post">
 
             <div class="row-top">
                 <input type="text" id="product_id" name="product_id" hidden>
                 <div class="col-3">
                     <div class="helper-text">
                         <label>Color</label><br>
-                        <input id="color" type="text" name="color" placeholder="#12ab87" data-helper="Colors" onfocusout="validateColors()">
+                        <input id="Color" type="text" name="color" placeholder="#12ab87" data-helper="Colors" onfocusout="validateColors()">
                         <span class="popuptext"></span>
-                        <br>
+                        
 
                     </div>
 
 
                 </div>
                 <div class="col-3">
-<?php if($this->product[0]['name']=='Couple'){
-    ?>
-                    <div class="helper-text">
-                        <label>Size for Couple</label><br><select id="size-couple" name="size-couple">
-                            <option value="0">Select</option>
-                            <option value="XS-G">Gents-XS</option>
-                            <option value="S-G">Gents-S</option>
-                            <option value="M-G">Gents-M</option>
-                            <option value="L-G">Gents-L</option>
-                            <option value="XL-G">Gents-XL</option>
-                            <option value="XXL-G">Gents-XXL</option>
-                            <option value="XS-W">Ladies-XS</option>
-                            <option value="S-W">Ladies-S</option>
-                            <option value="M-W">Ladies-M</option>
-                            <option value="L-W">Ladies-L</option>
-                            <option value="XL-W">Ladies-XL</option>
-                            <option value="XXL-W">Ladies-XXL</option>
-                        </select>
-                        <span class="popuptext"></span>
-                        <br>
-
-                    </div>
-                    <?php } else{ 
-                        ?>
+                    <?php if ($this->product[0]['name'] == 'Couple') {
+                    ?>
                         <div class="helper-text">
-                        <label>Size</label><br><select id="size" name="size">
-                            <option value="0">Select</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                        </select>
-                        <span class="popuptext"></span>
-                        <br>
+                            <label>Size for Couple</label><br><select id="size-couple" name="size-couple">
+                                <option value="0">Select</option>
+                                <option value="XS-G">Gents-XS</option>
+                                <option value="S-G">Gents-S</option>
+                                <option value="M-G">Gents-M</option>
+                                <option value="L-G">Gents-L</option>
+                                <option value="XL-G">Gents-XL</option>
+                                <option value="XXL-G">Gents-XXL</option>
+                                <option value="XS-W">Ladies-XS</option>
+                                <option value="S-W">Ladies-S</option>
+                                <option value="M-W">Ladies-M</option>
+                                <option value="L-W">Ladies-L</option>
+                                <option value="XL-W">Ladies-XL</option>
+                                <option value="XXL-W">Ladies-XXL</option>
+                            </select>
+                            <span class="popuptext"></span>
+                            
 
-                    </div>
+                        </div>
+                    <?php } else {
+                    ?>
+                        <div class="helper-text">
+                            <label>Size</label><br>
+                            <select id="size" name="size">
+                                <option value="0">Select</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                            <span class="popuptext"></span>
+                            
+
+                        </div>
                     <?php
                     }
-?>
+                    ?>
                 </div>
-                
+
                 <div class="col-3">
                     <div class="helper-text">
-                        <label>Quantity</label><br><input id="quantity" min='0' max='1000' type="number" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
-                        <input name="product_id" value="<?php echo $this->product[0]['product_id'];?>" hidden>
-
+                        <label>Quantity</label><br><input id="Quantity" min='0' max='1000' type="text" name="quantity" data-helper="Quantity" onfocusout="validateQuantity()">
+                        
                         <span class="popuptext"></span>
-                        <br>
+                        
                     </div>
                 </div>
-                
-            </div>
 
+            </div>
+            <input name="product_id" value="<?php echo $this->product[0]['product_id']; ?>" hidden>
             <div class="center-btn">
                 <button type="submit" class="btn">Add New Varient</button>
             </div>
@@ -216,20 +217,23 @@
                 <th>Options</th>
 
             </tr>
-            <?php foreach ($this->varients as $product_varient){ if($product_varient['is_deleted']=='yes'){continue;}?>
+            <?php foreach ($this->varients as $product_varient) {
+                if ($product_varient['is_deleted'] == 'yes') {
+                    continue;
+                } ?>
                 <tr>
                     <td>
                         <div class="tooltip">
 
-                            <span class="color-dot no-mar-right" style="background-color: <?php echo $product_varient['color']; ?>" tool-tip=></span>
+                            <span class="color-dot no-mar-right" style="background-color: <?php echo $product_varient['color'].';'; if($product_varient['color']=='#fff' || $product_varient['color']=='#fffff') echo 'border: 0.5px solid #000;'; ?>"></span>
                             <span class="tooltiptext"><?php echo $product_varient['color']; ?></span>
-                        
+
                         </div>
                     </td>
                     <td><?php echo $product_varient['size']; ?></td>
                     <td><?php echo $product_varient['qty']; ?></td>
-                    <td><a href="<?php echo URL ?>products/editVariant/<?php echo $product_varient['inventory_id'] ?>/<?php echo $this->product[0]['product_id']?>"><button class="table-btn btn-blue">Edit</button></a>
-                        <a href="<?php echo URL ?>products/deleteVariant/<?php echo $product_varient['inventory_id'] ?>/<?php echo $this->product[0]['product_id']?>"><button class="table-btn btn-red">Delete</button></a>
+                    <td><a href="<?php echo URL ?>products/editVariant/<?php echo $product_varient['inventory_id'] ?>/<?php echo $this->product[0]['product_id'] ?>"><button class="table-btn btn-blue">Edit</button></a>
+                        <a href="<?php echo URL ?>products/deleteVariant/<?php echo $product_varient['inventory_id'] ?>/<?php echo $this->product[0]['product_id'] ?>"><button class="table-btn btn-red">Delete</button></a>
                     </td>
 
                 </tr>
@@ -301,9 +305,11 @@
 </div>
 
 <script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
+<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/wasthra/util/form/variant_form_validation.js"></script>
 <script>
     //  var addFrom = document.getElementByClassName("dash-form-container");
-    var addFrom = document.getElementById("addFrom");
+    var addFrom = document.getElementById("addFromviewProduct");
     addFrom.style.maxHeight = "0px";
     addFrom.style.overflow = "0px";
 
