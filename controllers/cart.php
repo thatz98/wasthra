@@ -39,6 +39,7 @@ class Cart extends Controller {
      */
     function addToCart() {
 
+    //add to cart from product details page
         if (isset($_POST['prod_idC'])) {
             $sizeGents = $_POST['size1C'];
             $sizeLadies = $_POST['size2C'];
@@ -47,7 +48,7 @@ class Cart extends Controller {
             $sizeArray .= $sizeNormal;
             $sizeArray .= $sizeLadies . ",";
             $sizeArray .= $sizeGents;
-            // remove the last comma that has been added to the string
+    // remove the last comma that has been added to the string
             $sizeArray = rtrim($sizeArray, ",");
 
             $data = array();
@@ -55,6 +56,7 @@ class Cart extends Controller {
             $data['item_qty'] = $_POST['quantityC'];
             $data['item_color'] = $_POST['colorC'];
             $data['item_size'] = $sizeArray;
+    //add to cart from home page
         } else {
             $sizeGents = $_POST['size1'];
             $sizeLadies = $_POST['size2'];
@@ -63,7 +65,7 @@ class Cart extends Controller {
             $sizeArray .= $sizeNormal;
             $sizeArray .= $sizeLadies . ",";
             $sizeArray .= $sizeGents;
-            // remove the last comma that has been added to the string
+    // remove the last comma that has been added to the string
             $sizeArray = rtrim($sizeArray, ",");
 
             $data = array();
@@ -73,7 +75,7 @@ class Cart extends Controller {
             $data['item_size'] = $sizeArray;
         }
         $flag=0;
-        // check whether the customer is logged in
+    // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
             foreach(Session::get('cartData') as $cartData){
                 if($data['product_id']==$cartData['product_id'] && $data['item_color']==$cartData['item_color'] 
@@ -100,8 +102,8 @@ class Cart extends Controller {
         } else {
             $data['item_color'] = str_replace('#', '', $data['item_color']);
 
-            // redirect customer to the login page
-            // once the login is successfull, the item will be added to the cart
+    // redirect customer to the login page
+    // once the login is successfull, the item will be added to the cart
             header('location: ' . URL . 'login/cartRequireLogin?productId=' . $data['product_id'] . '&qty=' . $data['item_qty'] . '&color=' . $data['item_color'] . '&size=' . $data['item_size'] . '&loginRequired=true');
         }
     }
@@ -115,7 +117,7 @@ class Cart extends Controller {
         $sizeArray .= $sizeNormal;
         $sizeArray .= $sizeLadies . ",";
         $sizeArray .= $sizeGents;
-        // remove the last comma that has been added to the string
+    // remove the last comma that has been added to the string
         $sizeArray = rtrim($sizeArray, ",");
 
         $data = array();
@@ -125,12 +127,12 @@ class Cart extends Controller {
         $data['item_size'] = $sizeArray;
         $productPrice = $this->model->getProductPriceById($data['product_id']);
         $data['product_price'] = $productPrice[0][0];
-        // check whether the customer is logged in
+    // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
             Session::set('buyNowData', $data);
-            //print_r(Session::get('buyNowData'));
-            //echo($data['product_price']);
-            //header('location: ' . $_POST['prev_url'].'?success=itemAddedToCart#message');
+    //print_r(Session::get('buyNowData'));
+    //echo($data['product_price']);
+    //header('location: ' . $_POST['prev_url'].'?success=itemAddedToCart#message');
             Logs::writeApplicationLog('Add item to buy now','Attemting',Session::get('userData')['email'],$data);
             header('location: ' . URL . 'shop/checkout/buyNow');
         } else {
@@ -153,14 +155,14 @@ class Cart extends Controller {
         $data['item_color'] = '#' . $_GET['color'];
         $data['item_size'] = $_GET['size'];
 
-        // check whether the customer is logged in
+    // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
             $this->model->create($data);
 
             header('location: ' . URL . '?success=itemAddedToCart#message');
         } else {
-            // redirect customer to the login page
-            // once the login is successfull, the item will be added to the cart
+    // redirect customer to the login page
+    // once the login is successfull, the item will be added to the cart
             header('location: ' . URL . 'login/cartRequireLogin?productId=' . $data['product_id'] . '&qty=' . $data['item_qty'] . '&color=' . $data['item_color'] . '&size=' . $data['item_size'] . '&loginRequired=true');
         }
     }
@@ -180,7 +182,7 @@ class Cart extends Controller {
         $sizeArray .= $sizeNormal;
         $sizeArray .= $sizeLadies . ",";
         $sizeArray .= $sizeGents;
-        // remove the last comma that has been added to the string
+    // remove the last comma that has been added to the string
         $sizeArray = rtrim($sizeArray, ",");
 
         $data['product_id'] = $_POST['prod_id'];
