@@ -93,9 +93,9 @@ class DeliveryCharges extends Controller {
     function delete($id) {
         
 
-        Logs::writeApplicationLog('Delete Delivery Charge','Attemting',Session::get('userData')['email'],$data);
+        Logs::writeApplicationLog('Delete Delivery Charge','Attemting',Session::get('userData')['email'],array($id));
         $this->model->delete($id);
-        Logs::writeApplicationLog('Delivery Charge Deleted','Successfull',Session::get('userData')['email'],$data);
+        Logs::writeApplicationLog('Delivery Charge Deleted','Successfull',Session::get('userData')['email'],array($id));
 
         header('location:' . URL . 'deliveryCharges');
     }

@@ -105,9 +105,9 @@ class PriceCategories extends Controller {
      */
     function delete($id) {
 
-        Logs::writeApplicationLog('Delete Price Category','Attemting',Session::get('userData')['email'],$data);
+        Logs::writeApplicationLog('Delete Price Category','Attemting',Session::get('userData')['email'],array($id));
         $this->model->delete($id);
-        Logs::writeApplicationLog('Price Category Deleted','Successfull',Session::get('userData')['email'],$data);
+        Logs::writeApplicationLog('Price Category Deleted','Successfull',Session::get('userData')['email'],array($id));
 
 
         header('location: ' . URL . 'priceCategories');
