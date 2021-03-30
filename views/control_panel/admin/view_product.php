@@ -267,7 +267,7 @@
                             <div class="row-left">
                                 <?php echo $review['first_name']; ?> <?php echo $review['last_name']; ?>
                                 &nbsp&nbsp
-                                <?php if ($review['user_id'] == Session::get('userId') || Session::get('userType') == 'admin' || Session::get('userType') == 'owner') { ?><small><a href="<?php echo URL . 'shop/deleteReview/' . $review['review_id'] . '/' .  $review['review_id'] ?>">Remove</a></small><?php } ?>
+                                <?php if ($review['user_id'] == Session::get('userId') || Session::get('userType') == 'admin' || Session::get('userType') == 'owner') { ?><small><a href="<?php echo URL . 'shop/deleteReview/' . $review['review_id'] . '/' .  $this->product[0]['product_id'] ?>">Remove</a></small><?php } ?>
                             </div>
                             <div class="row-left">
                                 <small><?php echo $review['date']; ?> &nbsp&nbsp

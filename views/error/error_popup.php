@@ -46,6 +46,9 @@
                         case 'customerOnly':
                             $msg = 'Sorry! Only customers can perform this action.';
                             break;
+                        case 'buyNow':
+                            $msg = 'Please login for buynow items!';
+                            break;
                         default:
                             $msg = 'Something wrong! Try
                                             again.';
@@ -90,9 +93,12 @@
                         case 'removedFromWishlist':
                             $msg = 'Item removed from the wishlist successfully';
                             break;
-                            case 'orderPlaced':
-                                $msg = 'Your order has been placed successfully';
-                                break;
+                        case 'orderPlaced':
+                            $msg = 'Your order has been placed successfully';
+                            break;
+                        case 'productAdded':
+                            $msg = 'Product added successfully';
+                            break;
                         default:
                             $msg = 'Successfull!';
                             break;

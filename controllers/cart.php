@@ -130,13 +130,12 @@ class Cart extends Controller {
     // check whether the customer is logged in
         if (Session::get('loggedIn') == 'true') {
             Session::set('buyNowData', $data);
-    //print_r(Session::get('buyNowData'));
-    //echo($data['product_price']);
-    //header('location: ' . $_POST['prev_url'].'?success=itemAddedToCart#message');
+
+    
             Logs::writeApplicationLog('Add item to buy now','Attemting',Session::get('userData')['email'],$data);
             header('location: ' . URL . 'shop/checkout/buyNow');
         } else {
-            $data['item_color'] = str_replace('#', '', $data['item_color']);
+            header('location: ' . URL . 'login'.'?error=buyNow#message');
 
         }
     }

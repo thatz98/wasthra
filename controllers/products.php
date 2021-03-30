@@ -84,7 +84,7 @@ class Products extends Controller {
         $this->model->create($data, $imageName['img']);
         Logs::writeApplicationLog('Product added','Successfull',Session::get('userData')['email'],$data);
 
-        header('location: ' . URL . 'products');
+        header('location: ' . URL . 'products' .'?success=productAdded#message');
     }
     
     /**
