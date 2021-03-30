@@ -107,7 +107,7 @@ class Cart_Model extends Model
         ), "item_id=:itemId", array('itemId' => $itemId));
         $userId = Session::get('userId');
         $userId = Session::get('userId');
-        $cartData = $this->db->getCartItems($userId);
+        $cartData = $this->getCartItems($userId);
         Session::set('cartCount', count($cartData));
         Session::set('cartData', $cartData);
     }
@@ -125,7 +125,7 @@ class Cart_Model extends Model
         $this->db->delete('cart_item', "item_id=:item_id", array('item_id' => $id));
 
         $userId = Session::get('userId');
-        $cartData = $this->db->getCartItems($userId);
+        $cartData = $this->getCartItems($userId);
         Session::set('cartCount', count($cartData));
         Session::set('cartData', $cartData);
     }
