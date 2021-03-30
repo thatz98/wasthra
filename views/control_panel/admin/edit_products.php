@@ -108,7 +108,7 @@
             <div class="center-content">
 
                 <button type="submit" class="btn">Update</button>
-                <a href="<?php echo URL ?>products" class="btn btn-grey">Cancel</a>
+                <a href="<?php echo URL ?>products/productDetails/<?php echo $this->product[0]['product_id']; ?>" class="btn btn-grey">Cancel</a>
             </div>
         </form>
     </div>
