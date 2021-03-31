@@ -373,6 +373,25 @@ class Shop_Model extends Model {
                 WHERE inventory.product_id='$id' AND 
                 inventory.color='$color' AND inventory.size='$size')-$qty WHERE inventory.product_id='$id' AND inventory.color='$color' AND 
                 inventory.size='$size'");
+                
+                //modification in viva
+               
+                $qtyData = $this->db->query("SELECT qty,reorder_qty,supplier_email FROM inventory WHERE product_id='$id' AND size='$size' AND color='$color' ");
+                
+                $quantity = $qtyData[0]['qty'];
+                $reorderLevel =  $qtyData[0]['reorder_qty'];
+                
+
+
+                if($quantity<$reorderLevel){
+                    $header = "From: group15s2202@gmail.com\r\nContent-Type:text/html;";
+                    $msg = "Reorder required in ".$id. " Size:" .$size ."color:" .$color;
+                    $subject = 'Message from the admin of wasthra';
+                    $reciever = $qtyData[0]['supplier_email'];
+                    mail($reciever, $subject, $msg, $header);
+                    
+                }
+
             }
         } else {
             $this->db->insert('order_item', array(
