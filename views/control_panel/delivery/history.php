@@ -7,14 +7,10 @@
     <div class="row-top">
         <div class="order-container" >
                    <table class="order-list">
-                   <?php $count=0; if(empty($this->orderList)){echo "No Assigned Orders";}
+                   <?php if(empty($this->orderList)){echo "No Assigned Orders";}
                           else
                           { 
-                            foreach ($this->orderList as $order): 
-                              $count++;
-                            if($count==3){
-                              echo "2 orders delted";
-                              break;}?>
+                            foreach ($this->orderList as $order): ?>
                        <tr>
                            
                            <td class="order-details"><h4>ORDER ID: <?php echo $order['order_id']?></h4>
