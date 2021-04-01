@@ -5,8 +5,13 @@
         <h2 class="title title-min">Orders</h2><br>
     </div>
 
-
-
+<?php if($this->newOrderCount>=3){
+    ?>
+<div class="row">
+<span style="color:tomato;">3 or more new orders!</span>
+</div>
+<?php }
+?>
 
     <div class="row">
         <div class="col-4 fit-size">
