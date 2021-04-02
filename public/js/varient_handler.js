@@ -123,8 +123,8 @@ $(document).on('change', 'input[type=radio][name=size]', function () {
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity"
-                            value="1">
+                        <input type="number" class="qty-text" id="qty" step="1" min="1" name="quantity"
+                            value="1" disabled>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
@@ -164,8 +164,8 @@ $(document).on('change', 'input[type=radio][name=size1]', function () {
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity"
-                            value="1">
+                        <input type="number" class="qty-text" id="qty" step="1" min="1" name="quantity"
+                            value="1" disabled>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
@@ -203,8 +203,8 @@ $(document).on('change', 'input[type=radio][name=size2]', function () {
           qty.innerHTML = `<span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
-                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity"
-                            value="1">
+                        <input type="number" class="qty-text" id="qty" step="1" min="1" name="quantity"
+                            value="1" disabled>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
