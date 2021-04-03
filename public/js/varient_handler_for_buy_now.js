@@ -123,7 +123,7 @@ $(document).on('change', 'input[type=radio][name=sizeB]', function () {
                             onclick="var effect = document.getElementById('qtyB'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
                         <input type="number" class="qty-text" id="qtyB" step="1" min="1" name="quantityB"
-                            value="1" disabled>
+                            value="1" readonly>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyB'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
@@ -162,7 +162,7 @@ $(document).on('change', 'input[type=radio][name=size1B]', function () {
                             onclick="var effect = document.getElementById('qtyB'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
                         <input type="number" class="qty-text" id="qtyB" step="1" min="1" name="quantityB"
-                            value="1" disabled>
+                            value="1" readonly>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyB'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
@@ -200,7 +200,7 @@ $(document).on('change', 'input[type=radio][name=size2B]', function () {
                             onclick="var effect = document.getElementById('qtyB'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
                         <input type="number" class="qty-text" id="qty" step="1" min="1" name="quantityB"
-                            value="1" disabled>
+                            value="1" readonly>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyB'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`

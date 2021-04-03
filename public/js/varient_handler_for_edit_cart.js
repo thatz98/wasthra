@@ -146,7 +146,7 @@ $(document).ready(function () {
                               onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                   class="fa fa-minus" aria-hidden="true"></i></span>
                           <input type="number" class="qty-text" id="qtyC" step="1" min="1" name="quantityC"
-                              value="${prevQty}" disabled>
+                              value="${prevQty}" readonly>
                           <span class="qty-plus"
                               onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                   class="fa fa-plus" aria-hidden="true"></i></span>`
@@ -282,7 +282,7 @@ $(document).on('change', 'input[type=radio][name=sizeC]', function () {
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
                         <input type="number" class="qty-text" id="qtyC" step="1" min="1" name="quantityC"
-                            value="1" disabled>
+                            value="1" readonly>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
@@ -320,7 +320,7 @@ $(document).on('change', 'input[type=radio][name=size1C]', function () {
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
                         <input type="number" class="qty-text" id="qtyC" step="1" min="1" name="quantityC"
-                            value="1" disabled>
+                            value="1" readonly>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
@@ -357,7 +357,7 @@ $(document).on('change', 'input[type=radio][name=size2C]', function () {
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                                 class="fa fa-minus" aria-hidden="true"></i></span>
                         <input type="number" class="qty-text" id="qtyC" step="1" min="1" name="quantityC"
-                            value="1" disabled>
+                            value="1" readonly>
                         <span class="qty-plus"
                             onclick="var effect = document.getElementById('qtyC'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; ${parseInt(data[0].qty)}) effect.value++;return false;"><i
                                 class="fa fa-plus" aria-hidden="true"></i></span>`
