@@ -20,14 +20,14 @@
                     </div>
                     <?php else : if ($this->product[0]['name'] == 'Ladies') : ?>
                         <div class="gallery-col">
-                            <img src="<?php echo URL ; ?>public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
+                            <img src="<?php echo URL ; ?>public/images/size_charts/ladies.PNG" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
                         </div>
                     <?php else : ?>
                         <div class="gallery-col">
                             <img src="<?php echo URL ; ?>public/images/size_charts/gents.PNG" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
                         </div>
                         <div class="gallery-col">
-                            <img src="<?php echo URL ; ?>public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
+                            <img src="<?php echo URL ; ?>public/images/size_charts/ladies.PNG" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
                         </div>
                 <?php endif;
                 endif; ?>
