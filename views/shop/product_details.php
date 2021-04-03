@@ -22,18 +22,18 @@
                 }
                 if ($this->product[0]['name'] == 'Gents') : ?>
                     <div class="gallery-col">
-                        <img src="/wasthra/public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
+                        <img src="/public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
                     </div>
                     <?php else : if ($this->product[0]['name'] == 'Ladies') : ?>
                         <div class="gallery-col">
-                            <img src="/wasthra/public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
+                            <img src="/public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
                         </div>
                     <?php else : ?>
                         <div class="gallery-col">
-                            <img src="/wasthra/public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
+                            <img src="/public/images/size_charts/gents.png" id="sizeC" onclick="swapViewImage('sizeC')" width="100%" class="view-gallery-img">
                         </div>
                         <div class="gallery-col">
-                            <img src="/wasthra/public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
+                            <img src="/public/images/size_charts/ladies.png" id="sizeCL" onclick="swapViewImage('sizeCL')" width="100%" class="view-gallery-img">
                         </div>
                 <?php endif;
                 endif; ?>
@@ -182,7 +182,7 @@
                     <div class="content-overlay"></div>
                     <img src="<?php echo URL . $product['product_images'][0]; ?>">
                     <?php if ($product['qty'] == 0) { ?>
-                                    <img class="out-of-stock" src="/wasthra/public/images/outstock.png">
+                                    <img class="out-of-stock" src="/public/images/outstock.png">
                                 <?php } ?>
                     <div class="content-details fadeIn-bottom">
                         <div class="options">
@@ -215,6 +215,6 @@
 
     </div>
 </div>
-<script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
+<script type="text/javascript" src="/public/js/product_gallery.js"></script>
 
 <?php require 'views/footer.php'; ?>

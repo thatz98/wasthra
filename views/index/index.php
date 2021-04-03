@@ -10,7 +10,7 @@
                     <a href="<?php echo URL; ?>shop/byCategory/Gents">
                         <div class="content-overlay"></div>
 
-                        <img class="content-image" src="/wasthra/public/images/category-1.jpg">
+                        <img class="content-image" src="/public/images/category-1.jpg">
                         <div class="content-details fadeIn-bottom">
                             <p>Gents</p>
                         </div>
@@ -22,7 +22,7 @@
                     <a href="<?php echo URL; ?>shop/byCategory/Ladies">
                         <div class="content-overlay"></div>
 
-                        <img class="content-image" src="/wasthra/public/images/category-3.jpg">
+                        <img class="content-image" src="/public/images/category-3.jpg">
                         <div class="content-details fadeIn-bottom">
                             <p>Ladies</p>
                         </div>
@@ -34,7 +34,7 @@
                     <a href="<?php echo URL; ?>shop/byCategory/Couple">
                         <div class="content-overlay"></div>
 
-                        <img class="content-image" src="/wasthra/public/images/category-2.jpg">
+                        <img class="content-image" src="/public/images/category-2.jpg">
                         <div class="content-details fadeIn-bottom">
                             <p>Couples</p>
                         </div>
@@ -55,7 +55,7 @@
                     <div class="content-overlay"></div>
                     <img src="<?php echo URL . $product['product_images'][0]; ?>">
                     <?php if ($product['qty'] == 0) { ?>
-                                    <img class="out-of-stock" src="/wasthra/public/images/outstock.png">
+                                    <img class="out-of-stock" src="/public/images/outstock.png">
                                 <?php } ?>
                     <div class="content-details fadeIn-bottom">
                         <div class="options">
@@ -115,7 +115,7 @@
                     <div class="content-overlay"></div>
                     <img src="<?php echo URL . $product['product_images'][0]; ?>">
                     <?php if ($product['qty'] == 0) { ?>
-                                    <img class="out-of-stock" src="/wasthra/public/images/outstock.png">
+                                    <img class="out-of-stock" src="/public/images/outstock.png">
                                 <?php } ?>
                     <div class="content-details fadeIn-bottom">
                         <div class="options">
@@ -177,7 +177,7 @@
                     <div class="content-overlay"></div>
                     <img src="<?php echo URL . $product['product_images'][0]; ?>">
                     <?php if ($product['qty'] == 0) { ?>
-                                    <img class="out-of-stock" src="/wasthra/public/images/outstock.png">
+                                    <img class="out-of-stock" src="/public/images/outstock.png">
                                 <?php } ?>
                     <div class="content-details fadeIn-bottom">
                         <div class="options">
@@ -210,5 +210,5 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/wasthra/public/js/product_gallery.js"></script>
+<script type="text/javascript" src="/public/js/product_gallery.js"></script>
 <?php require 'views/footer.php'; ?>

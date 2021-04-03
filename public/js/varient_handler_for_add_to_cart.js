@@ -17,7 +17,7 @@ $(document).ready(function () {
     var productId = $('input[type=text][name=prod_idC]').val();
     if (color != "" && cat != "Couple") {
       $.ajax({
-        url: 'http://127.0.0.1/wasthra/shop/getSizes',
+        url: 'http://127.0.0.1/shop/getSizes',
         type: 'POST',
         dataType: 'JSON',
         data: { 'color': color, 'product_id': productId },
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
     } else if (color != "" && cat == "Couple") {
       $.ajax({
-        url: 'http://127.0.0.1/wasthra/shop/getSizes',
+        url: 'http://127.0.0.1/shop/getSizes',
         type: 'POST',
         dataType: 'JSON',
         data: { 'color': color, 'product_id': productId },
@@ -70,7 +70,7 @@ $(document).ready(function () {
       });
 
       $.ajax({
-        url: 'http://127.0.0.1/wasthra/shop/getSizes',
+        url: 'http://127.0.0.1/shop/getSizes',
         type: 'POST',
         dataType: 'JSON',
         data: { 'color': color, 'product_id': productId },
@@ -113,7 +113,7 @@ $(document).on('change', 'input[type=radio][name=sizeC]', function () {
   qty.innerHTML = "";
   if (!size == "") {
     $.ajax({
-      url: 'http://127.0.0.1/wasthra/shop/getQtys',
+      url: 'http://127.0.0.1/shop/getQtys',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'size': size, 'product_id': productId },
@@ -151,7 +151,7 @@ $(document).on('change', 'input[type=radio][name=size1C]', function () {
   console.log("hi");
   if (!size1 == "" && !size2 == "") {
     $.ajax({
-      url: 'http://127.0.0.1/wasthra/shop/getCoupleQtys',
+      url: 'http://127.0.0.1/shop/getCoupleQtys',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
@@ -189,7 +189,7 @@ $(document).on('change', 'input[type=radio][name=size2C]', function () {
   qty.innerHTML = "";
   if (!size1 == "" && !size2 == "") {
     $.ajax({
-      url: 'http://127.0.0.1/wasthra/shop/getCoupleQtys',
+      url: 'http://127.0.0.1/shop/getCoupleQtys',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },

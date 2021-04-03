@@ -9,7 +9,7 @@ class Authenticate
         $logged = Session::get('loggedIn');
         if($logged==false){
             Session::destroy();
-           if($_SERVER['REDIRECT_URL']=='/wasthra/cart/addToCart'){
+           if($_SERVER['REDIRECT_URL']=='/cart/addToCart'){
            } else{
             header('location: '.URL.'login?loginRequired=true');
             exit;
@@ -89,7 +89,7 @@ class Authenticate
         $userType = Session::get('userType');
         if($logged==false){
             Session::destroy();
-            if($_SERVER['REDIRECT_URL']=='/wasthra/cart/addToCart'){
+            if($_SERVER['REDIRECT_URL']=='/cart/addToCart'){
             } else{
              header('location: '.URL.'login?loginRequired=true');
              exit;

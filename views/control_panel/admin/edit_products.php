@@ -113,8 +113,8 @@
         </form>
     </div>
 </div>
-<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
-<script type="text/javascript" src="/wasthra/util/form/edit_product_form_validation.js"></script>
+<script type="text/javascript" src="/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/util/form/edit_product_form_validation.js"></script>
 <script>
     var imageList = document.getElementById('prev_images').value;
     console.log(imageList);

@@ -1,8 +1,8 @@
 <?php require 'views/header_dashboard.php'; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js'></script>
-<link rel="stylesheet" href="/wasthra/public/css/dashboard.css">
-<script src="/wasthra/public/js/libs/chart.min.js"></script>
+<link rel="stylesheet" href="/public/css/dashboard.css">
+<script src="/public/js/libs/chart.min.js"></script>
 
 <div class="container grey-back">
     <h2 class="title title-min">Statistics</h2>

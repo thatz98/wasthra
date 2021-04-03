@@ -1,5 +1,5 @@
 <?php require 'views/header.php'; ?>
-<link rel="stylesheet" type="text/css" href="/wasthra/public/css/contact_us.css">
+<link rel="stylesheet" type="text/css" href="/public/css/contact_us.css">
 
 <div class="row-top mar-t-50"></div>
 <div class="contact-us">
@@ -101,6 +101,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
-<script type="text/javascript" src="/wasthra/util/form/contact_us_form_validation.js"></script>
+<script type="text/javascript" src="/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/util/form/contact_us_form_validation.js"></script>
 <?php require 'views/footer.php'; ?>

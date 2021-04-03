@@ -81,8 +81,8 @@
 
 
 
-<script type="text/javascript" src="/wasthra/public/js/form_validation.js"></script>
-<script type="text/javascript" src="/wasthra/util/form/edit_price_category_form_validation.js"></script>
+<script type="text/javascript" src="/public/js/form_validation.js"></script>
+<script type="text/javascript" src="/util/form/edit_price_category_form_validation.js"></script>
 
 <?php require 'views/footer.php'; ?>
 

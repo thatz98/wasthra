@@ -10,9 +10,9 @@
 
 <form method="post" action="https://sandbox.payhere.lk/pay/checkout">   
     <input type="hidden" name="merchant_id" value="1216021" hidden>    <!-- Replace your Merchant ID -->
-    <input type="hidden" name="return_url" value="http://127.0.0.1/wasthra/orders/myOrderDetails/<?php echo $this->orderDetails[0]['order_id']; ?>" hidden>
-    <input type="hidden" name="cancel_url" value="http://127.0.0.1/wasthra/orders/myOrderDetails/<?php echo $this->orderDetails[0]['order_id']; ?>" hidden>
-    <input type="hidden" name="notify_url" value="http://127.0.0.1/wasthra/orders/updatePayementStatus/<?php echo $this->orderDetails[0]['order_id']; ?>" hidden>  
+    <input type="hidden" name="return_url" value="http://127.0.0.1/orders/myOrderDetails/<?php echo $this->orderDetails[0]['order_id']; ?>" hidden>
+    <input type="hidden" name="cancel_url" value="http://127.0.0.1/orders/myOrderDetails/<?php echo $this->orderDetails[0]['order_id']; ?>" hidden>
+    <input type="hidden" name="notify_url" value="http://127.0.0.1/orders/updatePayementStatus/<?php echo $this->orderDetails[0]['order_id']; ?>" hidden>  
    
     <input type="text" name="order_id" value="<?php echo $this->orderDetails[0]['order_id']; ?>" hidden>
     <input type="text" name="items" value="<?php echo $this->orderDetails[0]['product_name']; ?>" hidden><br>

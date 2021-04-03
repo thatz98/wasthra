@@ -110,8 +110,8 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/wasthra/public/js/table_filter.js"></script>
-<script type="text/javascript" src="/wasthra/public/js/table_pagination.js"></script>
+<script type="text/javascript" src="/public/js/table_filter.js"></script>
+<script type="text/javascript" src="/public/js/table_pagination.js"></script>
 
 
 
