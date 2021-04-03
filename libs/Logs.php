@@ -4,7 +4,7 @@ class Logs {
 
 	public static function writeLog($type,$filename,$note=False){
 		$url="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-		$file = date('Y-m-d').'_'.$type.'.txt';
+		$file = 'logs/'.date('Y-m-d').'_'.$type.'.txt';
 		if (!file_exists($file)) {
 			file_put_contents($file, '');
 		}
@@ -24,7 +24,7 @@ URL: ' . $url . '
 
 	public static function writeSessionLog($action,$result,$username,$note=False){
 		$url="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-		$file = date('Y-m-d').'_session_log.txt';
+		$file = 'logs/'.date('Y-m-d').'_session_log.txt';
 		if (!file_exists($file)) {
 			file_put_contents($file, '');
 		}
@@ -46,7 +46,7 @@ URL: ' . $url . '
 
 	public static function writeApplicationLog($action,$result,$username,$data=array()){
 		$url="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-		$file = date('Y-m-d').'_application_log.txt';
+		$file = 'logs/'.date('Y-m-d').'_application_log.txt';
 		if (!file_exists($file)) {
 			file_put_contents($file, '');
 		}
