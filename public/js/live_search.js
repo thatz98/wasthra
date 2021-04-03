@@ -3,7 +3,7 @@ $(document).ready(function () {
     var inputVal = $(this).val();
     if (!inputVal == "") {
       $.ajax({
-        url: 'http://127.0.0.1/search',
+        url: 'http://wasthra.me/search',
         type: 'POST',
         dataType: 'JSON',
         data: { 'term': inputVal },
@@ -13,11 +13,11 @@ $(document).ready(function () {
           if(data.length>0){
             data.forEach(product => {
               var list_item = document.createElement("li");
-              list_item.innerHTML = `<a href=\"http://127.0.0.1/shop/productDetails/${product.product_id}\"><img src=/${product.image}><span class=\"search-link\">${product.product_name}<br>${product.name}</span></a>`;
+              list_item.innerHTML = `<a href=\"http://wasthra.me/shop/productDetails/${product.product_id}\"><img src=/${product.image}><span class=\"search-link\">${product.product_name}<br>${product.name}</span></a>`;
               document.getElementById('results').appendChild(list_item);
             });
             var list_item = document.createElement("li");
-              list_item.innerHTML = `<a href=\"http://127.0.0.1/search/advancedSearch/${inputVal}\"><span class=\"search-link\">Advaced search results <i class=\"fa fa-arrow-right"></i></span></a>`;
+              list_item.innerHTML = `<a href=\"http://wasthra.me/search/advancedSearch/${inputVal}\"><span class=\"search-link\">Advaced search results <i class=\"fa fa-arrow-right"></i></span></a>`;
               document.getElementById('results').appendChild(list_item);
           }
         },

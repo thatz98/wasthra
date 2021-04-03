@@ -199,15 +199,15 @@ if (isset($_GET['page'])) {
 <script>
     function colorFilter(color) {
         color = color.substring(1);
-        location.replace("http://127.0.0.1/shop/byColor/" + color);
+        location.replace("http://wasthra.me/shop/byColor/" + color);
     }
 
     function sizeFilter(size) {
-        location.replace("http://127.0.0.1/shop/bySize/" + size);
+        location.replace("http://wasthra.me/shop/bySize/" + size);
     }
 
     function categoryFilter(category) {
-        location.replace("http://127.0.0.1/shop/byCategory/" + category);
+        location.replace("http://wasthra.me/shop/byCategory/" + category);
     }
 </script>
 <script type="text/javascript" src="/public/js/product_gallery.js"></script>

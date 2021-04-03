@@ -8,7 +8,7 @@ $(document).ready(function () {
   var productId = $('input[type=text][name=prod_idC]').val();
   if (color != "" && cat != "Couple") {
     $.ajax({
-      url: 'http://127.0.0.1/shop/getSizes',
+      url: 'http://wasthra.me/shop/getSizes',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'product_id': productId },
@@ -41,7 +41,7 @@ $(document).ready(function () {
     qty.innerHTML = "";
     if (!prevSize == "") {
       $.ajax({
-        url: 'http://127.0.0.1/shop/getQtys',
+        url: 'http://wasthra.me/shop/getQtys',
         type: 'POST',
         dataType: 'JSON',
         data: { 'color': color, 'size': prevSize, 'product_id': productId },
@@ -68,7 +68,7 @@ $(document).ready(function () {
   } else if (color != "" && cat == "Couple") {
     var prevSizeArr = prevSize.split(',');
     $.ajax({
-      url: 'http://127.0.0.1/shop/getSizes',
+      url: 'http://wasthra.me/shop/getSizes',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'product_id': productId },
@@ -100,7 +100,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-      url: 'http://127.0.0.1/shop/getSizes',
+      url: 'http://wasthra.me/shop/getSizes',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'product_id': productId },
@@ -135,7 +135,7 @@ $(document).ready(function () {
     console.log("hi");
     if (!prevSizeArr[0] == "" && !prevSizeArr[1] == "") {
       $.ajax({
-        url: 'http://127.0.0.1/shop/getCoupleQtys',
+        url: 'http://wasthra.me/shop/getCoupleQtys',
         type: 'POST',
         dataType: 'JSON',
         data: { 'color': color, 'size1': prevSizeArr[0], 'size2': prevSizeArr[1], 'product_id': productId },
@@ -179,7 +179,7 @@ $(document).ready(function () {
     var productId = $('input[type=text][name=prod_idC]').val();
     if (color != "" && cat != "Couple") {
       $.ajax({
-        url: 'http://127.0.0.1/shop/getSizes',
+        url: 'http://wasthra.me/shop/getSizes',
         type: 'POST',
         dataType: 'JSON',
         data: { 'color': color, 'product_id': productId },
@@ -203,7 +203,7 @@ $(document).ready(function () {
 
     } else if (color != "" && cat == "Couple") {
       $.ajax({
-        url: 'http://127.0.0.1/shop/getSizes',
+        url: 'http://wasthra.me/shop/getSizes',
         type: 'POST',
         dataType: 'JSON',
         data: { 'color': color, 'product_id': productId },
@@ -230,7 +230,7 @@ $(document).ready(function () {
       });
 
       $.ajax({
-        url: 'http://127.0.0.1/shop/getSizes',
+        url: 'http://wasthra.me/shop/getSizes',
         type: 'POST',
         dataType: 'JSON',
         data: { 'color': color, 'product_id': productId },
@@ -272,7 +272,7 @@ $(document).on('change', 'input[type=radio][name=sizeC]', function () {
   qty.innerHTML = "";
   if (!size == "") {
     $.ajax({
-      url: 'http://127.0.0.1/shop/getQtys',
+      url: 'http://wasthra.me/shop/getQtys',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'size': size, 'product_id': productId },
@@ -309,7 +309,7 @@ $(document).on('change', 'input[type=radio][name=size1C]', function () {
   console.log("hi");
   if (!size1 == "" && !size2 == "") {
     $.ajax({
-      url: 'http://127.0.0.1/shop/getCoupleQtys',
+      url: 'http://wasthra.me/shop/getCoupleQtys',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
@@ -346,7 +346,7 @@ $(document).on('change', 'input[type=radio][name=size2C]', function () {
   qty.innerHTML = "";
   if (!size1 == "" && !size2 == "") {
     $.ajax({
-      url: 'http://127.0.0.1/shop/getCoupleQtys',
+      url: 'http://wasthra.me/shop/getCoupleQtys',
       type: 'POST',
       dataType: 'JSON',
       data: { 'color': color, 'size1': size1, 'size2': size2, 'product_id': productId },
