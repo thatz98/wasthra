@@ -211,7 +211,8 @@ class Shop extends Controller
         $data['buyNow'] = $_POST['buyNow'];
         $buyNow = $data['buyNow'];
         $comment = $_POST['delivery_comments'];
-        if (
+        if(isset(Session::get('addressData')['address_line_1'])){
+            if (
             $data['address_line_1'] != Session::get('addressData')['address_line_1']
             || $data['address_line_2'] != Session::get('addressData')['address_line_2']
             || $data['address_line_3'] != Session::get('addressData')['address_line_3']
@@ -220,7 +221,7 @@ class Shop extends Controller
         ) {
 
             $this->model->create($data);
-        }
+        }}
         $aId = $this->model->getAddressId($data);
         $date = date("Y-m-d");
         date_default_timezone_set("Asia/Kolkata");
