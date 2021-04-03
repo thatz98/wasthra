@@ -19,21 +19,21 @@
                     
                     if ($this->product[0]['name'] == 'Gents') : ?>
                     <div class="gallery-col">
-                        <img src="/public/images/size_charts/gents.png" id="sizeC"
+                        <img src="<?php echo URL ; ?>public/images/size_charts/gents.png" id="sizeC"
                             onclick="swapImageB('sizeC')" width="100%" class="view-gallery-img">
                     </div>
                     <?php else : if ($this->product[0]['name'] == 'Ladies') : ?>
                     <div class="gallery-col">
-                        <img src="/public/images/size_charts/ladies.png" id="sizeCL"
+                        <img src="<?php echo URL ; ?>public/images/size_charts/ladies.png" id="sizeCL"
                             onclick="swapImageB('sizeCL')" width="100%" class="view-gallery-img">
                     </div>
                     <?php else : ?>
                     <div class="gallery-col">
-                        <img src="/public/images/size_charts/gents.png" id="sizeC"
+                        <img src="<?php echo URL ; ?>public/images/size_charts/gents.png" id="sizeC"
                             onclick="swapImageB('sizeC')" width="100%" class="view-gallery-img">
                     </div>
                     <div class="gallery-col">
-                        <img src="/public/images/size_charts/ladies.png" id="sizeCL"
+                        <img src="<?php echo URL ; ?>public/images/size_charts/ladies.png" id="sizeCL"
                             onclick="swapImageB('sizeCL')" width="100%" class="view-gallery-img">
                     </div>
                     <?php endif;

@@ -334,6 +334,7 @@ class Shop_Model extends Model {
      * @return void
      */
     function placeOrder($date, $time, $orderID, $payMethod, $aId, $comment, $buyNow) {
+        echo $date . ' ' . $time . ' ' . $orderID . ' ' . $payMethod . ' ' . $aId . ' ' . $comment . ' ' . $buyNow;
         $this->db->insert('orders', array(
             'order_id' => $orderID,
             'order_status' => 'new',
