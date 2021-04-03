@@ -249,10 +249,10 @@ class Shop extends Controller
 
         if ($_POST['payment_method'] == 'online payment') {
             $this->view->orderDetails = $this->model->getAllOrderDetails($orderID);
-            $this->view->render('checkout/payment');
+         //   $this->view->render('checkout/payment');
         } else {
 
-            header('location: ' . URL . 'orders/myOrderDetails/' . $orderID .'?success=orderPlaced#message');
+         //   header('location: ' . URL . 'orders/myOrderDetails/' . $orderID .'?success=orderPlaced#message');
         }
     }
 
