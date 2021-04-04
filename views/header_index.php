@@ -106,7 +106,7 @@
             <li></li>
         </ul>
     </div>
-    <script type="text/javascript" src="/public/js/preloader.js"></script>
+    <script type="text/javascript" src="/public/js/preloader_index.js"></script>
     <script>
         // $(document).ready(function() {
         //     $('#area').height(
@@ -114,9 +114,6 @@
         //     );
         // });
 
-        window.ready = function () {
-            document.getElementById("area").style.height = document.getElementById("header").style.height;
-        }
         // $(document).load(function() {
         //     $('#area').height(
         //         $('#header').height()
