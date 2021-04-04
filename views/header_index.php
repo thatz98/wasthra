@@ -73,8 +73,8 @@
                                                                                                                     echo 'hidden';
                                                                                                                 }
                                                                                                             } else { ?>href="<?php echo URL; ?>login?loginRequired=true" <?php } ?>><i class="fa fa-shopping-bag fa-2x"></i><?php if ((Session::get('cartCount'))) {
-                                                                                                                                                                                                                            echo '<span class="badge">' . Session::get('cartCount') . '</span>';
-                                                                                                                                                                                                                        } ?></a>
+                                                                                                                                                                                                                                echo '<span class="badge">' . Session::get('cartCount') . '</span>';
+                                                                                                                                                                                                                            } ?></a>
 
                 <img src="/public/images/menu.png" class="menu-icon" onclick="menuToggle()">
             </div>
@@ -113,6 +113,13 @@
                 $('#header').height()
             );
         });
+
+        $(window).load(function() {
+            $('#area').height(
+                $('#header').height()
+            );
+        });
+        
         $(window).resize(function() {
             $('#area').height(
                 $('#header').height()
