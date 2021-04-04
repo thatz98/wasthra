@@ -16,6 +16,8 @@ window.onload = function () {
   // enable scrolling again
   document.body.className = document.body.className.replace(/\bnoscroll\b/, '');
 
-  document.getElementById("area").style.height = document.getElementById("header").style.height;
+  $('#area').height(
+             $('#header').height()
+        );
 
 }
