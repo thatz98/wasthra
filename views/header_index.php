@@ -20,7 +20,7 @@
     } ?>
     <?php require 'views/error/error_popup.php'; ?>
     <div class="header" id="header">
-        <div class="contaner">
+        <div class="contaner" id="cont">
             <div class="navbar">
                 <div class="logo">
                     <img src="/public/images/logo.png" width="125px">
@@ -108,9 +108,9 @@
     </div>
     <script type="text/javascript" src="/public/js/preloader.js"></script>
     <script>
-        $('#header').ready(function() {
+        $(document).ready(function() {
             $('#area').height(
-                $('#header').height()
+                $('#cont').height()
             );
         });
 
