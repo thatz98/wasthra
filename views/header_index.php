@@ -20,7 +20,7 @@
     } ?>
     <?php require 'views/error/error_popup.php'; ?>
     <div class="header" id="header">
-        <div class="contaner" id="cont">
+        <div class="contaner">
             <div class="navbar">
                 <div class="logo">
                     <img src="/public/images/logo.png" width="125px">
@@ -110,11 +110,23 @@
     <script>
         $(document).ready(function() {
             $('#area').height(
-                $('#cont').height()
+                $('#header').height()
             );
         });
 
+        // $(document).load(function() {
+        //     $('#area').height(
+        //         $('#header').height()
+        //     );
+        // });
+
         // $(window).load(function() {
+        //     $('#area').height(
+        //         $('#header').height()
+        //     );
+        // });
+
+        // $(window).ready(function() {
         //     $('#area').height(
         //         $('#header').height()
         //     );
