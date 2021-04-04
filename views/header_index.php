@@ -108,18 +108,18 @@
     </div>
     <script type="text/javascript" src="/public/js/preloader.js"></script>
     <script>
-        // $(window).ready(function() {
-        //     $('#area').height(
-        //         $('#header').height()
-        //     );
-        // });
+        $(document).ready(function() {
+            $('#area').height(
+                $('#header').height()
+            );
+        });
 
         // $(window).load(function() {
         //     $('#area').height(
         //         $('#header').height()
         //     );
         // });
-
+        
         $(window).resize(function() {
             $('#area').height(
                 $('#header').height()
