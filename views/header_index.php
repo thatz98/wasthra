@@ -108,7 +108,7 @@
     </div>
     <script type="text/javascript" src="/public/js/preloader.js"></script>
     <script>
-        $().ready(function() {
+        $('#header').ready(function() {
             $('#area').height(
                 $('#header').height()
             );
