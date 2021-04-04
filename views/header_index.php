@@ -115,9 +115,7 @@
         // });
 
         window.onload = function () {
-            $('#area').height(
-                $('#header').height()
-            );
+            document.getElementById("area").style.height = document.getElementById("header").style.height;
         }
         // $(document).load(function() {
         //     $('#area').height(
